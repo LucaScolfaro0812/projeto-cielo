@@ -5,11 +5,16 @@
 
 **_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
 
-## Nome do Grupo
+## Nome dos integrantes Grupo
 
-#### Nomes dos integrantes do grupo
-
-
+ Gabriel Gomes Pimentel 
+ Tiago Brun de Arruda
+ Beatriz Sofia Freitas Sena
+ Fernanda Jawetz Steiner
+ Vinícius da Silva Alves
+ Luca do Val Scolfaro
+ Cassio Reis Costa
+ Leonardo Galdino Carioca Braz
 
 ## Sumário
 

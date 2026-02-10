@@ -48,57 +48,16 @@ _Posicione aqui o texto que explica o contexto da indústria/mercado do qual o p
 _Posicione aqui o modelo de 5 Forças de Porter para sustentar o contexto da indústria._
 
 ##### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
+A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo
 
-##### 1.1.1.1.1.1 Altos Requisitos de Capital e Tecnologia
+##### 1.1.1.1.1.1 Identificação e análise dos principais obstáculos para novos entrantes.
+<p>Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência</p>
 
-A entrada no mercado de processamento de pagamentos exige investimentos substanciais em infraestrutura tecnológica, incluindo servidores, plataformas seguras de transações e sistemas antifraude sofisticados. Esse gasto inicial significativo funciona como uma barreira forte para empresas pequenas ou startups sem recursos robustos.
 
-Além disso, manter e atualizar essa tecnologia — especialmente para suportar grandes volumes de transações — demanda capital contínuo.
+##### 1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
 
-##### 1.1.1.1.1.1.2 Complexidade Regulatória
+<p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 
-O mercado brasileiro de meios de pagamento é altamente regulado pelo Banco Central do Brasil e requer autorizações específicas para operar como instituição de pagamento. Isso inclui estruturas de compliance, normas de segurança e conformidade com regras de prevenção à lavagem de dinheiro.
-
-Essas exigências não são triviais: demandam tempo, especialistas jurídicos e investimentos em políticas de governança.
-
-##### 1.1.1.1.1.1.3 Efeito de Rede e Relações com Fornecedores
-
-A Cielo e outras adquirentes estabelecidas já têm relações consolidadas com milhares de estabelecimentos comerciais, criando um forte efeito de rede: quanto mais comerciantes usam o sistema, mais valioso ele se torna para novos usuários. Isso é difícil de replicar rapidamente por um novo competidor.
-
-Além disso, fornecedores de hardware e software especializados (como POS e sistemas de antifraude) estão concentrados, o que torna a cadeia de suprimentos mais desafiadora de acessar para novatos.
-
-##### 1.1.1.1.1.1.4 Lealdade à Marca e Confiança do Mercado
-
-Empresas estabelecidas conquistaram reputação e confiança junto a clientes e instituições financeiras ao longo de anos. Para um novo entrante, romper essa confiança e convencer comerciantes a mudar de provedor pode ser custoso e demorado.
-
-##### 1.1.1.1.1.1.5 Escala de Operações e Eficiência
-
-O setor premia escala: quanto mais transações processadas, menores os custos por operação. Novos entrantes começam menores e, frequentemente, com margens mais estreitas até alcançarem poder de barganha e eficiência operacional.
-
-##### 1.1.1.1.2 Análise da Ameaça de Novos Entrantes
-##### 1.1.1.1.2.1 Competição Crescente e Pressão por Preço
-
-Embora os obstáculos sejam significativos, vários fintechs e empresas digitais já entraram no mercado brasileiro de pagamentos e estão ganhando espaço. Exemplos incluem StoneCo, PagSeguro, Getnet, entre outros, que oferecem soluções competitivas, muitas vezes com tecnologia mais leve e taxas menores.
-
-Esse aumento de concorrência tende a reduzir as margens de lucro em toda a indústria, pressionando players incumbentes como a Cielo a ajustar preços e serviços.
-
-##### 1.1.1.1.2.2 Inovação e Modelos Digitais
-
-Novos entrantes muitas vezes não carregam os mesmos custos de infraestrutura legada, podendo oferecer soluções mais ágeis, integradas a aplicativos móveis, análise de dados e ofertas de crédito para pequenos comerciantes.
-
-Isso pode acelerar a adoção de alternativas às maquininhas tradicionais, especialmente entre micro e pequenos empreendedores.
-
-##### 1.1.1.1.2.3 Disrupção via Pagamentos Instantâneos (Pix)
-
-Embora o Pix não seja um concorrente direto de todos os serviços da Cielo, sua ampla adoção no Brasil está reduzindo a dependência de transações por cartão — especialmente débito — e alterando o comportamento de pagamento dos consumidores e comerciantes.
-
-Isso encoraja novos modelos de negócio e soluções que não dependem do sistema tradicional de adquirência, ampliando indiretamente o leque de concorrentes.
-
-##### 1.1.1.1.2.4 Potencial para Perda de Participação de Mercado
-
-A entrada de novos players já tem impacto real: alguns concorrentes digitais capturaram fatias relevantes do mercado de adquirência nos últimos anos, levando empresas tradicionais a perder market share e pressionar sua lucratividade.
-
-A tendência indica que, mesmo com barreiras expressivas, novos entrantes bem financiados e inovadores podem alterar significativamente a dinâmica competitiva no médio prazo.
 ### 1.1.2. Análise SWOT (sprint 2)
 
 _Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro._

@@ -95,7 +95,6 @@ RF03 | Sistema de quizzes simulando vendas de produtos da Cielo - O sistema deve
 RF04 | Sistema de tempo e humor do cliente - O sistema deve gerenciar variáveis de tempo e humor do cliente, que influenciam o andamento das interações e decisões durante o jogo.
 RF05 | Sistema de pontuação baseado em quiz, tempo e humor - O sistema deve calcular a pontuação do jogador com base no desempenho nos quizzes, no tempo de resposta e no humor do cliente.
 RF06 | Ranking de jogadores baseado na pontuação - O sistema deve exibir um ranking de jogadores, ordenado de acordo com a pontuação obtida ao longo do jogo.
-
 RNF01 | Ambiente gráfico e perspectiva do jogo - O jogo deve ser desenvolvido em um ambiente 2D, com visão top-down, que prioriza a movimentação fluída e intuitiva do jogador pelo cenário. 
 RNF02 | Plataforma de acesso - O jogo deve ser executável em navegadores web, sem necessidade de instalação local. 
 RNF03 | Linguagem e clareza - O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. 

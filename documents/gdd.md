@@ -84,17 +84,21 @@ _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevant
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-_Posicione aqui a lista de requisitos levantados para o projeto, sejam pedidos do parceiro ou invenções do grupo. Descreva-os de forma objetiva, de modo que seja possível entender claramente como implementá-los tecnicamente._
+_Esta seção apresentará os requisitos relacionados à funcionalidade básica do jogo. Os requisitos são divididos em duas categorias: requisitos funcionais (RF) e requisitos não funcionais (RNF). A diferença entre eles é que os requisitos funcionais descrevem tudo aquilo que o sistema deve fazer, enquanto os requisitos não funcionais se referem a como o sistema deve ser ou operar._ 
 
-_ATUALIZE ESTA SEÇÃO SEMPRE QUE ALGUM REQUISITO MUDAR EM SEU PROJETO_
-
-_Exemplo de tabela de requisitos_
-\# | Requisito  
+_A seguir, apresenta-se a tabela de requisitos:_
+\# | Requisitos  
 --- | ---
-1 | O controle do personagem será realizado usando as teclas WASD para navegação pelas fases
-2 | O personagem perde uma vida toda vez que tocar em um inimigo ou em algum projétil inimigo
-3 | O jogo deve possuir uma tela de abertura para o jogador selecionar se quer jogar sozinho ou em dupla
-4 | ...
+RF01 | Cadastro e autenticação de jogadores - O sistema deve permitir o cadastro e a autenticação dos jogadores, o que possibilita o acesso individual ao jogo e ao progresso salvo.
+RF02 | Tutorial inicial das mecânicas do jogo - O sistema deve apresentar um tutorial inicial que explique as principais mecânicas do jogo.
+RF03 | Sistema de quizzes simulando vendas de produtos da Cielo - O sistema deve disponibilizar um sistema de quizzes que simule situações de vendas de produtos da Cielo, o que exige tomadas de decisão do jogador. 
+RF04 | Sistema de tempo e humor do cliente - O sistema deve gerenciar variáveis de tempo e humor do cliente, que influenciam o andamento das interações e decisões durante o jogo.
+RF05 | Sistema de pontuação baseado em quiz, tempo e humor - O sistema deve calcular a pontuação do jogador com base no desempenho nos quizzes, no tempo de resposta e no humor do cliente.
+RF06 | Ranking de jogadores baseado na pontuação - O sistema deve exibir um ranking de jogadores, ordenado de acordo com a pontuação obtida ao longo do jogo.
+
+RNF01 | Ambiente gráfico e perspectiva do jogo - O jogo deve ser desenvolvido em um ambiente 2D, com visão top-down, que prioriza a movimentação fluída e intuitiva do jogador pelo cenário. 
+RNF02 | Plataforma de acesso - O jogo deve ser executável em navegadores web, sem necessidade de instalação local. 
+RNF03 | Linguagem e clareza - O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. 
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 

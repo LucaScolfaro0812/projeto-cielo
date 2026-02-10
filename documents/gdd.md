@@ -54,7 +54,7 @@ A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quai
 <p>Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência</p>
 
 
-##### 1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
+##### 1.1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
 
 <p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 

@@ -246,7 +246,75 @@ _Descreva aqui a função que implementa a movimentação/animação de personag
 
 ## 4.1. Desenvolvimento preliminar do jogo (sprint 1)
 
-_Descreva e ilustre aqui o desenvolvimento da sua primeira versão do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._
+Primeira Versão do Jogo (MVP)
+1. Visão Geral
+Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
+Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
+O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
+2. Ambiente do Jogo
+Ao iniciar o jogo, o jogador visualiza:
+Um cenário urbano em estilo pixel art
+Rua com faixa de pedestre
+Prédios comerciais
+Estabelecimentos que representam possíveis empresas ou clientes
+Um personagem controlável
+Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
+3. Funcionalidades Atuais
+Na versão atual, o jogador pode:
+Controlar o personagem
+Movimentar-se pelo mapa
+Explorar o cenário
+Neste momento, o jogo funciona como um espaço explorável.
+Ainda não existem interações comerciais ativas.
+
+4. Funcionalidades Planejadas (Ainda Não Implementadas)
+A proposta completa do jogo é ser um simulador de negociação comercial.
+Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
+4.1 Sistema de Cards
+Durante uma negociação, o jogador escolheria respostas em formato de cards.
+Cada card representaria um argumento estratégico diferente.
+Esse sistema ainda não foi implementado.
+
+4.2 Tempo de Resposta
+O jogador teria tempo limitado para responder às falas do cliente (exemplo: 15 segundos), simulando pressão real de negociação.
+Essa funcionalidade ainda não está disponível.
+
+4.3 Indicador de Satisfação
+O cliente teria uma barra visual indicando seu nível de satisfação.
+Essa barra aumentaria ou diminuiria conforme as decisões do jogador.
+Esse sistema ainda não existe na versão atual.
+
+4.4 Fechamento de Negócios
+O objetivo de cada interação futura será fechar um negócio com sucesso.
+Atualmente, não há sistema de negociação ativa nem fechamento de contratos.
+
+4.5 Sistema de Pontuação
+O conceito prevê:
+Pontos acumulados a cada negociação bem-sucedida
+Recompensa por decisões estratégicas corretas
+Esse sistema ainda não está implementado.
+
+4.6 Sistema de Níveis
+O jogador deverá:
+Subir de nível conforme acumula pontos
+Enfrentar clientes mais exigentes em níveis mais altos
+Experimentar aumento progressivo de dificuldade
+A progressão de níveis ainda não está presente.
+
+4.7 Nível Máximo (Certificação)
+O objetivo final do jogo completo é alcançar o nível máximo.
+Esse nível representará que o usuário está devidamente qualificado para exercer sua função dentro da empresa.
+Essa certificação gamificada ainda não foi implementada.
+
+5. Objetivo do MVP
+Esta primeira versão foi criada para:
+Construir a base visual do projeto
+Testar a movimentação do personagem
+Estruturar o ambiente onde ocorrerão as futuras negociações
+Criar a fundação técnica para o desenvolvimento completo
+O foco desta versão é estrutural, não funcional.
+
+
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 

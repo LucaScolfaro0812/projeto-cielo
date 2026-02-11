@@ -16,7 +16,7 @@ let inp;
 let player;
 let inputX = 0;
 let inputY = 0;
-let speed = 1.5;
+let speed = 2.5;
 
 function moveX(x){
     inputX = x * speed;

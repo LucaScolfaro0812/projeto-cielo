@@ -14,14 +14,13 @@ var config = {
 var game = new Phaser.Game(config);
 
 // configurações do player
-let inp;
 let player;
-let inputX = 0;
-let inputY = 0;
-let speed = 2.5;
+let velocidade = 2.5;
 
 
 // configurações do jogo
+
+// perguntas
 const perguntasFacil = [
   {
     pergunta: "O que a Cielo oferece principalmente aos lojistas?",
@@ -88,6 +87,7 @@ const perguntasDificil = [
     correta: 0
   }
 ];
+
 let i = 0;
 let j = 0;
 let pontos = 0;
@@ -95,69 +95,63 @@ let perguntas;
 let perguntasCorrentes = [];
 let quizAberto = false;
 
-function moveX(x){
-    inputX = x * speed;
-}
-function moveY(y){
-    inputY = y * speed;
-}
+// Teclas
+let teclaW;
+let teclaA;
+let teclaS;
+let teclaD;
+let teclaE;
 
 function preload(){
     this.load.image('rua', '../assets/rua.png');
     this.load.image('npc', '../assets/Npc.png');
     this.load.image('player', '../assets/Marcielo.png');
-
-    this.input.keyboard.on('keydown', 
-    function (event) {
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.D) {
-            moveX(1);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.A) {
-            moveX(-1);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.W) {
-            moveY(-1);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.S) {
-            moveY(1);
-        }
-
-    });
-    
-    this.input.keyboard.on('keyup', 
-    function (event) {
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.D) {
-            moveX(0);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.A) {
-            moveX(0);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.W) {
-            moveY(0);
-        }
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.S) {
-            moveY(0);
-        }
-    });
-
 }
 
 function create(){
     this.add.image(config.width, config.height, 'rua').setPosition(config.width/2, config.height/2).setScale(4);
     this.add.image(50, 50, 'npc').setPosition(config.width/2, config.height/2).setScale(0.1);
     this.player = this.add.image(50, 50, 'player').setScale(0.1);
+    
+    // Configurando a Camera
     this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
     this.cameras.main.setZoom(0.75);
+
+    // Definindo todas as perguntas em uma variável só
     perguntas = [
     ...perguntasFacil,
     ...perguntasMedio,
     ...perguntasDificil
     ];
+
+    // Atribuir as teclas a variáveis para poder ler
+    this.teclaW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    this.teclaA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.teclaS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    this.teclaD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 }
 
 function update(){
-    this.player.x += inputX;
-    this.player.y += inputY;
+
+  // Movimentação do Player
+  if(this.teclaA.isDown){
+    this.player.x -= velocidade;
+  }
+  else if(this.teclaD.isDown){
+    this.player.x += velocidade;
+  }
+  if(this.teclaW.isDown){
+    this.player.y -= velocidade;
+  }
+  else if(this.teclaS.isDown){
+    this.player.y += velocidade;
+  }
+
+  // Interagir
+  if(this.teclaE.isDown){
+    abrirQuiz();
+  }
 }
 
 function abrirQuiz() {
@@ -228,4 +222,3 @@ function responder(escolha) {
     }, 1500);
   }
 }
-

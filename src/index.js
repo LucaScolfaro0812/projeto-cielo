@@ -295,7 +295,8 @@ function mostrarPergunta() {
 
 function responder(escolha) {
   // Verifica se a resposta está correta
-  if (escolha === perguntasCorrentes[i].correta) pontos++;
+  if (escolha === perguntasCorrentes[i].correta) { pontos += 15; }
+  else { pontos -= 5; }
 
   i++;
 

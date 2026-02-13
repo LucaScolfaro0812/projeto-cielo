@@ -89,15 +89,16 @@ _Esta seção apresentará os requisitos relacionados à funcionalidade básica 
 _A seguir, apresenta-se a tabela de requisitos:_
 \# | Requisitos  
 --- | ---
-RF01 | Cadastro e autenticação de jogadores - O sistema deve permitir o cadastro e a autenticação dos jogadores, o que possibilita o acesso individual ao jogo e ao progresso salvo.
+RF01 | Menu inicial e identificação temporária do jogador - O sistema deve apresentar um menu inicial no qual o jogador possa informar seu nome antes de iniciar a partida. O sistema deve manter o progresso do jogador enquanto o jogo estiver em execução. Ao encerrar ou fechar o jogo, os dados (nome e progresso) não serão armazenados permanentemente.
 RF02 | Tutorial inicial das mecânicas do jogo - O sistema deve apresentar um tutorial inicial que explique as principais mecânicas do jogo.
 RF03 | Sistema de quizzes simulando vendas de produtos da Cielo - O sistema deve disponibilizar um sistema de quizzes que simule situações de vendas de produtos da Cielo, o que exige tomadas de decisão do jogador. 
 RF04 | Sistema de tempo e humor do cliente - O sistema deve gerenciar variáveis de tempo e humor do cliente, que influenciam o andamento das interações e decisões durante o jogo.
 RF05 | Sistema de pontuação baseado em quiz, tempo e humor - O sistema deve calcular a pontuação do jogador com base no desempenho nos quizzes, no tempo de resposta e no humor do cliente.
-RF06 | Ranking de jogadores baseado na pontuação - O sistema deve exibir um ranking de jogadores, ordenado de acordo com a pontuação obtida ao longo do jogo.
+RF06 | Exibição de desempenho do jogador na partida atual - O sistema deve exibir um painel de desempenho com base na pontuação obtida pelo jogador durante a partida em andamento, permitindo que ele acompanhe sua evolução ao longo do jogo. Os dados exibidos não serão armazenados permanentemente e serão reiniciados ao encerrar ou fechar o jogo.
 RNF01 | Ambiente gráfico e perspectiva do jogo - O jogo deve ser desenvolvido em um ambiente 2D, com visão top-down, que prioriza a movimentação fluída e intuitiva do jogador pelo cenário. 
 RNF02 | Plataforma de acesso - O jogo deve ser executável em navegadores web, sem necessidade de instalação local. 
-RNF03 | Linguagem e clareza - O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. 
+RNF03 | Linguagem e clareza - O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.
+RNF04 | Identidade visual e interface do usuário (UI/UX) - O jogo deve possuir uma identidade visual consistente, alinhada ao contexto comercial e educacional da Cielo, incluindo cores, tipografia, personagens e elementos gráficos padronizados. A interface deve ser intuitiva, organizada e de fácil compreensão, garantindo boa experiência de navegação para o jogador. Os personagens, cenários e objetos devem ser representados por meio de sprites e elementos gráficos adequados ao ambiente 2D com visão top-down."
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 

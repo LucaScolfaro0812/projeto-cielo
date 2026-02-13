@@ -3,12 +3,15 @@ var config = {
     width: 960,
     height: 540,
 
-    scene: {
-        key: "GameScene",
-        preload: preload,
-        create: create,
-        update: update
-    }
+    scene: [
+        MenuScene, 
+        {
+            key: "GameScene",
+            preload: preload,
+            create: create,
+            update: update
+        }
+    ]
 }
 
 var game = new Phaser.Game(config);

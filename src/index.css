@@ -1,95 +1,100 @@
 body {
   margin: 0;
+  /* Remove a margem padrão do navegador */
+
   font-family: Arial, sans-serif;
+  /* Define a fonte padrão do site como Arial, com alternativa sans-serif */
+
   background: #0f172a;
+  /* Define a cor de fundo da página (azul bem escuro) */
 }
 
 #ui {
   position: absolute;
+  /* Posiciona a interface de forma absoluta sobre a tela */
+
   inset: 0;
+  /* Define top, right, bottom e left como 0 (ocupa a tela inteira) */
+
   display: flex;
+  /* Usa Flexbox para alinhar os elementos internos */
+
   align-items: center;
+  /* Centraliza os elementos verticalmente */
+
   justify-content: center;
+  /* Centraliza os elementos horizontalmente */
+
   pointer-events: none;
+  /* Impede que essa camada capture cliques do mouse */
 }
 
 .card {
   background: rgba(255,255,255,0.1);
+  /* Fundo branco com transparência */
+
   backdrop-filter: blur(10px);
+  /* Aplica um efeito de desfoque no fundo atrás do card */
+
   padding: 30px;
+  /* Espaçamento interno do card */
+
   border-radius: 16px;
+  /* Arredonda os cantos do card */
+
   width: 400px;
+  /* Define a largura fixa do card */
+
   color: white;
+  /* Define a cor do texto como branco */
+
   pointer-events: auto;
+  /* Permite clicar nos elementos dentro do card */
 }
 
 button {
   width: 100%;
+  /* Faz o botão ocupar toda a largura do card */
+
   margin: 8px 0;
+  /* Espaçamento vertical entre os botões */
+
   padding: 12px;
+  /* Espaçamento interno do botão */
+
   border: none;
+  /* Remove a borda padrão do botão */
+
   border-radius: 8px;
+  /* Arredonda os cantos do botão */
+
   background: #3b82f6;
+  /* Define a cor de fundo azul do botão */
+
   color: white;
+  /* Define a cor do texto do botão */
+
   cursor: pointer;
+  /* Muda o cursor para indicar que o botão é clicável */
+
   font-size: 16px;
+  /* Define o tamanho da fonte do botão */
+
   transition: 0.2s;
+  /* Cria uma animação suave ao mudar o estado do botão */
 }
 
 button:hover {
   background: #2563eb;
+  /* Muda a cor do botão quando o mouse passa por cima */
 }
 
 .hidden {
   display: none !important;
+  /* Esconde completamente o elemento, mesmo se outro estilo tentar mostrar */
 }
 
 
 
 
-/* .question{
-    background-color: rgb(0, 162, 255);
-    margin-top: 0%;
-    margin-bottom: 100%;
-    display: table;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
-.butaoSection{
-    justify-content: right;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    margin-left: auto;
-    margin-right: 4%;
-    margin-top: 20%;
-}
-
-.butao{
-    background-color: rgb(191, 229, 255);
-    color: rgb(0, 46, 62);
-    height: 100px;
-    width: 300px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#npcImage{
-    justify-content: baseline;
-    align-items: normal;
-    margin-bottom: 0%;
-    margin-left: 0%;
-    background-color: rgb(105, 58, 0);
-    color: rgb(227, 0, 0);
-    height: 100px;
-    width: 100px;
-}
-
-#test{
-    background-color: rgb(0, 255, 106);
-    color: rgb(227, 0, 0);
-    height: 100px;
-    width: 100px;
-} */

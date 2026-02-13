@@ -173,16 +173,16 @@ function create(){
     // Adiciona o cenário no centro da tela
     this.add.image(config.width, config.height, 'rua')
         .setPosition(config.width/2, config.height/2)
-        .setScale(4);
+        .setScale(6);
 
     // Adiciona o NPC
     this.add.image(50, 50, 'npc')
         .setPosition(config.width/2, config.height/2)
-        .setScale(0.1);
+        .setScale(0.3);
 
     // Adiciona o jogador
     this.player = this.add.image(50, 50, 'player')
-        .setScale(0.1);
+        .setScale(0.4);
 
     // Configura a câmera para seguir o jogador
     this.cameras.main.startFollow(this.player, true, 0.1, 0.1);

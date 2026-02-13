@@ -16,7 +16,7 @@ class MenuScene extends Phaser.Scene {
 
 
         // Fundo simples
-        this.cameras.main.setBackgroundColor('#2f5a79');
+        this.cameras.main.setBackgroundColor('#6FB7FF');
 
         // Cidade
         this.add.image(width / 2, height, 'cidade')
@@ -24,14 +24,10 @@ class MenuScene extends Phaser.Scene {
 
 
         // Nuvens animadas
-        this.nuvens = this.add.tileSprite(0, 0, width, 250, 'nuvens').setOrigin(0, 0).setAlpha(0.8);
+        this.nuvens = this.add.tileSprite(0, 0, width, 250, 'nuvens').setOrigin(0, 0).setAlpha(0.6);
         // .setScale(0.3)
         // this.nuvens.tileScaleX = 0.3;
         // this.nuvens.tileScaleY = 0.3;
-
-        // Escurecer aos poucos
-        this.add.rectangle(width / 2, height / 2, width, height, 0x000000, 0.3);
-
 
         // Título
         this.add.image(width / 2, height / 3, 'titulo').setOrigin(0.5);

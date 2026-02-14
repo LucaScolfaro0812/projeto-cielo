@@ -159,10 +159,10 @@ function preload(){
     this.load.image('rua', 'assets/rua.png');
 
     // Carrega a imagem do NPC
-    this.load.image('npc', 'assets/Npc.png');
+    this.load.image('npc', 'assets/npc.png');
 
     // Carrega a imagem do jogador
-    this.load.image('player', 'assets/Marcielo.png');
+    this.load.image('player', 'assets/marcielo.png');
 }
 
 // =====================

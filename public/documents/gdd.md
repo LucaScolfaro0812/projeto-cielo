@@ -15,6 +15,9 @@ Luca do Val Scolfaro <br>
 Cassio Reis Costa <br>
 Leonardo Galdino Carioca Braz <br>
 
+## Link Do Jogo
+https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
+
 ## Sumário
 
 [1. Introdução](#c1)

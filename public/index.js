@@ -156,13 +156,13 @@ let teclaE;
 
 function preload(){
     // Carrega a imagem do cenário
-    this.load.image('rua', '../assets/rua.png');
+    this.load.image('rua', '/assets/rua.png');
 
     // Carrega a imagem do NPC
-    this.load.image('npc', '../assets/Npc.png');
+    this.load.image('npc', '/assets/Npc.png');
 
     // Carrega a imagem do jogador
-    this.load.image('player', '../assets/Marcielo.png');
+    this.load.image('player', '/assets/Marcielo.png');
 }
 
 // =====================

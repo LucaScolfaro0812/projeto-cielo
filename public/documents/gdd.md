@@ -349,6 +349,54 @@ _Exemplo de tabela_
 2 | posicionar o personagem em local seguro de inimigos | aguardar o tempo passar até o final da contagem | o personagem deve perder uma vida e reiniciar a fase
 3 | ...
 
+#
+1
+Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar
+2
+Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir
+3
+Jogo na tela inicial | Clicar no botão “Como jogar” |Abre uma interface das teclas que o jogador utiliza e qual o objetivo do jogo.
+3
+Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita
+4
+Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda
+5
+Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima
+6
+Jogo com personagem parado | Pressionar S |Personagem deve se mover para baixo
+7
+Personagem próximo de uma loja | Pressionar E | Personagem entra no estabelecimento
+8
+Personagem perto de um vendedor | Pressionar E | Interface de conversa aparece
+9
+Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo na melhor resposta | O nível de satisfação do cliente aumenta muito
+10
+Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta boa | O nível de satisfação do cliente aumenta
+11
+Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta ruim | O nível de satisfação do cliente diminuí
+12
+Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta horrível | O nível de satisfação do cliente diminuí muito
+13
+Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que mantenha ou aumente o nível de satisfação |Vendedor compra os serviços e o jogador consegue mais um cliente
+14
+Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que diminua o nível de satisfação, contudo mantendo acima do mínimo | Vendedor compra os serviços e o jogador consegue mais um cliente
+15
+Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que diminua o nível de satisfação para abaixo do mínimo | Vendedor  não compra os serviços e o jogador perde um cliente
+16
+Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida |Clicar em uma resposta que mantenha ou diminua o nível de satisfação | Vendedor não compra os serviços e o jogador perde um cliente
+17
+Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida | Clicar em uma resposta que aumente o nível de satisfação, contudo mantendo acima do mínimo | Vendedor  não compra os serviços e o jogador perde um cliente
+18
+Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida | Clicar em uma resposta que aumente o nível de satisfação para acima do mínimo | Vendedor compra os serviços e o jogador consegue mais um cliente
+19
+Tempo limite da interação com o cliente acabando | Tempo limite termina | Usuário perde um cliente e volta para o mapa
+20
+Interface de conversa com o cliente acaba | Pontos de acordo com as respostas dadas pelo usuário são calculados | Os pontos ganhos são somados aos que o usuário já possuí
+21
+Perto de um cliente que já interagiu | Apertar a tecla “E” |Nada acontece
+22
+O tempo limite do jogo está acabando | O tempo acaba | A gameplay se encerra
+
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
 ### 5.2.1 Registros de testes

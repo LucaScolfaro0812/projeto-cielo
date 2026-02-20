@@ -8,7 +8,7 @@ class MenuScene extends Phaser.Scene {
         this.load.image('nuvens', 'assets/cloud-bg.png');
         this.load.image('ceu', 'assets/sky-bg.png')
         this.load.image('titulo', 'assets/titulo-jogo.png');
-        this.load.image('loja', 'assets/stores-bg.png')
+        this.load.image('loja', 'assets/store-bg.png')
     }
     create() {
 

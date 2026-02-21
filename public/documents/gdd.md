@@ -160,7 +160,7 @@ _Caso não existam personagens (ex. jogo Tetris), mencione os motivos de não ex
 No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.
 Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.
 
-- adicionar imagem 
+<img src="public/assets/Coadjuvantes.png"> 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -174,6 +174,7 @@ O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garan
 
 Segue abaixo o mapa: 
 <img src="public/assets/MapaJogoCielo.png">
+
 
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)

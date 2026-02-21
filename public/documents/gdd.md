@@ -173,7 +173,8 @@ Considerando as personagens do game, analise se estas estão alinhadas ao públi
 O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.
 
 Segue abaixo o mapa: 
-(assets/MapaJogoCielo.png)
+<img src="public/assets/MapaJogoCielo.png">
+
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 

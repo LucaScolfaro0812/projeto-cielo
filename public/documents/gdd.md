@@ -177,13 +177,17 @@ Segue abaixo o mapa:
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
-_Descreva como os personagens se movem no mundo criado e as relações entre as locações – como as áreas/fases são acessadas ou desbloqueadas, o que é necessário para serem acessadas etc. Utilize listas ou tabelas para organizar esta seção._
+O personagem terá acesso a todas as lojas do mapa, podendo se locomover entre elas livremente. Ao chegar a uma loja, entrará no ambiente interno, onde realizará a negociação e a venda do produto ao cliente.
+Após a conclusão da venda, o personagem sairá da loja correspondente e seguirá para a próxima, dando continuidade ao processo e buscando novos clientes ao longo do mapa.
+
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
 _\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável_
 
 _Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)_
+
+- não tem, o que faz aqui? 
 
 ### 3.3.4. Concept Art (sprint 2)
 

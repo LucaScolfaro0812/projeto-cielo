@@ -157,7 +157,10 @@ _Caso não existam personagens (ex. jogo Tetris), mencione os motivos de não ex
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-_\<opcional\> Se existirem coadjuvantes ou vilões, aqui é o local para descrevê-los e ilustrá-los. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes. Caso não existam NPCs, remova esta seção._
+No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.
+Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.
+
+- adicionar imagem 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -170,7 +173,7 @@ Considerando as personagens do game, analise se estas estão alinhadas ao públi
 O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.
 
 Segue abaixo o mapa: 
-[mapa do jogo](assets/MapaJogoCielo.png)
+(assets/MapaJogoCielo.png)
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 

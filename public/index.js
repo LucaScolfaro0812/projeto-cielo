@@ -25,7 +25,10 @@ var config = {
 
       update: update
       // Função que roda continuamente (loop do jogo)
-    }
+    },
+
+    PadariaScene
+    // Cena do estabelecimento: padaria
   ]
 }
 

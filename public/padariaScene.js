@@ -6,11 +6,13 @@ class PadariaScene extends Phaser.Scene {
 
     preload() {
         // Carregamento futuro de assets da padaria
+        this.preload.image('padaria', './assets/padaria-bg.png');
     }
 
     create() {
         // Estrutura inicial da cena
-        console.log("PadariaScene iniciada");
+
+        this.add.image(480, 270)
     }
 
     update() {

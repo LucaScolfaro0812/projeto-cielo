@@ -167,7 +167,10 @@ Considerando as personagens do game, analise se estas estão alinhadas ao públi
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-_Descreva o ambiente do jogo, em que locais ele ocorre. Ilustre com imagens. Se houverem mapas, posicione-os aqui, descrevendo as áreas em acordo com o enredo. Se houverem fases, descreva-as também em acordo com o enredo (pode ser um jogo de uma fase só). Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes._
+O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.
+
+Segue abaixo o mapa: 
+[mapa do jogo](assets/MapaJogoCielo.png)
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 

@@ -51,6 +51,8 @@
     <script src="menuScene.js"></script>
     <!-- Importa o arquivo responsável pela cena de menu do jogo -->
 
+    <script src='quizPadaria.js'></script>
+
     <script src="padariaScene.js"></script>
 
     <script src="index.js"></script>
@@ -77,6 +79,36 @@
 
             <p id="score">Pontos: 0</p>
             <!-- Mostra a pontuação do jogador -->
+        </div>
+    </div>
+
+    <!-- Quiz da Padaria -->
+    <div id="quiz-padaria" class="quiz-overlay hidden">
+        <div class="quiz-modal">
+            <div class="quiz-header">
+                <span id="quiz-timer" class="quiz-timer">15s</span>
+                <h2 id="quiz-pergunta" class="quiz-pergunta">Pergunta aqui</h2>
+            </div>
+            <!-- Corpo do quiz -->
+            <div class="quiz-body">
+                <!-- Imagem do NPC -->
+                <div class="quiz-npc">
+                    <img id="quiz-npc-img" src="assets/npc.png" alt="NPC">
+                    <span class="quiz-npc-nome">João</span>
+                </div>
+
+                <!-- Alternativas -->
+                <div id="quiz-alternativas" class="quiz-alternativas">
+                    <button class="quiz-btn" data-index="0">a) Alternativa 1</button>
+                    <button class="quiz-btn" data-index="1">b) Alternativa 2</button>
+                    <button class="quiz-btn" data-index="2">c) Alternativa 3</button>
+                    <button class="quiz-btn" data-index="3">d) Alternativa 4</button>
+                </div>
+            </div>
+            <!-- Feedback (acerto/erro) -->
+            <div id="quiz-feedback" class="quiz-feedback hidden">
+                <p id="quiz-feedback-texto"></p>
+            </div>
         </div>
     </div>
 

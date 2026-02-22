@@ -74,7 +74,7 @@ class MenuScene extends Phaser.Scene {
 
         // Clique: inicia a cena do jogo
         playButton.on('pointerdown', () => {
-            this.scene.start('GameScene');
+            this.scene.start('PadariaScene');
         });
     }
 

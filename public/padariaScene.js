@@ -28,6 +28,37 @@ class PadariaScene extends Phaser.Scene {
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
         this.configurarBotoesQuiz();
+
+        // VALOR INICIAL (0 a 100)
+        this.nivelSatisfacao = 50;
+
+        // Configurações
+        this.termometroX = 50;
+        this.termometroY = 100;
+        this.termometroLargura = 40;
+        this.termometroAltura = 300;
+
+        // Fundo (cinza)
+        this.termometroFundo = this.add.graphics();
+        this.termometroFundo.fillStyle(0xdddddd, 1);
+        this.termometroFundo.fillRoundedRect(
+        this.termometroX,
+        this.termometroY,
+        this.termometroLargura,
+        this.termometroAltura,
+        20
+        );
+
+        // Barra interna
+        this.termometroBarra = this.add.graphics();
+
+        this.acertos = 0;
+        this.totalPerguntas = 10; // ou o valor correto
+        this.nivelSatisfacao = 0;
+
+        this.mostrarTermometro(false);
+        // Desenha primeira vez
+        this.atualizarTermometro(this.nivelSatisfacao);
     }
 
     update() {
@@ -82,6 +113,8 @@ class PadariaScene extends Phaser.Scene {
 
         document.getElementById('quiz-padaria').classList.remove('hidden');
         this.mostrarPergunta();
+        
+        this.mostrarTermometro();
     }
 
     mostrarPergunta() {
@@ -150,20 +183,25 @@ class PadariaScene extends Phaser.Scene {
         // Marca visualmente a escolha
         botoes[indiceEscolhido].classList.add('selecionada');
 
+        this.satisfacao = 0;
         // Decide feedback baseado na pontuação
         if (pontosDaResposta === 3) {
             this.mostrarFeedback(true, "Excelente abordagem! 👏");
+            this.satisfacao += 30;
         }
         else if (pontosDaResposta === 2) {
             this.mostrarFeedback(true, "Boa resposta! Pode melhorar um pouco.");
+            this.satisfacao += 10;
         }
         else if (pontosDaResposta === 1) {
             this.mostrarFeedback(false, "Resposta fraca. Pense mais no cliente.");
+            this.satisfacao += 0;
         }
         else {
             this.mostrarFeedback(false, "Essa abordagem pode prejudicar a venda.");
+            this.satisfacao -= 50;
         }
-
+        this.animarTermometro(this.nivelSatisfacao + this.satisfacao);
         setTimeout(() => this.proximaPergunta(), 2500);
     }
 
@@ -198,5 +236,52 @@ class PadariaScene extends Phaser.Scene {
             document.getElementById('quiz-padaria').classList.add('hidden');
             quizPadariaAberto = false;
         }, 3000);
+        this.mostrarTermometro(false);
+    }
+
+    atualizarTermometro(valor) {
+
+        // Limita entre 0 e 100
+        valor = Phaser.Math.Clamp(valor, 0, 100);
+        this.nivelSatisfacao = valor;
+
+        this.termometroBarra.clear();
+
+        let alturaAtual = (valor / 100) * this.termometroAltura;
+
+        // Define cor por faixa
+        let cor = 0xff3b30; // vermelho
+        if (valor > 40) cor = 0xffcc00; // amarelo
+        if (valor > 70) cor = 0x34c759; // verde
+
+        this.termometroBarra.fillStyle(cor, 1);
+
+        // Desenha de baixo para cima
+        this.termometroBarra.fillRoundedRect(
+            this.termometroX,
+            this.termometroY + (this.termometroAltura - alturaAtual),
+            this.termometroLargura,
+            alturaAtual,
+            20
+        );
+    }
+
+    mostrarTermometro(estado = true){
+        this.termometroFundo.setVisible(estado);
+        this.termometroBarra.setVisible(estado);
+    }
+
+    animarTermometro(novoValor) {
+
+        this.tweens.add({
+            targets: this,
+            nivelSatisfacao: novoValor,
+            duration: 500,
+            ease: 'Power2',
+            onUpdate: () => {
+            this.atualizarTermometro(this.nivelSatisfacao);
+            }
+        });
+
     }
 }

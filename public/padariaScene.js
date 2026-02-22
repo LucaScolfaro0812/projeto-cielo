@@ -1,9 +1,3 @@
-let quizPadariaAberto = false;
-let perguntaAtualIndex = 0;
-let pontosPadaria = 0;
-let timerInterval = null;
-let tempoRestante = 15;
-
 class PadariaScene extends Phaser.Scene {
 
     constructor() {
@@ -27,6 +21,14 @@ class PadariaScene extends Phaser.Scene {
         this.teclaD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
+        this.quizPadariaAberto = false;
+        this.perguntaAtualIndex = 0;
+        this.pontosPadaria = 0;
+        this.timerInterval = null;
+        this.tempoRestante = 15;
+        this.satisfacao = 0;
+
+
         this.configurarBotoesQuiz();
 
         // VALOR INICIAL (0 a 100)
@@ -42,11 +44,11 @@ class PadariaScene extends Phaser.Scene {
         this.termometroFundo = this.add.graphics();
         this.termometroFundo.fillStyle(0xdddddd, 1);
         this.termometroFundo.fillRoundedRect(
-        this.termometroX,
-        this.termometroY,
-        this.termometroLargura,
-        this.termometroAltura,
-        20
+            this.termometroX,
+            this.termometroY,
+            this.termometroLargura,
+            this.termometroAltura,
+            20
         );
 
         // Barra interna
@@ -63,7 +65,7 @@ class PadariaScene extends Phaser.Scene {
 
     update() {
 
-        if (quizPadariaAberto) return;
+        if (this.quizPadariaAberto) return;
 
         let velocidade = 2.5;
 
@@ -97,7 +99,7 @@ class PadariaScene extends Phaser.Scene {
 
         botoes.forEach((btn, index) => {
             btn.addEventListener('click', () => {
-                if (quizPadariaAberto) {
+                if (this.quizPadariaAberto) {
                     this.verificarResposta(index);
                 }
             });
@@ -105,20 +107,20 @@ class PadariaScene extends Phaser.Scene {
     }
 
     abrirQuizPadaria() {
-        if (quizPadariaAberto) return;
+        if (this.quizPadariaAberto) return;
 
-        quizPadariaAberto = true;
-        perguntaAtualIndex = 0;
-        pontosPadaria = 0;
+        this.quizPadariaAberto = true;
+        this.perguntaAtualIndex = 0;
+        this.pontosPadaria = 0;
 
         document.getElementById('quiz-padaria').classList.remove('hidden');
         this.mostrarPergunta();
-        
+
         this.mostrarTermometro();
     }
 
     mostrarPergunta() {
-        const pergunta = perguntasPadaria[perguntaAtualIndex];
+        const pergunta = perguntasPadaria[this.perguntaAtualIndex];
 
         document.getElementById('quiz-pergunta').textContent = pergunta.pergunta;
 
@@ -135,24 +137,24 @@ class PadariaScene extends Phaser.Scene {
     }
 
     iniciarTimer() {
-        tempoRestante = 15;
+        this.tempoRestante = 15;
 
         const timerElement = document.getElementById('quiz-timer');
-        timerElement.textContent = tempoRestante + 's';
+        timerElement.textContent = this.tempoRestante + 's';
         timerElement.classList.remove('alerta');
 
-        if (timerInterval) clearInterval(timerInterval);
+        if (this.timerInterval) clearInterval(this.timerInterval);
 
-        timerInterval = setInterval(() => {
-            tempoRestante--;
-            timerElement.textContent = tempoRestante + 's';
+        this.timerInterval = setInterval(() => {
+            this.tempoRestante--;
+            timerElement.textContent = this.tempoRestante + 's';
 
-            if (tempoRestante <= 5) {
+            if (this.tempoRestante <= 5) {
                 timerElement.classList.add('alerta');
             }
 
-            if (tempoRestante <= 0) {
-                clearInterval(timerInterval);
+            if (this.tempoRestante <= 0) {
+                clearInterval(this.timerInterval);
                 this.tempoEsgotado();
             }
 
@@ -170,20 +172,19 @@ class PadariaScene extends Phaser.Scene {
     }
 
     verificarResposta(indiceEscolhido) {
-        clearInterval(timerInterval);
+        clearInterval(this.timerInterval);
 
-        const pergunta = perguntasPadaria[perguntaAtualIndex];
+        const pergunta = perguntasPadaria[this.perguntaAtualIndex];
         const botoes = document.querySelectorAll('.quiz-btn');
 
         const pontosDaResposta = pergunta.pontos[indiceEscolhido];
-        pontosPadaria += pontosDaResposta;
+        this.pontosPadaria += pontosDaResposta;
 
         botoes.forEach(btn => btn.disabled = true);
 
         // Marca visualmente a escolha
         botoes[indiceEscolhido].classList.add('selecionada');
 
-        this.satisfacao = 0;
         // Decide feedback baseado na pontuação
         if (pontosDaResposta === 3) {
             this.mostrarFeedback(true, "Excelente abordagem! 👏");
@@ -215,9 +216,9 @@ class PadariaScene extends Phaser.Scene {
     }
 
     proximaPergunta() {
-        perguntaAtualIndex++;
+        this.perguntaAtualIndex++;
 
-        if (perguntaAtualIndex < perguntasPadaria.length) {
+        if (this.perguntaAtualIndex < perguntasPadaria.length) {
             this.mostrarPergunta();
         } else {
             this.finalizarQuiz();
@@ -230,11 +231,11 @@ class PadariaScene extends Phaser.Scene {
 
         feedback.classList.remove('hidden', 'erro');
         feedback.classList.add('sucesso');
-        texto.textContent = `Quiz finalizado!! Você fez ${pontosPadaria} pontos!!`;
+        texto.textContent = `Quiz finalizado!! Você fez ${this.pontosPadaria} pontos!!`;
 
         setTimeout(() => {
             document.getElementById('quiz-padaria').classList.add('hidden');
-            quizPadariaAberto = false;
+            this.quizPadariaAberto = false;
         }, 3000);
         this.mostrarTermometro(false);
     }
@@ -266,7 +267,7 @@ class PadariaScene extends Phaser.Scene {
         );
     }
 
-    mostrarTermometro(estado = true){
+    mostrarTermometro(estado = true) {
         this.termometroFundo.setVisible(estado);
         this.termometroBarra.setVisible(estado);
     }
@@ -279,7 +280,7 @@ class PadariaScene extends Phaser.Scene {
             duration: 500,
             ease: 'Power2',
             onUpdate: () => {
-            this.atualizarTermometro(this.nivelSatisfacao);
+                this.atualizarTermometro(this.nivelSatisfacao);
             }
         });
 

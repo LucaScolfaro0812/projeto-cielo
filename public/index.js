@@ -258,7 +258,7 @@ function update(){
 
 function abrirQuiz() {
     // Impede abrir o quiz mais de uma vez
-    if (quizAberto) return;
+    if (this.quizAberto) return;
 
     quizAberto = true;
 

@@ -151,26 +151,27 @@ _Caso seu jogo não possua enredo/história (ex. jogo Tetris), mencione os motiv
 
 ### 3.2.1. Controláveis
 
-_Descreva os personagens controláveis pelo jogador. Mencione nome, objetivos, características, habilidades, diferenciais etc. Utilize figuras (character art, sprite sheets etc.) para ilustrá-los. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes._
+<p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
+<p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-_Caso não existam personagens (ex. jogo Tetris), mencione os motivos de não existirem e como o jogador pode interpretar tal fato._
+<img src="public/assets/marcielo.png"> 
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.
-Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.
+<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
+<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.</p>
 
 <img src="public/assets/Coadjuvantes.png"> 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
-Considerando as personagens do game, analise se estas estão alinhadas ao público-alvo do jogo (seção 1.3), e compare-as dentro da realidade da sociedade brasileira. Por fim, discorra sobre qual é o impacto esperado da escolha dessas personagens.
+_Considerando as personagens do game, analise se estas estão alinhadas ao público-alvo do jogo (seção 1.3), e compare-as dentro da realidade da sociedade brasileira. Por fim, discorra sobre qual é o impacto esperado da escolha dessas personagens._
 
 ## 3.3. Mundo do jogo (sprints 2 e 3)
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.
+<p>O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.</p>
 
 Segue abaixo o mapa: 
 <img src="public/assets/MapaJogoCielo.png">
@@ -179,8 +180,7 @@ Segue abaixo o mapa:
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
-O personagem terá acesso a todas as lojas do mapa, podendo se locomover entre elas livremente. Ao chegar a uma loja, entrará no ambiente interno, onde realizará a negociação e a venda do produto ao cliente.
-Após a conclusão da venda, o personagem sairá da loja correspondente e seguirá para a próxima, dando continuidade ao processo e buscando novos clientes ao longo do mapa.
+<p>O personagem terá acesso a todas as lojas do mapa, podendo se locomover entre elas livremente. Ao chegar a uma loja, entrará no ambiente interno, onde realizará a negociação e a venda do produto ao cliente. Após a conclusão da venda, o personagem sairá da loja correspondente e seguirá para a próxima, dando continuidade ao processo e buscando novos clientes ao longo do mapa.</p>
 
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)

@@ -1,3 +1,9 @@
+let quizPadariaAberto = false;
+let perguntaAtualIndex = 0;
+let pontosPadaria = 0;
+let timerInterval = null;
+let tempoRestante = 15;
+
 class PadariaScene extends Phaser.Scene {
 
     constructor() {
@@ -5,27 +11,29 @@ class PadariaScene extends Phaser.Scene {
     }
 
     preload() {
-        // Carrega os assets da cena
         this.load.image('padaria', 'assets/padaria-bg-2.png');
         this.load.image('npc-padeiro', 'assets/npc.png');
         this.load.image('player', 'assets/marcielo.png');
     }
 
     create() {
-        // Adiciona cenário, NPC e jogador
         this.add.image(480, 200, 'padaria').setScale(2.1);
         this.npcPadeiro = this.add.image(550, 180, 'npc-padeiro').setScale(0.4);
         this.player = this.add.image(100, 100, 'player').setScale(0.5);
 
-        // Configura teclas de movimento e interação
         this.teclaW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.teclaA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.teclaS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.teclaD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
+        this.configurarBotoesQuiz();
     }
 
     update() {
+
+        if (quizPadariaAberto) return;
+
         let velocidade = 2.5;
 
         // Movimentação horizontal
@@ -42,15 +50,153 @@ class PadariaScene extends Phaser.Scene {
             this.player.y += velocidade;
         }
 
-        // Verifica proximidade com o NPC
+        // Verifica proximidade com NPC
         let distancia = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
             this.npcPadeiro.x, this.npcPadeiro.y
         );
 
-        // Abre o quiz se estiver perto e apertar E
         if (distancia < 100 && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-            console.log('Interagiu com o padeiro!');
+            this.abrirQuizPadaria();
         }
+    }
+
+    configurarBotoesQuiz() {
+        const botoes = document.querySelectorAll('.quiz-btn');
+
+        botoes.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                if (quizPadariaAberto) {
+                    this.verificarResposta(index);
+                }
+            });
+        });
+    }
+
+    abrirQuizPadaria() {
+        if (quizPadariaAberto) return;
+
+        quizPadariaAberto = true;
+        perguntaAtualIndex = 0;
+        pontosPadaria = 0;
+
+        document.getElementById('quiz-padaria').classList.remove('hidden');
+        this.mostrarPergunta();
+    }
+
+    mostrarPergunta() {
+        const pergunta = perguntasPadaria[perguntaAtualIndex];
+
+        document.getElementById('quiz-pergunta').textContent = pergunta.pergunta;
+
+        const botoes = document.querySelectorAll('.quiz-btn');
+        botoes.forEach((btn, index) => {
+            btn.textContent = pergunta.opcoes[index];
+            btn.classList.remove('correta', 'errada', 'selecionada');
+            btn.disabled = false;
+        });
+
+        document.getElementById('quiz-feedback').classList.add('hidden');
+
+        this.iniciarTimer();
+    }
+
+    iniciarTimer() {
+        tempoRestante = 15;
+
+        const timerElement = document.getElementById('quiz-timer');
+        timerElement.textContent = tempoRestante + 's';
+        timerElement.classList.remove('alerta');
+
+        if (timerInterval) clearInterval(timerInterval);
+
+        timerInterval = setInterval(() => {
+            tempoRestante--;
+            timerElement.textContent = tempoRestante + 's';
+
+            if (tempoRestante <= 5) {
+                timerElement.classList.add('alerta');
+            }
+
+            if (tempoRestante <= 0) {
+                clearInterval(timerInterval);
+                this.tempoEsgotado();
+            }
+
+        }, 1000);
+    }
+
+    tempoEsgotado() {
+        const botoes = document.querySelectorAll('.quiz-btn');
+
+        botoes.forEach(btn => btn.disabled = true);
+
+        this.mostrarFeedback(false, "Você perdeu tempo com o cliente.");
+
+        setTimeout(() => this.proximaPergunta(), 2000);
+    }
+
+    verificarResposta(indiceEscolhido) {
+        clearInterval(timerInterval);
+
+        const pergunta = perguntasPadaria[perguntaAtualIndex];
+        const botoes = document.querySelectorAll('.quiz-btn');
+
+        const pontosDaResposta = pergunta.pontos[indiceEscolhido];
+        pontosPadaria += pontosDaResposta;
+
+        botoes.forEach(btn => btn.disabled = true);
+
+        // Marca visualmente a escolha
+        botoes[indiceEscolhido].classList.add('selecionada');
+
+        // Decide feedback baseado na pontuação
+        if (pontosDaResposta === 3) {
+            this.mostrarFeedback(true, "Excelente abordagem! 👏");
+        }
+        else if (pontosDaResposta === 2) {
+            this.mostrarFeedback(true, "Boa resposta! Pode melhorar um pouco.");
+        }
+        else if (pontosDaResposta === 1) {
+            this.mostrarFeedback(false, "Resposta fraca. Pense mais no cliente.");
+        }
+        else {
+            this.mostrarFeedback(false, "Essa abordagem pode prejudicar a venda.");
+        }
+
+        setTimeout(() => this.proximaPergunta(), 2500);
+    }
+
+    mostrarFeedback(sucesso, mensagem) {
+        const feedback = document.getElementById("quiz-feedback");
+        const texto = document.getElementById("quiz-feedback-texto");
+
+        feedback.classList.remove('hidden', 'sucesso', 'erro');
+        feedback.classList.add(sucesso ? 'sucesso' : 'erro');
+        texto.textContent = mensagem;
+    }
+
+    proximaPergunta() {
+        perguntaAtualIndex++;
+
+        if (perguntaAtualIndex < perguntasPadaria.length) {
+            this.mostrarPergunta();
+        } else {
+            this.finalizarQuiz();
+        }
+    }
+
+    finalizarQuiz() {
+        const feedback = document.getElementById("quiz-feedback");
+        const texto = document.getElementById("quiz-feedback-texto");
+
+        feedback.classList.remove('hidden', 'erro');
+        feedback.classList.add('sucesso');
+        texto.textContent = `Quiz finalizado!! Você fez ${pontosPadaria} pontos!!`;
+
+        setTimeout(() => {
+            document.getElementById('quiz-padaria').classList.add('hidden');
+            quizPadariaAberto = false;
+        }, 3000);
     }
 }

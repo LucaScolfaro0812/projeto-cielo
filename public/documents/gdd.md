@@ -61,7 +61,16 @@ A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quai
 
 <p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 
-#### 1.1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes.
+##### 1.1.1.1.4.1  Identificação dos principais tipos de clientes da indústria
+
+<p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online. Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
+
+##### 1.1.1.1.4.2 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
+
+<p>O poder de barganha dos clientes na indústria de adquirência é considerado elevado devido ao aumento da concorrência e à maior oferta de soluções de pagamento. A facilidade de troca entre provedores permite que os clientes negociem taxas mais baixas e melhores condições contratuais. Além disso, a popularização do Pix reduziu a dependência dos cartões, intensificando a pressão sobre empresas tradicionais do setor. Como consequência, organizações como a Cielo enfrentam maior competição e perda relativa de participação de mercado, sendo levadas a investir em tecnologia, inovação e serviços de maior valor agregado para atrair e reter clientes.
+
+
+##### 1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes.
 
 <p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.
 Os principais concorrentes da Cielo incluem Rede (Itaú Unibanco), Getnet (Santander Brasil), Stone, PagBank (PagSeguro) e MercadoPago, além de novos players digitais. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo e do Banco Central, Stone, PagBank e Mercado Pago ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.
@@ -70,7 +79,50 @@ O nível de rivalidade é classificado como alto, impactando diretamente a compe
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
-_Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro._
+
+
+| FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
+| :--- | :--- |
+| **Escala e Capilaridade:** Presença em 99% dos municípios brasileiros e sólida infraestrutura de processamento. | **Dependência Bancária:** Estrutura de governança dividida entre BB e Bradesco, o que pode tornar a decisão estratégica lenta. |
+| **Apoio de Acionistas:** Suporte financeiro e de distribuição através das redes de agências do Banco do Brasil e Bradesco. | **Margens sob Pressão:** Redução do lucro líquido recorrente devido à necessidade de baixar taxas para manter clientes. |
+| **Inovação em Produtos:** Investimentos crescentes em tecnologia (IA, pagamentos via celular/TAP e biometria). | **Perda de Market Share:** Dificuldade em reter fatia de mercado frente a competidores nativos digitais mais ágeis. |
+| **Ecossistema Completo:** Oferta de serviços além da captura, como gestão de dados e antecipação de recebíveis. | **Estrutura de Custos:** Custos fixos elevados herdados do modelo tradicional de aluguel de máquinas físicas. |
+
+<br>
+
+| OPORTUNIDADES (OPPORTUNITIES) | AMEAÇAS (THREATS) |
+| :--- | :--- |
+| **Monetização de Dados:** Uso de inteligência de dados (ICVA) para oferecer consultoria e produtos personalizados. | **Consolidação do Pix:** O avanço do Pix reduz a receita vinda de taxas de cartões de débito tradicionais. |
+| **Expansão em PMEs:** Foco no crescimento do volume de transações em Pequenas e Médias Empresas. | **Guerra das Maquininhas:** Competição agressiva de taxas com empresas como Stone, PagBank e Getnet. |
+| **Digitalização do Varejo:** Crescimento contínuo do e-commerce e soluções de pagamento invisível. | **Regulação e Cibersegurança:** Aumento nos custos com segurança digital e novas normas rígidas do Banco Central. |
+
+
+
+
+
+
+---
+### Análise SWOT
+
+#### **1. Forças (Strengths)**
+A Cielo S.A. fundamenta sua liderança de mercado em uma escala operacional massiva, atingindo 99% dos municípios brasileiros. Esta robustez é amplificada pela aliança estratégica com seus controladores, o Banco do Brasil e o Bradesco, que proporcionam um canal de distribuição capilar e reduzem drasticamente o custo de aquisição de clientes. Além disso, a companhia detém uma infraestrutura tecnológica resiliente, capaz de processar bilhões de transações com alta segurança e baixa latência.
+
+#### **2. Fraquezas (Weaknesses)**
+Apesar de sua solidez, a complexidade da estrutura de governança dividida entre dois grandes bancos tradicionais é uma fraqueza que pode comprometer a agilidade estratégica. Em um mercado dinâmico, essa lentidão burocrática dificulta a resposta a inovações disruptivas quando comparada a rivais ágeis e nativos digitais como Stone e PagBank. Outro ponto crítico é a manutenção de uma estrutura de custos fixos elevada, focada em terminais físicos (POS), enquanto o setor migra progressivamente para soluções de software.
+
+#### **3. Oportunidades (Opportunities)**
+A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidade única de monetização através da inteligência de negócios. Por meio do ICVA (Índice Cielo do Varejo), a empresa pode converter informações em consultoria estratégica para lojistas e indústrias, criando novas linhas de receita. Há também um campo fértil para a expansão de serviços financeiros integrados, como a oferta de crédito personalizado e a antecipação de recebíveis.
+
+#### **4. Ameaças (Threats)**
+A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio. Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas. O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central.
+
+---
+
+### **Referências Bibliográficas (Normas APA)**
+
+* **Cielo S.A. (2025).** *Portal de Relações com Investidores*. Disponível em: [https://ri.cielo.com.br/](https://ri.cielo.com.br/)
+* **Banco Central do Brasil [BCB]. (2025).** *Relatórios de Estabilidade e Vigilância do SPB*. Disponível em: [https://www.bcb.gov.br/publicacoes](https://www.bcb.gov.br/publicacoes)
+* **Moraes, R. A., & Silva, J. P. (2021).** A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. DOI: [https://doi.org/10.7819/rbgn.v23i2.4104](https://doi.org/10.7819/rbgn.v23i2.4104)
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
@@ -105,7 +157,7 @@ _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevant
 | **RF02** | Tutorial inicial                        | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida.                                                  |
 | **RF03** | Sistema de quizzes de negociação        | O sistema deve disponibilizar quizzes interativos que simulem situações de vendas e negociação de produtos da Cielo, com múltiplas opções de resposta baseadas no diálogo com o cliente (NPC).                             |
 | **RF04** | Sistema de variáveis do cliente         | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                               |
-| **RF05** | Sistema de pontuação                    | O sistema deve calcular automaticamente a pontuação considerando: escolhas do quiz, tempo de resposta e estado de humor do cliente ao final da interação.                                                                  |
+| **RF05** | Sistema de pontuação                    | O sistema deve calcular automaticamente a pontuação considerando: escolhas do quiz e estado de humor do cliente ao final da interação.                                                                  |
 | **RF06** | Painel de desempenho em tempo real      | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão.                                                  |
 | **RF07** | Interação com NPCs                      | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                |
 | **RF08** | Navegação em mundo aberto               | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                            |
@@ -415,62 +467,32 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
-_Descreva nesta seção os casos de teste comuns que podem ser executados a qualquer momento para testar o funcionamento e integração das partes do jogo. Utilize tabelas para facilitar a organização._
 
-_Exemplo de tabela_
-\# | pré-condição | descrição do teste | pós-condição
---- | --- | --- | ---
-1 | posicionar o jogo na tela de abertura | iniciar o jogo desde seu início | o jogo deve iniciar da fase 1
-2 | posicionar o personagem em local seguro de inimigos | aguardar o tempo passar até o final da contagem | o personagem deve perder uma vida e reiniciar a fase
-3 | ...
-
-#
-1
-Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar
-2
-Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir
-3
-Jogo na tela inicial | Clicar no botão “Como jogar” |Abre uma interface das teclas que o jogador utiliza e qual o objetivo do jogo.
-3
-Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita
-4
-Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda
-5
-Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima
-6
-Jogo com personagem parado | Pressionar S |Personagem deve se mover para baixo
-7
-Personagem próximo de uma loja | Pressionar E | Personagem entra no estabelecimento
-8
-Personagem perto de um vendedor | Pressionar E | Interface de conversa aparece
-9
-Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo na melhor resposta | O nível de satisfação do cliente aumenta muito
-10
-Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta boa | O nível de satisfação do cliente aumenta
-11
-Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta ruim | O nível de satisfação do cliente diminuí
-12
-Tela de 4 respostas para a dúvida do cliente | Clicar com o botão esquerdo em uma resposta horrível | O nível de satisfação do cliente diminuí muito
-13
-Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que mantenha ou aumente o nível de satisfação |Vendedor compra os serviços e o jogador consegue mais um cliente
-14
-Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que diminua o nível de satisfação, contudo mantendo acima do mínimo | Vendedor compra os serviços e o jogador consegue mais um cliente
-15
-Nível de satisfação do cliente está acima do mínimo e ele está em sua última dúvida | Clicar em uma resposta que diminua o nível de satisfação para abaixo do mínimo | Vendedor  não compra os serviços e o jogador perde um cliente
-16
-Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida |Clicar em uma resposta que mantenha ou diminua o nível de satisfação | Vendedor não compra os serviços e o jogador perde um cliente
-17
-Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida | Clicar em uma resposta que aumente o nível de satisfação, contudo mantendo acima do mínimo | Vendedor  não compra os serviços e o jogador perde um cliente
-18
-Nível de satisfação do cliente está abaixo do mínimo e ele está em sua última dúvida | Clicar em uma resposta que aumente o nível de satisfação para acima do mínimo | Vendedor compra os serviços e o jogador consegue mais um cliente
-19
-Tempo limite da interação com o cliente acabando | Tempo limite termina | Usuário perde um cliente e volta para o mapa
-20
-Interface de conversa com o cliente acaba | Pontos de acordo com as respostas dadas pelo usuário são calculados | Os pontos ganhos são somados aos que o usuário já possuí
-21
-Perto de um cliente que já interagiu | Apertar a tecla “E” |Nada acontece
-22
-O tempo limite do jogo está acabando | O tempo acaba | A gameplay se encerra
+| # | pré-condição | descrição do teste | pós-condição |
+| :--- | :--- | :--- | :--- |
+| 1 | Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar |
+| 2 | Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir |
+| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Abre uma interface das teclas que o jogador utiliza e o objetivo |
+| 4 | Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita |
+| 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
+| 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
+| 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
+| 8 | Personagem próximo de uma loja | Pressionar E | Personagem entra no estabelecimento |
+| 9 | Personagem perto de um vendedor | Pressionar E | Interface de conversa aparece |
+| 10 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo na melhor resposta | O nível de satisfação aumenta muito |
+| 11 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em uma resposta boa | O nível de satisfação aumenta |
+| 12 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em uma resposta ruim | O nível de satisfação diminui |
+| 13 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em resposta horrível | O nível de satisfação diminui muito |
+| 14 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que mantenha/aumente satisfação | Vendedor compra os serviços e ganha o cliente |
+| 15 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua, mas acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 16 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua para abaixo do mínimo | Vendedor não compra e o jogador perde o cliente |
+| 17 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que mantenha ou diminua o nível | Vendedor não compra e o jogador perde o cliente |
+| 18 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente, mas abaixo mantém do mínimo | Vendedor não compra e o jogador perde o cliente |
+| 19 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente para acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 20 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
+| 21 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
+| 22 | Perto de um cliente já interagido | Apertar a tecla "E" | Nada acontece |
+| 23 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 

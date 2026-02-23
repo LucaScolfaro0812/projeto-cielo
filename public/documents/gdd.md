@@ -61,6 +61,13 @@ A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quai
 
 <p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 
+#### 1.1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes.
+
+<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.
+Os principais concorrentes da Cielo incluem Rede (Itaú Unibanco), Getnet (Santander Brasil), Stone, PagBank (PagSeguro) e MercadoPago, além de novos players digitais. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo e do Banco Central, Stone, PagBank e Mercado Pago ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.
+O nível de rivalidade é classificado como alto, impactando diretamente a competitividade da indústria. Há guerra de preços, subsídios em equipamentos, diferenciação via tecnologia e oferta de serviços financeiros integrados. Além disso, a consolidação do Pix como meio de pagamento intensificou a disputa por receitas, reduzindo a dependência de cartões e pressionando o modelo tradicional de MDR (Merchant Discount Rate). Assim, a Cielo permanece entre as maiores adquirentes do país, porém inserida em um ambiente competitivo caracterizado por margens menores, maior inovação e constante disputa por market share.</p>
+
+
 ### 1.1.2. Análise SWOT (sprint 2)
 
 _Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro._
@@ -116,41 +123,41 @@ O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa 
 
 Perfil Demográfico
 
-. Profissionais da área de vendas e relacionamento comercial
-. Faixa etária média: 40–50 anos
-. Usuários com familiaridade funcional com tecnologia digital
-. Predominantemente non-gamers ou jogadores ocasionais
-. Tempo limitado para treinamento devido à rotina profissional
+ - Profissionais da área de vendas e relacionamento comercial
+ - Faixa etária média: 40–50 anos
+ - Usuários com familiaridade funcional com tecnologia digital
+ - Predominantemente non-gamers ou jogadores ocasionais
+ - Tempo limitado para treinamento devido à rotina profissional
 
 Considerando essas características, o jogo foi desenvolvido em formato 2D mundo aberto (top down), priorizando acessibilidade, navegação simples e rápida assimilação das mecânicas, reduzindo a necessidade de habilidades típicas de jogadores experientes.
 
 Perfil Psicográfico e Preferências
 
 O público demonstra maior engajamento com experiências que:
-. Possuam aplicação prática direta no trabalho;
-. Simulem situações reais do cotidiano profissional;
-. Ofereçam aprendizado ativo em vez de treinamento passivo;
-. Apresentem feedback claro de desempenho e evolução;
-. Estimulem reconhecimento por progresso e melhoria contínua.
+ - Possuam aplicação prática direta no trabalho;
+ - Simulem situações reais do cotidiano profissional;
+ - Ofereçam aprendizado ativo em vez de treinamento passivo;
+ - Apresentem feedback claro de desempenho e evolução;
+ - Estimulem reconhecimento por progresso e melhoria contínua.
 
 Necessidades de Aprendizagem
 
-. O jogo busca desenvolver competências-chave da área comercial, incluindo:
+ - O jogo busca desenvolver competências-chave da área comercial, incluindo:
 Persuasão e argumentação de vendas;
-. Tomada de decisão sob pressão;
-. Interpretação de perfis de clientes;
-. Estratégias de marketing e negociação;
-. Comunicação assertiva.
+ - Tomada de decisão sob pressão;
+ - Interpretação de perfis de clientes;
+ - Estratégias de marketing e negociação;
+ - Comunicação assertiva.
 
 Essas habilidades são trabalhadas por meio de interações com NPCs que representam clientes em cenários simulados. O jogador participa de negociações estruturadas em formato de quiz contextual, selecionando respostas e argumentos estratégicos conforme a situação apresentada.
 
 Justificativa de Design
 
 A escolha do formato de jogo aberto 2D com interações baseadas em decisão foi definida para:
-. Facilitar o aprendizado experiencial;
-. Promover retenção de conhecimento através da prática;
-. Reduzir resistência a treinamentos corporativos tradicionais;
-. Integrar gamificação ao processo de qualificação profissional.
+ - Facilitar o aprendizado experiencial;
+ - Promover retenção de conhecimento através da prática;
+ - Reduzir resistência a treinamentos corporativos tradicionais;
+ - Integrar gamificação ao processo de qualificação profissional.
 
 O jogo se posiciona, portanto, como uma ferramenta de gamificação corporativa, voltada ao desenvolvimento contínuo da equipe comercial por meio de simulação interativa e aprendizagem baseada em decisões.
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)

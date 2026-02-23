@@ -87,26 +87,68 @@ _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevant
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-_Esta seção apresentará os requisitos relacionados à funcionalidade básica do jogo. Os requisitos são divididos em duas categorias: requisitos funcionais (RF) e requisitos não funcionais (RNF). A diferença entre eles é que os requisitos funcionais descrevem tudo aquilo que o sistema deve fazer, enquanto os requisitos não funcionais se referem a como o sistema deve ser ou operar._ 
+\# | Requisitos Funcionais
+| **RF01** | **Menu inicial e identificação do jogador** — O sistema deve apresentar um menu inicial permitindo que o jogador informe seu nome antes do início da partida. O sistema deverá manter o progresso apenas durante a sessão ativa do jogo, sem persistência de dados após o encerramento da aplicação. |
+| **RF02** | **Tutorial inicial** — O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes do início da primeira partida.                                                                                           
+| **RF03** | **Sistema de quizzes de negociação** — O sistema deve disponibilizar quizzes interativos que simulem situações de vendas e negociação de produtos da Cielo, apresentando múltiplas opções de resposta baseadas no diálogo com o cliente (NPC).                                                       
+| **RF04** | **Sistema de variáveis do cliente (tempo e humor)** — O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador durante a negociação.                                                              
+| **RF05** | **Sistema de pontuação** — O sistema deve calcular automaticamente a pontuação do jogador considerando: (a) escolhas realizadas no quiz, (b) tempo de resposta e (c) estado de humor do cliente ao final da interação.                                                                               
+| **RF06** | **Painel de desempenho em tempo real** — O sistema deve exibir um painel visual com indicadores de desempenho da partida atual, incluindo pontuação, status do cliente e progresso do jogador. As informações deverão ser reiniciadas ao encerrar a sessão.                                          |
+| **RF07** | **Interação com NPCs** — O sistema deve permitir que o jogador interaja com NPCs distribuídos no mapa para iniciar negociações e acessar os quizzes.                                                                                                 |
+| **RF08** | **Navegação em mundo aberto** — O sistema deve permitir a movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes a serem atendidos.  
 
-_A seguir, apresenta-se a tabela de requisitos:_
-\# | Requisitos  
---- | ---
-RF01 | Menu inicial e identificação temporária do jogador - O sistema deve apresentar um menu inicial no qual o jogador possa informar seu nome antes de iniciar a partida. O sistema deve manter o progresso do jogador enquanto o jogo estiver em execução. Ao encerrar ou fechar o jogo, os dados (nome e progresso) não serão armazenados permanentemente.
-RF02 | Tutorial inicial das mecânicas do jogo - O sistema deve apresentar um tutorial inicial que explique as principais mecânicas do jogo.
-RF03 | Sistema de quizzes simulando vendas de produtos da Cielo - O sistema deve disponibilizar um sistema de quizzes que simule situações de vendas de produtos da Cielo, o que exige tomadas de decisão do jogador. 
-RF04 | Sistema de tempo e humor do cliente - O sistema deve gerenciar variáveis de tempo e humor do cliente, que influenciam o andamento das interações e decisões durante o jogo.
-RF05 | Sistema de pontuação baseado em quiz, tempo e humor - O sistema deve calcular a pontuação do jogador com base no desempenho nos quizzes, no tempo de resposta e no humor do cliente.
-RF06 | Exibição de desempenho do jogador na partida atual - O sistema deve exibir um painel de desempenho com base na pontuação obtida pelo jogador durante a partida em andamento, permitindo que ele acompanhe sua evolução ao longo do jogo. Os dados exibidos não serão armazenados permanentemente e serão reiniciados ao encerrar ou fechar o jogo.
-RNF01 | Ambiente gráfico e perspectiva do jogo - O jogo deve ser desenvolvido em um ambiente 2D, com visão top-down, que prioriza a movimentação fluída e intuitiva do jogador pelo cenário. 
-RNF02 | Plataforma de acesso - O jogo deve ser executável em navegadores web, sem necessidade de instalação local. 
-RNF03 | Linguagem e clareza - O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.
-RNF04 | Identidade visual e interface do usuário (UI/UX) - O jogo deve possuir uma identidade visual consistente, alinhada ao contexto comercial e educacional da Cielo, incluindo cores, tipografia, personagens e elementos gráficos padronizados. A interface deve ser intuitiva, organizada e de fácil compreensão, garantindo boa experiência de navegação para o jogador. Os personagens, cenários e objetos devem ser representados por meio de sprites e elementos gráficos adequados ao ambiente 2D com visão top-down."
+\# | Requisitos Não Funcionais
+| **RNF01** | **Ambiente gráfico** — O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixo nível de complexidade operacional.                                                                                              
+| **RNF02** | **Plataforma de execução** — O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação local ou configuração adicional pelo usuário.                                                                                                  
+| **RNF03** | **Usabilidade e linguagem** — O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo, garantindo fácil compreensão das interações e instruções.                                                                                               
+| **RNF04** | **Interface e identidade visual (UI/UX)** — O sistema deve apresentar identidade visual consistente, com padronização de cores, tipografia, personagens e elementos gráficos alinhados ao contexto corporativo e educacional. A interface deve priorizar acessibilidade, organização visual e facilidade de navegação. 
+| **RNF05** | **Desempenho** — O jogo deve manter execução fluida em navegadores padrão corporativos, evitando quedas perceptíveis de desempenho durante movimentação e interações.                                                                                               
+| **RNF06** | **Acessibilidade operacional** — As mecânicas do jogo devem exigir baixo nível de habilidade gamer, permitindo utilização por usuários sem experiência prévia com jogos digitais.                                                                                                 
+
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
-_Posicione aqui uma descrição justificada do público-alvo do jogo, em termos demográficos e de preferências/gostos pessoais._
+O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto, inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
 
+Perfil Demográfico
+
+. Profissionais da área de vendas e relacionamento comercial
+. Faixa etária média: 40–50 anos
+. Usuários com familiaridade funcional com tecnologia digital
+. Predominantemente non-gamers ou jogadores ocasionais
+. Tempo limitado para treinamento devido à rotina profissional
+
+Considerando essas características, o jogo foi desenvolvido em formato 2D mundo aberto (top down), priorizando acessibilidade, navegação simples e rápida assimilação das mecânicas, reduzindo a necessidade de habilidades típicas de jogadores experientes.
+
+Perfil Psicográfico e Preferências
+
+O público demonstra maior engajamento com experiências que:
+. Possuam aplicação prática direta no trabalho;
+. Simulem situações reais do cotidiano profissional;
+. Ofereçam aprendizado ativo em vez de treinamento passivo;
+. Apresentem feedback claro de desempenho e evolução;
+. Estimulem reconhecimento por progresso e melhoria contínua.
+
+Necessidades de Aprendizagem
+
+. O jogo busca desenvolver competências-chave da área comercial, incluindo:
+Persuasão e argumentação de vendas;
+. Tomada de decisão sob pressão;
+. Interpretação de perfis de clientes;
+. Estratégias de marketing e negociação;
+. Comunicação assertiva.
+
+Essas habilidades são trabalhadas por meio de interações com NPCs que representam clientes em cenários simulados. O jogador participa de negociações estruturadas em formato de quiz contextual, selecionando respostas e argumentos estratégicos conforme a situação apresentada.
+
+Justificativa de Design
+
+A escolha do formato de jogo aberto 2D com interações baseadas em decisão foi definida para:
+. Facilitar o aprendizado experiencial;
+. Promover retenção de conhecimento através da prática;
+. Reduzir resistência a treinamentos corporativos tradicionais;
+. Integrar gamificação ao processo de qualificação profissional.
+
+O jogo se posiciona, portanto, como uma ferramenta de gamificação corporativa, voltada ao desenvolvimento contínuo da equipe comercial por meio de simulação interativa e aprendizagem baseada em decisões.
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)

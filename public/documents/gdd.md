@@ -157,33 +157,34 @@ O jogo se posiciona, portanto, como uma ferramenta de gamificação corporativa,
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-_Descreva o que o jogador deve cumprir para avançar ou concluir o jogo_
+Para avançar no jogo, o jogador deve participar de simulações de negociação estruturadas, nas quais a progressão está diretamente relacionada ao seu desempenho em quizzes inseridos em contextos realistas de vendas. Em cada fase, é necessário atingir a pontuação mínima definida, resultante do número de respostas corretas e da adequação das decisões tomadas ao longo da interação com o cliente.
+Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
+O jogo é concluído quando todas as fases são finalizadas com sucesso, indicando que o jogador conseguiu manter um bom desempenho e evoluir ao longo dos diferentes cenários de negociação.
 
 ## 2.2. Características do Jogo (sprint 2)
 
+O jogo é uma simulação interativa de negociação focada no desenvolvimento de habilidades comerciais em um ambiente virtual. Ele é organizado em fases progressivas, nas quais o jogador interage com diferentes perfis de clientes por meio de quizzes que representam situações comuns do processo de vendas. Ao longo da experiência, são utilizados elementos de gamificação, como pontuação, níveis e aumento gradual da dificuldade, permitindo que o jogador experimente estratégias, tome decisões e perceba os resultados de suas escolhas. Dessa forma, o jogo combina engajamento com aprendizagem prática, oferecendo um espaço seguro para treinar comunicação, argumentação e tomada de decisão.
+
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
-_simulação, RPG, corrida, estratégia, esportes, ação, aventura etc._
+O jogo pode ser classificado como um serious game de simulação com quizzes.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-_quanto ao dispositivo: desktop, smartphones, tablets, TV etc._
+Atualmente o jogo está sendo feito apenas para desktop e compatível com o navegador Google Chrome.
 
-_quanto ao sistema: navegadores compatíveis_
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
-_1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc._
+Apenas 1 jogador.
 
 ### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
 
-_Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto_
+Os jogos Pokémon Fire Red, Pokémon Leaf Green e Pokémon Emerald além de serem semelhantes, foram usados como inspiração para o nosso jogo.
 
 ### 2.2.5. Tempo estimado de jogo (sprint 5)
 
-_Ex. O jogo pode ser concluído em 3 horas passando por todas as fases._
-
-_Ex. cada partida dura até 15 minutos_
+Aproximadamente 15 minutos.
 
 # <a name="c3"></a>3. Game Design (sprints 2 e 3)
 

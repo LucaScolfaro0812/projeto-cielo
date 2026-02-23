@@ -7,6 +7,27 @@ body {
 
   background: #0f172a;
   /* Define a cor de fundo da página (azul bem escuro) */
+  
+  /* Seleciona o corpo da página */
+
+
+  background-color: rgb(86, 185, 242);
+  /* Define a cor de fundo do site */
+
+  display: flex;
+  /* Ativa o Flexbox para facilitar alinhamento */
+
+  justify-content: center;
+  /* Centraliza os elementos horizontalmente */
+
+  align-items: center;
+  /* Centraliza os elementos verticalmente */
+
+  height: 100vh;
+  /* Faz o body ocupar 100% da altura da tela */
+
+  margin: 0;
+  /* Remove a margem padrão do navegador */
 }
 
 #ui {

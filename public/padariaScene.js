@@ -1,7 +1,7 @@
-class PadariaScene extends Phaser.Scene {
+class padariaScene extends Phaser.Scene {
 
     constructor() {
-        super({ key: 'PadariaScene' });
+        super({ key: 'padariaScene' });
     }
 
     preload() {

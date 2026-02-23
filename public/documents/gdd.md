@@ -74,7 +74,12 @@ _Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a an
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
-_Posicione aqui a Missão, Visão e Valores do seu projeto._
+Missão: Criar um jogo digital que simule situações reais de vendas, promovendo aprendizado prático e acessível para os Gerentes de Negócios da Cielo.
+
+Visão: Desenvolver uma solução digital prática e eficaz, que contribua para reduzir as barreiras geográficas nos treinamentos da Cielo.
+
+Valores: Aprendizado contínuo, inovação responsável, colaboração em equipe e compromisso com impacto educacional.
+
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 

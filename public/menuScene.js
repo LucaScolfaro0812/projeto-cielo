@@ -1,14 +1,14 @@
-class menuScene extends Phaser.Scene {
+export class menuScene extends Phaser.Scene {
     constructor() {
         super({ key: 'menuScene' });
     }
 
     preload() {
 
-        this.load.image('nuvens', 'assets/cloud-bg.png');
-        this.load.image('ceu', 'assets/sky-bg.png')
-        this.load.image('titulo', 'assets/titulo-jogo.png');
-        this.load.image('loja', 'assets/store-bg.png')
+        this.load.image('nuvens', 'public/assets/cloud-bg.png');
+        this.load.image('ceu', 'public/assets/sky-bg.png')
+        this.load.image('titulo', 'public/assets/titulo-jogo.png');
+        this.load.image('loja', 'public/assets/store-bg.png')
     }
     create() {
 

@@ -1,85 +1,145 @@
 export class GerenciadorQuizPadaria {
 
-    constructor(listaPerguntas) {
-        this.listaPerguntas = listaPerguntas;
-        this.reiniciar();
-    }
+    constructor(perguntas) {
 
-    reiniciar() {
-        this.indicePerguntaAtual = 0;
-        this.pontosTotais = 0;
+        this.perguntas = perguntas;
+
+        this.indiceAtual = 0;
+        this.pontuacao = 0;
         this.nivelSatisfacao = 50;
+
         this.tempoRestante = 15;
-        this.eventoTimer = null;
+        this.timerEvento = null;
+        this.scene = null;
+
+        // callbacks (definidos pela cena)
+        this.quandoPerguntaMudar = null;
+        this.quandoTempoMudar = null;
+        this.quandoResponder = null;
+        this.quandoFinalizar = null;
     }
 
-    iniciar(cena) {
-        this.cena = cena;
-        this.reiniciar();
-        this.emitirPerguntaAtual();
-        this.iniciarTimer();
-    }
+    iniciar(scene) {
 
-    get perguntaAtual() {
-        return this.listaPerguntas[this.indicePerguntaAtual];
-    }
-
-    responder(indiceResposta) {
-        const pergunta = this.perguntaAtual;
-        const pontosResposta = pergunta.pontos[indiceResposta];
-
-        this.pontosTotais += pontosResposta;
-
-        if (pontosResposta === 3) this.nivelSatisfacao += 30;
-        else if (pontosResposta === 2) this.nivelSatisfacao += 10;
-        else if (pontosResposta === 0) this.nivelSatisfacao -= 50;
-
-        this.nivelSatisfacao = Phaser.Math.Clamp(this.nivelSatisfacao, 0, 100);
-
-        this.quandoResponder?.(pontosResposta, this.nivelSatisfacao);
-
-        this.cena.time.delayedCall(2000, () => this.proximaPergunta());
-    }
-
-    proximaPergunta() {
-        this.indicePerguntaAtual++;
-
-        if (this.indicePerguntaAtual >= this.listaPerguntas.length) {
-            this.finalizarQuiz();
-            return;
-        }
+        this.scene = scene;
+        this.indiceAtual = 0;
+        this.pontuacao = 0;
+        this.nivelSatisfacao = 50;
 
         this.emitirPerguntaAtual();
         this.iniciarTimer();
     }
 
     emitirPerguntaAtual() {
-        this.quandoPerguntaMudar?.(this.perguntaAtual);
+
+        const perguntaAtual = this.perguntas[this.indiceAtual];
+
+        if (!perguntaAtual) {
+            console.warn("Pergunta não encontrada no índice:", this.indiceAtual);
+            return;
+        }
+
+        if (this.quandoPerguntaMudar) {
+            this.quandoPerguntaMudar(perguntaAtual);
+        }
     }
 
     iniciarTimer() {
+
         this.tempoRestante = 15;
-        this.quandoTempoMudar?.(this.tempoRestante);
 
-        if (this.eventoTimer) this.eventoTimer.remove();
+        if (this.quandoTempoMudar) {
+            this.quandoTempoMudar(this.tempoRestante);
+        }
 
-        this.eventoTimer = this.cena.time.addEvent({
+        if (this.timerEvento) {
+            this.timerEvento.remove(false);
+        }
+
+        this.timerEvento = this.scene.time.addEvent({
             delay: 1000,
-            loop: true,
             callback: () => {
+
                 this.tempoRestante--;
-                this.quandoTempoMudar?.(this.tempoRestante);
+
+                if (this.quandoTempoMudar) {
+                    this.quandoTempoMudar(this.tempoRestante);
+                }
 
                 if (this.tempoRestante <= 0) {
-                    this.eventoTimer.remove();
-                    this.quandoTempoEsgotado?.();
-                    this.cena.time.delayedCall(2000, () => this.proximaPergunta());
+                    this.tempoEsgotado();
                 }
-            }
+
+            },
+            loop: true
         });
     }
 
-    finalizarQuiz() {
-        this.quandoFinalizar?.(this.pontosTotais);
+    tempoEsgotado() {
+
+        if (this.timerEvento) {
+            this.timerEvento.remove(false);
+        }
+
+        if (this.quandoResponder) {
+            this.quandoResponder(0, this.nivelSatisfacao);
+        }
+
+        this.proximaPergunta();
+    }
+
+    responder(indiceEscolhido) {
+
+        const perguntaAtual = this.perguntas[this.indiceAtual];
+
+        if (!perguntaAtual) {
+            console.warn("Tentativa de responder sem pergunta válida");
+            return;
+        }
+
+        if (!perguntaAtual.pontos || perguntaAtual.pontos[indiceEscolhido] === undefined) {
+            console.warn("Pontos não encontrados para a resposta");
+            return;
+        }
+
+        if (this.timerEvento) {
+            this.timerEvento.remove(false);
+        }
+
+        const pontos = perguntaAtual.pontos[indiceEscolhido];
+
+        this.pontuacao += pontos;
+
+        // lógica de satisfação (mesma do seu sistema original)
+        if (pontos === 3) this.nivelSatisfacao += 30;
+        else if (pontos === 2) this.nivelSatisfacao += 10;
+        else if (pontos === 1) this.nivelSatisfacao += 0;
+        else this.nivelSatisfacao -= 50;
+
+        this.nivelSatisfacao = Phaser.Math.Clamp(this.nivelSatisfacao, 0, 100);
+
+        if (this.quandoResponder) {
+            this.quandoResponder(pontos, this.nivelSatisfacao);
+        }
+
+        this.proximaPergunta();
+    }
+
+    proximaPergunta() {
+
+        this.indiceAtual++;
+
+        if (this.indiceAtual < this.perguntas.length) {
+
+            this.emitirPerguntaAtual();
+            this.iniciarTimer();
+
+        } else {
+
+            if (this.quandoFinalizar) {
+                this.quandoFinalizar(this.pontuacao);
+            }
+
+        }
     }
 }

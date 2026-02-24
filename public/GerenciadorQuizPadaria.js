@@ -1,14 +1,23 @@
+const TEMPO_PADRAO_POR_PERGUNTA = 15;
+const INTERVALO_TIMER_MS = 1000;
+
+const PONTOS_SATISFACAO_EXCELENTE = 30;
+const PONTOS_SATISFACAO_BOA = 10;
+const PONTOS_SATISFACAO_RUIM = -50;
+const NIVEL_SATISFACAO_INICIAL = 50;
+
 export class GerenciadorQuizPadaria {
 
-    constructor(perguntas) {
+    constructor(perguntas, configuracao = {}) {
 
         this.perguntas = perguntas;
 
         this.indiceAtual = 0;
         this.pontuacao = 0;
-        this.nivelSatisfacao = 50;
+        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
 
-        this.tempoRestante = 15;
+        this.tempoPorPergunta = configuracao.tempoPorPergunta ?? TEMPO_PADRAO_POR_PERGUNTA;
+        this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
         this.scene = null;
 
@@ -24,7 +33,7 @@ export class GerenciadorQuizPadaria {
         this.scene = scene;
         this.indiceAtual = 0;
         this.pontuacao = 0;
-        this.nivelSatisfacao = 50;
+        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
 
         this.emitirPerguntaAtual();
         this.iniciarTimer();
@@ -46,7 +55,7 @@ export class GerenciadorQuizPadaria {
 
     iniciarTimer() {
 
-        this.tempoRestante = 15;
+        this.tempoRestante = this.tempoPorPergunta;
 
         if (this.quandoTempoMudar) {
             this.quandoTempoMudar(this.tempoRestante);
@@ -57,7 +66,7 @@ export class GerenciadorQuizPadaria {
         }
 
         this.timerEvento = this.scene.time.addEvent({
-            delay: 1000,
+            delay: INTERVALO_TIMER_MS,
             callback: () => {
 
                 this.tempoRestante--;
@@ -110,11 +119,11 @@ export class GerenciadorQuizPadaria {
 
         this.pontuacao += pontos;
 
-        // lógica de satisfação (mesma do seu sistema original)
-        if (pontos === 3) this.nivelSatisfacao += 30;
-        else if (pontos === 2) this.nivelSatisfacao += 10;
+        // lógica de satisfação
+        if (pontos === 3) this.nivelSatisfacao += PONTOS_SATISFACAO_EXCELENTE;
+        else if (pontos === 2) this.nivelSatisfacao += PONTOS_SATISFACAO_BOA;
         else if (pontos === 1) this.nivelSatisfacao += 0;
-        else this.nivelSatisfacao -= 50;
+        else this.nivelSatisfacao += PONTOS_SATISFACAO_RUIM;
 
         this.nivelSatisfacao = Phaser.Math.Clamp(this.nivelSatisfacao, 0, 100);
 

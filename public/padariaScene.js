@@ -84,6 +84,7 @@ export class padariaScene extends Phaser.Scene {
 
         this.containerQuizUI = this.add.container(0, 0).setDepth(1000);
 
+        // ===== OVERLAY =====
         this.fundoOverlay = this.add.rectangle(
             0, 0,
             this.scale.width,
@@ -128,27 +129,32 @@ export class padariaScene extends Phaser.Scene {
             -alturaModal / 2 + padding
         );
 
-        // HEADER
+        // ===== HEADER =====
         this.containerHeader = this.add.container(0, 0);
 
-        this.imagemNpc = this.add.image(0, 20, 'npc-padeiro').setScale(0.35);
+        this.imagemNpc = this.add.image(0, 0, 'npc-padeiro')
+            .setOrigin(0, 0)
+            .setScale(0.3);
 
-        this.textoTimer = this.add.text(70, 0, "15s", {
+        this.textoTimer = this.add.text(80, 10, "15s", {
             fontSize: "20px",
             color: "#1e40af",
             fontStyle: "bold"
         });
 
-        this.containerHeader.add([this.imagemNpc, this.textoTimer]);
+        this.containerHeader.add([
+            this.imagemNpc,
+            this.textoTimer
+        ]);
 
-        // PERGUNTA
+        // ===== PERGUNTA (APENAS UMA) =====
         this.textoPergunta = this.add.text(0, 70, "", {
             fontSize: "18px",
             color: "#1e3a5f",
             wordWrap: { width: larguraConteudo }
         });
 
-        // BOTÕES
+        // ===== BOTÕES =====
         this.containerBotoes = this.add.container(0, 130);
         this.botoes = [];
 
@@ -176,7 +182,7 @@ export class padariaScene extends Phaser.Scene {
             this.botoes.push(textoBotao);
         }
 
-        // FEEDBACK
+        // ===== FEEDBACK =====
         this.textoFeedback = this.add.text(
             larguraConteudo / 2,
             330,

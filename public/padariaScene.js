@@ -13,7 +13,7 @@ const QUIZ_TEMPERATURE_MAX_HEIGHT = 200;
 const QUIZ_FEEDBACK_DURATION = 1500;
 const QUIZ_FINALIZAR_FECHAR_DELAY = 2500;
 
-export class padariaScene extends Phaser.Scene {
+export class PadariaScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'padariaScene' });

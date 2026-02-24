@@ -48,15 +48,13 @@ _Posicione aqui o texto que explica o contexto da indústria/mercado do qual o p
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
-_Posicione aqui o modelo de 5 Forças de Porter para sustentar o contexto da indústria._
-
 ##### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
 A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo
 
-##### 1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
+##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
 A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta. Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais. Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas. Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor.
 
-##### 1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
+##### 1.1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
 A Cielo depende de quatro grupos principais de fornecedores. As bandeiras de cartões, como Visa, Mastercard, Elo e American Express, possuem alto poder de barganha, pois controlam padrões de segurança, regras operacionais e tarifas, sendo indispensáveis para o funcionamento da adquirente.
 Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já que participam da liquidação das transações e influenciam prazos de repasse e custos financeiros.
 Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
@@ -64,24 +62,26 @@ Já os fornecedores de hardware e telecomunicações possuem poder moderado, dev
 O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
 Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor.
 
-##### 1.1.1.1.1.1.1 Identificação e análise dos principais obstáculos para novos entrantes.
+##### 1.1.1.1.2 Identificação e análise dos principais obstáculos para novos entrantes.
 <p>Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência</p>
 
 
-##### 1.1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
+##### 1.1.1.1.2.1 Avaliação do impacto potencial dos novos entrantes na indústria.
 
 <p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 
-##### 1.1.1.1.4.1  Identificação dos principais tipos de clientes da indústria
+##### 1.1.1.1.4  Identificação dos principais tipos de clientes da indústria
 
 <p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online. Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
 
-##### 1.1.1.1.4.2 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
+##### 1.1.1.1.4.1 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
 
 <p>O poder de barganha dos clientes na indústria de adquirência é considerado elevado devido ao aumento da concorrência e à maior oferta de soluções de pagamento. A facilidade de troca entre provedores permite que os clientes negociem taxas mais baixas e melhores condições contratuais. Além disso, a popularização do Pix reduziu a dependência dos cartões, intensificando a pressão sobre empresas tradicionais do setor. Como consequência, organizações como a Cielo enfrentam maior competição e perda relativa de participação de mercado, sendo levadas a investir em tecnologia, inovação e serviços de maior valor agregado para atrair e reter clientes.
 
 
-##### 1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes.
+##### 1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes
+##### - Identificação dos principais concorrentes na indústria.
+##### - Análise do nível de rivalidade e como ela afeta a competitividade na indústria.
 
 <p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.
 Os principais concorrentes da Cielo incluem Rede (Itaú Unibanco), Getnet (Santander Brasil), Stone, PagBank (PagSeguro) e MercadoPago, além de novos players digitais. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo e do Banco Central, Stone, PagBank e Mercado Pago ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.
@@ -89,8 +89,6 @@ O nível de rivalidade é classificado como alto, impactando diretamente a compe
 
 
 ### 1.1.2. Análise SWOT (sprint 2)
-
-
 
 | FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
 | :--- | :--- |
@@ -106,10 +104,6 @@ O nível de rivalidade é classificado como alto, impactando diretamente a compe
 | **Monetização de Dados:** Uso de inteligência de dados (ICVA) para oferecer consultoria e produtos personalizados. | **Consolidação do Pix:** O avanço do Pix reduz a receita vinda de taxas de cartões de débito tradicionais. |
 | **Expansão em PMEs:** Foco no crescimento do volume de transações em Pequenas e Médias Empresas. | **Guerra das Maquininhas:** Competição agressiva de taxas com empresas como Stone, PagBank e Getnet. |
 | **Digitalização do Varejo:** Crescimento contínuo do e-commerce e soluções de pagamento invisível. | **Regulação e Cibersegurança:** Aumento nos custos com segurança digital e novas normas rígidas do Banco Central. |
-
-
-
-
 
 
 ---

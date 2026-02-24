@@ -31,36 +31,11 @@ class padariaScene extends Phaser.Scene {
 
         this.configurarBotoesQuiz();
 
-        // VALOR INICIAL (0 a 100)
+        // Valor inicial da satisfação (0 a 100)
         this.nivelSatisfacao = 50;
 
-        // Configurações
-        this.termometroX = 50;
-        this.termometroY = 100;
-        this.termometroLargura = 40;
-        this.termometroAltura = 300;
-
-        // Fundo (cinza)
-        this.termometroFundo = this.add.graphics();
-        this.termometroFundo.fillStyle(0xdddddd, 1);
-        this.termometroFundo.fillRoundedRect(
-            this.termometroX,
-            this.termometroY,
-            this.termometroLargura,
-            this.termometroAltura,
-            20
-        );
-
-        // Barra interna
-        this.termometroBarra = this.add.graphics();
-
-        this.acertos = 0;
-        this.totalPerguntas = 10; // ou o valor correto
-        this.nivelSatisfacao = 0;
-
-        this.mostrarTermometro(false);
-        // Desenha primeira vez
-        this.atualizarTermometro(this.nivelSatisfacao);
+        esconder();
+        atualizar(this.nivelSatisfacao);
     }
 
     update() {
@@ -116,7 +91,7 @@ class padariaScene extends Phaser.Scene {
         document.getElementById('quiz-padaria').classList.remove('hidden');
         this.mostrarPergunta();
 
-        this.mostrarTermometro();
+        mostrar();
     }
 
     mostrarPergunta() {
@@ -202,7 +177,10 @@ class padariaScene extends Phaser.Scene {
             this.mostrarFeedback(false, "Essa abordagem pode prejudicar a venda.");
             this.satisfacao -= 50;
         }
-        this.animarTermometro(this.nivelSatisfacao + this.satisfacao);
+        this.nivelSatisfacao = this.nivelSatisfacao + this.satisfacao;
+        if (this.nivelSatisfacao < 0) this.nivelSatisfacao = 0;
+        if (this.nivelSatisfacao > 100) this.nivelSatisfacao = 100;
+        atualizar(this.nivelSatisfacao);
         setTimeout(() => this.proximaPergunta(), 2500);
     }
 
@@ -237,52 +215,6 @@ class padariaScene extends Phaser.Scene {
             document.getElementById('quiz-padaria').classList.add('hidden');
             this.quizPadariaAberto = false;
         }, 3000);
-        this.mostrarTermometro(false);
-    }
-
-    atualizarTermometro(valor) {
-
-        // Limita entre 0 e 100
-        valor = Phaser.Math.Clamp(valor, 0, 100);
-        this.nivelSatisfacao = valor;
-
-        this.termometroBarra.clear();
-
-        let alturaAtual = (valor / 100) * this.termometroAltura;
-
-        // Define cor por faixa
-        let cor = 0xff3b30; // vermelho
-        if (valor > 40) cor = 0xffcc00; // amarelo
-        if (valor > 70) cor = 0x34c759; // verde
-
-        this.termometroBarra.fillStyle(cor, 1);
-
-        // Desenha de baixo para cima
-        this.termometroBarra.fillRoundedRect(
-            this.termometroX,
-            this.termometroY + (this.termometroAltura - alturaAtual),
-            this.termometroLargura,
-            alturaAtual,
-            20
-        );
-    }
-
-    mostrarTermometro(estado = true) {
-        this.termometroFundo.setVisible(estado);
-        this.termometroBarra.setVisible(estado);
-    }
-
-    animarTermometro(novoValor) {
-
-        this.tweens.add({
-            targets: this,
-            nivelSatisfacao: novoValor,
-            duration: 500,
-            ease: 'Power2',
-            onUpdate: () => {
-                this.atualizarTermometro(this.nivelSatisfacao);
-            }
-        });
-
+        esconder();
     }
 }

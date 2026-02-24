@@ -60,6 +60,12 @@ export class padariaScene extends Phaser.Scene {
             this.player.y += velocidade;
         }
 
+        // Mantém o player dentro dos limites da tela
+        var margemX = this.player.displayWidth / 2;
+        var margemY = this.player.displayHeight / 2;
+        this.player.x = Phaser.Math.Clamp(this.player.x, margemX, this.scale.width - margemX);
+        this.player.y = Phaser.Math.Clamp(this.player.y, margemY, this.scale.height - margemY);
+
         // Verifica proximidade com NPC
         let distancia = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,

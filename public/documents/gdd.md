@@ -541,6 +541,13 @@ SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia M
 ANALYSIS. Swot. Disponível em: [link do site](https://swottemplate.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
 FIVE, Porters. Título do site. Disponível em: [link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
 
+**PortersFiveForce.com.** (2025). *What are the Porter's Five Forces of Cielo?* [Disponível em: link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026.
+
+**Sandra Vieira.** (2025). *Mercado de adquirência: um gigante em disputa na era do Pix* [Publicação no LinkedIn]. [Disponível em: link do site](https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA). Acesso em: 10 fev. 2026.
+
+**ClickPetróleo e Gás.** (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix.* [Disponível em: link do site](https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/). Acesso em: 10 fev. 2026.
+
+**Reuters.** (2026, February 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

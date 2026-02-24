@@ -272,3 +272,44 @@ button:hover {
   margin: 0;
   font-weight: bold;
 }
+
+/* Barra de satisfação (DOM) */
+.satisfacao-container {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+.satisfacao-track {
+  width: 40px;
+  height: 300px;
+  background: #dddddd;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.satisfacao-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  border-radius: 20px;
+  transition: height 0.3s ease;
+}
+
+/* Cores por faixa de valor (0–40: vermelho, 40–70: amarelo, 70–100: verde) */
+.satisfacao-fill.satisfacao-baixa {
+  background: #ff3b30;
+}
+
+.satisfacao-fill.satisfacao-media {
+  background: #ffcc00;
+}
+
+.satisfacao-fill.satisfacao-alta {
+  background: #34c759;
+}

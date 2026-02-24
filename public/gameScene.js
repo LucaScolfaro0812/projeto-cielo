@@ -1,5 +1,3 @@
-import Player from './player.js';
-
 class gameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'gameScene' });
@@ -42,5 +40,3 @@ class gameScene extends Phaser.Scene {
         this.player.movimentar(this.teclas);
     }
 }
-
-export default gameScene;

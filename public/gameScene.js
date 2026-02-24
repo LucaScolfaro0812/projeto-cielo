@@ -42,5 +42,3 @@ export class gameScene extends Phaser.Scene {
         this.player.movimentar(this.teclas);
     }
 }
-
-export default gameScene;

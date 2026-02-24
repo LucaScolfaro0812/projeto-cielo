@@ -1,6 +1,18 @@
 import { perguntasPadaria } from './quizPadaria.js';
 import { GerenciadorQuizPadaria } from './GerenciadorQuizPadaria.js';
 
+const PLAYER_SPEED = 2.5;
+const INTERACAO_DISTANCIA_NPC = 100;
+
+const QUIZ_MODAL_WIDTH = 700;
+const QUIZ_MODAL_HEIGHT = 430;
+const QUIZ_PADDING = 30;
+const QUIZ_LARGURA_COLUNA_BARRA = 60;
+
+const QUIZ_TEMPERATURE_MAX_HEIGHT = 200;
+const QUIZ_FEEDBACK_DURATION = 1500;
+const QUIZ_FINALIZAR_FECHAR_DELAY = 2500;
+
 export class padariaScene extends Phaser.Scene {
 
     constructor() {
@@ -14,21 +26,31 @@ export class padariaScene extends Phaser.Scene {
     }
 
     create() {
+        this.criarCenario();
+        this.configurarControles();
+        this.quizPadariaAberto = false;
+        this.configurarQuiz();
+    }
 
+    criarCenario() {
         // ===== CENÁRIO =====
         this.add.image(480, 200, 'padaria').setScale(2.1);
         this.npcPadeiro = this.add.image(550, 180, 'npc-padeiro').setScale(0.4);
         this.player = this.add.image(100, 100, 'player').setScale(0.5);
+    }
 
+    configurarControles() {
         // ===== CONTROLES =====
-        this.teclaW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        this.teclaA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        this.teclaS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        this.teclaD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        const { KeyCodes } = Phaser.Input.Keyboard;
 
-        this.quizPadariaAberto = false;
+        this.teclaW = this.input.keyboard.addKey(KeyCodes.W);
+        this.teclaA = this.input.keyboard.addKey(KeyCodes.A);
+        this.teclaS = this.input.keyboard.addKey(KeyCodes.S);
+        this.teclaD = this.input.keyboard.addKey(KeyCodes.D);
+        this.teclaE = this.input.keyboard.addKey(KeyCodes.E);
+    }
 
+    configurarQuiz() {
         // GERENCIADOR
         this.gerenciadorQuiz = new GerenciadorQuizPadaria(perguntasPadaria);
 
@@ -43,7 +65,7 @@ export class padariaScene extends Phaser.Scene {
         };
 
         this.gerenciadorQuiz.quandoTempoMudar = (tempo) => {
-            this.textoTimer.setText(tempo + "s");
+            this.textoTimer.setText(`${tempo}s`);
         };
 
         this.gerenciadorQuiz.quandoResponder = (pontos, nivel) => {
@@ -60,20 +82,18 @@ export class padariaScene extends Phaser.Scene {
 
         if (this.quizPadariaAberto) return;
 
-        let velocidade = 2.5;
+        if (this.teclaA.isDown) this.player.x -= PLAYER_SPEED;
+        else if (this.teclaD.isDown) this.player.x += PLAYER_SPEED;
 
-        if (this.teclaA.isDown) this.player.x -= velocidade;
-        else if (this.teclaD.isDown) this.player.x += velocidade;
-
-        if (this.teclaW.isDown) this.player.y -= velocidade;
-        else if (this.teclaS.isDown) this.player.y += velocidade;
+        if (this.teclaW.isDown) this.player.y -= PLAYER_SPEED;
+        else if (this.teclaS.isDown) this.player.y += PLAYER_SPEED;
 
         let distancia = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
             this.npcPadeiro.x, this.npcPadeiro.y
         );
 
-        if (distancia < 100 && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+        if (distancia < INTERACAO_DISTANCIA_NPC && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
             this.abrirQuizPadaria();
         }
     }
@@ -92,10 +112,10 @@ export class padariaScene extends Phaser.Scene {
             0x000000, 0.6
         ).setOrigin(0);
 
-        const larguraModal = 700;
-        const alturaModal = 430;
-        const padding = 30;
-        const larguraColunaBarra = 60;
+        const larguraModal = QUIZ_MODAL_WIDTH;
+        const alturaModal = QUIZ_MODAL_HEIGHT;
+        const padding = QUIZ_PADDING;
+        const larguraColunaBarra = QUIZ_LARGURA_COLUNA_BARRA;
 
         this.containerModal = this.add.container(
             this.scale.width / 2,
@@ -216,8 +236,7 @@ export class padariaScene extends Phaser.Scene {
     }
 
     atualizarSatisfacao(valor) {
-        const alturaMax = 200;
-        const altura = (valor / 100) * alturaMax;
+        const altura = (valor / 100) * QUIZ_TEMPERATURE_MAX_HEIGHT;
 
         let cor = 0xff3b30;
         if (valor > 40) cor = 0xffcc00;
@@ -235,7 +254,7 @@ export class padariaScene extends Phaser.Scene {
         this.textoFeedback.setText(mensagem);
         this.textoFeedback.setVisible(true);
 
-        this.time.delayedCall(1500, () => {
+        this.time.delayedCall(QUIZ_FEEDBACK_DURATION, () => {
             this.textoFeedback.setVisible(false);
         });
     }
@@ -253,7 +272,7 @@ export class padariaScene extends Phaser.Scene {
     finalizarQuiz() {
         this.textoPergunta.setText("Quiz finalizado!");
 
-        this.time.delayedCall(2500, () => {
+        this.time.delayedCall(QUIZ_FINALIZAR_FECHAR_DELAY, () => {
             this.quizPadariaAberto = false;
             this.mostrarInterfaceQuiz(false);
         });

@@ -1,5 +1,5 @@
 // Perguntas do quiz da padaria
-const perguntasPadaria = [
+export const perguntasPadaria = [
     {
         pergunta: "João diz: 'Tenho medo das taxas...'",
         opcoes: [

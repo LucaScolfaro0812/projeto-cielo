@@ -1,14 +1,14 @@
 import Player from './player.js';
 
-class gameScene extends Phaser.Scene {
+export class gameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'gameScene' });
     }
 
     preload() {
-        this.load.image('rua', 'assets/rua.png');
-        this.load.image('npc', 'assets/npc.png');
-        this.load.image('player', 'assets/marcielo.png');
+        this.load.image('rua', 'public/assets/rua.png');
+        this.load.image('npc', 'public/assets/npc.png');
+        this.load.image('player', 'public/assets/marcielo.png');
     }
 
     create() {

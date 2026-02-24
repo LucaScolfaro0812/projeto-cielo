@@ -1,13 +1,15 @@
-class padariaScene extends Phaser.Scene {
+import { perguntasPadaria } from './quizPadaria.js';
+
+export class padariaScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'padariaScene' });
     }
 
     preload() {
-        this.load.image('padaria', 'assets/padaria-bg-2.png');
-        this.load.image('npc-padeiro', 'assets/npc.png');
-        this.load.image('player', 'assets/marcielo.png');
+        this.load.image('padaria', 'public/assets/padaria-bg-2.png');
+        this.load.image('npc-padeiro', 'public/assets/npc.png');
+        this.load.image('player', 'public/assets/marcielo.png');
     }
 
     create() {

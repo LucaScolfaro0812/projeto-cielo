@@ -123,78 +123,86 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 100;
 }
 
 .quiz-modal {
-  background: linear-gradient(135deg, #e8f4fc 0%, #d1e9f6 100%);
-  border-radius: 20px;
-  padding: 25px;
-  width: 500px;
-  max-width: 90%;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  border: 3px solid #1e40af;
+  position: relative;
+  background: linear-gradient(160deg, #eef7fc 0%, #d8ecf8 100%);
+  border-radius: 24px;
+  padding: 28px 28px 28px 24px;
+  width: 580px;
+  max-width: 92%;
+  box-shadow: 0 12px 48px rgba(30, 64, 175, 0.2);
+  border: 2px solid #1e40af;
 }
 
 .quiz-header {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #1e40af;
+  gap: 14px;
+  margin-left: 90px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(30, 64, 175, 0.35);
 }
 
 .quiz-timer {
   background: #1e40af;
   color: white;
-  padding: 8px 15px;
-  border-radius: 20px;
+  padding: 6px 12px;
+  border-radius: 999px;
   font-weight: bold;
-  font-size: 16px;
-  min-width: 50px;
+  font-size: 14px;
+  min-width: 44px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .quiz-pergunta {
   color: #1e3a5f;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 1.4;
   margin: 0;
   flex: 1;
 }
 
 .quiz-body {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: flex-start;
+  margin-left: 90px;
 }
 
 .quiz-npc {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .quiz-npc img {
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 12px;
   background: white;
-  padding: 5px;
-  border: 2px solid #1e40af;
+  padding: 6px;
+  border: 1px solid rgba(30, 64, 175, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .quiz-npc-nome {
   color: #1e3a5f;
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .quiz-alternativas {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -203,21 +211,24 @@ button:hover {
 .quiz-btn {
   background: white;
   color: #1e3a5f;
-  border: 2px solid #1e40af;
-  border-radius: 10px;
-  padding: 12px 15px;
+  border: 1px solid rgba(30, 64, 175, 0.35);
+  border-radius: 12px;
+  padding: 12px 16px;
   font-size: 14px;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s;
   width: 100%;
   margin: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .quiz-btn:hover {
   background: #1e40af;
   color: white;
-  transform: translateX(5px);
+  transform: translateX(4px);
+  border-color: #1e40af;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
 }
 
 .quiz-btn.correta {
@@ -250,9 +261,11 @@ button:hover {
 }
 
 .quiz-feedback {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 10px;
+  margin-top: 14px;
+  margin-left: 90px;
+  margin-right: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
   text-align: center;
 }
 
@@ -273,22 +286,41 @@ button:hover {
   font-weight: bold;
 }
 
-/* Barra de satisfação (DOM) */
+/* Barra de satisfação (dentro do modal do quiz) */
 .satisfacao-container {
-  position: fixed;
+  position: absolute;
   left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
+  top: 96px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.satisfacao-container::before {
+  content: "Satisfação";
+  gap: 12px;
+  padding-right: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #1e3a5f;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  text-transform: uppercase;
 }
 
 .satisfacao-track {
-  width: 40px;
-  height: 300px;
-  background: #dddddd;
-  border-radius: 20px;
+  width: 26px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 13px;
   overflow: hidden;
   position: relative;
+  border: 1px solid rgba(30, 64, 175, 0.18);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .satisfacao-fill {
@@ -297,8 +329,8 @@ button:hover {
   left: 0;
   right: 0;
   height: 0%;
-  border-radius: 20px;
-  transition: height 0.3s ease;
+  border-radius: 11px;
+  transition: height 0.35s ease;
 }
 
 /* Cores por faixa de valor (0–40: vermelho, 40–70: amarelo, 70–100: verde) */

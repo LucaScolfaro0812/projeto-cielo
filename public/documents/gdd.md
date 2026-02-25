@@ -44,7 +44,23 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-_Posicione aqui o texto que explica o contexto da indústria/mercado do qual o parceiro de projeto faz parte. Contextualize o segmento de atuação do parceiro (pode ser indústria, comércio ou serviço). Caracterize as atividades executadas pelo negócio do parceiro e a abrangência de suas atividades (âmbito internacional, nacional ou regional)._
+A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
+
+Referências:
+
+Banco Central do Brasil. (2024). Relatório de vigilância do sistema de pagamentos brasileiro. https://www.bcb.gov.br
+
+CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
+
+Cielo S.A. (2023). Relatório anual integrado 2023. https://www.cielo.com.br
+
+Cielo S.A. (2024). Informações institucionais e dados operacionais. https://www.cielo.com.br
+
+PagBank. (2024). Relatório institucional e atuação no mercado de pagamentos. https://www.pagbank.com.br
+
+Stone Co. (2024). Formulário de referência e modelo de negócios. https://investors.stone.co
+
+Valor Econômico. (2025). Resultados financeiros da Cielo. https://s3.glbimg.comWikipedia. (2024). Cielo. https://pt.wikipedia.org
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 

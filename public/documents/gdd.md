@@ -277,8 +277,9 @@ Aproximadamente 15 minutos.
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
-<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão posicionados dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
+<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
 <img src="public/assets/Coadjuvantes.png" width= 250> 
 
@@ -305,11 +306,7 @@ Segue abaixo o mapa:
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-_\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável_
-
-_Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)_
-
-- não tem, o que faz aqui? 
+Não se aplica 
 
 ### 3.3.4. Concept Art (sprint 2)
 

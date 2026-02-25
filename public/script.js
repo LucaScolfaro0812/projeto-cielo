@@ -1,6 +1,6 @@
 import { menuScene } from './menuScene.js';
-        import { gameScene } from './gameScene.js';
-        import { padariaScene } from './padariaScene.js';
+import { gameScene } from './gameScene.js';
+import { PadariaScene } from './padariaScene.js';
 
         // Configuração principal do jogo Phaser
         var config = {
@@ -17,7 +17,7 @@ import { menuScene } from './menuScene.js';
             scene: [
                 menuScene,
                 gameScene,
-                padariaScene,
+                PadariaScene,
             ]
         }
 

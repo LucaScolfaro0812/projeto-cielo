@@ -9,22 +9,65 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setCollideWorldBounds(true);
 
         this.velocidade = 200;
+
+        this.criarAnimacoes(scene);
+    }
+
+    criarAnimacoes(scene) {
+        scene.anims.create({
+            key: "andar-direita",
+            frames: scene.anims.generateFrameNumbers("player", { start: 0, end: 2 }),
+            frameRate: 8,
+            repeat: -1
+        });
+
+        scene.anims.create({
+            key: "andar-esquerda",
+            frames: scene.anims.generateFrameNumbers("player", { start: 3, end: 5 }),
+            repeat: -1
+        });
+
+        scene.anims.create({
+            key: "andar-cima",
+            frames: scene.anims.generateFrameNumbers("player", { start: 6, end: 8 }),
+            repeat: -1
+        });
+
+        scene.anims.create({
+            key: "andar-baixo",
+            frames: scene.anims.generateFrameNumbers("player", { start: 9, end: 11 }),
+            repeat: -1
+        });
     }
 
     movimentar(teclas) {
         this.setVelocity(0);
 
+        let movendo = false;
+
         if (teclas.A.isDown) {
             this.setVelocityX(-this.velocidade);
+            this.anims.play("andar-esquerda", true);
+            movendo = true;
         }
-        if (teclas.D.isDown) {
+        else if (teclas.D.isDown) {
             this.setVelocityX(this.velocidade);
+            this.anims.play("andar-direita", true);
+            movendo = true;
         }
-        if (teclas.W.isDown) {
+        else if (teclas.W.isDown) {
             this.setVelocityY(-this.velocidade);
+            this.anims.play("andar-cima", true);
+            movendo = true;
         }
-        if (teclas.S.isDown) {
+        else if (teclas.S.isDown) {
             this.setVelocityY(this.velocidade);
+            this.anims.play("andar-baixo", true);
+            movendo = true;
+        }
+
+        if (!movendo) {
+            this.anims.stop();
         }
     }
 }

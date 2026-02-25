@@ -8,7 +8,11 @@ export class gameScene extends Phaser.Scene {
     preload() {
         this.load.image('rua', 'public/assets/rua.png');
         this.load.image('npc', 'public/assets/npc.png');
-        this.load.image('player', 'public/assets/marcielo.png');
+        // this.load.image('player', 'public/assets/marcielo.png');
+        this.load.spritesheet('player', './assets/spite-player.jpg', {
+            frameWidth: 32,
+            frameHeight: 32
+        });
     }
 
     create() {

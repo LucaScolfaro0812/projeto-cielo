@@ -26,8 +26,8 @@ export class PadariaScene extends Phaser.Scene {
 
         // SPRITESHEET DO PLAYER
         this.load.spritesheet('player', 'public/assets/spite-player.jpg', {
-            frameWidth: 32,
-            frameHeight: 32
+            frameWidth: 128,
+            frameHeight: 128
         });
     }
 

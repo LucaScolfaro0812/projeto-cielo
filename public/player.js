@@ -17,25 +17,27 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.anims.create({
             key: "andar-direita",
             frames: scene.anims.generateFrameNumbers("player", { start: 0, end: 2 }),
-            frameRate: 8,
+            duration: 2,
             repeat: -1
         });
 
         scene.anims.create({
             key: "andar-esquerda",
-            frames: scene.anims.generateFrameNumbers("player", { start: 3, end: 5 }),
+            frames: scene.anims.generateFrameNumbers("player", { start: 0, end: 2 }),
             repeat: -1
         });
 
         scene.anims.create({
             key: "andar-cima",
-            frames: scene.anims.generateFrameNumbers("player", { start: 6, end: 8 }),
+            frames: scene.anims.generateFrameNumbers("player", { start: 0, end: 2 }),
+            duration: 2,
             repeat: -1
         });
 
         scene.anims.create({
             key: "andar-baixo",
-            frames: scene.anims.generateFrameNumbers("player", { start: 9, end: 11 }),
+            frames: scene.anims.generateFrameNumbers("player", { start: 0, end: 2}),
+            duration: 2,
             repeat: -1
         });
     }

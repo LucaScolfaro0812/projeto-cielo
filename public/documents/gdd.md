@@ -44,7 +44,23 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-_Posicione aqui o texto que explica o contexto da indústria/mercado do qual o parceiro de projeto faz parte. Contextualize o segmento de atuação do parceiro (pode ser indústria, comércio ou serviço). Caracterize as atividades executadas pelo negócio do parceiro e a abrangência de suas atividades (âmbito internacional, nacional ou regional)._
+A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
+
+Referências:
+
+Banco Central do Brasil. (2024). Relatório de vigilância do sistema de pagamentos brasileiro. https://www.bcb.gov.br
+
+CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
+
+Cielo S.A. (2023). Relatório anual integrado 2023. https://www.cielo.com.br
+
+Cielo S.A. (2024). Informações institucionais e dados operacionais. https://www.cielo.com.br
+
+PagBank. (2024). Relatório institucional e atuação no mercado de pagamentos. https://www.pagbank.com.br
+
+Stone Co. (2024). Formulário de referência e modelo de negócios. https://investors.stone.co
+
+Valor Econômico. (2025). Resultados financeiros da Cielo. https://s3.glbimg.comWikipedia. (2024). Cielo. https://pt.wikipedia.org
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
@@ -278,8 +294,9 @@ Aproximadamente 15 minutos.
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
-<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão posicionados dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
+<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
 <img src="public/assets/Coadjuvantes.png" width= 250> 
 
@@ -306,11 +323,7 @@ Segue abaixo o mapa:
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-_\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável_
-
-_Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)_
-
-- não tem, o que faz aqui? 
+Não se aplica 
 
 ### 3.3.4. Concept Art (sprint 2)
 
@@ -542,6 +555,13 @@ SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia M
 ANALYSIS. Swot. Disponível em: [link do site](https://swottemplate.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
 FIVE, Porters. Título do site. Disponível em: [link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
 
+**PortersFiveForce.com.** (2025). *What are the Porter's Five Forces of Cielo?* [Disponível em: link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026.
+
+**Sandra Vieira.** (2025). *Mercado de adquirência: um gigante em disputa na era do Pix* [Publicação no LinkedIn]. [Disponível em: link do site](https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA). Acesso em: 10 fev. 2026.
+
+**ClickPetróleo e Gás.** (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix.* [Disponível em: link do site](https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/). Acesso em: 10 fev. 2026.
+
+**Reuters.** (2026, February 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

@@ -1,3 +1,5 @@
+import QuizUI from "./quizUI.js";
+
 const TEMPO_PADRAO_POR_PERGUNTA = 15;
 const INTERVALO_TIMER_MS = 1000;
 
@@ -7,40 +9,38 @@ const PONTOS_SATISFACAO_RUIM = -50;
 const NIVEL_SATISFACAO_INICIAL = 50;
 
 export default class Quiz{
-    constructor(){
-
+    constructor(scene){
+        this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
+        this.scene = scene;
     }
 
-    iniciar(){
-        alert("iniciou o quiz");
-    }
-    /*
-    constructor(perguntas, configuracao = {}) {
+    iniciar(npc){
+        console.log("iniciando");
 
-        this.perguntas = perguntas;
+        npc.vendeu = true;
+        this.perguntas = npc.perguntas;
 
         this.indiceAtual = 0;
         this.pontuacao = 0;
         this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
 
-        this.tempoPorPergunta = configuracao.tempoPorPergunta ?? TEMPO_PADRAO_POR_PERGUNTA;
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
-        this.scene = null;
 
         // callbacks (definidos pela cena)
         this.quandoPerguntaMudar = null;
         this.quandoTempoMudar = null;
         this.quandoResponder = null;
         this.quandoFinalizar = null;
-    }
 
-    iniciar(scene) {
-
-        this.scene = scene;
-        this.indiceAtual = 0;
-        this.pontuacao = 0;
-        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
+        this.ui = new QuizUI(this.scene, {
+            modalWidth:800, 
+            modalHeight:600, 
+            padding: 15, 
+            colunaBarraLargura: 20, 
+            temperaturaMaxAltura: 50, 
+            feedbackDuration: 1.5
+        });
 
         this.emitirPerguntaAtual();
         this.iniciarTimer();
@@ -157,5 +157,5 @@ export default class Quiz{
             }
 
         }
-    }*/
+    }
 }

@@ -1,19 +1,7 @@
-import { perguntasPadaria } from './quizPerguntas.js';
-import { GerenciadorQuizPadaria } from './GerenciadorQuizPadaria.js';
-import { PadariaQuizUI } from './PadariaQuizUI.js';
 import Player from './player.js';
 import Quiz from './quiz.js'
-
-const INTERACAO_DISTANCIA_NPC = 100;
-
-const QUIZ_MODAL_WIDTH = 700;
-const QUIZ_MODAL_HEIGHT = 430;
-const QUIZ_PADDING = 30;
-const QUIZ_LARGURA_COLUNA_BARRA = 60;
-
-const QUIZ_TEMPERATURE_MAX_HEIGHT = 200;
-const QUIZ_FEEDBACK_DURATION = 1500;
-const QUIZ_FINALIZAR_FECHAR_DELAY = 2500;
+import Npc from './npc.js'
+import {perguntasPadaria} from './quizPerguntas.js'
 
 export class PadariaScene extends Phaser.Scene {
 
@@ -23,7 +11,7 @@ export class PadariaScene extends Phaser.Scene {
 
     preload() {
         this.load.image('padaria', 'public/assets/padaria-bg-2.png');
-        this.load.image('npc-padeiro', 'public/assets/npc.png');
+        this.load.image('npc', 'public/assets/npc.png');
         this.load.spritesheet('player', 'public/assets/marcielo.png', {
             frameWidth: 128,
             frameHeight: 128
@@ -32,26 +20,34 @@ export class PadariaScene extends Phaser.Scene {
 
     create() {
         this.criarCenario();
-        this.quiz = new Quiz();
-
-        this.player = new Player(this, 0, 0);
-
-        this.physics.add.collider(this.player, this.npc);
-
-        this.physics.add.overlap(this.npc, this.player, () =>
-        {
-            this.quiz.iniciar();
-        });
+        this.configurarPlayerNpcQuiz();
     }
 
     criarCenario() {
 
         // FUNDO
         this.add.image(480, 200, 'padaria').setScale(2.1);
-        this.npc = this.add.image(550, 180, 'npc-padeiro').setScale(0.4);
+    }
+
+    configurarPlayerNpcQuiz(){
+        this.quiz = new Quiz(this);
+
+        this.player = new Player(this, 0, 0);
+
+        this.npc = new Npc(this, 550, 180, perguntasPadaria);
+
+        //this.physics.add.collider(this.player, this.npc);
+
+        this.physics.add.overlap(this.npc, this.player, () =>
+        {
+            if(!this.npc.vendeu){
+                this.quiz.iniciar(this.npc);
+            }
+        });
     }
 
     update() {
         this.player.update();
+        this.npc.update();
     }
 }

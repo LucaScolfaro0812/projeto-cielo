@@ -17,6 +17,8 @@ export default class Quiz{
     iniciar(npc){
         console.log("iniciando");
 
+        this.scene.physics.pause();
+
         npc.vendeu = true;
         this.perguntas = npc.perguntas;
 
@@ -45,6 +47,9 @@ export default class Quiz{
         this.emitirPerguntaAtual();
         this.iniciarTimer();
     }
+
+    finalizar()
+    
 
     emitirPerguntaAtual() {
 

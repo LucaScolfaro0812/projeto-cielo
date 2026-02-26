@@ -456,7 +456,43 @@ O foco desta versão é estrutural, não funcional.
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-_Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._
+_Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._Durante a Sprint 2, foi desenvolvida a versão básica funcional do jogo, permitindo testar as principais mecânicas planejadas no projeto.
+O objetivo desta etapa foi implementar a estrutura inicial do jogo, garantindo que o jogador pudesse interagir com o cenário e executar ações fundamentais.
+Funcionalidades implementadas
+
+Nesta sprint foram entregues os seguintes elementos:
+. Criação da janela principal do jogo;
+. Implementação do personagem controlado pelo jogador;
+. Movimentação utilizando o teclado (setas direcionais ou teclas WASD);
+. Renderização do cenário e dos objetos básicos;
+. Sistema inicial de atualização da tela (game loop);
+. Detecção básica de colisão;
+. Organização inicial do código em funções/classes.
+
+O jogo já permite que o usuário execute o programa, visualize o cenário e controle o personagem em tempo real.
+Dificuldades encontradas
+
+Durante o desenvolvimento foram identificados alguns desafios:
+
+. Ajustar corretamente o loop principal do jogo para evitar travamentos;
+. Sincronizar a movimentação do personagem com a atualização da tela;
+. Implementar colisões sem causar erros de posicionamento;
+. Organização inicial do projeto e separação dos arquivos de código.
+
+Essas dificuldades foram solucionadas por meio de testes incrementais e refatoração do código.
+
+Próximos passos
+
+Para as próximas etapas do desenvolvimento, estão previstas as seguintes evoluções do jogo:
+
+. Implementação completa do tutorial interativo, apresentando instruções iniciais, funcionamento do jogo e controles do personagem;
+. Expansão do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes;
+. Desenvolvimento dos quizzes de negociação, com múltiplas opções de resposta baseadas em situações reais de vendas;
+. Integração do sistema de pontuação, considerando decisões tomadas pelo jogador durante o atendimento;
+. Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de satisfação;
+. Criação do painel de desempenho em tempo real, exibindo informações da partida;
+. Aprimoramento da interface gráfica, garantindo identidade visual alinhada ao treinamento corporativo da Cielo;
+. Realização de testes de usabilidade para validar clareza das mecânicas e facilidade de navegação.
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 

@@ -10,4 +10,6 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         this.setCollideWorldBounds(true);
         this.setBounce(0.2);
     }
+
+    
 }

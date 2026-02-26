@@ -100,10 +100,8 @@ Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e 
 ##### - Identificação dos principais concorrentes na indústria.
 ##### - Análise do nível de rivalidade e como ela afeta a competitividade na indústria.
 
-<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.
-Os principais concorrentes da Cielo incluem Rede (Itaú Unibanco), Getnet (Santander Brasil), Stone, PagBank (PagSeguro) e MercadoPago, além de novos players digitais. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo e do Banco Central, Stone, PagBank e Mercado Pago ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.
-O nível de rivalidade é classificado como alto, impactando diretamente a competitividade da indústria. Há guerra de preços, subsídios em equipamentos, diferenciação via tecnologia e oferta de serviços financeiros integrados. Além disso, a consolidação do Pix como meio de pagamento intensificou a disputa por receitas, reduzindo a dependência de cartões e pressionando o modelo tradicional de MDR (Merchant Discount Rate). Assim, a Cielo permanece entre as maiores adquirentes do país, porém inserida em um ambiente competitivo caracterizado por margens menores, maior inovação e constante disputa por market share.</p>
-
+<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.</p>
+<p>Os principais concorrentes da Cielo incluem Rede, Getnet, Stone, PagBank e Mercado Pago. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo (2023) e do Banco Central do Brasil (2023), Stone e PagBank ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.</p>
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
@@ -566,7 +564,19 @@ FIVE, Porters. Título do site. Disponível em: [link do site](https://portersfi
 
 **ClickPetróleo e Gás.** (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix.* [Disponível em: link do site](https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/). Acesso em: 10 fev. 2026.
 
-**Reuters.** (2026, February 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
+**Reuters.** (2026, Fevereiro 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
 # <a name="c8"></a>Anexos
+
+**Banco Central Do Brasil.** (2026, Fevereiro 10). *Relatório de economia bancária. 2023.* 
+[Disponível em: link do site](https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria)
+
+**CIELO S.A.** (2026, Fevereiro 10) *Relatório anual e demonstrações financeiras. 2023.* 
+[Disponível em: link do site](https://ri.cielo.com.br)
+
+**PAGSEGURO DIGITAL LTD.** (2026, Fevereiro 10) *Form 20-F / Annual report. 2023.* 
+[Disponível em: link do site](https://investors.pagseguro.com)
+
+**STONECO LTD.** (2026, Fevereiro 10) *Form 20-F / Annual report. 2023.* 
+[Disponível em: link do site](https://investors.stone.com)
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

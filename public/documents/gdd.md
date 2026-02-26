@@ -89,6 +89,8 @@ Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e 
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
+A Análise SWOT é uma metodologia estratégica adotada por empresas de diversos setores para diagnosticar o cenário em que estão inseridas. Ela serve para mapear e organizar as forças, fraquezas, oportunidades e ameaças de um negócio, permitindo que a organização tenha um controle muito mais claro sobre seus próprios recursos e processos. Além de olhar para dentro, essa ferramenta ajuda a empresa a entender de forma realista sua posição no mercado e na economia, especialmente quando comparada ao desempenho de seus concorrentes.
+
 | FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
 | :--- | :--- |
 | **Escala e Capilaridade:** Presença em 99% dos municípios brasileiros e sólida infraestrutura de processamento. | **Dependência Bancária:** Estrutura de governança dividida entre BB e Bradesco, o que pode tornar a decisão estratégica lenta. |
@@ -108,6 +110,7 @@ Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e 
 ---
 ### Análise SWOT
 
+
 #### **1. Forças (Strengths)**
 A Cielo S.A. fundamenta sua liderança de mercado em uma escala operacional massiva, atingindo 99% dos municípios brasileiros. Esta robustez é amplificada pela aliança estratégica com seus controladores, o Banco do Brasil e o Bradesco, que proporcionam um canal de distribuição capilar e reduzem drasticamente o custo de aquisição de clientes. Além disso, a companhia detém uma infraestrutura tecnológica resiliente, capaz de processar bilhões de transações com alta segurança e baixa latência.
 
@@ -119,6 +122,10 @@ A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidad
 
 #### **4. Ameaças (Threats)**
 A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio. Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas. O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central.
+
+---
+
+Com base nos dados levantados nesta sprint, fica claro que a Cielo possui uma infraestrutura massiva e um apoio bancário sólido, mas enfrenta o desafio de converter esse tamanho em agilidade. As informações retiradas mostram que, embora a empresa domine a capilaridade no Brasil, ela sofre com a pressão nas margens de lucro e a concorrência agressiva de modelos digitais mais leves. Em conclusão, o sucesso da Cielo dependerá de sua capacidade de transformar sua vasta base de dados em novos produtos de inteligência, compensando a queda nas taxas tradicionais e se adaptando à nova realidade de pagamentos instantâneos, como o Pix.
 
 ---
 

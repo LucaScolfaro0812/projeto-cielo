@@ -46,22 +46,6 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
 
-Referências:
-
-Banco Central do Brasil. (2024). Relatório de vigilância do sistema de pagamentos brasileiro. https://www.bcb.gov.br
-
-CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
-
-Cielo S.A. (2023). Relatório anual integrado 2023. https://www.cielo.com.br
-
-Cielo S.A. (2024). Informações institucionais e dados operacionais. https://www.cielo.com.br
-
-PagBank. (2024). Relatório institucional e atuação no mercado de pagamentos. https://www.pagbank.com.br
-
-Stone Co. (2024). Formulário de referência e modelo de negócios. https://investors.stone.co
-
-Valor Econômico. (2025). Resultados financeiros da Cielo. https://s3.glbimg.comWikipedia. (2024). Cielo. https://pt.wikipedia.org
-
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
 ##### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
@@ -137,12 +121,6 @@ A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidad
 A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio. Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas. O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central.
 
 ---
-
-### **Referências Bibliográficas (Normas APA)**
-
-* **Cielo S.A. (2025).** *Portal de Relações com Investidores*. Disponível em: [https://ri.cielo.com.br/](https://ri.cielo.com.br/)
-* **Banco Central do Brasil [BCB]. (2025).** *Relatórios de Estabilidade e Vigilância do SPB*. Disponível em: [https://www.bcb.gov.br/publicacoes](https://www.bcb.gov.br/publicacoes)
-* **Moraes, R. A., & Silva, J. P. (2021).** A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. DOI: [https://doi.org/10.7819/rbgn.v23i2.4104](https://doi.org/10.7819/rbgn.v23i2.4104)
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
@@ -545,38 +523,48 @@ _Relacione os pontos de melhorias evidenciados nos testes com plano de ações p
 
 _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
-# <a name="c7"></a>7. Referências (sprint 5)
+# <a name="c7"></a>7. Referências
 
-_Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
+Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-LUCK, Heloisa. Liderança em gestão escolar. 4. ed. Petrópolis: Vozes, 2010. <br>
-SOBRENOME, Nome. Título do livro: subtítulo do livro. Edição. Cidade de publicação: Nome da editora, Ano de publicação. <br>
+Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
 
-INTELI. Adalove. Disponível em: https://adalove.inteli.edu.br/feed. Acesso em: 1 out. 2023 <br>
-SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia Mês Ano
+Banco Central do Brasil. (2025). *Relatórios de estabilidade e vigilância do SPB*. https://www.bcb.gov.br/publicacoes
 
-ANALYSIS. Swot. Disponível em: [link do site](https://swottemplate.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
-FIVE, Porters. Título do site. Disponível em: [link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
+Cielo S.A. (2023). *Relatório anual e demonstrações financeiras 2023*. https://ri.cielo.com.br
 
-**PortersFiveForce.com.** (2025). *What are the Porter's Five Forces of Cielo?* [Disponível em: link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026.
+Cielo S.A. (2024). *Informações institucionais e dados operacionais*. https://www.cielo.com.br
 
-**Sandra Vieira.** (2025). *Mercado de adquirência: um gigante em disputa na era do Pix* [Publicação no LinkedIn]. [Disponível em: link do site](https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA). Acesso em: 10 fev. 2026.
+Cielo S.A. (2025). *Portal de relações com investidores*. https://ri.cielo.com.br/
 
-**ClickPetróleo e Gás.** (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix.* [Disponível em: link do site](https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/). Acesso em: 10 fev. 2026.
+ClickPetróleo e Gás. (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix*. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
 
-**Reuters.** (2026, Fevereiro 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
+CNN Brasil. (2025). *A guerra das maquininhas e a disputa no mercado de adquirentes*. https://www.cnnbrasil.com.br
+
+IBGE. (2022). *Censo demográfico 2022: Primeiros resultados*. https://www.ibge.gov.br/censo2022
+
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. https://doi.org/10.7819/rbgn.v23i2.4104
+
+PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*. https://www.pagbank.com.br
+
+PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
+
+PortersFiveForce.com. (2025). *What are the Porter’s five forces of Cielo?* https://portersfiveforce.com/products/cielo-five-forces-analysis
+
+Reuters. (2026, 10 de fevereiro). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028*. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
+
+Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
+
+StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
+
+SwotTemplate.com. (2025). *Cielo SWOT analysis*. https://swottemplate.com/products/cielo-five-forces-analysis
+
+Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
+
+Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+
+Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
+
 # <a name="c8"></a>Anexos
-
-**Banco Central Do Brasil.** (2026, Fevereiro 10). *Relatório de economia bancária. 2023.* 
-[Disponível em: link do site](https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria)
-
-**CIELO S.A.** (2026, Fevereiro 10) *Relatório anual e demonstrações financeiras. 2023.* 
-[Disponível em: link do site](https://ri.cielo.com.br)
-
-**PAGSEGURO DIGITAL LTD.** (2026, Fevereiro 10) *Form 20-F / Annual report. 2023.* 
-[Disponível em: link do site](https://investors.pagseguro.com)
-
-**STONECO LTD.** (2026, Fevereiro 10) *Form 20-F / Annual report. 2023.* 
-[Disponível em: link do site](https://investors.stone.com)
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

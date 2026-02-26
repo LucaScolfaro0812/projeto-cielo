@@ -4,7 +4,6 @@ import { PadariaQuizUI } from './PadariaQuizUI.js';
 import Player from './player.js';
 import Quiz from './quiz.js'
 
-const PLAYER_SPEED = 2.5;
 const INTERACAO_DISTANCIA_NPC = 100;
 
 const QUIZ_MODAL_WIDTH = 700;
@@ -46,7 +45,8 @@ export class PadariaScene extends Phaser.Scene {
     }
 
     criarCenario() {
-        // ===== CENÁRIO =====
+
+        // FUNDO
         this.add.image(480, 200, 'padaria').setScale(2.1);
         this.npc = this.add.image(550, 180, 'npc-padeiro').setScale(0.4);
     }

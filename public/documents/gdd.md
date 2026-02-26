@@ -44,7 +44,7 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-_Posicione aqui o texto que explica o contexto da indústria/mercado do qual o parceiro de projeto faz parte. Contextualize o segmento de atuação do parceiro (pode ser indústria, comércio ou serviço). Caracterize as atividades executadas pelo negócio do parceiro e a abrangência de suas atividades (âmbito internacional, nacional ou regional)._
+A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
@@ -54,14 +54,6 @@ A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quai
 ##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
 A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta. Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais. Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas. Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor.
 
-##### 1.1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
-A Cielo depende de quatro grupos principais de fornecedores. As bandeiras de cartões, como Visa, Mastercard, Elo e American Express, possuem alto poder de barganha, pois controlam padrões de segurança, regras operacionais e tarifas, sendo indispensáveis para o funcionamento da adquirente.
-Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já que participam da liquidação das transações e influenciam prazos de repasse e custos financeiros.
-Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
-Já os fornecedores de hardware e telecomunicações possuem poder moderado, devido à existência de alternativas no mercado, embora ainda haja dependência por questões de compatibilidade tecnológica e segurança.
-O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
-Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor.
-
 ##### 1.1.1.1.2 Identificação e análise dos principais obstáculos para novos entrantes.
 <p>Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência</p>
 
@@ -70,9 +62,18 @@ Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e 
 
 <p>Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share.</p>
 
+##### 1.1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
+A Cielo depende de quatro grupos principais de fornecedores. As bandeiras de cartões, como Visa, Mastercard, Elo e American Express, possuem alto poder de barganha, pois controlam padrões de segurança, regras operacionais e tarifas, sendo indispensáveis para o funcionamento da adquirente.
+Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já que participam da liquidação das transações e influenciam prazos de repasse e custos financeiros.
+Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
+Já os fornecedores de hardware e telecomunicações possuem poder moderado, devido à existência de alternativas no mercado, embora ainda haja dependência por questões de compatibilidade tecnológica e segurança.
+O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
+Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor.
+
 ##### 1.1.1.1.4  Identificação dos principais tipos de clientes da indústria
 
 <p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online. Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
+
 
 ##### 1.1.1.1.4.1 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
 
@@ -83,12 +84,12 @@ Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e 
 ##### - Identificação dos principais concorrentes na indústria.
 ##### - Análise do nível de rivalidade e como ela afeta a competitividade na indústria.
 
-<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.
-Os principais concorrentes da Cielo incluem Rede (Itaú Unibanco), Getnet (Santander Brasil), Stone, PagBank (PagSeguro) e MercadoPago, além de novos players digitais. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo e do Banco Central, Stone, PagBank e Mercado Pago ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.
-O nível de rivalidade é classificado como alto, impactando diretamente a competitividade da indústria. Há guerra de preços, subsídios em equipamentos, diferenciação via tecnologia e oferta de serviços financeiros integrados. Além disso, a consolidação do Pix como meio de pagamento intensificou a disputa por receitas, reduzindo a dependência de cartões e pressionando o modelo tradicional de MDR (Merchant Discount Rate). Assim, a Cielo permanece entre as maiores adquirentes do país, porém inserida em um ambiente competitivo caracterizado por margens menores, maior inovação e constante disputa por market share.</p>
-
+<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.</p>
+<p>Os principais concorrentes da Cielo incluem Rede, Getnet, Stone, PagBank e Mercado Pago. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo (2023) e do Banco Central do Brasil (2023), Stone e PagBank ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor.</p>
 
 ### 1.1.2. Análise SWOT (sprint 2)
+
+A Análise SWOT é uma metodologia estratégica adotada por empresas de diversos setores para diagnosticar o cenário em que estão inseridas. Ela serve para mapear e organizar as forças, fraquezas, oportunidades e ameaças de um negócio, permitindo que a organização tenha um controle muito mais claro sobre seus próprios recursos e processos. Além de olhar para dentro, essa ferramenta ajuda a empresa a entender de forma realista sua posição no mercado e na economia, especialmente quando comparada ao desempenho de seus concorrentes.
 
 | FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
 | :--- | :--- |
@@ -109,6 +110,7 @@ O nível de rivalidade é classificado como alto, impactando diretamente a compe
 ---
 ### Análise SWOT
 
+
 #### **1. Forças (Strengths)**
 A Cielo S.A. fundamenta sua liderança de mercado em uma escala operacional massiva, atingindo 99% dos municípios brasileiros. Esta robustez é amplificada pela aliança estratégica com seus controladores, o Banco do Brasil e o Bradesco, que proporcionam um canal de distribuição capilar e reduzem drasticamente o custo de aquisição de clientes. Além disso, a companhia detém uma infraestrutura tecnológica resiliente, capaz de processar bilhões de transações com alta segurança e baixa latência.
 
@@ -123,11 +125,9 @@ A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix
 
 ---
 
-### **Referências Bibliográficas (Normas APA)**
+Com base nos dados levantados nesta sprint, fica claro que a Cielo possui uma infraestrutura massiva e um apoio bancário sólido, mas enfrenta o desafio de converter esse tamanho em agilidade. As informações retiradas mostram que, embora a empresa domine a capilaridade no Brasil, ela sofre com a pressão nas margens de lucro e a concorrência agressiva de modelos digitais mais leves. Em conclusão, o sucesso da Cielo dependerá de sua capacidade de transformar sua vasta base de dados em novos produtos de inteligência, compensando a queda nas taxas tradicionais e se adaptando à nova realidade de pagamentos instantâneos, como o Pix.
 
-* **Cielo S.A. (2025).** *Portal de Relações com Investidores*. Disponível em: [https://ri.cielo.com.br/](https://ri.cielo.com.br/)
-* **Banco Central do Brasil [BCB]. (2025).** *Relatórios de Estabilidade e Vigilância do SPB*. Disponível em: [https://www.bcb.gov.br/publicacoes](https://www.bcb.gov.br/publicacoes)
-* **Moraes, R. A., & Silva, J. P. (2021).** A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. DOI: [https://doi.org/10.7819/rbgn.v23i2.4104](https://doi.org/10.7819/rbgn.v23i2.4104)
+---
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
@@ -277,15 +277,21 @@ Aproximadamente 15 minutos.
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
-<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a usar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<p>No jogo, haverá personagens coadjuvantes que representarão os clientes. Esses clientes estarão posicionados dentro das lojas e interagirão com o personagem principal nos momentos de negociação e venda dos produtos da Cielo.</p>
+<p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
+<P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
 <img src="public/assets/Coadjuvantes.png" width= 250> 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
-_Considerando as personagens do game, analise se estas estão alinhadas ao público-alvo do jogo (seção 1.3), e compare-as dentro da realidade da sociedade brasileira. Por fim, discorra sobre qual é o impacto esperado da escolha dessas personagens._
+<p>O elenco de personagens do jogo foi concebido de forma a refletir a pluralidade da sociedade brasileira e a realidade dos clientes que os Gerentes de Negócios da Cielo encontram no cotidiano profissional.</p>
 
+<p><strong>Alinhamento com o público-alvo:</strong> O público-alvo do jogo (seção 1.3) são profissionais da equipe comercial da Cielo, com faixa etária entre 40 e 50 anos, inseridos em ambiente corporativo e com experiência em vendas. Os NPCs — clientes que habitam as lojas — foram criados com perfis variados de idade, gênero e aparência justamente para espelhar a diversidade de estabelecimentos e proprietários que um vendedor encontra em campo: desde uma doceira jovem em uma cupcakeria até o dono de uma padaria de bairro de meia-idade. Esse realismo nos perfis dos clientes torna o treinamento mais imersivo e transferível para situações reais de trabalho.</p>
+
+<p><strong>Representatividade dentro da sociedade brasileira:</strong> O Brasil é um país marcado por intensa diversidade étnica, geracional e de gênero. De acordo com o Censo 2022 do IBGE, mais da metade da população se autodeclara preta ou parda, e o empreendedorismo de micro e pequenos negócios é amplamente distribuído entre diferentes perfis sociodemográficos. Para refletir essa realidade, os personagens coadjuvantes foram desenhados com variações de tom de pele, gênero, faixa etária e características físicas distintas, evitando a homogeneização do público consumidor que o vendedor deverá atender.</p>
+
+<p><strong>Impacto esperado:</strong> A diversidade intencional nos personagens produz dois efeitos principais. Primeiro, amplia a identificação do jogador com o universo do jogo: vendedores de diferentes origens reconhecem nos clientes representações próximas à realidade que vivenciam. Segundo, reforça de forma implícita o valor da inclusão no relacionamento comercial, comunicando que os produtos da Cielo são relevantes para todos os perfis de estabelecimento, independentemente de quem seja o proprietário. Ao normalizar essa diversidade dentro da mecânica de treinamento, o jogo contribui para desenvolver uma postura comercial mais empática e culturalmente sensível nos colaboradores da Cielo.</p>
 ## 3.3. Mundo do jogo (sprints 2 e 3)
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
@@ -305,11 +311,7 @@ Segue abaixo o mapa:
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-_\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável_
-
-_Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)_
-
-- não tem, o que faz aqui? 
+Não se aplica 
 
 ### 3.3.4. Concept Art (sprint 2)
 
@@ -454,7 +456,43 @@ O foco desta versão é estrutural, não funcional.
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-_Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._
+_Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._Durante a Sprint 2, foi desenvolvida a versão básica funcional do jogo, permitindo testar as principais mecânicas planejadas no projeto.
+O objetivo desta etapa foi implementar a estrutura inicial do jogo, garantindo que o jogador pudesse interagir com o cenário e executar ações fundamentais.
+Funcionalidades implementadas
+
+Nesta sprint foram entregues os seguintes elementos:
+. Criação da janela principal do jogo;
+. Implementação do personagem controlado pelo jogador;
+. Movimentação utilizando o teclado (setas direcionais ou teclas WASD);
+. Renderização do cenário e dos objetos básicos;
+. Sistema inicial de atualização da tela (game loop);
+. Detecção básica de colisão;
+. Organização inicial do código em funções/classes.
+
+O jogo já permite que o usuário execute o programa, visualize o cenário e controle o personagem em tempo real.
+Dificuldades encontradas
+
+Durante o desenvolvimento foram identificados alguns desafios:
+
+. Ajustar corretamente o loop principal do jogo para evitar travamentos;
+. Sincronizar a movimentação do personagem com a atualização da tela;
+. Implementar colisões sem causar erros de posicionamento;
+. Organização inicial do projeto e separação dos arquivos de código.
+
+Essas dificuldades foram solucionadas por meio de testes incrementais e refatoração do código.
+
+Próximos passos
+
+Para as próximas etapas do desenvolvimento, estão previstas as seguintes evoluções do jogo:
+
+. Implementação completa do tutorial interativo, apresentando instruções iniciais, funcionamento do jogo e controles do personagem;
+. Expansão do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes;
+. Desenvolvimento dos quizzes de negociação, com múltiplas opções de resposta baseadas em situações reais de vendas;
+. Integração do sistema de pontuação, considerando decisões tomadas pelo jogador durante o atendimento;
+. Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de satisfação;
+. Criação do painel de desempenho em tempo real, exibindo informações da partida;
+. Aprimoramento da interface gráfica, garantindo identidade visual alinhada ao treinamento corporativo da Cielo;
+. Realização de testes de usabilidade para validar clareza das mecânicas e facilidade de navegação.
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
@@ -528,26 +566,48 @@ _Relacione os pontos de melhorias evidenciados nos testes com plano de ações p
 
 _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
-# <a name="c7"></a>7. Referências (sprint 5)
+# <a name="c7"></a>7. Referências
 
-_Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
+Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-LUCK, Heloisa. Liderança em gestão escolar. 4. ed. Petrópolis: Vozes, 2010. <br>
-SOBRENOME, Nome. Título do livro: subtítulo do livro. Edição. Cidade de publicação: Nome da editora, Ano de publicação. <br>
+Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
 
-INTELI. Adalove. Disponível em: https://adalove.inteli.edu.br/feed. Acesso em: 1 out. 2023 <br>
-SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia Mês Ano
+Banco Central do Brasil. (2025). *Relatórios de estabilidade e vigilância do SPB*. https://www.bcb.gov.br/publicacoes
 
-ANALYSIS. Swot. Disponível em: [link do site](https://swottemplate.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
-FIVE, Porters. Título do site. Disponível em: [link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026
+Cielo S.A. (2023). *Relatório anual e demonstrações financeiras 2023*. https://ri.cielo.com.br
 
-**PortersFiveForce.com.** (2025). *What are the Porter's Five Forces of Cielo?* [Disponível em: link do site](https://portersfiveforce.com/products/cielo-five-forces-analysis). Acesso em: 10 fev. 2026.
+Cielo S.A. (2024). *Informações institucionais e dados operacionais*. https://www.cielo.com.br
 
-**Sandra Vieira.** (2025). *Mercado de adquirência: um gigante em disputa na era do Pix* [Publicação no LinkedIn]. [Disponível em: link do site](https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA). Acesso em: 10 fev. 2026.
+Cielo S.A. (2025). *Portal de relações com investidores*. https://ri.cielo.com.br/
 
-**ClickPetróleo e Gás.** (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix.* [Disponível em: link do site](https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/). Acesso em: 10 fev. 2026.
+ClickPetróleo e Gás. (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix*. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
 
-**Reuters.** (2026, February 10). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028.* [Disponível em: link do site](https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/). Acesso em: 10 fev. 2026.
+CNN Brasil. (2025). *A guerra das maquininhas e a disputa no mercado de adquirentes*. https://www.cnnbrasil.com.br
+
+IBGE. (2022). *Censo demográfico 2022: Primeiros resultados*. https://www.ibge.gov.br/censo2022
+
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. https://doi.org/10.7819/rbgn.v23i2.4104
+
+PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*. https://www.pagbank.com.br
+
+PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
+
+PortersFiveForce.com. (2025). *What are the Porter’s five forces of Cielo?* https://portersfiveforce.com/products/cielo-five-forces-analysis
+
+Reuters. (2026, 10 de fevereiro). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028*. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
+
+Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
+
+StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
+
+SwotTemplate.com. (2025). *Cielo SWOT analysis*. https://swottemplate.com/products/cielo-five-forces-analysis
+
+Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
+
+Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+
+Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
+
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

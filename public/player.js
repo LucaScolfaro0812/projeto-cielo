@@ -6,9 +6,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
 
         this.setScale(0.8);
-        this.setCollideWorldBounds(true);
+        this.setCollideWorldBounds(false);
 
-        this.velocidade = 200;
+        this.velocidade = 350;
 
         this.teclas = this.scene.input.keyboard.addKeys({
             W: Phaser.Input.Keyboard.KeyCodes.W,

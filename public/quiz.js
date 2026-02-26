@@ -48,8 +48,9 @@ export default class Quiz{
         this.iniciarTimer();
     }
 
-    finalizar()
-    
+    finalizar(){
+        this.scene.physics.resume();
+    }
 
     emitirPerguntaAtual() {
 

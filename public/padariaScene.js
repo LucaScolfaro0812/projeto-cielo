@@ -32,7 +32,7 @@ export class PadariaScene extends Phaser.Scene {
     configurarPlayerNpcQuiz(){
         this.quiz = new Quiz(this);
 
-        this.player = new Player(this, 0, 0);
+        this.player = new Player(this, 20, 80);
 
         this.npc = new Npc(this, 550, 180, perguntasPadaria);
 

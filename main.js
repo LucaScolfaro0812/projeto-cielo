@@ -1,13 +1,12 @@
 /**
- * script.js - Ponto de entrada do jogo.
+ * main.js - Ponto de entrada do jogo.
  * Configura o Phaser, escala (FIT) e inicia o menu.
  */
 
-import { menuScene } from './menuScene.js';
-import { gameScene } from './gameScene.js';
-import { PadariaScene } from './padariaScene.js';
+import { menuScene } from './scenes/menuScene.js';
+import { gameScene } from './scenes/gameScene.js';
+import { PadariaScene } from './scenes/padariaScene.js';
 
-// Configuração do jogo (scale FIT = preenche tela sem deformar)
 var config = {
     type: Phaser.AUTO,
     parent: "game",

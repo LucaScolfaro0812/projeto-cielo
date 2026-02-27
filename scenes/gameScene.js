@@ -15,10 +15,10 @@ export class gameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('entrada', 'public/assets/entrada.png');
-        this.load.image('rua', 'public/assets/rua.png');
-        this.load.image('npc', 'public/assets/npc.png');
-        this.load.spritesheet('player', 'public/assets/marcielo.png', { frameWidth: 120, frameHeight: 120 });
+        this.load.image('entrada', 'assets/entrada.png');
+        this.load.image('rua', 'assets/rua.png');
+        this.load.image('npc', 'assets/npc.png');
+        this.load.spritesheet('player', 'assets/marcielo.png', { frameWidth: 120, frameHeight: 120 });
     }
 
     create() {

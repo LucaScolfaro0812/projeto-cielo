@@ -14,9 +14,9 @@ export class PadariaScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('padaria', 'public/assets/padaria-bg-2.png');
-        this.load.image('npc', 'public/assets/npc.png');
-        this.load.spritesheet('player', 'public/assets/marcielo.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.image('padaria', 'assets/padaria-bg-2.png');
+        this.load.image('npc', 'assets/npc.png');
+        this.load.spritesheet('player', 'assets/marcielo.png', { frameWidth: 128, frameHeight: 128 });
     }
 
     create() {

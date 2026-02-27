@@ -94,7 +94,7 @@ export default class QuizUI {
     _criarBarraSatisfacao() {
         const metadeLargura = this.larguraModal / 2;
         const posXBarra = -metadeLargura + this.padding + this.larguraColunaBarra / 2;
-        this.containerBarra = this.cena.add.container(posXBarra, 0);
+        this.containerBarra = this.cena.add.container(posXBarra, 40);
 
         this.textoLabelSatisfacao = this.cena.add.text(0, -this.alturaMaxBarra / 2 - 18, "Satisfação", {
             fontSize: TAM_FONTE_SATISFACAO, color: COR_TEXTO_SECUNDARIO, fontStyle: "bold"

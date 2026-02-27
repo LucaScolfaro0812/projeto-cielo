@@ -1,55 +1,105 @@
-/**
- * PadariaScene - Cena da padaria. Player, NPC e quiz ao se aproximar.
- */
-
+// Importação das entidades utilizadas na cena
 import Player from './player.js';
 import Quiz from './quiz.js';
 import Npc from './npc.js';
 import Entrada from './lojaEntrar.js';
 import { perguntasPadaria } from './quizPerguntas.js';
 
+// Cena responsável pelo ambiente interno da padaria
 export class PadariaScene extends Phaser.Scene {
 
     constructor() {
+        // Define a chave única da cena no Scene Manager do Phaser
         super({ key: 'padariaScene' });
     }
 
+    // Carrega os assets necessários antes da criação da cena
     preload() {
+        // Imagem de fundo da padaria
         this.load.image('padaria', 'assets/padaria-bg-2.png');
+
+        // Imagem base do NPC
         this.load.image('npc', 'assets/npc.png');
-        this.load.spritesheet('player', 'assets/marcielo.png', { frameWidth: 128, frameHeight: 128 });
+
+        // Spritesheet do jogador para animações
+        this.load.spritesheet('player', 'assets/marcielo.png', { 
+            frameWidth: 128, 
+            frameHeight: 128 
+        });
     }
 
+    // Executado quando a cena é criada
     create() {
         this._criarCenario();
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
     }
 
+    /**
+     * Cria o cenário visual da padaria
+     */
     _criarCenario() {
-        this.add.image(480, 200, 'padaria').setScale(2.1);
-
+        // Adiciona imagem de fundo na posição especificada
+        // setScale ajusta o tamanho da imagem para o layout da cena
+        this.add.image(480, 200, 'padaria')
+            .setScale(2.1);
     }
 
+    /**
+     * Configura:
+     * - Instância do Quiz
+     * - Criação do Player
+     * - Criação do NPC
+     * - Colisão para iniciar o quiz
+     */
     _configurarPlayerNpcQuiz() {
+
+        // Instancia sistema de perguntas
         this.quiz = new Quiz(this);
+
+        // Cria jogador na posição inicial dentro da padaria
         this.player = new Player(this, 110, 150);
+
+        // Cria NPC com perguntas específicas da padaria
         this.npc = new Npc(this, 550, 180, perguntasPadaria);
 
+        // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {
-            if (!this.npc.vendeu) this.quiz.iniciar(this.npc);
+
+            // Inicia o quiz apenas se o NPC ainda não realizou sua ação principal
+            if (!this.npc.vendeu) {
+                this.quiz.iniciar(this.npc);
+            }
         });
     }
 
+    /**
+     * Cria porta de saída que retorna para a cena principal
+     */
     _criarPortas() {
-        this.portaEntrada = new Entrada(this, 110, 0, this, 'gameScene');
+
+        // Cria objeto de entrada que redireciona para 'gameScene'
+        this.portaEntrada = new Entrada(
+            this,        // cena atual
+            110,         // posição X
+            0,           // posição Y
+            this,        // referência da cena
+            'gameScene'  // nome da cena de destino
+        );
+
+        // Detecta sobreposição entre jogador e porta
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
             this.portaEntrada.trocarDeCena();
         });
     }
 
+    // Executado a cada frame do jogo
     update() {
+
+        // Atualiza lógica do jogador (movimento, animações, etc.)
         this.player.update();
+
+        // Atualiza lógica do NPC (caso haja comportamento futuro)
         this.npc.update();
     }
 }

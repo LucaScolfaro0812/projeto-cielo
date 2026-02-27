@@ -1,4 +1,4 @@
-<img src="../assets/logointeli.png">
+<img src="../../assets/logointeli.png">
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
@@ -272,7 +272,7 @@ Aproximadamente 15 minutos.
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-<img src="../assets/marcielo.png"> 
+<img src="../../assets/marcielo.png"> 
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -280,7 +280,7 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="public/assets/Coadjuvantes.png" width= 250> 
+<img src="../../assets/Coadjuvantes.png" width= 250> 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -299,7 +299,7 @@ Aproximadamente 15 minutos.
 
 Segue abaixo o mapa: 
 
-<img src="public/assets/MapaJogoCielo.png" width= 300>
+<img src="../../assets/MapaJogoCielo.png" width= 300>
 
 
 
@@ -316,7 +316,7 @@ Não se aplica
 
 _Inclua imagens de Concept Art do jogo que ainda não foram demonstradas em outras seções deste documento. Para cada imagem, coloque legendas, como no exemplo abaixo._
 
-<img src="../assets/concept1.jpg">
+<img src="../../assets/concept1.jpg">
 
 Figura 1: detalhe da cena da partida do herói para a missão, usando sua nave
 
@@ -340,8 +340,8 @@ _\<opcional\> Caso seu jogo utilize itens ou poderes para os personagens obterem
 _Exemplo de tabela_
 \# | item | | como obter | função | efeito sonoro
 --- | --- | --- | --- | --- | ---
-1 | moeda | <img src="../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
-2 | madeira | <img src="../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
+1 | moeda | <img src="../../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
+2 | madeira | <img src="../../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
 3 | ...
 
 ### 3.4.2. Bestiário
@@ -351,8 +351,8 @@ _\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, i
 _Exemplo de tabela_
 \# | inimigo | | ocorrências | função | impacto | efeito sonoro
 --- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../assets/inimigo2.PNG"> | a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
+1 | robô terrestre | <img src="../../assets/inimigo2.PNG"> | a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
+2 | robô voador | <img src="../../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
 3 | ...
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)

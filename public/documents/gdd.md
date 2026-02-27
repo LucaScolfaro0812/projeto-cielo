@@ -357,7 +357,7 @@ _Exemplo de tabela_
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-_Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo._
+<img src="../assets/diagrama.png">
 
 ## 3.6. Regras do jogo (sprint 3)
 

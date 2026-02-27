@@ -5,6 +5,7 @@
 import Player from './player.js';
 import Quiz from './quiz.js';
 import Npc from './npc.js';
+import Entrada from './lojaEntrar.js';
 import { perguntasPadaria } from './quizPerguntas.js';
 
 export class PadariaScene extends Phaser.Scene {
@@ -22,19 +23,28 @@ export class PadariaScene extends Phaser.Scene {
     create() {
         this._criarCenario();
         this._configurarPlayerNpcQuiz();
+        this._criarPortas();
     }
 
     _criarCenario() {
         this.add.image(480, 200, 'padaria').setScale(2.1);
+
     }
 
     _configurarPlayerNpcQuiz() {
         this.quiz = new Quiz(this);
-        this.player = new Player(this, 20, 80);
+        this.player = new Player(this, 110, 150);
         this.npc = new Npc(this, 550, 180, perguntasPadaria);
 
         this.physics.add.overlap(this.npc, this.player, () => {
             if (!this.npc.vendeu) this.quiz.iniciar(this.npc);
+        });
+    }
+
+    _criarPortas() {
+        this.portaEntrada = new Entrada(this, 110, 0, this, 'gameScene');
+        this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            this.portaEntrada.trocarDeCena();
         });
     }
 

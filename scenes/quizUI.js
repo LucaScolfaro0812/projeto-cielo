@@ -71,17 +71,26 @@ export default class QuizUI {
     }
 
     _criarOverlay() {
-        const w = this.cena.scale.width;
-        const h = this.cena.scale.height;
-        this.fundoOverlayRectangle = this.cena.add.rectangle(0, 0, w, h, COR_OVERLAY, OPAC_OVERLAY).setOrigin(0);
+        const cam = this.cena.cameras.main;
+
+        const w = cam.displayWidth;
+        const h = cam.displayHeight;
+
+        const cx = cam.worldView.centerX - (w / 2);
+        const cy = cam.worldView.centerY - (h / 2);
+
+        this.fundoOverlayRectangle = this.cena.add.rectangle(cx, cy, w, h, COR_OVERLAY, OPAC_OVERLAY).setOrigin(0);
         this.fundoOverlayRectangle.setInteractive({ useHandCursor: false });
         this.fundoOverlayRectangle.on("pointerdown", () => {});
         this.containerPrincipal.add(this.fundoOverlayRectangle);
     }
 
     _criarModal() {
-        const cx = this.cena.scale.width / 2;
-        const cy = this.cena.scale.height / 2;
+        const cam = this.cena.cameras.main;
+        const cx = cam.worldView.centerX;
+        const cy = cam.worldView.centerY;
+
+
         this.containerModal = this.cena.add.container(cx, cy);
 
         this.retanguloSombra = this.cena.add.rectangle(5, 5, this.larguraModal + 10, this.alturaModal + 10, COR_SOMBRA, 0.15).setOrigin(0.5);

@@ -11,8 +11,8 @@ export class menuScene extends Phaser.Scene {
     preload() {
         this.load.image('nuvens', 'assets/cloud-bg.png');
         this.load.image('ceu', 'assets/sky-bg.png');
-        this.load.image('titulo', 'assets/titulo-jogo.png');
-        this.load.image('loja', 'assets/store-bg.png');
+        this.load.image('titulo', 'assets/titulo-jogo.webp');
+        this.load.image('loja', 'assets/store-bg.webp');
     }
 
     create() {

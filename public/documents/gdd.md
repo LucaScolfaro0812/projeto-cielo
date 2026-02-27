@@ -627,6 +627,19 @@ Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix
 
 Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
 
+Porter, M. E. (2008). The Five Competitive Forces That Shape Strategy. Harvard Business Review.
+
+
+Banco Central do Brasil – Relatórios sobre Pix e meios de pagamento.
+
+
+Relatórios de mercado financeiro (Deloitte, PwC, McKinsey).
+
+https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/?utm_source=chatgpt.com
+
+https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025?utm_source=chatgpt.com
+
+
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_

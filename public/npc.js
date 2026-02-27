@@ -1,21 +1,23 @@
-export default class Npc extends Phaser.Physics.Arcade.Sprite {
-    constructor(scene, x, y, perguntas) {
-        super(scene, x, y, 'npc');
+/**
+ * Npc - Sprite de NPC que guarda perguntas e inicia o quiz ao overlap.
+ */
 
-        // Adiciona à cena
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
+export default class Npc extends Phaser.Physics.Arcade.Sprite {
+
+    constructor(cena, x, y, perguntas, chaveImagemQuiz = "npc") {
+        super(cena, x, y, "npc");
+
+        cena.add.existing(this);
+        cena.physics.add.existing(this);
         this.body.setImmovable(true);
 
-        // Configurações
         this.setCollideWorldBounds(true);
         this.setScale(0.4);
 
         this.perguntas = perguntas;
         this.vendeu = false;
+        this.chaveImagemNpc = chaveImagemQuiz;
     }
 
-    update() {
-
-    }
+    update() {}
 }

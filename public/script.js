@@ -1,25 +1,31 @@
+/**
+ * script.js - Ponto de entrada do jogo.
+ * Configura o Phaser, escala (FIT) e inicia o menu.
+ */
+
 import { menuScene } from './menuScene.js';
 import { gameScene } from './gameScene.js';
 import { PadariaScene } from './padariaScene.js';
 
-// Configuração principal do jogo Phaser
+// Configuração do jogo (scale FIT = preenche tela sem deformar)
 var config = {
     type: Phaser.AUTO,
-    width: 1400,
-    height: 720,
+    parent: "game",
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1400,
+        height: 720
+    },
     physics: {
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: true
+            debug: false
         }
     },
-    scene: [
-        menuScene,
-        gameScene,
-        PadariaScene,
-    ]
-}
+    scene: [menuScene, gameScene, PadariaScene]
+};
 
 var game = new Phaser.Game(config);
 game.scene.start('menuScene');

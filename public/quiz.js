@@ -1,138 +1,117 @@
+/**
+ * Quiz - Lógica do quiz. Controla perguntas, timer, pontuação e satisfação.
+ * Conecta-se ao QuizUI para exibir a interface.
+ */
+
 import QuizUI from "./quizUI.js";
 
+// Constantes do quiz
 const TEMPO_PADRAO_POR_PERGUNTA = 15;
 const INTERVALO_TIMER_MS = 1000;
-
 const PONTOS_SATISFACAO_EXCELENTE = 30;
 const PONTOS_SATISFACAO_BOA = 10;
 const PONTOS_SATISFACAO_RUIM = -50;
 const NIVEL_SATISFACAO_INICIAL = 50;
 
-export default class Quiz{
-    constructor(scene){
+export default class Quiz {
+
+    constructor(cena) {
+        this.cena = cena;
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
-        this.scene = scene;
     }
 
-    iniciar(npc){
-        console.log("iniciando");
-
-        this.scene.physics.pause();
-
-        npc.vendeu = true;
-        this.perguntas = npc.perguntas;
-
-        this.indiceAtual = 0;
-        this.pontuacao = 0;
-        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
-
-        this.tempoRestante = this.tempoPorPergunta;
-        this.timerEvento = null;
-
-        // callbacks (definidos pela cena)
-        this.quandoPerguntaMudar = null;
-        this.quandoTempoMudar = null;
-        this.quandoResponder = null;
-        this.quandoFinalizar = null;
-
-        this.ui = new QuizUI(this.scene, {
-            modalWidth:800, 
-            modalHeight:600, 
-            padding: 15, 
-            colunaBarraLargura: 20, 
-            temperaturaMaxAltura: 50, 
-            feedbackDuration: 1.5
-        });
-
-        this.emitirPerguntaAtual();
-        this.iniciarTimer();
-    }
-
-    finalizar(){
-        this.scene.physics.resume();
-    }
-
-    emitirPerguntaAtual() {
-
-        const perguntaAtual = this.perguntas[this.indiceAtual];
-
-        if (!perguntaAtual) {
-            console.warn("Pergunta não encontrada no índice:", this.indiceAtual);
+    iniciar(npc) {
+        // Salvaguarda: não inicia se NPC inválido ou sem perguntas
+        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
+            console.warn("Quiz: NPC sem perguntas válidas.");
             return;
         }
 
-        if (this.quandoPerguntaMudar) {
-            this.quandoPerguntaMudar(perguntaAtual);
+        this.cena.physics.pause();
+        npc.vendeu = true;
+
+        this.perguntas = npc.perguntas;
+        this.indicePerguntaAtual = 0;
+        this.pontuacaoTotal = 0;
+        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
+        this.tempoRestante = this.tempoPorPergunta;
+        this.timerEvento = null;
+
+        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc";
+
+        this.ui = new QuizUI(this.cena, {
+            larguraModal: 660,
+            alturaModal: 420,
+            padding: 18,
+            larguraColunaBarra: 48,
+            alturaMaxBarraSatisfacao: 150,
+            duracaoFeedback: 1.5,
+            chaveImagemNpc: chaveImagemNpc
+        });
+
+        this.ui.aoSelecionarResposta = (indiceEscolhido) => this.responder(indiceEscolhido);
+        this.ui.mostrar();
+        this.ui.definirSatisfacao(this.nivelSatisfacao);
+
+        this.exibirPerguntaAtual();
+        this.iniciarTimer();
+    }
+
+    finalizar() {
+        if (this.ui) this.ui.esconder();
+        this.cena.physics.resume();
+    }
+
+    exibirPerguntaAtual() {
+        const perguntaAtual = this.perguntas[this.indicePerguntaAtual];
+        if (!perguntaAtual) {
+            console.warn("Quiz: Pergunta não encontrada.");
+            return;
         }
+        this.ui.definirPergunta(perguntaAtual);
+        this.ui.definirTimer(this.tempoRestante);
     }
 
     iniciarTimer() {
-
         this.tempoRestante = this.tempoPorPergunta;
+        this.ui.definirTimer(this.tempoRestante);
 
-        if (this.quandoTempoMudar) {
-            this.quandoTempoMudar(this.tempoRestante);
-        }
+        if (this.timerEvento) this.timerEvento.remove(false);
 
-        if (this.timerEvento) {
-            this.timerEvento.remove(false);
-        }
-
-        this.timerEvento = this.scene.time.addEvent({
+        this.timerEvento = this.cena.time.addEvent({
             delay: INTERVALO_TIMER_MS,
             callback: () => {
-
                 this.tempoRestante--;
-
-                if (this.quandoTempoMudar) {
-                    this.quandoTempoMudar(this.tempoRestante);
-                }
-
-                if (this.tempoRestante <= 0) {
-                    this.tempoEsgotado();
-                }
-
+                this.ui.definirTimer(this.tempoRestante);
+                if (this.tempoRestante <= 0) this.tempoEsgotado();
             },
             loop: true
         });
     }
 
     tempoEsgotado() {
-
-        if (this.timerEvento) {
-            this.timerEvento.remove(false);
-        }
-
-        if (this.quandoResponder) {
-            this.quandoResponder(0, this.nivelSatisfacao);
-        }
-
+        if (this.timerEvento) this.timerEvento.remove(false);
+        this.ui.exibirFeedback(0);
+        this.ui.definirSatisfacao(this.nivelSatisfacao);
         this.proximaPergunta();
     }
 
     responder(indiceEscolhido) {
-
-        const perguntaAtual = this.perguntas[this.indiceAtual];
-
-        if (!perguntaAtual) {
-            console.warn("Tentativa de responder sem pergunta válida");
+        // Salvaguarda: índice fora do intervalo [0, 3]
+        if (indiceEscolhido < 0 || indiceEscolhido >= 4) {
+            console.warn("Quiz: Índice inválido.");
             return;
         }
 
-        if (!perguntaAtual.pontos || perguntaAtual.pontos[indiceEscolhido] === undefined) {
-            console.warn("Pontos não encontrados para a resposta");
-            return;
-        }
+        const perguntaAtual = this.perguntas[this.indicePerguntaAtual];
+        if (!perguntaAtual) return;
+        if (!perguntaAtual.pontos || perguntaAtual.pontos[indiceEscolhido] === undefined) return;
 
-        if (this.timerEvento) {
-            this.timerEvento.remove(false);
-        }
+        if (this.timerEvento) this.timerEvento.remove(false);
 
         const pontos = perguntaAtual.pontos[indiceEscolhido];
+        this.pontuacaoTotal += pontos;
 
-        this.pontuacao += pontos;
-
-        // lógica de satisfação
         if (pontos === 3) this.nivelSatisfacao += PONTOS_SATISFACAO_EXCELENTE;
         else if (pontos === 2) this.nivelSatisfacao += PONTOS_SATISFACAO_BOA;
         else if (pontos === 1) this.nivelSatisfacao += 0;
@@ -140,28 +119,18 @@ export default class Quiz{
 
         this.nivelSatisfacao = Phaser.Math.Clamp(this.nivelSatisfacao, 0, 100);
 
-        if (this.quandoResponder) {
-            this.quandoResponder(pontos, this.nivelSatisfacao);
-        }
-
+        this.ui.exibirFeedback(pontos);
+        this.ui.definirSatisfacao(this.nivelSatisfacao);
         this.proximaPergunta();
     }
 
     proximaPergunta() {
-
-        this.indiceAtual++;
-
-        if (this.indiceAtual < this.perguntas.length) {
-
-            this.emitirPerguntaAtual();
+        this.indicePerguntaAtual++;
+        if (this.indicePerguntaAtual < this.perguntas.length) {
+            this.exibirPerguntaAtual();
             this.iniciarTimer();
-
         } else {
-
-            if (this.quandoFinalizar) {
-                this.quandoFinalizar(this.pontuacao);
-            }
-
+            this.finalizar();
         }
     }
 }

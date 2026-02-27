@@ -1,339 +1,308 @@
-// Constantes de layout e estilo
-const NUMERO_BOTOES = 4;
+/**
+ * QuizUI - Interface visual do quiz (Phaser). Core do jogo - design impecável.
+ */
+
+// Bloco 1: dimensões
+const NUMERO_OPCOES = 4;
 const ALTURA_BOTAO = 46;
-const ESPACAMENTO_BOTAO = 56;
-const OFFSET_TEXTO_BOTAO_X = 50;
-const OFFSET_TEXTO_BOTAO_Y = 13;
-const PADDING_TEXTO_BOTAO = 66;
-const POSICAO_CONTAINER_BOTOES_Y = 116;
-const POSICAO_FEEDBACK_Y = 358;
-const POSICAO_PERGUNTA_Y = 14;
-const POSICAO_TIMER_Y = -22;
+const ESPACO_BOTOES = 8;
+const LARGURA_PORTRAIT_NPC = 72;
+const ALTURA_CABECALHO = 100;
+const LARGURA_BARRA = 26;
+const ALTURA_BARRA = 150;
+const LARGURA_COLUNA_BARRA = 48;
+const LARGURA_BADGE = 38;
 
-const NPC_COLUNA_LARGURA = 80;
-const ALTURA_CAIXA_PERGUNTA = 90;
-const GAP_NPC_BOX = 10;
-
-const LARGURA_BARRA_SATISFACAO = 20;
-const ALTURA_MAX_BARRA_FUNDO = 220;
-const POSICAO_Y_BARRA_INICIAL = 110;
-
-const COR_OVERLAY = 0x000000;
-const OPACIDADE_OVERLAY = 0.55;
+// Bloco 2: cores (identidade Cielo - paleta atraente)
+const COR_OVERLAY = 0x0f172a;
+const OPAC_OVERLAY = 0.65;
 const COR_FUNDO_MODAL = 0xffffff;
-const COR_BORDA_MODAL = 0x003087;
-const COR_BORDA_BOTAO = 0x00aeef;
-const COR_FUNDO_BOX_PERGUNTA = 0xeff6ff;
-const COR_BADGE_LETRA = 0x003087;
-const COR_BARRA_FUNDO = 0xe2e8f0;
-const COR_BARRA_SATISFACAO_INICIAL = 0xff3b30;
-const COR_HOVER_BOTAO = 0x00aeef;
-const OPACIDADE_HOVER_BOTAO = 0.12;
+const COR_SOMBRA = 0x0c4a6e;
+const COR_BORDA_MODAL = 0x0284c7;
+const COR_FUNDO_CABECALHO = 0xf0f9ff;
+const COR_PORTRAIT_NPC = 0xe0f2fe;
+const COR_BADGE = 0x0369a1;
+const COR_TEXTO = "#0c4a6e";
+const COR_TEXTO_SECUNDARIO = "#64748b";
+const COR_BOTAO_FUNDO = 0xffffff;
+const COR_BOTAO_HOVER = 0xe0f2fe;
+const COR_BOTAO_BORDA = 0x7dd3fc;
+const COR_BARRA_FUNDO = 0xe0f2fe;
+const COR_BARRA_BAIXA = 0xef4444;
+const COR_BARRA_MEDIA = 0xf59e0b;
+const COR_BARRA_ALTA = 0x10b981;
 
-const ESCALA_NPC = 0.26;
-const DEPTH_CONTAINER_UI = 1000;
-const LARGURA_STROKE_MODAL = 2;
-const LARGURA_STROKE_BOTAO = 1;
-
-const TAMANHO_FONTE_TIMER = "15px";
-const TAMANHO_FONTE_PERGUNTA = "17px";
-const TAMANHO_FONTE_BOTAO = "14px";
-const TAMANHO_FONTE_FEEDBACK = "17px";
-const TAMANHO_FONTE_BADGE = "13px";
+// Bloco 3: fontes e estilo
+const ESCALA_NPC = 0.22;
+const PROFUNDIDADE_UI = 1000;
+const TAM_FONTE_PERGUNTA = "17px";
+const TAM_FONTE_OPCAO = "14px";
+const TAM_FONTE_BADGE = "13px";
+const TAM_FONTE_TIMER = "15px";
+const TAM_FONTE_FEEDBACK = "16px";
+const TAM_FONTE_SATISFACAO = "11px";
 
 export default class QuizUI {
 
-    constructor(scene, {
-        modalWidth,
-        modalHeight,
-        padding,
-        colunaBarraLargura,
-        temperaturaMaxAltura,
-        feedbackDuration
-    }) {
-        this.scene = scene;
-        this.modalWidth = modalWidth;
-        this.modalHeight = modalHeight;
-        this.padding = padding;
-        this.colunaBarraLargura = colunaBarraLargura;
-        this.temperaturaMaxAltura = temperaturaMaxAltura;
-        this.feedbackDuration = feedbackDuration;
+    constructor(cena, opcoes = {}) {
+        this.cena = cena;
+        this.larguraModal = opcoes.larguraModal ?? 660;
+        this.alturaModal = opcoes.alturaModal ?? 420;
+        this.padding = opcoes.padding ?? 18;
+        this.larguraColunaBarra = opcoes.larguraColunaBarra ?? LARGURA_COLUNA_BARRA;
+        this.alturaMaxBarra = opcoes.alturaMaxBarraSatisfacao ?? ALTURA_BARRA;
+        this.duracaoFeedback = opcoes.duracaoFeedback ?? 1.5;
+        this.chaveImagemNpc = opcoes.chaveImagemNpc ?? "npc";
+        this.aoSelecionarResposta = null;
 
-        this.onAnswerSelected = null;
-
-        this._criarUI();
+        this._criarInterface();
     }
 
-    _criarUI() {
-        const { scene } = this;
-        const larguraModal = this.modalWidth;
-        const alturaModal = this.modalHeight;
-        const padding = this.padding;
-        const larguraColunaBarra = this.colunaBarraLargura;
-        const larguraConteudo = larguraModal - larguraColunaBarra - padding * 3;
-
-        this._criarContainersBase(scene);
-        this._criarOverlay(scene);
-        this._criarModal(scene, larguraModal, alturaModal);
-        this._criarTermometro(scene, larguraModal, padding, larguraColunaBarra);
-        this._criarConteudo(scene, larguraModal, alturaModal, larguraColunaBarra, padding, larguraConteudo);
+    _criarInterface() {
+        this._criarContainerRaiz();
+        this._criarOverlay();
+        this._criarModal();
+        this._criarBarraSatisfacao();
+        this._criarConteudo();
     }
 
-    _criarContainersBase(scene) {
-        this.containerQuizUI = scene.add.container(0, 0).setDepth(DEPTH_CONTAINER_UI);
+    _criarContainerRaiz() {
+        this.containerPrincipal = this.cena.add.container(0, 0).setDepth(PROFUNDIDADE_UI);
     }
 
-    _criarOverlay(scene) {
-        this.fundoOverlay = scene.add.rectangle(
-            0, 0,
-            scene.scale.width,
-            scene.scale.height,
-            COR_OVERLAY,
-            OPACIDADE_OVERLAY
-        ).setOrigin(0);
+    _criarOverlay() {
+        const w = this.cena.scale.width;
+        const h = this.cena.scale.height;
+        this.fundoOverlayRectangle = this.cena.add.rectangle(0, 0, w, h, COR_OVERLAY, OPAC_OVERLAY).setOrigin(0);
+        this.fundoOverlayRectangle.setInteractive({ useHandCursor: false });
+        this.fundoOverlayRectangle.on("pointerdown", () => {});
+        this.containerPrincipal.add(this.fundoOverlayRectangle);
     }
 
-    _criarModal(scene, larguraModal, alturaModal) {
-        this.containerModal = scene.add.container(
-            scene.scale.width / 2,
-            scene.scale.height / 2
-        );
+    _criarModal() {
+        const cx = this.cena.scale.width / 2;
+        const cy = this.cena.scale.height / 2;
+        this.containerModal = this.cena.add.container(cx, cy);
 
-        this.fundoModal = scene.add.rectangle(
-            0, 0,
-            larguraModal,
-            alturaModal,
-            COR_FUNDO_MODAL
-        ).setStrokeStyle(LARGURA_STROKE_MODAL, COR_BORDA_MODAL).setOrigin(0.5);
+        this.retanguloSombra = this.cena.add.rectangle(5, 5, this.larguraModal + 10, this.alturaModal + 10, COR_SOMBRA, 0.15).setOrigin(0.5);
+        this.retanguloFundoModal = this.cena.add.rectangle(0, 0, this.larguraModal, this.alturaModal, COR_FUNDO_MODAL).setOrigin(0.5);
+        this.retanguloFundoModal.setStrokeStyle(2, COR_BORDA_MODAL);
+
+        this.containerPrincipal.add(this.containerModal);
     }
 
-    _criarTermometro(scene, larguraModal, padding, larguraColunaBarra) {
-        this.containerBarra = scene.add.container(
-            -larguraModal / 2 + padding + larguraColunaBarra / 2,
-            0
-        );
+    _criarBarraSatisfacao() {
+        const metadeLargura = this.larguraModal / 2;
+        const posXBarra = -metadeLargura + this.padding + this.larguraColunaBarra / 2;
+        this.containerBarra = this.cena.add.container(posXBarra, 0);
 
-        this.barraFundo = scene.add.rectangle(
-            0, 0,
-            LARGURA_BARRA_SATISFACAO,
-            ALTURA_MAX_BARRA_FUNDO,
-            COR_BARRA_FUNDO
-        );
+        this.textoLabelSatisfacao = this.cena.add.text(0, -this.alturaMaxBarra / 2 - 18, "Satisfação", {
+            fontSize: TAM_FONTE_SATISFACAO, color: COR_TEXTO_SECUNDARIO, fontStyle: "bold"
+        }).setOrigin(0.5);
 
-        this.barraSatisfacao = scene.add.rectangle(
-            0, POSICAO_Y_BARRA_INICIAL,
-            LARGURA_BARRA_SATISFACAO,
-            0,
-            COR_BARRA_SATISFACAO_INICIAL
-        ).setOrigin(0.5, 1);
+        this.retanguloBarraFundo = this.cena.add.rectangle(0, 0, LARGURA_BARRA, this.alturaMaxBarra, COR_BARRA_FUNDO).setOrigin(0.5);
+        this.retanguloBarraFundo.setStrokeStyle(1, 0xbae6fd);
 
-        this.containerBarra.add([this.barraFundo, this.barraSatisfacao]);
+        const yBase = this.alturaMaxBarra / 2;
+        this.retanguloBarraPreenchimento = this.cena.add.rectangle(0, yBase, LARGURA_BARRA - 4, 0, COR_BARRA_MEDIA).setOrigin(0.5, 1);
+
+        this.textoValorSatisfacao = this.cena.add.text(0, yBase + 16, "50", {
+            fontSize: "12px", color: COR_TEXTO, fontStyle: "bold"
+        }).setOrigin(0.5);
+
+        this.containerBarra.add([
+            this.textoLabelSatisfacao,
+            this.retanguloBarraFundo,
+            this.retanguloBarraPreenchimento,
+            this.textoValorSatisfacao
+        ]);
+
+        this.containerModal.add(this.retanguloSombra);
+        this.containerModal.add(this.retanguloFundoModal);
+        this.containerModal.add(this.containerBarra);
     }
 
-    _criarConteudo(scene, larguraModal, alturaModal, larguraColunaBarra, padding, larguraConteudo) {
-        const inicioConteudoX = -larguraModal / 2 + larguraColunaBarra + padding * 2;
+    // NPC em portrait isolado à esquerda; pergunta à direita, sem sobreposição
+    _criarConteudo() {
+        const metadeLargura = this.larguraModal / 2;
+        const metadeAltura = this.alturaModal / 2;
+        const posXConteudo = -metadeLargura + this.larguraColunaBarra + this.padding;
+        const posYConteudo = -metadeAltura + this.padding;
+        const larguraConteudo = this.larguraModal - this.larguraColunaBarra - this.padding * 2;
 
-        this.containerConteudo = scene.add.container(
-            inicioConteudoX,
-            -alturaModal / 2 + padding
-        );
+        this.containerConteudo = this.cena.add.container(posXConteudo, posYConteudo);
 
-        this._criarHeader(scene, larguraConteudo);
-        this._criarPergunta(scene, larguraConteudo);
-        this._criarBotoes(scene, larguraConteudo);
-        this._criarFeedback(scene, larguraConteudo);
+        this._criarCabecalho(larguraConteudo);
+        this._criarPergunta(larguraConteudo);
+        this._criarBotoes(larguraConteudo);
+        this._criarAreaFeedback(larguraConteudo);
 
         this.containerConteudo.add([
-            this.containerHeader,
-            this.textoPergunta,
+            this.containerCabecalho,
+            this.containerPergunta,
             this.containerBotoes,
             this.textoFeedback
         ]);
-
-        this.containerModal.add([
-            this.fundoModal,
-            this.containerBarra,
-            this.containerConteudo
-        ]);
-
-        this.containerQuizUI.add([
-            this.fundoOverlay,
-            this.containerModal
-        ]);
+        this.containerModal.add(this.containerConteudo);
     }
 
-    _criarHeader(scene, larguraConteudo) {
-        this.containerHeader = scene.add.container(0, 0);
+    _criarCabecalho(larguraConteudo) {
+        this.containerCabecalho = this.cena.add.container(0, 0);
 
-        const boxX = NPC_COLUNA_LARGURA + GAP_NPC_BOX;
-        const boxWidth = larguraConteudo - NPC_COLUNA_LARGURA - GAP_NPC_BOX;
+        // Portrait do NPC: caixa fixa à esquerda, jogador dentro (não invade a pergunta)
+        const posXPortrait = 0;
+        const posYPortrait = 0;
+        this.retanguloPortraitNpc = this.cena.add.rectangle(
+            posXPortrait, posYPortrait,
+            LARGURA_PORTRAIT_NPC, ALTURA_CABECALHO,
+            COR_PORTRAIT_NPC
+        ).setOrigin(0, 0);
+        this.retanguloPortraitNpc.setStrokeStyle(1, 0x7dd3fc);
 
-        this.fundoPergunta = scene.add.rectangle(
-            boxX, 0,
-            boxWidth,
-            ALTURA_CAIXA_PERGUNTA,
-            COR_FUNDO_BOX_PERGUNTA
-        ).setOrigin(0, 0).setStrokeStyle(LARGURA_STROKE_BOTAO, COR_BORDA_BOTAO);
+        this.imagemNpc = this.cena.add.image(
+            posXPortrait + LARGURA_PORTRAIT_NPC / 2,
+            posYPortrait + ALTURA_CABECALHO / 2,
+            this.chaveImagemNpc
+        ).setOrigin(0.5).setScale(ESCALA_NPC);
 
-        this.imagemNpc = scene.add.image(0, 0, 'npc-padeiro')
-            .setOrigin(0, 0)
-            .setScale(ESCALA_NPC);
+        // Caixa da pergunta: à direita do portrait, com margem
+        const margemEntrePortraitEPergunta = 12;
+        const posXCaixa = LARGURA_PORTRAIT_NPC + margemEntrePortraitEPergunta;
+        const larguraCaixa = larguraConteudo - LARGURA_PORTRAIT_NPC - margemEntrePortraitEPergunta - 8;
 
-        this.textoTimer = scene.add.text(
-            boxX + boxWidth - 10,
-            POSICAO_TIMER_Y,
-            "15s",
-            {
-                fontSize: TAMANHO_FONTE_TIMER,
-                color: "#003087",
-                fontStyle: "bold"
-            }
-        ).setOrigin(1, 0);
+        this.retanguloCabecalho = this.cena.add.rectangle(
+            posXCaixa, 0, larguraCaixa, ALTURA_CABECALHO, COR_FUNDO_CABECALHO
+        ).setOrigin(0, 0);
+        this.retanguloCabecalho.setStrokeStyle(1, 0xbae6fd);
 
-        this.containerHeader.add([
-            this.fundoPergunta,
+        // Timer em badge (pill)
+        const posXTimer = posXCaixa + larguraCaixa - 42;
+        this.retanguloTimer = this.cena.add.rectangle(posXTimer, 6, 38, 22, COR_BADGE).setOrigin(0, 0);
+        this.textoTimer = this.cena.add.text(posXTimer + 19, 17, "15s", {
+            fontSize: TAM_FONTE_TIMER, color: "#ffffff", fontStyle: "bold"
+        }).setOrigin(0.5);
+        this.containerCabecalho.add([
+            this.retanguloPortraitNpc,
             this.imagemNpc,
+            this.retanguloCabecalho,
+            this.retanguloTimer,
             this.textoTimer
         ]);
     }
 
-    _criarPergunta(scene, larguraConteudo) {
-        const textX = NPC_COLUNA_LARGURA + GAP_NPC_BOX + 14;
-        const wrapWidth = larguraConteudo - NPC_COLUNA_LARGURA - GAP_NPC_BOX - 50;
+    // Pergunta inicia após o portrait, com margem para não ser coberta
+    _criarPergunta(larguraConteudo) {
+        const margemEsquerda = LARGURA_PORTRAIT_NPC + 20;
+        const posX = margemEsquerda;
+        const posY = 36;
+        const larguraTexto = larguraConteudo - margemEsquerda - 24;
 
-        this.textoPergunta = scene.add.text(textX, POSICAO_PERGUNTA_Y, "", {
-            fontSize: TAMANHO_FONTE_PERGUNTA,
-            color: "#1b2b5b",
+        this.containerPergunta = this.cena.add.container(0, 0);
+        this.textoPergunta = this.cena.add.text(posX, posY, "", {
+            fontSize: TAM_FONTE_PERGUNTA,
+            color: COR_TEXTO,
             fontStyle: "bold",
-            wordWrap: { width: wrapWidth }
+            wordWrap: { width: larguraTexto }
         });
+        this.containerPergunta.add(this.textoPergunta);
     }
 
-    _criarBotoes(scene, larguraConteudo) {
-        this.containerBotoes = scene.add.container(0, POSICAO_CONTAINER_BOTOES_Y);
-        this.botoes = [];
+    _criarBotoes(larguraConteudo) {
+        const posYInicio = ALTURA_CABECALHO + 14;
+        this.containerBotoes = this.cena.add.container(0, posYInicio);
+        this.listaTextoBotoes = [];
 
         const letras = ["A", "B", "C", "D"];
+        for (let i = 0; i < NUMERO_OPCOES; i++) {
+            const posY = i * (ALTURA_BOTAO + ESPACO_BOTOES);
 
-        for (let i = 0; i < NUMERO_BOTOES; i++) {
-            const posicaoYBotao = i * ESPACAMENTO_BOTAO;
+            const retanguloFundoBotao = this.cena.add.rectangle(
+                LARGURA_PORTRAIT_NPC, posY,
+                larguraConteudo - LARGURA_PORTRAIT_NPC, ALTURA_BOTAO,
+                COR_BOTAO_FUNDO
+            ).setOrigin(0, 0).setInteractive({ useHandCursor: true });
+            retanguloFundoBotao.setStrokeStyle(1, COR_BOTAO_BORDA);
 
-            const fundoBotao = scene.add.rectangle(
-                0,
-                posicaoYBotao,
-                larguraConteudo,
-                ALTURA_BOTAO,
-                COR_FUNDO_MODAL
-            )
-                .setStrokeStyle(LARGURA_STROKE_BOTAO, COR_BORDA_BOTAO)
-                .setOrigin(0)
-                .setInteractive({ useHandCursor: true });
+            const retanguloBadge = this.cena.add.rectangle(
+                LARGURA_PORTRAIT_NPC, posY, LARGURA_BADGE, ALTURA_BOTAO, COR_BADGE
+            ).setOrigin(0, 0);
 
-            const badgeFundo = scene.add.rectangle(
-                0,
-                posicaoYBotao,
-                34,
-                ALTURA_BOTAO,
-                COR_BADGE_LETRA
-            ).setOrigin(0);
-
-            const badgeLetra = scene.add.text(
-                17,
-                posicaoYBotao + ALTURA_BOTAO / 2,
+            const textoBadgeLetra = this.cena.add.text(
+                LARGURA_PORTRAIT_NPC + LARGURA_BADGE / 2, posY + ALTURA_BOTAO / 2,
                 letras[i],
-                {
-                    fontSize: TAMANHO_FONTE_BADGE,
-                    color: "#ffffff",
-                    fontStyle: "bold"
-                }
+                { fontSize: TAM_FONTE_BADGE, color: "#ffffff", fontStyle: "bold" }
             ).setOrigin(0.5);
 
-            const textoBotao = scene.add.text(
-                OFFSET_TEXTO_BOTAO_X,
-                posicaoYBotao + OFFSET_TEXTO_BOTAO_Y,
+            const textoOpcaoBotao = this.cena.add.text(
+                LARGURA_PORTRAIT_NPC + LARGURA_BADGE + 10, posY + ALTURA_BOTAO / 2,
                 "",
-                {
-                    fontSize: TAMANHO_FONTE_BOTAO,
-                    color: "#1b2b5b",
-                    wordWrap: { width: larguraConteudo - PADDING_TEXTO_BOTAO }
-                }
-            );
+                { fontSize: TAM_FONTE_OPCAO, color: COR_TEXTO }
+            ).setOrigin(0, 0.5);
+            textoOpcaoBotao.setWordWrapWidth(larguraConteudo - LARGURA_PORTRAIT_NPC - LARGURA_BADGE - 70);
 
-            fundoBotao.on("pointerover", () => {
-                fundoBotao.setFillStyle(COR_HOVER_BOTAO, OPACIDADE_HOVER_BOTAO);
-                badgeFundo.setFillStyle(0x00aeef);
-            });
+            retanguloFundoBotao.on("pointerover", () => retanguloFundoBotao.setFillStyle(COR_BOTAO_HOVER));
+            retanguloFundoBotao.on("pointerout", () => retanguloFundoBotao.setFillStyle(COR_BOTAO_FUNDO));
 
-            fundoBotao.on("pointerout", () => {
-                fundoBotao.setFillStyle(COR_FUNDO_MODAL);
-                badgeFundo.setFillStyle(COR_BADGE_LETRA);
-            });
-
-            fundoBotao.on("pointerdown", () => {
-                if (this.onAnswerSelected) {
-                    this.onAnswerSelected(i);
+            const idx = i;
+            retanguloFundoBotao.on("pointerdown", () => {
+                if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
+                    this.aoSelecionarResposta(idx);
                 }
             });
 
-            this.containerBotoes.add([fundoBotao, badgeFundo, badgeLetra, textoBotao]);
-            this.botoes.push(textoBotao);
+            this.containerBotoes.add([retanguloFundoBotao, retanguloBadge, textoBadgeLetra, textoOpcaoBotao]);
+            this.listaTextoBotoes.push(textoOpcaoBotao);
         }
     }
 
-    _criarFeedback(scene, larguraConteudo) {
-        this.textoFeedback = scene.add.text(
-            larguraConteudo / 2,
-            POSICAO_FEEDBACK_Y,
-            "",
-            {
-                fontSize: TAMANHO_FONTE_FEEDBACK,
-                color: "#000"
-            }
-        ).setOrigin(0.5).setVisible(false);
+    _criarAreaFeedback(larguraConteudo) {
+        const posY = ALTURA_CABECALHO + 14 + NUMERO_OPCOES * (ALTURA_BOTAO + ESPACO_BOTOES) + 12;
+        this.textoFeedback = this.cena.add.text(larguraConteudo / 2, posY, "", {
+            fontSize: TAM_FONTE_FEEDBACK, color: COR_TEXTO, fontStyle: "bold"
+        }).setOrigin(0.5).setVisible(false);
     }
 
-    setQuestion(pergunta) {
-        this.textoPergunta.setText(pergunta.pergunta);
-        pergunta.opcoes.forEach((opcao, index) => {
-            if (this.botoes[index]) {
-                this.botoes[index].setText(opcao);
-            }
-        });
+    definirPergunta(pergunta) {
+        if (!pergunta) return;
+        this.textoPergunta.setText(pergunta.pergunta ?? "");
+        const opcoes = pergunta.opcoes ?? [];
+        for (let i = 0; i < NUMERO_OPCOES; i++) {
+            if (this.listaTextoBotoes[i]) this.listaTextoBotoes[i].setText(opcoes[i] ?? "");
+        }
     }
 
-    setTimer(tempo) {
-        this.textoTimer.setText(`${tempo}s`);
+    definirTimer(segundos) {
+        this.textoTimer.setText(`${segundos}s`);
     }
 
-    setSatisfacao(valor) {
-        const altura = (valor / 100) * this.temperaturaMaxAltura;
+    definirSatisfacao(valor) {
+        const v = Phaser.Math.Clamp(valor, 0, 100);
+        const alturaPreenchimento = v <= 0 ? 0 : (v / 100) * (this.alturaMaxBarra - 4);
+        const alturaFinal = Math.max(0, Math.min(alturaPreenchimento, this.alturaMaxBarra - 4));
 
-        let cor = 0xff3b30;
-        if (valor > 40) cor = 0xffcc00;
-        if (valor > 70) cor = 0x34c759;
+        let cor = COR_BARRA_BAIXA;
+        if (v > 70) cor = COR_BARRA_ALTA;
+        else if (v > 40) cor = COR_BARRA_MEDIA;
 
-        this.barraSatisfacao.setFillStyle(cor);
-        this.barraSatisfacao.setSize(20, altura);
+        this.retanguloBarraPreenchimento.setFillStyle(cor);
+        this.retanguloBarraPreenchimento.setSize(LARGURA_BARRA - 4, Math.max(1, alturaFinal));
+        this.textoValorSatisfacao.setText(String(Math.round(v)));
     }
 
-    showFeedback(pontos) {
-        let mensagem = "Resposta fraca.";
-        if (pontos === 3) mensagem = "Excelente!";
-        else if (pontos === 2) mensagem = "Boa resposta!";
-
-        this.textoFeedback.setText(mensagem);
+    exibirFeedback(pontos) {
+        let msg = "Resposta fraca.";
+        if (pontos === 3) msg = "Excelente!";
+        else if (pontos === 2) msg = "Boa resposta!";
+        this.textoFeedback.setText(msg);
         this.textoFeedback.setVisible(true);
-
-        this.scene.time.delayedCall(this.feedbackDuration, () => {
-            this.textoFeedback.setVisible(false);
-        });
+        this.cena.time.delayedCall(this.duracaoFeedback, () => this.textoFeedback.setVisible(false));
     }
 
-    show() {
-        this.containerQuizUI.setVisible(true);
+    mostrar() {
+        this.containerPrincipal.setVisible(true);
     }
 
-    hide() {
-        this.containerQuizUI.setVisible(false);
+    esconder() {
+        this.containerPrincipal.setVisible(false);
     }
 }

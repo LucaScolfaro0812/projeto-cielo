@@ -1,4 +1,9 @@
-// Perguntas do quiz da padaria
+/**
+ * quizPerguntas.js - Banco de perguntas do quiz.
+ * Cada pergunta tem: pergunta, opcoes (A,B,C,D), pontos por alternativa.
+ */
+
+// Perguntas da cena da padaria
 export const perguntasPadaria = [
     {
         pergunta: "João diz: 'Tenho medo das taxas...'",
@@ -8,9 +13,8 @@ export const perguntasPadaria = [
             "c) Você não precisa de maquininha",
             "d) Use apenas dinheiro"
         ],
-        pontos: [0, 3, 1, 0]  // Pontos para cada alternativa (a=0, b=3, c=1, d=0)
+        pontos: [0, 3, 1, 0]
     },
-
     {
         pergunta: "João pergunta: 'Quanto tempo demora para o dinheiro cair na conta?'",
         opcoes: [
@@ -21,7 +25,6 @@ export const perguntasPadaria = [
         ],
         pontos: [0, 1, 2, 3]
     },
-
     {
         pergunta: "João reclama: 'Muitos clientes vão embora porque só aceito dinheiro'. Como você responde?",
         opcoes: [
@@ -32,7 +35,6 @@ export const perguntasPadaria = [
         ],
         pontos: [0, 3, 1, 0]
     },
-
     {
         pergunta: "João diz: 'Já tentei maquininha antes e deu problema'. O que você faz?",
         opcoes: [
@@ -45,7 +47,7 @@ export const perguntasPadaria = [
     }
 ];
 
-// Perguntas do quiz da padaria
+// Perguntas da cena da rua (NPC na rua)
 export const perguntasNpcRua = [
     {
         pergunta: "João diz: 'Tenho medo das taxas...'",
@@ -55,9 +57,8 @@ export const perguntasNpcRua = [
             "c) Você não precisa de maquininha",
             "d) Use apenas dinheiro"
         ],
-        pontos: [0, 3, 1, 0]  // Pontos para cada alternativa (a=0, b=3, c=1, d=0)
+        pontos: [0, 3, 1, 0]
     },
-
     {
         pergunta: "João pergunta: 'Quanto tempo demora para o dinheiro cair na conta?'",
         opcoes: [
@@ -68,7 +69,6 @@ export const perguntasNpcRua = [
         ],
         pontos: [0, 1, 2, 3]
     },
-
     {
         pergunta: "João reclama: 'Muitos clientes vão embora porque só aceito dinheiro'. Como você responde?",
         opcoes: [
@@ -79,7 +79,6 @@ export const perguntasNpcRua = [
         ],
         pontos: [0, 3, 1, 0]
     },
-
     {
         pergunta: "João diz: 'Já tentei maquininha antes e deu problema'. O que você faz?",
         opcoes: [

@@ -102,9 +102,9 @@ A Análise SWOT é uma metodologia estratégica adotada por empresas de diversos
 
 | OPORTUNIDADES (OPPORTUNITIES) | AMEAÇAS (THREATS) |
 | :--- | :--- |
-| **Monetização de Dados:** Uso de inteligência de dados (ICVA) para oferecer consultoria e produtos personalizados. | **Consolidação do Pix:** O avanço do Pix reduz a receita vinda de taxas de cartões de débito tradicionais. |
-| **Expansão em PMEs:** Foco no crescimento do volume de transações em Pequenas e Médias Empresas. | **Guerra das Maquininhas:** Competição agressiva de taxas com empresas como Stone, PagBank e Getnet. |
-| **Digitalização do Varejo:** Crescimento contínuo do e-commerce e soluções de pagamento invisível. | **Regulação e Cibersegurança:** Aumento nos custos com segurança digital e novas normas rígidas do Banco Central. |
+| **Monetização de Dados:** Utilização estratégica de inteligência de dados (ICVA) para converter informações em valor, oferecendo consultoria especializada e produtos personalizados que atendam às demandas específicas do mercado moderno. | **Consolidação do Pix:** O avanço acelerado do Pix no mercado brasileiro reduz drasticamente a receita vinda de taxas de cartões de débito tradicionais, exigindo novas estratégias de monetização para as instituições financeiras. |
+| **Expansão em PMEs:** Foco intensivo na aceleração do volume de transações e no fortalecimento da presença junto a Pequenas e Médias Empresas, visando escala e maior capilaridade no setor. | **Guerra das Maquininhas:** Existe uma competição extremamente agressiva de taxas com empresas consolidadas como Stone, PagBank e Getnet, o que pressiona as margens de lucro e força a busca por diferenciais competitivos. |
+| **Digitalização do Varejo:** Fomento ao crescimento contínuo do e-commerce através da implementação de soluções inovadoras de pagamento invisível, eliminando fricções e otimizando a jornada de compra do consumidor final. |**Regulação e Cibersegurança:** Observamos um aumento significativo nos custos operacionais com segurança digital e adaptação às novas normas rígidas impostas pelo Banco Central. |
 
 
 ---

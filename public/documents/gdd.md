@@ -58,7 +58,7 @@ Uma das principais dificuldades para novas empresas no ramo é a questão do cap
 Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share (PortersFiveForce.com, 2025).
 
 ##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
-A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta. Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais. Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas. Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor.
+A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta, conforme a análise estrutural da concorrência proposta por Porter (2008). Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais (McKinsey & Company, 2024; Deloitte, 2024). Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas, reforçando a transformação do setor impulsionada pela digitalização dos meios de pagamento (PwC Brasil, 2024; Veja, 2024). Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor e ampliando as tendências de desintermediação no mercado brasileiro de pagamentos (Banco Central do Brasil, 2024; Subadquirente, 2025).
 
 ##### 1.1.1.1.2 Identificação e análise dos principais obstáculos para novos entrantes.
 <p>Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência</p>
@@ -630,17 +630,19 @@ Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix
 
 Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
 
-Porter, M. E. (2008). The Five Competitive Forces That Shape Strategy. Harvard Business Review.
+Porter, M. E. (2008). *The five competitive forces that shape strategy*. Harvard Business Review.
 
+Banco Central do Brasil. (2024). *Relatórios sobre Pix e meios de pagamento*. https://www.bcb.gov.br
 
-Banco Central do Brasil – Relatórios sobre Pix e meios de pagamento.
+Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
 
+PwC Brasil. (2024). *Relatórios sobre tendências do mercado financeiro*. https://www.pwc.com.br
 
-Relatórios de mercado financeiro (Deloitte, PwC, McKinsey).
+McKinsey & Company. (2024). *Estudos sobre transformação digital e meios de pagamento*. https://www.mckinsey.com.br
 
-https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/?utm_source=chatgpt.com
+Veja. (2024). *Carteiras digitais ajudam cartões de crédito a se reinventar*. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
 
-https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025?utm_source=chatgpt.com
+Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
 
 # <a name="c8"></a>Anexos

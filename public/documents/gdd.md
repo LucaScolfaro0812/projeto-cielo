@@ -273,7 +273,7 @@ Aproximadamente 15 minutos.
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-<img src="public/assets/marcielo.png"> 
+<img src="../assets/marcielo.png"> 
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -456,43 +456,62 @@ O foco desta versão é estrutural, não funcional.
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-_Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._Durante a Sprint 2, foi desenvolvida a versão básica funcional do jogo, permitindo testar as principais mecânicas planejadas no projeto.
-O objetivo desta etapa foi implementar a estrutura inicial do jogo, garantindo que o jogador pudesse interagir com o cenário e executar ações fundamentais.
+Durante a Sprint 2, foi desenvolvida a primeira versão funcional do jogo, permitindo validar as principais mecânicas previstas no escopo do projeto. Esta etapa teve como objetivo estruturar a base do sistema e possibilitar a interação inicial do jogador com o ambiente virtual.
+O foco principal foi implementar os elementos essenciais necessários para o funcionamento do jogo, garantindo navegação no cenário, controle do personagem e organização inicial da arquitetura do código.
+
 Funcionalidades implementadas
 
-Nesta sprint foram entregues os seguintes elementos:
-. Criação da janela principal do jogo;
-. Implementação do personagem controlado pelo jogador;
-. Movimentação utilizando o teclado (setas direcionais ou teclas WASD);
-. Renderização do cenário e dos objetos básicos;
-. Sistema inicial de atualização da tela (game loop);
-. Detecção básica de colisão;
-. Organização inicial do código em funções/classes.
+Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
-O jogo já permite que o usuário execute o programa, visualize o cenário e controle o personagem em tempo real.
+. Criação da janela principal do jogo utilizando a biblioteca Phaser;
+. Implementação do personagem controlável pelo jogador;
+. Sistema de movimentação por meio do teclado, utilizando as teclas W, A, S e D;
+. Renderização do cenário 2D em perspectiva top-down;
+. Implementação do game loop, responsável pela atualização contínua da tela e das ações do jogador;
+. Detecção básica de colisões e posicionamento no ambiente;
+. Estruturação inicial do projeto com separação de responsabilidades em arquivos e classes (Scenes do Phaser);
+. Organização preliminar do fluxo do jogo, incluindo menu inicial e carregamento das cenas.
+
+Com essas implementações, o jogo já permite ao usuário iniciar a aplicação, visualizar o ambiente gráfico e movimentar o personagem em tempo real dentro do cenário proposto.
+
+Ilustrações da versão básica
+
+Figura 1 – Menu inicial do jogo
+
+![alt text](<Captura de tela 2026-02-27 110554.png>)
+
+Figura 2 – Ambiente da padaria
+
+![alt text](<Captura de tela 2026-02-27 110653.png>)
+
+Figura 3 – Estrutura inicial de interação no ambiente
+
+![alt text](<Captura de tela 2026-02-27 110734.png>)
+
 Dificuldades encontradas
 
-Durante o desenvolvimento foram identificados alguns desafios:
+Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identificados:
 
-. Ajustar corretamente o loop principal do jogo para evitar travamentos;
-. Sincronizar a movimentação do personagem com a atualização da tela;
-. Implementar colisões sem causar erros de posicionamento;
-. Organização inicial do projeto e separação dos arquivos de código.
+. Configuração adequada do loop principal do jogo, evitando travamentos ou atualizações inconsistentes;
+. Sincronização entre movimentação do personagem e renderização gráfica;
+. Implementação inicial de colisões sem gerar sobreposição de elementos;
+. Organização estrutural do projeto e adaptação ao modelo de cenas da biblioteca Phaser;
+. Gerenciamento correto dos arquivos JavaScript utilizando módulos (import/export).
 
-Essas dificuldades foram solucionadas por meio de testes incrementais e refatoração do código.
+Essas dificuldades foram superadas por meio de testes incrementais, ajustes na arquitetura do código e refatorações sucessivas, contribuindo para maior estabilidade da aplicação.
 
 Próximos passos
 
-Para as próximas etapas do desenvolvimento, estão previstas as seguintes evoluções do jogo:
+Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
 . Implementação completa do tutorial interativo, apresentando instruções iniciais, funcionamento do jogo e controles do personagem;
-. Expansão do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes;
-. Desenvolvimento dos quizzes de negociação, com múltiplas opções de resposta baseadas em situações reais de vendas;
-. Integração do sistema de pontuação, considerando decisões tomadas pelo jogador durante o atendimento;
+. Ampliação do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes distribuídos pelo mapa;
+. Desenvolvimento dos quizzes de negociação, simulando situações reais de atendimento e vendas;
+. Integração do sistema de pontuação, considerando decisões tomadas pelo jogador e desempenho nas interações;
 . Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de satisfação;
-. Criação do painel de desempenho em tempo real, exibindo informações da partida;
-. Aprimoramento da interface gráfica, garantindo identidade visual alinhada ao treinamento corporativo da Cielo;
-. Realização de testes de usabilidade para validar clareza das mecânicas e facilidade de navegação.
+. Criação de um painel de desempenho em tempo real, exibindo indicadores da partida;
+. Aprimoramento da interface gráfica e identidade visual alinhada ao treinamento corporativo da Cielo;
+. Realização de testes de usabilidade e ajustes de jogabilidade visando melhor experiência do usuário.
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
@@ -607,6 +626,19 @@ Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.c
 Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
 Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
+
+Porter, M. E. (2008). The Five Competitive Forces That Shape Strategy. Harvard Business Review.
+
+
+Banco Central do Brasil – Relatórios sobre Pix e meios de pagamento.
+
+
+Relatórios de mercado financeiro (Deloitte, PwC, McKinsey).
+
+https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/?utm_source=chatgpt.com
+
+https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025?utm_source=chatgpt.com
+
 
 # <a name="c8"></a>Anexos
 

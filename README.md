@@ -33,7 +33,7 @@
 
 *Descreva seu projeto (até 600 palavras)*
 
-https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
+🎮 **Para jogar clique aqui:** [https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05)
 
 ## 📁 Estrutura de pastas
 

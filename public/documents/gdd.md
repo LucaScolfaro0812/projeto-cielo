@@ -357,7 +357,7 @@ _Exemplo de tabela_
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-<img src="../assets/diagrama.png">
+<img src="../../assets/diagrama.png">
 
 ## 3.6. Regras do jogo (sprint 3)
 

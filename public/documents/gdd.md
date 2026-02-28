@@ -286,7 +286,7 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="../../assets/NPCs.jpeg" width= 250> 
+<img src="../../public/assets/NPCs.jpeg" width= 350> 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -305,7 +305,7 @@ Aproximadamente 15 minutos.
 
 Segue abaixo o mapa: 
 
-<img src="../../assets/MapaJogoCielo.png" width= 300>
+<img src="../../assets/MapaJogoCielo.webp" width = 250>
 
 
 
@@ -320,7 +320,7 @@ Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
-<img src="../../assets/RascunhosNPC.jpeg">
+<img src="../../public/assets/RascunhosNPC.jpeg" width = 300>
 
 Figura 1: detalhe da cena da partida do herói para a missão, usando sua nave
 

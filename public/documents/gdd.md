@@ -322,7 +322,7 @@ Não se aplica
 
 <img src="../../public/assets/RascunhosNPC.jpeg" width = 300>
 
-Figura 1: detalhe da cena da partida do herói para a missão, usando sua nave
+Figura 1: desenhos dos clientes feito a mão 
 
 ### 3.3.5. Trilha sonora (sprint 4)
 

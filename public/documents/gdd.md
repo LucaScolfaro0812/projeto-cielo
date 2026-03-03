@@ -357,11 +357,15 @@ _Exemplo de tabela_
 
 ## 3.6. Regras do jogo (sprint 3)
 
-_Descreva aqui as regras do seu jogo: objetivos/desafios, meios para se conseguir alcançar_
+No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo vender as maquininhas e os serviços de pagamento da empresa para diferentes estabelecimentos distribuídos pelo mapa.
 
-_Ex. O jogador deve pilotar o carro e conseguir terminar a corrida dentro de um minuto sem bater em nenhum obstáculo._
+O jogador percorre o mapa, entra nos comércios e inicia negociações com os responsáveis. As interações ocorrem por meio de quizzes que simulam situações reais de venda. Cada pergunta possui tempo limite para resposta, aproximando a experiência de um cenário real de negociação.
 
-_Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto._
+Durante a interação, o jogo apresenta um indicador de satisfação do cliente, fornecendo feedback imediato sobre as decisões tomadas.
+
+O sistema é dividido em fases progressivas: ao concluir uma venda com sucesso, o jogador avança para níveis mais desafiadores, enfrentando clientes maiores e mais exigentes. Caso não consiga fechar a venda, ele regride de nível e precisa reiniciar o desafio.
+
+O objetivo final do jogo é alcançar o nível máximo, no qual o jogador recebe um “certificado de qualificação”, simbolizando que está preparado para exercer plenamente seu papel como vendedor na empresa.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 

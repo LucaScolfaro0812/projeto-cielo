@@ -34,10 +34,13 @@ export class GameScene extends Phaser.Scene {
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
+        this.fundo=
         this.add.image(0, 0, 'rua')
-            .setOrigin(0)
+            .setOrigin(0.5,0.5)
             .setScale(6);
 
+            this.fundo.x=this.fundo.displayWidth/2;
+            this.fundo.y=this.fundo.displayHeight/2;
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
 
@@ -45,10 +48,10 @@ export class GameScene extends Phaser.Scene {
         this._criarPortas();
 
         // Faz a câmera seguir o jogador
-        this.cameras.main.startFollow(this.player);
+        this.cameras.main.startFollow(this.fundo);
 
         // Define nível de zoom da câmera
-        this.cameras.main.setZoom(0.75);
+        this.cameras.main.setZoom(0.30);
     }
 
     /**

@@ -6,14 +6,14 @@
 // Perguntas da cena da padaria
 export const perguntasPadaria = [
     {
-        pergunta: "João diz: 'Tenho medo das taxas...'",
+        pergunta: "Case 1: 'Visitando a loja de moveis voce identificou que o proprietário não trabalha com antecipação. Qual melhor produto para oferecer a ele?'",
         opcoes: [
-            "a) As taxas são altas mesmo, não posso ajudar",
-            "b) A Cielo tem as menores taxas do mercado para pequenos negócios",
-            "c) Você não precisa de maquininha",
-            "d) Use apenas dinheiro"
+            "a) ARV",
+            "b) Vendeu ta na conta",
+            "c) Pix",
+            "d) Crediário"
         ],
-        pontos: [0, 3, 1, 0]
+        pontos: [0, 0, 0, 3]
     },
     {
         pergunta: "João pergunta: 'Quanto tempo demora para o dinheiro cair na conta?'",

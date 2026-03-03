@@ -369,11 +369,15 @@ O objetivo final do jogo é alcançar o nível máximo, no qual o jogador recebe
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-_Descreva aqui as formas de controle e interação que o jogador tem sobre o jogo: quais os comandos disponíveis, quais combinações de comandos, e quais as ações consequentes desses comandos. Utilize listas ou tabelas para organizar esta seção._
-
-_Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc._
-
-_Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la_
+| Comando                 | Tipo de Entrada | Ação Executada                         | Consequência no Jogo                                          |
+| ----------------------- | --------------- | -------------------------------------- | ------------------------------------------------------------- |
+| W                       | Teclado         | Move o personagem para cima            | Permite navegação pelo mapa                                   |
+| A                       | Teclado         | Move o personagem para a esquerda      | Permite navegação pelo mapa                                   |
+| S                       | Teclado         | Move o personagem para baixo           | Permite navegação pelo mapa                                   |
+| D                       | Teclado         | Move o personagem para a direita       | Permite navegação pelo mapa                                   |
+| E                       | Teclado         | Inicia interação com o estabelecimento | Abre o sistema de negociação (quiz)                           |
+| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz          | Afeta o nível de satisfação do cliente e o resultado da venda |
+| ESC                     | Teclado         | Abre o menu de pausa                   | Pausa o jogo e permite acessar opções                         |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 

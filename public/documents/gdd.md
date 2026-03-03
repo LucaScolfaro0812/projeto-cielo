@@ -331,14 +331,48 @@ _Exemplo de tabela_
 
 ### 3.4.1. Inventário
 
-_\<opcional\> Caso seu jogo utilize itens ou poderes para os personagens obterem, descreva-os aqui, indicando títulos, imagens, meios de obtenção e funções no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes._
+O jogo utiliza um sistema de itens simplificado, no qual as moedas representam a pontuação acumulada pelo jogador ao longo das interações.
+Diferentemente de jogos tradicionais, as moedas não são utilizadas para compra de habilidades ou desbloqueio de vantagens. Sua função está diretamente ligada à avaliação de desempenho durante as negociações realizadas no ambiente da padaria.
+Além das moedas, o jogo também conta com recursos sistêmicos que influenciam a experiência e os resultados obtidos pelo jogador.
 
-_Exemplo de tabela_
-\# | item | | como obter | função | efeito sonoro
---- | --- | --- | --- | --- | ---
-1 | moeda | <img src="../../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
-2 | madeira | <img src="../../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
-3 | ...
+**Itens e Recursos Implementados**
+
+| Nº | Item / Recurso                 | Como obter / ativar                                         | Função no jogo                           | Impacto no desempenho                    |
+| -- | ------------------------------ | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| 1  | Moeda                          | Obtida ao realizar escolhas corretas durante o atendimento  | Representa a pontuação acumulada         | Define o resultado final da negociação   |
+| 2  | Tempo de Atendimento           | Inicia automaticamente ao começar a interação com o cliente | Limita o tempo disponível para responder | Estimula decisões rápidas e estratégicas |
+| 3  | Nível de Satisfação do Cliente | Alterado conforme as respostas escolhidas                   | Mede a qualidade da negociação           | Influencia a pontuação final             |
+| 4  | Feedback de Desempenho         | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
+
+**Descrição dos Itens e Recursos**
+
+. Moedas (Sistema de Pontuação)
+
+As moedas são o principal item do jogo. Elas são concedidas ao jogador sempre que uma decisão estratégica correta é tomada durante o atendimento ao cliente.
+Suas funções são:
+Indicar visualmente o progresso do jogador;
+Representar o desempenho acumulado;
+Servir como métrica de avaliação ao final da partida.
+As moedas não podem ser trocadas por vantagens ou habilidades, sendo utilizadas exclusivamente como indicador de performance.
+
+. Tempo de Atendimento
+
+Cada negociação possui um limite de tempo. Caso o jogador demore para responder, pode comprometer o resultado do atendimento.
+Esse recurso simula situações reais de pressão no ambiente comercial.
+
+. Nível de Satisfação do Cliente
+
+As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de satisfação do cliente. Respostas adequadas aumentam a satisfação, enquanto decisões inadequadas podem reduzi-la.
+Esse sistema reforça o aspecto estratégico e educativo do jogo.
+
+. Feedback de Desempenho
+
+Ao final de cada atendimento, o jogador recebe um resumo com sua pontuação e avaliação geral.
+Esse feedback tem função pedagógica, permitindo que o jogador compreenda seus erros e melhore em futuras interações.
+
+. Considerações
+
+Os itens e recursos foram planejados para reforçar a proposta de treinamento corporativo do jogo, priorizando a tomada de decisão estratégica, a análise de cenários e a avaliação de desempenho em vez de mecânicas tradicionais baseadas em combate ou poderes especiais.
 
 ### 3.4.2. Bestiário
 

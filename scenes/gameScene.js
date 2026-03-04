@@ -50,10 +50,10 @@ export class GameScene extends Phaser.Scene {
         this._criarLojasEPortas();
 
         // Faz a câmera seguir o jogador
-        this.cameras.main.startFollow(this.fundo);
+        this.cameras.main.startFollow(this.player);
 
         // Define nível de zoom da câmera
-        this.cameras.main.setZoom(0.30);
+        this.cameras.main.setZoom(0.80);
     }
 
     /**

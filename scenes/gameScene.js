@@ -53,7 +53,7 @@ export class GameScene extends Phaser.Scene {
         this.cameras.main.startFollow(this.player);
 
         // Define nível de zoom da câmera
-        this.cameras.main.setZoom(0.80);
+        this.cameras.main.setZoom(0.60);
     }
 
     /**
@@ -110,7 +110,7 @@ export class GameScene extends Phaser.Scene {
             // Executa método responsável por trocar de cena
             this.portaEntrada.trocarDeCena();
         });
-
+////////////////////////////
         // this.loja1 = new Loja(
         //     this,
         //     730,

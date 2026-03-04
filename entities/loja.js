@@ -8,10 +8,10 @@ export default class Loja extends Phaser.Physics.Arcade.Sprite {
 
     // Cria a loja na posição (x, y) da cena informada
     // cenaDaLoja: nome da cena que será iniciada ao entrar na loja
-    constructor(cena, x, y, cenaDaLoja) {
+    constructor(cena, x, y, spriteLoja, cenaDaLoja) {
 
         // Chama o construtor do Sprite usando a textura 'lojaCupCake'
-        super(cena, x, y, 'lojaCupCake');
+        super(cena, x, y, spriteLoja);
 
         // Armazena referência da cena para uso interno
         this.cena = cena;

@@ -98,6 +98,7 @@ export class GameScene extends Phaser.Scene {
             this,
             730,
             1150,
+            'lojaCupCake',
             'padariaScene'
         );
 

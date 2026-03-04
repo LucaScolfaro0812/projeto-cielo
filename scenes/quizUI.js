@@ -2,62 +2,78 @@
  * QuizUI - Interface visual do quiz (Phaser). Core do jogo - design impecável.
  */
 
-// Bloco 1: dimensões
-const NUMERO_OPCOES = 4;
-const ALTURA_BOTAO = 46;
-const ESPACO_BOTOES = 8;
-const LARGURA_PORTRAIT_NPC = 72;
-const ALTURA_CABECALHO = 100;
-const LARGURA_BARRA = 26;
-const ALTURA_BARRA = 150;
-const LARGURA_COLUNA_BARRA = 48;
-const LARGURA_BADGE = 38;
+// Bloco 1: dimensões dos elementos visuais
+const NUMERO_OPCOES = 4;          // quantidade de alternativas por pergunta
+const ALTURA_BOTAO = 46;          // altura de cada botão de resposta
+const ESPACO_BOTOES = 8;          // espaço entre os botões
+const LARGURA_PORTRAIT_NPC = 72;  // largura da foto do NPC no cabeçalho
+const ALTURA_CABECALHO = 100;     // altura da área do cabeçalho
+const LARGURA_BARRA = 26;         // largura da barra de conversão
+const ALTURA_BARRA = 150;         // altura máxima da barra de conversão
+const LARGURA_COLUNA_BARRA = 48;  // largura da coluna onde fica a barra
+const LARGURA_BADGE = 38;         // largura do badge com a letra da alternativa (A, B, C, D)
 
 // Bloco 2: cores (identidade Cielo - paleta atraente)
-const COR_OVERLAY = 0x0f172a;
-const OPAC_OVERLAY = 0.65;
-const COR_FUNDO_MODAL = 0xffffff;
-const COR_SOMBRA = 0x0c4a6e;
-const COR_BORDA_MODAL = 0x0284c7;
-const COR_FUNDO_CABECALHO = 0xf0f9ff;
-const COR_PORTRAIT_NPC = 0xe0f2fe;
-const COR_BADGE = 0x0369a1;
-const COR_TEXTO = "#0c4a6e";
-const COR_TEXTO_SECUNDARIO = "#64748b";
-const COR_BOTAO_FUNDO = 0xffffff;
-const COR_BOTAO_HOVER = 0xe0f2fe;
-const COR_BOTAO_BORDA = 0x7dd3fc;
-const COR_BARRA_FUNDO = 0xe0f2fe;
-const COR_BARRA_BAIXA = 0xef4444;
-const COR_BARRA_MEDIA = 0xf59e0b;
-const COR_BARRA_ALTA = 0x10b981;
+const COR_OVERLAY = 0x0f172a;         // cor do fundo escurecido atrás do modal
+const OPAC_OVERLAY = 0.65;            // transparência do fundo escurecido
+const COR_FUNDO_MODAL = 0xffffff;     // fundo branco do modal
+const COR_SOMBRA = 0x0c4a6e;          // cor da sombra do modal
+const COR_BORDA_MODAL = 0x0284c7;     // borda azul do modal
+const COR_FUNDO_CABECALHO = 0xf0f9ff; // fundo azul claro do cabeçalho
+const COR_PORTRAIT_NPC = 0xe0f2fe;    // fundo da foto do NPC
+const COR_BADGE = 0x0369a1;           // cor dos badges das alternativas
+const COR_TEXTO = "#0c4a6e";          // cor do texto principal
+const COR_TEXTO_SECUNDARIO = "#64748b"; // cor do texto secundário (labels)
+const COR_BOTAO_FUNDO = 0xffffff;     // fundo branco dos botões
+const COR_BOTAO_HOVER = 0xe0f2fe;     // cor ao passar o mouse no botão
+const COR_BOTAO_BORDA = 0x7dd3fc;     // borda dos botões
+const COR_BARRA_FUNDO = 0xe0f2fe;     // fundo da barra de conversão
+const COR_BARRA_BAIXA = 0xef4444;     // vermelho: conversão baixa (≤ 40)
+const COR_BARRA_MEDIA = 0xf59e0b;     // amarelo: conversão média (41–70)
+const COR_BARRA_ALTA = 0x10b981;      // verde: conversão alta (> 70)
 
 // Bloco 3: fontes e estilo
-const ESCALA_NPC = 0.22;
-const PROFUNDIDADE_UI = 1000;
-const TAM_FONTE_PERGUNTA = "17px";
-const TAM_FONTE_OPCAO = "14px";
-const TAM_FONTE_BADGE = "13px";
-const TAM_FONTE_TIMER = "15px";
-const TAM_FONTE_FEEDBACK = "16px";
-const TAM_FONTE_CONVERSAO = "11px";
+const ESCALA_NPC = 0.22;              // escala da imagem do NPC no portrait
+const PROFUNDIDADE_UI = 1000;         // profundidade de renderização (garante que o quiz fique na frente)
+const TAM_FONTE_PERGUNTA = "17px";    // tamanho do texto da pergunta
+const TAM_FONTE_OPCAO = "14px";       // tamanho do texto das alternativas
+const TAM_FONTE_BADGE = "13px";       // tamanho da letra dentro do badge (A, B, C, D)
+const TAM_FONTE_TIMER = "15px";       // tamanho do contador de tempo
+const TAM_FONTE_FEEDBACK = "16px";    // tamanho do feedback após resposta
+const TAM_FONTE_CONVERSAO = "11px";   // tamanho do label "Conversão"
 
 export default class QuizUI {
 
     constructor(cena, opcoes = {}) {
         this.cena = cena;
+
+        // Tamanho do modal principal
         this.larguraModal = opcoes.larguraModal ?? 660;
         this.alturaModal = opcoes.alturaModal ?? 420;
+
+        // Espaçamento interno do modal
         this.padding = opcoes.padding ?? 18;
+
+        // Largura da coluna da barra de conversão
         this.larguraColunaBarra = opcoes.larguraColunaBarra ?? LARGURA_COLUNA_BARRA;
+
+        // Altura máxima da barra de conversão
         this.alturaMaxBarra = opcoes.alturaMaxBarraConversao ?? ALTURA_BARRA;
+
+        // Tempo em segundos que o feedback fica visível
         this.duracaoFeedback = opcoes.duracaoFeedback ?? 1.5;
+
+        // Chave da imagem do NPC carregada no Phaser
         this.chaveImagemNpc = opcoes.chaveImagemNpc ?? "npc";
+
+        // Função chamada quando o jogador clica em uma alternativa
         this.aoSelecionarResposta = null;
 
+        // Monta toda a interface
         this._criarInterface();
     }
 
+    // Chama cada método responsável por criar uma parte da interface
     _criarInterface() {
         this._criarContainerRaiz();
         this._criarOverlay();
@@ -66,59 +82,77 @@ export default class QuizUI {
         this._criarConteudo();
     }
 
+    // Container principal que agrupa todos os elementos do quiz
     _criarContainerRaiz() {
         this.containerPrincipal = this.cena.add.container(0, 0).setDepth(PROFUNDIDADE_UI);
     }
 
+    // Fundo escurecido que bloqueia o clique no jogo enquanto o quiz está aberto
     _criarOverlay() {
         const cam = this.cena.cameras.main;
 
         const w = cam.displayWidth;
         const h = cam.displayHeight;
 
+        // Posiciona o overlay no canto superior esquerdo da câmera
         const cx = cam.worldView.centerX - (w / 2);
         const cy = cam.worldView.centerY - (h / 2);
 
         this.fundoOverlayRectangle = this.cena.add.rectangle(cx, cy, w, h, COR_OVERLAY, OPAC_OVERLAY).setOrigin(0);
+
+        // Bloqueia cliques que passariam pelo overlay para o jogo
         this.fundoOverlayRectangle.setInteractive({ useHandCursor: false });
         this.fundoOverlayRectangle.on("pointerdown", () => {});
         this.containerPrincipal.add(this.fundoOverlayRectangle);
     }
 
+    // Cria o modal (janela branca centralizada) com sombra e borda
     _criarModal() {
         const cam = this.cena.cameras.main;
+
+        // Centraliza o modal na tela
         const cx = cam.worldView.centerX;
         const cy = cam.worldView.centerY;
 
-
         this.containerModal = this.cena.add.container(cx, cy);
 
+        // Sombra levemente deslocada atrás do modal
         this.retanguloSombra = this.cena.add.rectangle(5, 5, this.larguraModal + 10, this.alturaModal + 10, COR_SOMBRA, 0.15).setOrigin(0.5);
+
+        // Fundo branco do modal com borda azul
         this.retanguloFundoModal = this.cena.add.rectangle(0, 0, this.larguraModal, this.alturaModal, COR_FUNDO_MODAL).setOrigin(0.5);
         this.retanguloFundoModal.setStrokeStyle(2, COR_BORDA_MODAL);
 
         this.containerPrincipal.add(this.containerModal);
     }
 
+    // Cria a barra vertical de conversão no lado esquerdo do modal
     _criarBarraConversao() {
         const metadeLargura = this.larguraModal / 2;
+
+        // Posição X da barra: dentro da coluna reservada à esquerda
         const posXBarra = -metadeLargura + this.padding + this.larguraColunaBarra / 2;
         this.containerBarra = this.cena.add.container(posXBarra, 40);
 
+        // Label "Conversão" acima da barra
         this.textoLabelConversao = this.cena.add.text(0, -this.alturaMaxBarra / 2 - 18, "Conversão", {
             fontSize: TAM_FONTE_CONVERSAO, color: COR_TEXTO_SECUNDARIO, fontStyle: "bold"
         }).setOrigin(0.5);
 
+        // Fundo cinza claro da barra (parte vazia)
         this.retanguloBarraFundo = this.cena.add.rectangle(0, 0, LARGURA_BARRA, this.alturaMaxBarra, COR_BARRA_FUNDO).setOrigin(0.5);
         this.retanguloBarraFundo.setStrokeStyle(1, 0xbae6fd);
 
+        // Parte colorida da barra que cresce de baixo para cima conforme a conversão sobe
         const yBase = this.alturaMaxBarra / 2;
         this.retanguloBarraPreenchimento = this.cena.add.rectangle(0, yBase, LARGURA_BARRA - 4, 0, COR_BARRA_MEDIA).setOrigin(0.5, 1);
 
+        // Número que mostra o valor atual da conversão (0 a 100)
         this.textoValorConversao = this.cena.add.text(0, yBase + 16, "50", {
             fontSize: "12px", color: COR_TEXTO, fontStyle: "bold"
         }).setOrigin(0.5);
 
+        // Agrupa todos os elementos da barra
         this.containerBarra.add([
             this.textoLabelConversao,
             this.retanguloBarraFundo,
@@ -126,6 +160,7 @@ export default class QuizUI {
             this.textoValorConversao
         ]);
 
+        // Adiciona sombra, fundo do modal e barra ao container do modal
         this.containerModal.add(this.retanguloSombra);
         this.containerModal.add(this.retanguloFundoModal);
         this.containerModal.add(this.containerBarra);
@@ -135,12 +170,17 @@ export default class QuizUI {
     _criarConteudo() {
         const metadeLargura = this.larguraModal / 2;
         const metadeAltura = this.alturaModal / 2;
+
+        // Posição X do conteúdo: começa após a coluna da barra
         const posXConteudo = -metadeLargura + this.larguraColunaBarra + this.padding;
         const posYConteudo = -metadeAltura + this.padding;
+
+        // Largura disponível para o conteúdo (pergunta + botões)
         const larguraConteudo = this.larguraModal - this.larguraColunaBarra - this.padding * 2;
 
         this.containerConteudo = this.cena.add.container(posXConteudo, posYConteudo);
 
+        // Cria cada seção do conteúdo
         this._criarCabecalho(larguraConteudo);
         this._criarPergunta(larguraConteudo);
         this._criarBotoes(larguraConteudo);
@@ -155,6 +195,7 @@ export default class QuizUI {
         this.containerModal.add(this.containerConteudo);
     }
 
+    // Cabeçalho com a foto do NPC à esquerda e o timer à direita
     _criarCabecalho(larguraConteudo) {
         this.containerCabecalho = this.cena.add.container(0, 0);
 
@@ -168,6 +209,7 @@ export default class QuizUI {
         ).setOrigin(0, 0);
         this.retanguloPortraitNpc.setStrokeStyle(1, 0x7dd3fc);
 
+        // Imagem do NPC centralizada dentro do portrait
         this.imagemNpc = this.cena.add.image(
             posXPortrait + LARGURA_PORTRAIT_NPC / 2,
             posYPortrait + ALTURA_CABECALHO / 2,
@@ -184,12 +226,13 @@ export default class QuizUI {
         ).setOrigin(0, 0);
         this.retanguloCabecalho.setStrokeStyle(1, 0xbae6fd);
 
-        // Timer em badge (pill)
+        // Timer em badge (pill) no canto superior direito do cabeçalho
         const posXTimer = posXCaixa + larguraCaixa - 42;
         this.retanguloTimer = this.cena.add.rectangle(posXTimer, 6, 38, 22, COR_BADGE).setOrigin(0, 0);
         this.textoTimer = this.cena.add.text(posXTimer + 19, 17, "15s", {
             fontSize: TAM_FONTE_TIMER, color: "#ffffff", fontStyle: "bold"
         }).setOrigin(0.5);
+
         this.containerCabecalho.add([
             this.retanguloPortraitNpc,
             this.imagemNpc,
@@ -207,6 +250,8 @@ export default class QuizUI {
         const larguraTexto = larguraConteudo - margemEsquerda - 24;
 
         this.containerPergunta = this.cena.add.container(0, 0);
+
+        // Texto da pergunta com quebra de linha automática
         this.textoPergunta = this.cena.add.text(posX, posY, "", {
             fontSize: TAM_FONTE_PERGUNTA,
             color: COR_TEXTO,
@@ -216,6 +261,7 @@ export default class QuizUI {
         this.containerPergunta.add(this.textoPergunta);
     }
 
+    // Cria os 4 botões de alternativas (A, B, C, D)
     _criarBotoes(larguraConteudo) {
         const posYInicio = ALTURA_CABECALHO + 14;
         this.containerBotoes = this.cena.add.container(0, posYInicio);
@@ -225,6 +271,7 @@ export default class QuizUI {
         for (let i = 0; i < NUMERO_OPCOES; i++) {
             const posY = i * (ALTURA_BOTAO + ESPACO_BOTOES);
 
+            // Fundo clicável do botão
             const retanguloFundoBotao = this.cena.add.rectangle(
                 LARGURA_PORTRAIT_NPC, posY,
                 larguraConteudo - LARGURA_PORTRAIT_NPC, ALTURA_BOTAO,
@@ -232,16 +279,19 @@ export default class QuizUI {
             ).setOrigin(0, 0).setInteractive({ useHandCursor: true });
             retanguloFundoBotao.setStrokeStyle(1, COR_BOTAO_BORDA);
 
+            // Badge azul com a letra da alternativa
             const retanguloBadge = this.cena.add.rectangle(
                 LARGURA_PORTRAIT_NPC, posY, LARGURA_BADGE, ALTURA_BOTAO, COR_BADGE
             ).setOrigin(0, 0);
 
+            // Letra dentro do badge (A, B, C ou D)
             const textoBadgeLetra = this.cena.add.text(
                 LARGURA_PORTRAIT_NPC + LARGURA_BADGE / 2, posY + ALTURA_BOTAO / 2,
                 letras[i],
                 { fontSize: TAM_FONTE_BADGE, color: "#ffffff", fontStyle: "bold" }
             ).setOrigin(0.5);
 
+            // Texto da alternativa ao lado do badge
             const textoOpcaoBotao = this.cena.add.text(
                 LARGURA_PORTRAIT_NPC + LARGURA_BADGE + 10, posY + ALTURA_BOTAO / 2,
                 "",
@@ -249,9 +299,11 @@ export default class QuizUI {
             ).setOrigin(0, 0.5);
             textoOpcaoBotao.setWordWrapWidth(larguraConteudo - LARGURA_PORTRAIT_NPC - LARGURA_BADGE - 70);
 
+            // Efeito hover: muda cor ao passar o mouse
             retanguloFundoBotao.on("pointerover", () => retanguloFundoBotao.setFillStyle(COR_BOTAO_HOVER));
             retanguloFundoBotao.on("pointerout", () => retanguloFundoBotao.setFillStyle(COR_BOTAO_FUNDO));
 
+            // Ao clicar, chama a função de resposta com o índice da alternativa
             const idx = i;
             retanguloFundoBotao.on("pointerdown", () => {
                 if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
@@ -264,6 +316,7 @@ export default class QuizUI {
         }
     }
 
+    // Área de texto que exibe o feedback após cada resposta (ex: "Excelente!")
     _criarAreaFeedback(larguraConteudo) {
         const posY = ALTURA_CABECALHO + 14 + NUMERO_OPCOES * (ALTURA_BOTAO + ESPACO_BOTOES) + 12;
         this.textoFeedback = this.cena.add.text(larguraConteudo / 2, posY, "", {
@@ -271,6 +324,7 @@ export default class QuizUI {
         }).setOrigin(0.5).setVisible(false);
     }
 
+    // Atualiza o texto da pergunta e as alternativas nos botões
     definirPergunta(pergunta) {
         if (!pergunta) return;
         this.textoPergunta.setText(pergunta.pergunta ?? "");
@@ -280,38 +334,44 @@ export default class QuizUI {
         }
     }
 
+    // Atualiza o texto do timer com o tempo restante em segundos
     definirTimer(segundos) {
         this.textoTimer.setText(`${segundos}s`);
     }
 
+    // Atualiza a barra de conversão com o novo valor (0 a 100)
     definirConversao(valor) {
         const v = Phaser.Math.Clamp(valor, 0, 100);
+
+        // Calcula a altura proporcional da barra
         const alturaPreenchimento = v <= 0 ? 0 : (v / 100) * (this.alturaMaxBarra - 4);
         const alturaFinal = Math.max(0, Math.min(alturaPreenchimento, this.alturaMaxBarra - 4));
 
+        // Define a cor conforme o nível de conversão
         let cor = COR_BARRA_BAIXA;
         if (v > 70) cor = COR_BARRA_ALTA;
         else if (v > 40) cor = COR_BARRA_MEDIA;
 
         this.retanguloBarraPreenchimento.setFillStyle(cor);
         this.retanguloBarraPreenchimento.setSize(LARGURA_BARRA - 4, Math.max(1, alturaFinal));
+
+        // Mostra o valor numérico abaixo da barra
         this.textoValorConversao.setText(String(Math.round(v)));
     }
 
+    // Exibe uma mensagem de feedback após o jogador responder
     exibirFeedback(pontos) {
         let msg = "Resposta fraca.";
         if (pontos === 3) msg = "Excelente!";
         else if (pontos === 2) msg = "Boa resposta!";
         this.textoFeedback.setText(msg);
         this.textoFeedback.setVisible(true);
+
+        // Esconde o feedback após o tempo definido
         this.cena.time.delayedCall(this.duracaoFeedback, () => this.textoFeedback.setVisible(false));
     }
 
-    /**
-     * Exibe tela de resultado ao fim do quiz
-     * @param {boolean} conquistou - Se o jogador conquistou o NPC
-     * @param {Function} callback - Chamado após fechar o resultado
-     */
+    // Exibe a tela de resultado ao fim do quiz: verde se conquistou, vermelho se não
     exibirResultado(conquistou, callback) {
         const cam = this.cena.cameras.main;
         const cx = cam.worldView.centerX;
@@ -320,10 +380,12 @@ export default class QuizUI {
         const largura = 340;
         const altura = 160;
 
+        // Fundo verde (conquistou) ou vermelho (não conquistou)
         const fundo = this.cena.add.rectangle(cx, cy, largura, altura, conquistou ? 0x10b981 : 0xef4444)
             .setOrigin(0.5)
             .setDepth(PROFUNDIDADE_UI + 1);
 
+        // Mensagem centralizada
         const msg = conquistou ? "NPC Conquistado!" : "NPC não conquistado";
         const texto = this.cena.add.text(cx, cy, msg, {
             fontSize: "26px",
@@ -331,6 +393,7 @@ export default class QuizUI {
             fontStyle: "bold"
         }).setOrigin(0.5).setDepth(PROFUNDIDADE_UI + 2);
 
+        // Após 2,5 segundos, remove a tela e retorna ao jogo
         this.cena.time.delayedCall(2500, () => {
             fundo.destroy();
             texto.destroy();
@@ -338,10 +401,12 @@ export default class QuizUI {
         });
     }
 
+    // Torna o quiz visível na tela
     mostrar() {
         this.containerPrincipal.setVisible(true);
     }
 
+    // Esconde o quiz da tela
     esconder() {
         this.containerPrincipal.setVisible(false);
     }

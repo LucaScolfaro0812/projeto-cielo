@@ -40,7 +40,7 @@ const TAM_FONTE_OPCAO = "14px";
 const TAM_FONTE_BADGE = "13px";
 const TAM_FONTE_TIMER = "15px";
 const TAM_FONTE_FEEDBACK = "16px";
-const TAM_FONTE_SATISFACAO = "11px";
+const TAM_FONTE_CONVERSAO = "11px";
 
 export default class QuizUI {
 
@@ -50,7 +50,7 @@ export default class QuizUI {
         this.alturaModal = opcoes.alturaModal ?? 420;
         this.padding = opcoes.padding ?? 18;
         this.larguraColunaBarra = opcoes.larguraColunaBarra ?? LARGURA_COLUNA_BARRA;
-        this.alturaMaxBarra = opcoes.alturaMaxBarraSatisfacao ?? ALTURA_BARRA;
+        this.alturaMaxBarra = opcoes.alturaMaxBarraConversao ?? ALTURA_BARRA;
         this.duracaoFeedback = opcoes.duracaoFeedback ?? 1.5;
         this.chaveImagemNpc = opcoes.chaveImagemNpc ?? "npc";
         this.aoSelecionarResposta = null;
@@ -62,7 +62,7 @@ export default class QuizUI {
         this._criarContainerRaiz();
         this._criarOverlay();
         this._criarModal();
-        this._criarBarraSatisfacao();
+        this._criarBarraConversao();
         this._criarConteudo();
     }
 
@@ -100,13 +100,13 @@ export default class QuizUI {
         this.containerPrincipal.add(this.containerModal);
     }
 
-    _criarBarraSatisfacao() {
+    _criarBarraConversao() {
         const metadeLargura = this.larguraModal / 2;
         const posXBarra = -metadeLargura + this.padding + this.larguraColunaBarra / 2;
         this.containerBarra = this.cena.add.container(posXBarra, 40);
 
-        this.textoLabelSatisfacao = this.cena.add.text(0, -this.alturaMaxBarra / 2 - 18, "Satisfação", {
-            fontSize: TAM_FONTE_SATISFACAO, color: COR_TEXTO_SECUNDARIO, fontStyle: "bold"
+        this.textoLabelConversao = this.cena.add.text(0, -this.alturaMaxBarra / 2 - 18, "Conversão", {
+            fontSize: TAM_FONTE_CONVERSAO, color: COR_TEXTO_SECUNDARIO, fontStyle: "bold"
         }).setOrigin(0.5);
 
         this.retanguloBarraFundo = this.cena.add.rectangle(0, 0, LARGURA_BARRA, this.alturaMaxBarra, COR_BARRA_FUNDO).setOrigin(0.5);
@@ -115,15 +115,15 @@ export default class QuizUI {
         const yBase = this.alturaMaxBarra / 2;
         this.retanguloBarraPreenchimento = this.cena.add.rectangle(0, yBase, LARGURA_BARRA - 4, 0, COR_BARRA_MEDIA).setOrigin(0.5, 1);
 
-        this.textoValorSatisfacao = this.cena.add.text(0, yBase + 16, "50", {
+        this.textoValorConversao = this.cena.add.text(0, yBase + 16, "50", {
             fontSize: "12px", color: COR_TEXTO, fontStyle: "bold"
         }).setOrigin(0.5);
 
         this.containerBarra.add([
-            this.textoLabelSatisfacao,
+            this.textoLabelConversao,
             this.retanguloBarraFundo,
             this.retanguloBarraPreenchimento,
-            this.textoValorSatisfacao
+            this.textoValorConversao
         ]);
 
         this.containerModal.add(this.retanguloSombra);
@@ -284,7 +284,7 @@ export default class QuizUI {
         this.textoTimer.setText(`${segundos}s`);
     }
 
-    definirSatisfacao(valor) {
+    definirConversao(valor) {
         const v = Phaser.Math.Clamp(valor, 0, 100);
         const alturaPreenchimento = v <= 0 ? 0 : (v / 100) * (this.alturaMaxBarra - 4);
         const alturaFinal = Math.max(0, Math.min(alturaPreenchimento, this.alturaMaxBarra - 4));
@@ -295,7 +295,7 @@ export default class QuizUI {
 
         this.retanguloBarraPreenchimento.setFillStyle(cor);
         this.retanguloBarraPreenchimento.setSize(LARGURA_BARRA - 4, Math.max(1, alturaFinal));
-        this.textoValorSatisfacao.setText(String(Math.round(v)));
+        this.textoValorConversao.setText(String(Math.round(v)));
     }
 
     exibirFeedback(pontos) {
@@ -305,6 +305,37 @@ export default class QuizUI {
         this.textoFeedback.setText(msg);
         this.textoFeedback.setVisible(true);
         this.cena.time.delayedCall(this.duracaoFeedback, () => this.textoFeedback.setVisible(false));
+    }
+
+    /**
+     * Exibe tela de resultado ao fim do quiz
+     * @param {boolean} conquistou - Se o jogador conquistou o NPC
+     * @param {Function} callback - Chamado após fechar o resultado
+     */
+    exibirResultado(conquistou, callback) {
+        const cam = this.cena.cameras.main;
+        const cx = cam.worldView.centerX;
+        const cy = cam.worldView.centerY;
+
+        const largura = 340;
+        const altura = 160;
+
+        const fundo = this.cena.add.rectangle(cx, cy, largura, altura, conquistou ? 0x10b981 : 0xef4444)
+            .setOrigin(0.5)
+            .setDepth(PROFUNDIDADE_UI + 1);
+
+        const msg = conquistou ? "NPC Conquistado!" : "NPC não conquistado";
+        const texto = this.cena.add.text(cx, cy, msg, {
+            fontSize: "26px",
+            color: "#ffffff",
+            fontStyle: "bold"
+        }).setOrigin(0.5).setDepth(PROFUNDIDADE_UI + 2);
+
+        this.cena.time.delayedCall(2500, () => {
+            fundo.destroy();
+            texto.destroy();
+            if (callback) callback();
+        });
     }
 
     mostrar() {

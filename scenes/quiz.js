@@ -4,7 +4,7 @@
  * - Controlar fluxo das perguntas
  * - Gerenciar tempo
  * - Calcular pontuação
- * - Controlar nível de satisfação
+ * - Controlar nível de conversão
  * - Comunicar-se com a camada de UI (QuizUI)
  */
 
@@ -20,13 +20,16 @@ const TEMPO_PADRAO_POR_PERGUNTA = 15;
 // Intervalo de atualização do timer (1 segundo)
 const INTERVALO_TIMER_MS = 1000;
 
-// Pontuação de impacto na barra de satisfação
-const PONTOS_SATISFACAO_EXCELENTE = 30;
-const PONTOS_SATISFACAO_BOA = 10;
-const PONTOS_SATISFACAO_RUIM = -50;
+// Pontuação de impacto na barra de conversão
+const PONTOS_CONVERSAO_EXCELENTE = 30;
+const PONTOS_CONVERSAO_BOA = 10;
+const PONTOS_CONVERSAO_RUIM = -50;
 
-// Valor inicial da barra de satisfação
-const NIVEL_SATISFACAO_INICIAL = 50;
+// Valor inicial da barra de conversão
+const NIVEL_CONVERSAO_INICIAL = 50;
+
+// Pontuação mínima para conquistar o NPC
+const PONTOS_PARA_CONQUISTA = 6;
 
 export default class Quiz {
 
@@ -62,7 +65,7 @@ export default class Quiz {
         this.perguntas = npc.perguntas;
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
-        this.nivelSatisfacao = NIVEL_SATISFACAO_INICIAL;
+        this.nivelConversao = NIVEL_CONVERSAO_INICIAL;
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
 
@@ -75,7 +78,7 @@ export default class Quiz {
             alturaModal: 420,
             padding: 18,
             larguraColunaBarra: 48,
-            alturaMaxBarraSatisfacao: 150,
+            alturaMaxBarraConversao: 150,
             duracaoFeedback: 1.5,
             chaveImagemNpc: chaveImagemNpc
         });
@@ -87,8 +90,8 @@ export default class Quiz {
         // Exibe interface
         this.ui.mostrar();
 
-        // Inicializa barra de satisfação
-        this.ui.definirSatisfacao(this.nivelSatisfacao);
+        // Inicializa barra de conversão
+        this.ui.definirConversao(this.nivelConversao);
 
         // Exibe primeira pergunta e inicia timer
         this.exibirPerguntaAtual();
@@ -157,8 +160,8 @@ export default class Quiz {
         // Exibe feedback como erro (0 pontos)
         this.ui.exibirFeedback(0);
 
-        // Atualiza visual da satisfação
-        this.ui.definirSatisfacao(this.nivelSatisfacao);
+        // Atualiza visual da conversão
+        this.ui.definirConversao(this.nivelConversao);
 
         this.proximaPergunta();
     }
@@ -189,26 +192,26 @@ export default class Quiz {
         // Atualiza pontuação total
         this.pontuacaoTotal += pontos;
 
-        // Ajusta nível de satisfação conforme desempenho
+        // Ajusta nível de conversão conforme desempenho
         if (pontos === 3)
-            this.nivelSatisfacao += PONTOS_SATISFACAO_EXCELENTE;
+            this.nivelConversao += PONTOS_CONVERSAO_EXCELENTE;
         else if (pontos === 2)
-            this.nivelSatisfacao += PONTOS_SATISFACAO_BOA;
+            this.nivelConversao += PONTOS_CONVERSAO_BOA;
         else if (pontos === 1)
-            this.nivelSatisfacao += 0;
+            this.nivelConversao += 0;
         else
-            this.nivelSatisfacao += PONTOS_SATISFACAO_RUIM;
+            this.nivelConversao += PONTOS_CONVERSAO_RUIM;
 
-        // Garante que satisfação fique entre 0 e 100
-        this.nivelSatisfacao = Phaser.Math.Clamp(
-            this.nivelSatisfacao,
+        // Garante que conversão fique entre 0 e 100
+        this.nivelConversao = Phaser.Math.Clamp(
+            this.nivelConversao,
             0,
             100
         );
 
         // Atualiza interface
         this.ui.exibirFeedback(pontos);
-        this.ui.definirSatisfacao(this.nivelSatisfacao);
+        this.ui.definirConversao(this.nivelConversao);
 
         this.proximaPergunta();
     }
@@ -227,7 +230,16 @@ export default class Quiz {
 
         } else {
 
-            this.finalizar();
+            this._encerrarQuiz();
         }
+    }
+
+    /**
+     * Verifica conquista e exibe resultado antes de fechar
+     */
+    _encerrarQuiz() {
+        const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
+
+        this.ui.exibirResultado(conquistou, () => this.finalizar());
     }
 }

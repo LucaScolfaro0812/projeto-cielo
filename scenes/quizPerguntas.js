@@ -23,7 +23,7 @@ export const perguntasPadaria = [
             "c) em poucos dias",
             "d) com a Cielo pode cair em 1 dia útil"
         ],
-        pontos: [0, 1, 2, 3]
+        pontos: [0, 0, 0, 3]
     },
     {
         pergunta: "João reclama: 'Muitos clientes vão embora porque só aceito dinheiro'. Como você responde?",
@@ -33,7 +33,7 @@ export const perguntasPadaria = [
             "c) Talvez alguns clientes voltem outro dia",
             "d) Você pode pedir para eles irem ao caixa eletrônico"
         ],
-        pontos: [0, 3, 1, 0]
+        pontos: [0, 3, 0, 0]
     },
     {
         pergunta: "João diz: 'Já tentei maquininha antes e deu problema'. O que você faz?",
@@ -43,7 +43,7 @@ export const perguntasPadaria = [
             "c) Perguntar o que aconteceu e explicar o suporte 24h da Cielo",
             "d) Desistir e ir embora"
         ],
-        pontos: [1, 0, 3, 0]
+        pontos: [0, 0, 3, 0]
     }
 ];
 
@@ -57,7 +57,7 @@ export const perguntasNpcRua = [
             "c) Sugerir que ele continue vendendo só em dinheiro",
             "d) Dizer que taxa é igual em todas"
         ],
-        pontos: [0, 3, 0, 1]
+        pontos: [0, 3, 0, 0]
     },
     {
         pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
@@ -67,7 +67,7 @@ export const perguntasNpcRua = [
             "c) Explicar as opções de recebimento e antecipação disponíveis",
             "d) Informar que com a Cielo ele pode receber em até 1 dia útil"
         ],
-        pontos: [0, 1, 2, 3]
+        pontos: [0, 0, 0, 3]
     },
     {
         pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
@@ -77,7 +77,7 @@ export const perguntasNpcRua = [
             "c) Sugerir que ele peça PIX apenas",
             "d) Recomendar manter como está"
         ],
-        pontos: [0, 3, 1, 0]
+        pontos: [0, 3, 0, 0]
     },
     {
         pergunta: "João fala: 'Já tive problema com maquininha antes'. O que você faz?",
@@ -87,6 +87,6 @@ export const perguntasNpcRua = [
             "c) Perguntar o que aconteceu e apresentar o suporte e garantia da Cielo",
             "d) Dizer que tecnologia sempre dá problema"
         ],
-        pontos: [0, 0, 3, 1]
+        pontos: [0, 0, 3, 0]
     }
 ];

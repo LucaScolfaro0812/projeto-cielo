@@ -31,7 +31,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         this.body.setImmovable(true);
 
         // Ajusta a escala da imagem
-        this.setScale(0.8);
+        this.setScale(0.7);
     }
 
     /**

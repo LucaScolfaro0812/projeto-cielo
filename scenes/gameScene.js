@@ -19,7 +19,7 @@ export class GameScene extends Phaser.Scene {
     preload() {
         // Imagens estáticas
         this.load.image('entrada', 'assets/entrada.png');
-        this.load.image('rua', 'assets/rua.png');
+        this.load.image('rua', 'assets/novoMapa.jpeg');
         this.load.image('npc', 'assets/npc.png');
         this.load.image('loja', 'assets/lojaCupCake.png');
 
@@ -39,7 +39,7 @@ export class GameScene extends Phaser.Scene {
         this.fundo=
         this.add.image(0, 0, 'rua')
             .setOrigin(0.5,0.5)
-            .setScale(7);
+            .setScale(2.5);
 
             this.fundo.x=this.fundo.displayWidth/2;
             this.fundo.y=this.fundo.displayHeight/2;

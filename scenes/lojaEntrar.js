@@ -32,6 +32,9 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
 
         // Ajusta a escala da imagem
         this.setScale(0.7);
+
+        // Define a posição do pivot
+        this.setOrigin(0.5, 1);
     }
 
     /**

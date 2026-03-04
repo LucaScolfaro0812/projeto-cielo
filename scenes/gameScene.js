@@ -34,10 +34,13 @@ export class GameScene extends Phaser.Scene {
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
+        this.fundo=
         this.add.image(0, 0, 'rua')
-            .setOrigin(0)
-            .setScale(6);
+            .setOrigin(0.5,0.5)
+            .setScale(7);
 
+            this.fundo.x=this.fundo.displayWidth/2;
+            this.fundo.y=this.fundo.displayHeight/2;
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
 
@@ -45,10 +48,10 @@ export class GameScene extends Phaser.Scene {
         this._criarPortas();
 
         // Faz a câmera seguir o jogador
-        this.cameras.main.startFollow(this.player);
+        this.cameras.main.startFollow(this.fundo);
 
         // Define nível de zoom da câmera
-        this.cameras.main.setZoom(0.75);
+        this.cameras.main.setZoom(0.30);
     }
 
     /**
@@ -65,9 +68,11 @@ export class GameScene extends Phaser.Scene {
 
         // Cria o jogador em uma posição específica do mapa
         this.player = new Player(this, 200, 2000);
+        this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
         this.npc = new Npc(this, 800, 1800, perguntasNpcRua);
+        this.npc.setScale(0.5);
 
         // Detecta sobreposição entre NPC e Player
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -90,8 +95,8 @@ export class GameScene extends Phaser.Scene {
         // Cria objeto de entrada que leva para a cena "padariaScene"
         this.portaEntrada = new Entrada(
             this,          // referência da cena atual
-            625,           // posição X
-            1650,          // posição Y
+            730,           // posição X
+            1900,          // posição Y
             this,          // contexto da cena
             'padariaScene' // nome da cena de destino
         );

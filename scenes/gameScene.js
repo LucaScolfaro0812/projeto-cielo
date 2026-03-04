@@ -21,7 +21,7 @@ export class GameScene extends Phaser.Scene {
         this.load.image('entrada', 'assets/entrada.png');
         this.load.image('rua', 'assets/novoMapa.jpeg');
         this.load.image('npc', 'assets/npc.png');
-        this.load.image('loja', 'assets/lojaCupCake.png');
+        this.load.image('lojaCupCake', 'assets/lojaCupCake.png');
 
         // Spritesheet do jogador (animações)
         this.load.spritesheet('player', 'assets/marcielo.png', { 
@@ -94,15 +94,16 @@ export class GameScene extends Phaser.Scene {
      * e configura a troca de cena ao colidir com o player
      */
     _criarLojasEPortas() {
-
-        // Cria objeto de entrada que leva para a cena "padariaScene"
-        this.portaEntrada = new Entrada(
-            this,          // referência da cena atual
-            730,           // posição X
-            1900,          // posição Y
-            this,          // contexto da cena
-            'padariaScene' // nome da cena de destino
+        // Cria uma loja nova
+        this.loja1 = new Loja(
+            this,
+            730,
+            1150,
+            'padariaScene'
         );
+
+        // salva a porta da loja
+        this.portaEntrada = this.loja1.getPorta();
 
         // Detecta sobreposição entre porta e jogador
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
@@ -110,22 +111,6 @@ export class GameScene extends Phaser.Scene {
             // Executa método responsável por trocar de cena
             this.portaEntrada.trocarDeCena();
         });
-////////////////////////////
-        // this.loja1 = new Loja(
-        //     this,
-        //     730,
-        //     1900,
-        //     'padariaScene'
-        // );
-
-        // this.portaEntrada = this.loja1.getPorta();
-
-        // // Detecta sobreposição entre porta e jogador
-        // this.physics.add.overlap(this.portaEntrada, this.player, () => {
-
-        //     // Executa método responsável por trocar de cena
-        //     this.portaEntrada.trocarDeCena();
-        // });
     }
 
     // Método executado a cada frame do jogo

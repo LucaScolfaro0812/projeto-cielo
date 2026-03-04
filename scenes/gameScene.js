@@ -1,11 +1,10 @@
 
 // importa as outras classes que contém objetos e dados do jogo
-import Player from './player.js';
-import Npc from './npc.js';
-import Quiz from './quiz.js';
-import Loja from './loja.js'
-import Entrada from './lojaEntrar.js';
-import { perguntasNpcRua } from './quizPerguntas.js';
+import Player from '../entities/player.js';
+import Npc from '../entities/npc.js';
+import Quiz from '../quiz/quiz.js';
+import Loja from '../entities/loja.js';
+import { perguntasNpcRua } from '../quiz/quizPerguntas.js';
 
 // Definição da cena principal do jogo
 export class GameScene extends Phaser.Scene {

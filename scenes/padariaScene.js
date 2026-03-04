@@ -1,9 +1,9 @@
 // Importação das entidades utilizadas na cena
-import Player from './player.js';
-import Quiz from './quiz.js';
-import Npc from './npc.js';
-import Entrada from './lojaEntrar.js';
-import { perguntasPadaria } from './quizPerguntas.js';
+import Player from '../entities/player.js';
+import Quiz from '../quiz/quiz.js';
+import Npc from '../entities/npc.js';
+import Entrada from '../entities/lojaEntrar.js';
+import { perguntasPadaria } from '../quiz/quizPerguntas.js';
 
 // Cena responsável pelo ambiente interno da padaria
 export class PadariaScene extends Phaser.Scene {

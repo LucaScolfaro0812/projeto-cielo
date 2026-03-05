@@ -10,6 +10,12 @@
 
 import QuizUI from "./quizUI.js";
 
+// Utilitários de persistência (localStorage com JSON e proteção de erro).
+import { salvarDados, carregarDados } from "../utils/storage.js";
+
+// Estado/chaves centralizados para progresso do jogo.
+import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utils/estadoJogo.js";
+
 // =====================
 // Constantes do sistema
 // =====================
@@ -216,6 +222,30 @@ export default class Quiz {
         this.proximaPergunta();
     }
 
+    _salvarProgressoNpcConquistado() {
+        // 1) Cria base segura de progresso caso não exista nada salvo.
+        const progressoInicial = criarEstadoProgressoInicial();
+
+        // 2) Lê progresso atual no localStorage.
+        // Se não houver chave (ou estiver inválida), usa o estado inicial.
+        const progressoSalvo = carregarDados(
+            chavesArmazenamento.npcsConquistadosQuantidade,
+            progressoInicial
+        );
+
+        // 3) Mescla fallback + salvo para garantir estrutura consistente.
+        const progressoAtual = Object.assign({}, progressoInicial, progressoSalvo);
+
+        // 4) Normaliza para número e incrementa em 1 a quantidade conquistada.
+        const quantidadeAtual = Number(progressoAtual.npcsConquistadosQuantidade) || 0;
+        progressoAtual.npcsConquistadosQuantidade = quantidadeAtual + 1;
+
+        // 5) Persiste o novo valor no localStorage.
+        salvarDados(
+            chavesArmazenamento.npcsConquistadosQuantidade,
+            progressoAtual
+        );
+    }
     /**
      * Avança para a próxima pergunta ou finaliza o quiz
      */
@@ -238,8 +268,15 @@ export default class Quiz {
      * Verifica conquista e exibe resultado antes de fechar
      */
     _encerrarQuiz() {
+        // Regra de conquista: pontuação mínima para considerar NPC conquistado.
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
 
+        // Salva progresso apenas em evento importante (quando conquista).
+        if (conquistou) {
+            this._salvarProgressoNpcConquistado();
+        }
+
+        // Exibe resultado visual e depois retorna ao jogo.
         this.ui.exibirResultado(conquistou, () => this.finalizar());
     }
 }

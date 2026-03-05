@@ -3,7 +3,8 @@
 import Player from '../entities/player.js';
 import Npc from '../entities/npc.js';
 import Quiz from '../quiz/quiz.js';
-import Loja from '../entities/loja.js';
+import LojaFisica from '../entities/lojaFisica.js';
+import LojaScene from '../scenes/lojaScene.js';
 import { perguntasNpcRua } from '../quiz/quizPerguntas.js';
 
 // Definição da cena principal do jogo
@@ -12,21 +13,54 @@ export class GameScene extends Phaser.Scene {
     constructor() {
         // Define a chave única da cena dentro do Phaser
         super({ key: 'gameScene' });
+
+        this.lojas = [];
+        this.lojasNomes = [
+            'Padaria',
+            // 'Games',
+            // 'Cupcake',
+            // 'Beleza',
+            // 'Roupas', 
+            // 'Pet',
+            // 'Movel',
+            // 'Frutaria', 
+            // 'Lanchonete',
+            // 'Chocolate',
+            // 'Pelucia',
+            // 'AutoEscola', 
+            // 'Joalheria'
+        ]
+        this.lojasNomesScene = [
+            'padariaScene',
+            // 'gamesScene',
+            // 'cupcakeScene',
+            // 'belezaScene',
+            // 'roupasScene', 
+            // 'petScene',
+            // 'movelScene',
+            // 'frutariaScene', 
+            // 'lanchoneteScene',
+            // 'chocolateScene',
+            // 'peluciaScene',
+            // 'autoEscolaScene', 
+            // 'joalheriaScene'
+        ]
     }
 
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
         // Imagens estáticas
-        this.load.image('entrada', 'assets/entrada.png');
         this.load.image('rua', 'assets/novoMapa.jpeg');
-        this.load.image('npc', 'assets/npc.png');
-        this.load.image('lojaCupCake', 'assets/lojaCupCake.png');
 
-        // Spritesheet do jogador (animações)
-        this.load.spritesheet('player', 'assets/marcielo.png', { 
-            frameWidth: 120, 
-            frameHeight: 120 
-        });
+        // Carrega todas as imagens de lojas
+        for(let i = 0; i < this.lojasNomes.length; i++){
+            this.load.image('loja' + this.lojasNomes[i], `assets/loja${this.lojasNomes[i]}.png`);
+        }
+
+        // Pré carrega os objetos com uma função estática
+        Player.preload(this);
+        Npc.preload(this);
+        LojaFisica.preload(this);
     }
 
     // Método executado quando a cena é criada
@@ -93,17 +127,50 @@ export class GameScene extends Phaser.Scene {
      * e configura a troca de cena ao colidir com o player
      */
     _criarLojasEPortas() {
-        // Cria uma loja nova
-        this.loja1 = new Loja(
+        // Cria todas as lojas da lista de lojas
+        for(let i = 0; i < this.lojasNomes.length; i++){
+            this.lojas[i] = this._criarLoja(
+                250 + (500 * i),
+                1150,
+                'loja' + this.lojasNomes[i],
+                this.lojasNomesScene[i],
+                this.lojasNomes[i].toLowerCase()
+            );
+        }
+    }
+
+    _criarLoja(posX, posY, sprite, sceneKey, sceneName){
+        // cria nova cena apenas se ela não existir
+        if (!this.scene.manager.getScene(sceneKey)){
+            let cena = new LojaScene({
+                nomeDaLoja: sceneName,
+                nomeDaCena: sceneKey,
+                bgScale: 2.9,
+
+                npcX: 800,
+                npcY: 350,
+
+                portaX: 195,
+                portaY: 150,
+
+                playerX: 190,
+                playerY: 290
+            });
+            this.scene.add(sceneKey, cena);
+        }
+        
+        // cria o objeto da loja
+        let l = new LojaFisica(
             this,
-            730,
-            1150,
-            'lojaCupCake',
-            'padariaScene'
+            posX,
+            posY,
+            sprite,
+            sceneKey,
+            sceneName
         );
 
         // salva a porta da loja
-        this.portaEntrada = this.loja1.getPorta();
+        this.portaEntrada = l.getPorta();
 
         // Detecta sobreposição entre porta e jogador
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
@@ -111,6 +178,8 @@ export class GameScene extends Phaser.Scene {
             // Executa método responsável por trocar de cena
             this.portaEntrada.trocarDeCena();
         });
+
+        return l;
     }
 
     // Método executado a cada frame do jogo

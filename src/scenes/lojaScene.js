@@ -5,18 +5,33 @@ import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
 import { perguntasPadaria } from '../quiz/quizPerguntas.js';
 
-// Cena responsável pelo ambiente interno da padaria
-export class PadariaScene extends Phaser.Scene {
+// Cena responsável pelo ambiente interno da loja
+export default class LojaScene extends Phaser.Scene {
 
-    constructor() {
+    constructor(configs) {
+
         // Define a chave única da cena no Scene Manager do Phaser
-        super({ key: 'padariaSceneKKKKKKKKKKKKK' });
+        super({ key: configs.nomeDaCena});
+        
+        this.nomeLoja = configs.nomeDaLoja;
+        this.sceneLoja = configs.nomeDaCena;
+        this.backgroundScale = configs.bgScale;
+
+        this.npcX = configs.npcX;
+        this.npcY = configs.npcY;
+
+        this.portaX = configs.portaX;
+        this.portaY = configs.portaY;
+
+        
+        this.playerX = configs.playerX;
+        this.playerY = configs.playerY;
     }
 
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image('padaria', 'assets/padaria-bg-2.png');
+        this.load.image(this.nomeLoja, `assets/${this.nomeLoja}.png`);
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
@@ -28,16 +43,22 @@ export class PadariaScene extends Phaser.Scene {
         this._criarCenario();
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
+
+        // Faz a câmera seguir o jogador
+        this.cameras.main.startFollow(this.player);
+
+        // Define nível de zoom da câmera
+        this.cameras.main.setZoom(0.60);
     }
 
     /**
-     * Cria o cenário visual da padaria
+     * Cria o cenário visual
      */
     _criarCenario() {
         // Adiciona imagem de fundo na posição especificada
         // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo = this.add.image(710, 370, 'padaria')
-            .setScale(2.9)
+        this.fundo = this.add.image(0, 0, this.nomeLoja)
+            .setScale(this.backgroundScale)
             .setOrigin (0.5,0.5); 
     }
 
@@ -53,11 +74,11 @@ export class PadariaScene extends Phaser.Scene {
         // Instancia sistema de perguntas
         this.quiz = new Quiz(this);
 
-        // Cria jogador na posição inicial dentro da padaria
-        this.player = new Player(this, 190, 290);
+        // Cria jogador na posição inicial dentro da cena
+        this.player = new Player(this, this.playerX, this.playerY);
 
-        // Cria NPC com perguntas específicas da padaria
-        this.npc = new Npc(this, 800, 350, perguntasPadaria);
+        // Cria NPC com perguntas específicas da cena
+        this.npc = new Npc(this, this.npcX, this.npcY, perguntasPadaria);
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -77,8 +98,8 @@ export class PadariaScene extends Phaser.Scene {
         // Cria objeto de entrada que redireciona para 'gameScene'
         this.portaEntrada = new Entrada(
             this,        // cena atual
-            195,         // posição X
-            150,           // posição Y
+            this.portaX,         // posição X
+            this.portaY,           // posição Y
             this,        // referência da cena
             'gameScene'  // nome da cena de destino
         );

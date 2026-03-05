@@ -37,6 +37,10 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         this.setOrigin(0.5, 1);
     }
 
+    static preload(scene){
+        scene.load.image('entrada', 'assets/entrada.png');
+    }
+
     /**
      * Realiza a troca de cena utilizando o Scene Manager do Phaser
      */

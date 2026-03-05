@@ -4,11 +4,11 @@ import Entrada from './lojaEntrar.js';
 // Classe que representa uma loja no mapa do jogo.
 // Herda de Phaser.Physics.Arcade.Sprite para ter corpo físico e colisão.
 // Cada loja cria automaticamente uma porta (Entrada) para trocar de cena.
-export default class Loja extends Phaser.Physics.Arcade.Sprite {
+export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
 
     // Cria a loja na posição (x, y) da cena informada
     // cenaDaLoja: nome da cena que será iniciada ao entrar na loja
-    constructor(cena, x, y, spriteLoja, cenaDaLoja) {
+    constructor(cena, x, y, spriteLoja, cenaDaLoja, nomeDaLoja) {
 
         // Chama o construtor do Sprite usando a textura 'lojaCupCake'
         super(cena, x, y, spriteLoja);
@@ -22,8 +22,11 @@ export default class Loja extends Phaser.Physics.Arcade.Sprite {
         // Ativa o corpo físico do sprite no sistema Arcade
         cena.physics.add.existing(this);
 
-        // Guarda o nome da cena de destino ao entrar na loja
+        // Guarda a key da cena de destino ao entrar na loja
         this.cenaDaLoja = cenaDaLoja;
+
+        // Guarda o nome da cena de destino ao entrar na loja
+        this.nomeDaLoja = nomeDaLoja;
 
         // Impede que a loja seja empurrada por colisões físicas
         this.body.setImmovable(true);
@@ -39,6 +42,11 @@ export default class Loja extends Phaser.Physics.Arcade.Sprite {
             cena,          // contexto da cena para o Scene Manager
             cenaDaLoja     // nome da cena de destino ao colidir
         );
+    }
+    
+    static preload(scene){
+        //scene.load.image('loja' + lojaSprite, `assets/loja${lojaSprite}.png`);
+        Entrada.preload(scene);
     }
 
     // Retorna a porta criada por esta loja

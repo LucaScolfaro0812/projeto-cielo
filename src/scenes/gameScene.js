@@ -15,36 +15,190 @@ export class GameScene extends Phaser.Scene {
         super({ key: 'gameScene' });
 
         this.lojas = [];
-        this.lojasNomes = [
-            'Padaria',
-            // 'Games',
-            'Cupcake',
-            // 'Beleza',
-            // 'Roupas', 
-            // 'Pet',
-            // 'Movel',
-            // 'Frutaria', 
-            // 'Lanchonete',
-            // 'Chocolate',
-            // 'Pelucia',
-            // 'AutoEscola', 
-            // 'Joalheria'
-        ]
-        this.lojasNomesScene = [
-            'padariaScene',
-            // 'gamesScene',
-            'cupcakeScene',
-            // 'belezaScene',
-            // 'roupasScene', 
-            // 'petScene',
-            // 'movelScene',
-            // 'frutariaScene', 
-            // 'lanchoneteScene',
-            // 'chocolateScene',
-            // 'peluciaScene',
-            // 'autoEscolaScene', 
-            // 'joalheriaScene'
-        ]
+        this.lojasConfigs = [
+            {
+                nomeLoja: 'Padaria',
+                cena: 'padariaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Games',
+                cena: 'gamesScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Cupcake',
+                cena: 'cupcakeScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Beleza',
+                cena: 'belezaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Roupas',
+                cena: 'roupasScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Pet',
+                cena: 'petScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Movel',
+                cena: 'movelScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Frutaria',
+                cena: 'frutariaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Lanchonete',
+                cena: 'lanchoneteScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Chocolate',
+                cena: 'chocolateScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Pelucia',
+                cena: 'peluciaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'AutoEscola',
+                cena: 'autoEscolaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            },
+            {
+                nomeLoja: 'Joalheria',
+                cena: 'joalheriaScene',
+                bgScale: 2.9,
+
+                npcX: 90,
+                npcY: 0,
+
+                portaX: -605,
+                portaY: -200,
+
+                playerX: -610,
+                playerY: -60
+            }
+        ];
     }
 
     // Método responsável por carregar todos os assets antes da cena iniciar
@@ -53,8 +207,8 @@ export class GameScene extends Phaser.Scene {
         this.load.image('rua', 'assets/novoMapa.jpeg');
 
         // Carrega todas as imagens de lojas
-        for(let i = 0; i < this.lojasNomes.length; i++){
-            this.load.image('loja' + this.lojasNomes[i], `assets/loja${this.lojasNomes[i]}.png`);
+        for(let i = 0; i < this.lojasConfigs.length; i++){
+            this.load.image('loja' + this.lojasConfigs[i].nomeLoja, `assets/loja${this.lojasConfigs[i].nomeLoja}.png`);
         }
 
         // Pré carrega os objetos com uma função estática
@@ -128,35 +282,34 @@ export class GameScene extends Phaser.Scene {
      */
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
-        for(let i = 0; i < this.lojasNomes.length; i++){
+        for(let i = 0; i < this.lojasConfigs.length; i++){
             this.lojas[i] = this._criarLoja(
                 250 + (500 * i),
                 1150,
-                'loja' + this.lojasNomes[i],
-                this.lojasNomesScene[i],
-                this.lojasNomes[i].toLowerCase()
+                'loja' + this.lojasConfigs[i].nomeLoja,
+                this.lojasConfigs[i]
             );
         }
     }
 
-    _criarLoja(posX, posY, sprite, sceneKey, sceneName){
+    _criarLoja(posX, posY, sprite, config){
         // cria nova cena apenas se ela não existir
-        if (!this.scene.manager.getScene(sceneKey)){
+        if (!this.scene.manager.getScene(config.cena)){
             let cena = new LojaScene({
-                nomeDaLoja: sceneName,
-                nomeDaCena: sceneKey,
+                nomeDaLoja: config.nomeLoja,
+                nomeDaCena: config.cena,
                 bgScale: 2.9,
 
-                npcX: 800,
-                npcY: 350,
+                npcX: 90,
+                npcY: 0,
 
-                portaX: 195,
-                portaY: 150,
+                portaX: -605,
+                portaY: -200,
 
-                playerX: 190,
-                playerY: 290
+                playerX: -610,
+                playerY: -60
             });
-            this.scene.add(sceneKey, cena);
+            this.scene.add(config.cena, cena);
         }
         
         // cria o objeto da loja
@@ -165,8 +318,8 @@ export class GameScene extends Phaser.Scene {
             posX,
             posY,
             sprite,
-            sceneKey,
-            sceneName
+            config.cena,
+            config.nomeLoja
         );
 
         // salva a porta da loja

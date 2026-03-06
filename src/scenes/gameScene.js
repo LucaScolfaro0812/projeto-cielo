@@ -13,8 +13,11 @@ export class GameScene extends Phaser.Scene {
     constructor() {
         // Define a chave única da cena dentro do Phaser
         super({ key: 'gameScene' });
-
+        
+        // lista de todas as lojas fisicas do jogo
         this.lojas = [];
+
+        // lista de configurações de cada loja
         this.lojasConfigs = [
             {
                 nomeLoja: 'Padaria',
@@ -332,6 +335,7 @@ export class GameScene extends Phaser.Scene {
             portaEntrada.trocarDeCena();
         });
 
+        // retornando a loja criada
         return l;
     }
 

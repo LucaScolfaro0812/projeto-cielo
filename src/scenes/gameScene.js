@@ -18,7 +18,7 @@ export class GameScene extends Phaser.Scene {
         this.lojasNomes = [
             'Padaria',
             // 'Games',
-            // 'Cupcake',
+            'Cupcake',
             // 'Beleza',
             // 'Roupas', 
             // 'Pet',
@@ -33,7 +33,7 @@ export class GameScene extends Phaser.Scene {
         this.lojasNomesScene = [
             'padariaScene',
             // 'gamesScene',
-            // 'cupcakeScene',
+            'cupcakeScene',
             // 'belezaScene',
             // 'roupasScene', 
             // 'petScene',
@@ -170,13 +170,13 @@ export class GameScene extends Phaser.Scene {
         );
 
         // salva a porta da loja
-        this.portaEntrada = l.getPorta();
+        let portaEntrada = l.getPorta();
 
         // Detecta sobreposição entre porta e jogador
-        this.physics.add.overlap(this.portaEntrada, this.player, () => {
+        this.physics.add.overlap(portaEntrada, this.player, () => {
 
             // Executa método responsável por trocar de cena
-            this.portaEntrada.trocarDeCena();
+            portaEntrada.trocarDeCena();
         });
 
         return l;

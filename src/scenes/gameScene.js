@@ -233,8 +233,17 @@ export class GameScene extends Phaser.Scene {
 
             this.fundo.x=this.fundo.displayWidth/2;
             this.fundo.y=this.fundo.displayHeight/2;
+             this.physics.world.setBounds(
+                0,
+                0,
+                
+                this.fundo.displayWidth,
+                this.fundo.displayHeight
+            )
+
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
+         this.player.setCollideWorldBounds (true);
 
         // Cria portas e define troca de cena
         this._criarLojasEPortas();

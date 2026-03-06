@@ -16,7 +16,7 @@ export class PadariaScene extends Phaser.Scene {
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image('padaria', 'assets/padaria-bg-2.png');
+        this.load.image('padaria', 'assets/lojas/lojaPadaria.png');
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);

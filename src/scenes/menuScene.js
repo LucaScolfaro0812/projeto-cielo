@@ -12,7 +12,7 @@ export class menuScene extends Phaser.Scene {
         this.load.image('nuvens', 'assets/cloud-bg.png');   // textura das nuvens animadas
         this.load.image('ceu', 'assets/sky-bg.png');         // fundo de céu estático
         this.load.image('titulo', 'assets/titulo-jogo.webp'); // imagem do título do jogo
-        this.load.image('loja', 'assets/store-bg.webp');      // imagem decorativa da loja
+        this.load.image('loja', 'assets/lojas/store-bg.webp');  // imagem decorativa da loja
     }
 
     // Cria todos os elementos visuais e interativos do menu

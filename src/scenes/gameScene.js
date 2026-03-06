@@ -211,7 +211,7 @@ export class GameScene extends Phaser.Scene {
 
         // Carrega todas as imagens de lojas
         for(let i = 0; i < this.lojasConfigs.length; i++){
-            this.load.image('loja' + this.lojasConfigs[i].nomeLoja, `assets/loja${this.lojasConfigs[i].nomeLoja}.png`);
+            this.load.image('loja' + this.lojasConfigs[i].nomeLoja, `assets/lojas/loja${this.lojasConfigs[i].nomeLoja}.png`);
         }
 
         // Pré carrega os objetos com uma função estática

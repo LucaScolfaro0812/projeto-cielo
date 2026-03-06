@@ -31,7 +31,7 @@ export default class LojaScene extends Phaser.Scene {
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image(this.nomeLoja, `assets/${this.nomeLoja}.png`);
+        this.load.image(this.nomeLoja, `assets/lojas/loja${this.nomeLoja}.png`);
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);

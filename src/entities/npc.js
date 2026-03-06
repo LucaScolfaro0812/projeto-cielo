@@ -41,6 +41,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         this.chaveImagemNpc = chaveImagemQuiz;
     }
     
+    // método estático para carregar as imagens do npc
     static preload(scene){
         scene.load.image('npc', 'assets/npc.png');
     }

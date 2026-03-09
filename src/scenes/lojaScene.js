@@ -11,8 +11,8 @@ export default class LojaScene extends Phaser.Scene {
     constructor(configs) {
 
         // Define a chave única da cena no Scene Manager do Phaser
-        super({ key: configs.nomeDaCena});
-        
+        super({ key: configs.nomeDaCena });
+
         this.nomeLoja = configs.nomeDaLoja;
         this.sceneLoja = configs.nomeDaCena;
         this.backgroundScale = configs.bgScale;
@@ -23,7 +23,7 @@ export default class LojaScene extends Phaser.Scene {
         this.portaX = configs.portaX;
         this.portaY = configs.portaY;
 
-        
+
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
     }
@@ -59,7 +59,7 @@ export default class LojaScene extends Phaser.Scene {
         // setScale ajusta o tamanho da imagem para o layout da cena
         this.fundo = this.add.image(0, 0, this.nomeLoja)
             .setScale(this.backgroundScale)
-            .setOrigin (0.5,0.5); 
+            .setOrigin(0.5, 0.5);
     }
 
     /**
@@ -83,9 +83,11 @@ export default class LojaScene extends Phaser.Scene {
             this.npcX,
             this.npcY,
             perguntasPadaria,
-            "npc",
+            "npc-vermelho",
             `npc_${this.sceneLoja}`
         );
+
+        this.quiz.aplicarVisualConquistado(this.npc);
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -110,7 +112,7 @@ export default class LojaScene extends Phaser.Scene {
             this,        // referência da cena
             'gameScene'  // nome da cena de destino
         );
-        
+
         // Define o tamanho da porta
         this.portaEntrada.setScale(0.5);
 

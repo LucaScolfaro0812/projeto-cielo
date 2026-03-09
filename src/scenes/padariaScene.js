@@ -57,7 +57,9 @@ export class PadariaScene extends Phaser.Scene {
         this.player = new Player(this, 190, 290);
 
         // Cria NPC com perguntas específicas da padaria
-        this.npc = new Npc(this, 800, 350, perguntasPadaria, "npc", "npc_padaria");
+        this.npc = new Npc(this, 800, 350, perguntasPadaria, "npc-vermelho", "npc_padaria");
+
+        this.quiz.aplicarVisualConquistado(this.npc);
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {

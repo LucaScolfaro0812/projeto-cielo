@@ -13,7 +13,7 @@ export class GameScene extends Phaser.Scene {
     constructor() {
         // Define a chave única da cena dentro do Phaser
         super({ key: 'gameScene' });
-        
+
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
 
@@ -210,7 +210,7 @@ export class GameScene extends Phaser.Scene {
         this.load.image('rua', 'assets/novoMapa.jpeg');
 
         // Carrega todas as imagens de lojas
-        for(let i = 0; i < this.lojasConfigs.length; i++){
+        for (let i = 0; i < this.lojasConfigs.length; i++) {
             this.load.image('loja' + this.lojasConfigs[i].nomeLoja, `assets/lojas/loja${this.lojasConfigs[i].nomeLoja}.png`);
         }
 
@@ -226,24 +226,24 @@ export class GameScene extends Phaser.Scene {
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
-        this.fundo=
-        this.add.image(0, 0, 'rua')
-            .setOrigin(0.5,0.5)
-            .setScale(2.5);
+        this.fundo =
+            this.add.image(0, 0, 'rua')
+                .setOrigin(0.5, 0.5)
+                .setScale(2.5);
 
-            this.fundo.x=this.fundo.displayWidth/2;
-            this.fundo.y=this.fundo.displayHeight/2;
-             this.physics.world.setBounds(
-                0,
-                0,
-                
-                this.fundo.displayWidth,
-                this.fundo.displayHeight
-            )
+        this.fundo.x = this.fundo.displayWidth / 2;
+        this.fundo.y = this.fundo.displayHeight / 2;
+        this.physics.world.setBounds(
+            0,
+            0,
+
+            this.fundo.displayWidth,
+            this.fundo.displayHeight
+        )
 
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
-         this.player.setCollideWorldBounds (true);
+        this.player.setCollideWorldBounds(true);
 
         // Cria portas e define troca de cena
         this._criarLojasEPortas();
@@ -272,8 +272,10 @@ export class GameScene extends Phaser.Scene {
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc", "npc_rua");
+        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua");
         this.npc.setScale(0.5);
+
+        this.quiz.aplicarVisualConquistado(this.npc);
 
         // Detecta sobreposição entre NPC e Player
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -294,7 +296,7 @@ export class GameScene extends Phaser.Scene {
      */
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
-        for(let i = 0; i < this.lojasConfigs.length; i++){
+        for (let i = 0; i < this.lojasConfigs.length; i++) {
             this.lojas[i] = this._criarLoja(
                 250 + (500 * i),
                 1150,
@@ -304,9 +306,9 @@ export class GameScene extends Phaser.Scene {
         }
     }
 
-    _criarLoja(posX, posY, sprite, config){
+    _criarLoja(posX, posY, sprite, config) {
         // cria nova cena apenas se ela não existir
-        if (!this.scene.manager.getScene(config.cena)){
+        if (!this.scene.manager.getScene(config.cena)) {
             let cena = new LojaScene({
                 nomeDaLoja: config.nomeLoja,
                 nomeDaCena: config.cena,
@@ -323,7 +325,7 @@ export class GameScene extends Phaser.Scene {
             });
             this.scene.add(config.cena, cena);
         }
-        
+
         // cria o objeto da loja
         let l = new LojaFisica(
             this,

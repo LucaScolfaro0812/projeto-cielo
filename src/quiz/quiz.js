@@ -67,11 +67,33 @@ export default class Quiz {
         }
     }
 
+    _carregarNpcsConquistadosIds() {
+        const lista = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+        return Array.isArray(lista) ? lista : [];
+    }
+
+    _npcJaConquistado(idNpc) {
+        if (!idNpc) return false;
+        return this._carregarNpcsConquistadosIds().includes(idNpc);
+    }
+
+    _marcarNpcComoConquistado(idNpc) {
+        if (!idNpc) return;
+        const lista = this._carregarNpcsConquistadosIds();
+        if (!lista.includes(idNpc)) {
+            lista.push(idNpc);
+            salvarDados(chavesArmazenamento.npcsConquistadosIds, lista);
+        }
+    }
+
     /**
      * Inicia o quiz associado a um NPC
      * @param {Npc} npc - NPC que contém as perguntas
      */
     iniciar(npc) {
+
+        this.npcAtual = npc;
+
         // 1) Bloqueia reabertura se esse NPC ja abriu quiz antes.
         if (npc?.idNpc && this._npcJaAbriuQuiz(npc.idNpc)) {
             npc.vendeu = true;
@@ -88,6 +110,9 @@ export default class Quiz {
         this.cena.physics.pause();
         npc.vendeu = true;
 
+        // Novo comportamento visual: ao iniciar a conversa/quiz, NPC fica vermelho.
+        npc.setTexture("npc-vermelho");
+
         this.perguntas = npc.perguntas;
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
@@ -95,7 +120,7 @@ export default class Quiz {
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
 
-        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc";
+        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc-vermelho";
 
         this.ui = new QuizUI(this.cena, {
             larguraModal: 660,
@@ -119,6 +144,18 @@ export default class Quiz {
         this.ui.definirConversao(this.nivelConversao);
         this.exibirPerguntaAtual();
         this.iniciarTimer();
+    }
+
+    aplicarVisualConquistado(npc) {
+        if (!npc?.idNpc) return;
+        if (this._npcJaConquistado(npc.idNpc)) {
+            // Regra atual: NPC conquistado fica azul.
+            npc.setTexture("npc-azul");
+            return;
+        }
+
+        // Regra atual: NPC nao conquistado fica vermelho.
+        npc.setTexture("npc-vermelho");
     }
 
     /**
@@ -291,6 +328,12 @@ export default class Quiz {
         // Salva progresso apenas em evento importante (quando conquista).
         if (conquistou) {
             this._salvarProgressoNpcConquistado();
+
+            if (this.npcAtual) {
+                // Inversao da regra: ao conquistar, volta para o visual normal.
+                this.npcAtual.setTexture("npc-azul");
+                this._marcarNpcComoConquistado(this.npcAtual.idNpc);
+            }
         }
 
         // Exibe resultado visual e depois retorna ao jogo.

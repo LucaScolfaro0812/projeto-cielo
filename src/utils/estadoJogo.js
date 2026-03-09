@@ -6,7 +6,9 @@
  */
 export const chavesArmazenamento = {
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
-    npcsQuizAbertos: "npcsQuizAbertos"
+    npcsQuizAbertos: "npcsQuizAbertos",
+    npcsConquistadosIds: "npcsConquistadosIds"
+
 };
 
 /**

@@ -19,7 +19,10 @@ export const perguntasPadaria = [
             "c) Pix",
             "d) Crediário"       // resposta correta
         ],
-        pontos: [0, 0, 0, 3]    // apenas "d" vale pontos
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre prazo de recebimento das vendas
@@ -30,7 +33,10 @@ export const perguntasPadaria = [
             "c) em poucos dias",
             "d) com a Cielo pode cair em 1 dia útil"  // resposta correta
         ],
-        pontos: [0, 0, 0, 3]    // apenas "d" vale pontos
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre clientes que vão embora por falta de cartão
@@ -41,7 +47,10 @@ export const perguntasPadaria = [
             "c) Talvez alguns clientes voltem outro dia",
             "d) Você pode pedir para eles irem ao caixa eletrônico"
         ],
-        pontos: [0, 3, 0, 0]    // apenas "b" vale pontos
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre experiência negativa anterior com maquininha
@@ -52,7 +61,10 @@ export const perguntasPadaria = [
             "c) Perguntar o que aconteceu e explicar o suporte 24h da Cielo",  // resposta correta
             "d) Desistir e ir embora"
         ],
-        pontos: [0, 0, 3, 0]    // apenas "c" vale pontos
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     }
 ];
 
@@ -69,7 +81,10 @@ export const perguntasNpcRua = [
             "c) Sugerir que ele continue vendendo só em dinheiro",
             "d) Dizer que taxa é igual em todas"
         ],
-        pontos: [0, 3, 0, 0]    // apenas "b" vale pontos
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre prazo de recebimento no cartão
@@ -80,7 +95,10 @@ export const perguntasNpcRua = [
             "c) Explicar as opções de recebimento e antecipação disponíveis",
             "d) Informar que com a Cielo ele pode receber em até 1 dia útil"  // resposta correta
         ],
-        pontos: [0, 0, 0, 3]    // apenas "d" vale pontos
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre perda de vendas por aceitar só dinheiro
@@ -91,7 +109,10 @@ export const perguntasNpcRua = [
             "c) Sugerir que ele peça PIX apenas",
             "d) Recomendar manter como está"
         ],
-        pontos: [0, 3, 0, 0]    // apenas "b" vale pontos
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
         // Pergunta sobre problema anterior com maquininha
@@ -102,6 +123,9 @@ export const perguntasNpcRua = [
             "c) Perguntar o que aconteceu e apresentar o suporte e garantia da Cielo",  // resposta correta
             "d) Dizer que tecnologia sempre dá problema"
         ],
-        pontos: [0, 0, 3, 0]    // apenas "c" vale pontos
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     }
 ];

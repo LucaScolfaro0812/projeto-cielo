@@ -39,6 +39,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this._criarAnimacoes(cena);
     }
 
+    static preload(scene){
+        scene.load.spritesheet('player', 'assets/marcielo.png', {
+            frameWidth: 128,
+            frameHeight: 128
+        });
+    }
+
     /**
      * Método chamado a cada frame pela cena
      */

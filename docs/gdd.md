@@ -278,7 +278,7 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="../../public/assets/NPCs.jpeg" width= 350> 
+<img src="../../assets/NPCs.jpeg" width= 350>
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -314,7 +314,7 @@ Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
-<img src="../../public/assets/RascunhosNPC.jpeg" width = 300>
+<img src="../../assets/RascunhosNPC.jpeg" width = 300>
 
 Figura 1: desenhos dos clientes feito a mão 
 
@@ -578,22 +578,20 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 | 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
 | 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
 | 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
-| 8 | Personagem próximo de uma loja | Pressionar E | Personagem entra no estabelecimento |
-| 9 | Personagem perto de um vendedor | Pressionar E | Interface de conversa aparece |
-| 10 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo na melhor resposta | O nível de satisfação aumenta muito |
-| 11 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em uma resposta boa | O nível de satisfação aumenta |
-| 12 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em uma resposta ruim | O nível de satisfação diminui |
-| 13 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em resposta horrível | O nível de satisfação diminui muito |
-| 14 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que mantenha/aumente satisfação | Vendedor compra os serviços e ganha o cliente |
-| 15 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua, mas acima do mínimo | Vendedor compra os serviços e ganha o cliente |
-| 16 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua para abaixo do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 17 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que mantenha ou diminua o nível | Vendedor não compra e o jogador perde o cliente |
-| 18 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente, mas abaixo mantém do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 19 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente para acima do mínimo | Vendedor compra os serviços e ganha o cliente |
-| 20 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
-| 21 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
-| 22 | Perto de um cliente já interagido | Apertar a tecla "E" | Nada acontece |
-| 23 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
+| 8 | Personagem próximo de uma loja | Encostou na porta | Personagem entra no estabelecimento |
+| 9 | Personagem perto de um vendedor | Encostou no vendedor | Interface de conversa aparece |
+| 10 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo na melhor resposta | O nível de satisfação aumenta |
+| 11 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em qualquer outra resposta | O nível de satisfação diminui muito |
+| 12 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que mantenha/aumente satisfação | Vendedor compra os serviços e ganha o cliente |
+| 13 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua, mas acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 14 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua para abaixo do mínimo | Vendedor não compra e o jogador perde o cliente |
+| 15 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que mantenha ou diminua o nível | Vendedor não compra e o jogador perde o cliente |
+| 16 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente, mas abaixo mantém do mínimo | Vendedor não compra e o jogador perde o cliente |
+| 17 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente para acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 18 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
+| 19 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
+| 20 | Perto de um cliente já interagido | Se aproxima | Nada acontece |
+| 21 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 

@@ -78,7 +78,14 @@ export default class LojaScene extends Phaser.Scene {
         this.player = new Player(this, this.playerX, this.playerY);
 
         // Cria NPC com perguntas específicas da cena
-        this.npc = new Npc(this, this.npcX, this.npcY, perguntasPadaria);
+        this.npc = new Npc(
+            this,
+            this.npcX,
+            this.npcY,
+            perguntasPadaria,
+            "npc",
+            `npc_${this.sceneLoja}`
+        );
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {

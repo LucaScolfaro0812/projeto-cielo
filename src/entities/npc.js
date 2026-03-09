@@ -8,9 +8,10 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
      * @param {number} x - Posição horizontal inicial
      * @param {number} y - Posição vertical inicial
      * @param {Array} perguntas - Lista de perguntas associadas ao NPC
-     * @param {string} chaveImagemQuiz - Chave da imagem usada no quiz (opcional)
+    * @param {string} chaveImagemQuiz - Chave da imagem usada no quiz (opcional)
+    * @param {string|null} idNpc - Identificador persistente do NPC para regras de negócio
      */
-    constructor(cena, x, y, perguntas, chaveImagemQuiz = "npc") {
+    constructor(cena, x, y, perguntas, chaveImagemQuiz = "npc", idNpc = null) {
 
         // Chama o construtor da classe Sprite com física Arcade
         // Define a textura padrão como "npc"
@@ -39,6 +40,9 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
 
         // Guarda a chave da imagem usada na interface do quiz
         this.chaveImagemNpc = chaveImagemQuiz;
+
+        // Identificador único do NPC para persistência de progresso.
+        this.idNpc = idNpc;
     }
     
     // método estático para carregar as imagens do npc

@@ -48,26 +48,46 @@ export default class Quiz {
         // Permite customização futura do tempo por pergunta
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
     }
+    _carregarNpcsQuizAbertos() {
+        const lista = carregarDados(chavesArmazenamento.npcsQuizAbertos, []);
+        return Array.isArray(lista) ? lista : [];
+    }
+
+    _npcJaAbriuQuiz(idNpc) {
+        if (!idNpc) return false;
+        return this._carregarNpcsQuizAbertos().includes(idNpc);
+    }
+
+    _marcarNpcQuizComoAberto(idNpc) {
+        if (!idNpc) return;
+        const lista = this._carregarNpcsQuizAbertos();
+        if (!lista.includes(idNpc)) {
+            lista.push(idNpc);
+            salvarDados(chavesArmazenamento.npcsQuizAbertos, lista);
+        }
+    }
 
     /**
      * Inicia o quiz associado a um NPC
      * @param {Npc} npc - NPC que contém as perguntas
      */
     iniciar(npc) {
-
-        // Salvaguarda: impede iniciar quiz inválido
-        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
-            console.warn("Quiz: NPC sem perguntas válidas.");
+        // 1) Bloqueia reabertura se esse NPC ja abriu quiz antes.
+        if (npc?.idNpc && this._npcJaAbriuQuiz(npc.idNpc)) {
+            npc.vendeu = true;
             return;
         }
 
-        // Pausa física do jogo durante o quiz
-        this.cena.physics.pause();
+        // 2) Valida NPC/perguntas.
+        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
+            console.warn("Quiz: NPC sem perguntas validas.");
+            return;
+        }
 
-        // Marca NPC como já atendido
+        // 4) Fluxo normal do quiz.
+        this.cena.physics.pause();
         npc.vendeu = true;
 
-        // Inicialização do estado interno do quiz
         this.perguntas = npc.perguntas;
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
@@ -75,10 +95,8 @@ export default class Quiz {
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
 
-        // Define imagem do NPC na interface (fallback para "npc")
         const chaveImagemNpc = npc.chaveImagemNpc ?? "npc";
 
-        // Cria instância da interface visual do quiz
         this.ui = new QuizUI(this.cena, {
             larguraModal: 660,
             alturaModal: 420,
@@ -86,20 +104,19 @@ export default class Quiz {
             larguraColunaBarra: 48,
             alturaMaxBarraConversao: 150,
             duracaoFeedback: 1.5,
-            chaveImagemNpc: chaveImagemNpc
+            chaveImagemNpc
         });
 
-        // Define callback ao selecionar resposta
         this.ui.aoSelecionarResposta = (indiceEscolhido) =>
             this.responder(indiceEscolhido);
 
-        // Exibe interface
+        // 3) Marca como aberto no primeiro contato (regra de negocio).
+        if (npc?.idNpc) {
+            this._marcarNpcQuizComoAberto(npc.idNpc);
+        }
+
         this.ui.mostrar();
-
-        // Inicializa barra de conversão
         this.ui.definirConversao(this.nivelConversao);
-
-        // Exibe primeira pergunta e inicia timer
         this.exibirPerguntaAtual();
         this.iniciarTimer();
     }

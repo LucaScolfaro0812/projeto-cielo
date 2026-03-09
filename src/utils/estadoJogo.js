@@ -5,7 +5,8 @@
  * mantemos apenas uma chave específica para esse dado.
  */
 export const chavesArmazenamento = {
-    npcsConquistadosQuantidade: "npcsConquistadosQuantidade"
+    npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
+    npcsQuizAbertos: "npcsQuizAbertos"
 };
 
 /**

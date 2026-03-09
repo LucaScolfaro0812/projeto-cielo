@@ -272,7 +272,7 @@ export class GameScene extends Phaser.Scene {
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua);
+        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc", "npc_rua");
         this.npc.setScale(0.5);
 
         // Detecta sobreposição entre NPC e Player

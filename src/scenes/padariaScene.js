@@ -38,7 +38,7 @@ export class PadariaScene extends Phaser.Scene {
         // setScale ajusta o tamanho da imagem para o layout da cena
         this.fundo = this.add.image(710, 370, 'padaria')
             .setScale(2.9)
-            .setOrigin (0.5,0.5); 
+            .setOrigin(0.5, 0.5);
     }
 
     /**
@@ -57,7 +57,7 @@ export class PadariaScene extends Phaser.Scene {
         this.player = new Player(this, 190, 290);
 
         // Cria NPC com perguntas específicas da padaria
-        this.npc = new Npc(this, 800, 350, perguntasPadaria);
+        this.npc = new Npc(this, 800, 350, perguntasPadaria, "npc", "npc_padaria");
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -82,7 +82,7 @@ export class PadariaScene extends Phaser.Scene {
             this,        // referência da cena
             'gameScene'  // nome da cena de destino
         );
-        
+
         // Define o tamanho da porta
         this.portaEntrada.setScale(0.5);
 

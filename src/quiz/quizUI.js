@@ -332,6 +332,7 @@ export default class QuizUI {
         for (let i = 0; i < NUMERO_OPCOES; i++) {
             if (this.listaTextoBotoes[i]) this.listaTextoBotoes[i].setText(opcoes[i] ?? "");
         }
+        this.pergunta = pergunta;
     }
 
     // Atualiza o texto do timer com o tempo restante em segundos
@@ -377,8 +378,8 @@ export default class QuizUI {
         const cx = cam.worldView.centerX;
         const cy = cam.worldView.centerY;
 
-        const largura = 340;
-        const altura = 160;
+        const largura = 800;
+        const altura = 200;
 
         // Fundo verde (conquistou) ou vermelho (não conquistou)
         const fundo = this.cena.add.rectangle(cx, cy, largura, altura, conquistou ? 0x10b981 : 0xef4444)
@@ -386,7 +387,7 @@ export default class QuizUI {
             .setDepth(PROFUNDIDADE_UI + 1);
 
         // Mensagem centralizada
-        const msg = conquistou ? "NPC Conquistado!" : "NPC não conquistado";
+        const msg = conquistou ? this.pergunta.feedbackAcerto : this.pergunta.feedbackErro;
         const texto = this.cena.add.text(cx, cy, msg, {
             fontSize: "26px",
             color: "#ffffff",

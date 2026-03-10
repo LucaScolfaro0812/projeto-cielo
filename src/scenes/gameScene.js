@@ -20,8 +20,8 @@ export class GameScene extends Phaser.Scene {
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
-                nomeLoja: 'Padaria',
-                cena: 'padariaScene',
+                nomeLoja: 'Cafe',
+                cena: 'cafeScene',
                 bgScale: 1,
 
                 npcX: 90,
@@ -36,20 +36,6 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
-                bgScale: 1,
-
-                npcX: 90,
-                npcY: 0,
-
-                portaX: -605,
-                portaY: -200,
-
-                playerX: -610,
-                playerY: -60
-            },
-            {
-                nomeLoja: 'Cupcake',
-                cena: 'cupcakeScene',
                 bgScale: 1,
 
                 npcX: 90,
@@ -335,7 +321,7 @@ export class GameScene extends Phaser.Scene {
             sprite,
             config.cena,
             config.nomeLoja
-        );
+        ).setOrigin(0.5, 0.65);
 
         // salva a porta da loja
         let portaEntrada = l.getPorta();

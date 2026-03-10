@@ -111,7 +111,7 @@ export default class Quiz {
 
         // Salva e normaliza o zoom para melhorar a legibilidade da UI do quiz.
         this.zoomOriginalCamera = this.cena.cameras.main.zoom;
-        this.cena.cameras.main.setZoom(1.6);
+        this.cena.cameras.main.setZoom(1);
 
         // 4) Fluxo normal do quiz.
         this.cena.physics.pause();
@@ -130,11 +130,11 @@ export default class Quiz {
         const chaveImagemNpc = npc.chaveImagemNpc ?? "npc-vermelho";
 
         this.ui = new QuizUI(this.cena, {
-            larguraModal: 660,
-            alturaModal: 420,
-            padding: 18,
-            larguraColunaBarra: 48,
-            alturaMaxBarraConversao: 150,
+            larguraModal: 1100,
+            alturaModal: 660,
+            padding: 40,
+            larguraColunaBarra: 90,
+            alturaMaxBarraConversao: 200,
             duracaoFeedback: 1.5,
             chaveImagemNpc
         });

@@ -9,6 +9,9 @@ var config = {
     // Define o tipo de renderização (WebGL ou Canvas automaticamente)
     type: Phaser.AUTO,
 
+    // Mantém o visual pixelado (sem borrão) ao ampliar sprites pixel art
+    pixelArt: true,
+
     // ID do elemento HTML onde o canvas do jogo será inserido
     parent: "game",
 

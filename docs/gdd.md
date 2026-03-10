@@ -182,47 +182,45 @@ _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevant
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
-O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto, inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
+O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
 
 Perfil Demográfico
 
- - Profissionais da área de vendas e relacionamento comercial
- - Faixa etária média: 40–50 anos
- - Usuários com familiaridade funcional com tecnologia digital
- - Predominantemente non-gamers ou jogadores ocasionais
- - Tempo limitado para treinamento devido à rotina profissional
+Profissionais da área de vendas e relacionamento comercial
 
-Considerando essas características, o jogo foi desenvolvido em formato 2D mundo aberto (top down), priorizando acessibilidade, navegação simples e rápida assimilação das mecânicas, reduzindo a necessidade de habilidades típicas de jogadores experientes.
+Faixa etária média: 40–50 anos
+
+Usuários com familiaridade funcional com tecnologia digital
+
+Predominantemente non-gamers ou jogadores ocasionais
+
+Tempo limitado para atividades de treinamento devido à rotina profissional
 
 Perfil Psicográfico e Preferências
 
-O público demonstra maior engajamento com experiências que:
- - Possuam aplicação prática direta no trabalho;
- - Simulem situações reais do cotidiano profissional;
- - Ofereçam aprendizado ativo em vez de treinamento passivo;
- - Apresentem feedback claro de desempenho e evolução;
- - Estimulem reconhecimento por progresso e melhoria contínua.
+Esse público tende a demonstrar maior engajamento com experiências de aprendizado que:
+
+Possuam aplicação prática no contexto profissional
+
+Simulem situações do cotidiano de vendas e negociação
+
+Apresentem feedback claro de desempenho
+
+Incentivem evolução contínua e melhoria de resultados
 
 Necessidades de Aprendizagem
 
- - O jogo busca desenvolver competências-chave da área comercial, incluindo:
-Persuasão e argumentação de vendas;
- - Tomada de decisão sob pressão;
- - Interpretação de perfis de clientes;
- - Estratégias de marketing e negociação;
- - Comunicação assertiva.
+Considerando o contexto de atuação da equipe comercial, destacam-se como relevantes para o público:
 
-Essas habilidades são trabalhadas por meio de interações com NPCs que representam clientes em cenários simulados. O jogador participa de negociações estruturadas em formato de quiz contextual, selecionando respostas e argumentos estratégicos conforme a situação apresentada.
+Persuasão e argumentação em vendas
 
-Justificativa de Design
+Tomada de decisão em situações de negociação
 
-A escolha do formato de jogo aberto 2D com interações baseadas em decisão foi definida para:
- - Facilitar o aprendizado experiencial;
- - Promover retenção de conhecimento através da prática;
- - Reduzir resistência a treinamentos corporativos tradicionais;
- - Integrar gamificação ao processo de qualificação profissional.
+Interpretação de perfis de clientes
 
-O jogo se posiciona, portanto, como uma ferramenta de gamificação corporativa, voltada ao desenvolvimento contínuo da equipe comercial por meio de simulação interativa e aprendizagem baseada em decisões.
+Estratégias de marketing e negociação
+
+Comunicação clara e assertiva
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)

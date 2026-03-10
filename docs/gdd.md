@@ -152,6 +152,9 @@ _Registre na matriz os riscos identificados no projeto, visando avaliar situaç�
 _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração_
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
+
+Esta seção apresenta os requisitos do sistema, organizados em requisitos funcionais (RF) e requisitos não funcionais (RNF). Os requisitos funcionais descrevem as funcionalidades e comportamentos que o sistema deve oferecer ao usuário. Já os requisitos não funcionais definem características de qualidade e restrições do sistema, como desempenho, usabilidade e ambiente de execução. As tabelas a seguir detalham cada um desses requisitos, identificados por código e acompanhados de suas respectivas descrições.
+
 ### 1.2.1. Requisitos Funcionais
 
 | ID | Requisito Funcional | Descrição |

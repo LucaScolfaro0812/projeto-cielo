@@ -26,12 +26,14 @@ export default class LojaScene extends Phaser.Scene {
 
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
+
+        this.fundoImage = 'loja' + this.nomeLoja + 'Interior';
     }
 
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image(this.nomeLoja, `assets/lojas/loja${this.nomeLoja}.png`);
+        this.load.image(this.fundoImage, `assets/lojas/interior/${this.fundoImage}.png`);
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
@@ -57,7 +59,7 @@ export default class LojaScene extends Phaser.Scene {
     _criarCenario() {
         // Adiciona imagem de fundo na posição especificada
         // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo = this.add.image(0, 0, this.nomeLoja)
+        this.fundo = this.add.image(0, 0, this.fundoImage)
             .setScale(this.backgroundScale)
             .setOrigin(0.5, 0.5);
     }

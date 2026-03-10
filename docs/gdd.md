@@ -152,29 +152,33 @@ _Registre na matriz os riscos identificados no projeto, visando avaliar situaç�
 _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração_
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
+### 1.2.1. Requisitos Funcionais
 
-| #        | Requisito Funcionais                           | Descrição                                                                                                                                                                                                                  |
-| -------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RF01** | Menu inicial e identificação do jogador | O sistema deve apresentar um menu inicial permitindo que o jogador informe seu nome antes do início da partida. O progresso será mantido apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
-| **RF02** | Tutorial inicial                        | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida.                                                  |
-| **RF03** | Sistema de quizzes de negociação        | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido.                        |
-| **RF04** | Sistema de variáveis do cliente         | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                               |
-| **RF05** | Sistema de pontuação                    | O sistema deve calcular automaticamente a pontuação considerando: escolhas do quiz e estado de humor do cliente ao final da interação.                                                                  |
-| **RF06** | Painel de desempenho em tempo real      | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão.                                                  |
-| **RF07** | Interação com NPCs                      | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                |
-| **RF08** | Navegação em mundo aberto               | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                            |
+| ID | Requisito Funcional | Descrição |
+| --- | --- | --- |
+| RF01 | Menu inicial | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo. |
+| RF02 | Identificação do jogador | O sistema deve permitir que o jogador informe seu nome antes do início da partida para identificação durante a sessão. |
+| RF03 | Progresso da sessão | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
+| RF04 | Tutorial inicial | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida. |
+| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido. |
+| RF06 | Sistema de variáveis do cliente | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador. |
+| RF07 | Sistema de pontuação | O sistema deve calcular automaticamente a pontuação considerando escolhas do quiz e estado de humor do cliente ao final da interação. |
+| RF08 | Painel de desempenho em tempo real | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão. |
+| RF09 | Interação com NPCs | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes. |
+| RF10 | Navegação em mundo aberto | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes. |
 
+### 1.2.2. Requisitos Não Funcionais
 
-| #         | Requisito  Não Funcionais                          | Descrição                                                                                                                                                                  |
-| --------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RNF01** | Ambiente gráfico                      | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional.                |
-| **RNF02** | Plataforma de execução                | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                               |
-| **RNF03** | Usabilidade e linguagem               | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                                    |
-| **RNF04** | Interface e identidade visual (UI/UX) | O sistema deve apresentar identidade visual consistente, com padronização de cores, tipografia e elementos gráficos, priorizando acessibilidade e facilidade de navegação. |
-| **RNF05** | Desempenho                            | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                                         |
-| **RNF06** | Acessibilidade operacional            | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                                          |
-                                                                                             
-
+| ID | Requisito Não Funcional | Descrição |
+| --- | --- | --- |
+| RNF01 | Ambiente gráfico | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
+| RNF02 | Plataforma de execução | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional. |
+| RNF03 | Usabilidade e linguagem | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. |
+| RNF04 | Interface do usuário | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador. |
+| RNF05 | Identidade visual | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto. |
+| RNF06 | Acessibilidade | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários. |
+| RNF07 | Desempenho | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho. |
+| RNF08 | Acessibilidade operacional | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais. |
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 

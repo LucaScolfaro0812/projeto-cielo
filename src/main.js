@@ -1,7 +1,6 @@
 // Importação das cenas que compõem o jogo
 import { menuScene } from './scenes/menuScene.js';
 import { GameScene } from './scenes/gameScene.js';
-import { PadariaScene } from './scenes/padariaScene.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -39,7 +38,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [menuScene, GameScene, PadariaScene]
+    scene: [menuScene, GameScene]
 };
 
 // Criação da instância principal do jogo

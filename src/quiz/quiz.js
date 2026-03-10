@@ -45,6 +45,9 @@ export default class Quiz {
     constructor(cena) {
         this.cena = cena;
 
+        // Guarda o zoom da camera antes de abrir o quiz para restaurar ao finalizar.
+        this.zoomOriginalCamera = null;
+
         // Permite customização futura do tempo por pergunta
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
     }
@@ -106,6 +109,10 @@ export default class Quiz {
             return;
         }
 
+        // Salva e normaliza o zoom para melhorar a legibilidade da UI do quiz.
+        this.zoomOriginalCamera = this.cena.cameras.main.zoom;
+        this.cena.cameras.main.setZoom(1.6);
+
         // 4) Fluxo normal do quiz.
         this.cena.physics.pause();
         npc.vendeu = true;
@@ -163,6 +170,12 @@ export default class Quiz {
      */
     finalizar() {
         if (this.ui) this.ui.esconder();
+
+        // Restaura o zoom original da cena para manter a navegacao no mapa como antes.
+        if (this.zoomOriginalCamera !== null) {
+            this.cena.cameras.main.setZoom(this.zoomOriginalCamera);
+            this.zoomOriginalCamera = null;
+        }
 
         // Retoma física da cena
         this.cena.physics.resume();

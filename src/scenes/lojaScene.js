@@ -3,7 +3,7 @@ import Player from '../entities/player.js';
 import Quiz from '../quiz/quiz.js';
 import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
-import { perguntasMovel } from '../quiz/quizPerguntas.js';
+import { perguntasMovel, perguntasNpcRua } from '../quiz/quizPerguntas.js';
 
 // Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {
@@ -79,12 +79,20 @@ export default class LojaScene extends Phaser.Scene {
         // Cria jogador na posição inicial dentro da cena
         this.player = new Player(this, this.playerX, this.playerY);
 
+        // Mapa de perguntas por loja
+        const perguntasPorLoja = {
+            Movel: perguntasMovel
+        };
+
+        // Seleciona as perguntas da loja atual, fallback para perguntasNpcRua se não encontrar
+        const perguntasDaLoja = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+
         // Cria NPC com perguntas específicas da cena
         this.npc = new Npc(
             this,
             this.npcX,
             this.npcY,
-         perguntasMovel,
+            perguntasDaLoja,
             "npc-vermelho",
             `npc_${this.sceneLoja}`
         );

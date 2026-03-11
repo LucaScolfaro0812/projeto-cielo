@@ -17,7 +17,7 @@ export const perguntasMovel = [
             "a) ARV",
             "b) Vendeu ta na conta",  // resposta correta
             "c) Pix",
-            "d) Crediário"      
+            "d) Crediário"
         ],
         pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
 
@@ -31,7 +31,7 @@ export const perguntasMovel = [
             "a) Giro de caixa, oportunidade de investimento", // resposta correta
             "b) Dinheiro caindo de hora em hora, aumentar sua poupança",
             "c) Dinheiro parado na conta, oportunidade de investimento",
-            "d) Aumentar o estoque, guardar dinheiro em poupança "  
+            "d) Aumentar o estoque, guardar dinheiro em poupança "
         ],
         pontos: [3, 0, 0, 0],    // apenas "a" vale pontos
 
@@ -43,7 +43,7 @@ export const perguntasMovel = [
         pergunta: " Qual etapa do Funil de Vendas garante a melhor técnica para entender a necessidade do proprietário do estabelecimento?",
         opcoes: [
             "a) Abordagem",
-            "b) Demonstração",  
+            "b) Demonstração",
             "c) Sondagem", // resposta correta
             "d) Aquecimento de Leads"
         ],
@@ -52,20 +52,6 @@ export const perguntasMovel = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
-    {
-        // Pergunta sobre experiência negativa anterior com maquininha
-        pergunta: "João diz: 'Já tentei maquininha antes e deu problema'. O que você faz?",
-        opcoes: [
-            "a) Que pena, problemas acontecem",
-            "b) Falar mal da concorrência",
-            "c) Perguntar o que aconteceu e explicar o suporte 24h da Cielo",  // resposta correta
-            "d) Desistir e ir embora"
-        ],
-        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
-
-        feedbackAcerto: "Párabens! você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-    }
 ];
 
 // ============================================================
@@ -114,18 +100,4 @@ export const perguntasNpcRua = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
-    {
-        // Pergunta sobre problema anterior com maquininha
-        pergunta: "João fala: 'Já tive problema com maquininha antes'. O que você faz?",
-        opcoes: [
-            "a) Ignorar a preocupação e mudar de assunto",
-            "b) Falar mal da outra empresa",
-            "c) Perguntar o que aconteceu e apresentar o suporte e garantia da Cielo",  // resposta correta
-            "d) Dizer que tecnologia sempre dá problema"
-        ],
-        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
-
-        feedbackAcerto: "Párabens! você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-    }
 ];

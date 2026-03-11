@@ -6,7 +6,7 @@ Nome do projeto:
 
 ## Grupo
 
-Nome escolhido para o grupo:
+Nome escolhido para o grupo: 
 
 Breve explicação do nome (opcional):
 

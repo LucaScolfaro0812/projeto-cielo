@@ -9,45 +9,45 @@
 // ============================================================
 // Perguntas usadas no quiz da cena da padaria (padariaScene)
 // ============================================================
-export const perguntasPadaria = [
+export const perguntasMovel = [
     {
         // Pergunta sobre qual produto oferecer a um cliente sem antecipação
-        pergunta: "Case 1: 'Visitando a loja de moveis voce identificou que o proprietário não trabalha com antecipação. Qual melhor produto para oferecer a ele?'",
+        pergunta: "Sabendo que a loja de móveis tem um faturamento médio de 200k a 300k mensal e oportunidade de melhorar o faturamento, porém, não trabalham com antecipação de vendas. Qual seria o melhor produto Cielo para ofertar para este cliente?",
         opcoes: [
             "a) ARV",
-            "b) Vendeu ta na conta",
+            "b) Vendeu ta na conta",  // resposta correta
             "c) Pix",
-            "d) Crediário"       // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
-
-        feedbackAcerto: "Párabens! você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-    },
-    {
-        // Pergunta sobre prazo de recebimento das vendas
-        pergunta: "João pergunta: 'Quanto tempo demora para o dinheiro cair na conta?'",
-        opcoes: [
-            "a) demora 30 dias",
-            "b) depende",
-            "c) em poucos dias",
-            "d) com a Cielo pode cair em 1 dia útil"  // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
-
-        feedbackAcerto: "Párabens! você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-    },
-    {
-        // Pergunta sobre clientes que vão embora por falta de cartão
-        pergunta: "João reclama: 'Muitos clientes vão embora porque só aceito dinheiro'. Como você responde?",
-        opcoes: [
-            "a) É melhor assim, dinheiro é mais seguro",
-            "b) Aceitar cartão pode aumentar suas vendas em até 30%",  // resposta correta
-            "c) Talvez alguns clientes voltem outro dia",
-            "d) Você pode pedir para eles irem ao caixa eletrônico"
+            "d) Crediário"      
         ],
         pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre argumentações de vendas
+        pergunta: " Cite duas argumentações de vendas para fomentar o produto Vendeu tá na Conta para esse cliente: ",
+        opcoes: [
+            "a) Giro de caixa, oportunidade de investimento", // resposta correta
+            "b) Dinheiro caindo de hora em hora, aumentar sua poupança",
+            "c) Dinheiro parado na conta, oportunidade de investimento",
+            "d) Aumentar o estoque, guardar dinheiro em poupança "  
+        ],
+        pontos: [3, 0, 0, 0],    // apenas "a" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta técnica de venda sobre funil de vendas
+        pergunta: " Qual etapa do Funil de Vendas garante a melhor técnica para entender a necessidade do proprietário do estabelecimento?",
+        opcoes: [
+            "a) Abordagem",
+            "b) Demonstração",  
+            "c) Sondagem", // resposta correta
+            "d) Aquecimento de Leads"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
 
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",

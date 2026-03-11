@@ -8,13 +8,14 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
      * @param {number} x - Posição horizontal inicial
      * @param {number} y - Posição vertical inicial
      * @param {Array} perguntas - Lista de perguntas associadas ao NPC
-     * @param {string} chaveImagemQuiz - Chave da imagem usada no quiz (opcional)
+    * @param {string} chaveImagemQuiz - Chave da imagem usada no quiz (opcional)
+    * @param {string|null} idNpc - Identificador persistente do NPC para regras de negócio
      */
-    constructor(cena, x, y, perguntas, chaveImagemQuiz = "npc") {
+    constructor(cena, x, y, perguntas, chaveImagemQuiz = "npc-vermelho", idNpc = null) {
 
         // Chama o construtor da classe Sprite com física Arcade
-        // Define a textura padrão como "npc"
-        super(cena, x, y, "npc");
+        // Define a textura padrão como "npc-vermelho"
+        super(cena, x, y, "npc-vermelho");
 
         // Adiciona o NPC à cena
         cena.add.existing(this);
@@ -39,11 +40,17 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
 
         // Guarda a chave da imagem usada na interface do quiz
         this.chaveImagemNpc = chaveImagemQuiz;
+
+        // Identificador único do NPC para persistência de progresso.
+        this.idNpc = idNpc;
     }
-    
+
     // método estático para carregar as imagens do npc
-    static preload(scene){
+    static preload(scene) {
+        // Mantem a chave antiga por compatibilidade e cria uma chave explicita para o visual azul.
         scene.load.image('npc', 'assets/npc.png');
+        scene.load.image('npc-azul', 'assets/npc.png');
+        scene.load.image("npc-vermelho", "assets/npc-vermelho.png");
     }
 
     /**
@@ -53,7 +60,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
      * - Movimento automático
      * - Lógica de comportamento
      */
-    update(){
+    update() {
         // Lógica futura do NPC pode ser implementada aqui
     }
 }

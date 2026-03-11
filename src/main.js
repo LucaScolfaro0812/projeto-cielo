@@ -1,13 +1,15 @@
 // Importação das cenas que compõem o jogo
 import { menuScene } from './scenes/menuScene.js';
 import { GameScene } from './scenes/gameScene.js';
-import { PadariaScene } from './scenes/padariaScene.js';
 
 // Objeto de configuração principal do jogo
 var config = {
 
     // Define o tipo de renderização (WebGL ou Canvas automaticamente)
     type: Phaser.AUTO,
+
+    // Mantém o visual pixelado (sem borrão) ao ampliar sprites pixel art
+    pixelArt: true,
 
     // ID do elemento HTML onde o canvas do jogo será inserido
     parent: "game",
@@ -36,7 +38,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [menuScene, GameScene, PadariaScene]
+    scene: [menuScene, GameScene]
 };
 
 // Criação da instância principal do jogo

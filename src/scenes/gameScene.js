@@ -13,16 +13,19 @@ export class GameScene extends Phaser.Scene {
     constructor() {
         // Define a chave única da cena dentro do Phaser
         super({ key: 'gameScene' });
-        
+
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
 
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
-                nomeLoja: 'Padaria',
-                cena: 'padariaScene',
-                bgScale: 2.9,
+                nomeLoja: 'Cafe',
+                cena: 'cafeScene',
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.7,
+                lojaFisicaOriginY: 0.62,
 
                 npcX: 90,
                 npcY: 0,
@@ -36,21 +39,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
-                bgScale: 2.9,
+                bgScale: 1,
 
-                npcX: 90,
-                npcY: 0,
-
-                portaX: -605,
-                portaY: -200,
-
-                playerX: -610,
-                playerY: -60
-            },
-            {
-                nomeLoja: 'Cupcake',
-                cena: 'cupcakeScene',
-                bgScale: 2.9,
+                lojaFisicaOriginX: 0.55,
+                lojaFisicaOriginY: 0.62,
 
                 npcX: 90,
                 npcY: 0,
@@ -64,7 +56,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.64,
+                lojaFisicaOriginY: 0.6,
 
                 npcX: 90,
                 npcY: 0,
@@ -78,7 +73,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.63,
+                lojaFisicaOriginY: 0.61,
 
                 npcX: 90,
                 npcY: 0,
@@ -92,7 +90,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pet',
                 cena: 'petScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.61,
 
                 npcX: 90,
                 npcY: 0,
@@ -106,7 +107,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Movel',
                 cena: 'movelScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.6,
 
                 npcX: 90,
                 npcY: 0,
@@ -120,7 +124,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Frutaria',
                 cena: 'frutariaScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.64,
+                lojaFisicaOriginY: 0.60,
 
                 npcX: 90,
                 npcY: 0,
@@ -134,7 +141,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Lanchonete',
                 cena: 'lanchoneteScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.57,
+                lojaFisicaOriginY: 0.66,
 
                 npcX: 90,
                 npcY: 0,
@@ -148,7 +158,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Chocolate',
                 cena: 'chocolateScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.63,
 
                 npcX: 90,
                 npcY: 0,
@@ -162,7 +175,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pelucia',
                 cena: 'peluciaScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.625,
+                lojaFisicaOriginY: 0.6,
 
                 npcX: 90,
                 npcY: 0,
@@ -174,9 +190,12 @@ export class GameScene extends Phaser.Scene {
                 playerY: -60
             },
             {
-                nomeLoja: 'AutoEscola',
+                nomeLoja: 'Autoescola',
                 cena: 'autoEscolaScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.69,
+                lojaFisicaOriginY: 0.61,
 
                 npcX: 90,
                 npcY: 0,
@@ -190,7 +209,10 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Joalheria',
                 cena: 'joalheriaScene',
-                bgScale: 2.9,
+                bgScale: 1,
+
+                lojaFisicaOriginX: 0.69,
+                lojaFisicaOriginY: 0.62,
 
                 npcX: 90,
                 npcY: 0,
@@ -210,8 +232,9 @@ export class GameScene extends Phaser.Scene {
         this.load.image('rua', 'assets/novoMapa.jpeg');
 
         // Carrega todas as imagens de lojas
-        for(let i = 0; i < this.lojasConfigs.length; i++){
-            this.load.image('loja' + this.lojasConfigs[i].nomeLoja, `assets/lojas/loja${this.lojasConfigs[i].nomeLoja}.png`);
+        for (let i = 0; i < this.lojasConfigs.length; i++) {
+            let lojaKey = 'loja' + this.lojasConfigs[i].nomeLoja + 'Fisica';
+            this.load.image(lojaKey, `assets/lojas/fisica/${lojaKey}.png`);
         }
 
         // Pré carrega os objetos com uma função estática
@@ -226,24 +249,24 @@ export class GameScene extends Phaser.Scene {
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
-        this.fundo=
-        this.add.image(0, 0, 'rua')
-            .setOrigin(0.5,0.5)
-            .setScale(2.5);
+        this.fundo =
+            this.add.image(0, 0, 'rua')
+                .setOrigin(0.5, 0.5)
+                .setScale(2.5);
 
-            this.fundo.x=this.fundo.displayWidth/2;
-            this.fundo.y=this.fundo.displayHeight/2;
-             this.physics.world.setBounds(
-                0,
-                0,
-                
-                this.fundo.displayWidth,
-                this.fundo.displayHeight
-            )
+        this.fundo.x = this.fundo.displayWidth / 2;
+        this.fundo.y = this.fundo.displayHeight / 2;
+        this.physics.world.setBounds(
+            0,
+            0,
+
+            this.fundo.displayWidth,
+            this.fundo.displayHeight
+        )
 
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
-         this.player.setCollideWorldBounds (true);
+        this.player.setCollideWorldBounds(true);
 
         // Cria portas e define troca de cena
         this._criarLojasEPortas();
@@ -268,12 +291,14 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 200, 2000);
+        this.player = new Player(this, 200, 1300);
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua);
+        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua");
         this.npc.setScale(0.5);
+
+        this.quiz.aplicarVisualConquistado(this.npc);
 
         // Detecta sobreposição entre NPC e Player
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -294,23 +319,23 @@ export class GameScene extends Phaser.Scene {
      */
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
-        for(let i = 0; i < this.lojasConfigs.length; i++){
+        for (let i = 0; i < this.lojasConfigs.length; i++) {
             this.lojas[i] = this._criarLoja(
-                250 + (500 * i),
-                1150,
-                'loja' + this.lojasConfigs[i].nomeLoja,
+                250 + (500 * i) - (i > 5 ? 500 * 5: 0),
+                1150 + (i > 5 ? 400 : 0),
+                'loja' + this.lojasConfigs[i].nomeLoja + 'Fisica',
                 this.lojasConfigs[i]
             );
         }
     }
 
-    _criarLoja(posX, posY, sprite, config){
+    _criarLoja(posX, posY, sprite, config) {
         // cria nova cena apenas se ela não existir
-        if (!this.scene.manager.getScene(config.cena)){
+        if (!this.scene.manager.getScene(config.cena)) {
             let cena = new LojaScene({
                 nomeDaLoja: config.nomeLoja,
                 nomeDaCena: config.cena,
-                bgScale: 2.9,
+                bgScale: 1,
 
                 npcX: 90,
                 npcY: 0,
@@ -323,7 +348,7 @@ export class GameScene extends Phaser.Scene {
             });
             this.scene.add(config.cena, cena);
         }
-        
+
         // cria o objeto da loja
         let l = new LojaFisica(
             this,
@@ -332,7 +357,7 @@ export class GameScene extends Phaser.Scene {
             sprite,
             config.cena,
             config.nomeLoja
-        );
+        ).setOrigin(config.lojaFisicaOriginX, config.lojaFisicaOriginY);
 
         // salva a porta da loja
         let portaEntrada = l.getPorta();

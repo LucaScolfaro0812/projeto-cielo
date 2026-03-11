@@ -1,4 +1,4 @@
-<img src="../../assets/logointeli.png">
+<img src="../assets/logointeli.png">
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
@@ -44,49 +44,28 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
+A Cielo atua no mercado brasileiro de adquirência, com modelo baseado em MDR e terminais POS, em um setor marcado por escala elevada e competição com Rede, Getnet, Stone e PagSeguro. Em 2023, a companhia processou cerca de 7,9 bilhões de transações e atendeu mais de 870 mil estabelecimentos (Cielo, 2023). Em 2024, o mercado de cartões manteve relevância no volume transacionado, ainda sob pressão da expansão do Pix, da digitalização do varejo e da atuação de fintechs (ABECS, 2024; Reuters, 2026).
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
-#### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
-A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo (PortersFiveForce.com, 2025).
+#### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
+A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.1.1 Identificação e análise dos principais obstáculos para novos entrantes.
-Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência (PortersFiveForce.com, 2025).
+#### 1.1.1.1.2 Ameaça de Produtos ou Serviços Substitutos (nível: alto)
+A ameaça de substitutos é alta. O Pix se consolidou como alternativa central aos pagamentos com cartão, reduzindo fricções de custo e prazo para parte dos lojistas e consumidores. Em paralelo, bancos digitais, marketplaces com pagamento embutido e carteiras digitais ampliam a substituição de soluções tradicionais de adquirência, sobretudo em segmentos sensíveis a taxa e experiência digital. Isso pressiona o modelo baseado em MDR e exige inovação contínua em serviços de valor agregado (Banco Central do Brasil, 2024; ABECS, 2024; Reuters, 2026).
 
-#### 1.1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
-Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share (PortersFiveForce.com, 2025).
+#### 1.1.1.1.3 Poder de Barganha dos Fornecedores (nível: moderado a alto)
+O poder de barganha dos fornecedores é moderado a alto, variando por grupo. Bandeiras (Visa, Mastercard, Elo e American Express) possuem poder elevado por definirem padrões e regras operacionais críticas. Bancos emissores e parceiros de liquidação têm poder moderado, enquanto fornecedores de tecnologia (antifraude, gateways e infraestrutura) tendem a moderado-alto devido ao custo de substituição e dependência técnica. Já hardware e telecom apresentam poder moderado. Esse arranjo impacta custos, prazos e capacidade de inovação das adquirentes (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
-A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta, conforme a análise estrutural da concorrência proposta por Porter (2008). Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais (McKinsey & Company, 2024; Deloitte, 2024). Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas, reforçando a transformação do setor impulsionada pela digitalização dos meios de pagamento (PwC Brasil, 2024; Veja, 2024). Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor e ampliando as tendências de desintermediação no mercado brasileiro de pagamentos (Banco Central do Brasil, 2024; Subadquirente, 2025).
+#### 1.1.1.1.4 Poder de Barganha dos Clientes (nível: alto)
+A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commerce, autônomos e segmentos como bares e restaurantes. O poder de barganha desse grupo é alto, pois há ampla oferta de provedores, baixa barreira de troca e forte sensibilidade a taxa, prazo de recebimento e qualidade de serviço. A expansão do Pix reforça essa pressão competitiva e aumenta a exigência por propostas de valor mais completas, com serviços financeiros e integração digital (Cielo S.A., 2024; Banco Central do Brasil, 2024; Reuters, 2026).
 
-##### 1.1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
-A Cielo depende de quatro grupos principais de fornecedores. As bandeiras de cartões, como Visa, Mastercard, Elo e American Express, possuem alto poder de barganha, pois controlam padrões de segurança, regras operacionais e tarifas, sendo indispensáveis para o funcionamento da adquirente.
-Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já que participam da liquidação das transações e influenciam prazos de repasse e custos financeiros.
-Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
-Já os fornecedores de hardware e telecomunicações possuem poder moderado, devido à existência de alternativas no mercado, embora ainda haja dependência por questões de compatibilidade tecnológica e segurança.
-O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
-Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor.
-
-##### 1.1.1.1.4  Identificação dos principais tipos de clientes da indústria
-
-<p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online (PortersFiveForce.com, 2025). Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
-
-
-##### 1.1.1.1.4.1 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
-
-<p>O poder de barganha dos clientes na indústria de adquirência é considerado elevado devido ao aumento da concorrência e à maior oferta de soluções de pagamento (Vieira, 2025). A facilidade de troca entre provedores permite que os clientes negociem taxas mais baixas e melhores condições contratuais. Além disso, a popularização do Pix reduziu a dependência dos cartões, intensificando a pressão sobre empresas tradicionais do setor (Reuters, 2026). Como consequência, organizações como a Cielo enfrentam maior competição e perda relativa de participação de mercado, sendo levadas a investir em tecnologia, inovação e serviços de maior valor agregado para atrair e reter clientes (ClickPetróleo e Gás, 2025).
-
-##### 1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes
-##### - Identificação dos principais concorrentes na indústria.
-##### - Análise do nível de rivalidade e como ela afeta a competitividade na indústria.
-
-<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.</p>
-<p>Os principais concorrentes da Cielo incluem Rede, Getnet, Stone, PagBank e Mercado Pago. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo (2023) e do Banco Central do Brasil (2023), Stone e PagBank ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor (Banco Central do Brasil. (2023), Cielo S.A. (2023), StoneCo Ltd. (2023) e PagSeguro Digital Ltd. (2023)).</p>
+#### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
+A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
-A Análise SWOT é uma metodologia estratégica adotada por empresas de diversos setores para diagnosticar o cenário em que estão inseridas. Ela serve para mapear e organizar as forças, fraquezas, oportunidades e ameaças de um negócio, permitindo que a organização tenha um controle muito mais claro sobre seus próprios recursos e processos. Além de olhar para dentro, essa ferramenta ajuda a empresa a entender de forma realista sua posição no mercado e na economia, especialmente quando comparada ao desempenho de seus concorrentes.
+Nesta seção, a matriz SWOT contextualiza o posicionamento competitivo da Cielo no mercado brasileiro de adquirência, considerando sua escala operacional, estrutura de custos, pressão competitiva e oportunidades de crescimento em serviços de maior valor agregado. A análise combina fatores internos (forças e fraquezas) e externos (oportunidades e ameaças) para apoiar decisões estratégicas relacionadas a inovação, eficiência operacional, retenção de clientes e adaptação ao avanço do Pix e da digitalização dos meios de pagamento.
 
 | FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
 | :--- | :--- |
@@ -118,7 +97,7 @@ Apesar de sua solidez, a complexidade da estrutura de governança dividida entre
 A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidade única de monetização através da inteligência de negócios. Por meio do ICVA (Índice Cielo do Varejo), a empresa pode converter informações em consultoria estratégica para lojistas e indústrias, criando novas linhas de receita (Cielo S.A., 2024). Há também um campo fértil para a expansão de serviços financeiros integrados, como a oferta de crédito personalizado e a antecipação de recebíveis.
 
 #### **4. Ameaças (Threats)**
-A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2022). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2022).
+A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2024). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2024).
 
 ---
 
@@ -153,78 +132,83 @@ _Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevant
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-| #        | Requisito Funcionais                           | Descrição                                                                                                                                                                                                                  |
-| -------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RF01** | Menu inicial e identificação do jogador | O sistema deve apresentar um menu inicial permitindo que o jogador informe seu nome antes do início da partida. O progresso será mantido apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
-| **RF02** | Tutorial inicial                        | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida.                                                  |
-| **RF03** | Sistema de quizzes de negociação        | O sistema deve disponibilizar quizzes interativos que simulem situações de vendas e negociação de produtos da Cielo, com múltiplas opções de resposta baseadas no diálogo com o cliente (NPC).                             |
-| **RF04** | Sistema de variáveis do cliente         | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                               |
-| **RF05** | Sistema de pontuação                    | O sistema deve calcular automaticamente a pontuação considerando: escolhas do quiz e estado de humor do cliente ao final da interação.                                                                  |
-| **RF06** | Painel de desempenho em tempo real      | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão.                                                  |
-| **RF07** | Interação com NPCs                      | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                |
-| **RF08** | Navegação em mundo aberto               | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                            |
+Esta seção apresenta os requisitos do sistema, organizados em requisitos funcionais (RF) e requisitos não funcionais (RNF). Os requisitos funcionais descrevem as funcionalidades e comportamentos que o sistema deve oferecer ao usuário. Já os requisitos não funcionais definem características de qualidade e restrições do sistema, como desempenho, usabilidade e ambiente de execução. As tabelas a seguir detalham cada um desses requisitos, identificados por código e acompanhados de suas respectivas descrições.
 
+### 1.2.1. Requisitos Funcionais
 
-| #         | Requisito  Não Funcionais                          | Descrição                                                                                                                                                                  |
-| --------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RNF01** | Ambiente gráfico                      | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional.                |
-| **RNF02** | Plataforma de execução                | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                               |
-| **RNF03** | Usabilidade e linguagem               | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                                    |
-| **RNF04** | Interface e identidade visual (UI/UX) | O sistema deve apresentar identidade visual consistente, com padronização de cores, tipografia e elementos gráficos, priorizando acessibilidade e facilidade de navegação. |
-| **RNF05** | Desempenho                            | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                                         |
-| **RNF06** | Acessibilidade operacional            | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                                          |
-                                                                                             
+| ID | Requisito Funcional | Descrição |
+| --- | --- | --- |
+| RF01 | Menu inicial | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo. |
+| RF02 | Menu de configurações e novo jogo | O sistema deve disponibilizar um menu de configurações com opção para ajustar o volume do jogo e um botão de novo jogo, responsável por iniciar uma nova partida apagando os dados do jogo anterior. |
+| RF03 | Progresso da sessão | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
+| RF04 | Tutorial inicial | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida. |
+| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido. |
+| RF06 | Sistema de variáveis do cliente | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador. |
+| RF07 | Sistema de pontuação | O sistema deve calcular automaticamente a pontuação considerando escolhas do quiz e estado de humor do cliente ao final da interação. |
+| RF08 | Painel de desempenho em tempo real | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão. |
+| RF09 | Interação com NPCs | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes. |
+| RF10 | Navegação em mundo aberto | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes. |
+| RF11 | Sistema de feedback educativo | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
 
+### 1.2.2. Requisitos Não Funcionais
+
+| ID | Requisito Não Funcional | Descrição |
+| --- | --- | --- |
+| RNF01 | Ambiente gráfico | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
+| RNF02 | Plataforma de execução | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional. |
+| RNF03 | Usabilidade e linguagem | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. |
+| RNF04 | Interface do usuário | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador. |
+| RNF05 | Identidade visual | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto. |
+| RNF06 | Acessibilidade | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários. |
+| RNF07 | Desempenho | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho. |
+| RNF08 | Acessibilidade operacional | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais. |
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
-O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto, inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
+O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
 
 Perfil Demográfico
 
- - Profissionais da área de vendas e relacionamento comercial
- - Faixa etária média: 40–50 anos
- - Usuários com familiaridade funcional com tecnologia digital
- - Predominantemente non-gamers ou jogadores ocasionais
- - Tempo limitado para treinamento devido à rotina profissional
+Profissionais da área de vendas e relacionamento comercial
 
-Considerando essas características, o jogo foi desenvolvido em formato 2D mundo aberto (top down), priorizando acessibilidade, navegação simples e rápida assimilação das mecânicas, reduzindo a necessidade de habilidades típicas de jogadores experientes.
+Faixa etária média: 40–50 anos
+
+Usuários com familiaridade funcional com tecnologia digital
+
+Predominantemente non-gamers ou jogadores ocasionais
+
+Tempo limitado para atividades de treinamento devido à rotina profissional
 
 Perfil Psicográfico e Preferências
 
-O público demonstra maior engajamento com experiências que:
- - Possuam aplicação prática direta no trabalho;
- - Simulem situações reais do cotidiano profissional;
- - Ofereçam aprendizado ativo em vez de treinamento passivo;
- - Apresentem feedback claro de desempenho e evolução;
- - Estimulem reconhecimento por progresso e melhoria contínua.
+Esse público tende a demonstrar maior engajamento com experiências de aprendizado que:
+
+Possuam aplicação prática no contexto profissional
+
+Simulem situações do cotidiano de vendas e negociação
+
+Apresentem feedback claro de desempenho
+
+Incentivem evolução contínua e melhoria de resultados
 
 Necessidades de Aprendizagem
 
- - O jogo busca desenvolver competências-chave da área comercial, incluindo:
-Persuasão e argumentação de vendas;
- - Tomada de decisão sob pressão;
- - Interpretação de perfis de clientes;
- - Estratégias de marketing e negociação;
- - Comunicação assertiva.
+Considerando o contexto de atuação da equipe comercial, destacam-se como relevantes para o público:
 
-Essas habilidades são trabalhadas por meio de interações com NPCs que representam clientes em cenários simulados. O jogador participa de negociações estruturadas em formato de quiz contextual, selecionando respostas e argumentos estratégicos conforme a situação apresentada.
+Persuasão e argumentação em vendas
 
-Justificativa de Design
+Tomada de decisão em situações de negociação
 
-A escolha do formato de jogo aberto 2D com interações baseadas em decisão foi definida para:
- - Facilitar o aprendizado experiencial;
- - Promover retenção de conhecimento através da prática;
- - Reduzir resistência a treinamentos corporativos tradicionais;
- - Integrar gamificação ao processo de qualificação profissional.
+Interpretação de perfis de clientes
 
-O jogo se posiciona, portanto, como uma ferramenta de gamificação corporativa, voltada ao desenvolvimento contínuo da equipe comercial por meio de simulação interativa e aprendizagem baseada em decisões.
+Estratégias de marketing e negociação
+
+Comunicação clara e assertiva
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-Para avançar no jogo, o jogador deve participar de simulações de negociação estruturadas, nas quais a progressão está diretamente relacionada ao seu desempenho em quizzes inseridos em contextos realistas de vendas. Em cada fase, é necessário atingir a pontuação mínima definida, resultante do número de respostas corretas e da adequação das decisões tomadas ao longo da interação com o cliente.
-Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
+O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. Para avançar nas fases, o jogador deve participar de interações com clientes e responder quizzes relacionados às situações de negociação. A progressão no jogo depende do desempenho nessas atividades, sendo necessário atingir a pontuação mínima definida a partir das respostas corretas e das decisões tomadas durante a interação com o cliente. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
 O jogo é concluído quando todas as fases são finalizadas com sucesso, indicando que o jogador conseguiu manter um bom desempenho e evoluir ao longo dos diferentes cenários de negociação.
 
 ## 2.2. Características do Jogo (sprint 2)
@@ -237,8 +221,7 @@ O jogo pode ser classificado como um serious game de simulação com quizzes.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-Atualmente o jogo está sendo feito apenas para desktop e compatível com o navegador Google Chrome.
-
+Atualmente o jogo está sendo feito apenas para desktop em navegadores web.
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
@@ -270,7 +253,7 @@ Aproximadamente 15 minutos.
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-<img src="../../assets/marcielo.png"> 
+<img src="../assets/marcielo.png"> 
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -278,7 +261,7 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="../../assets/NPCs.jpeg" width= 350>
+<img src="../assets/NPCs.jpeg" width= 350>
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -299,7 +282,7 @@ Aproximadamente 15 minutos.
 
 Segue abaixo o mapa: 
 
-<img src="../../assets/MapaJogoCielo.webp" width = 250>
+<img src="../assets/MapaJogoCielo.webp" width = 250>
 
 
 
@@ -314,7 +297,7 @@ Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
-<img src="../../assets/RascunhosNPC.jpeg" width = 300>
+<img src="../assets/RascunhosNPC.jpeg" width = 300>
 
 Figura 1: desenhos dos clientes feito a mão 
 
@@ -383,13 +366,13 @@ _\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, i
 _Exemplo de tabela_
 \# | inimigo | | ocorrências | função | impacto | efeito sonoro
 --- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../../assets/inimigo2.PNG"> | a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
+1 | robô terrestre | <img src="../assets/inimigo2.PNG"> | a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
+2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
 3 | ...
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-<img src="../../assets/diagrama.png">
+<img src="../assets/diagrama.png">
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -399,9 +382,7 @@ O jogador percorre o mapa, entra nos comércios e inicia negociações com os re
 
 Durante a interação, o jogo apresenta um indicador de satisfação do cliente, fornecendo feedback imediato sobre as decisões tomadas.
 
-O sistema é dividido em fases progressivas: ao concluir uma venda com sucesso, o jogador avança para níveis mais desafiadores, enfrentando clientes maiores e mais exigentes. Caso não consiga fechar a venda, ele regride de nível e precisa reiniciar o desafio.
-
-O objetivo final do jogo é alcançar o nível máximo, no qual o jogador recebe um “certificado de qualificação”, simbolizando que está preparado para exercer plenamente seu papel como vendedor na empresa.
+O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar os quizzes de negociação com sucesso, conquistando cada cliente e demonstrando seu conhecimento sobre os produtos e serviços da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -517,15 +498,15 @@ Ilustrações da versão básica
 
 Figura 1 – Menu inicial do jogo
 
-![alt text](<Captura de tela 2026-02-27 110554.png>)
+![Menu inicial do jogo](../assets/titulo-jogo.webp)
 
 Figura 2 – Ambiente da padaria
 
-![alt text](<Captura de tela 2026-02-27 110653.png>)
+![Ambiente interno da loja](../assets/lojas/interior/lojaCafeInterior.png)
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
-![alt text](<Captura de tela 2026-02-27 110734.png>)
+![Mapa com estrutura de interação](../assets/novoMapa.jpeg)
 
 Dificuldades encontradas
 
@@ -568,30 +549,38 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
+Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
+
+Nos testes do quiz, o indicador principal passa a ser a barra de conversão. Quando o jogador acerta, a conversão aumenta; quando erra, a conversão diminui. A barra usa três faixas visuais para facilitar a leitura de desempenho: verde (bom), laranja (intermediário) e vermelha (ruim).
+
+Tabela 1 - Casos de teste funcionais do jogo.
+
 
 | # | pré-condição | descrição do teste | pós-condição |
 | :--- | :--- | :--- | :--- |
 | 1 | Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar |
 | 2 | Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir |
-| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Abre uma interface das teclas que o jogador utiliza e o objetivo |
+| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Deve abrir uma interface com as teclas utilizadas pelo jogador e o objetivo do jogo |
 | 4 | Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita |
 | 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
 | 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
 | 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
 | 8 | Personagem próximo de uma loja | Encostou na porta | Personagem entra no estabelecimento |
 | 9 | Personagem perto de um vendedor | Encostou no vendedor | Interface de conversa aparece |
-| 10 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo na melhor resposta | O nível de satisfação aumenta |
-| 11 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em qualquer outra resposta | O nível de satisfação diminui muito |
-| 12 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que mantenha/aumente satisfação | Vendedor compra os serviços e ganha o cliente |
-| 13 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua, mas acima do mínimo | Vendedor compra os serviços e ganha o cliente |
-| 14 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua para abaixo do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 15 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que mantenha ou diminua o nível | Vendedor não compra e o jogador perde o cliente |
-| 16 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente, mas abaixo mantém do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 17 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente para acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 10 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta | A barra de conversão aumenta |
+| 11 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta | A barra de conversão diminui |
+| 12 | Conversão na faixa verde (última pergunta) | Responder de forma a manter ou elevar a conversão | Cliente é conquistado e negociação é concluída com sucesso |
+| 13 | Conversão na faixa verde (última pergunta) | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída |
+| 14 | Conversão na faixa laranja (última pergunta) | Responder incorretamente e reduzir a conversão para faixa vermelha | Cliente não é conquistado |
+| 15 | Conversão na faixa vermelha (última pergunta) | Responder incorretamente ou manter desempenho ruim | Cliente não é conquistado |
+| 16 | Conversão na faixa vermelha (última pergunta) | Responder corretamente, mas sem sair da faixa vermelha | Cliente não é conquistado |
+| 17 | Conversão na faixa vermelha (última pergunta) | Responder corretamente e elevar para faixa laranja ou verde | Cliente é conquistado |
 | 18 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
 | 19 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
 | 20 | Perto de um cliente já interagido | Se aproxima | Nada acontece |
 | 21 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
+
+Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
@@ -624,6 +613,8 @@ _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
 # <a name="c7"></a>7. Referências
 
+ABECS. (2024). *Balanço do setor de meios de pagamento*. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
+
 Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
 Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
@@ -648,25 +639,17 @@ PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*
 
 PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
 
-PortersFiveForce.com. (2025). *What are the Porter’s five forces of Cielo?* https://portersfiveforce.com/products/cielo-five-forces-analysis
-
 Reuters. (2026, 10 de fevereiro). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028*. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
 
 Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
 
 StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
 
-SwotTemplate.com. (2025). *Cielo SWOT analysis*. https://swottemplate.com/products/cielo-five-forces-analysis
-
 Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
 
 Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
-Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
-
 Porter, M. E. (2008). *The five competitive forces that shape strategy*. Harvard Business Review.
-
-Banco Central do Brasil. (2024). *Relatórios sobre Pix e meios de pagamento*. https://www.bcb.gov.br
 
 Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
 

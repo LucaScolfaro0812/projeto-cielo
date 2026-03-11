@@ -45,8 +45,48 @@ export default class Quiz {
     constructor(cena) {
         this.cena = cena;
 
+        // Guarda o zoom da camera antes de abrir o quiz para restaurar ao finalizar.
+        this.zoomOriginalCamera = null;
+
         // Permite customização futura do tempo por pergunta
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
+    }
+    _carregarNpcsQuizAbertos() {
+        const lista = carregarDados(chavesArmazenamento.npcsQuizAbertos, []);
+        return Array.isArray(lista) ? lista : [];
+    }
+
+    _npcJaAbriuQuiz(idNpc) {
+        if (!idNpc) return false;
+        return this._carregarNpcsQuizAbertos().includes(idNpc);
+    }
+
+    _marcarNpcQuizComoAberto(idNpc) {
+        if (!idNpc) return;
+        const lista = this._carregarNpcsQuizAbertos();
+        if (!lista.includes(idNpc)) {
+            lista.push(idNpc);
+            salvarDados(chavesArmazenamento.npcsQuizAbertos, lista);
+        }
+    }
+
+    _carregarNpcsConquistadosIds() {
+        const lista = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+        return Array.isArray(lista) ? lista : [];
+    }
+
+    _npcJaConquistado(idNpc) {
+        if (!idNpc) return false;
+        return this._carregarNpcsConquistadosIds().includes(idNpc);
+    }
+
+    _marcarNpcComoConquistado(idNpc) {
+        if (!idNpc) return;
+        const lista = this._carregarNpcsConquistadosIds();
+        if (!lista.includes(idNpc)) {
+            lista.push(idNpc);
+            salvarDados(chavesArmazenamento.npcsConquistadosIds, lista);
+        }
     }
 
     /**
@@ -55,19 +95,31 @@ export default class Quiz {
      */
     iniciar(npc) {
 
-        // Salvaguarda: impede iniciar quiz inválido
-        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
-            console.warn("Quiz: NPC sem perguntas válidas.");
+        this.npcAtual = npc;
+
+        // 1) Bloqueia reabertura se esse NPC ja abriu quiz antes.
+        if (npc?.idNpc && this._npcJaAbriuQuiz(npc.idNpc)) {
+            npc.vendeu = true;
             return;
         }
 
-        // Pausa física do jogo durante o quiz
-        this.cena.physics.pause();
+        // 2) Valida NPC/perguntas.
+        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
+            console.warn("Quiz: NPC sem perguntas validas.");
+            return;
+        }
 
-        // Marca NPC como já atendido
+        // Salva e normaliza o zoom para melhorar a legibilidade da UI do quiz.
+        this.zoomOriginalCamera = this.cena.cameras.main.zoom;
+        this.cena.cameras.main.setZoom(1);
+
+        // 4) Fluxo normal do quiz.
+        this.cena.physics.pause();
         npc.vendeu = true;
 
-        // Inicialização do estado interno do quiz
+        // Novo comportamento visual: ao iniciar a conversa/quiz, NPC fica vermelho.
+        npc.setTexture("npc-vermelho");
+
         this.perguntas = npc.perguntas;
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
@@ -75,33 +127,42 @@ export default class Quiz {
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
 
-        // Define imagem do NPC na interface (fallback para "npc")
-        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc";
+        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc-vermelho";
 
-        // Cria instância da interface visual do quiz
         this.ui = new QuizUI(this.cena, {
-            larguraModal: 660,
-            alturaModal: 420,
-            padding: 18,
-            larguraColunaBarra: 48,
-            alturaMaxBarraConversao: 150,
+            larguraModal: 1100,
+            alturaModal: 660,
+            padding: 40,
+            larguraColunaBarra: 90,
+            alturaMaxBarraConversao: 200,
             duracaoFeedback: 1.5,
-            chaveImagemNpc: chaveImagemNpc
+            chaveImagemNpc
         });
 
-        // Define callback ao selecionar resposta
         this.ui.aoSelecionarResposta = (indiceEscolhido) =>
             this.responder(indiceEscolhido);
 
-        // Exibe interface
+        // 3) Marca como aberto no primeiro contato (regra de negocio).
+        if (npc?.idNpc) {
+            this._marcarNpcQuizComoAberto(npc.idNpc);
+        }
+
         this.ui.mostrar();
-
-        // Inicializa barra de conversão
         this.ui.definirConversao(this.nivelConversao);
-
-        // Exibe primeira pergunta e inicia timer
         this.exibirPerguntaAtual();
         this.iniciarTimer();
+    }
+
+    aplicarVisualConquistado(npc) {
+        if (!npc?.idNpc) return;
+        if (this._npcJaConquistado(npc.idNpc)) {
+            // Regra atual: NPC conquistado fica azul.
+            npc.setTexture("npc-azul");
+            return;
+        }
+
+        // Regra atual: NPC nao conquistado fica vermelho.
+        npc.setTexture("npc-vermelho");
     }
 
     /**
@@ -109,6 +170,12 @@ export default class Quiz {
      */
     finalizar() {
         if (this.ui) this.ui.esconder();
+
+        // Restaura o zoom original da cena para manter a navegacao no mapa como antes.
+        if (this.zoomOriginalCamera !== null) {
+            this.cena.cameras.main.setZoom(this.zoomOriginalCamera);
+            this.zoomOriginalCamera = null;
+        }
 
         // Retoma física da cena
         this.cena.physics.resume();
@@ -274,6 +341,12 @@ export default class Quiz {
         // Salva progresso apenas em evento importante (quando conquista).
         if (conquistou) {
             this._salvarProgressoNpcConquistado();
+
+            if (this.npcAtual) {
+                // Inversao da regra: ao conquistar, volta para o visual normal.
+                this.npcAtual.setTexture("npc-azul");
+                this._marcarNpcComoConquistado(this.npcAtual.idNpc);
+            }
         }
 
         // Exibe resultado visual e depois retorna ao jogo.

@@ -3,7 +3,7 @@ import Player from '../entities/player.js';
 import Quiz from '../quiz/quiz.js';
 import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
-import { perguntasPadaria } from '../quiz/quizPerguntas.js';
+import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../quiz/quizPerguntas.js';
 
 // Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {
@@ -11,8 +11,8 @@ export default class LojaScene extends Phaser.Scene {
     constructor(configs) {
 
         // Define a chave única da cena no Scene Manager do Phaser
-        super({ key: configs.nomeDaCena});
-        
+        super({ key: configs.nomeDaCena });
+
         this.nomeLoja = configs.nomeDaLoja;
         this.sceneLoja = configs.nomeDaCena;
         this.backgroundScale = configs.bgScale;
@@ -23,15 +23,17 @@ export default class LojaScene extends Phaser.Scene {
         this.portaX = configs.portaX;
         this.portaY = configs.portaY;
 
-        
+
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
+
+        this.fundoImage = 'loja' + this.nomeLoja + 'Interior';
     }
 
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image(this.nomeLoja, `assets/lojas/loja${this.nomeLoja}.png`);
+        this.load.image(this.fundoImage, `assets/lojas/interior/${this.fundoImage}.png`);
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
@@ -57,9 +59,9 @@ export default class LojaScene extends Phaser.Scene {
     _criarCenario() {
         // Adiciona imagem de fundo na posição especificada
         // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo = this.add.image(0, 0, this.nomeLoja)
+        this.fundo = this.add.image(0, 0, this.fundoImage)
             .setScale(this.backgroundScale)
-            .setOrigin (0.5,0.5); 
+            .setOrigin(0.5, 0.5);
     }
 
     /**
@@ -77,8 +79,31 @@ export default class LojaScene extends Phaser.Scene {
         // Cria jogador na posição inicial dentro da cena
         this.player = new Player(this, this.playerX, this.playerY);
 
+        // Mapa de perguntas por loja
+        const perguntasPorLoja = {
+            Movel: perguntasMovel,
+            Cafe: perguntasCafe,
+            Pet: perguntasPet,
+            Lanchonete: perguntasLanchonete,
+            Autoescola: perguntasAutoescola,
+            Pelucia: perguntasPelucia,
+            Chocolate: perguntasChocolate
+        };
+
+        // Seleciona as perguntas da loja atual, fallback para perguntasNpcRua se não encontrar
+        const perguntasDaLoja = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+
         // Cria NPC com perguntas específicas da cena
-        this.npc = new Npc(this, this.npcX, this.npcY, perguntasPadaria);
+        this.npc = new Npc(
+            this,
+            this.npcX,
+            this.npcY,
+            perguntasDaLoja,
+            "npc-vermelho",
+            `npc_${this.sceneLoja}`
+        );
+
+        this.quiz.aplicarVisualConquistado(this.npc);
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {
@@ -103,7 +128,7 @@ export default class LojaScene extends Phaser.Scene {
             this,        // referência da cena
             'gameScene'  // nome da cena de destino
         );
-        
+
         // Define o tamanho da porta
         this.portaEntrada.setScale(0.5);
 

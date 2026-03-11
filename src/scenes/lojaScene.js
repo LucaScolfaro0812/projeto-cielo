@@ -3,7 +3,7 @@ import Player from '../entities/player.js';
 import Quiz from '../quiz/quiz.js';
 import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
-import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet } from '../quiz/quizPerguntas.js';
+import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../quiz/quizPerguntas.js';
 
 // Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {

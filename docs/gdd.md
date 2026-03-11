@@ -49,13 +49,13 @@ A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, moviment
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
 #### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
-A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo (PortersFiveForce.com, 2025).
+A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo (Porter, 2008).
 
 #### 1.1.1.1.1.1 Identificação e análise dos principais obstáculos para novos entrantes.
-Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência (PortersFiveForce.com, 2025).
+Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência (Porter, 2008).
 
 #### 1.1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
-Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share (PortersFiveForce.com, 2025).
+Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share (Porter, 2008).
 
 ##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
 A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta, conforme a análise estrutural da concorrência proposta por Porter (2008). Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais (McKinsey & Company, 2024; Deloitte, 2024). Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas, reforçando a transformação do setor impulsionada pela digitalização dos meios de pagamento (PwC Brasil, 2024; Veja, 2024). Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor e ampliando as tendências de desintermediação no mercado brasileiro de pagamentos (Banco Central do Brasil, 2024; Subadquirente, 2025).
@@ -66,11 +66,11 @@ Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já q
 Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
 Já os fornecedores de hardware e telecomunicações possuem poder moderado, devido à existência de alternativas no mercado, embora ainda haja dependência por questões de compatibilidade tecnológica e segurança.
 O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
-Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor.
+Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
 ##### 1.1.1.1.4  Identificação dos principais tipos de clientes da indústria
 
-<p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online (PortersFiveForce.com, 2025). Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
+<p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online (Cielo S.A., 2024). Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
 
 
 ##### 1.1.1.1.4.1 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
@@ -118,7 +118,7 @@ Apesar de sua solidez, a complexidade da estrutura de governança dividida entre
 A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidade única de monetização através da inteligência de negócios. Por meio do ICVA (Índice Cielo do Varejo), a empresa pode converter informações em consultoria estratégica para lojistas e indústrias, criando novas linhas de receita (Cielo S.A., 2024). Há também um campo fértil para a expansão de serviços financeiros integrados, como a oferta de crédito personalizado e a antecipação de recebíveis.
 
 #### **4. Ameaças (Threats)**
-A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2022). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2022).
+A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2024). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2024).
 
 ---
 
@@ -404,9 +404,7 @@ O jogador percorre o mapa, entra nos comércios e inicia negociações com os re
 
 Durante a interação, o jogo apresenta um indicador de satisfação do cliente, fornecendo feedback imediato sobre as decisões tomadas.
 
-O sistema é dividido em fases progressivas: ao concluir uma venda com sucesso, o jogador avança para níveis mais desafiadores, enfrentando clientes maiores e mais exigentes. Caso não consiga fechar a venda, ele regride de nível e precisa reiniciar o desafio.
-
-O objetivo final do jogo é alcançar o nível máximo, no qual o jogador recebe um “certificado de qualificação”, simbolizando que está preparado para exercer plenamente seu papel como vendedor na empresa.
+O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar os quizzes de negociação com sucesso, conquistando cada cliente e demonstrando seu conhecimento sobre os produtos e serviços da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -653,25 +651,17 @@ PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*
 
 PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
 
-PortersFiveForce.com. (2025). *What are the Porter’s five forces of Cielo?* https://portersfiveforce.com/products/cielo-five-forces-analysis
-
 Reuters. (2026, 10 de fevereiro). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028*. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
 
 Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
 
 StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
 
-SwotTemplate.com. (2025). *Cielo SWOT analysis*. https://swottemplate.com/products/cielo-five-forces-analysis
-
 Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
 
 Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
-Wikipedia. (2024). *Cielo*. https://pt.wikipedia.org
-
 Porter, M. E. (2008). *The five competitive forces that shape strategy*. Harvard Business Review.
-
-Banco Central do Brasil. (2024). *Relatórios sobre Pix e meios de pagamento*. https://www.bcb.gov.br
 
 Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
 

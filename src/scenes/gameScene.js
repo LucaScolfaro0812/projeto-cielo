@@ -24,6 +24,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'cafeScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.7,
+                lojaFisicaOriginY: 0.62,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -37,6 +40,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.55,
+                lojaFisicaOriginY: 0.62,
 
                 npcX: 90,
                 npcY: 0,
@@ -52,6 +58,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'belezaScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.64,
+                lojaFisicaOriginY: 0.6,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -65,6 +74,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.63,
+                lojaFisicaOriginY: 0.61,
 
                 npcX: 90,
                 npcY: 0,
@@ -80,6 +92,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'petScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.61,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -93,6 +108,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Movel',
                 cena: 'movelScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.6,
 
                 npcX: 90,
                 npcY: 0,
@@ -108,6 +126,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'frutariaScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.64,
+                lojaFisicaOriginY: 0.60,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -121,6 +142,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Lanchonete',
                 cena: 'lanchoneteScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.57,
+                lojaFisicaOriginY: 0.66,
 
                 npcX: 90,
                 npcY: 0,
@@ -136,6 +160,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'chocolateScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.62,
+                lojaFisicaOriginY: 0.63,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -149,6 +176,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Pelucia',
                 cena: 'peluciaScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.625,
+                lojaFisicaOriginY: 0.6,
 
                 npcX: 90,
                 npcY: 0,
@@ -164,6 +194,9 @@ export class GameScene extends Phaser.Scene {
                 cena: 'autoEscolaScene',
                 bgScale: 1,
 
+                lojaFisicaOriginX: 0.69,
+                lojaFisicaOriginY: 0.61,
+
                 npcX: 90,
                 npcY: 0,
 
@@ -177,6 +210,9 @@ export class GameScene extends Phaser.Scene {
                 nomeLoja: 'Joalheria',
                 cena: 'joalheriaScene',
                 bgScale: 1,
+
+                lojaFisicaOriginX: 0.69,
+                lojaFisicaOriginY: 0.62,
 
                 npcX: 90,
                 npcY: 0,
@@ -255,7 +291,7 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 200, 2000);
+        this.player = new Player(this, 200, 1300);
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
@@ -321,7 +357,7 @@ export class GameScene extends Phaser.Scene {
             sprite,
             config.cena,
             config.nomeLoja
-        ).setOrigin(0.5, 0.65);
+        ).setOrigin(config.lojaFisicaOriginX, config.lojaFisicaOriginY);
 
         // salva a porta da loja
         let portaEntrada = l.getPorta();

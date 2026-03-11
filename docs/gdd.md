@@ -160,7 +160,7 @@ Esta seção apresenta os requisitos do sistema, organizados em requisitos funci
 | ID | Requisito Funcional | Descrição |
 | --- | --- | --- |
 | RF01 | Menu inicial | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo. |
-| RF02 | Identificação do jogador | O sistema deve permitir que o jogador informe seu nome antes do início da partida para identificação durante a sessão. |
+| RF02 | Menu de configurações e novo jogo | O sistema deve disponibilizar um menu de configurações com opção para ajustar o volume do jogo e um botão de novo jogo, responsável por iniciar uma nova partida apagando os dados do jogo anterior. |
 | RF03 | Progresso da sessão | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
 | RF04 | Tutorial inicial | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida. |
 | RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido. |

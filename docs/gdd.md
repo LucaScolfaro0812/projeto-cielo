@@ -44,49 +44,28 @@ https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-A Cielo processou aproximadamente 7,9 bilhões de transações em 2023, movimentando cerca de R$ 816 bilhões e atendendo mais de 870 mil estabelecimentos no Brasil, atuando como adquirente tradicional por meio de taxas por transação e terminais POS (Cielo, 2023). No competitivo mercado brasileiro, empresas como Rede, Getnet, Stone e PagSeguro disputam participação, impulsionadas pela digitalização dos pagamentos. Enquanto modelos tradicionais oferecem escala e confiabilidade, fintechs destacam-se por custos reduzidos e serviços digitais voltados a micro e pequenos negócios. A adoção massiva do Pix pressiona margens e exige inovação contínua dos adquirentes (Reuters, 2026; Banco Central do Brasil, 2024).
+A Cielo atua no mercado brasileiro de adquirência, com modelo baseado em MDR e terminais POS, em um setor marcado por escala elevada e competição com Rede, Getnet, Stone e PagSeguro. Em 2023, a companhia processou cerca de 7,9 bilhões de transações e atendeu mais de 870 mil estabelecimentos (Cielo, 2023). Em 2024, o mercado de cartões manteve relevância no volume transacionado, ainda sob pressão da expansão do Pix, da digitalização do varejo e da atuação de fintechs (ABECS, 2024; Reuters, 2026).
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
-#### 1.1.1.1.1 Análise da Ameaça de Novos Entrantes
-A Primeira Força de Porter é a ameaça de novos entrantes, onde se avalia quais as dificuldades para uma nova empresa, startup e etc. entrar no mercado, além de avaliar o que a entrada de novos concorrentes poderia acarretar no mercado como um todo (Porter, 2008).
+#### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
+A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.1.1 Identificação e análise dos principais obstáculos para novos entrantes.
-Uma das principais dificuldades para novas empresas no ramo é a questão do capital, considerando que para explorar o mercado é necessário o alto investimento em tecnologia, como servidores, segurança e sistemas antifraude. Além disso temos também tem a questão regulatória, ja que empresas desse tipo precisam de aprovação do Banco Central, sendo assim necessário a aprovação e cumprimento com diversos regulamentos. Contudo, uma das maiores dificuldades é entrar em um mercado consolidado, já que ja existem gigantes nesse ramo, como a própria Cielo, então entrar no mercado neste momento pode ser um grande desafio para se estabelecer, ganhar uma boa reputação e conquistar a confiança de clientes e instituições financeiras. Por fim, temos a questão da escala, quanto menos clientes maior são os custos iniciais, pois não há o mesmo capital de giro das gigantes do mercado e muito menos sua eficiência (Porter, 2008).
+#### 1.1.1.1.2 Ameaça de Produtos ou Serviços Substitutos (nível: alto)
+A ameaça de substitutos é alta. O Pix se consolidou como alternativa central aos pagamentos com cartão, reduzindo fricções de custo e prazo para parte dos lojistas e consumidores. Em paralelo, bancos digitais, marketplaces com pagamento embutido e carteiras digitais ampliam a substituição de soluções tradicionais de adquirência, sobretudo em segmentos sensíveis a taxa e experiência digital. Isso pressiona o modelo baseado em MDR e exige inovação contínua em serviços de valor agregado (Banco Central do Brasil, 2024; ABECS, 2024; Reuters, 2026).
 
-#### 1.1.1.1.1.2 Avaliação do impacto potencial dos novos entrantes na indústria.
-Com a entrada de concorrentes as grandes empresas do ramo de pagamento com maquininha podem perder dominância no mercado. Com isso empresas como a Cielo podem se sentir pressionadas para diminuir suas taxas e adaptar-se a novas tecnologias e inovações, causando maior variedade e disputa por market share (Porter, 2008).
+#### 1.1.1.1.3 Poder de Barganha dos Fornecedores (nível: moderado a alto)
+O poder de barganha dos fornecedores é moderado a alto, variando por grupo. Bandeiras (Visa, Mastercard, Elo e American Express) possuem poder elevado por definirem padrões e regras operacionais críticas. Bancos emissores e parceiros de liquidação têm poder moderado, enquanto fornecedores de tecnologia (antifraude, gateways e infraestrutura) tendem a moderado-alto devido ao custo de substituição e dependência técnica. Já hardware e telecom apresentam poder moderado. Esse arranjo impacta custos, prazos e capacidade de inovação das adquirentes (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-##### 1.1.1.1.1.2 Análise da Ameaça de Produtos ou Serviços Substitutos
-A ameaça de produtos ou serviços substitutos no setor financeiro em que a Cielo atua é considerada de intensidade média a alta, conforme a análise estrutural da concorrência proposta por Porter (2008). Destaca-se a atuação de bancos digitais, que oferecem contas PJ e soluções de pagamento integradas em uma única plataforma, reduzindo a necessidade de adquirentes tradicionais (McKinsey & Company, 2024; Deloitte, 2024). Além disso, marketplaces com sistemas de pagamento embutidos e carteiras digitais com ecossistemas próprios ampliam as alternativas disponíveis aos lojistas, reforçando a transformação do setor impulsionada pela digitalização dos meios de pagamento (PwC Brasil, 2024; Veja, 2024). Ademais, fintechs de pagamento disponibilizam soluções mais simples e modelos de atendimento diferenciados, intensificando a pressão competitiva sobre empresas consolidadas do setor e ampliando as tendências de desintermediação no mercado brasileiro de pagamentos (Banco Central do Brasil, 2024; Subadquirente, 2025).
+#### 1.1.1.1.4 Poder de Barganha dos Clientes (nível: alto)
+A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commerce, autônomos e segmentos como bares e restaurantes. O poder de barganha desse grupo é alto, pois há ampla oferta de provedores, baixa barreira de troca e forte sensibilidade a taxa, prazo de recebimento e qualidade de serviço. A expansão do Pix reforça essa pressão competitiva e aumenta a exigência por propostas de valor mais completas, com serviços financeiros e integração digital (Cielo S.A., 2024; Banco Central do Brasil, 2024; Reuters, 2026).
 
-##### 1.1.1.1.1.3 Análise do Poder de Barganha dos Fornecedores 
-A Cielo depende de quatro grupos principais de fornecedores. As bandeiras de cartões, como Visa, Mastercard, Elo e American Express, possuem alto poder de barganha, pois controlam padrões de segurança, regras operacionais e tarifas, sendo indispensáveis para o funcionamento da adquirente.
-Os bancos emissores, como Bradesco e Banco do Brasil, têm poder moderado, já que participam da liquidação das transações e influenciam prazos de repasse e custos financeiros.
-Os fornecedores de tecnologia também apresentam poder moderado a alto, pois oferecem sistemas essenciais, como gateways de pagamento, antifraude e integração bancária, cuja substituição é complexa e custosa.
-Já os fornecedores de hardware e telecomunicações possuem poder moderado, devido à existência de alternativas no mercado, embora ainda haja dependência por questões de compatibilidade tecnológica e segurança.
-O poder desses fornecedores impacta diretamente os custos operacionais, as margens de lucro e a capacidade de inovação da empresa. Além disso, a alta especialização tecnológica e os padrões exigidos criam barreiras à entrada para novos concorrentes.
-Conclui-se que o poder de barganha dos fornecedores da Cielo varia entre alto e moderado, sendo essencial uma gestão estratégica de parcerias e negociações para reduzir riscos e manter a competitividade no setor (Banco Central do Brasil, 2024; Cielo S.A., 2024).
-
-##### 1.1.1.1.4  Identificação dos principais tipos de clientes da indústria
-
-<p>A Cielo atende diferentes perfis de clientes no setor de meios de pagamento. Entre eles estão os pequenos e médios varejistas, que buscam soluções práticas e de baixo custo para transações diárias, como maquininhas e pagamentos digitais. Grandes varejistas e redes demandam serviços mais robustos, com alta capacidade de processamento e integração com sistemas de gestão. O comércio eletrônico também representa um segmento relevante, pois depende de gateways seguros para viabilizar pagamentos online (Cielo S.A., 2024). Além disso, prestadores de serviços e profissionais autônomos utilizam ferramentas móveis que oferecem maior flexibilidade no recebimento de valores. Por fim, setores específicos, como bares e restaurantes, necessitam de soluções integradas que atendam às particularidades de suas operações.
-
-
-##### 1.1.1.1.4.1 Avaliação do poder de barganha dos clientes e seu impacto na indústria 
-
-<p>O poder de barganha dos clientes na indústria de adquirência é considerado elevado devido ao aumento da concorrência e à maior oferta de soluções de pagamento (Vieira, 2025). A facilidade de troca entre provedores permite que os clientes negociem taxas mais baixas e melhores condições contratuais. Além disso, a popularização do Pix reduziu a dependência dos cartões, intensificando a pressão sobre empresas tradicionais do setor (Reuters, 2026). Como consequência, organizações como a Cielo enfrentam maior competição e perda relativa de participação de mercado, sendo levadas a investir em tecnologia, inovação e serviços de maior valor agregado para atrair e reter clientes (ClickPetróleo e Gás, 2025).
-
-##### 1.1.1.1.5 Análise da Rivalidade entre os Concorrentes Existentes
-##### - Identificação dos principais concorrentes na indústria.
-##### - Análise do nível de rivalidade e como ela afeta a competitividade na indústria.
-
-<p>A rivalidade entre concorrentes existentes no setor de adquirência no Brasil, onde atua a Cielo, é elevada e estruturalmente intensa. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado passou de um cenário concentrado para um ambiente altamente competitivo, com entrada de fintechs e novos modelos digitais. Segundo o Banco Central do Brasil (2023), o segmento de credenciamento tornou-se mais pulverizado ao longo da última década, com redução de participação das incumbentes e aumento da competição em preço, tecnologia e serviços agregados.</p>
-<p>Os principais concorrentes da Cielo incluem Rede, Getnet, Stone, PagBank e Mercado Pago. Essas empresas competem não apenas na oferta de maquininhas (POS), mas também em antecipação de recebíveis, crédito para lojistas, contas digitais e integração com Pix e e-commerce. De acordo com relatórios públicos da própria Cielo (2023) e do Banco Central do Brasil (2023), Stone e PagBank ampliaram participação relevante no volume transacionado nos últimos anos, pressionando margens do setor (Banco Central do Brasil. (2023), Cielo S.A. (2023), StoneCo Ltd. (2023) e PagSeguro Digital Ltd. (2023)).</p>
+#### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
+A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
-A Análise SWOT é uma metodologia estratégica adotada por empresas de diversos setores para diagnosticar o cenário em que estão inseridas. Ela serve para mapear e organizar as forças, fraquezas, oportunidades e ameaças de um negócio, permitindo que a organização tenha um controle muito mais claro sobre seus próprios recursos e processos. Além de olhar para dentro, essa ferramenta ajuda a empresa a entender de forma realista sua posição no mercado e na economia, especialmente quando comparada ao desempenho de seus concorrentes.
+Nesta seção, a matriz SWOT contextualiza o posicionamento competitivo da Cielo no mercado brasileiro de adquirência, considerando sua escala operacional, estrutura de custos, pressão competitiva e oportunidades de crescimento em serviços de maior valor agregado. A análise combina fatores internos (forças e fraquezas) e externos (oportunidades e ameaças) para apoiar decisões estratégicas relacionadas a inovação, eficiência operacional, retenção de clientes e adaptação ao avanço do Pix e da digitalização dos meios de pagamento.
 
 | FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
 | :--- | :--- |
@@ -569,30 +548,38 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
+Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
+
+Nos testes do quiz, o indicador principal passa a ser a barra de conversão. Quando o jogador acerta, a conversão aumenta; quando erra, a conversão diminui. A barra usa três faixas visuais para facilitar a leitura de desempenho: verde (bom), laranja (intermediário) e vermelha (ruim).
+
+Tabela 1 - Casos de teste funcionais do jogo.
+
 
 | # | pré-condição | descrição do teste | pós-condição |
 | :--- | :--- | :--- | :--- |
 | 1 | Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar |
 | 2 | Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir |
-| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Abre uma interface das teclas que o jogador utiliza e o objetivo |
+| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Deve abrir uma interface com as teclas utilizadas pelo jogador e o objetivo do jogo |
 | 4 | Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita |
 | 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
 | 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
 | 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
 | 8 | Personagem próximo de uma loja | Encostou na porta | Personagem entra no estabelecimento |
 | 9 | Personagem perto de um vendedor | Encostou no vendedor | Interface de conversa aparece |
-| 10 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo na melhor resposta | O nível de satisfação aumenta |
-| 11 | Tela de 4 respostas para o cliente | Clicar com botão esquerdo em qualquer outra resposta | O nível de satisfação diminui muito |
-| 12 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que mantenha/aumente satisfação | Vendedor compra os serviços e ganha o cliente |
-| 13 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua, mas acima do mínimo | Vendedor compra os serviços e ganha o cliente |
-| 14 | Nível de satisfação acima do mínimo (última dúvida) | Clicar em resposta que diminua para abaixo do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 15 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que mantenha ou diminua o nível | Vendedor não compra e o jogador perde o cliente |
-| 16 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente, mas abaixo mantém do mínimo | Vendedor não compra e o jogador perde o cliente |
-| 17 | Nível de satisfação abaixo do mínimo (última dúvida) | Clicar em resposta que aumente para acima do mínimo | Vendedor compra os serviços e ganha o cliente |
+| 10 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta | A barra de conversão aumenta |
+| 11 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta | A barra de conversão diminui |
+| 12 | Conversão na faixa verde (última pergunta) | Responder de forma a manter ou elevar a conversão | Cliente é conquistado e negociação é concluída com sucesso |
+| 13 | Conversão na faixa verde (última pergunta) | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída |
+| 14 | Conversão na faixa laranja (última pergunta) | Responder incorretamente e reduzir a conversão para faixa vermelha | Cliente não é conquistado |
+| 15 | Conversão na faixa vermelha (última pergunta) | Responder incorretamente ou manter desempenho ruim | Cliente não é conquistado |
+| 16 | Conversão na faixa vermelha (última pergunta) | Responder corretamente, mas sem sair da faixa vermelha | Cliente não é conquistado |
+| 17 | Conversão na faixa vermelha (última pergunta) | Responder corretamente e elevar para faixa laranja ou verde | Cliente é conquistado |
 | 18 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
 | 19 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
 | 20 | Perto de um cliente já interagido | Se aproxima | Nada acontece |
 | 21 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
+
+Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
@@ -624,6 +611,8 @@ _Relacione os pontos de melhorias evidenciados nos testes com plano de ações p
 _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
 # <a name="c7"></a>7. Referências
+
+ABECS. (2024). *Balanço do setor de meios de pagamento*. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
 
 Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 

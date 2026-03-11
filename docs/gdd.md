@@ -229,8 +229,7 @@ Comunicação clara e assertiva
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-Para avançar no jogo, o jogador deve participar de simulações de negociação estruturadas, nas quais a progressão está diretamente relacionada ao seu desempenho em quizzes inseridos em contextos realistas de vendas. Em cada fase, é necessário atingir a pontuação mínima definida, resultante do número de respostas corretas e da adequação das decisões tomadas ao longo da interação com o cliente.
-Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
+O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. Para avançar nas fases, o jogador deve participar de interações com clientes e responder quizzes relacionados às situações de negociação. A progressão no jogo depende do desempenho nessas atividades, sendo necessário atingir a pontuação mínima definida a partir das respostas corretas e das decisões tomadas durante a interação com o cliente. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
 O jogo é concluído quando todas as fases são finalizadas com sucesso, indicando que o jogador conseguiu manter um bom desempenho e evoluir ao longo dos diferentes cenários de negociação.
 
 ## 2.2. Características do Jogo (sprint 2)
@@ -243,8 +242,7 @@ O jogo pode ser classificado como um serious game de simulação com quizzes.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-Atualmente o jogo está sendo feito apenas para desktop e compatível com o navegador Google Chrome.
-
+Atualmente o jogo está sendo feito apenas para desktop em navegadores web.
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
@@ -394,7 +392,7 @@ _Exemplo de tabela_
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-<img src="../../assets/diagrama.png">
+<img src="../assets/diagrama.png">
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -520,15 +518,15 @@ Ilustrações da versão básica
 
 Figura 1 – Menu inicial do jogo
 
-![alt text](<Captura de tela 2026-02-27 110554.png>)
+![Menu inicial do jogo](../assets/titulo-jogo.webp)
 
 Figura 2 – Ambiente da padaria
 
-![alt text](<Captura de tela 2026-02-27 110653.png>)
+![Ambiente interno da loja](../assets/lojas/interior/lojaCafeInterior.png)
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
-![alt text](<Captura de tela 2026-02-27 110734.png>)
+![Mapa com estrutura de interação](../assets/novoMapa.jpeg)
 
 Dificuldades encontradas
 

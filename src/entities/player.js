@@ -44,6 +44,39 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             frameWidth: 128,
             frameHeight: 128
         });
+    
+        // animação lateral
+        scene.load.image("f1","assets/animations/player/marcielo.f1.png");
+        scene.load.image("f2","assets/animations/player/marcielo.f2.png");
+        scene.load.image("f3","assets/animations/player/marcielo.f3.png");
+        scene.load.image("f4","assets/animations/player/marcielo.f4.png");
+        scene.load.image("f5","assets/animations/player/marcielo.f5.png");
+        scene.load.image("f6","assets/animations/player/marcielo.f6.png");
+        scene.load.image("f7","assets/animations/player/marcielo.f7.png");
+        scene.load.image("f8","assets/animations/player/marcielo.f8.png");
+
+        // animação para baixo
+        scene.load.image("s1","assets/animations/player/marcielo.s1.png");
+        scene.load.image("s2","assets/animations/player/marcielo.s2.png");
+        scene.load.image("s3","assets/animations/player/marcielo.s3.png");
+        scene.load.image("s4","assets/animations/player/marcielo.s4.png");
+        scene.load.image("s5","assets/animations/player/marcielo.s5.png");
+        scene.load.image("s6","assets/animations/player/marcielo.s6.png");
+
+        // parado
+        scene.load.image("idle","assets/animations/player/marcielo.parado.png");
+
+        // animação para cima
+        scene.load.image("c1","assets/animations/player/marcielo.c1.png");
+        scene.load.image("c2","assets/animations/player/marcielo.c2.png");
+        scene.load.image("c3","assets/animations/player/marcielo.c3.png");
+        scene.load.image("c4","assets/animations/player/marcielo.c4.png");
+        scene.load.image("c5","assets/animations/player/marcielo.c5.png");
+        scene.load.image("c6","assets/animations/player/marcielo.c6.png");
+
+       
+
+
     }
 
     /**
@@ -123,28 +156,63 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         cena.anims.create({
             key: "andar-direita",
-            frames: cena.anims.generateFrameNumbers("player", { start: 1, end: 1 }),
-            repeat: -1
+            frames: [
+            {key:"f1"},
+            {key:"f2"},
+            {key:"f3"},
+            {key:"f4"},
+            {key:"f5"},
+            {key:"f6"},
+            {key:"f7"},
+            {key:"f8"}
+        ],
+        frameRate: 6,
+        repeat: -1
         });
 
         cena.anims.create({
             key: "andar-esquerda",
-            frames: cena.anims.generateFrameNumbers("player", { start: 3, end: 3 }),
-            repeat: -1
+            frames: [
+            {key:"f1"},
+            {key:"f2"},
+            {key:"f3"},
+            {key:"f4"},
+            {key:"f5"},
+            {key:"f6"},
+            {key:"f7"},
+            {key:"f8"}
+        ],
+        frameRate: 6,
+        repeat: -1
         });
+    
 
         cena.anims.create({
             key: "andar-cima",
-            frames: cena.anims.generateFrameNumbers("player", { start: 2, end: 2 }),
-            duration: 2,
-            repeat: -1
+            frames: [
+        { key: "c1" },
+        { key: "c2" },
+        { key: "c3" },
+        { key: "c4" },
+        { key: "c5" },
+        { key: "c6" }
+    ],
+    frameRate: 5,
+    repeat: -1
         });
 
         cena.anims.create({
             key: "andar-baixo",
-            frames: cena.anims.generateFrameNumbers("player", { start: 0, end: 0 }),
-            duration: 2,
-            repeat: -1
+            frames: [
+            {key:"s1"},
+            {key:"s2"},
+            {key:"s3"},
+            {key:"s4"},
+            {key:"s5"},
+            {key:"s6"}
+        ],
+        frameRate: 5,
+        repeat: -1
         });
     }
 }

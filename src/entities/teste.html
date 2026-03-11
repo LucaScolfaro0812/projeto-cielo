@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Teste Animação Marcielo</title>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+canvas{
+    image-rendering: pixelated;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+
+const config = {
+    type: Phaser.AUTO,
+    width: 900,
+    height: 500,
+    backgroundColor: "#1b1b1b",
+    pixelArt: true,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+const game = new Phaser.Game(config);
+
+let player;
+let cursors;
+let estadoAtual = "parado";
+const velocidade = 2;
+
+function preload(){
+
+    // animação lateral
+    this.load.image("f1","marcielo.f1.png");
+    this.load.image("f2","marcielo.f2.png");
+    this.load.image("f3","marcielo.f3.png");
+    this.load.image("f4","marcielo.f4.png");
+    this.load.image("f5","marcielo.f5.png");
+    this.load.image("f6","marcielo.f6.png");
+    this.load.image("f7","marcielo.f7.png");
+    this.load.image("f8","marcielo.f8.png");
+
+    // animação para baixo
+    this.load.image("s1","marcielo.s1.png");
+    this.load.image("s2","marcielo.s2.png");
+    this.load.image("s3","marcielo.s3.png");
+    this.load.image("s4","marcielo.s4.png");
+    this.load.image("s5","marcielo.s5.png");
+    this.load.image("s6","marcielo.s6.png");
+
+    // parado
+    this.load.image("idle","marcielo.parado.png");
+
+    // animação para cima
+    this.load.image("c1", "marcielo.c1.png");
+    this.load.image("c2", "marcielo.c2.png");
+    this.load.image("c3", "marcielo.c3.png");
+    this.load.image("c4", "marcielo.c4.png");
+    this.load.image("c5", "marcielo.c5.png");
+    this.load.image("c6", "marcielo.c6.png");
+}
+
+function create(){
+
+    this.add.text(
+        20,
+        20,
+        "Teste de animação do Marcielo\nUse ← ↑ ↓ → para mover",
+        {
+            font: "16px monospace",
+            fill: "#ffffff"
+        }
+    );
+
+    player = this.add.sprite(450, 350, "idle");
+    player.setOrigin(0.5, 1);
+    player.setScale(1);
+
+    // animação lateral
+    this.anims.create({
+        key: "andarLado",
+        frames: [
+            {key:"f1"},
+            {key:"f2"},
+            {key:"f3"},
+            {key:"f4"},
+            {key:"f5"},
+            {key:"f6"},
+            {key:"f7"},
+            {key:"f8"}
+        ],
+        frameRate: 6,
+        repeat: -1
+    });
+
+    // animação para baixo
+    this.anims.create({
+        key: "andarBaixo",
+        frames: [
+            {key:"s1"},
+            {key:"s2"},
+            {key:"s3"},
+            {key:"s4"},
+            {key:"s5"},
+            {key:"s6"}
+        ],
+        frameRate: 5,
+        repeat: -1
+    });
+
+     // animação para cima
+    this.anims.create({
+    key: "andarCima",
+    frames: [
+        { key: "c1" },
+        { key: "c2" },
+        { key: "c3" },
+        { key: "c4" },
+        { key: "c5" },
+        { key: "c6" }
+    ],
+    frameRate: 5,
+    repeat: -1
+});
+
+    cursors = this.input.keyboard.createCursorKeys();
+}
+
+function update(){
+
+    let movendo = false;
+
+    // esquerda
+    if(cursors.left.isDown){
+        player.x -= velocidade;
+        player.flipX = true;
+        movendo = true;
+
+        if(estadoAtual !== "lado"){
+            player.play("andarLado");
+            estadoAtual = "lado";
+        }
+    }
+
+    // direita
+    else if(cursors.right.isDown){
+        player.x += velocidade;
+        player.flipX = false;
+        movendo = true;
+
+        if(estadoAtual !== "lado"){
+            player.play("andarLado");
+            estadoAtual = "lado";
+        }
+    }
+
+    // baixo
+    else if(cursors.down.isDown){
+        player.y += velocidade;
+        player.flipX = false;
+        movendo = true;
+
+        if(estadoAtual !== "baixo"){
+            player.play("andarBaixo");
+            estadoAtual = "baixo";
+        }
+    }
+
+    // cima
+    else if(cursors.up.isDown){
+        player.y -= velocidade;
+        player.flipX = false;
+        movendo = true;
+
+        if(estadoAtual !== "cima"){
+            player.play("andarCima");
+            estadoAtual = "cima";
+        }
+    }
+
+    // parado
+    if(!movendo){
+        if(estadoAtual !== "parado"){
+            player.anims.stop();
+            player.setTexture("idle");
+            player.flipX = false;
+            estadoAtual = "parado";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>

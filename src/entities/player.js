@@ -73,10 +73,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("c4","assets/animations/player/marcielo.c4.png");
         scene.load.image("c5","assets/animations/player/marcielo.c5.png");
         scene.load.image("c6","assets/animations/player/marcielo.c6.png");
-
-       
-
-
     }
 
     /**

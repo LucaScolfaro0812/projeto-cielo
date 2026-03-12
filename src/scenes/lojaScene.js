@@ -93,6 +93,8 @@ export default class LojaScene extends Phaser.Scene {
         // Seleciona as perguntas da loja atual, fallback para perguntasNpcRua se não encontrar
         const perguntasDaLoja = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
 
+console.log(this.nomeLoja);
+
         // Cria NPC com perguntas específicas da cena
         this.npc = new Npc(
             this,
@@ -100,7 +102,9 @@ export default class LojaScene extends Phaser.Scene {
             this.npcY,
             perguntasDaLoja,
             "npc-vermelho",
-            `npc_${this.sceneLoja}`
+            `npc_${this.sceneLoja}`,
+            this.nomeLoja
+
         );
 
         this.quiz.aplicarVisualConquistado(this.npc);

@@ -295,7 +295,7 @@ export class GameScene extends Phaser.Scene {
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua");
+        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
         this.npc.setScale(0.5);
 
         this.quiz.aplicarVisualConquistado(this.npc);

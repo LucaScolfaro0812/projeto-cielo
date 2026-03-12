@@ -22,7 +22,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(25, 150);
         this.body.updateFromGameObject();
 
-        this.velocidade = 320;
+        this.velocidade = 1320;
         this.ultimaDirecao = "baixo";
 
         this.teclas = this.scene.input.keyboard.addKeys({
@@ -121,7 +121,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         // escolha da animação
         if (movendo) {
             // prioridade para animação horizontal quando estiver na diagonal
-             if (esquerda) {
+            if (esquerda) {
                 this.setFlipX(true);
                 this.anims.play("andar-direita", true);
                 this.ultimaDirecao = "esquerda";

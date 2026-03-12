@@ -157,12 +157,12 @@ export default class Quiz {
         if (!npc?.idNpc) return;
         if (this._npcJaConquistado(npc.idNpc)) {
             // Regra atual: NPC conquistado fica azul.
-            npc.setTexture("npc-azul");
+            npc.setTexture("npc-azul" + (npc.cena.nomeLoja === undefined ? "" : npc.cena.nomeLoja));
             return;
         }
 
         // Regra atual: NPC nao conquistado fica vermelho.
-        npc.setTexture("npc-vermelho");
+        npc.setTexture("npc-vermelho" + (npc.cena.nomeLoja === undefined ? "" : npc.cena.nomeLoja));
     }
 
     /**

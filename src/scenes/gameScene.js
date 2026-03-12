@@ -259,7 +259,6 @@ export class GameScene extends Phaser.Scene {
         this.physics.world.setBounds(
             0,
             0,
-
             this.fundo.displayWidth,
             this.fundo.displayHeight
         )

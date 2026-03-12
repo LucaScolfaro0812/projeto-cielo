@@ -1,3 +1,6 @@
+// Utilitários de persistência (localStorage com JSON e proteção de erro).
+import { salvarDados, carregarDados } from "../utils/storage.js";
+
 // Classe responsável por representar um NPC interativo no jogo.
 // O NPC pode estar associado a um conjunto de perguntas (quiz)
 // e possui controle de estado (ex: se já vendeu ou não).
@@ -53,13 +56,15 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
             scene.load.image('npc', 'assets/npc.png');
             scene.load.image('npc-azul', 'assets/npc.png');
             scene.load.image("npc-vermelho", "assets/npc.png");
+            return;
         }
-        console.log("Carregando imagens do NPC para a cena: " + scene.nomeLoja);
+        console.log(scene.nomeLoja);
         // Mantem a chave antiga por compatibilidade e cria uma chave explicita para o visual azul.
-        scene.load.image('npc', 'assets/npc.png');
-        scene.load.image('npc-azul', 'assets/personagens/npc' + 'Azul' + scene.nomeLoja + '.png');
-        scene.load.image("npc-vermelho", "assets/personagens/npc-vermelho" + "Vermelho" + scene.nomeLoja + '.png');
+        scene.load.image('npc' + scene.nomeLoja, 'assets/npc.png');
+        scene.load.image('npc-azul' + scene.nomeLoja, 'assets/personagens/npc' + 'Azul' + scene.nomeLoja + '.png');
+        scene.load.image("npc-vermelho" + scene.nomeLoja, "assets/personagens/npc" + "Vermelho" + scene.nomeLoja + '.png');
     }
+
 
     /**
      * Método chamado a cada frame pela cena (caso seja utilizado).

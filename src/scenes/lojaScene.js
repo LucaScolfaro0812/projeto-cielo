@@ -59,9 +59,19 @@ export default class LojaScene extends Phaser.Scene {
     _criarCenario() {
         // Adiciona imagem de fundo na posição especificada
         // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo = this.add.image(0, 0, this.fundoImage)
-            .setScale(this.backgroundScale)
-            .setOrigin(0.5, 0.5);
+        this.fundo = 
+            this.add.image(0, 0, this.fundoImage)
+                .setOrigin(0.5, 0.5)
+                .setScale(this.backgroundScale);
+        
+        this.fundo.x = this.fundo.displayWidth / 2;
+        this.fundo.y = this.fundo.displayHeight / 2;
+        this.physics.world.setBounds(
+            0,
+            0,
+            this.fundo.displayWidth,
+            this.fundo.displayHeight
+        )
     }
 
     /**
@@ -78,6 +88,7 @@ export default class LojaScene extends Phaser.Scene {
 
         // Cria jogador na posição inicial dentro da cena
         this.player = new Player(this, this.playerX, this.playerY);
+        this.player.setCollideWorldBounds(true);
 
         // Mapa de perguntas por loja
         const perguntasPorLoja = {

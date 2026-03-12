@@ -545,13 +545,13 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | :--- | :--- | :--- | :--- |
 | 1 | Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar |
 | 2 | Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir |
-| 3 | Jogo na tela inicial | Clicar no botão "Como jogar" | Deve abrir uma interface com as teclas utilizadas pelo jogador e o objetivo do jogo |
+| 3 | Jogo na tela inicial | Clicar no botão "Tutorial" | Deve abrir uma interface intuitiva que explica as mecânicas, o objetivo do jogo e como jogar |
 | 4 | Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita |
 | 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
 | 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
 | 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
 | 8 | Personagem próximo de uma loja | Encostou na porta | Personagem entra no estabelecimento |
-| 9 | Personagem perto de um vendedor | Encostou no vendedor | Interface de conversa aparece |
+| 9 | Personagem perto de um NPC | Colisão com o NPC dentro da loja | Interface de conversa (quiz) inicia automaticamente |
 | 10 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta | A barra de conversão aumenta |
 | 11 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta | A barra de conversão diminui |
 | 12 | Conversão na faixa verde (última pergunta) | Responder de forma a manter ou elevar a conversão | Cliente é conquistado e negociação é concluída com sucesso |
@@ -561,8 +561,8 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 16 | Conversão na faixa vermelha (última pergunta) | Responder corretamente, mas sem sair da faixa vermelha | Cliente não é conquistado |
 | 17 | Conversão na faixa vermelha (última pergunta) | Responder corretamente e elevar para faixa laranja ou verde | Cliente é conquistado |
 | 18 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
-| 19 | Interface de conversa acaba | Pontos são calculados | Os pontos são somados ao saldo do usuário |
-| 20 | Perto de um cliente já interagido | Se aproxima | Nada acontece |
+| 19 | Negociação finalizada com sucesso ou falha | Resultado da interação é definido | Sistema exibe feedback do resultado da negociação |
+| 20 | Perto de um cliente já conquistado | Se aproxima | Nada acontece, cliente permanece com camiseta azul |
 | 21 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
 
 Fonte: elaborado pelo grupo.

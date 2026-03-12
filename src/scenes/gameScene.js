@@ -16,7 +16,7 @@ export class GameScene extends Phaser.Scene {
 
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
-        this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'cafeScene';
+        this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'joalheriaScene';
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
@@ -39,20 +39,21 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
-                bgScale: 1,
+                bgScale: 1.4,
 
                 lojaFisicaOriginX: 0.55,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
+            ////////errrrrrrrrrrrrrrrroooooooooooooooooooooo
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
@@ -61,14 +62,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Roupas',
@@ -78,14 +79,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Pet',
@@ -95,13 +96,13 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 1000,
-                npcY: 1000,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 150,
+                portaX: 190,
                 portaY: 225,
 
-                playerX: 150,
+                playerX: 190,
                 playerY: 300
             },
             {
@@ -112,14 +113,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 650,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Frutaria',
@@ -129,14 +130,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.60,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Lanchonete',
@@ -146,14 +147,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 215,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Chocolate',
@@ -163,14 +164,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.63,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 320,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 180,
+                portaY: 275,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 350
             },
             {
                 nomeLoja: 'Pelucia',
@@ -180,14 +181,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Autoescola',
@@ -197,14 +198,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 210,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Joalheria',
@@ -214,14 +215,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 900,
-                npcY: 100,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: 0,
-                portaY: 0,
+                portaX: 230,
+                portaY: 240,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 230,
+                playerY: 340
             }
         ];
     }
@@ -277,7 +278,7 @@ export class GameScene extends Phaser.Scene {
 
 
 
-        this.scene.start(this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
+        //this.scene.start(this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
 
     }
 

@@ -48,12 +48,17 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
     }
 
     // método estático para carregar as imagens do npc
-    static preload(scene, nomeLoja) {
+    static preload(scene) {
+        if(scene.nomeLoja === undefined){
+            scene.load.image('npc', 'assets/npc.png');
+            scene.load.image('npc-azul', 'assets/npc.png');
+            scene.load.image("npc-vermelho", "assets/npc.png");
+        }
         console.log("Carregando imagens do NPC para a cena: " + scene.nomeLoja);
         // Mantem a chave antiga por compatibilidade e cria uma chave explicita para o visual azul.
         scene.load.image('npc', 'assets/npc.png');
-        scene.load.image('npc-azul', 'assets/Personagens/npc' + 'Azul' + scene.nomeLoja + '.png');
-        scene.load.image("npc-vermelho", "assets/Personagens/npc-vermelho" + "Vermelho" + scene.nomeLoja + '.png');
+        scene.load.image('npc-azul', 'assets/personagens/npc' + 'Azul' + scene.nomeLoja + '.png');
+        scene.load.image("npc-vermelho", "assets/personagens/npc-vermelho" + "Vermelho" + scene.nomeLoja + '.png');
     }
 
     /**

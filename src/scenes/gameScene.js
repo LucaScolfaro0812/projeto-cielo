@@ -291,7 +291,7 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 200, 1300);
+        this.player = new Player(this, 200, 1800);
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas

@@ -28,14 +28,18 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
 
         this.cena = cena;
         
-        // Impede que o NPC seja movido por colisões físicas
-        this.body.setImmovable(true);
 
         // Impede que o NPC saia dos limites do mundo
-        this.setCollideWorldBounds(true);
+        //this.setCollideWorldBounds(true);
 
         // Ajusta a escala visual do NPC
         this.setScale(0.4);
+        this.setOrigin(0.5, 0.5);
+
+        // Impede que o NPC seja movido por colisões físicas
+        this.body.setImmovable(true);
+
+        this.body.setSize(800, 1200);
 
         // Armazena as perguntas associadas a este NPC
         this.perguntas = perguntas;
@@ -65,6 +69,14 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("npc-vermelho" + scene.nomeLoja, "assets/personagens/npc" + "Vermelho" + scene.nomeLoja + '.png');
     }
 
+
+    visualConquistado(){
+        this.setTexture("npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));
+    }
+
+    visualNaoConquistado(){
+        this.setTexture("npc-vermelho" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));
+    }
 
     /**
      * Método chamado a cada frame pela cena (caso seja utilizado).

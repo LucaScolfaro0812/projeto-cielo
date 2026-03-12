@@ -16,7 +16,7 @@ export class GameScene extends Phaser.Scene {
 
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
-
+        this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'cafeScene';
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
@@ -27,14 +27,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.7,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 600,
+                npcY: 300,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 190,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 190,
+                playerY: 300
             },
             {
                 nomeLoja: 'Games',
@@ -44,11 +44,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.55,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -61,11 +61,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -78,11 +78,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -95,14 +95,14 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 1000,
+                npcY: 1000,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 150,
+                portaY: 225,
 
-                playerX: -610,
-                playerY: -60
+                playerX: 150,
+                playerY: 300
             },
             {
                 nomeLoja: 'Movel',
@@ -112,11 +112,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -129,11 +129,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.60,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -146,11 +146,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -163,11 +163,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.63,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -180,11 +180,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -197,11 +197,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -214,11 +214,11 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: 900,
+                npcY: 100,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: 0,
+                portaY: 0,
 
                 playerX: -610,
                 playerY: -60
@@ -245,7 +245,6 @@ export class GameScene extends Phaser.Scene {
 
     // Método executado quando a cena é criada
     create() {
-
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
@@ -275,6 +274,11 @@ export class GameScene extends Phaser.Scene {
 
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
+
+
+
+        this.scene.start(this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
+
     }
 
     /**
@@ -290,15 +294,14 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 200, 1800);
-        this.player.setScale(1.3);
-
+        this.player = new Player(this, 1500, 1800);
+        this.player.setScale(0.8);
+        /*
         // Cria o NPC com suas perguntas associadas
         this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
         this.npc.setScale(0.5);
 
         this.quiz.aplicarVisualConquistado(this.npc);
-
         // Detecta sobreposição entre NPC e Player
         this.physics.add.overlap(this.npc, this.player, () => {
 
@@ -308,7 +311,7 @@ export class GameScene extends Phaser.Scene {
                 // Inicia o quiz associado ao NPC
                 this.quiz.iniciar(this.npc);
             }
-        });
+        });*/
     }
 
     /**
@@ -337,16 +340,16 @@ export class GameScene extends Phaser.Scene {
             let cena = new LojaScene({
                 nomeDaLoja: config.nomeLoja,
                 nomeDaCena: config.cena,
-                bgScale: 1,
+                bgScale: config.bgScale,
 
-                npcX: 90,
-                npcY: 0,
+                npcX: config.npcX,
+                npcY: config.npcY,
 
-                portaX: -605,
-                portaY: -200,
+                portaX: config.portaX,
+                portaY: config.portaY,
 
-                playerX: -610,
-                playerY: -60
+                playerX: config.playerX,
+                playerY: config.playerY
             });
             this.scene.add(config.cena, cena);
         }

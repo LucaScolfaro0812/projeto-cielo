@@ -15,14 +15,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
-        this.setScale(0.8);
+        this.setScale(0.5);
         this.setCollideWorldBounds(false);
 
         this.body.setSize(120, 150);
         this.body.setOffset(25, 150);
         this.body.updateFromGameObject();
 
-        this.velocidade = 1320;
+        this.velocidade = 320;
         this.ultimaDirecao = "baixo";
 
         this.teclas = this.scene.input.keyboard.addKeys({

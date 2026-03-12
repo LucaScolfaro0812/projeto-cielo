@@ -94,6 +94,7 @@ export default class Quiz {
      * @param {Npc} npc - NPC que contém as perguntas
      */
     iniciar(npc) {
+        this.aplicarVisualConquistado(this.npc);
 
         this.npcAtual = npc;
 
@@ -118,7 +119,7 @@ export default class Quiz {
         npc.vendeu = true;
 
         // Novo comportamento visual: ao iniciar a conversa/quiz, NPC fica vermelho.
-        npc.setTexture("npc-vermelho");
+        this.aplicarVisualConquistado(this.npc);
 
         this.perguntas = npc.perguntas;
         this.indicePerguntaAtual = 0;
@@ -157,12 +158,12 @@ export default class Quiz {
         if (!npc?.idNpc) return;
         if (this._npcJaConquistado(npc.idNpc)) {
             // Regra atual: NPC conquistado fica azul.
-            npc.setTexture("npc-azul" + (npc.cena.nomeLoja === undefined ? "" : npc.cena.nomeLoja));
+            npc.visualConquistado();
             return;
         }
 
         // Regra atual: NPC nao conquistado fica vermelho.
-        npc.setTexture("npc-vermelho" + (npc.cena.nomeLoja === undefined ? "" : npc.cena.nomeLoja));
+        npc.visualNaoConquistado();
     }
 
     /**
@@ -344,7 +345,7 @@ export default class Quiz {
 
             if (this.npcAtual) {
                 // Inversao da regra: ao conquistar, volta para o visual normal.
-                this.npcAtual.setTexture("npc-azul");
+                this.npcAtual.visualConquistado();
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
             }
         }

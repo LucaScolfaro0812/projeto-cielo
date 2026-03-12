@@ -1,6 +1,7 @@
 // Importação das cenas que compõem o jogo
 import { menuScene } from './scenes/menuScene.js';
 import { GameScene } from './scenes/gameScene.js';
+import { tutorialScene } from './scenes/tutorialScene.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -29,16 +30,16 @@ var config = {
 
     // Configuração do sistema de física
     physics: {
-        default: 'arcade', // Define o motor de física padrão
+        default: 'arcade',
 
         arcade: {
             gravity: { y: 0 }, // Sem gravidade (movimento top-down)
-            debug: false      // Exibe ou não os corpos físicos (útil para desenvolvimento)
+            debug: false       // Mostrar colisões (false para produção)
         }
     },
 
     // Lista de cenas registradas no jogo
-    scene: [menuScene, GameScene]
+    scene: [menuScene, tutorialScene, GameScene]
 };
 
 // Criação da instância principal do jogo

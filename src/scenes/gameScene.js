@@ -291,11 +291,11 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 200, 1300);
+        this.player = new Player(this, 200, 1800);
         this.player.setScale(1.3);
 
         // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua");
+        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
         this.npc.setScale(0.5);
 
         this.quiz.aplicarVisualConquistado(this.npc);
@@ -320,9 +320,12 @@ export class GameScene extends Phaser.Scene {
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
+            let posX = 600 + ((i % 4) * 550) + (Math.floor(i % 4 / 2) * 500);
+            let posY = 750 + (Math.floor(i / 4) * 1100);
+
             this.lojas[i] = this._criarLoja(
-                250 + (500 * i) - (i > 5 ? 500 * 5: 0),
-                1150 + (i > 5 ? 400 : 0),
+                posX,
+                posY,
                 'loja' + this.lojasConfigs[i].nomeLoja + 'Fisica',
                 this.lojasConfigs[i]
             );

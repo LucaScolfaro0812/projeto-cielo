@@ -320,9 +320,12 @@ export class GameScene extends Phaser.Scene {
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
+            let posX = 600 + ((i % 4) * 550) + (Math.floor(i % 4 / 2) * 500);
+            let posY = 750 + (Math.floor(i / 4) * 1100);
+
             this.lojas[i] = this._criarLoja(
-                250 + (500 * i) - (i > 5 ? 500 * 5: 0),
-                1150 + (i > 5 ? 400 : 0),
+                posX,
+                posY,
                 'loja' + this.lojasConfigs[i].nomeLoja + 'Fisica',
                 this.lojasConfigs[i]
             );

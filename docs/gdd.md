@@ -239,10 +239,10 @@ Aproximadamente 15 minutos.
 
 ## 3.1. Enredo do Jogo (sprints 2 e 3)
 
-<p>O jogo se passa em uma grande rua comercial, com diversas lojas nas laterais, representando diferentes perfis de clientes e realidades do mercado brasileiro. Esse ambiente simboliza o dia a dia dos lojistas, com dúvidas, pressões e necessidade de tomar decisões rápidas. O cenário é simples de propósito, para que o foco do jogador esteja nas interações e na qualidade da venda. O personagem principal é um gerente da Cielo, representado por um mascote, que já atua na empresa, mas precisa evoluir suas habilidades de argumentação, conhecimento de produto e capacidade de lidar com objeções. Sua jornada dentro do jogo representa o desenvolvimento profissional esperado de qualquer gerente.</p>
+<p>O jogo se passa em uma pequena cidade comercial, com 6 quadras e 12 lojas distribuídas de forma estratégica, representando diferentes perfis de clientes e realidades do mercado brasileiro. Cada quadra conta com 2 lojas, compondo os principais ambientes de interação do jogo. Esse ambiente simboliza o dia a dia dos lojistas, com dúvidas, pressões e necessidade de tomar decisões rápidas. O cenário é simples de propósito, para que o foco do jogador esteja nas interações e na qualidade da venda. O personagem principal é um gerente da Cielo, representado por um mascote, que já atua na empresa, mas precisa evoluir suas habilidades de argumentação, conhecimento de produto e capacidade de lidar com objeções. Sua jornada dentro do jogo representa o desenvolvimento profissional esperado de qualquer gerente.</p>
 <p>A história começa a partir de um desafio real enfrentado pela Cielo: a dificuldade de treinar gerentes espalhados por todos os cantos do Brasil. Os treinamentos presenciais e aulas tradicionais não conseguem alcançar todos com a mesma consistência e frequência, principalmente considerando as diferentes regiões e contextos comerciais do país. Surge então a necessidade de uma solução acessível, prática e escalável. O jogo é criado como uma ferramenta estratégica de aprendizagem, permitindo que qualquer gerente, independentemente de onde esteja, possa aprender e treinar a venda dos produtos Cielo de forma interativa e dinâmica.</p>
-<p>Ao percorrer a rua, o mascote entra nas lojas e inicia contato com os clientes, que começam vestindo camiseta vermelha, indicando que ainda não foram convencidos ou não possuem relação com a Cielo. Cada interação possui tempo limitado para resposta, simulando a pressão do mundo real, onde o lojista busca objetividade e clareza. Durante o atendimento, o jogador precisa responder perguntas sobre produtos, lidar com dúvidas e superar objeções. Além disso, há um indicador de conversão do cliente, que mostra se a condução da venda está sendo positiva ou não. Não basta apenas fechar a venda; é necessário gerar confiança e segurança.</p>
-<p>Conforme o jogador avança, os clientes se tornam mais exigentes e as perguntas mais complexas, aumentando o nível de desafio. Quando a venda é bem conduzida e o cliente se sente seguro, a camiseta muda de vermelho para azul, representando que ele se tornou cliente Cielo. Essa transformação visual simboliza não apenas a conversão, mas também o impacto da boa argumentação e do conhecimento aplicado corretamente. À medida que mais clientes se tornam azuis, a rua passa a representar crescimento, consolidação e fortalecimento da presença da Cielo naquele ambiente.</p>
+<p>Ao percorrer a cidade, o mascote entra nas lojas e inicia contato com os clientes, que começam vestindo camiseta vermelha, indicando que ainda não foram convencidos ou não possuem relação com a Cielo. Cada interação possui tempo limitado para resposta, simulando a pressão do mundo real, onde o lojista busca objetividade e clareza. Durante o atendimento, o jogador precisa responder perguntas sobre produtos, lidar com dúvidas e superar objeções. Além disso, há um indicador de conversão do cliente, que mostra se a condução da venda está sendo positiva ou não. Não basta apenas fechar a venda; é necessário gerar confiança e segurança.</p>
+<p>Conforme o jogador avança, os clientes se tornam mais exigentes e as perguntas mais complexas, aumentando o nível de desafio. Quando a venda é bem conduzida e o cliente se sente seguro, a camiseta muda de vermelho para azul, representando que ele se tornou cliente Cielo. Essa transformação visual simboliza não apenas a conversão, mas também o impacto da boa argumentação e do conhecimento aplicado corretamente. À medida que mais clientes se tornam azuis, a cidade passa a representar crescimento, consolidação e fortalecimento da presença da Cielo naquele ambiente.</p>
 
 
 
@@ -267,7 +267,7 @@ Aproximadamente 15 minutos.
 
 <p>O elenco de personagens do jogo foi concebido de forma a refletir a pluralidade da sociedade brasileira e a realidade dos clientes que os Gerentes de Negócios da Cielo encontram no cotidiano profissional.</p>
 
-<p><strong>Alinhamento com o público-alvo:</strong> O público-alvo do jogo (seção 1.3) são profissionais da equipe comercial da Cielo, com faixa etária entre 40 e 50 anos, inseridos em ambiente corporativo e com experiência em vendas. Os NPCs — clientes que habitam as lojas — foram criados com perfis variados de idade, gênero e aparência justamente para espelhar a diversidade de estabelecimentos e proprietários que um vendedor encontra em campo: desde uma doceira jovem em uma cupcakeria até o dono de uma padaria de bairro de meia-idade. Esse realismo nos perfis dos clientes torna o treinamento mais imersivo e transferível para situações reais de trabalho.</p>
+<p><strong>Alinhamento com o público-alvo:</strong> O público-alvo do jogo (seção 1.3) são profissionais da equipe comercial da Cielo, com faixa etária entre 40 e 50 anos, inseridos em ambiente corporativo e com experiência em vendas. Os NPCs, clientes que habitam as lojas, foram criados com perfis variados de idade, gênero e aparência justamente para espelhar a diversidade de estabelecimentos e proprietários que um vendedor encontra em campo: desde uma doceira jovem em uma cupcakeria até o dono de uma padaria de bairro de meia-idade. Esse realismo nos perfis dos clientes torna o treinamento mais imersivo e transferível para situações reais de trabalho.</p>
 
 <p><strong>Representatividade dentro da sociedade brasileira:</strong> O Brasil é um país marcado por intensa diversidade étnica, geracional e de gênero. De acordo com o Censo 2022 do IBGE, mais da metade da população se autodeclara preta ou parda, e o empreendedorismo de micro e pequenos negócios é amplamente distribuído entre diferentes perfis sociodemográficos. Para refletir essa realidade, os personagens coadjuvantes foram desenhados com variações de tom de pele, gênero, faixa etária e características físicas distintas, evitando a homogeneização do público consumidor que o vendedor deverá atender.</p>
 
@@ -278,11 +278,11 @@ Aproximadamente 15 minutos.
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-<p>O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma grande rua, com diversas lojas distribuídas nas laterais, que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.</p>
+<p>O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma pequena cidade, organizada em 6 quadras com 2 lojas em cada uma, totalizando 12 lojas que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.</p>
 
 Segue abaixo o mapa: 
 
-<img src="../assets/MapaJogoCielo.webp" width = 250>
+<img src="../assets/novoMapa.jpeg" width = 250>
 
 
 
@@ -316,59 +316,43 @@ _Exemplo de tabela_
 
 ### 3.4.1. Inventário
 
-O jogo utiliza um sistema de itens simplificado, no qual as moedas representam a pontuação acumulada pelo jogador ao longo das interações.
-Diferentemente de jogos tradicionais, as moedas não são utilizadas para compra de habilidades ou desbloqueio de vantagens. Sua função está diretamente ligada à avaliação de desempenho durante as negociações realizadas no ambiente da padaria.
-Além das moedas, o jogo também conta com recursos sistêmicos que influenciam a experiência e os resultados obtidos pelo jogador.
+O jogo não possui um inventário tradicional com coleta, armazenamento ou uso de itens. Em vez disso, a experiência é estruturada a partir de recursos sistêmicos que acompanham o desempenho do jogador durante as interações de venda.
+Esses recursos funcionam como indicadores de progresso e apoio à tomada de decisão, reforçando a proposta de treinamento corporativo do jogo.
 
 **Itens e Recursos Implementados**
 
 | Nº | Item / Recurso                 | Como obter / ativar                                         | Função no jogo                           | Impacto no desempenho                    |
 | -- | ------------------------------ | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 1  | Moeda                          | Obtida ao realizar escolhas corretas durante o atendimento  | Representa a pontuação acumulada         | Define o resultado final da negociação   |
-| 2  | Tempo de Atendimento           | Inicia automaticamente ao começar a interação com o cliente | Limita o tempo disponível para responder | Estimula decisões rápidas e estratégicas |
-| 3  | Nível de Satisfação do Cliente | Alterado conforme as respostas escolhidas                   | Mede a qualidade da negociação           | Influencia a pontuação final             |
-| 4  | Feedback de Desempenho         | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
+| 1  | Tempo de Atendimento           | Inicia automaticamente ao começar a interação com o cliente | Limita o tempo disponível para responder | Estimula decisões rápidas e estratégicas |
+| 2  | Nível de Conversão do Cliente  | Alterado conforme as respostas escolhidas                   | Mede o avanço da negociação              | Influencia o resultado da interação      |
+| 3  | Feedback de Desempenho         | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
 
 **Descrição dos Itens e Recursos**
 
-. Moedas (Sistema de Pontuação)
-
-As moedas são o principal item do jogo. Elas são concedidas ao jogador sempre que uma decisão estratégica correta é tomada durante o atendimento ao cliente.
-Suas funções são:
-Indicar visualmente o progresso do jogador;
-Representar o desempenho acumulado;
-Servir como métrica de avaliação ao final da partida.
-As moedas não podem ser trocadas por vantagens ou habilidades, sendo utilizadas exclusivamente como indicador de performance.
-
-. Tempo de Atendimento
+**1. Tempo de Atendimento**
 
 Cada negociação possui um limite de tempo. Caso o jogador demore para responder, pode comprometer o resultado do atendimento.
 Esse recurso simula situações reais de pressão no ambiente comercial.
 
-. Nível de Satisfação do Cliente
+**2. Nível de Conversão do Cliente**
 
-As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de satisfação do cliente. Respostas adequadas aumentam a satisfação, enquanto decisões inadequadas podem reduzi-la.
+As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de conversão do cliente. Respostas adequadas aumentam a conversão, enquanto decisões inadequadas podem reduzi-la.
 Esse sistema reforça o aspecto estratégico e educativo do jogo.
 
-. Feedback de Desempenho
+**3. Feedback de Desempenho**
 
 Ao final de cada atendimento, o jogador recebe um resumo com sua pontuação e avaliação geral.
 Esse feedback tem função pedagógica, permitindo que o jogador compreenda seus erros e melhore em futuras interações.
 
-. Considerações
+**4. Considerações**
 
-Os itens e recursos foram planejados para reforçar a proposta de treinamento corporativo do jogo, priorizando a tomada de decisão estratégica, a análise de cenários e a avaliação de desempenho em vez de mecânicas tradicionais baseadas em combate ou poderes especiais.
+Os recursos do jogo foram planejados para reforçar a proposta de treinamento corporativo, priorizando a tomada de decisão estratégica, a análise de cenários e a avaliação de desempenho em vez de mecânicas tradicionais baseadas em coleta de itens ou combate.
 
 ### 3.4.2. Bestiário
 
-_\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, imagens, momentos de aparição, funções e impactos no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes._
+O jogo não possui bestiário, pois sua proposta é voltada para simulações de negociação comercial e interação com clientes, e não para confrontos com inimigos.
 
-_Exemplo de tabela_
-\# | inimigo | | ocorrências | função | impacto | efeito sonoro
---- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../assets/inimigo2.PNG"> | a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
-3 | ...
+Os personagens não jogáveis presentes no mapa são NPCs que representam lojistas e responsáveis pelos estabelecimentos. Eles funcionam como agentes de interação para os quizzes e para o desenvolvimento das situações de venda, sem exercer papel de adversários dentro da experiência.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
@@ -380,9 +364,11 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 
 O jogador percorre o mapa, entra nos comércios e inicia negociações com os responsáveis. As interações ocorrem por meio de quizzes que simulam situações reais de venda. Cada pergunta possui tempo limite para resposta, aproximando a experiência de um cenário real de negociação.
 
-Durante a interação, o jogo apresenta um indicador de satisfação do cliente, fornecendo feedback imediato sobre as decisões tomadas.
+Durante a interação, o jogo apresenta um indicador de conversão do cliente, fornecendo feedback imediato sobre as decisões tomadas.
 
 O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar os quizzes de negociação com sucesso, conquistando cada cliente e demonstrando seu conhecimento sobre os produtos e serviços da Cielo.
+
+Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a negociação com um estabelecimento, o jogador realiza o quiz e, ao final, o resultado é definitivo: se o cliente for conquistado, a venda é concluída; caso contrário, não é possível tentar novamente com aquele cliente. Essa regra simula a realidade do ambiente comercial, onde uma oportunidade mal aproveitada raramente se repete.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -392,9 +378,8 @@ O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar o
 | A                       | Teclado         | Move o personagem para a esquerda      | Permite navegação pelo mapa                                   |
 | S                       | Teclado         | Move o personagem para baixo           | Permite navegação pelo mapa                                   |
 | D                       | Teclado         | Move o personagem para a direita       | Permite navegação pelo mapa                                   |
-| E                       | Teclado         | Inicia interação com o estabelecimento | Abre o sistema de negociação (quiz)                           |
-| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz          | Afeta o nível de satisfação do cliente e o resultado da venda |
-| ESC                     | Teclado         | Abre o menu de pausa                   | Pausa o jogo e permite acessar opções                         |
+| Aproximação do NPC      | Movimento       | Colisão com o NPC dentro da loja       | Inicia automaticamente o diálogo de negociação (quiz)         |
+| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz          | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -437,8 +422,8 @@ Esse sistema ainda não foi implementado.
 O jogador teria tempo limitado para responder às falas do cliente (exemplo: 15 segundos), simulando pressão real de negociação.
 Essa funcionalidade ainda não está disponível.
 
-4.3 Indicador de Satisfação
-O cliente teria uma barra visual indicando seu nível de satisfação.
+4.3 Indicador de Conversão
+O cliente teria uma barra visual indicando seu nível de conversão.
 Essa barra aumentaria ou diminuiria conforme as decisões do jogador.
 Esse sistema ainda não existe na versão atual.
 
@@ -528,7 +513,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 . Ampliação do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes distribuídos pelo mapa;
 . Desenvolvimento dos quizzes de negociação, simulando situações reais de atendimento e vendas;
 . Integração do sistema de pontuação, considerando decisões tomadas pelo jogador e desempenho nas interações;
-. Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de satisfação;
+. Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de conversão;
 . Criação de um painel de desempenho em tempo real, exibindo indicadores da partida;
 . Aprimoramento da interface gráfica e identidade visual alinhada ao treinamento corporativo da Cielo;
 . Realização de testes de usabilidade e ajustes de jogabilidade visando melhor experiência do usuário.

@@ -1,6 +1,7 @@
 // Importação das entidades utilizadas na cena
 import Player from '../entities/player.js';
 import { definirProximoSpawnCidade } from "../utils/estadoJogo.js"; // Importa função para definir próximo spawn na cidade
+import { obterBancadaDaLoja, obterTipoBancada } from "../utils/configuracaoBancadas.js";
 import Quiz from '../quiz/quiz.js';
 import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
@@ -39,6 +40,9 @@ export default class LojaScene extends Phaser.Scene {
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
+
+        // Carrega sprite da bancada da loja atual, se houver configuração
+        this._precarregarBancadaDaLoja();
     }
 
     // Executado quando a cena é criada
@@ -73,6 +77,25 @@ export default class LojaScene extends Phaser.Scene {
             this.fundo.displayWidth,
             this.fundo.displayHeight
         )
+    }
+
+    // Busca qual bancada a loja atual usa.
+    _precarregarBancadaDaLoja() {
+        const configuracaoBancadaDaLoja = obterBancadaDaLoja(this.nomeLoja);
+
+        if (!configuracaoBancadaDaLoja) {
+            return;
+        }
+
+        const tipoBancada = obterTipoBancada(configuracaoBancadaDaLoja.TipoBancada);
+
+        if (!tipoBancada) {
+            return;
+        }
+
+        if (!this.textures.exists(tipoBancada.ChaveSprite)) {
+            this.load.image(tipoBancada.ChaveSprite, tipoBancada.CaminhoSprite);
+        }
     }
 
     /**

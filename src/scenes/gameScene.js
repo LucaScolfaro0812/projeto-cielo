@@ -30,7 +30,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.62,
 
                 npcX: 600,
-                npcY: 300,
+                npcY: 320,
 
                 portaX: 190,
                 portaY: 225,
@@ -99,10 +99,10 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.61,
 
                 npcX: 600,
-                npcY: 300,
+                npcY: 230,
 
                 portaX: 190,
-                portaY: 225,
+                portaY: 220,
 
                 playerX: 190,
                 playerY: 300
@@ -150,7 +150,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.66,
 
                 npcX: 600,
-                npcY: 300,
+                npcY: 280,
 
                 portaX: 215,
                 portaY: 225,
@@ -167,7 +167,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.63,
 
                 npcX: 600,
-                npcY: 320,
+                npcY: 350,
 
                 portaX: 180,
                 portaY: 275,
@@ -218,7 +218,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.62,
 
                 npcX: 600,
-                npcY: 300,
+                npcY: 325,
 
                 portaX: 230,
                 portaY: 240,

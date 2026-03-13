@@ -56,33 +56,33 @@ export const TiposBancada = {
 export const BancadasPorLoja = {
     Autoescola: {
         TipoBancada: 'BancadaAutoescola',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 460,
+        PosicaoY: 320
     },
     Chocolate: {
         TipoBancada: 'BancadaChocolate',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 460,
+        PosicaoY: 340
     },
     Joalheria: {
         TipoBancada: 'BancadaJoalheria',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 470,
+        PosicaoY: 320
     },
     Lanchonete: {
         TipoBancada: 'BancadaLanchonete',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 450,
+        PosicaoY: 320
     },
     Pet: {
         TipoBancada: 'BancadaPet',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 460,
+        PosicaoY: 320
     },
     Cafe: {
         TipoBancada: 'BancadaDocesMomentos',
-        PosicaoX: 0,
-        PosicaoY: 0
+        PosicaoX: 460,
+        PosicaoY: 320
     }
 };
 

@@ -62,7 +62,6 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
             scene.load.image("npc-vermelho", "assets/npc.png");
             return;
         }
-        console.log(scene.nomeLoja);
         // Mantem a chave antiga por compatibilidade e cria uma chave explicita para o visual azul.
         scene.load.image('npc' + scene.nomeLoja, 'assets/npc.png');
         scene.load.image('npc-azul' + scene.nomeLoja, 'assets/personagens/npc' + 'Azul' + scene.nomeLoja + '.png');

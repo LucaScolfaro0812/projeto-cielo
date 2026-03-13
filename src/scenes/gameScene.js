@@ -1,6 +1,7 @@
 
 // importa as outras classes que contém objetos e dados do jogo
 import Player from '../entities/player.js';
+import { definirProximoSpawnCidade } from "../utils/estadoJogo.js";
 import Npc from '../entities/npc.js';
 import Quiz from '../quiz/quiz.js';
 import LojaFisica from '../entities/lojaFisica.js';
@@ -371,10 +372,12 @@ export class GameScene extends Phaser.Scene {
         // Detecta sobreposição entre porta e jogador
         this.physics.add.overlap(portaEntrada, this.player, () => {
 
-            // Executa método responsável por trocar de cena
+            //Salva o nome da loja atual, por exemplo Cafe, Pet, Joalheria.
+            definirProximoSpawnCidade(config.nomeLoja);
+
+            // Só depois de salvar o contexto, troca para a cena interna da loja.
             portaEntrada.trocarDeCena();
         });
-
         // retornando a loja criada
         return l;
     }

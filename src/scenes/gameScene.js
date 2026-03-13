@@ -18,6 +18,8 @@ export class GameScene extends Phaser.Scene {
 
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
+        this.portasPorNomeLoja = {};
+        this.nomeLojaRetornoBloqueada = null;
         this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'joalheriaScene';
         // lista de configurações de cada loja
         this.lojasConfigs = [
@@ -116,7 +118,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.6,
 
                 npcX: 650,
-                npcY: 300,
+                npcY: 270,
 
                 portaX: 190,
                 portaY: 225,
@@ -269,6 +271,13 @@ export class GameScene extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this.player.setCollideWorldBounds(true);
 
+        this.posicaoSpawnCidadeX = this.player.x;
+        this.posicaoSpawnCidadeY = this.player.y;
+        this.tempoMinimoLiberarEntradaLojas = this.time.now + 900;
+
+        // Só libera entrada em loja depois que o jogador sair da área de qualquer porta.
+        this.entradaLojasLiberada = false;
+
         // Cria portas e define troca de cena
         this._criarLojasEPortas();
 
@@ -298,6 +307,7 @@ export class GameScene extends Phaser.Scene {
 
         // Cria o jogador em uma posição específica do mapa
         const idSpawnCidade = consumirSpawnCidade(); // Lê qual foi o último spawn salvo para a cidade e já limpa esse estado para não reutilizar indevidamente.
+        this.nomeLojaRetornoBloqueada = idSpawnCidade;
 
         // Converte o nome da loja em coordenadas reais x e y.
         const coordenadasSpawnCidade = obterSpawnCidadePorLoja(idSpawnCidade);
@@ -325,6 +335,11 @@ export class GameScene extends Phaser.Scene {
                 this.quiz.iniciar(this.npc);
             }
         });*/
+
+        //conecta collider com o player
+        if (this.corpoColisaoBancada) {
+            this.physics.add.collider(this.player, this.corpoColisaoBancada);
+        }
     }
 
     /**
@@ -379,9 +394,18 @@ export class GameScene extends Phaser.Scene {
 
         // salva a porta da loja
         let portaEntrada = l.getPorta();
+        this.portasPorNomeLoja[config.nomeLoja] = portaEntrada;
 
         // Detecta sobreposição entre porta e jogador
         this.physics.add.overlap(portaEntrada, this.player, () => {
+            if (!this.entradaLojasLiberada) {
+                return;
+            }
+
+            // Evita reentrada imediata na mesma loja de onde o jogador acabou de sair.
+            if (config.nomeLoja === this.nomeLojaRetornoBloqueada) {
+                return;
+            }
 
             //Salva o nome da loja atual, por exemplo Cafe, Pet, Joalheria.
             definirProximoSpawnCidade(config.nomeLoja);
@@ -398,5 +422,66 @@ export class GameScene extends Phaser.Scene {
 
         // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
+
+        // Evita reentrada automática: só libera entrada após sair do contato com portas.
+        if (!this.entradaLojasLiberada) {
+            const passouTempoMinimo = this.time.now >= this.tempoMinimoLiberarEntradaLojas;
+            const distanciaDoSpawnCidade = Phaser.Math.Distance.Between(
+                this.player.x,
+                this.player.y,
+                this.posicaoSpawnCidadeX,
+                this.posicaoSpawnCidadeY
+            );
+            const afastouDoSpawnCidade = distanciaDoSpawnCidade > 120;
+
+            if (passouTempoMinimo && (afastouDoSpawnCidade || !this._jogadorSobrepoeAlgumaPorta())) {
+                this.entradaLojasLiberada = true;
+            }
+        }
+
+        this._atualizarBloqueioLojaRetorno();
+    }
+
+    _atualizarBloqueioLojaRetorno() {
+        if (!this.nomeLojaRetornoBloqueada) {
+            return;
+        }
+
+        const portaRetorno = this.portasPorNomeLoja[this.nomeLojaRetornoBloqueada];
+
+        if (!portaRetorno) {
+            this.nomeLojaRetornoBloqueada = null;
+            return;
+        }
+
+        const distanciaAtePorta = Phaser.Math.Distance.Between(
+            this.player.x,
+            this.player.y,
+            portaRetorno.x,
+            portaRetorno.y
+        );
+
+        // Libera a loja de retorno quando o jogador se afasta da porta.
+        if (distanciaAtePorta > 260) {
+            this.nomeLojaRetornoBloqueada = null;
+        }
+    }
+
+    _jogadorSobrepoeAlgumaPorta() {
+        for (let i = 0; i < this.lojas.length; i++) {
+            const loja = this.lojas[i];
+
+            if (!loja) {
+                continue;
+            }
+
+            const porta = loja.getPorta();
+
+            if (porta && this.physics.overlap(this.player, porta)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -86,6 +86,7 @@ export default class LojaScene extends Phaser.Scene {
 
         if (!configuracaoBancadaDaLoja) {
             this.bancadaDaLoja = null;
+            this.corpoColisaoBancada = null;
             return;
         }
 
@@ -93,14 +94,36 @@ export default class LojaScene extends Phaser.Scene {
 
         if (!tipoBancada || !this.textures.exists(tipoBancada.ChaveSprite)) {
             this.bancadaDaLoja = null;
+            this.corpoColisaoBancada = null;
             return;
         }
 
-        this.bancadaDaLoja = this.add.image(
-            configuracaoBancadaDaLoja.PosicaoX,
-            configuracaoBancadaDaLoja.PosicaoY,
-            tipoBancada.ChaveSprite
-        ).setOrigin(0.5, 0.5);
+        const deveRenderizarSpriteBancada = configuracaoBancadaDaLoja.RenderizarSprite !== false;
+
+        if (deveRenderizarSpriteBancada) {
+            const escalaSpriteX = tipoBancada.EscalaSpriteX ?? 1;
+            const escalaSpriteY = tipoBancada.EscalaSpriteY ?? 1;
+
+            this.bancadaDaLoja = this.add.image(
+                configuracaoBancadaDaLoja.PosicaoX,
+                configuracaoBancadaDaLoja.PosicaoY,
+                tipoBancada.ChaveSprite
+            ).setOrigin(0.5, 0.5)
+             .setScale(escalaSpriteX, escalaSpriteY);
+        } else {
+            this.bancadaDaLoja = null;
+        }
+
+        // Cria um corpo físico invisível para bloquear o jogador.
+        this.corpoColisaoBancada = this.add.rectangle(
+            configuracaoBancadaDaLoja.PosicaoX + tipoBancada.OffsetColliderX,
+            configuracaoBancadaDaLoja.PosicaoY + tipoBancada.OffsetColliderY,
+            tipoBancada.LarguraCollider,
+            tipoBancada.AlturaCollider
+        );
+        this.corpoColisaoBancada.setVisible(false);
+
+        this.physics.add.existing(this.corpoColisaoBancada, true);
     }
 
     // Busca qual bancada a loja atual usa.
@@ -163,6 +186,11 @@ export default class LojaScene extends Phaser.Scene {
         );
 
         this.quiz.aplicarVisualConquistado(this.npc);
+
+        // Ativa bloqueio do jogador contra a bancada quando a loja tiver collider configurado.
+        if (this.corpoColisaoBancada) {
+            this.physics.add.collider(this.player, this.corpoColisaoBancada);
+        }
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {

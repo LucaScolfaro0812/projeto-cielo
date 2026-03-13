@@ -18,8 +18,8 @@ export const MapaSpawnCidade = {
 
         Chocolate: { x: 600, y: 3120 },
         Pelucia: { x: 1150, y: 3120 },
-        Autoescola: { x: 2200, y: 3120 },
-        Joalheria: { x: 2750, y: 3120 }
+        Autoescola: { x: 2200, y: 3320 },
+        Joalheria: { x: 2750, y: 3320 }
     }
 };
 

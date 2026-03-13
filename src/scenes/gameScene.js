@@ -409,7 +409,7 @@ export class GameScene extends Phaser.Scene {
                 return;
             }
 
-            //Salva o nome da loja atual, por exemplo Cafe, Pet, Joalheria.
+            // Salva o nome da loja atual, por exemplo Cafe, Pet, Joalheria.
             definirProximoSpawnCidade(config.nomeLoja);
 
             // Só depois de salvar o contexto, troca para a cena interna da loja.

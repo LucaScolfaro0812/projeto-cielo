@@ -187,10 +187,13 @@ export default class LojaScene extends Phaser.Scene {
 
         this.quiz.aplicarVisualConquistado(this.npc);
 
-        // Ativa bloqueio do jogador contra a bancada quando a loja tiver collider configurado.
+        // Collider da bancada interna desativado temporariamente.
+        // Para reativar, descomente o bloco abaixo.
+        /*
         if (this.corpoColisaoBancada) {
             this.physics.add.collider(this.player, this.corpoColisaoBancada);
         }
+        */
 
         // Detecta sobreposição entre jogador e NPC
         this.physics.add.overlap(this.npc, this.player, () => {

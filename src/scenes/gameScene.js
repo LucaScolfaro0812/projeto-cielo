@@ -8,6 +8,8 @@ import Quiz from '../quiz/quiz.js';
 import LojaFisica from '../entities/lojaFisica.js';
 import LojaScene from '../scenes/lojaScene.js';
 import { perguntasNpcRua } from '../quiz/quizPerguntas.js';
+import { lojaFoiConquistada } from '../utils/progressoLojas.js';
+import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utils/configuracaoBaloesLojas.js';
 
 // Definição da cena principal do jogo
 export class GameScene extends Phaser.Scene {
@@ -18,6 +20,7 @@ export class GameScene extends Phaser.Scene {
 
         // lista de todas as lojas fisicas do jogo
         this.lojas = [];
+        this.decoracoesBaloes = [];
         this.portasPorNomeLoja = {};
         this.nomeLojaRetornoBloqueada = null;
         this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'joalheriaScene';
@@ -242,6 +245,13 @@ export class GameScene extends Phaser.Scene {
             this.load.image(lojaKey, `assets/lojas/fisica/${lojaKey}.png`);
         }
 
+        // Preload das variacoes de baloes usadas como decoracao externa.
+        Object.values(VariantesBaloes).forEach((item) => {
+            if (!this.textures.exists(item.chave)) {
+                this.load.image(item.chave, item.caminho);
+            }
+        });
+
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
@@ -392,6 +402,8 @@ export class GameScene extends Phaser.Scene {
             config.nomeLoja
         ).setOrigin(config.lojaFisicaOriginX, config.lojaFisicaOriginY);
 
+        this._criarDecoracaoBaloesDaLoja(l, config.nomeLoja);
+
         // salva a porta da loja
         let portaEntrada = l.getPorta();
         this.portasPorNomeLoja[config.nomeLoja] = portaEntrada;
@@ -423,6 +435,40 @@ export class GameScene extends Phaser.Scene {
         }
         // retornando a loja criada
         return l;
+    }
+
+    _criarDecoracaoBaloesDaLoja(loja, nomeLoja) {
+        if (!lojaFoiConquistada(nomeLoja)) {
+            return;
+        }
+
+        const decoracao = obterDecoracaoBaloesDaLoja(nomeLoja);
+        if (!decoracao) {
+            return;
+        }
+
+        const variante = VariantesBaloes[decoracao.variante];
+        if (!variante) {
+            return;
+        }
+
+        const quantidadeBaloes = Math.max(1, decoracao.quantidade ?? 3);
+        const espacamentoEntreBaloes = decoracao.espacamentoX ?? 28;
+        const escalaBaloes = decoracao.escala ?? 0.45;
+        const deslocamentoInicialX = -((quantidadeBaloes - 1) * espacamentoEntreBaloes) / 2;
+
+        for (let i = 0; i < quantidadeBaloes; i++) {
+            const spriteBaloes = this.add.image(
+                loja.x + decoracao.offsetX + deslocamentoInicialX + (i * espacamentoEntreBaloes),
+                loja.y + decoracao.offsetY,
+                variante.chave
+            );
+
+            spriteBaloes.setScale(escalaBaloes);
+            spriteBaloes.setDepth((loja.depth ?? 0) + 1);
+
+            this.decoracoesBaloes.push(spriteBaloes);
+        }
     }
 
     // Método executado a cada frame do jogo

@@ -21,6 +21,9 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         // Guarda o nome da próxima cena para transição
         this.proximaCenaNome = proximaCenaNome;
 
+        // Inicializa um estado interno da porta dizendo que ainda não houve transição.
+        this.trocaDeCenaEmAndamento = false;
+
         // Adiciona o sprite na cena
         cena.add.existing(this);
 
@@ -37,7 +40,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         this.setOrigin(0.5, 1);
     }
 
-    static preload(scene){
+    static preload(scene) {
         scene.load.image('entrada', 'assets/entrada.png');
     }
 
@@ -46,7 +49,15 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
      */
     trocarDeCena() {
 
-        // Inicia a próxima cena registrada
+        // Se a troca já começou, ignora novas chamadas.
+        if (this.trocaDeCenaEmAndamento) {
+            return;
+        }
+
+        // Marca que a troca está em andamento antes de chamar o start.
+        this.trocaDeCenaEmAndamento = true;
+
+        // Executa a troca de cena normalmente.
         this.scene.scene.start(this.proximaCenaNome);
     }
 }

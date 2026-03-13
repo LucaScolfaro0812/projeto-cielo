@@ -56,7 +56,7 @@ export class GameScene extends Phaser.Scene {
 
                 playerX: 190,
                 playerY: 300
-            },/*
+            },
             ////////errrrrrrrrrrrrrrrroooooooooooooooooooooooooooooooooooooooooooooooo
             {
                 nomeLoja: 'Beleza',
@@ -74,7 +74,7 @@ export class GameScene extends Phaser.Scene {
 
                 playerX: 190,
                 playerY: 300
-            },*/
+            },
             {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
@@ -415,6 +415,12 @@ export class GameScene extends Phaser.Scene {
             // Só depois de salvar o contexto, troca para a cena interna da loja.
             portaEntrada.trocarDeCena();
         });
+
+        if(config.nomeLoja === "Beleza"){
+            /////////////////////////////////////erroooooooooooooooooooooooooooo da loja beleza
+            this.physics.world.removeCollider(l.getPorta());
+            l.getPorta().setVisible(false);
+        }
         // retornando a loja criada
         return l;
     }

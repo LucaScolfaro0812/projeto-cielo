@@ -253,7 +253,10 @@ Aproximadamente 15 minutos.
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-<img src="../assets/marcielo.png"> 
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -356,7 +359,9 @@ Os personagens não jogáveis presentes no mapa são NPCs que representam lojist
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-<img src="../assets/diagrama.png">
+![alt text](image-4.png)
+
+Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se nas referências.
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -646,6 +651,7 @@ Veja. (2024). *Carteiras digitais ajudam cartões de crédito a se reinventar*. 
 
 Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
+Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # <a name="c8"></a>Anexos
 

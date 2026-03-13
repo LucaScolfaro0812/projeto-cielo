@@ -128,7 +128,14 @@ export default class Quiz {
         this.tempoRestante = this.tempoPorPergunta;
         this.timerEvento = null;
 
-        const chaveImagemNpc = npc.chaveImagemNpc ?? "npc-vermelho";
+        const sufixoLojaNpc = npc?.cena?.nomeLoja ?? this.cena?.nomeLoja ?? "";
+        const chaveImagemNpcVermelhoPorLoja = `npc-vermelho${sufixoLojaNpc}`;
+
+        // O retrato do quiz deve sempre usar o NPC vermelho correspondente.
+        // Mantem fallback para evitar erro se a textura especifica nao existir.
+        const chaveImagemNpc = this.cena.textures.exists(chaveImagemNpcVermelhoPorLoja)
+            ? chaveImagemNpcVermelhoPorLoja
+            : (this.cena.textures.exists("npc-vermelho") ? "npc-vermelho" : "npc");
 
         this.ui = new QuizUI(this.cena, {
             larguraModal: 1100,

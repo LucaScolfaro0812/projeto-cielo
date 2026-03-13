@@ -48,6 +48,7 @@ export default class LojaScene extends Phaser.Scene {
     // Executado quando a cena é criada
     create() {
         this._criarCenario();
+        this._criarBancadaDaLoja();
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
@@ -77,6 +78,29 @@ export default class LojaScene extends Phaser.Scene {
             this.fundo.displayWidth,
             this.fundo.displayHeight
         )
+    }
+
+    // Cria a imagem da bancada na posição configurada.
+    _criarBancadaDaLoja() {
+        const configuracaoBancadaDaLoja = obterBancadaDaLoja(this.nomeLoja);
+
+        if (!configuracaoBancadaDaLoja) {
+            this.bancadaDaLoja = null;
+            return;
+        }
+
+        const tipoBancada = obterTipoBancada(configuracaoBancadaDaLoja.TipoBancada);
+
+        if (!tipoBancada || !this.textures.exists(tipoBancada.ChaveSprite)) {
+            this.bancadaDaLoja = null;
+            return;
+        }
+
+        this.bancadaDaLoja = this.add.image(
+            configuracaoBancadaDaLoja.PosicaoX,
+            configuracaoBancadaDaLoja.PosicaoY,
+            tipoBancada.ChaveSprite
+        ).setOrigin(0.5, 0.5);
     }
 
     // Busca qual bancada a loja atual usa.

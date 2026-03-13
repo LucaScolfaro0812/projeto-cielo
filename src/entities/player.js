@@ -33,6 +33,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         });
 
         this._criarAnimacoes(cena);
+
+        this.setDepth(10);
     }
 
     static preload(scene) {

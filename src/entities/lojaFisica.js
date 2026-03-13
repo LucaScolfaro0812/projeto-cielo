@@ -13,14 +13,14 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
         // Chama o construtor do Sprite usando a textura 'lojaCupCake'
         super(cena, x, y, spriteLoja);
 
-        // Armazena referência da cena para uso interno
-        this.cena = cena;
-
         // Adiciona o sprite visualmente na cena
         cena.add.existing(this);
 
         // Ativa o corpo físico do sprite no sistema Arcade
         cena.physics.add.existing(this);
+        
+        // Armazena referência da cena para uso interno
+        this.cena = cena;
 
         // Guarda a key da cena de destino ao entrar na loja
         this.cenaDaLoja = cenaDaLoja;
@@ -30,6 +30,8 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
 
         // Impede que a loja seja empurrada por colisões físicas
         this.body.setImmovable(true);
+
+        this.body.setSize(500, 250);
 
         // Define o ponto de origem do sprite na base central (para alinhar ao chão)
         this.setOrigin(0.5, 1);

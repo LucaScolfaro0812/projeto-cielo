@@ -56,8 +56,8 @@ export class GameScene extends Phaser.Scene {
 
                 playerX: 190,
                 playerY: 300
-            },
-            ////////errrrrrrrrrrrrrrrroooooooooooooooooooooo
+            },/*
+            ////////errrrrrrrrrrrrrrrroooooooooooooooooooooooooooooooooooooooooooooooo
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
@@ -74,7 +74,7 @@ export class GameScene extends Phaser.Scene {
 
                 playerX: 190,
                 playerY: 300
-            },
+            },*/
             {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
@@ -266,7 +266,7 @@ export class GameScene extends Phaser.Scene {
             this.fundo.displayWidth,
             this.fundo.displayHeight
         )
-
+        
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
         this.player.setCollideWorldBounds(true);
@@ -275,11 +275,11 @@ export class GameScene extends Phaser.Scene {
         this.posicaoSpawnCidadeY = this.player.y;
         this.tempoMinimoLiberarEntradaLojas = this.time.now + 900;
 
-        // Só libera entrada em loja depois que o jogador sair da área de qualquer porta.
-        this.entradaLojasLiberada = false;
-
         // Cria portas e define troca de cena
         this._criarLojasEPortas();
+
+        // Só libera entrada em loja depois que o jogador sair da área de qualquer porta.
+        this.entradaLojasLiberada = false;
 
         // Faz a câmera seguir o jogador
         this.cameras.main.startFollow(this.player);
@@ -395,6 +395,8 @@ export class GameScene extends Phaser.Scene {
         // salva a porta da loja
         let portaEntrada = l.getPorta();
         this.portasPorNomeLoja[config.nomeLoja] = portaEntrada;
+
+        this.physics.add.collider(this.player, l);
 
         // Detecta sobreposição entre porta e jogador
         this.physics.add.overlap(portaEntrada, this.player, () => {

@@ -1,7 +1,8 @@
 
 // importa as outras classes que contém objetos e dados do jogo
 import Player from '../entities/player.js';
-import { definirProximoSpawnCidade } from "../utils/estadoJogo.js";
+import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utils/estadoJogo.js";
+import { obterSpawnCidadePorLoja } from "../utils/spawnCidade.js";
 import Npc from '../entities/npc.js';
 import Quiz from '../quiz/quiz.js';
 import LojaFisica from '../entities/lojaFisica.js';
@@ -296,7 +297,17 @@ export class GameScene extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        this.player = new Player(this, 1500, 1800);
+        const idSpawnCidade = consumirSpawnCidade(); // Lê qual foi o último spawn salvo para a cidade e já limpa esse estado para não reutilizar indevidamente.
+
+        // Converte o nome da loja em coordenadas reais x e y.
+        const coordenadasSpawnCidade = obterSpawnCidadePorLoja(idSpawnCidade);
+
+        // Cria o Marcielo na posição correta em frente da loja de retorno.
+        this.player = new Player(
+            this,
+            coordenadasSpawnCidade.x,
+            coordenadasSpawnCidade.y
+        );
         this.player.setScale(0.8);
         /*
         // Cria o NPC com suas perguntas associadas

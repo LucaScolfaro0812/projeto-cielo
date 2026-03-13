@@ -1,5 +1,6 @@
 // Importação das entidades utilizadas na cena
 import Player from '../entities/player.js';
+import { definirProximoSpawnCidade } from "../utils/estadoJogo.js"; // Importa função para definir próximo spawn na cidade
 import Quiz from '../quiz/quiz.js';
 import Npc from '../entities/npc.js';
 import Entrada from '../entities/lojaEntrar.js';
@@ -59,11 +60,11 @@ export default class LojaScene extends Phaser.Scene {
     _criarCenario() {
         // Adiciona imagem de fundo na posição especificada
         // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo = 
+        this.fundo =
             this.add.image(0, 0, this.fundoImage)
                 .setOrigin(0.5, 0.5)
                 .setScale(this.backgroundScale);
-        
+
         this.fundo.x = this.fundo.displayWidth / 2;
         this.fundo.y = this.fundo.displayHeight / 2;
         this.physics.world.setBounds(
@@ -145,6 +146,10 @@ export default class LojaScene extends Phaser.Scene {
 
         // Detecta sobreposição entre jogador e porta
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            // Salva o identificador da loja atual
+            definirProximoSpawnCidade(this.nomeLoja);
+
+            // Depois de salvar o contexto, faz a transição para a cidade.
             this.portaEntrada.trocarDeCena();
         });
     }

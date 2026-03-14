@@ -469,7 +469,7 @@ O foco desta versão é estrutural, não funcional.
 Durante a Sprint 2, foi desenvolvida a primeira versão funcional do jogo, permitindo validar as principais mecânicas previstas no escopo do projeto. Esta etapa teve como objetivo estruturar a base do sistema e possibilitar a interação inicial do jogador com o ambiente virtual.
 O foco principal foi implementar os elementos essenciais necessários para o funcionamento do jogo, garantindo navegação no cenário, controle do personagem e organização inicial da arquitetura do código.
 
-## Funcionalidades implementadas
+### Funcionalidades implementadas
 
 Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
@@ -490,7 +490,7 @@ Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
 Com essas implementações, o jogo já permite ao usuário iniciar a aplicação, visualizar o ambiente gráfico e movimentar o personagem em tempo real dentro do cenário proposto.
 
-## Ilustrações da versão básica
+### Ilustrações da versão básica
 
 Figura 1 – Menu inicial do jogo
 
@@ -504,7 +504,7 @@ Figura 3 – Estrutura inicial de interação no ambiente
 
 ![Mapa com estrutura de interação](../assets/novoMapa.jpeg)
 
-## Dificuldades encontradas
+### Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identificados:
 
@@ -520,7 +520,7 @@ Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identific
 
 Essas dificuldades foram superadas por meio de testes incrementais, ajustes na arquitetura do código e refatorações sucessivas, contribuindo para maior estabilidade da aplicação.
 
-## Próximos passos
+### Próximos passos
 
 Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
@@ -544,7 +544,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo, mantendo as principais mecânicas implementadas na sprint anterior e incorporando novas funcionalidades ao sistema. O foco desta etapa foi aprimorar elementos relacionados aos NPCs, à estrutura do mapa e às primeiras mecânicas de interação entre o jogador e os personagens do ambiente.
 
-## Funcionalidades implementadas:
+### Funcionalidades implementadas:
 
 Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
@@ -564,7 +564,7 @@ Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
 Com essas implementações, o jogo passou a apresentar maior variedade visual, um ambiente mais estruturado e as primeiras mecânicas de interação baseadas em decisões do jogador.
 
-## Ilustrações da versão intermediária
+### Ilustrações da versão intermediária
 
 Figura 1 – Tela Inicial
 
@@ -594,11 +594,11 @@ Figura 7 – Não convertendo cliente
 
 ![descrição](../assets/secao_4.3/quizErrado.png)
 
-## Como executar a aplicação
+### Como executar a aplicação
 
 Para executar o jogo, é necessário abrir o projeto em um ambiente de desenvolvimento compatível com JavaScript e iniciar o servidor local. O jogo pode ser acessado pelo navegador, onde o jogador é direcionado ao menu inicial. Durante a jogabilidade, o personagem é movimentado com as teclas W, A, S e D, e a interação com NPCs é feita a partir do momento que o usuário se aproxima de um deles.
 
-## Dificuldades encontradas
+### Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
 
@@ -613,7 +613,7 @@ Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
 . Implementação do interior das lojas e das portas para entrar nelas.
 
 
-## Critérios de pronto
+### Critérios de pronto
 Uma funcionalidade foi considerada concluída quando atendeu aos seguintes critérios:
 . Funcionamento correto durante a execução do jogo;
 
@@ -625,7 +625,7 @@ Uma funcionalidade foi considerada concluída quando atendeu aos seguintes crit�
 
 . Validação por meio de testes realizados pelos membros da equipe responsável pela tarefa e pela review da mesma.
 
-## Limitações atuais
+### Limitações atuais
 
 Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encontram em desenvolvimento:
 
@@ -637,7 +637,7 @@ Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encon
 
 . Novos desafios planejados, como movimentação de carros nas ruas e máquinas de cartão quebradas, ainda não implementados.
 
-## Próximos passos
+### Próximos passos
 
 Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
@@ -782,8 +782,11 @@ Veja. (2024). *Carteiras digitais ajudam cartões de crédito a se reinventar*. 
 
 Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
-Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_
+
+### Diagramas
+
+Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton

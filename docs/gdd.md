@@ -496,7 +496,7 @@ Figura 2 – Ambiente da padaria
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
-![Mapa com estrutura de interação](../assets/novoMapa.jpeg)
+![Mapa com estrutura de interação](../assets/Mapa.jpeg)
 
 Dificuldades encontradas
 

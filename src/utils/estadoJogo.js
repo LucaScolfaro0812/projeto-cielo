@@ -1,8 +1,5 @@
 /**
  * Chaves de armazenamento usadas pelo jogo.
- *
- * Como só estamos persistindo progresso de NPC conquistado neste momento,
- * mantemos apenas uma chave específica para esse dado.
  */
 export const chavesArmazenamento = {
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",

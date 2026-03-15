@@ -8,8 +8,8 @@ export class menuScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('nuvens', 'assets/cloud-bg.png');   
-        this.load.image('ceu', 'assets/sky-bg.png');         
+        this.load.image('nuvens', 'assets/ambiente/cloud-bg.png');   
+        this.load.image('ceu', 'assets/ambiente/sky-bg.png');         
         this.load.image('titulo', 'assets/titulo-jogo.webp');
         this.load.image('loja', 'assets/lojas/store-bg.webp');
     }

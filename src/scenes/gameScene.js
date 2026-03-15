@@ -237,7 +237,7 @@ export class GameScene extends Phaser.Scene {
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
         // Imagens estáticas
-        this.load.image('rua', 'assets/Mapa.jpeg');
+        this.load.image('rua', 'assets/ambiente/Mapa.jpeg');
 
         // Carrega todas as imagens de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {

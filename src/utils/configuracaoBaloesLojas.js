@@ -2,19 +2,19 @@
 export const VariantesBaloes = {
     baloes1: {
         chave: "baloes1",
-        caminho: "assets/baloes-1.png"
+        caminho: "assets/baloes/baloes-1.png"
     },
     baloes2: {
         chave: "baloes2",
-        caminho: "assets/baloes-2.png"
+        caminho: "assets/baloes/baloes-2.png"
     },
     baloes3: {
         chave: "baloes3",
-        caminho: "assets/baloes-3.png"
+        caminho: "assets/baloes/baloes-3.png"
     },
     baloes5: {
         chave: "baloes5",
-        caminho: "assets/baloes-5.png"
+        caminho: "assets/baloes/baloes-5.png"
     }
 };
 

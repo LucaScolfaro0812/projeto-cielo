@@ -5,9 +5,7 @@ export const chavesArmazenamento = {
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
     npcsQuizAbertos: "npcsQuizAbertos",
     npcsConquistadosIds: "npcsConquistadosIds"
-
 };
-
 /**
  * Estado padrão do progresso.
  *

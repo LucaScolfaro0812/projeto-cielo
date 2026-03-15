@@ -109,7 +109,7 @@ export default class LojaScene extends Phaser.Scene {
                 configuracaoBancadaDaLoja.PosicaoY,
                 tipoBancada.ChaveSprite
             ).setOrigin(0.5, 0.5)
-             .setScale(escalaSpriteX, escalaSpriteY);
+                .setScale(escalaSpriteX, escalaSpriteY);
         } else {
             this.bancadaDaLoja = null;
         }

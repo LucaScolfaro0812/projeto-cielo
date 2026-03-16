@@ -21,7 +21,7 @@ import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utils/estad
 // =====================
 
 // Tempo padrão (em segundos) por pergunta
-const TEMPO_PADRAO_POR_PERGUNTA = 15;
+const TEMPO_PADRAO_POR_PERGUNTA = 60;
 
 // Intervalo de atualização do timer (1 segundo)
 const INTERVALO_TIMER_MS = 1000;

@@ -2,15 +2,15 @@
 
 ## Projeto
 
-Nome do projeto:
+Nome do projeto: As aventuras de Marcielo
 
 ## Grupo
 
-Nome escolhido para o grupo: 
+Nome escolhido para o grupo: Os Marcielos
 
-Breve explicação do nome (opcional):
+Breve explicação do nome (opcional): Esse nome foi inspirado no protagonista de nosso jogo
 
-Por que esse nome representa o momento atual do grupo?
+Por que esse nome representa o momento atual do grupo? Ele representa atualmente o nosso jogo e o protagonista dele
 
 ---
 

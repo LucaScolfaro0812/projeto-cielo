@@ -84,16 +84,28 @@ Depois acesse `http://localhost:8080` no navegador.
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - XX/XX/2024
-    * 
-* 0.4.0 - XX/XX/2024
-    * 
-* 0.3.0 - XX/XX/2024
-    * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
-    *
+* 0.5.0 - XX/XX/2026
+    * Em desenvolvimento (Sprint 4)
+* 0.4.0 - 16/03/2026
+    * Refatoração completa da estrutura de pastas seguindo padrão do professor
+    * Renomeação de arquivos JS para português
+    * Correção de caminhos de imagens no GDD
+    * Balões decorativos nas lojas conquistadas
+* 0.3.0 - 11/03/2026
+    * Novo mapa da cidade implementado
+    * Nova sprite animada do jogador (Marcielo)
+    * NPCs específicos para cada loja adicionados ao mapa
+    * Banco de perguntas expandido para todas as lojas
+    * GDD atualizado com seções 3.2, 3.3, 3.4, 3.6 e 3.7
+* 0.2.0 - 13/02/2026
+    * Menu inicial com design melhorado
+    * Publicação no GitLab Pages configurada
+    * Ajustes visuais de tamanho e remoção de fundos das imagens
+* 0.1.0 - 10/02/2026
+    * Estrutura base do jogo criada com Phaser 3
+    * Cena de cidade com movimentação do jogador
+    * Sistema de quiz básico implementado
+    * GDD inicial criado com análise de mercado (Porter, SWOT)
 
 ## 📋 Licença/License
 

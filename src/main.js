@@ -1,7 +1,7 @@
 // Importação das cenas que compõem o jogo
-import { menuScene } from './scenes/menuScene.js';
-import { GameScene } from './scenes/gameScene.js';
-import { tutorialScene } from './scenes/tutorialScene.js';
+import { menuScene } from './cenas/cena-menu.js';
+import { GameScene } from './cenas/cena-cidade.js';
+import { tutorialScene } from './cenas/cena-tutorial.js';
 
 // Objeto de configuração principal do jogo
 var config = {

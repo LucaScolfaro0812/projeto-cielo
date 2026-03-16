@@ -1,11 +1,11 @@
 // Importação das entidades utilizadas na cena
-import Player from '../entidades/jogador.js';
-import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js"; // Importa função para definir próximo spawn na cidade
-import { obterBancadaDaLoja, obterTipoBancada } from "../utilitarios/configuracao-bancadas.js";
-import Quiz from '../sistemas/quiz.js';
-import Npc from '../entidades/npc.js';
-import Entrada from '../entidades/loja-entrar.js';
-import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../sistemas/quiz-perguntas.js';
+import Player from '../entities/player.js';
+import { definirProximoSpawnCidade } from "../utils/estadoJogo.js"; // Importa função para definir próximo spawn na cidade
+import { obterBancadaDaLoja, obterTipoBancada } from "../utils/configuracaoBancadas.js";
+import Quiz from '../quiz/quiz.js';
+import Npc from '../entities/npc.js';
+import Entrada from '../entities/lojaEntrar.js';
+import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../quiz/quizPerguntas.js';
 
 // Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {
@@ -35,7 +35,7 @@ export default class LojaScene extends Phaser.Scene {
     // Carrega os assets necessários antes da criação da cena
     preload() {
         // Imagem de fundo da padaria
-        this.load.image(this.fundoImage, `assets/imagens/lojas/interior/${this.fundoImage}.png`);
+        this.load.image(this.fundoImage, `assets/lojas/vazias/${this.fundoImage}.png`);
 
         // Pré carrega os objetos com uma função estática
         Player.preload(this);

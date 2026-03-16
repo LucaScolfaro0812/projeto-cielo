@@ -29,7 +29,7 @@ export default class LojaScene extends Phaser.Scene {
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
 
-        this.fundoImage = 'loja' + this.nomeLoja + 'Interior';
+        this.fundoImage = 'lojaVazia' + this.nomeLoja;
     }
 
     // Carrega os assets necessários antes da criação da cena

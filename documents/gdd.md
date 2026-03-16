@@ -1,4 +1,4 @@
-<img src="../assets/logointeli.png">
+<img src="../public/assets/ui/logointeli.png">
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
@@ -253,10 +253,10 @@ Aproximadamente 15 minutos.
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](other/image.png)
+![alt text](other/image-1.png)
+![alt text](other/image-2.png)
+![alt text](other/image-3.png)
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -264,7 +264,7 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="../assets/NPCs.jpeg" width= 350>
+<img src="../public/assets/sprites/personagens/NPCs.jpeg" width= 350>
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -285,7 +285,7 @@ Aproximadamente 15 minutos.
 
 Segue abaixo o mapa: 
 
-<img src="../assets/novoMapa.jpeg" width = 250>
+<img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width = 250>
 
 
 
@@ -300,7 +300,7 @@ Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
-<img src="../assets/RascunhosNPC.jpeg" width = 300>
+<img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width = 300>
 
 Figura 1: desenhos dos clientes feito a mão 
 
@@ -359,7 +359,7 @@ Os personagens não jogáveis presentes no mapa são NPCs que representam lojist
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-![alt text](image-4.png)
+![alt text](other/image-4.png)
 
 Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se nas referências.
 
@@ -494,15 +494,15 @@ Com essas implementações, o jogo já permite ao usuário iniciar a aplicação
 
 Figura 1 – Menu inicial do jogo
 
-![Menu inicial do jogo](../assets/titulo-jogo.webp)
+![Menu inicial do jogo](../public/assets/ui/titulo-jogo.webp)
 
 Figura 2 – Ambiente da padaria
 
-![Ambiente interno da loja](../assets/lojas/interior/lojaCafeInterior.png)
+![Ambiente interno da loja](../public/assets/imagens/lojas/interior/lojaCafeInterior.png)
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
-![Mapa com estrutura de interação](../assets/novoMapa.jpeg)
+![Mapa com estrutura de interação](../public/assets/imagens/ambiente/novoMapa.jpeg)
 
 ### Dificuldades encontradas
 
@@ -568,31 +568,31 @@ Com essas implementações, o jogo passou a apresentar maior variedade visual, u
 
 Figura 1 – Tela Inicial
 
-![descrição](../assets/secao_4.3/telaInicial.png)
+![descrição](assets/secao_4.3/telaInicial.png)
 
 Figura 2 – Mapa Jogo
 
-![descrição](../assets/secao_4.3/mapaJogo.png)
+![descrição](assets/secao_4.3/mapaJogo.png)
 
 Figura 3 – Entrando na loja
 
-![descrição](../assets/secao_4.3/entrandoLoja.png)
+![descrição](assets/secao_4.3/entrandoLoja.png)
 
 Figura 4 – Quiz
 
-![descrição](../assets/secao_4.3/quiz.png)
+![descrição](assets/secao_4.3/quiz.png)
 
 Figura 5 – Convertendo Cliente
 
-![descrição](../assets/secao_4.3/quizCerto.png)
+![descrição](assets/secao_4.3/quizCerto.png)
 
 Figura 6 – Cliente muda de roupa
 
-![descrição](../assets/secao_4.3/roupaMudando.png)
+![descrição](assets/secao_4.3/roupaMudando.png)
 
 Figura 7 – Não convertendo cliente
 
-![descrição](../assets/secao_4.3/quizErrado.png)
+![descrição](assets/secao_4.3/quizErrado.png)
 
 ### Como executar a aplicação
 

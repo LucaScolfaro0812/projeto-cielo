@@ -394,6 +394,8 @@ A animação de entrada dos balões decorativos das lojas conquistadas utiliza c
 
 ### 3.8.2. Parâmetros do Modelo
 
+Parâmetros de entrada da função `animarElemento`:
+
 | Parâmetro | Descrição |
 | --- | --- |
 | $x_i$ | Posição X inicial do elemento (40px à esquerda da posição final) |
@@ -401,9 +403,26 @@ A animação de entrada dos balões decorativos das lojas conquistadas utiliza c
 | $x_f$ | Posição X final do elemento (posição decorativa sobre a loja) |
 | $y_f$ | Posição Y final do elemento (posição decorativa sobre a loja) |
 | $T$ | Duração total da animação em segundos |
-| $t$ | Tempo decorrido desde o início da animação (em segundos) |
+
+Variável interna de execução (não é parâmetro de entrada):
+
+| Variável | Descrição |
+| --- | --- |
+| $t$ | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update`. Varia de $0$ até $T$. |
 
 ### 3.8.3. Modelagem Matemática
+
+O movimento é bidimensional. A posição do elemento em qualquer instante $t$ é representada pelo vetor posição:
+
+$$\vec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+
+E o vetor velocidade instantânea é:
+
+$$\vec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+
+Onde $\hat{i}$ é o vetor unitário no eixo X e $\hat{j}$ é o vetor unitário no eixo Y.
+
+---
 
 **Eixo X — Movimento Uniforme (MU)**
 
@@ -414,6 +433,8 @@ $$v_x = \frac{x_f - x_i}{T}$$
 Posição em função do tempo:
 
 $$x(t) = x_i + v_x \cdot t$$
+
+---
 
 **Eixo Y — Movimento Uniformemente Variado (MUV)**
 

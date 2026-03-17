@@ -544,7 +544,7 @@ export class GameScene extends Phaser.Scene {
 
         this._atualizarBloqueioLojaRetorno();
 
-        // MUV dos balões: atualiza a posição de cada balão que ainda está em animação
+        // animação dos balões (MU no X e MUV no Y): atualiza a posição de cada balão que ainda está em animação
         // converte o tempo do frame de milissegundos para segundos
         const dt = this.game.loop.delta / 1000;
 

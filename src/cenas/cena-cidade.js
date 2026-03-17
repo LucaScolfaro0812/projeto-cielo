@@ -557,13 +557,19 @@ export class GameScene extends Phaser.Scene {
             // avança o tempo, limitando ao máximo para não ultrapassar a duração
             a.t = Math.min(a.t + dt, a.duracao);
 
-            // velocidade instantânea no eixo Y: vy(t) = ay * t
+            // MU no eixo X: x(t) = xi + vx * t  (velocidade constante)
+            balao.x = a.xInicial + a.vx * a.t;
+
+            // imprime posição e velocidade do eixo X (MU)
+            console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
+
+            // MUV no eixo Y: velocidade instantânea vy(t) = ay * t
             const vy = a.ay * a.t;
 
             // posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
-            // imprime no console: posição atual, velocidade e aceleração do balão
+            // imprime posição, velocidade e aceleração do eixo Y (MUV)
             console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 
             if (a.t >= a.duracao) {

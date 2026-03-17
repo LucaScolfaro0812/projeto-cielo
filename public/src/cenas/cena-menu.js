@@ -1,6 +1,3 @@
-// Cena inicial do jogo: exibe o menu com fundo animado,
-// imagem de título, loja decorativa e botões de navegação
-
 export class menuScene extends Phaser.Scene {
 
     constructor() {
@@ -44,7 +41,7 @@ export class menuScene extends Phaser.Scene {
         imagemLoja.setScale(escalaX, escalaX);
 
         // ===============================
-        // ESTILO PADRÃO DOS BOTÕES
+        // ESTILO BOTÃO
         // ===============================
 
         const estiloBotao = {
@@ -87,57 +84,14 @@ export class menuScene extends Phaser.Scene {
             botaoJogar.setScale(1);
         });
 
+        // AGORA ABRE O TUTORIAL
         botaoJogar.on('pointerdown', () => {
-            this.scene.start('gameScene');
+            this.scene.start('tutorialScene');
         });
 
         this.tweens.add({
             targets: botaoJogar,
             y: botaoJogar.y - 6,
-            duration: 900,
-            yoyo: true,
-            repeat: -1,
-            ease: 'Sine.easeInOut'
-        });
-
-        // ===============================
-        // BOTÃO TUTORIAL
-        // ===============================
-
-        const botaoTutorial = this.add.text(w/2, h/2 + 80, 'TUTORIAL', estiloBotao)
-        .setOrigin(0.5)
-        .setFixedSize(260,60)
-        .setAlign('center');
-
-        botaoTutorial.setInteractive({ useHandCursor: true });
-
-        botaoTutorial.on('pointerover', () => {
-
-            botaoTutorial.setStyle({
-                backgroundColor: '#6FB7FF',
-                color: '#1B2A4A'
-            });
-
-            botaoTutorial.setScale(1.05);
-        });
-
-        botaoTutorial.on('pointerout', () => {
-
-            botaoTutorial.setStyle({
-                backgroundColor: '#001caa',
-                color: '#ffffff'
-            });
-
-            botaoTutorial.setScale(1);
-        });
-
-        botaoTutorial.on('pointerdown', () => {
-            this.scene.start('tutorialScene');
-        });
-
-        this.tweens.add({
-            targets: botaoTutorial,
-            y: botaoTutorial.y - 6,
             duration: 900,
             yoyo: true,
             repeat: -1,

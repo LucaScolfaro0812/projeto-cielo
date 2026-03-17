@@ -13,14 +13,15 @@ export class tutorialScene extends Phaser.Scene {
         const w = this.scale.width;
         const h = this.scale.height;
 
-        // IMAGEM TUTORIAL
-        const tutorial = this.add.image(w/2, h/2, 'tutorial');
+        // ===============================
+        // IMAGEM DO TUTORIAL
+        // ===============================
 
-        // força ocupar a tela toda
-        tutorial.setDisplaySize(w,h);
+        const tutorial = this.add.image(w/2, h/2, 'tutorial');
+        tutorial.setDisplaySize(w, h);
 
         // ===============================
-        // ESTILO PADRÃO BOTÃO (igual menu)
+        // ESTILO BOTÃO
         // ===============================
 
         const estiloBotao = {
@@ -32,37 +33,37 @@ export class tutorialScene extends Phaser.Scene {
             align: 'center'
         };
 
-        // BOTÃO VOLTAR
-        const botaoVoltar = this.add.text(w/2, h - 15, 'VOLTAR', estiloBotao)
+        // BOTÃO SAIR
+        const botaoSair = this.add.text(w/2, h - 20, 'SAIR', estiloBotao)
         .setOrigin(0.5,1)
         .setFixedSize(260,60)
         .setAlign('center')
         .setDepth(10);
 
-        botaoVoltar.setInteractive({ useHandCursor: true });
+        botaoSair.setInteractive({ useHandCursor: true });
 
-        botaoVoltar.on('pointerover', () => {
+        botaoSair.on('pointerover', () => {
 
-            botaoVoltar.setStyle({
+            botaoSair.setStyle({
                 backgroundColor: '#6FB7FF',
                 color: '#1B2A4A'
             });
 
-            botaoVoltar.setScale(1.05);
+            botaoSair.setScale(1.05);
         });
 
-        botaoVoltar.on('pointerout', () => {
+        botaoSair.on('pointerout', () => {
 
-            botaoVoltar.setStyle({
+            botaoSair.setStyle({
                 backgroundColor: '#001caa',
                 color: '#ffffff'
             });
 
-            botaoVoltar.setScale(1);
+            botaoSair.setScale(1);
         });
 
-        botaoVoltar.on('pointerdown', () => {
-            this.scene.start('menuScene');
+        botaoSair.on('pointerdown', () => {
+            this.scene.start('gameScene');
         });
 
     }

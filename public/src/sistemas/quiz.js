@@ -13,6 +13,8 @@ import QuizUI from "./quiz-ui.js";
 // Utilitários de persistência (localStorage com JSON e proteção de erro).
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
+import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
+
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
@@ -121,7 +123,7 @@ export default class Quiz {
         // Novo comportamento visual: ao iniciar a conversa/quiz, NPC fica vermelho.
         this.aplicarVisualConquistado(this.npc);
 
-        this.perguntas = npc.perguntas;
+        this.perguntas = [this.pegarPerguntas(), this.pegarPerguntas(), this.pegarPerguntas()];
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
         this.nivelConversao = NIVEL_CONVERSAO_INICIAL;
@@ -159,6 +161,16 @@ export default class Quiz {
         this.ui.definirConversao(this.nivelConversao);
         this.exibirPerguntaAtual();
         this.iniciarTimer();
+    }
+
+    pegarPerguntas(){
+        let perguntasQueJaForam = [];
+        let p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length-1)]; 
+        while(perguntasQueJaForam.includes(p)){
+            p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length-1)];
+        }
+        console.log(p);
+        return p;   
     }
 
     aplicarVisualConquistado(npc) {

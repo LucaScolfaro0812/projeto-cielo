@@ -389,3 +389,90 @@ export const perguntasNpcRua = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
 ];
+
+export const perguntasNpc = [
+     {
+        // Pergunta sobre objeção de taxas da maquininha
+        pergunta: "João comenta: 'Tenho receio das taxas da maquininha...' Como você conduz a conversa?",
+        opcoes: [
+            "a) Concordar que as taxas são complicadas e encerrar o assunto",
+            "b) Explicar que existem planos da Cielo pensados para pequenos negócios, com taxas competitivas",  // resposta correta
+            "c) Sugerir que ele continue vendendo só em dinheiro",
+            "d) Dizer que taxa é igual em todas"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre prazo de recebimento no cartão
+        pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
+        opcoes: [
+            "a) Dizer que normalmente demora bastante",
+            "b) Informar que depende da operadora e não explicar mais nada",
+            "c) Explicar as opções de recebimento e antecipação disponíveis",
+            "d) Informar que com a Cielo ele pode receber em até 1 dia útil"  // resposta correta
+        ],
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre perda de vendas por aceitar só dinheiro
+        pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
+        opcoes: [
+            "a) Dizer que isso é normal no comércio",
+            "b) Explicar que aceitar cartão pode aumentar as vendas e atrair mais clientes",  // resposta correta
+            "c) Sugerir que ele peça PIX apenas",
+            "d) Recomendar manter como está"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre ferramentas para analisar desempenho do cliente
+        pergunta: "Se tratando de um cliente de conquista, sabemos que o não atingimento do volume negociado impacta diretamente nos pilares da RVM. Para identificar e trabalhar estes pilares, qual das ferramentas abaixo conseguimos acompanhar o realizado e extrair um relatório analítico?",
+        opcoes: [
+            "a) Cielo +",
+            "b) SAP concur",
+            "c) Arpa", // resposta correta
+            "d) Expert"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre frequência e benefícios do plano de rota
+        pergunta: "Com qual frequência o GN deve realizar o Plano de Rota e quais os ganhos?",
+        opcoes: [
+            "a) Mensalmente, pois é trabalhoso e não beneficia o dinamismo da rotina comercial",
+            "b) Bimestralmente, pois o planejamento otimiza gestão de tempo em campo e prioriza as melhores oportunidades com foco na RVM",
+            "c) Quinzenalmente, quando necessário para garantir a aderência nos relatórios gerenciais",
+            "d) Diariamente, pois o planejamento otimiza gestão de tempo em campo e prioriza as melhores oportunidades com foco na RVM" // resposta correta
+        ],
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta sobre quem contatar para troca da máquina
+        pergunta: "Quando um estabelecimento aciona o GN para solicitar a troca da máquina, ele deve entrar em contato com a:",
+        opcoes: [
+            "a) Central de Comunicação",
+            "b) Central Unificada",
+            "c) Central de Apoio",
+            "d) Central de Ajuda" // resposta correta
+        ],
+        pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];

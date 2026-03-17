@@ -16,21 +16,22 @@ Por que esse nome representa o momento atual do grupo? Esse nome representa o mo
 
 # 1\. Mapa de Competências da Equipe
 
-| Pessoa | Ajudo muito em | Quero aprender | Hoje me trava |
-|--------|---------------|----------------|---------------|
-| Vinícius Alves | Desenvolver novas ideias, resolução de problemas, sprite sheet e auxiliar em tarefas no geral. | Programação e design. | Programação. |
-| Leonardo Galdino Carioca Braz | Programação e design | Negócios, Programação | Documentação |
-| Fernanda Jawetz Steiner | Design, ideias novas, documentação e organização do grupo | Programação e negócios | Programação |
-| Cassio Reis Costa | Design é um pouco de tudo. | Mais de programacao e negócios | Falta de conhecimento sobre o projeto. |
-| Tiago Brun de Arruda | Atualizar o gdd e organizar tarefas | Programação e negócios | Programação |
-| Gabriel Gomes Pimentel | Em código em organização do grupo | Programar melhor e um pouco de negócios | Me trava a falta de conhecimento com o git branch e a elaboração do código de maneira geral |
-| Beatriz Sofia | Documentação, ideias e design | Programação | Programação |
-| Luca Scolfaro | Documentação e design | Programação e entender melhor a dinâmica do gitlab | Programação |
+| Pessoa                        | Ajudo muito em                                                                                | Quero aprender                                     | Hoje me trava                                        |
+| ----------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------- | ---------------------------------------------------- |
+| Vinícius Alves                | Desenvolver novas ideias, resolução de problemas, sprite sheet e auxiliar em tarefas no geral | Programação e design                               | Programação                                          |
+| Leonardo Galdino Carioca Braz | Programação e design                                                                          | Negócios, programação                              | Documentação                                         |
+| Fernanda Jawetz Steiner       | Ideias novas, documentação e organização do grupo                                             | Programação e negócios                             | Programação                                          |
+| Cássio Reis Costa             | Um pouco de tudo em design                                                                    | Programação e negócios                             | Falta de conhecimento sobre o projeto                |
+| Tiago Brun de Arruda          | Atualizar o GDD e organizar tarefas                                                           | Programação e negócios                             | Programação                                          |
+| Gabriel Gomes Pimentel        | Código e organização do grupo                                                                 | Programar melhor e negócios                        | Falta de conhecimento com Git e elaboração do código |
+| Beatriz Sofia                 | Documentação, ideias e design                                                                 | Programação                                        | Programação                                          |
+| Luca Scolfaro                 | Documentação e design                                                                         | Programação e entender melhor a dinâmica do GitLab | Programação                                          |
+
 
 ### Reflexão do grupo
 
 **Onde temos mais força?**
-Nossa força é a elaboração do design do jogo
+Nossa força está na capacidade de colaboração e organização do grupo
 
 **Onde temos lacunas?**
 Programação avançada 

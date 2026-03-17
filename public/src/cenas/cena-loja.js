@@ -57,6 +57,12 @@ export default class LojaScene extends Phaser.Scene {
 
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
+
+            this.input.on('pointerdown', (pointer) => {
+            // Pega as coordenadas X e Y do clique e converte considerando a câmera
+            let worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+            console.log(`Coordenadas -> X: ${Math.round(worldPoint.x)}, Y: ${Math.round(worldPoint.y)}`);
+});
     }
 
     /**

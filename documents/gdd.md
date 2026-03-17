@@ -116,7 +116,27 @@ Valores: Aprendizado contínuo, inovação responsável, colaboração em equipe
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
-_Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera._
+A proposta de valor é uma parte essencial no desenvolvimento de um produto, porque mostra, de forma clara, como a solução realmente ajuda o cliente no dia a dia. Ela serve para entender quais problemas precisam ser resolvidos, quais benefícios fazem diferença de verdade e o que torna esse produto diferente dos outros. Quando bem definida, a proposta de valor ajuda a enxergar melhor quem é o público, o que ele precisa e o que espera, garantindo que o produto faça sentido na prática e entregue uma experiência mais útil, relevante e agradável.
+
+
+**Ponto de vista do Cliente:**
+| Tarefas do cliente | Dores do cliente | Ganhos do cliente  |
+| ---- | --- | --- |
+|Se tornar um profissional mais capacitado | Dificuldade de locomoção | Boa qualidade de treinamento |
+| Aprender técnicas de venda | Desigualdade do ensino | Viabilidade do treinamento |
+| Se locomover até a central da Cielo | Forma de ensino ultrapassado | Ter boas vendas |
+
+**Mapa de valor:**
+| Produtos e serviços | Analgésicos | Criadores de ganhos |
+| ---- | --- | --- |
+| Jogo interativo | Igualdade de ensino  | Diversão e aprendizagem juntos |
+| Conteúdo de Qualidade | Aprender de qualquer lugar | Experiência com tecnologia |
+|Treinamento dinâmico de vendedores | Ensino Gamificado | Inclusão |
+
+A imagem resume bem a proposta de valor do projeto ao mostrar como as necessidades do cliente se conectam com as soluções oferecidas. Ao analisar as tarefas, dores e ganhos dos usuários, fica mais claro entender os desafios que eles enfrentam, como a dificuldade de acesso a um ensino de qualidade e métodos pouco atrativos. A partir disso, o mapa de valor mostra como o produto foi pensado para ser uma alternativa mais acessível, dinâmica e eficiente, usando um jogo interativo como forma de aprendizado e desenvolvimento profissional.
+
+Assim, a solução não só resolve problemas já existentes, mas também ajuda os usuários a alcançarem melhores resultados, oferecendo uma experiência de aprendizado mais envolvente e inclusiva. A combinação de tecnologia, gamificação e conteúdo de qualidade fortalece a proposta do produto, gerando valor real tanto no processo de aprendizado quanto na melhoria do desempenho em vendas.
+
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
@@ -394,6 +414,8 @@ A animação de entrada dos balões decorativos das lojas conquistadas utiliza c
 
 ### 3.8.2. Parâmetros do Modelo
 
+Parâmetros de entrada da função `animarElemento`:
+
 | Parâmetro | Descrição |
 | --- | --- |
 | $x_i$ | Posição X inicial do elemento (40px à esquerda da posição final) |
@@ -401,9 +423,26 @@ A animação de entrada dos balões decorativos das lojas conquistadas utiliza c
 | $x_f$ | Posição X final do elemento (posição decorativa sobre a loja) |
 | $y_f$ | Posição Y final do elemento (posição decorativa sobre a loja) |
 | $T$ | Duração total da animação em segundos |
-| $t$ | Tempo decorrido desde o início da animação (em segundos) |
+
+Variável interna de execução (não é parâmetro de entrada):
+
+| Variável | Descrição |
+| --- | --- |
+| $t$ | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update`. Varia de $0$ até $T$. |
 
 ### 3.8.3. Modelagem Matemática
+
+O movimento é bidimensional. A posição do elemento em qualquer instante $t$ é representada pelo vetor posição:
+
+$$\vec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+
+E o vetor velocidade instantânea é:
+
+$$\vec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+
+Onde $\hat{i}$ é o vetor unitário no eixo X e $\hat{j}$ é o vetor unitário no eixo Y.
+
+---
 
 **Eixo X — Movimento Uniforme (MU)**
 
@@ -414,6 +453,8 @@ $$v_x = \frac{x_f - x_i}{T}$$
 Posição em função do tempo:
 
 $$x(t) = x_i + v_x \cdot t$$
+
+---
 
 **Eixo Y — Movimento Uniformemente Variado (MUV)**
 

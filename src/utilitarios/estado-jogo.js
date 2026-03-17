@@ -1,19 +1,19 @@
-
- // Chaves de armazenamento usadas pelo jogo.
-
+/**
+ * Chaves de armazenamento usadas pelo jogo.
+ */
 export const chavesArmazenamento = {
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
     npcsQuizAbertos: "npcsQuizAbertos",
     npcsConquistadosIds: "npcsConquistadosIds"
-}
-
-//Estado padrão do progresso.
- 
-//Serve como fallback seguro quando não existe dado salvo ainda.
- 
+};
+/**
+ * Estado padrão do progresso.
+ *
+ * Serve como fallback seguro quando não existe dado salvo ainda.
+ */
 export const estadoPadraoProgresso = {
     npcsConquistadosQuantidade: 0
-}
+};
 
 /**
  * Cria um estado inicial novo para progresso.

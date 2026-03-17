@@ -460,30 +460,24 @@ export class GameScene extends Phaser.Scene {
         for (let i = 0; i < quantidadeBaloes; i++) {
             const spriteBaloes = this.add.image(
                 loja.x + decoracao.offsetX + deslocamentoInicialX + (i * espacamentoEntreBaloes),
-                loja.y + decoracao.offsetY + 300,
+                loja.y + decoracao.offsetY,
                 variante.chave
             );
 
             spriteBaloes.setScale(escalaBaloes);
             spriteBaloes.setDepth((loja.depth ?? 0) + 1);
 
-            // posição Y onde o balão deve chegar (posição decorativa sobre a loja)
-            const yFinal = loja.y + decoracao.offsetY;
-
-            // posição Y onde o balão começa (300px abaixo do destino, pois o sprite foi criado com esse offset)
-            const yInicial = spriteBaloes.y;
+            // posição final do balão (onde ele deve chegar)
+            const xFinal = spriteBaloes.x;
+            const yFinal = spriteBaloes.y;
 
             // duração da animação: cada balão demora um pouco mais que o anterior para não subirem sincronizados
             const duracao = 2 + i * 0.3;
 
-            // MUV: calcula a aceleração necessária para o balão partir do repouso e chegar a yFinal em exatamente T segundos
-            // fórmula: ay = 2 * (yf - yi) / T²  (derivada de y(t) = yi + ½ * ay * t²)
-            spriteBaloes._anim = {
-                yInicial,
-                ay: 2 * (yFinal - yInicial) / (duracao * duracao),
-                duracao,
-                t: 0  // tempo decorrido desde o início da animação
-            };
+            // chama animarElemento:
+            // xInicial = 40px à esquerda da posição final (para ter MU visível no eixo X)
+            // yInicial = 300px abaixo da posição final (para ter MUV visível no eixo Y)
+            this.animarElemento(xFinal - 40, yFinal + 300, xFinal, yFinal, duracao, spriteBaloes);
 
             this.decoracoesBaloes.push(spriteBaloes);
         }

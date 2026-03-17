@@ -29,7 +29,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Cafe',
                 cena: 'cafeScene',
-                bgScale: 1,
+                bgScale: 1.3,
 
                 lojaFisicaOriginX: 0.7,
                 lojaFisicaOriginY: 0.62,
@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
-                bgScale: 0.85,
+                bgScale: 1,
 
                 lojaFisicaOriginX: 0.55,
                 lojaFisicaOriginY: 0.62,
@@ -64,7 +64,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
-                bgScale: 2,
+                bgScale: 2.2,
 
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.6,
@@ -81,7 +81,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
-                bgScale: 2,
+                bgScale: 2.5,
 
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
@@ -98,7 +98,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pet',
                 cena: 'petScene',
-                bgScale: 2,
+                bgScale: 3,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
@@ -115,7 +115,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Movel',
                 cena: 'movelScene',
-                bgScale: 2,
+                bgScale: 2.25,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.6,
@@ -149,7 +149,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Lanchonete',
                 cena: 'lanchoneteScene',
-                bgScale: 0.8,
+                bgScale: 1,
 
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
@@ -166,7 +166,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Chocolate',
                 cena: 'chocolateScene',
-                bgScale: 2,
+                bgScale: 2.25,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.63,
@@ -183,7 +183,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pelucia',
                 cena: 'peluciaScene',
-                bgScale: 0.8,
+                bgScale: 1.10,
 
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
@@ -200,7 +200,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Autoescola',
                 cena: 'autoEscolaScene',
-                bgScale: 2,
+                bgScale: 2.15,
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.61,
@@ -217,7 +217,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Joalheria',
                 cena: 'joalheriaScene',
-                bgScale: 2,
+                bgScale: 2.1,
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,
@@ -460,12 +460,30 @@ export class GameScene extends Phaser.Scene {
         for (let i = 0; i < quantidadeBaloes; i++) {
             const spriteBaloes = this.add.image(
                 loja.x + decoracao.offsetX + deslocamentoInicialX + (i * espacamentoEntreBaloes),
-                loja.y + decoracao.offsetY,
+                loja.y + decoracao.offsetY + 300,
                 variante.chave
             );
 
             spriteBaloes.setScale(escalaBaloes);
             spriteBaloes.setDepth((loja.depth ?? 0) + 1);
+
+            // posição Y onde o balão deve chegar (posição decorativa sobre a loja)
+            const yFinal = loja.y + decoracao.offsetY;
+
+            // posição Y onde o balão começa (300px abaixo do destino, pois o sprite foi criado com esse offset)
+            const yInicial = spriteBaloes.y;
+
+            // duração da animação: cada balão demora um pouco mais que o anterior para não subirem sincronizados
+            const duracao = 2 + i * 0.3;
+
+            // MUV: calcula a aceleração necessária para o balão partir do repouso e chegar a yFinal em exatamente T segundos
+            // fórmula: ay = 2 * (yf - yi) / T²  (derivada de y(t) = yi + ½ * ay * t²)
+            spriteBaloes._anim = {
+                yInicial,
+                ay: 2 * (yFinal - yInicial) / (duracao * duracao),
+                duracao,
+                t: 0  // tempo decorrido desde o início da animação
+            };
 
             this.decoracoesBaloes.push(spriteBaloes);
         }
@@ -494,6 +512,33 @@ export class GameScene extends Phaser.Scene {
         }
 
         this._atualizarBloqueioLojaRetorno();
+
+        // MUV dos balões: atualiza a posição de cada balão que ainda está em animação
+        // converte o tempo do frame de milissegundos para segundos
+        const dt = this.game.loop.delta / 1000;
+
+        for (let balao of this.decoracoesBaloes) {
+            // pula balões que já terminaram a animação (_anim é null após o fim)
+            if (!balao._anim) continue;
+
+            const a = balao._anim;
+
+            // avança o tempo, limitando ao máximo para não ultrapassar a duração
+            a.t = Math.min(a.t + dt, a.duracao);
+
+            // velocidade instantânea no eixo Y: vy(t) = ay * t
+            const vy = a.ay * a.t;
+
+            // posição Y pelo MUV: y(t) = yi + ½ * ay * t²
+            balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
+
+            // imprime no console: posição atual, velocidade e aceleração do balão
+            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+
+            if (a.t >= a.duracao) {
+                balao._anim = null;
+            }
+        }
     }
 
     _atualizarBloqueioLojaRetorno() {

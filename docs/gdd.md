@@ -135,7 +135,7 @@ A proposta de valor é uma parte essencial no desenvolvimento de um produto, por
 
 A imagem resume bem a proposta de valor do projeto ao mostrar como as necessidades do cliente se conectam com as soluções oferecidas. Ao analisar as tarefas, dores e ganhos dos usuários, fica mais claro entender os desafios que eles enfrentam, como a dificuldade de acesso a um ensino de qualidade e métodos pouco atrativos. A partir disso, o mapa de valor mostra como o produto foi pensado para ser uma alternativa mais acessível, dinâmica e eficiente, usando um jogo interativo como forma de aprendizado e desenvolvimento profissional.
 
-Assim, a solução não só resolve problemas já existentes, mas também ajuda os usuários a alcançarem melhores resultados, oferecendo uma experiência de aprendizado mais leve, envolvente e inclusiva. A combinação de tecnologia, gamificação e conteúdo de qualidade fortalece a proposta do produto, gerando valor real tanto no processo de aprendizado quanto na melhoria do desempenho em vendas.
+Assim, a solução não só resolve problemas já existentes, mas também ajuda os usuários a alcançarem melhores resultados, oferecendo uma experiência de aprendizado mais envolvente e inclusiva. A combinação de tecnologia, gamificação e conteúdo de qualidade fortalece a proposta do produto, gerando valor real tanto no processo de aprendizado quanto na melhoria do desempenho em vendas.
 
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)

@@ -469,22 +469,28 @@ O foco desta versão é estrutural, não funcional.
 Durante a Sprint 2, foi desenvolvida a primeira versão funcional do jogo, permitindo validar as principais mecânicas previstas no escopo do projeto. Esta etapa teve como objetivo estruturar a base do sistema e possibilitar a interação inicial do jogador com o ambiente virtual.
 O foco principal foi implementar os elementos essenciais necessários para o funcionamento do jogo, garantindo navegação no cenário, controle do personagem e organização inicial da arquitetura do código.
 
-Funcionalidades implementadas
+### Funcionalidades implementadas
 
 Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
 . Criação da janela principal do jogo utilizando a biblioteca Phaser;
+
 . Implementação do personagem controlável pelo jogador;
 . Sistema de movimentação por meio do teclado, utilizando as teclas W, A, S e D;
+
 . Renderização do cenário 2D em perspectiva top-down;
+
 . Implementação do game loop, responsável pela atualização contínua da tela e das ações do jogador;
+
 . Detecção básica de colisões e posicionamento no ambiente;
+
 . Estruturação inicial do projeto com separação de responsabilidades em arquivos e classes (Scenes do Phaser);
+
 . Organização preliminar do fluxo do jogo, incluindo menu inicial e carregamento das cenas.
 
 Com essas implementações, o jogo já permite ao usuário iniciar a aplicação, visualizar o ambiente gráfico e movimentar o personagem em tempo real dentro do cenário proposto.
 
-Ilustrações da versão básica
+### Ilustrações da versão básica
 
 Figura 1 – Menu inicial do jogo
 
@@ -498,34 +504,159 @@ Figura 3 – Estrutura inicial de interação no ambiente
 
 ![Mapa com estrutura de interação](../assets/Mapa.jpeg)
 
-Dificuldades encontradas
+### Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identificados:
 
 . Configuração adequada do loop principal do jogo, evitando travamentos ou atualizações inconsistentes;
+
 . Sincronização entre movimentação do personagem e renderização gráfica;
+
 . Implementação inicial de colisões sem gerar sobreposição de elementos;
+
 . Organização estrutural do projeto e adaptação ao modelo de cenas da biblioteca Phaser;
+
 . Gerenciamento correto dos arquivos JavaScript utilizando módulos (import/export).
 
 Essas dificuldades foram superadas por meio de testes incrementais, ajustes na arquitetura do código e refatorações sucessivas, contribuindo para maior estabilidade da aplicação.
 
-Próximos passos
+### Próximos passos
 
 Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
 . Implementação completa do tutorial interativo, apresentando instruções iniciais, funcionamento do jogo e controles do personagem;
+
 . Ampliação do sistema de interação com NPCs, permitindo iniciar negociações com diferentes clientes distribuídos pelo mapa;
+
 . Desenvolvimento dos quizzes de negociação, simulando situações reais de atendimento e vendas;
+
 . Integração do sistema de pontuação, considerando decisões tomadas pelo jogador e desempenho nas interações;
+
 . Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de conversão;
+
 . Criação de um painel de desempenho em tempo real, exibindo indicadores da partida;
+
 . Aprimoramento da interface gráfica e identidade visual alinhada ao treinamento corporativo da Cielo;
+
 . Realização de testes de usabilidade e ajustes de jogabilidade visando melhor experiência do usuário.
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
-_Descreva e ilustre aqui o desenvolvimento da versão intermediária do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos._
+Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo, mantendo as principais mecânicas implementadas na sprint anterior e incorporando novas funcionalidades ao sistema. O foco desta etapa foi aprimorar elementos relacionados aos NPCs, à estrutura do mapa e às primeiras mecânicas de interação entre o jogador e os personagens do ambiente.
+
+### Funcionalidades implementadas:
+
+Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
+
+. Criação de NPCs em estilo pixel art para ampliar a diversidade de personagens no ambiente do jogo;
+
+. Implementação do spritesheet do personagem principal (Marcielo), permitindo animações mais completas de movimentação;
+
+. Desenvolvimento e organização do mapa principal do jogo;
+
+. Implementação de ambientes internos e externos das lojas;
+
+. Sistema de variação visual dos NPCs;
+
+. Implementação das bordas do mapa, impedindo que o jogador ultrapasse os limites do cenário;
+
+. Desenvolvimento inicial do sistema de quizzes para simular interações de negociação com clientes.
+
+Com essas implementações, o jogo passou a apresentar maior variedade visual, um ambiente mais estruturado e as primeiras mecânicas de interação baseadas em decisões do jogador.
+
+### Ilustrações da versão intermediária
+
+Figura 1 – Tela Inicial
+
+![descrição](../assets/secao_4.3/telaInicial.png)
+
+Figura 2 – Mapa Jogo
+
+![descrição](../assets/secao_4.3/mapaJogo.png)
+
+Figura 3 – Entrando na loja
+
+![descrição](../assets/secao_4.3/entrandoLoja.png)
+
+Figura 4 – Quiz
+
+![descrição](../assets/secao_4.3/quiz.png)
+
+Figura 5 – Convertendo Cliente
+
+![descrição](../assets/secao_4.3/quizCerto.png)
+
+Figura 6 – Cliente muda de roupa
+
+![descrição](../assets/secao_4.3/roupaMudando.png)
+
+Figura 7 – Não convertendo cliente
+
+![descrição](../assets/secao_4.3/quizErrado.png)
+
+### Como executar a aplicação
+
+Para executar o jogo, é necessário abrir o projeto em um ambiente de desenvolvimento compatível com JavaScript e iniciar o servidor local. O jogo pode ser acessado pelo navegador, onde o jogador é direcionado ao menu inicial. Durante a jogabilidade, o personagem é movimentado com as teclas W, A, S e D, e a interação com NPCs é feita a partir do momento que o usuário se aproxima de um deles.
+
+### Dificuldades encontradas
+
+Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
+
+. Integração do spritesheet do personagem principal com as animações de movimentação;
+
+. Organização dos elementos do mapa sem gerar conflitos de colisão;
+
+. Implementação das bordas do mapa de forma consistente com os limites do cenário;
+
+. Desenvolvimento inicial do sistema de quizzes, equilibrando lógica de perguntas e fluxo de interação;
+
+. Implementação do interior das lojas e das portas para entrar nelas.
+
+
+### Critérios de pronto
+Uma funcionalidade foi considerada concluída quando atendeu aos seguintes critérios:
+. Funcionamento correto durante a execução do jogo;
+
+. Integração adequada com as scenes do sistema;
+
+. Ausência de erros no console do navegador;
+
+. Possibilidade de interação do jogador com os elementos implementados;
+
+. Validação por meio de testes realizados pelos membros da equipe responsável pela tarefa e pela review da mesma.
+
+### Limitações atuais
+
+Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encontram em desenvolvimento:
+
+. Quantidade limitada de quizzes disponíveis, tanto em número de questões quanto em variedade;
+
+. Sistema de pontuação ainda em processo (Soma dos pontos totais);
+
+. Necessidade de melhorias na interface gráfica e no sistema de progressão do jogador;
+
+. Novos desafios planejados, como movimentação de carros nas ruas e máquinas de cartão quebradas, ainda não implementados.
+
+### Próximos passos
+
+Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
+
+. Implementação do tutorial animado do jogo (Introdução do jogo);
+
+. Adição de novos desafios, incluindo carros nas ruas e máquinas de cartão quebradas;
+
+. Criação de um painel de desempenho em tempo real, exibindo indicadores da partida(Número de clientes convertidos e pontuação adquirida);
+
+. Aprimoramento da interface gráfica e identidade visual alinhada ao treinamento corporativo da Cielo;
+
+. Adição de áudio ao jogo e modificação da tela de início;
+
+. Alteração visual das lojas após a conquista de um NPC, indicando o progresso do jogador;
+
+. Mudar o tempo durante o quiz.
+
+
+
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
@@ -651,8 +782,11 @@ Veja. (2024). *Carteiras digitais ajudam cartões de crédito a se reinventar*. 
 
 Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
-Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # <a name="c8"></a>Anexos
 
 _Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_
+
+### Diagramas
+
+Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton

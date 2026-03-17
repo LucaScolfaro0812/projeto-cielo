@@ -29,7 +29,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Cafe',
                 cena: 'cafeScene',
-                bgScale: 1,
+                bgScale: 1.3,
 
                 lojaFisicaOriginX: 0.7,
                 lojaFisicaOriginY: 0.62,
@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Games',
                 cena: 'gamesScene',
-                bgScale: 0.85,
+                bgScale: 1,
 
                 lojaFisicaOriginX: 0.55,
                 lojaFisicaOriginY: 0.62,
@@ -64,7 +64,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
-                bgScale: 2,
+                bgScale: 2.2,
 
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.6,
@@ -81,7 +81,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Roupas',
                 cena: 'roupasScene',
-                bgScale: 2,
+                bgScale: 2.5,
 
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
@@ -98,7 +98,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pet',
                 cena: 'petScene',
-                bgScale: 2,
+                bgScale: 3,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
@@ -115,7 +115,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Movel',
                 cena: 'movelScene',
-                bgScale: 2,
+                bgScale: 2.25,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.6,
@@ -149,7 +149,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Lanchonete',
                 cena: 'lanchoneteScene',
-                bgScale: 0.8,
+                bgScale: 1,
 
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
@@ -166,7 +166,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Chocolate',
                 cena: 'chocolateScene',
-                bgScale: 2,
+                bgScale: 2.25,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.63,
@@ -183,7 +183,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pelucia',
                 cena: 'peluciaScene',
-                bgScale: 0.8,
+                bgScale: 1.10,
 
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
@@ -200,7 +200,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Autoescola',
                 cena: 'autoEscolaScene',
-                bgScale: 2,
+                bgScale: 2.15,
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.61,
@@ -217,7 +217,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Joalheria',
                 cena: 'joalheriaScene',
-                bgScale: 2,
+                bgScale: 2.1,
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,

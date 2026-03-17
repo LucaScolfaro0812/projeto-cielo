@@ -67,9 +67,4 @@ export class tutorialScene extends Phaser.Scene {
         });
 
     }
-<<<<<<< HEAD:public/src/cenas/cena-tutorial.js
 }
-=======
-
-}
->>>>>>> e6c86f504795f6ed83c604d664c985734ffd59cf:src/scenes/tutorialScene.js

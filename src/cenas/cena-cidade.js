@@ -23,7 +23,6 @@ export class GameScene extends Phaser.Scene {
         this.decoracoesBaloes = [];
         this.portasPorNomeLoja = {};
         this.nomeLojaRetornoBloqueada = null;
-        this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = 'joalheriaScene';
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
@@ -60,7 +59,6 @@ export class GameScene extends Phaser.Scene {
                 playerX: 190,
                 playerY: 300
             },
-            ////////errrrrrrrrrrrrrrrroooooooooooooooooooooooooooooooooooooooooooooooo
             {
                 nomeLoja: 'Beleza',
                 cena: 'belezaScene',
@@ -297,10 +295,6 @@ export class GameScene extends Phaser.Scene {
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
 
-
-
-        //this.scene.start(this.CenaDeTesteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
-
     }
 
     /**
@@ -429,7 +423,7 @@ export class GameScene extends Phaser.Scene {
         });
 
         if(config.nomeLoja === "Beleza"){
-            /////////////////////////////////////erroooooooooooooooooooooooooooo da loja beleza
+            // a loja Beleza está temporariamente desativada: remove o colider e oculta a porta
             this.physics.world.removeCollider(l.getPorta());
             l.getPorta().setVisible(false);
         }

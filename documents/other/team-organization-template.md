@@ -2,34 +2,38 @@
 
 ## Projeto
 
-Nome do projeto: As aventuras de Marcielo
+Nome do projeto: As aventuras de marcielo
 
 ## Grupo
 
-Nome escolhido para o grupo: Os Marcielos
+Nome escolhido para o grupo: Marcielos
 
-Breve explicação do nome (opcional): Esse nome foi inspirado no protagonista de nosso jogo
+Breve explicação do nome (opcional): Será uma homenagem ao nome do jogador principal do jogo. 
 
-Por que esse nome representa o momento atual do grupo? Ele representa atualmente o nosso jogo e o protagonista dele
+Por que esse nome representa o momento atual do grupo? Esse nome representa o momento atual do grupo porque estamos enfrentando desafios, aprendendo com os erros e evoluindo, assim como o Marcielo.
 
 ---
 
 # 1\. Mapa de Competências da Equipe
 
-Cada pessoa deve preencher:
-
 | Pessoa | Ajudo muito em | Quero aprender | Hoje me trava |
-| :---- | :---- | :---- | :---- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+|--------|---------------|----------------|---------------|
+| Vinícius Alves | Desenvolver novas ideias, resolução de problemas, sprite sheet e auxiliar em tarefas no geral. | Programação e design. | Programação. |
+| Leonardo Galdino Carioca Braz | Programação e design | Negócios, Programação | Documentação |
+| Fernanda Jawetz Steiner | Design, ideias novas, documentação e organização do grupo | Programação e negócios | Programação |
+| Cassio Reis Costa | Design é um pouco de tudo. | Mais de programacao e negócios | Falta de conhecimento sobre o projeto. |
+| Tiago Brun de Arruda | Atualizar o gdd e organizar tarefas | Programação e negócios | Programação |
+| Gabriel Gomes Pimentel | Em código em organização do grupo | Programar melhor e um pouco de negócios | Me trava a falta de conhecimento com o git branch e a elaboração do código de maneira geral |
+| Beatriz Sofia | Documentação, ideias e design | Programação | Programação |
+| Luca Scolfaro | Documentação e design | Programação e entender melhor a dinâmica do gitlab | Programação |
 
 ### Reflexão do grupo
 
 **Onde temos mais força?**
+Nossa força é a elaboração do design do jogo
 
 **Onde temos lacunas?**
+Programação avançada 
 
 ---
 
@@ -41,12 +45,12 @@ Regra: Cada área deve ter **pelo menos 2 responsáveis e 2 backups**.
 
 | Área / Frente | Responsáveis | Backup |
 | :---- | :---- | :---- |
-| Mecânicas do jogo |  |  |
-| UI / Arte |  |  |
-| Organização do Kanban |  |  |
-| Documentação |  |  |
-| Integração do jogo |  |  |
-| Outros: |  |  |
+| Mecânicas do jogo | Leonardo e Gabriel | Sofia e Cássio |
+| UI / Arte | Cássio e Fernanda | Vinicios e Sofia |
+| Organização do Kanban | Vinicios e Sofia | Gabriel e Leonardo |
+| Documentação | Luca e Tiago | Fernanda e Cássio |
+| Integração do jogo | Vinicios e Leonardo | Tiago e Gabriel |
+| Negócios | Tiago e Vinicios | Leonardo e Fernanda |
 
 ---
 
@@ -58,9 +62,9 @@ Se alguém faltar o resto da Sprint 3 inteira, o que quebra no projeto?
 
 | Área | Risco | Como reduzir |
 | :---- | :---- | :---- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Programação | Mau funcionamento e falta de conteúdo no jogo. | Pair programming. |
+| Git | Estagnar a documentação e a programação do projeto. | Intensivo sobre o Git. |
+| Negócios | Gdd incompleto e falta de informação para os slides. | Compartilhamento de tarefas |
 
 Exemplos de mitigação:
 
@@ -85,10 +89,13 @@ Exemplos:
 
 Acordos do grupo:
 
-1\.  
-2\.  
-3\.  
-4\.
+1\.  Compartilhar o que foi feito;
+
+2\.  Estar disposto a ajudar o outro quando for necessário;
+
+3\.  Comunicar dificuldades com antecedência;
+
+4\. Organizar o Kanban diariamente.
 
 ---
 
@@ -98,6 +105,6 @@ Qual **uma mudança concreta** o grupo vai implementar nas próximas semanas?
 
 Projetos não melhoram porque alguém deu uma aula sobre trabalho em equipe. Eles melhoram quando alguém decide fazer algo diferente.
 
-Nossa mudança será:
+Nossa mudança será: 
 
-Escreva aqui  
+Estabelecer uma regra clara de uso do Git (sem programar ao mesmo tempo em um mesmo arquivo que outro membro) e melhorar a comunicação sobre dificuldades nas tarefas, reduzindo atrasos e aumentando a qualidade das entregas.

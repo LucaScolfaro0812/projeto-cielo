@@ -388,7 +388,69 @@ Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a n
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
-_Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição._
+### 3.8.1. Descrição
+
+A animação de entrada dos balões decorativos das lojas conquistadas utiliza cinemática bidimensional. Ao entrar na cena da cidade, cada balão parte de um ponto A e se move até um ponto B simultaneamente nos dois eixos: o eixo X utiliza **Movimento Uniforme (MU)** e o eixo Y utiliza **Movimento Uniformemente Variado (MUV)**, com velocidade inicial nula.
+
+### 3.8.2. Parâmetros do Modelo
+
+| Parâmetro | Descrição |
+| --- | --- |
+| $x_i$ | Posição X inicial do elemento (40px à esquerda da posição final) |
+| $y_i$ | Posição Y inicial do elemento (300px abaixo da posição final) |
+| $x_f$ | Posição X final do elemento (posição decorativa sobre a loja) |
+| $y_f$ | Posição Y final do elemento (posição decorativa sobre a loja) |
+| $T$ | Duração total da animação em segundos |
+| $t$ | Tempo decorrido desde o início da animação (em segundos) |
+
+### 3.8.3. Modelagem Matemática
+
+**Eixo X — Movimento Uniforme (MU)**
+
+Velocidade constante necessária para percorrer a distância horizontal em tempo $T$:
+
+$$v_x = \frac{x_f - x_i}{T}$$
+
+Posição em função do tempo:
+
+$$x(t) = x_i + v_x \cdot t$$
+
+**Eixo Y — Movimento Uniformemente Variado (MUV)**
+
+O elemento parte do repouso ($v_{y0} = 0$). A aceleração necessária para percorrer a distância vertical em tempo $T$ é:
+
+$$a_y = \frac{2 \cdot (y_f - y_i)}{T^2}$$
+
+Velocidade instantânea:
+
+$$v_y(t) = a_y \cdot t$$
+
+Posição em função do tempo:
+
+$$y(t) = y_i + \frac{1}{2} \cdot a_y \cdot t^2$$
+
+### 3.8.4. Implementação em Código
+
+A função implementada é `animarElemento`, localizada em [`public/src/cenas/cena-cidade.js`](../public/src/cenas/cena-cidade.js) na **linha 498**.
+
+Ela recebe os parâmetros `(xInicial, yInicial, xFinal, yFinal, duracao, elemento)`, calcula `vx` e `ay` pelas fórmulas acima e armazena os dados no objeto `_anim` do sprite. A cada frame, o método `update` aplica as fórmulas para atualizar a posição e imprime no console:
+
+```js
+// MU — eixo X
+balao.x = a.xInicial + a.vx * a.t;
+console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
+
+// MUV — eixo Y
+const vy = a.ay * a.t;
+balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
+console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+```
+
+A animação para quando `t >= duracao`.
+
+### 3.8.5. Fonte
+
+HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 

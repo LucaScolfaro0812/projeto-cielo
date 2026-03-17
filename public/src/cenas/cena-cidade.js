@@ -489,6 +489,43 @@ export class GameScene extends Phaser.Scene {
         }
     }
 
+    /**
+     * Anima um elemento gráfico do ponto A ao ponto B usando cinemática bidimensional.
+     * Eixo X: Movimento Uniforme (MU) — velocidade constante
+     * Eixo Y: Movimento Uniformemente Variado (MUV) — parte do repouso e acelera
+     *
+     * @param {number} xInicial - posição X inicial do elemento
+     * @param {number} yInicial - posição Y inicial do elemento
+     * @param {number} xFinal   - posição X final do elemento
+     * @param {number} yFinal   - posição Y final do elemento
+     * @param {number} duracao  - duração total da animação em segundos
+     * @param {object} elemento - sprite ou imagem do Phaser a ser animado
+     */
+    animarElemento(xInicial, yInicial, xFinal, yFinal, duracao, elemento) {
+
+        // MU no eixo X: velocidade constante para percorrer (xFinal - xInicial) em T segundos
+        // fórmula: vx = (xf - xi) / T
+        const vx = (xFinal - xInicial) / duracao;
+
+        // MUV no eixo Y: aceleração necessária para partir do repouso e chegar a yFinal em T segundos
+        // fórmula: ay = 2 * (yf - yi) / T²
+        const ay = 2 * (yFinal - yInicial) / (duracao * duracao);
+
+        // posiciona o elemento no ponto inicial
+        elemento.x = xInicial;
+        elemento.y = yInicial;
+
+        // guarda todos os dados necessários para o update calcular a posição a cada frame
+        elemento._anim = {
+            xInicial,
+            yInicial,
+            vx,
+            ay,
+            duracao,
+            t: 0
+        };
+    }
+
     // Método executado a cada frame do jogo
     update() {
 

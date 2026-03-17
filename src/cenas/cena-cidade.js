@@ -460,12 +460,30 @@ export class GameScene extends Phaser.Scene {
         for (let i = 0; i < quantidadeBaloes; i++) {
             const spriteBaloes = this.add.image(
                 loja.x + decoracao.offsetX + deslocamentoInicialX + (i * espacamentoEntreBaloes),
-                loja.y + decoracao.offsetY,
+                loja.y + decoracao.offsetY + 300,
                 variante.chave
             );
 
             spriteBaloes.setScale(escalaBaloes);
             spriteBaloes.setDepth((loja.depth ?? 0) + 1);
+
+            // posição Y onde o balão deve chegar (posição decorativa sobre a loja)
+            const yFinal = loja.y + decoracao.offsetY;
+
+            // posição Y onde o balão começa (300px abaixo do destino, pois o sprite foi criado com esse offset)
+            const yInicial = spriteBaloes.y;
+
+            // duração da animação: cada balão demora um pouco mais que o anterior para não subirem sincronizados
+            const duracao = 2 + i * 0.3;
+
+            // MUV: calcula a aceleração necessária para o balão partir do repouso e chegar a yFinal em exatamente T segundos
+            // fórmula: ay = 2 * (yf - yi) / T²  (derivada de y(t) = yi + ½ * ay * t²)
+            spriteBaloes._anim = {
+                yInicial,
+                ay: 2 * (yFinal - yInicial) / (duracao * duracao),
+                duracao,
+                t: 0  // tempo decorrido desde o início da animação
+            };
 
             this.decoracoesBaloes.push(spriteBaloes);
         }
@@ -494,6 +512,33 @@ export class GameScene extends Phaser.Scene {
         }
 
         this._atualizarBloqueioLojaRetorno();
+
+        // MUV dos balões: atualiza a posição de cada balão que ainda está em animação
+        // converte o tempo do frame de milissegundos para segundos
+        const dt = this.game.loop.delta / 1000;
+
+        for (let balao of this.decoracoesBaloes) {
+            // pula balões que já terminaram a animação (_anim é null após o fim)
+            if (!balao._anim) continue;
+
+            const a = balao._anim;
+
+            // avança o tempo, limitando ao máximo para não ultrapassar a duração
+            a.t = Math.min(a.t + dt, a.duracao);
+
+            // velocidade instantânea no eixo Y: vy(t) = ay * t
+            const vy = a.ay * a.t;
+
+            // posição Y pelo MUV: y(t) = yi + ½ * ay * t²
+            balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
+
+            // imprime no console: posição atual, velocidade e aceleração do balão
+            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+
+            if (a.t >= a.duracao) {
+                balao._anim = null;
+            }
+        }
     }
 
     _atualizarBloqueioLojaRetorno() {

@@ -8,6 +8,9 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         this.setScale(0.5);
         this.setDepth(10);
 
+        this.setSize(650, 300);
+        this.body.updateFromGameObject();
+
         this.esquerdaDireita = esquerdaDireita;
 
         this.velocidade = 500;

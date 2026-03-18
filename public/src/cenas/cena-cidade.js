@@ -328,7 +328,7 @@ export class GameScene extends Phaser.Scene {
 
         this.carrinho = new Carro(this, 0, 1945, true);
         this.physics.add.overlap(this.carrinho, this.player, () => {
-            console.log("Player Morreu");
+            this.player.morreu();
         });
         /*
         // Cria o NPC com suas perguntas associadas

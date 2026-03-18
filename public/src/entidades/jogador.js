@@ -15,6 +15,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
+        this.cena = cena;
+
         this.setScale(0.5);
         this.setCollideWorldBounds(false);
 
@@ -207,5 +209,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             });
         }
 
+    }
+
+    morreu(){
+        this.cena.scene.start('gameScene');
     }
 }

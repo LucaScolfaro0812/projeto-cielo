@@ -326,7 +326,10 @@ export class GameScene extends Phaser.Scene {
         );
         this.player.setScale(0.8);
 
-        this.carrinho = new Carro(this, 1500, 1945, true);
+        this.carrinho = new Carro(this, 0, 1945, true);
+        this.physics.add.overlap(this.carrinho, this.player, () => {
+            console.log("Player Morreu");
+        });
         /*
         // Cria o NPC com suas perguntas associadas
         this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
@@ -561,7 +564,7 @@ export class GameScene extends Phaser.Scene {
             balao.x = a.xInicial + a.vx * a.t;
 
             // imprime posição e velocidade do eixo X (MU)
-            console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
+            //console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
 
             // MUV no eixo Y: velocidade instantânea vy(t) = ay * t
             const vy = a.ay * a.t;
@@ -570,7 +573,7 @@ export class GameScene extends Phaser.Scene {
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
             // imprime posição, velocidade e aceleração do eixo Y (MUV)
-            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+            //console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 
             if (a.t >= a.duracao) {
                 balao._anim = null;

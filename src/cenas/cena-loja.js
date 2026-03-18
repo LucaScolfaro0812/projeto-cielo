@@ -145,6 +145,10 @@ export default class LojaScene extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
+        if (this.player) {
+            this.player.setDepth(150);
+        }
+
         // Faz a câmera seguir o jogador
         this.cameras.main.startFollow(this.player);
 
@@ -348,28 +352,46 @@ export default class LojaScene extends Phaser.Scene {
     }
 
     _criarMobiliario() {
-    // Busca a lista de objetos da loja atual (usando o this.nomeDaLoja que você já tem)
-    const listaObjetos = ObjetosInterior[this.nomeDaLoja];
-
-    // Se não houver configuração para esta loja ainda, apenas sai da função
-    if (!listaObjetos) return;
-
-    // Passa por cada objeto da lista e adiciona na cena
-    listaObjetos.forEach(config => {
-        // Adiciona a imagem no grupo estático (já vem com física imóvel)
-        let movel = this.objetosFisicos.create(config.x, config.y, config.imagem);
+        console.log("-> 1. Iniciando montagem dos móveis para a loja:", this.nomeLoja);
         
-        // Aplica a escala (se existir na config, senão usa 1)
-        if (config.escala) movel.setScale(config.escala);
-
-        // Ajuste da caixa de colisão (hitbox) para o efeito 3D top-down
-        if (config.hitWidth && config.hitHeight) {
-            movel.body.setSize(config.hitWidth, config.hitHeight);
-            
-            if (config.offsetX !== undefined && config.offsetY !== undefined) {
-                movel.body.setOffset(config.offsetX, config.offsetY);
-            }
+        const listaObjetos = ObjetosInterior[this.nomeLoja];
+        
+        if (!listaObjetos) {
+            console.log("-> ❌ Nenhuma lista de móveis encontrada para essa loja!");
+            return;
         }
-    });
-}
+
+        console.log("-> 2. Encontrei a lista! Quantidade de móveis para criar:", listaObjetos.length);
+
+        listaObjetos.forEach(config => {
+            console.log(`-> 3. Desenhando: ${config.imagem} em X: ${config.x}, Y: ${config.y}`);
+            
+            let movel = this.objetosFisicos.create(config.x, config.y, config.imagem);
+            
+            // 🚨 FORÇA o móvel a renderizar por cima de TUDO (z-index bem alto)
+            movel.setDepth(100); 
+
+            if (config.escala) {
+                movel.setScale(config.escala);
+            }
+
+            // 🚨 No Phaser, quando mudamos o tamanho de um objeto estático, 
+            // precisamos pedir pra física recalcular o tamanho dele:
+            movel.refreshBody();
+
+            if (config.hitWidth && config.hitHeight) {
+                // Atualiza o tamanho da caixa
+                movel.body.setSize(config.hitWidth, config.hitHeight);
+
+                // Força as variáveis de offset (se não existirem, valem 0)
+                let recuoX = config.offsetX !== undefined ? config.offsetX : 0;
+                let recuoY = config.offsetY !== undefined ? config.offsetY : 0;
+
+                // 🚨 O TRUQUE MÁGICO PARA OBJETOS ESTÁTICOS:
+                // Calcula a posição exata da caixa azul forçando as coordenadas top-left
+                movel.body.x = (movel.x - (config.hitWidth / 2)) + recuoX;
+                movel.body.y = (movel.y - (config.hitHeight / 2)) + recuoY;
+            }
+        });
+    }
 }

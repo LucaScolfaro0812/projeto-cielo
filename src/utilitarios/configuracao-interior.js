@@ -14,6 +14,13 @@ export const ObjetosInterior = {
         { imagem: 'brinquedoMesa', x: 350, y: 750, escala: 0.35 },
         { imagem: 'brinquedoPosters', x: 1300, y: 100, escala: 0.25 }
     ],
+
+    'Chocolate': [
+        { imagem: 'chocolateBancada', x: 740, y: 450, escala: 1.3 },
+        { imagem: 'chocolateMesa', x: 1350, y: 800, escala: 1.0 },
+        { imagem: 'chocolatePlaca', x: 780, y: 150, escala: 1.0 }
+    ],
+
     'Games': [
         { imagem: 'fliperama-azul', x: 200, y: 150, escala: 1.2 },
         { imagem: 'fliperama-vermelho', x: 280, y: 150, escala: 1.2 }

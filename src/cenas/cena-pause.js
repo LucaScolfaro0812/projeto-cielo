@@ -17,6 +17,12 @@ export class PauseScene extends Phaser.Scene {
             fontStyle: 'bold'
         }).setOrigin(0.5);
 
+        // ESC fecha o pause e volta ao jogo
+        this.input.keyboard.on('keydown-ESC', () => {
+            this.scene.resume('gameScene');
+            this.scene.stop();
+        });
+
         // Botão Continuar
         this._criarBotao(largura / 2, altura / 2 - 20, 'Continuar', () => {
             this.scene.resume('gameScene');

@@ -12,6 +12,7 @@
 export const perguntasMovel = [
     {
         // Pergunta sobre qual produto oferecer a um cliente sem antecipação
+        id: "movel_1",
         pergunta: "Sabendo que a loja de móveis tem um faturamento médio de 200k a 300k mensal e oportunidade de melhorar o faturamento, porém, não trabalham com antecipação de vendas. Qual seria o melhor produto Cielo para ofertar para este cliente?",
         opcoes: [
             "a) ARV",
@@ -26,6 +27,7 @@ export const perguntasMovel = [
     },
     {
         // Pergunta sobre argumentações de vendas
+        id: "movel_2",
         pergunta: "Cite duas argumentações de vendas para fomentar o produto Vendeu tá na Conta para esse cliente: ",
         opcoes: [
             "a) Giro de caixa, oportunidade de investimento", // resposta correta
@@ -40,6 +42,7 @@ export const perguntasMovel = [
     },
     {
         // Pergunta técnica de venda sobre funil de vendas
+        id: "movel_3",
         pergunta: "Qual etapa do Funil de Vendas garante a melhor técnica para entender a necessidade do proprietário do estabelecimento?",
         opcoes: [
             "a) Abordagem",
@@ -59,6 +62,7 @@ export const perguntasMovel = [
 // ============================================================
 export const perguntasCafe = [
     {
+        id: "cafe_1",
         // Pergunta sobre estratégia de atendimento para cliente com objeção de taxas
         pergunta: "Durante uma quarta-feira de onda azul, você entrou em uma cafeteria onde não foi bem recebida. O dono, foi logo dizendo que já havia sido cliente Cielo mas que as taxas sempre mudaram e ele sentia que recebia menos do que deveria. Qual a melhor maneira de conduzir esse atendimento?",
         opcoes: [
@@ -74,6 +78,7 @@ export const perguntasCafe = [
     },
     {
         // Pergunta sobre reprecificação
+        id: "cafe_2",
         pergunta: "Quando o cliente cita a reprecificação qual ferramenta a Cielo hoje oferece para resguardar e proteger o cliente?",
         opcoes: [
             "a) Acordo Comercial", // resposta correta
@@ -88,6 +93,7 @@ export const perguntasCafe = [
     },
     {
         // Pergunta técnica de venda sobre funil de vendas
+        id: "cafe_3",
         pergunta: "Qual o melhor argumento para fortalecer o Acordo Comercial (contrato) com o cliente?",
         opcoes: [
             "a) Mudanças de taxas a cada período de tempo (3 meses)",
@@ -107,6 +113,7 @@ export const perguntasCafe = [
 // ============================================================
 export const perguntasPet = [
     {
+        id: "pet_1",
         // Pergunta sobre estratégia de vendas consultivas
         pergunta: "Quais as principais oportunidades que as vendas consultivas proporcionam a Cielo e ao cliente?",
         opcoes: [
@@ -122,6 +129,7 @@ export const perguntasPet = [
     },
     {
         // Pergunta sobre técnica de vendas
+        id: "pet_2",
         pergunta: "Existe uma técnica de venda que visa criar uma narrativa que envolve personagens, problemas, emoções, conflitos e soluções que um vendedor pode apresentar ao cliente como argumento para convencê-lo a acreditar nas palavras do consultor. Essa prática gera mais confiança, engajamento e convencimento para fechar um novo negócio. Qual o nome dessa técnica?",
         opcoes: [
             "a) Gatilhos Mentais",
@@ -135,6 +143,7 @@ export const perguntasPet = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "pet_3",
         // Pergunta técnica de venda
         pergunta: "Qual a técnica de vendas nos impulsiona e nos leva a questionar o que precisamos fazer para levar o cliente à próxima etapa de uma venda. Se estivermos na abordagem, o que precisamos fazer para chegar na soldagem e assim por diante. Sempre empurrando para o mais próximo possível do fechamento.",
         opcoes: [
@@ -155,6 +164,7 @@ export const perguntasPet = [
 // ============================================================
 export const perguntasLanchonete = [
     {
+        id: "lanchonete_1",
         // Pergunta sobre qual PIX
         pergunta: "Sobre o PIX, após a transação do valor na maquininha, quanto tempo leva para o estabelecimento receber o dinheiro?",
         opcoes: [
@@ -169,6 +179,7 @@ export const perguntasLanchonete = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "lanchonete_2",
         // Pergunta sobre produtos da Cielo
         pergunta: "Quais são os produtos de prazo da Cielo?",
         opcoes: [
@@ -183,6 +194,7 @@ export const perguntasLanchonete = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "lanchonete_3",
         // Pergunta sobre o conceito: Salesforce
         pergunta: "Sobre o Salesforce, está correto dizer:",
         opcoes: [
@@ -203,6 +215,7 @@ export const perguntasLanchonete = [
 // ============================================================
 export const perguntasAutoescola = [
     {
+        id: "autoescola_1",
         // Pergunta sobre diferenças de conceitos
         pergunta: "Qual a diferença de Antecipação Avulsa e o RA?",
         opcoes: [
@@ -217,6 +230,7 @@ export const perguntasAutoescola = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "autoescola_2",
         // Pergunta sobre matemática de vendas
         pergunta: "Um estabelecimento realizou uma venda no Crédito à Vista, no valor de R$200,00. O MDR para vendas à vista é de 3% e o preço do RA à vista cadastrado é de 2%. Qual o valor total descontado desta venda?",
         opcoes: [
@@ -231,6 +245,7 @@ export const perguntasAutoescola = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "autoescola_3",
         // Pergunta sobre acesso ao site e app da Cielo
         pergunta: "Com acesso no Site e no APP, o cliente pode contratar serviços e produtos da Cielo, inclusive realizar antecipações",
         opcoes: [
@@ -251,6 +266,7 @@ export const perguntasAutoescola = [
 // ============================================================
 export const perguntasPelucia = [
     {
+        id: "pelucia_1",
         // Pergunta sobre o que você deve fazer para manter o cliente ativo depois que ele entra
         pergunta: "Assim que o cliente é credenciado ou reativado, sabemos que essa conquista contará nos seus pilares da RVM durante os próximos meses, desta forma, o que você GN deve fazer para que esse cliente não se transforme em um Churn?",
         opcoes: [
@@ -265,6 +281,8 @@ export const perguntasPelucia = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "pelucia_2",
+
         // Pergunta sobre o canal exclusivo de suporte ao estabelecimento
         pergunta: "Qual o canal de atendimento exclusivo para os estabelecimentos?",
         opcoes: [
@@ -279,6 +297,7 @@ export const perguntasPelucia = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "pelucia_3",
         // Pergunta sobre o percentual máximo de remuneração variável
         pergunta: " Qual o percentual máximo da RVM (Remuneração Variável Mensal) que o GN pode atingir?",
         opcoes: [
@@ -299,6 +318,7 @@ export const perguntasPelucia = [
 // ============================================================
 export const perguntasChocolate = [
     {
+        id: "chocolate_1",
         // Pergunta sobre ferramentas para analisar desempenho do cliente
         pergunta: "Se tratando de um cliente de conquista, sabemos que o não atingimento do volume negociado impacta diretamente nos pilares da RVM. Para identificar e trabalhar estes pilares, qual das ferramentas abaixo conseguimos acompanhar o realizado e extrair um relatório analítico?",
         opcoes: [
@@ -313,6 +333,8 @@ export const perguntasChocolate = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "chocolate_2",
+
         // Pergunta sobre frequência e benefícios do plano de rota
         pergunta: "Com qual frequência o GN deve realizar o Plano de Rota e quais os ganhos?",
         opcoes: [
@@ -327,6 +349,7 @@ export const perguntasChocolate = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "chocolate_3",
         // Pergunta sobre quem contatar para troca da máquina
         pergunta: "Quando um estabelecimento aciona o GN para solicitar a troca da máquina, ele deve entrar em contato com a:",
         opcoes: [
@@ -347,6 +370,7 @@ export const perguntasChocolate = [
 // ============================================================
 export const perguntasNpcRua = [
     {
+        id: "npcRua_1",
         // Pergunta sobre objeção de taxas da maquininha
         pergunta: "João comenta: 'Tenho receio das taxas da maquininha...' Como você conduz a conversa?",
         opcoes: [
@@ -361,6 +385,7 @@ export const perguntasNpcRua = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "npcRua_2",
         // Pergunta sobre prazo de recebimento no cartão
         pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
         opcoes: [
@@ -376,6 +401,7 @@ export const perguntasNpcRua = [
     },
     {
         // Pergunta sobre perda de vendas por aceitar só dinheiro
+        id: "movel_24",
         pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
         opcoes: [
             "a) Dizer que isso é normal no comércio",
@@ -391,7 +417,8 @@ export const perguntasNpcRua = [
 ];
 
 export const perguntasNpc = [
-     {
+    {
+        id: "movel_25",
         // Pergunta sobre objeção de taxas da maquininha
         pergunta: "João comenta: 'Tenho receio das taxas da maquininha...' Como você conduz a conversa?",
         opcoes: [
@@ -407,6 +434,7 @@ export const perguntasNpc = [
     },
     {
         // Pergunta sobre prazo de recebimento no cartão
+        id: "movel_26",
         pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
         opcoes: [
             "a) Dizer que normalmente demora bastante",
@@ -421,6 +449,7 @@ export const perguntasNpc = [
     },
     {
         // Pergunta sobre perda de vendas por aceitar só dinheiro
+        id: "movel_27",
         pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
         opcoes: [
             "a) Dizer que isso é normal no comércio",
@@ -434,6 +463,7 @@ export const perguntasNpc = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "movel_28",
         // Pergunta sobre ferramentas para analisar desempenho do cliente
         pergunta: "Se tratando de um cliente de conquista, sabemos que o não atingimento do volume negociado impacta diretamente nos pilares da RVM. Para identificar e trabalhar estes pilares, qual das ferramentas abaixo conseguimos acompanhar o realizado e extrair um relatório analítico?",
         opcoes: [
@@ -448,6 +478,7 @@ export const perguntasNpc = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "movel_29",
         // Pergunta sobre frequência e benefícios do plano de rota
         pergunta: "Com qual frequência o GN deve realizar o Plano de Rota e quais os ganhos?",
         opcoes: [
@@ -462,6 +493,7 @@ export const perguntasNpc = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
     {
+        id: "movel_30",
         // Pergunta sobre quem contatar para troca da máquina
         pergunta: "Quando um estabelecimento aciona o GN para solicitar a troca da máquina, ele deve entrar em contato com a:",
         opcoes: [

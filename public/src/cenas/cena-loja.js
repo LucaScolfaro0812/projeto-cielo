@@ -289,6 +289,11 @@ export default class LojaScene extends Phaser.Scene {
             `npc_${this.sceneLoja}`,
         );
 
+        // 1. Coloca a NPC na camada 101 (na frente do balcão que está na 100)
+        this.npc.setDepth(101); 
+        
+    
+
         this.quiz.aplicarVisualConquistado(this.npc);
 
         // Collider da bancada interna desativado temporariamente.

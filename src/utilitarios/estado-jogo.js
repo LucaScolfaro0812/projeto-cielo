@@ -1,10 +1,12 @@
 /**
- * Chaves de armazenamento usadas pelo jogo.
+ * Chaves de armazenamento usadas pelo jogo. Centraliza todas as chaves usadas no localStorage, evitando erros de digitação e facilitando a manutenção.
  */
 export const chavesArmazenamento = {
+    // identificadores para salvar e carregar os dados.
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
     npcsQuizAbertos: "npcsQuizAbertos",
-    npcsConquistadosIds: "npcsConquistadosIds"
+    npcsConquistadosIds: "npcsConquistadosIds",
+    perguntasJaFeitas: "perguntasJaFeitas"
 };
 /**
  * Estado padrão do progresso.

@@ -72,6 +72,22 @@ export default class Quiz {
         }
     }
 
+    //  busca no localStorage a lista de perguntas já feitas, garantindo que sempre retorna um array.
+    _carregarPerguntasJaFeitas() {
+        const lista = carregarDados(chavesArmazenamento.perguntasJaFeitas, []);
+        return Array.isArray(lista) ? lista : [];
+    }
+
+    // adiciona o id de uma pergunta ao array salvo, evitando duplicatas, e salva de volta no localStorage.
+    _salvarPerguntaFeita(perguntaId) {
+        if (!perguntaId) return;
+        const lista = this._carregarPerguntasJaFeitas();
+        if (!lista.includes(perguntaId)) {
+            lista.push(perguntaId);
+            salvarDados(chavesArmazenamento.perguntasJaFeitas, lista);
+        }
+    }
+
     _carregarNpcsConquistadosIds() {
         const lista = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
         return Array.isArray(lista) ? lista : [];
@@ -163,14 +179,14 @@ export default class Quiz {
         this.iniciarTimer();
     }
 
-    pegarPerguntas(){
+    pegarPerguntas() {
         let perguntasQueJaForam = [];
-        let p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length-1)]; 
-        while(perguntasQueJaForam.includes(p)){
-            p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length-1)];
+        let p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length - 1)];
+        while (perguntasQueJaForam.includes(p)) {
+            p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length - 1)];
         }
         console.log(p);
-        return p;   
+        return p;
     }
 
     aplicarVisualConquistado(npc) {
@@ -273,6 +289,9 @@ export default class Quiz {
 
         const perguntaAtual = this.perguntas[this.indicePerguntaAtual];
         if (!perguntaAtual) return;
+
+        //Salva a pergunta como feita
+        this._salvarPerguntaFeita(perguntaAtual.id);
 
         if (!perguntaAtual.pontos ||
             perguntaAtual.pontos[indiceEscolhido] === undefined) return;

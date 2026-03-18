@@ -13,7 +13,7 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
 
         this.esquerdaDireita = esquerdaDireita;
 
-        this.velocidade = 500;
+        this.velocidade = 750;
     }
 
     static preload(scene){

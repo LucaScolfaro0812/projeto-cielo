@@ -332,10 +332,17 @@ export class GameScene extends Phaser.Scene {
         );
         this.player.setScale(0.8);
 
-        this.carrinho = new Carro(this, 0, 1945, true);
-        this.physics.add.overlap(this.carrinho, this.player, () => {
-            this.player.morreu();
-        });
+        this.carrinho = [];
+        this.carrinho[0] = new Carro(this, 0, 1945, true);
+        
+        for(let i = 0; i < 3; i++){
+            this.carrinho[i] = new Carro(this, i * 1250, 1945, true);
+        }
+        for(let i = 0; i < this.carrinho.length; i++){
+            this.physics.add.overlap(this.carrinho[i], this.player, () => {
+                this.player.morreu();
+            });
+        }
         /*
         // Cria o NPC com suas perguntas associadas
         this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
@@ -533,7 +540,9 @@ export class GameScene extends Phaser.Scene {
         // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
 
-        this.carrinho.update();
+        for(let i = 0; i < this.carrinho.length; i++){
+            this.carrinho[i].update();
+        }
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {

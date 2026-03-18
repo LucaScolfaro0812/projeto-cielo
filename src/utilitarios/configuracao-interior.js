@@ -1,17 +1,20 @@
 
 export const ObjetosInterior = {
     'Cafe': [
-        { imagem: 'lancheoneteBancada', x: 400, y: 300, escala: 0.5 },
-        { imagem: 'lancheonteMesa', x: 800, y: 500, escala: 0.5 },
-        { imagem: 'lancheonetePosters', x: 1200, y: 300, escala: 0.5 },
-        { imagem: 'lancheonetePrateleiras', x: 1600, y: 500, escala: 0.5 }
+        { imagem: 'lanchoneteBancada', x: 750, y: 360, escala: 0.8 },
+        { imagem: 'lanchoneteMesa', x: 350, y: 800, escala: 0.45 },
+        { imagem: 'lanchonetePosters', x: 1200, y: 200, escala: 0.3 },
+        { imagem: 'lanchonetePrateleiras', x: 1420, y: 750, escala: 0.55 }
     ],
     'Games': [
         { imagem: 'fliperama-azul', x: 200, y: 150, escala: 1.2 },
         { imagem: 'fliperama-vermelho', x: 280, y: 150, escala: 1.2 }
     ],
     'Autoescola': [
-        // Adicione os objetos da autoescola aqui usando o "clique mágico" para o X e Y
+        { imagem: 'autoEscolaBancada', x: 805, y: 360, escala: 0.6 },
+        { imagem: 'autoEscolaBanquinho', x: 1355, y: 550, escala: 0.35 },
+        { imagem: 'autoEscolaMesa', x: 1350, y: 700, escala: 0.4 },
+        { imagem: 'autoEscolaPlaca', x: 795, y: 65, escala: 0.5 }
     ],
     
     'Movel': [

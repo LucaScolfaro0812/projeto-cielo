@@ -10,7 +10,7 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
 
         this.esquerdaDireita = esquerdaDireita;
 
-        this.velocidade = 120;
+        this.velocidade = 500;
     }
 
     static preload(scene){
@@ -30,5 +30,8 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
 
     mover(){
         this.setVelocity((this.esquerdaDireita ? 1 : -1) * this.velocidade, 0);
+        if (this.x > this.scene.physics.world.bounds.width + (this.width/2)) {
+            this.x = 0 - (this.width/2);
+        }
     }
 }

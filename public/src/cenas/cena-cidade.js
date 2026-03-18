@@ -96,7 +96,7 @@ export class GameScene extends Phaser.Scene {
             {
                 nomeLoja: 'Pet',
                 cena: 'petScene',
-                bgScale: 3,
+                bgScale: 3.3,
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
@@ -104,11 +104,11 @@ export class GameScene extends Phaser.Scene {
                 npcX: 800,
                 npcY: 250,
 
-                portaX: 270,
-                portaY: 365,
+                portaX: 180,
+                portaY: 255,
 
-                playerX: 350,
-                playerY: 450,
+                playerX: 200,
+                playerY: 310,
             },
             {
                 nomeLoja: 'Movel',

@@ -1,4 +1,7 @@
-// Variantes de sprites de baloes disponiveis no projeto.
+/**
+ * Variantes de sprites de balões disponíveis no projeto.
+ * Cada variante tem uma chave única (usada no Phaser) e o caminho para o arquivo de imagem.
+ */
 export const VariantesBaloes = {
     baloes1: {
         chave: "baloes1",
@@ -18,22 +21,39 @@ export const VariantesBaloes = {
     }
 };
 
-// Configuracao visual por loja para uso no mapa externo.
+/**
+ * Configuração visual dos balões decorativos por loja.
+ * Cada entrada define qual variante de balão usar e como posicioná-los
+ * em relação à loja no mapa externo.
+ *
+ * Propriedades:
+ * - variante: qual sprite de balão usar (deve existir em VariantesBaloes)
+ * - offsetX: deslocamento horizontal em relação ao centro da loja
+ * - offsetY: deslocamento vertical em relação ao centro da loja (negativo = acima)
+ * - escala: tamanho do sprite (1 = tamanho original)
+ * - quantidade: número de balões exibidos acima da loja
+ * - espacamentoX: distância horizontal entre cada balão
+ */
 export const DecoracaoBaloesPorLoja = {
-    Cafe: { variante: "baloes1", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Games: { variante: "baloes2", offsetX: -80, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Beleza: { variante: "baloes3", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Roupas: { variante: "baloes5", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Pet: { variante: "baloes1", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Movel: { variante: "baloes2", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Frutaria: { variante: "baloes3", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Cafe:       { variante: "baloes1", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Games:      { variante: "baloes2", offsetX: -80, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Beleza:     { variante: "baloes3", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Roupas:     { variante: "baloes5", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Pet:        { variante: "baloes1", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Movel:      { variante: "baloes2", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Frutaria:   { variante: "baloes3", offsetX: -85, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
     Lanchonete: { variante: "baloes5", offsetX: -80, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Chocolate: { variante: "baloes1", offsetX: -75, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Pelucia: { variante: "baloes2", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Chocolate:  { variante: "baloes1", offsetX: -75, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
+    Pelucia:    { variante: "baloes2", offsetX: -90, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
     Autoescola: { variante: "baloes3", offsetX: -95, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 65 },
-    Joalheria: { variante: "baloes5", offsetX: -95, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 45 }
+    Joalheria:  { variante: "baloes5", offsetX: -95, offsetY: -300, escala: 0.45, quantidade: 3, espacamentoX: 45 }
 };
 
+/**
+ * Retorna a configuração de balões para uma loja específica.
+ * @param {string} nomeLoja - nome da loja (ex: "Cafe", "Pet")
+ * @returns {object|null} configuração de balões ou null se a loja não tiver decoração
+ */
 export function obterDecoracaoBaloesDaLoja(nomeLoja) {
     return DecoracaoBaloesPorLoja[nomeLoja] ?? null;
 }

@@ -1,48 +1,63 @@
+/**
+ * Cena de pausa do jogo.
+ * É exibida por cima da gameScene quando o jogador pressiona ESC.
+ * Oferece três opções: continuar o jogo, iniciar um novo jogo ou voltar ao menu principal.
+ */
 export class PauseScene extends Phaser.Scene {
+
+    /**
+     * Define a chave única da cena no Phaser.
+     */
     constructor() {
         super({ key: 'pauseScene' });
     }
 
+    /**
+     * Cria todos os elementos visuais do menu de pause:
+     * fundo escuro, título e botões de ação.
+     */
     create() {
+        // Pega as dimensões da tela para centralizar os elementos
         const largura = this.scale.width;
         const altura = this.scale.height;
 
-        // Fundo escuro semitransparente
+        // Fundo escuro semitransparente para escurecer o jogo por baixo
         this.add.rectangle(largura / 2, altura / 2, largura, altura, 0x000000, 0.6);
 
-        // Título
+        // Título do menu de pause centralizado no topo
         this.add.text(largura / 2, altura / 2 - 120, 'PAUSADO', {
             fontSize: '48px',
             fill: '#ffffff',
             fontStyle: 'bold'
         }).setOrigin(0.5);
 
-        // ESC fecha o pause e volta ao jogo
+        // Pressionar ESC novamente fecha o pause e retoma o jogo
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.resume('gameScene');
             this.scene.stop();
         });
 
-        // Botão Continuar
+        // Botão Continuar — retoma o jogo de onde parou
         this._criarBotao(largura / 2, altura / 2 - 20, 'Continuar', () => {
             this.scene.resume('gameScene');
             this.scene.stop();
         });
 
-        // Botão Novo Jogo
+        // Botão Novo Jogo — apaga o progresso salvo e reinicia o jogo do zero
         this._criarBotao(largura / 2, altura / 2 + 60, 'Novo Jogo', () => {
-            // Limpa todo o progresso salvo no localStorage
+            // Remove todas as chaves de progresso do localStorage
             localStorage.removeItem('npcsConquistadosQuantidade');
             localStorage.removeItem('npcsQuizAbertos');
             localStorage.removeItem('npcsConquistadosIds');
             localStorage.removeItem('perguntasJaFeitas');
 
+            // Para a cena de pause e reinicia a gameScene do zero
             this.scene.stop();
             this.scene.stop('gameScene');
             this.scene.start('gameScene');
         });
 
-        // Botão Menu
+        // Botão Menu — volta para a tela inicial do jogo
         this._criarBotao(largura / 2, altura / 2 + 140, 'Menu', () => {
             this.scene.stop();
             this.scene.stop('gameScene');
@@ -50,7 +65,13 @@ export class PauseScene extends Phaser.Scene {
         });
     }
 
-    // Cria um botão de texto clicável com efeito hover
+    /**
+     * Cria um botão de texto clicável com efeito de hover.
+     * @param {number} x - posição X do botão (centralizado)
+     * @param {number} y - posição Y do botão
+     * @param {string} texto - texto exibido no botão
+     * @param {Function} onClick - função chamada ao clicar no botão
+     */
     _criarBotao(x, y, texto, onClick) {
         const botao = this.add.text(x, y, texto, {
             fontSize: '32px',
@@ -59,11 +80,13 @@ export class PauseScene extends Phaser.Scene {
             padding: { x: 20, y: 10 }
         })
         .setOrigin(0.5)
-        .setInteractive({ useHandCursor: true });
+        .setInteractive({ useHandCursor: true }); // Muda o cursor para mão ao passar por cima
 
-        // Efeito hover
+        // Amarelo ao passar o mouse por cima
         botao.on('pointerover', () => botao.setStyle({ fill: '#ffff00' }));
+        // Volta ao branco ao tirar o mouse
         botao.on('pointerout', () => botao.setStyle({ fill: '#ffffff' }));
+        // Executa a ação ao clicar
         botao.on('pointerdown', onClick);
     }
 }

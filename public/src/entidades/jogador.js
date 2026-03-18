@@ -110,13 +110,19 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             movendo = true;
         }
 
+        // Calcula o módulo (comprimento) do vetor de força usando Pitágoras
+        // Isso é necessário para normalizar o vetor e evitar que o jogador
+        // ande mais rápido na diagonal (onde X e Y seriam somados sem normalizar)
         const modulo = Math.sqrt(forca[0] * forca[0] + forca[1] * forca[1]);
 
+        // Normaliza o vetor dividindo cada componente pelo módulo
+        // Após normalizar, o vetor tem comprimento 1 em qualquer direção
         if (modulo > 0) {
             forca[0] /= modulo;
             forca[1] /= modulo;
         }
 
+        // Multiplica o vetor normalizado pela velocidade para obter a velocidade final
         forca[0] *= this.velocidade;
         forca[1] *= this.velocidade;
 
@@ -158,7 +164,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
+    /**
+     * Cria as animações do jogador a partir dos frames de imagem carregados no preload.
+     * Verifica se a animação já existe antes de criar para evitar erros ao reiniciar a cena.
+     * @param {Phaser.Scene} cena - cena onde as animações serão registradas
+     */
     _criarAnimacoes(cena) {
+        // Animação de andar para os lados (usada tanto para esquerda quanto direita, com flip)
         if (!cena.anims.exists("andar-direita")) {
             cena.anims.create({
                 key: "andar-direita",
@@ -177,6 +189,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             });
         }
 
+        // Animação de andar para cima
         if (!cena.anims.exists("andar-cima")) {
             cena.anims.create({
                 key: "andar-cima",
@@ -193,6 +206,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             });
         }
 
+        // Animação de andar para baixo
         if (!cena.anims.exists("andar-baixo")) {
             cena.anims.create({
                 key: "andar-baixo",

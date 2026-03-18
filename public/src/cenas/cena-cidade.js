@@ -502,18 +502,20 @@ export class GameScene extends Phaser.Scene {
         // fórmula: ay = 2 * (yf - yi) / T²
         const ay = 2 * (yFinal - yInicial) / (duracao * duracao);
 
-        // posiciona o elemento no ponto inicial
+        // Posiciona o elemento no ponto inicial antes da animação começar
         elemento.x = xInicial;
         elemento.y = yInicial;
 
-        // guarda todos os dados necessários para o update calcular a posição a cada frame
+        // Guarda todos os dados da animação no próprio elemento.
+        // O método update() vai ler esses dados a cada frame para calcular a nova posição.
+        // t começa em 0 e avança até duracao.
         elemento._anim = {
-            xInicial,
-            yInicial,
-            vx,
-            ay,
-            duracao,
-            t: 0
+            xInicial, // posição X de partida
+            yInicial, // posição Y de partida
+            vx,       // velocidade constante no eixo X (MU)
+            ay,       // aceleração no eixo Y (MUV)
+            duracao,  // tempo total da animação em segundos
+            t: 0      // tempo acumulado desde o início da animação
         };
     }
 

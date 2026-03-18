@@ -116,26 +116,28 @@ Valores: Aprendizado contínuo, inovação responsável, colaboração em equipe
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
-A proposta de valor é uma parte essencial no desenvolvimento de um produto, porque mostra, de forma clara, como a solução realmente ajuda o cliente no dia a dia. Ela serve para entender quais problemas precisam ser resolvidos, quais benefícios fazem diferença de verdade e o que torna esse produto diferente dos outros. Quando bem definida, a proposta de valor ajuda a enxergar melhor quem é o público, o que ele precisa e o que espera, garantindo que o produto faça sentido na prática e entregue uma experiência mais útil, relevante e agradável.
+A proposta de valor é um elemento central no desenvolvimento de um produto, pois define de forma objetiva como a solução resolve problemas reais e gera benefícios concretos para o cliente. Mais do que uma descrição geral, ela orienta decisões do projeto ao deixar claro quais necessidades devem ser atendidas, quais dificuldades precisam ser superadas e quais diferenciais tornam o produto relevante em relação às alternativas existentes.
 
+Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
 **Ponto de vista do Cliente:**
-| Tarefas do cliente | Dores do cliente | Ganhos do cliente  |
-| ---- | --- | --- |
-|Se tornar um profissional mais capacitado | Dificuldade de locomoção | Boa qualidade de treinamento |
-| Aprender técnicas de venda | Desigualdade do ensino | Viabilidade do treinamento |
-| Se locomover até a central da Cielo | Forma de ensino ultrapassado | Ter boas vendas |
+| Tarefas do cliente                         | Dores do cliente                                     | Ganhos do cliente                               |
+| ------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------- |
+| Desenvolver habilidades práticas de vendas | Dificuldade de acesso a treinamentos presenciais     | Aprender com flexibilidade de tempo e local     |
+| Melhorar desempenho profissional           | Métodos de ensino pouco interativos e desatualizados | Conteúdo aplicável à prática de vendas          |
+| Participar de capacitações da empresa      | Desigualdade no acesso ao ensino de qualidade        | Evolução profissional mais rápida e consistente |
 
 **Mapa de valor:**
-| Produtos e serviços | Analgésicos | Criadores de ganhos |
-| ---- | --- | --- |
-| Jogo interativo | Igualdade de ensino  | Diversão e aprendizagem juntos |
-| Conteúdo de Qualidade | Aprender de qualquer lugar | Experiência com tecnologia |
-|Treinamento dinâmico de vendedores | Ensino Gamificado | Inclusão |
+| Produtos e serviços                        | Analgésicos (alívio das dores)                 | Criadores de ganhos                                          |
+| ------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
+| Jogo interativo de simulação de vendas     | Elimina a necessidade de deslocamento físico   | Aprendizado mais engajador por meio de desafios e missões    |
+| Plataforma digital acessível               | Permite acesso ao conteúdo de qualquer lugar   | Flexibilidade para aprender no próprio ritmo                 |
+| Treinamento gamificado com situações reais | Substitui métodos tradicionais pouco atrativos | Desenvolvimento prático de habilidades com feedback imediato |
+A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
-A imagem resume bem a proposta de valor do projeto ao mostrar como as necessidades do cliente se conectam com as soluções oferecidas. Ao analisar as tarefas, dores e ganhos dos usuários, fica mais claro entender os desafios que eles enfrentam, como a dificuldade de acesso a um ensino de qualidade e métodos pouco atrativos. A partir disso, o mapa de valor mostra como o produto foi pensado para ser uma alternativa mais acessível, dinâmica e eficiente, usando um jogo interativo como forma de aprendizado e desenvolvimento profissional.
+Diferente de abordagens convencionais, o uso de um jogo interativo permite que o usuário aprenda por meio da prática, simulando situações reais de vendas e recebendo feedback imediato sobre seu desempenho. Isso torna o processo mais dinâmico, aumenta o engajamento e contribui para uma aprendizagem mais efetiva.
 
-Assim, a solução não só resolve problemas já existentes, mas também ajuda os usuários a alcançarem melhores resultados, oferecendo uma experiência de aprendizado mais envolvente e inclusiva. A combinação de tecnologia, gamificação e conteúdo de qualidade fortalece a proposta do produto, gerando valor real tanto no processo de aprendizado quanto na melhoria do desempenho em vendas.
+Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao conhecimento, permitindo que mais pessoas se desenvolvam profissionalmente independentemente de sua localização. Dessa forma, a solução não apenas resolve problemas existentes, mas também potencializa os resultados dos usuários, tornando o aprendizado mais eficiente, inclusivo e alinhado às demandas do mercado.
 
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)

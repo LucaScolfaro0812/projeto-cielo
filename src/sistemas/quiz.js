@@ -86,7 +86,6 @@ export default class Quiz {
             lista.push(perguntaId);
             salvarDados(chavesArmazenamento.perguntasJaFeitas, lista);
         }
-        console.log("Salvando pergunta:", perguntaId);
     }
 
     _carregarNpcsConquistadosIds() {

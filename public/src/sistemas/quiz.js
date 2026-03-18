@@ -180,12 +180,20 @@ export default class Quiz {
     }
 
     pegarPerguntas() {
-        let perguntasQueJaForam = [];
-        let p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length - 1)];
-        while (perguntasQueJaForam.includes(p)) {
+        const perguntasJaFeitas = this._carregarPerguntasJaFeitas();
+
+        // Filtra as perguntas que ainda não foram feitas
+        const perguntasDisponiveis = perguntasNpc.filter(p => !perguntasJaFeitas.includes(p.id));
+
+        let p;
+
+        // recebe perguntas novas até esgotar o banco de perguntas.
+        if (perguntasDisponiveis.length > 0) {
+            p = perguntasDisponiveis[Phaser.Math.Between(0, perguntasDisponiveis.length - 1)];
+        } else {
+            // Quando todas já foram feitas, o sistema volta a sortear normalmente, evitando travar o quiz.
             p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length - 1)];
         }
-        console.log(p);
         return p;
     }
 

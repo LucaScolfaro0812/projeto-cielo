@@ -1,13 +1,16 @@
 export default class Carro extends Phaser.Physics.Arcade.Sprite {
-    constructor(cena, x, y){
-        super(cena, x, y, "carro.png", esquerdaDireita);
+    constructor(cena, x, y, esquerdaDireita){
+        super(cena, x, y, "carro", esquerdaDireita);
 
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
+        this.setScale(0.5);
+        this.setDepth(10);
+
         this.esquerdaDireita = esquerdaDireita;
 
-        this.velocidade = 20;
+        this.velocidade = 120;
     }
 
     static preload(scene){
@@ -26,6 +29,6 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
     }
 
     mover(){
-        this.setVelocity((this.esquerdaDireita ? 1 : -1) * velocidade, 0);
+        this.setVelocity((this.esquerdaDireita ? 1 : -1) * this.velocidade, 0);
     }
 }

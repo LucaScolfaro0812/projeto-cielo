@@ -50,6 +50,7 @@ export class PauseScene extends Phaser.Scene {
         });
     }
 
+    // Cria um botão de texto clicável com efeito hover
     _criarBotao(x, y, texto, onClick) {
         const botao = this.add.text(x, y, texto, {
             fontSize: '32px',

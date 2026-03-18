@@ -20,17 +20,12 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         scene.load.image('carro', "assets/imagens/ambiente/carro.png");
     }
 
-    ///////////////mover para cena cidade
-    overlap(){
-        /*this.physics.add.overlap(this.carro, this.player, () => {
-            // reiniciar
-        });*/
-    }
-    
+    // Atualiza o carro a cada frame
     update(){
         this.mover();
     }
 
+    // Move o carro horizontalmente em loop, reiniciando do outro lado quando sai da tela
     mover(){
         this.setVelocity((this.esquerdaDireita ? 1 : -1) * this.velocidade, 0);
         if (this.x > this.scene.physics.world.bounds.width + (this.width/2)) {

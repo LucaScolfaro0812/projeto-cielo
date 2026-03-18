@@ -343,24 +343,7 @@ export class GameScene extends Phaser.Scene {
                 this.player.morreu();
             });
         }
-        /*
-        // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
-        this.npc.setScale(0.5);
-
-        this.quiz.aplicarVisualConquistado(this.npc);
-        // Detecta sobreposição entre NPC e Player
-        this.physics.add.overlap(this.npc, this.player, () => {
-
-            // Se o NPC ainda não vendeu (condição de controle)
-            if (!this.npc.vendeu) {
-
-                // Inicia o quiz associado ao NPC
-                this.quiz.iniciar(this.npc);
-            }
-        });*/
-
-        //conecta collider com o player
+        // Conecta collider com o player
         if (this.corpoColisaoBancada) {
             this.physics.add.collider(this.player, this.corpoColisaoBancada);
         }
@@ -578,17 +561,15 @@ export class GameScene extends Phaser.Scene {
             // MU no eixo X: x(t) = xi + vx * t  (velocidade constante)
             balao.x = a.xInicial + a.vx * a.t;
 
-            // imprime posição e velocidade do eixo X (MU)
-            //console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
-
             // MUV no eixo Y: velocidade instantânea vy(t) = ay * t
             const vy = a.ay * a.t;
 
-            // posição Y pelo MUV: y(t) = yi + ½ * ay * t²
+            // Posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
-            // imprime posição, velocidade e aceleração do eixo Y (MUV)
-            //console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+            // Imprime posição, velocidade e aceleração de cada eixo a cada frame
+            console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
+            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 
             if (a.t >= a.duracao) {
                 balao._anim = null;

@@ -4,6 +4,7 @@ import Player from '../entidades/jogador.js';
 import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
 import { obterSpawnCidadePorLoja } from "../utilitarios/spawn-cidade.js";
 import Npc from '../entidades/npc.js';
+import Carro from '../entidades/carro.js';
 import Quiz from '../sistemas/quiz.js';
 import LojaFisica from '../entidades/loja-fisica.js';
 import LojaScene from '../cenas/cena-loja.js';
@@ -254,6 +255,7 @@ export class GameScene extends Phaser.Scene {
         Player.preload(this);
         Npc.preload(this);
         LojaFisica.preload(this);
+        Carro.preload(this);
     }
 
     // Método executado quando a cena é criada
@@ -323,6 +325,8 @@ export class GameScene extends Phaser.Scene {
             coordenadasSpawnCidade.y
         );
         this.player.setScale(0.8);
+
+        this.carrinho = new Carro(this, 1500, 1945, true);
         /*
         // Cria o NPC com suas perguntas associadas
         this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
@@ -519,6 +523,8 @@ export class GameScene extends Phaser.Scene {
 
         // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
+
+        this.carrinho.update();
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {

@@ -6,6 +6,7 @@ import Quiz from '../sistemas/quiz.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
 import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../sistemas/quiz-perguntas.js';
+import { ObjetosInterior } from '../utilitarios/configuracao-interior.js';
 
 // Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {
@@ -43,7 +44,99 @@ export default class LojaScene extends Phaser.Scene {
 
         // Carrega sprite da bancada da loja atual, se houver configuração
         this._precarregarBancadaDaLoja();
-    }
+
+
+        // --- AUTOESCOLA ---
+        this.load.image('autoEscolaBancada', 'assets/imagens/itens-lojas/autoEscolaBancada.png');
+        this.load.image('autoEscolaBanquinho', 'assets/imagens/itens-lojas/autoEscolaBanquinho.png');
+        this.load.image('autoEscolaMesa', 'assets/imagens/itens-lojas/autoEscolaMesa.png');
+        this.load.image('autoEscolaPlaca', 'assets/imagens/itens-lojas/autoEscolaPlaca.png');
+
+        // --- BRINQUEDOS (Pelúcia) ---
+        this.load.image('brinquedoBancada', 'assets/imagens/itens-lojas/brinquedoBancada.png');
+        this.load.image('brinquedoEstante', 'assets/imagens/itens-lojas/brinquedoEstante.png');
+        this.load.image('brinquedoLetreiro', 'assets/imagens/itens-lojas/brinquedoLetreiro.png');
+        this.load.image('brinquedoMesa', 'assets/imagens/itens-lojas/brinquedoMesa.png');
+        this.load.image('brinquedoPosters', 'assets/imagens/itens-lojas/brinquedoPosters.png');
+
+        // --- CHOCOLATE ---
+        this.load.image('chocolateBancada', 'assets/imagens/itens-lojas/chocolateBancada.png');
+        this.load.image('chocolateMesa', 'assets/imagens/itens-lojas/chocolateMesa.png');
+        this.load.image('chocolatePlaca', 'assets/imagens/itens-lojas/chocolatePlaca.png');
+
+        // --- DOCES MOMENTOS (Café/Lanchonete?) ---
+        this.load.image('docesMomentosBancada', 'assets/imagens/itens-lojas/docesMomentosBancada.png');
+        this.load.image('docesMomentosMesa1', 'assets/imagens/itens-lojas/docesMomentosMesa1.png');
+        this.load.image('docesMomentosMesa2', 'assets/imagens/itens-lojas/docesMomentosMesa2.png');
+
+        // --- FRUTARIA ---
+        this.load.image('frutaAbacaxi', 'assets/imagens/itens-lojas/frutaAbacaxi.png');
+        this.load.image('frutaCaixaFrutaVermelha', 'assets/imagens/itens-lojas/frutaCaixaFrutaVermelha.png');
+        this.load.image('frutaCestaDeFrutas', 'assets/imagens/itens-lojas/frutaCestaDeFrutas.png');
+        this.load.image('frutaFrutasVermelhas', 'assets/imagens/itens-lojas/frutaFrutasVermelhas.png');
+        this.load.image('frutaFrutaVerde', 'assets/imagens/itens-lojas/frutaFrutaVerde.png');
+        this.load.image('frutaMaçaLaranja', 'assets/imagens/itens-lojas/frutaMaçaLaranja.png');
+        this.load.image('frutaManga', 'assets/imagens/itens-lojas/frutaManga.png');
+        this.load.image('frutaMelão', 'assets/imagens/itens-lojas/frutaMelão.png');
+        this.load.image('frutaMesa', 'assets/imagens/itens-lojas/frutaMesa.png');
+        this.load.image('frutaPrateleira', 'assets/imagens/itens-lojas/frutaPrateleira.png');
+
+        // --- JOALHERIA ---
+        this.load.image('joalheriaBancada', 'assets/imagens/itens-lojas/joalheriaBancada.png');
+        this.load.image('joalheriaMesa', 'assets/imagens/itens-lojas/joalheriaMesa.png');
+
+        // --- LANCHONETE ---
+        this.load.image('lanchoneteBancada', 'assets/imagens/itens-lojas/lanchoneteBancada.png');
+        this.load.image('lanchoneteMesa', 'assets/imagens/itens-lojas/lanchoneteMesa.png');
+        this.load.image('lanchonetePosters', 'assets/imagens/itens-lojas/lanchonetePosters.png');
+        this.load.image('lanchonetePrateleiras', 'assets/imagens/itens-lojas/lanchonetePrateleiras.png');
+
+        // --- MODA (Roupas) ---
+        this.load.image('modaArmarios1', 'assets/imagens/itens-lojas/modaArmarios1.png');
+        this.load.image('modaArmarios2', 'assets/imagens/itens-lojas/modaArmarios2.png');
+        this.load.image('modaBancada', 'assets/imagens/itens-lojas/modaBancada.png');
+        this.load.image('modaEspelho', 'assets/imagens/itens-lojas/modaEspelho.png');
+        this.load.image('modaManiquins', 'assets/imagens/itens-lojas/modaManiquins.png');
+        this.load.image('modaMesa', 'assets/imagens/itens-lojas/modaMesa.png');
+        this.load.image('modaSapatos', 'assets/imagens/itens-lojas/modaSapatos.png');
+
+        // --- MÓVEIS ---
+        this.load.image('moveisBancada', 'assets/imagens/itens-lojas/moveisBancada.png');
+        this.load.image('moveisCadeiras', 'assets/imagens/itens-lojas/moveisCadeiras.png');
+        this.load.image('moveisEstanteLuminárias', 'assets/imagens/itens-lojas/moveisEstanteLuminárias.png');
+        this.load.image('moveisImpressora', 'assets/imagens/itens-lojas/moveisImpressora.png');
+        this.load.image('moveisMesa1', 'assets/imagens/itens-lojas/moveisMesa1.png');
+        this.load.image('moveisMesa2', 'assets/imagens/itens-lojas/moveisMesa2.png');
+        this.load.image('moveisPoltrona', 'assets/imagens/itens-lojas/moveisPoltrona.png');
+        this.load.image('moveisSofas', 'assets/imagens/itens-lojas/moveisSofas.png');
+
+        // --- PETSHOP ---
+        this.load.image('petshopAquario', 'assets/imagens/itens-lojas/petshopAquario.png');
+        this.load.image('petshopBancada', 'assets/imagens/itens-lojas/petshopBancada.png');
+        this.load.image('petshopGaiolas', 'assets/imagens/itens-lojas/petshopGaiolas.png');
+        this.load.image('petshopMesa', 'assets/imagens/itens-lojas/petshopMesa.png');
+        this.load.image('petshopPrateleiras', 'assets/imagens/itens-lojas/petshopPrateleiras.png');
+
+        // --- SALÃO DE BELEZA ---
+        this.load.image('salaodebelezaBancada', 'assets/imagens/itens-lojas/salaodebelezaBancada.png');
+        this.load.image('salaodebelezaCadeira1', 'assets/imagens/itens-lojas/salaodebelezaCadeira1.png');
+        this.load.image('salaodebelezaCadeira2', 'assets/imagens/itens-lojas/salaodebelezaCadeira2.png');
+        this.load.image('salaodebelezaCadeirasCabelo', 'assets/imagens/itens-lojas/salaodebelezaCadeirasCabelo.png');
+        this.load.image('salaodebelezaCadeirasCabeloCortar', 'assets/imagens/itens-lojas/salaodebelezaCadeirasCabeloCortar.png'); 
+        this.load.image('salaodebelezaMesa', 'assets/imagens/itens-lojas/salaodebelezaMesa.png');
+        this.load.image('salaodebelezaToalhas', 'assets/imagens/itens-lojas/salaodebelezaToalhas.png');
+
+        // --- VIDEOGAME (Games) ---
+        this.load.image('videogameBancada', 'assets/imagens/itens-lojas/videogameBancada.png');
+        this.load.image('videogameEstante', 'assets/imagens/itens-lojas/videogameEstante.png');
+        this.load.image('videogameFliperama1', 'assets/imagens/itens-lojas/videogameFliperama1.png');
+        this.load.image('videogameFliperama2', 'assets/imagens/itens-lojas/videogameFliperama2.png');
+        this.load.image('videogameFliperama3', 'assets/imagens/itens-lojas/videogameFliperama3.png');
+        this.load.image('videogameFliperamaDeLado', 'assets/imagens/itens-lojas/videogameFliperamaDeLado.png');
+        this.load.image('videogameMesa', 'assets/imagens/itens-lojas/videogameMesa.png');
+        this.load.image('videogameMesaNerd', 'assets/imagens/itens-lojas/videogameMesaNerd.png');
+}
+
 
     // Executado quando a cena é criada
     create() {
@@ -63,6 +156,12 @@ export default class LojaScene extends Phaser.Scene {
             let worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
             console.log(`Coordenadas -> X: ${Math.round(worldPoint.x)}, Y: ${Math.round(worldPoint.y)}`);
 });
+
+            this.objetosFisicos = this.physics.add.staticGroup(); // Grupo para objetos que não se movem
+            this._criarMobiliario();
+
+            // Colisão geral do jogador com todos os móveis da loja
+            this.physics.add.collider(this.player, this.objetosFisicos);
     }
 
     /**
@@ -247,4 +346,30 @@ export default class LojaScene extends Phaser.Scene {
         // Atualiza lógica do NPC (caso haja comportamento futuro)
         this.npc.update();
     }
+
+    _criarMobiliario() {
+    // Busca a lista de objetos da loja atual (usando o this.nomeDaLoja que você já tem)
+    const listaObjetos = ObjetosInterior[this.nomeDaLoja];
+
+    // Se não houver configuração para esta loja ainda, apenas sai da função
+    if (!listaObjetos) return;
+
+    // Passa por cada objeto da lista e adiciona na cena
+    listaObjetos.forEach(config => {
+        // Adiciona a imagem no grupo estático (já vem com física imóvel)
+        let movel = this.objetosFisicos.create(config.x, config.y, config.imagem);
+        
+        // Aplica a escala (se existir na config, senão usa 1)
+        if (config.escala) movel.setScale(config.escala);
+
+        // Ajuste da caixa de colisão (hitbox) para o efeito 3D top-down
+        if (config.hitWidth && config.hitHeight) {
+            movel.body.setSize(config.hitWidth, config.hitHeight);
+            
+            if (config.offsetX !== undefined && config.offsetY !== undefined) {
+                movel.body.setOffset(config.offsetX, config.offsetY);
+            }
+        }
+    });
+}
 }

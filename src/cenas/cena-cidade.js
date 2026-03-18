@@ -187,8 +187,8 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
 
-                npcX: 600,
-                npcY: 300,
+                npcX: 750,
+                npcY: 285,
 
                 portaX: 255,
                 portaY: 250,
@@ -304,7 +304,7 @@ export class GameScene extends Phaser.Scene {
         });
 
         console.log('Lembrar de retirar');
-        this.scene.start('autoEscolaScene');
+        this.scene.start('peluciaScene');
 
     }
 

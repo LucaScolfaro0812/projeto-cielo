@@ -2,7 +2,7 @@
 
 export const MapaSpawnCidade = {
     // Define o fallback do spawn na cidade caso não exista loja válida.
-    Padrao: { x: 1500, y: 1800 },
+    Padrao: { x: 1500, y: 1600 },
 
     // Cria o dicionário de spawns por loja.
     PorLoja: {

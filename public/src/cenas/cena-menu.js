@@ -67,37 +67,37 @@ export class menuScene extends Phaser.Scene {
 
         botaoJogar.setInteractive({ useHandCursor: true });
 
+        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoJogar.on('pointerover', () => {
-
             botaoJogar.setStyle({
                 backgroundColor: '#6FB7FF',
                 color: '#1B2A4A'
             });
-
-            botaoJogar.setScale(1.05);
+            botaoJogar.setScale(1.05); // leve aumento de tamanho ao hover
         });
 
+        // Restaura a cor original ao tirar o mouse
         botaoJogar.on('pointerout', () => {
-
             botaoJogar.setStyle({
                 backgroundColor: '#001caa',
                 color: '#ffffff'
             });
-
             botaoJogar.setScale(1);
         });
 
+        // Inicia o jogo ao clicar
         botaoJogar.on('pointerdown', () => {
             this.scene.start('gameScene');
         });
 
+        // Animação de flutuação suave do botão (sobe e desce em loop)
         this.tweens.add({
             targets: botaoJogar,
-            y: botaoJogar.y - 6,
-            duration: 900,
-            yoyo: true,
-            repeat: -1,
-            ease: 'Sine.easeInOut'
+            y: botaoJogar.y - 6,  // desloca 6px para cima
+            duration: 900,         // tempo de ida em ms
+            yoyo: true,            // volta automaticamente à posição original
+            repeat: -1,            // repete infinitamente
+            ease: 'Sine.easeInOut' // suaviza o movimento
         });
 
         // ===============================
@@ -111,30 +111,30 @@ export class menuScene extends Phaser.Scene {
 
         botaoTutorial.setInteractive({ useHandCursor: true });
 
+        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoTutorial.on('pointerover', () => {
-
             botaoTutorial.setStyle({
                 backgroundColor: '#6FB7FF',
                 color: '#1B2A4A'
             });
-
             botaoTutorial.setScale(1.05);
         });
 
+        // Restaura a cor original ao tirar o mouse
         botaoTutorial.on('pointerout', () => {
-
             botaoTutorial.setStyle({
                 backgroundColor: '#001caa',
                 color: '#ffffff'
             });
-
             botaoTutorial.setScale(1);
         });
 
+        // Abre a cena de tutorial ao clicar
         botaoTutorial.on('pointerdown', () => {
             this.scene.start('tutorialScene');
         });
 
+        // Animação de flutuação suave do botão (sobe e desce em loop)
         this.tweens.add({
             targets: botaoTutorial,
             y: botaoTutorial.y - 6,

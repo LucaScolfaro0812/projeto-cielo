@@ -53,16 +53,19 @@ export default class Quiz {
         // Permite customização futura do tempo por pergunta
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
     }
+    // Carrega do localStorage a lista de NPCs que já abriram o quiz anteriormente
     _carregarNpcsQuizAbertos() {
         const lista = carregarDados(chavesArmazenamento.npcsQuizAbertos, []);
         return Array.isArray(lista) ? lista : [];
     }
 
+    // Verifica se um NPC específico já abriu o quiz (pelo seu ID)
     _npcJaAbriuQuiz(idNpc) {
         if (!idNpc) return false;
         return this._carregarNpcsQuizAbertos().includes(idNpc);
     }
 
+    // Registra no localStorage que um NPC abriu o quiz, evitando duplicatas
     _marcarNpcQuizComoAberto(idNpc) {
         if (!idNpc) return;
         const lista = this._carregarNpcsQuizAbertos();
@@ -86,19 +89,21 @@ export default class Quiz {
             lista.push(perguntaId);
             salvarDados(chavesArmazenamento.perguntasJaFeitas, lista);
         }
-        console.log("Salvando pergunta:", perguntaId);
     }
 
+    // Carrega do localStorage a lista de IDs de NPCs já conquistados pelo jogador
     _carregarNpcsConquistadosIds() {
         const lista = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
         return Array.isArray(lista) ? lista : [];
     }
 
+    // Verifica se um NPC já foi conquistado pelo jogador (pelo seu ID)
     _npcJaConquistado(idNpc) {
         if (!idNpc) return false;
         return this._carregarNpcsConquistadosIds().includes(idNpc);
     }
 
+    // Registra no localStorage que um NPC foi conquistado, evitando duplicatas
     _marcarNpcComoConquistado(idNpc) {
         if (!idNpc) return;
         const lista = this._carregarNpcsConquistadosIds();

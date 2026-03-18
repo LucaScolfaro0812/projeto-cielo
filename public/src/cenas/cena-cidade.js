@@ -335,28 +335,18 @@ export class GameScene extends Phaser.Scene {
         );
         this.player.setScale(0.8);
 
-        this.carrinho = new Carro(this, 0, 1945, true);
-        this.physics.add.overlap(this.carrinho, this.player, () => {
-            this.player.morreu();
-        });
-        /*
-        // Cria o NPC com suas perguntas associadas
-        this.npc = new Npc(this, 800, 1800, perguntasNpcRua, "npc-vermelho", "npc_rua", "Chocolate");
-        this.npc.setScale(0.5);
-
-        this.quiz.aplicarVisualConquistado(this.npc);
-        // Detecta sobreposição entre NPC e Player
-        this.physics.add.overlap(this.npc, this.player, () => {
-
-            // Se o NPC ainda não vendeu (condição de controle)
-            if (!this.npc.vendeu) {
-
-                // Inicia o quiz associado ao NPC
-                this.quiz.iniciar(this.npc);
-            }
-        });*/
-
-        //conecta collider com o player
+        this.carrinho = [];
+        this.carrinho[0] = new Carro(this, 0, 1945, true);
+        
+        for(let i = 0; i < 3; i++){
+            this.carrinho[i] = new Carro(this, i * 1250, 1945, true);
+        }
+        for(let i = 0; i < this.carrinho.length; i++){
+            this.physics.add.overlap(this.carrinho[i], this.player, () => {
+                this.player.morreu();
+            });
+        }
+        // Conecta collider com o player
         if (this.corpoColisaoBancada) {
             this.physics.add.collider(this.player, this.corpoColisaoBancada);
         }
@@ -515,18 +505,20 @@ export class GameScene extends Phaser.Scene {
         // fórmula: ay = 2 * (yf - yi) / T²
         const ay = 2 * (yFinal - yInicial) / (duracao * duracao);
 
-        // posiciona o elemento no ponto inicial
+        // Posiciona o elemento no ponto inicial antes da animação começar
         elemento.x = xInicial;
         elemento.y = yInicial;
 
-        // guarda todos os dados necessários para o update calcular a posição a cada frame
+        // Guarda todos os dados da animação no próprio elemento.
+        // O método update() vai ler esses dados a cada frame para calcular a nova posição.
+        // t começa em 0 e avança até duracao.
         elemento._anim = {
-            xInicial,
-            yInicial,
-            vx,
-            ay,
-            duracao,
-            t: 0
+            xInicial, // posição X de partida
+            yInicial, // posição Y de partida
+            vx,       // velocidade constante no eixo X (MU)
+            ay,       // aceleração no eixo Y (MUV)
+            duracao,  // tempo total da animação em segundos
+            t: 0      // tempo acumulado desde o início da animação
         };
     }
 
@@ -536,7 +528,9 @@ export class GameScene extends Phaser.Scene {
         // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
 
-        this.carrinho.update();
+        for(let i = 0; i < this.carrinho.length; i++){
+            this.carrinho[i].update();
+        }
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {
@@ -572,17 +566,15 @@ export class GameScene extends Phaser.Scene {
             // MU no eixo X: x(t) = xi + vx * t  (velocidade constante)
             balao.x = a.xInicial + a.vx * a.t;
 
-            // imprime posição e velocidade do eixo X (MU)
-            //console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
-
             // MUV no eixo Y: velocidade instantânea vy(t) = ay * t
             const vy = a.ay * a.t;
 
-            // posição Y pelo MUV: y(t) = yi + ½ * ay * t²
+            // Posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
-            // imprime posição, velocidade e aceleração do eixo Y (MUV)
-            //console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+            // Imprime posição, velocidade e aceleração de cada eixo a cada frame
+            console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
+            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 
             if (a.t >= a.duracao) {
                 balao._anim = null;

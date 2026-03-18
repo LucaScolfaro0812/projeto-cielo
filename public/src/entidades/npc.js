@@ -29,9 +29,6 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         this.cena = cena;
 
 
-        // Impede que o NPC saia dos limites do mundo
-        //this.setCollideWorldBounds(true);
-
         // Ajusta a escala visual do NPC
         this.setScale(0.3);
         this.setOrigin(0.5, 0.5);

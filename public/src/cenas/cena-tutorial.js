@@ -42,26 +42,25 @@ export class tutorialScene extends Phaser.Scene {
 
         botaoSair.setInteractive({ useHandCursor: true });
 
+        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoSair.on('pointerover', () => {
-
             botaoSair.setStyle({
                 backgroundColor: '#6FB7FF',
                 color: '#1B2A4A'
             });
-
             botaoSair.setScale(1.05);
         });
 
+        // Restaura a cor original ao tirar o mouse
         botaoSair.on('pointerout', () => {
-
             botaoSair.setStyle({
                 backgroundColor: '#001caa',
                 color: '#ffffff'
             });
-
             botaoSair.setScale(1);
         });
 
+        // Inicia o jogo ao clicar em sair do tutorial
         botaoSair.on('pointerdown', () => {
             this.scene.start('gameScene');
         });

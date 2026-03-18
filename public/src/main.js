@@ -2,6 +2,7 @@
 import { menuScene } from './cenas/cena-menu.js';
 import { GameScene } from './cenas/cena-cidade.js';
 import { tutorialScene } from './cenas/cena-tutorial.js';
+import { PauseScene } from './cenas/cena-pause.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -39,7 +40,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [menuScene, tutorialScene, GameScene]
+    scene: [menuScene, tutorialScene, GameScene, PauseScene]
 };
 
 // Criação da instância principal do jogo

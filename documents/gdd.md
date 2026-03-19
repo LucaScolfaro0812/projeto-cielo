@@ -168,11 +168,11 @@ Este sprint teve como foco aprimorar a experiência do jogador, tornando o jogo 
 
 Deixar o jogo mais divertido e dinâmico.
 
-- **Meta (SMART):**
-  _Específica:_ Melhorar a experiência do jogador com a adição de novas mecânicas, animações e efeitos sonoros, além de validar a percepção dos usuários.
-  _Mensurável:_ Implementar melhorias técnicas e alcançar indicadores positivos de engajamento e satisfação.
-  _Alcançável:_ Utilizando os recursos da equipe de desenvolvimento e testes com usuários.
-  _Relevante:_ Aumenta a retenção, engajamento e qualidade da experiência no jogo.
+- **Meta (SMART):**<br>
+  _Específica:_ Melhorar a experiência do jogador com a adição de novas mecânicas, animações e efeitos sonoros, além de validar a percepção dos usuários.<br>
+  _Mensurável:_ Implementar melhorias técnicas e alcançar indicadores positivos de engajamento e satisfação.<br>
+  _Alcançável:_ Utilizando os recursos da equipe de desenvolvimento e testes com usuários.<br>
+  _Relevante:_ Aumenta a retenção, engajamento e qualidade da experiência no jogo.<br>
   _Temporal:_ Concluir até o final da Sprint 4.
 
 - **Indicadores de desempenho (Key Results):**

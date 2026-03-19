@@ -142,7 +142,11 @@ Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao con
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-_Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento._
+A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam seu desempenho no jogo.
+
+A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento e melhorar a performance em vendas, alinhando-se às necessidades reais do parceiro.
+
+
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 

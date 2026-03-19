@@ -153,8 +153,8 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
 
-                npcX: 600,
-                npcY: 280,
+                npcX: 730,
+                npcY: 248,
 
                 portaX: 230,
                 portaY: 225,

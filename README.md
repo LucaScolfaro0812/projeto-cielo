@@ -13,11 +13,11 @@
 ## 👨‍🎓 Integrantes:
 - <a href="https://www.linkedin.com/in/gabriel-gomes-pimentel/">Gabriel Gomes Pimentel</a>
 - <a href="https://www.linkedin.com/in/tiago-brun-de-arruda-17959a3a9/">Tiago Brun de Arruda</a>
-- Beatriz Sofia Freitas Sena
+- <a href="https://www.linkedin.com/in/sofia-freitas-80a96538b/">Beatriz Sofia Freitas Sena</a>
 - <a href="https://www.linkedin.com/in/fernanda-steiner-938806313/">Fernanda Jawetz Steiner</a>
-- Vinícius da Silva Alves
+- <a href="https://www.linkedin.com/in/vinícius-alves-04227a306/">Vinícius da Silva Alves</a>
 - <a href="https://www.linkedin.com/in/luca-scolfaro-06b5563a9/">Luca do Val Scolfaro</a>
-- Cassio Reis Costa
+- <a href="https://www.linkedin.com/in/tiago-brun-de-arruda-17959a3a9/">Cassio Reis Costa</a>
 - <a href="https://www.linkedin.com/in/leonardo-galdino-carioca-braz-15256133a/">Leonardo Galdino Carioca Braz</a>
 
 ## 👩‍🏫 Professores:
@@ -40,10 +40,11 @@ As Aventuras de Marcielo é um jogo educacional desenvolvido em Phaser 3 onde o 
 
 ```
 g05/
-├── documents/          → documentação do projeto
-|
-├── public/             → código e assets do jogo (servido pelo GitLab Pages)
-│   
+├── .vscode
+├── documents       
+├── public
+├── src\scenes
+├── .gitlab-ci.yml   
 └── README.md
 ```
 

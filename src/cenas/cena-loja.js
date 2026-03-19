@@ -306,6 +306,9 @@ export default class LojaScene extends Phaser.Scene {
         else if (this.nomeLoja === 'Joalheria') {
             this.npc.setDepth(101); 
         }
+        else if (this.nomeLoja === 'Cafe') {
+            this.npc.setDepth(101); 
+        }
         
     
 

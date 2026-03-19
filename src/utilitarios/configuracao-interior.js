@@ -7,6 +7,22 @@ export const ObjetosInterior = {
         { imagem: 'lanchonetePrateleiras', x: 1380, y: 600, escala: 0.55 }
     ],
 
+    'Cafe': [
+        { imagem: 'docesMomentosBancada', x: 850, y: 320, escala: 0.9 },
+        { imagem: 'docesMomentosMesa1', x: 400, y: 800, escala: 0.42 },
+        { imagem: 'docesMomentosMesa2', x: 1250, y: 800, escala: 0.42 },
+    ],
+
+    'Games': [
+        { imagem: 'videogameBancada', x: 200, y: 150, escala: 1.2 },
+        { imagem: 'videogameEstante', x: 280, y: 150, escala: 1.2 },
+        { imagem: 'videogameFliperama1', x: 1200, y: 200, escala: 0.3 },
+        { imagem: 'videogameFliperama2', x: 1420, y: 750, escala: 0.55 },
+        { imagem: 'videogameFliperama3', x: 800, y: 100, escala: 0.45 },
+        { imagem: 'videogameFliperamaDeLado', x: 350, y: 750, escala: 0.35 },
+        { imagem: 'videogameMesa', x: 1300, y: 100, escala: 0.25 }
+    ],
+
     'Beleza': [
         { imagem: 'salaodebelezaBancada', x: 800, y: 400, escala: 0.4 },
         { imagem: 'salaodebelezaMesa', x: 350, y: 780, escala: 0.7 },

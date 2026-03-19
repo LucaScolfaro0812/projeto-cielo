@@ -7,6 +7,16 @@ export const ObjetosInterior = {
         { imagem: 'lanchonetePrateleiras', x: 1380, y: 600, escala: 0.55 }
     ],
 
+    'Beleza': [
+        { imagem: 'salaodebelezaBancada', x: 800, y: 400, escala: 0.4 },
+        { imagem: 'salaodebelezaMesa', x: 350, y: 780, escala: 0.7 },
+        { imagem: 'salaodebelezaCadeira1', x: 170, y: 700, escala: 0.55},
+        { imagem: 'salaodebelezaCadeira2', x: 190, y: 880, escala: 0.55 },
+        { imagem: 'salaodebelezaCadeirasCabelo', x: 1450, y: 420, escala: 0.5 },
+        { imagem: 'salaodebelezaCadeirasCabeloCortar', x: 1450, y: 780, escala: 0.5 },
+        { imagem: 'salaodebelezaToalhas', x: 1220, y: 480, escala: 0.4 }
+    ],
+
     'Roupas': [
         { imagem: 'modaBancada', x: 750, y: 350, escala: 0.45 },
         { imagem: 'modaMesa', x: 830, y: 780, escala: 0.6 },

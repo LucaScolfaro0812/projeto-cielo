@@ -16,6 +16,7 @@ Cassio Reis Costa <br>
 Leonardo Galdino Carioca Braz <br>
 
 ## Link Do Jogo
+
 https://git.inteli.edu.br/graduacao/2026-1a/t28/g05/pages#overview
 
 ## Sumário
@@ -49,54 +50,62 @@ A Cielo atua no mercado brasileiro de adquirência, com modelo baseado em MDR e 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
 #### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
+
 A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
 #### 1.1.1.1.2 Ameaça de Produtos ou Serviços Substitutos (nível: alto)
+
 A ameaça de substitutos é alta. O Pix se consolidou como alternativa central aos pagamentos com cartão, reduzindo fricções de custo e prazo para parte dos lojistas e consumidores. Em paralelo, bancos digitais, marketplaces com pagamento embutido e carteiras digitais ampliam a substituição de soluções tradicionais de adquirência, sobretudo em segmentos sensíveis a taxa e experiência digital. Isso pressiona o modelo baseado em MDR e exige inovação contínua em serviços de valor agregado (Banco Central do Brasil, 2024; ABECS, 2024; Reuters, 2026).
 
 #### 1.1.1.1.3 Poder de Barganha dos Fornecedores (nível: moderado a alto)
+
 O poder de barganha dos fornecedores é moderado a alto, variando por grupo. Bandeiras (Visa, Mastercard, Elo e American Express) possuem poder elevado por definirem padrões e regras operacionais críticas. Bancos emissores e parceiros de liquidação têm poder moderado, enquanto fornecedores de tecnologia (antifraude, gateways e infraestrutura) tendem a moderado-alto devido ao custo de substituição e dependência técnica. Já hardware e telecom apresentam poder moderado. Esse arranjo impacta custos, prazos e capacidade de inovação das adquirentes (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
 #### 1.1.1.1.4 Poder de Barganha dos Clientes (nível: alto)
+
 A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commerce, autônomos e segmentos como bares e restaurantes. O poder de barganha desse grupo é alto, pois há ampla oferta de provedores, baixa barreira de troca e forte sensibilidade a taxa, prazo de recebimento e qualidade de serviço. A expansão do Pix reforça essa pressão competitiva e aumenta a exigência por propostas de valor mais completas, com serviços financeiros e integração digital (Cielo S.A., 2024; Banco Central do Brasil, 2024; Reuters, 2026).
 
 #### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
+
 A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
 Nesta seção, a matriz SWOT contextualiza o posicionamento competitivo da Cielo no mercado brasileiro de adquirência, considerando sua escala operacional, estrutura de custos, pressão competitiva e oportunidades de crescimento em serviços de maior valor agregado. A análise combina fatores internos (forças e fraquezas) e externos (oportunidades e ameaças) para apoiar decisões estratégicas relacionadas a inovação, eficiência operacional, retenção de clientes e adaptação ao avanço do Pix e da digitalização dos meios de pagamento.
 
-| FORÇAS (STRENGTHS) | FRAQUEZAS (WEAKNESSES) |
-| :--- | :--- |
-| **Escala e Capilaridade:** Presença em 99% dos municípios brasileiros e sólida infraestrutura de processamento. | **Dependência Bancária:** Estrutura de governança dividida entre BB e Bradesco, o que pode tornar a decisão estratégica lenta. |
-| **Apoio de Acionistas:** Suporte financeiro e de distribuição através das redes de agências do Banco do Brasil e Bradesco. | **Margens sob Pressão:** Redução do lucro líquido recorrente devido à necessidade de baixar taxas para manter clientes. |
-| **Inovação em Produtos:** Investimentos crescentes em tecnologia (IA, pagamentos via celular/TAP e biometria). | **Perda de Market Share:** Dificuldade em reter fatia de mercado frente a competidores nativos digitais mais ágeis. |
-| **Ecossistema Completo:** Oferta de serviços além da captura, como gestão de dados e antecipação de recebíveis. | **Estrutura de Custos:** Custos fixos elevados herdados do modelo tradicional de aluguel de máquinas físicas. |
+| FORÇAS (STRENGTHS)                                                                                                         | FRAQUEZAS (WEAKNESSES)                                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **Escala e Capilaridade:** Presença em 99% dos municípios brasileiros e sólida infraestrutura de processamento.            | **Dependência Bancária:** Estrutura de governança dividida entre BB e Bradesco, o que pode tornar a decisão estratégica lenta. |
+| **Apoio de Acionistas:** Suporte financeiro e de distribuição através das redes de agências do Banco do Brasil e Bradesco. | **Margens sob Pressão:** Redução do lucro líquido recorrente devido à necessidade de baixar taxas para manter clientes.        |
+| **Inovação em Produtos:** Investimentos crescentes em tecnologia (IA, pagamentos via celular/TAP e biometria).             | **Perda de Market Share:** Dificuldade em reter fatia de mercado frente a competidores nativos digitais mais ágeis.            |
+| **Ecossistema Completo:** Oferta de serviços além da captura, como gestão de dados e antecipação de recebíveis.            | **Estrutura de Custos:** Custos fixos elevados herdados do modelo tradicional de aluguel de máquinas físicas.                  |
 
 <br>
 
-| OPORTUNIDADES (OPPORTUNITIES) | AMEAÇAS (THREATS) |
-| :--- | :--- |
+| OPORTUNIDADES (OPPORTUNITIES)                                                                                                                                                                                                                | AMEAÇAS (THREATS)                                                                                                                                                                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Monetização de Dados:** Utilização estratégica de inteligência de dados (ICVA) para converter informações em valor, oferecendo consultoria especializada e produtos personalizados que atendam às demandas específicas do mercado moderno. | **Consolidação do Pix:** O avanço acelerado do Pix no mercado brasileiro reduz drasticamente a receita vinda de taxas de cartões de débito tradicionais, exigindo novas estratégias de monetização para as instituições financeiras. |
-| **Expansão em PMEs:** Foco intensivo na aceleração do volume de transações e no fortalecimento da presença junto a Pequenas e Médias Empresas, visando escala e maior capilaridade no setor. | **Guerra das Maquininhas:** Existe uma competição extremamente agressiva de taxas com empresas consolidadas como Stone, PagBank e Getnet, o que pressiona as margens de lucro e força a busca por diferenciais competitivos. |
-| **Digitalização do Varejo:** Fomento ao crescimento contínuo do e-commerce através da implementação de soluções inovadoras de pagamento invisível, eliminando fricções e otimizando a jornada de compra do consumidor final. |**Regulação e Cibersegurança:** Observamos um aumento significativo nos custos operacionais com segurança digital e adaptação às novas normas rígidas impostas pelo Banco Central. |
-
+| **Expansão em PMEs:** Foco intensivo na aceleração do volume de transações e no fortalecimento da presença junto a Pequenas e Médias Empresas, visando escala e maior capilaridade no setor.                                                 | **Guerra das Maquininhas:** Existe uma competição extremamente agressiva de taxas com empresas consolidadas como Stone, PagBank e Getnet, o que pressiona as margens de lucro e força a busca por diferenciais competitivos.         |
+| **Digitalização do Varejo:** Fomento ao crescimento contínuo do e-commerce através da implementação de soluções inovadoras de pagamento invisível, eliminando fricções e otimizando a jornada de compra do consumidor final.                 | **Regulação e Cibersegurança:** Observamos um aumento significativo nos custos operacionais com segurança digital e adaptação às novas normas rígidas impostas pelo Banco Central.                                                   |
 
 ---
+
 ### Análise SWOT
 
-
 #### **1. Forças (Strengths)**
+
 A Cielo S.A. fundamenta sua liderança de mercado em uma escala operacional massiva, atingindo 99% dos municípios brasileiros. Esta robustez é amplificada pela aliança estratégica com seus controladores, o Banco do Brasil e o Bradesco, que proporcionam um canal de distribuição capilar e reduzem drasticamente o custo de aquisição de clientes (Cielo S.A., 2024). Além disso, a companhia detém uma infraestrutura tecnológica resiliente, capaz de processar bilhões de transações com alta segurança e baixa latência.
 
 #### **2. Fraquezas (Weaknesses)**
+
 Apesar de sua solidez, a complexidade da estrutura de governança dividida entre dois grandes bancos tradicionais é uma fraqueza que pode comprometer a agilidade estratégica. Em um mercado dinâmico, essa lentidão burocrática dificulta a resposta a inovações disruptivas quando comparada a rivais ágeis e nativos digitais como Stone e PagBank (Moraes & Silva, 2021). Outro ponto crítico é a manutenção de uma estrutura de custos fixos elevada, focada em terminais físicos (POS), enquanto o setor migra progressivamente para soluções de software.
 
 #### **3. Oportunidades (Opportunities)**
+
 A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidade única de monetização através da inteligência de negócios. Por meio do ICVA (Índice Cielo do Varejo), a empresa pode converter informações em consultoria estratégica para lojistas e indústrias, criando novas linhas de receita (Cielo S.A., 2024). Há também um campo fértil para a expansão de serviços financeiros integrados, como a oferta de crédito personalizado e a antecipação de recebíveis.
 
 #### **4. Ameaças (Threats)**
+
 A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2024). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2024).
 
 ---
@@ -113,7 +122,6 @@ Visão: Desenvolver uma solução digital prática e eficaz, que contribua para 
 
 Valores: Aprendizado contínuo, inovação responsável, colaboração em equipe e compromisso com impacto educacional.
 
-
 ### 1.1.4. Proposta de Valor (sprint 4)
 
 A proposta de valor é um elemento central no desenvolvimento de um produto, pois define de forma objetiva como a solução resolve problemas reais e gera benefícios concretos para o cliente. Mais do que uma descrição geral, ela orienta decisões do projeto ao deixar claro quais necessidades devem ser atendidas, quais dificuldades precisam ser superadas e quais diferenciais tornam o produto relevante em relação às alternativas existentes.
@@ -121,17 +129,17 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
 **Ponto de vista do Cliente:**
-| Tarefas do cliente                         | Dores do cliente                                     | Ganhos do cliente                               |
+| Tarefas do cliente | Dores do cliente | Ganhos do cliente |
 | ------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------- |
-| Desenvolver habilidades práticas de vendas | Dificuldade de acesso a treinamentos presenciais     | Aprender com flexibilidade de tempo e local     |
-| Melhorar desempenho profissional           | Métodos de ensino pouco interativos e desatualizados | Conteúdo aplicável à prática de vendas          |
-| Participar de capacitações da empresa      | Desigualdade no acesso ao ensino de qualidade        | Evolução profissional mais rápida e consistente |
+| Desenvolver habilidades práticas de vendas | Dificuldade de acesso a treinamentos presenciais | Aprender com flexibilidade de tempo e local |
+| Melhorar desempenho profissional | Métodos de ensino pouco interativos e desatualizados | Conteúdo aplicável à prática de vendas |
+| Participar de capacitações da empresa | Desigualdade no acesso ao ensino de qualidade | Evolução profissional mais rápida e consistente |
 
 **Mapa de valor:**
-| Produtos e serviços                        | Analgésicos (alívio das dores)                 | Criadores de ganhos                                          |
+| Produtos e serviços | Analgésicos (alívio das dores) | Criadores de ganhos |
 | ------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
-| Jogo interativo de simulação de vendas     | Elimina a necessidade de deslocamento físico   | Aprendizado mais engajador por meio de desafios e missões    |
-| Plataforma digital acessível               | Permite acesso ao conteúdo de qualquer lugar   | Flexibilidade para aprender no próprio ritmo                 |
+| Jogo interativo de simulação de vendas | Elimina a necessidade de deslocamento físico | Aprendizado mais engajador por meio de desafios e missões |
+| Plataforma digital acessível | Permite acesso ao conteúdo de qualquer lugar | Flexibilidade para aprender no próprio ritmo |
 | Treinamento gamificado com situações reais | Substitui métodos tradicionais pouco atrativos | Desenvolvimento prático de habilidades com feedback imediato |
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
@@ -139,14 +147,11 @@ Diferente de abordagens convencionais, o uso de um jogo interativo permite que o
 
 Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao conhecimento, permitindo que mais pessoas se desenvolvam profissionalmente independentemente de sua localização. Dessa forma, a solução não apenas resolve problemas existentes, mas também potencializa os resultados dos usuários, tornando o aprendizado mais eficiente, inclusivo e alinhado às demandas do mercado.
 
-
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
 A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam seu desempenho no jogo.
 
 A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento e melhorar a performance em vendas, alinhando-se às necessidades reais do parceiro.
-
-
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
@@ -154,7 +159,60 @@ _Registre na matriz os riscos identificados no projeto, visando avaliar situaç�
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-_Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração_
+**Descrição geral:**
+Este sprint teve como foco aprimorar a experiência do jogador, tornando o jogo mais divertido e dinâmico por meio de melhorias estruturais e validação com usuários.
+
+---
+
+#### 🔹 Objetivo 1:
+
+Deixar o jogo mais divertido e dinâmico.
+
+- **Meta (SMART):**
+  _Específica:_ Melhorar a experiência do jogador com a adição de novas mecânicas, animações e efeitos sonoros, além de validar a percepção dos usuários.
+  _Mensurável:_ Implementar melhorias técnicas e alcançar indicadores positivos de engajamento e satisfação.
+  _Alcançável:_ Utilizando os recursos da equipe de desenvolvimento e testes com usuários.
+  _Relevante:_ Aumenta a retenção, engajamento e qualidade da experiência no jogo.
+  _Temporal:_ Concluir até o final da Sprint 4.
+
+- **Indicadores de desempenho (Key Results):**
+  - Indicador 1: Número de mecânicas implementadas
+    - Fórmula/forma de medição: Contagem de mecânicas adicionadas ao jogo
+    - Meta esperada: Aumentar de 4 para no mínimo 7 mecânicas
+
+  - Indicador 2: Número de animações adicionadas
+    - Fórmula/forma de medição: Contagem de animações implementadas
+    - Meta esperada: ≥ 5 animações
+
+  - Indicador 3: Número de efeitos sonoros implementados
+    - Fórmula/forma de medição: Contagem de efeitos sonoros distintos no jogo
+    - Meta esperada: ≥ 13 efeitos sonoros (mínimo de 1 por ambiente)
+
+  - Indicador 4: Tempo médio de sessão dos jogadores
+    - Fórmula/forma de medição: Média de tempo (em minutos) por sessão de jogo
+    - Meta esperada: Aumento de ≥ 20% em relação ao sprint anterior
+
+  - Indicador 5: Índice de satisfação dos usuários
+    - Fórmula/forma de medição: Média das avaliações em testes (escala de 1 a 5)
+    - Meta esperada: ≥ 4,0
+
+---
+
+### 📊 Resumo dos Indicadores do Sprint
+
+| Objetivo | Indicador               | Meta  | Resultado Alcançado | Status |
+| -------- | ----------------------- | ----- | ------------------- | ------ |
+| Obj. 1   | Mecânicas               | ≥ 7   |                     |        |
+| Obj. 1   | Animações               | ≥ 5   |                     |        |
+| Obj. 1   | Sons                    | ≥ 13  |                     |        |
+| Obj. 1   | Tempo médio de sessão   | +20%  |                     |        |
+| Obj. 1   | Satisfação dos usuários | ≥ 4,0 |                     |        |
+
+---
+
+### 📌 Observações
+
+Além das entregas técnicas, este sprint passou a considerar indicadores de impacto no usuário, permitindo avaliar não apenas o que foi desenvolvido, mas também a efetividade das melhorias na experiência do jogador. Esses dados servirão como base para decisões mais estratégicas nos próximos sprints.
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
@@ -162,32 +220,32 @@ Esta seção apresenta os requisitos do sistema, organizados em requisitos funci
 
 ### 1.2.1. Requisitos Funcionais
 
-| ID | Requisito Funcional | Descrição |
-| --- | --- | --- |
-| RF01 | Menu inicial | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo. |
-| RF02 | Menu de configurações e novo jogo | O sistema deve disponibilizar um menu de configurações com opção para ajustar o volume do jogo e um botão de novo jogo, responsável por iniciar uma nova partida apagando os dados do jogo anterior. |
-| RF03 | Progresso da sessão | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação. |
-| RF04 | Tutorial inicial | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida. |
-| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido. |
-| RF06 | Sistema de variáveis do cliente | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador. |
-| RF07 | Sistema de pontuação | O sistema deve calcular automaticamente a pontuação considerando escolhas do quiz e estado de humor do cliente ao final da interação. |
-| RF08 | Painel de desempenho em tempo real | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão. |
-| RF09 | Interação com NPCs | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes. |
-| RF10 | Navegação em mundo aberto | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes. |
-| RF11 | Sistema de feedback educativo | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
+| ID   | Requisito Funcional                | Descrição                                                                                                                                                                                                                                                                                                                                        |
+| ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RF01 | Menu inicial                       | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                                                       |
+| RF02 | Menu de configurações e novo jogo  | O sistema deve disponibilizar um menu de configurações com opção para ajustar o volume do jogo e um botão de novo jogo, responsável por iniciar uma nova partida apagando os dados do jogo anterior.                                                                                                                                             |
+| RF03 | Progresso da sessão                | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação.                                                                                                                                                                                                                   |
+| RF04 | Tutorial inicial                   | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida.                                                                                                                                                                        |
+| RF05 | Sistema de quizzes de negociação   | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido.                                            |
+| RF06 | Sistema de variáveis do cliente    | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                                                                                     |
+| RF07 | Sistema de pontuação               | O sistema deve calcular automaticamente a pontuação considerando escolhas do quiz e estado de humor do cliente ao final da interação.                                                                                                                                                                                                            |
+| RF08 | Painel de desempenho em tempo real | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão.                                                                                                                                                                        |
+| RF09 | Interação com NPCs                 | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                                                                                                                                      |
+| RF10 | Navegação em mundo aberto          | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                                                                                                                                                  |
+| RF11 | Sistema de feedback educativo      | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
 
 ### 1.2.2. Requisitos Não Funcionais
 
-| ID | Requisito Não Funcional | Descrição |
-| --- | --- | --- |
-| RNF01 | Ambiente gráfico | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
-| RNF02 | Plataforma de execução | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional. |
-| RNF03 | Usabilidade e linguagem | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo. |
-| RNF04 | Interface do usuário | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador. |
-| RNF05 | Identidade visual | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto. |
-| RNF06 | Acessibilidade | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários. |
-| RNF07 | Desempenho | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho. |
-| RNF08 | Acessibilidade operacional | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais. |
+| ID    | Requisito Não Funcional    | Descrição                                                                                                                                                   |
+| ----- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RNF01 | Ambiente gráfico           | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
+| RNF02 | Plataforma de execução     | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                |
+| RNF03 | Usabilidade e linguagem    | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                     |
+| RNF04 | Interface do usuário       | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador.                                          |
+| RNF05 | Identidade visual          | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto.                                       |
+| RNF06 | Acessibilidade             | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários.                         |
+| RNF07 | Desempenho                 | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                          |
+| RNF08 | Acessibilidade operacional | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                           |
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
@@ -230,6 +288,7 @@ Interpretação de perfis de clientes
 Estratégias de marketing e negociação
 
 Comunicação clara e assertiva
+
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)
@@ -270,8 +329,6 @@ Aproximadamente 15 minutos.
 <p>Ao percorrer a cidade, o mascote entra nas lojas e inicia contato com os clientes, que começam vestindo camiseta vermelha, indicando que ainda não foram convencidos ou não possuem relação com a Cielo. Cada interação possui tempo limitado para resposta, simulando a pressão do mundo real, onde o lojista busca objetividade e clareza. Durante o atendimento, o jogador precisa responder perguntas sobre produtos, lidar com dúvidas e superar objeções. Além disso, há um indicador de conversão do cliente, que mostra se a condução da venda está sendo positiva ou não. Não basta apenas fechar a venda; é necessário gerar confiança e segurança.</p>
 <p>Conforme o jogador avança, os clientes se tornam mais exigentes e as perguntas mais complexas, aumentando o nível de desafio. Quando a venda é bem conduzida e o cliente se sente seguro, a camiseta muda de vermelho para azul, representando que ele se tornou cliente Cielo. Essa transformação visual simboliza não apenas a conversão, mas também o impacto da boa argumentação e do conhecimento aplicado corretamente. À medida que mais clientes se tornam azuis, a cidade passa a representar crescimento, consolidação e fortalecimento da presença da Cielo naquele ambiente.</p>
 
-
-
 ## 3.2. Personagens (sprints 2 e 3)
 
 ### 3.2.1. Controláveis
@@ -302,33 +359,29 @@ Aproximadamente 15 minutos.
 
 <p><strong>Impacto esperado:</strong> A diversidade intencional nos personagens produz dois efeitos principais. Primeiro, amplia a identificação do jogador com o universo do jogo: vendedores de diferentes origens reconhecem nos clientes representações próximas à realidade que vivenciam. Segundo, reforça de forma implícita o valor da inclusão no relacionamento comercial, comunicando que os produtos da Cielo são relevantes para todos os perfis de estabelecimento, independentemente de quem seja o proprietário. Ao normalizar essa diversidade dentro da mecânica de treinamento, o jogo contribui para desenvolver uma postura comercial mais empática e culturalmente sensível nos colaboradores da Cielo.</p>
 
-
 ## 3.3. Mundo do jogo (sprints 2 e 3)
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
 <p>O ambiente do jogo será estruturado de forma simples e objetiva, a fim de garantir que o jogador compreenda com clareza para onde deve se dirigir, evitando a perda de tempo ao se deslocar pelo mapa sem propósito. O cenário será composto por uma pequena cidade, organizada em 6 quadras com 2 lojas em cada uma, totalizando 12 lojas que funcionarão como os principais ambientes do jogo. No interior desses estabelecimentos ocorrerão as negociações e as vendas dos produtos da Cielo.</p>
 
-Segue abaixo o mapa: 
+Segue abaixo o mapa:
 
 <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width = 250>
-
-
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
 <p>O personagem terá acesso a todas as lojas do mapa, podendo se locomover entre elas livremente. Ao chegar a uma loja, entrará no ambiente interno, onde realizará a negociação e a venda do produto ao cliente. Após a conclusão da venda, o personagem sairá da loja correspondente e seguirá para a próxima, dando continuidade ao processo e buscando novos clientes ao longo do mapa.</p>
 
-
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-Não se aplica 
+Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
 <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width = 300>
 
-Figura 1: desenhos dos clientes feito a mão 
+Figura 1: desenhos dos clientes feito a mão
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
@@ -350,11 +403,11 @@ Esses recursos funcionam como indicadores de progresso e apoio à tomada de deci
 
 **Itens e Recursos Implementados**
 
-| Nº | Item / Recurso                 | Como obter / ativar                                         | Função no jogo                           | Impacto no desempenho                    |
-| -- | ------------------------------ | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 1  | Tempo de Atendimento           | Inicia automaticamente ao começar a interação com o cliente | Limita o tempo disponível para responder | Estimula decisões rápidas e estratégicas |
-| 2  | Nível de Conversão do Cliente  | Alterado conforme as respostas escolhidas                   | Mede o avanço da negociação              | Influencia o resultado da interação      |
-| 3  | Feedback de Desempenho         | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
+| Nº  | Item / Recurso                | Como obter / ativar                                         | Função no jogo                           | Impacto no desempenho                    |
+| --- | ----------------------------- | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| 1   | Tempo de Atendimento          | Inicia automaticamente ao começar a interação com o cliente | Limita o tempo disponível para responder | Estimula decisões rápidas e estratégicas |
+| 2   | Nível de Conversão do Cliente | Alterado conforme as respostas escolhidas                   | Mede o avanço da negociação              | Influencia o resultado da interação      |
+| 3   | Feedback de Desempenho        | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
 
 **Descrição dos Itens e Recursos**
 
@@ -403,14 +456,14 @@ Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a n
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-| Comando                 | Tipo de Entrada | Ação Executada                         | Consequência no Jogo                                          |
-| ----------------------- | --------------- | -------------------------------------- | ------------------------------------------------------------- |
-| W                       | Teclado         | Move o personagem para cima            | Permite navegação pelo mapa                                   |
-| A                       | Teclado         | Move o personagem para a esquerda      | Permite navegação pelo mapa                                   |
-| S                       | Teclado         | Move o personagem para baixo           | Permite navegação pelo mapa                                   |
-| D                       | Teclado         | Move o personagem para a direita       | Permite navegação pelo mapa                                   |
-| Aproximação do NPC      | Movimento       | Colisão com o NPC dentro da loja       | Inicia automaticamente o diálogo de negociação (quiz)         |
-| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz          | Afeta o nível de conversão do cliente e o resultado da venda |
+| Comando                 | Tipo de Entrada | Ação Executada                    | Consequência no Jogo                                         |
+| ----------------------- | --------------- | --------------------------------- | ------------------------------------------------------------ |
+| W                       | Teclado         | Move o personagem para cima       | Permite navegação pelo mapa                                  |
+| A                       | Teclado         | Move o personagem para a esquerda | Permite navegação pelo mapa                                  |
+| S                       | Teclado         | Move o personagem para baixo      | Permite navegação pelo mapa                                  |
+| D                       | Teclado         | Move o personagem para a direita  | Permite navegação pelo mapa                                  |
+| Aproximação do NPC      | Movimento       | Colisão com o NPC dentro da loja  | Inicia automaticamente o diálogo de negociação (quiz)        |
+| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz     | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -430,19 +483,19 @@ A combinação de MU no eixo X com MUV no eixo Y resulta numa **trajetória para
 
 Parâmetros de entrada da função `animarElemento`:
 
-| Parâmetro | Descrição | Valor no jogo |
-| --- | --- | --- |
-| $x_i$ | Posição X inicial do balão | 40px à esquerda da posição final |
-| $y_i$ | Posição Y inicial do balão | 300px abaixo da posição final |
-| $x_f$ | Posição X final do balão | Posição decorativa sobre a loja |
-| $y_f$ | Posição Y final do balão | Posição decorativa sobre a loja |
-| $T$ | Duração total da animação em segundos | 2,0s (1º balão), 2,3s (2º), 2,6s (3º) |
+| Parâmetro | Descrição                             | Valor no jogo                         |
+| --------- | ------------------------------------- | ------------------------------------- |
+| $x_i$     | Posição X inicial do balão            | 40px à esquerda da posição final      |
+| $y_i$     | Posição Y inicial do balão            | 300px abaixo da posição final         |
+| $x_f$     | Posição X final do balão              | Posição decorativa sobre a loja       |
+| $y_f$     | Posição Y final do balão              | Posição decorativa sobre a loja       |
+| $T$       | Duração total da animação em segundos | 2,0s (1º balão), 2,3s (2º), 2,6s (3º) |
 
 Variável interna de execução (não é parâmetro de entrada):
 
-| Variável | Descrição |
-| --- | --- |
-| $t$ | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update` com `dt = delta / 1000`. Varia de $0$ até $T$. |
+| Variável | Descrição                                                                                                                                              |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| $t$      | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update` com `dt = delta / 1000`. Varia de $0$ até $T$. |
 
 ### 3.8.3. Modelagem Matemática
 
@@ -503,13 +556,13 @@ O termo $rac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no
 
 Usando valores reais do jogo para o primeiro balão da Pet Shop ($T = 2{,}0$ s):
 
-| Parâmetro | Valor |
-| --- | --- |
-| $x_i$ | $360$ px |
-| $y_i$ | $700$ px |
-| $x_f$ | $400$ px |
-| $y_f$ | $400$ px |
-| $T$ | $2{,}0$ s |
+| Parâmetro | Valor     |
+| --------- | --------- |
+| $x_i$     | $360$ px  |
+| $y_i$     | $700$ px  |
+| $x_f$     | $400$ px  |
+| $y_f$     | $400$ px  |
+| $T$       | $2{,}0$ s |
 
 **Calculando as constantes de movimento:**
 
@@ -520,12 +573,12 @@ $$a_y = \frac{2 \cdot (400 - 700)}{2{,}0^2} = \frac{2 \cdot (-300)}{4} = -150 \t
 **Posições em instantes intermediários:**
 
 | $t$ (s) | $x(t)$ (px) | $v_x$ (px/s) | $y(t)$ (px) | $v_y(t)$ (px/s) | $\Delta y$ (px) |
-| --- | --- | --- | --- | --- | --- |
-| 0,0 | 360 | 20 | 700 | 0 | — |
-| 0,5 | 370 | 20 | 681 | −75 | −19 |
-| 1,0 | 380 | 20 | 625 | −150 | −56 |
-| 1,5 | 390 | 20 | 531 | −225 | −94 |
-| 2,0 | 400 | 20 | 400 | −300 | −131 |
+| ------- | ----------- | ------------ | ----------- | --------------- | --------------- |
+| 0,0     | 360         | 20           | 700         | 0               | —               |
+| 0,5     | 370         | 20           | 681         | −75             | −19             |
+| 1,0     | 380         | 20           | 625         | −150            | −56             |
+| 1,5     | 390         | 20           | 531         | −225            | −94             |
+| 2,0     | 400         | 20           | 400         | −300            | −131            |
 
 Observando a coluna $\Delta y$ (deslocamento vertical a cada 0,5 s): 19 → 56 → 94 → 131 px. Os valores crescem a cada intervalo, confirmando que o balão **acelera** no eixo Y — característica central do MUV. No eixo X, o balão avança sempre 10 px a cada 0,5 s, confirmando o **MU**.
 
@@ -545,20 +598,22 @@ console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
 // MUV — eixo Y: y(t) = yi + ½ * ay * t²
 const vy = a.ay * a.t;
 balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
-console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
+console.log(
+  `[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`,
+);
 ```
 
 A animação para quando `t >= duracao`, momento em que o balão está exatamente sobre a loja.
 
 ### 3.8.6. Glossário
 
-| Termo | Significado |
-| --- | --- |
-| **Frame** | Uma "fotografia" do jogo. O jogo roda tipicamente a 60 frames por segundo — a cada frame, todas as posições são recalculadas e a tela é redesenhada. |
-| **`update`** | Método chamado automaticamente pelo Phaser a cada frame. É onde a lógica de movimento é executada continuamente. |
-| **`dt` (delta time)** | Tempo em segundos que passou desde o último frame. Usado para que a animação tenha a mesma velocidade independente do desempenho do computador. |
-| **Pixel (px)** | Unidade de medida de posição no jogo. Um pixel corresponde a um ponto na grade do mapa. |
-| **Coordenadas do Phaser** | Sistema onde o ponto (0, 0) fica no canto superior esquerdo da tela, X cresce para a direita e Y cresce para baixo. |
+| Termo                     | Significado                                                                                                                                          |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frame**                 | Uma "fotografia" do jogo. O jogo roda tipicamente a 60 frames por segundo — a cada frame, todas as posições são recalculadas e a tela é redesenhada. |
+| **`update`**              | Método chamado automaticamente pelo Phaser a cada frame. É onde a lógica de movimento é executada continuamente.                                     |
+| **`dt` (delta time)**     | Tempo em segundos que passou desde o último frame. Usado para que a animação tenha a mesma velocidade independente do desempenho do computador.      |
+| **Pixel (px)**            | Unidade de medida de posição no jogo. Um pixel corresponde a um ponto na grade do mapa.                                                              |
+| **Coordenadas do Phaser** | Sistema onde o ponto (0, 0) fica no canto superior esquerdo da tela, X cresce para a direita e Y cresce para baixo.                                  |
 
 ### 3.8.7. Fonte
 
@@ -569,33 +624,34 @@ HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecâ
 ## 4.1. Desenvolvimento preliminar do jogo (sprint 1)
 
 Primeira Versão do Jogo (MVP)
+
 1. Visão Geral
-Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
-Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
-O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
+   Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
+   Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
+   O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
 2. Ambiente do Jogo
-Ao iniciar o jogo, o jogador visualiza:
-Um cenário urbano em estilo pixel art
-Rua com faixa de pedestre
-Prédios comerciais
-Estabelecimentos que representam possíveis empresas ou clientes
-Um personagem controlável
-Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
+   Ao iniciar o jogo, o jogador visualiza:
+   Um cenário urbano em estilo pixel art
+   Rua com faixa de pedestre
+   Prédios comerciais
+   Estabelecimentos que representam possíveis empresas ou clientes
+   Um personagem controlável
+   Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
 3. Funcionalidades Atuais
-Na versão atual, o jogador pode:
-Controlar o personagem
-Movimentar-se pelo mapa
-Explorar o cenário
-Neste momento, o jogo funciona como um espaço explorável.
-Ainda não existem interações comerciais ativas.
+   Na versão atual, o jogador pode:
+   Controlar o personagem
+   Movimentar-se pelo mapa
+   Explorar o cenário
+   Neste momento, o jogo funciona como um espaço explorável.
+   Ainda não existem interações comerciais ativas.
 
 4. Funcionalidades Planejadas (Ainda Não Implementadas)
-A proposta completa do jogo é ser um simulador de negociação comercial.
-Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
-4.1 Sistema de Cards
-Durante uma negociação, o jogador escolheria respostas em formato de cards.
-Cada card representaria um argumento estratégico diferente.
-Esse sistema ainda não foi implementado.
+   A proposta completa do jogo é ser um simulador de negociação comercial.
+   Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
+   4.1 Sistema de Cards
+   Durante uma negociação, o jogador escolheria respostas em formato de cards.
+   Cada card representaria um argumento estratégico diferente.
+   Esse sistema ainda não foi implementado.
 
 4.2 Tempo de Resposta
 O jogador teria tempo limitado para responder às falas do cliente (exemplo: 15 segundos), simulando pressão real de negociação.
@@ -629,14 +685,12 @@ Esse nível representará que o usuário está devidamente qualificado para exer
 Essa certificação gamificada ainda não foi implementada.
 
 5. Objetivo do MVP
-Esta primeira versão foi criada para:
-Construir a base visual do projeto
-Testar a movimentação do personagem
-Estruturar o ambiente onde ocorrerão as futuras negociações
-Criar a fundação técnica para o desenvolvimento completo
-O foco desta versão é estrutural, não funcional.
-
-
+   Esta primeira versão foi criada para:
+   Construir a base visual do projeto
+   Testar a movimentação do personagem
+   Estruturar o ambiente onde ocorrerão as futuras negociações
+   Criar a fundação técnica para o desenvolvimento completo
+   O foco desta versão é estrutural, não funcional.
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
@@ -786,8 +840,8 @@ Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
 
 . Implementação do interior das lojas e das portas para entrar nelas.
 
-
 ### Critérios de pronto
+
 Uma funcionalidade foi considerada concluída quando atendeu aos seguintes critérios:
 . Funcionamento correto durante a execução do jogo;
 
@@ -829,9 +883,6 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 . Mudar o tempo durante o quiz.
 
-
-
-
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
 _Descreva e ilustre aqui o desenvolvimento da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e planos futuros._
@@ -850,30 +901,29 @@ Nos testes do quiz, o indicador principal passa a ser a barra de conversão. Qua
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
-
-| # | pré-condição | descrição do teste | pós-condição |
-| :--- | :--- | :--- | :--- |
-| 1 | Jogo aberto na tela inicial | Clicar no botão "Jogar" | O jogo deve iniciar |
-| 2 | Jogo na tela inicial | Clicar no botão "Configurações" | A tela de configurações deve abrir |
-| 3 | Jogo na tela inicial | Clicar no botão "Tutorial" | Deve abrir uma interface intuitiva que explica as mecânicas, o objetivo do jogo e como jogar |
-| 4 | Jogo com personagem parado | Pressionar D | Personagem deve se mover para a direita |
-| 5 | Jogo com personagem parado | Pressionar A | Personagem deve se mover para a esquerda |
-| 6 | Jogo com personagem parado | Pressionar W | Personagem deve se mover para cima |
-| 7 | Jogo com personagem parado | Pressionar S | Personagem deve se mover para baixo |
-| 8 | Personagem próximo de uma loja | Encostou na porta | Personagem entra no estabelecimento |
-| 9 | Personagem perto de um NPC | Colisão com o NPC dentro da loja | Interface de conversa (quiz) inicia automaticamente |
-| 10 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta | A barra de conversão aumenta |
-| 11 | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta | A barra de conversão diminui |
-| 12 | Conversão na faixa verde (última pergunta) | Responder de forma a manter ou elevar a conversão | Cliente é conquistado e negociação é concluída com sucesso |
-| 13 | Conversão na faixa verde (última pergunta) | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída |
-| 14 | Conversão na faixa laranja (última pergunta) | Responder incorretamente e reduzir a conversão para faixa vermelha | Cliente não é conquistado |
-| 15 | Conversão na faixa vermelha (última pergunta) | Responder incorretamente ou manter desempenho ruim | Cliente não é conquistado |
-| 16 | Conversão na faixa vermelha (última pergunta) | Responder corretamente, mas sem sair da faixa vermelha | Cliente não é conquistado |
-| 17 | Conversão na faixa vermelha (última pergunta) | Responder corretamente e elevar para faixa laranja ou verde | Cliente é conquistado |
-| 18 | Tempo limite da interação acabando | Tempo limite termina | Usuário perde o cliente e volta para o mapa |
-| 19 | Negociação finalizada com sucesso ou falha | Resultado da interação é definido | Sistema exibe feedback do resultado da negociação |
-| 20 | Perto de um cliente já conquistado | Se aproxima | Nada acontece, cliente permanece com camiseta azul |
-| 21 | Tempo limite do jogo acabando | O tempo acaba | A gameplay se encerra |
+| #   | pré-condição                                              | descrição do teste                                                      | pós-condição                                                                                 |
+| :-- | :-------------------------------------------------------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| 1   | Jogo aberto na tela inicial                               | Clicar no botão "Jogar"                                                 | O jogo deve iniciar                                                                          |
+| 2   | Jogo na tela inicial                                      | Clicar no botão "Configurações"                                         | A tela de configurações deve abrir                                                           |
+| 3   | Jogo na tela inicial                                      | Clicar no botão "Tutorial"                                              | Deve abrir uma interface intuitiva que explica as mecânicas, o objetivo do jogo e como jogar |
+| 4   | Jogo com personagem parado                                | Pressionar D                                                            | Personagem deve se mover para a direita                                                      |
+| 5   | Jogo com personagem parado                                | Pressionar A                                                            | Personagem deve se mover para a esquerda                                                     |
+| 6   | Jogo com personagem parado                                | Pressionar W                                                            | Personagem deve se mover para cima                                                           |
+| 7   | Jogo com personagem parado                                | Pressionar S                                                            | Personagem deve se mover para baixo                                                          |
+| 8   | Personagem próximo de uma loja                            | Encostou na porta                                                       | Personagem entra no estabelecimento                                                          |
+| 9   | Personagem perto de um NPC                                | Colisão com o NPC dentro da loja                                        | Interface de conversa (quiz) inicia automaticamente                                          |
+| 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta                            | A barra de conversão aumenta                                                                 |
+| 11  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta                         | A barra de conversão diminui                                                                 |
+| 12  | Conversão na faixa verde (última pergunta)                | Responder de forma a manter ou elevar a conversão                       | Cliente é conquistado e negociação é concluída com sucesso                                   |
+| 13  | Conversão na faixa verde (última pergunta)                | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída                                               |
+| 14  | Conversão na faixa laranja (última pergunta)              | Responder incorretamente e reduzir a conversão para faixa vermelha      | Cliente não é conquistado                                                                    |
+| 15  | Conversão na faixa vermelha (última pergunta)             | Responder incorretamente ou manter desempenho ruim                      | Cliente não é conquistado                                                                    |
+| 16  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente, mas sem sair da faixa vermelha                  | Cliente não é conquistado                                                                    |
+| 17  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente e elevar para faixa laranja ou verde             | Cliente é conquistado                                                                        |
+| 18  | Tempo limite da interação acabando                        | Tempo limite termina                                                    | Usuário perde o cliente e volta para o mapa                                                  |
+| 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
+| 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
+| 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra                                                                        |
 
 Fonte: elaborado pelo grupo.
 
@@ -908,54 +958,53 @@ _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
 # <a name="c7"></a>7. Referências
 
-ABECS. (2024). *Balanço do setor de meios de pagamento*. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
+ABECS. (2024). _Balanço do setor de meios de pagamento_. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
 
-Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
+Banco Central do Brasil. (2023). _Relatório de economia bancária 2023_. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
+Banco Central do Brasil. (2024). _Relatório de vigilância do sistema de pagamentos brasileiro_. https://www.bcb.gov.br
 
-Banco Central do Brasil. (2025). *Relatórios de estabilidade e vigilância do SPB*. https://www.bcb.gov.br/publicacoes
+Banco Central do Brasil. (2025). _Relatórios de estabilidade e vigilância do SPB_. https://www.bcb.gov.br/publicacoes
 
-Cielo S.A. (2023). *Relatório anual e demonstrações financeiras 2023*. https://ri.cielo.com.br
+Cielo S.A. (2023). _Relatório anual e demonstrações financeiras 2023_. https://ri.cielo.com.br
 
-Cielo S.A. (2024). *Informações institucionais e dados operacionais*. https://www.cielo.com.br
+Cielo S.A. (2024). _Informações institucionais e dados operacionais_. https://www.cielo.com.br
 
-Cielo S.A. (2025). *Portal de relações com investidores*. https://ri.cielo.com.br/
+Cielo S.A. (2025). _Portal de relações com investidores_. https://ri.cielo.com.br/
 
-ClickPetróleo e Gás. (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix*. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
+ClickPetróleo e Gás. (2025). _Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix_. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
 
-CNN Brasil. (2025). *A guerra das maquininhas e a disputa no mercado de adquirentes*. https://www.cnnbrasil.com.br
+CNN Brasil. (2025). _A guerra das maquininhas e a disputa no mercado de adquirentes_. https://www.cnnbrasil.com.br
 
-IBGE. (2022). *Censo demográfico 2022: Primeiros resultados*. https://www.ibge.gov.br/censo2022
+IBGE. (2022). _Censo demográfico 2022: Primeiros resultados_. https://www.ibge.gov.br/censo2022
 
-Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. https://doi.org/10.7819/rbgn.v23i2.4104
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. _Revista Brasileira de Gestão e Negócios_. https://doi.org/10.7819/rbgn.v23i2.4104
 
-PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*. https://www.pagbank.com.br
+PagBank. (2024). _Relatório institucional e atuação no mercado de pagamentos_. https://www.pagbank.com.br
 
-PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
+PagSeguro Digital Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.pagseguro.com
 
-Reuters. (2026, 10 de fevereiro). *Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028*. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
+Reuters. (2026, 10 de fevereiro). _Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028_. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
 
-Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
+Stone Co. (2024). _Formulário de referência e modelo de negócios_. https://investors.stone.co
 
-StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
+StoneCo Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.stone.com
 
-Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
+Valor Econômico. (2025). _Resultados financeiros da Cielo_. https://s3.glbimg.com
 
-Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+Vieira, S. (2025). _Mercado de adquirência: Um gigante em disputa na era do Pix_ [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
-Porter, M. E. (2008). *The five competitive forces that shape strategy*. Harvard Business Review.
+Porter, M. E. (2008). _The five competitive forces that shape strategy_. Harvard Business Review.
 
-Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
+Deloitte. (2024). _Relatórios sobre mercado financeiro e meios de pagamento_. https://www2.deloitte.com/br
 
-PwC Brasil. (2024). *Relatórios sobre tendências do mercado financeiro*. https://www.pwc.com.br
+PwC Brasil. (2024). _Relatórios sobre tendências do mercado financeiro_. https://www.pwc.com.br
 
-McKinsey & Company. (2024). *Estudos sobre transformação digital e meios de pagamento*. https://www.mckinsey.com.br
+McKinsey & Company. (2024). _Estudos sobre transformação digital e meios de pagamento_. https://www.mckinsey.com.br
 
-Veja. (2024). *Carteiras digitais ajudam cartões de crédito a se reinventar*. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
+Veja. (2024). _Carteiras digitais ajudam cartões de crédito a se reinventar_. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
 
-Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
-
+Subadquirente. (2025). _As tendências do mercado de meios de pagamentos no Brasil para 2025_. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
 # <a name="c8"></a>Anexos
 

@@ -41,23 +41,9 @@ As Aventuras de Marcielo é um jogo educacional desenvolvido em Phaser 3 onde o 
 ```
 g05/
 ├── documents/          → documentação do projeto
-│   ├── gdd.md          → Game Design Document
-│   ├── other/          → documentos complementares
-│   └── assets/         → imagens usadas na documentação
+|
 ├── public/             → código e assets do jogo (servido pelo GitLab Pages)
-│   ├── index.html
-│   ├── style.css
-│   ├── src/
-│   │   ├── main.js
-│   │   ├── cenas/      → cenas Phaser (menu, cidade, loja, tutorial)
-│   │   ├── entidades/  → jogador, NPC, lojas
-│   │   ├── sistemas/   → quiz (lógica, UI, perguntas)
-│   │   └── utilitarios/→ estado, armazenamento, configurações
-│   └── assets/
-│       ├── imagens/    → fundos, lojas, itens
-│       ├── sprites/    → personagens e animações
-│       ├── ui/         → ícones, balões, título
-│       └── sons/       → áudios (futuro)
+│   
 └── README.md
 ```
 

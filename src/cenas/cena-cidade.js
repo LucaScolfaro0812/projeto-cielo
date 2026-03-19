@@ -526,6 +526,18 @@ export class GameScene extends Phaser.Scene {
         // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
 
+        if (this.porta) {
+        this.porta.update();
+    }
+
+    if (this.portasPorNomeLoja) {
+            Object.values(this.portasPorNomeLoja).forEach(porta => {
+                if (porta) {
+                    porta.update();
+                }
+            });
+        }
+
         for(let i = 0; i < this.carrinho.length; i++){
             this.carrinho[i].update();
         }

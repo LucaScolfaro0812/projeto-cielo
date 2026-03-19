@@ -85,8 +85,8 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
 
-                npcX: 600,
-                npcY: 300,
+                npcX: 770,
+                npcY: 245,
 
                 portaX: 205,
                 portaY: 280,
@@ -205,7 +205,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginY: 0.61,
 
                 npcX: 800,
-                npcY: 315,
+                npcY: 320,
 
                 portaX: 260,
                 portaY: 295,
@@ -221,7 +221,7 @@ export class GameScene extends Phaser.Scene {
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,
 
-                npcX: 600,
+                npcX: 710,
                 npcY: 325,
 
                 portaX: 220,
@@ -303,8 +303,8 @@ export class GameScene extends Phaser.Scene {
             this.scene.launch('pauseScene');
         });
 
-        console.log('Lembrar de retirar');
-        this.scene.start('chocolateScene');
+    console.log('Lembrar de retirar');
+        this.scene.start('roupasScene');
 
     }
 

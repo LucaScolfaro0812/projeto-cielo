@@ -1,10 +1,33 @@
 
 export const ObjetosInterior = {
-    'Cafe': [
-        { imagem: 'lanchoneteBancada', x: 750, y: 360, escala: 0.8 },
-        { imagem: 'lanchoneteMesa', x: 350, y: 800, escala: 0.45 },
-        { imagem: 'lanchonetePosters', x: 1200, y: 200, escala: 0.3 },
-        { imagem: 'lanchonetePrateleiras', x: 1420, y: 750, escala: 0.55 }
+    'Lanchonete': [
+        { imagem: 'lanchoneteBancada', x: 690, y: 250, escala: 0.98 },
+        { imagem: 'lanchoneteMesa', x: 250, y: 750, escala: 0.45 },
+        { imagem: 'lanchonetePosters', x: 1165, y: 120, escala: 0.28 },
+        { imagem: 'lanchonetePrateleiras', x: 1380, y: 600, escala: 0.55 }
+    ],
+
+    'Roupas': [
+        { imagem: 'modaBancada', x: 750, y: 350, escala: 0.45 },
+        { imagem: 'modaMesa', x: 830, y: 780, escala: 0.6 },
+        { imagem: 'modaArmarios1', x: 1453, y: 350, escala: 0.55},
+        { imagem: 'modaArmarios2', x: 1450, y: 685, escala: 0.55 },
+        { imagem: 'modaEspelho', x: 1150, y: 250, escala: 0.5 },
+        { imagem: 'modaManiquins', x: 200, y: 780, escala: 0.5 },
+        { imagem: 'modaSapatos', x: 400, y: 830, escala: 0.3 }
+    ],
+
+    'Joalheria': [
+        { imagem: 'joalheriaBancada', x: 780, y: 350, escala: 0.7 },
+        { imagem: 'joalheriaMesa', x: 1350, y: 750, escala: 0.4 }
+       
+    ],
+
+    'Doces': [
+        { imagem: 'docesBancada', x: 750, y: 360, escala: 0.8 },
+        { imagem: 'docesMesa', x: 350, y: 800, escala: 0.45 },
+        { imagem: 'docesPosters', x: 1200, y: 200, escala: 0.3 },
+        { imagem: 'docesPrateleiras', x: 1420, y: 750, escala: 0.55 }
     ],
 
     'Pelucia': [
@@ -29,7 +52,7 @@ export const ObjetosInterior = {
         { imagem: 'autoEscolaBancada', x: 805, y: 360, escala: 0.6 },
         { imagem: 'autoEscolaBanquinho', x: 1355, y: 550, escala: 0.35 },
         { imagem: 'autoEscolaMesa', x: 1350, y: 700, escala: 0.4 },
-        { imagem: 'autoEscolaPlaca', x: 795, y: 65, escala: 0.5 }
+        { imagem: 'autoEscolaPlaca', x: 795, y: 67, escala: 0.5 }
     ],
     
     'Movel': [

@@ -35,13 +35,14 @@ export const ObjetosInterior = {
     ],
 
     'Games': [
-        { imagem: 'videogameBancada', x: 200, y: 150, escala: 1.2 },
-        { imagem: 'videogameEstante', x: 280, y: 150, escala: 1.2 },
-        { imagem: 'videogameFliperama1', x: 1200, y: 200, escala: 0.3 },
-        { imagem: 'videogameFliperama2', x: 1420, y: 750, escala: 0.55 },
-        { imagem: 'videogameFliperama3', x: 800, y: 100, escala: 0.45 },
-        { imagem: 'videogameFliperamaDeLado', x: 350, y: 750, escala: 0.35 },
-        { imagem: 'videogameMesa', x: 1300, y: 100, escala: 0.25 }
+        { imagem: 'videogameBancada', x: 740, y: 330, escala: 0.6 },
+        { imagem: 'videogameEstante', x: 1330, y: 600, escala: 0.6 },
+        { imagem: 'videogameFliperama1', x: 1240, y: 252, escala: 0.5 },
+        { imagem: 'videogameFliperama2', x: 1140, y: 250, escala: 0.5 },
+        { imagem: 'videogameFliperama3', x: 1040, y: 250, escala: 0.5 },
+        { imagem: 'videogameFliperamaDeLado', x: 60, y: 700, escala: 0.5 },
+        { imagem: 'videogameMesa', x: 450, y: 800, escala: 0.5 },
+        { imagem: 'videogameMesaNerd', x: 1350, y: 880, escala: 0.4 }
     ],
 
     'Beleza': [
@@ -91,10 +92,6 @@ export const ObjetosInterior = {
         { imagem: 'chocolatePlaca', x: 780, y: 150, escala: 1.0 }
     ],
 
-    'Games': [
-        { imagem: 'fliperama-azul', x: 200, y: 150, escala: 1.2 },
-        { imagem: 'fliperama-vermelho', x: 280, y: 150, escala: 1.2 }
-    ],
     'Autoescola': [
         { imagem: 'autoEscolaBancada', x: 805, y: 360, escala: 0.6 },
         { imagem: 'autoEscolaBanquinho', x: 1355, y: 550, escala: 0.35 },

@@ -11,14 +11,14 @@
 ## Os Marcielos — Grupo 5
 
 ## 👨‍🎓 Integrantes:
-- Gabriel Gomes Pimentel
-- Tiago Brun de Arruda
+- <a href="https://www.linkedin.com/in/gabriel-gomes-pimentel/">Gabriel Gomes Pimentel</a>
+- <a href="https://www.linkedin.com/in/tiago-brun-de-arruda-17959a3a9/">Tiago Brun de Arruda</a>
 - Beatriz Sofia Freitas Sena
-- Fernanda Jawetz Steiner
+- <a href="https://www.linkedin.com/in/fernanda-steiner-938806313/">Fernanda Jawetz Steiner</a>
 - Vinícius da Silva Alves
-- Luca do Val Scolfaro
+- <a href="https://www.linkedin.com/in/luca-scolfaro-06b5563a9/">Luca do Val Scolfaro</a>
 - Cassio Reis Costa
-- Leonardo Galdino Carioca Braz
+- <a href="https://www.linkedin.com/in/leonardo-galdino-carioca-braz-15256133a/">Leonardo Galdino Carioca Braz</a>
 
 ## 👩‍🏫 Professores:
 ### Orientador(a) 

@@ -8,56 +8,88 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
      * @param {number} y - Posição vertical da entrada
      * @param {Phaser.Scene} cenaAtual - Referência da cena atual
      * @param {string} proximaCenaNome - Nome da cena para onde será feita a transição
+     * @param {Phaser.Physics.Arcade.Sprite} player - Referência do jogador (Marcielo)
      */
-    constructor(cena, x, y, cenaAtual, proximaCenaNome) {
+    constructor(cena, x, y, cenaAtual, proximaCenaNome, player) { 
 
         // Chama o construtor da classe Sprite com física Arcade
-        // Define a textura como 'entrada'
-        super(cena, x, y, 'entrada');
+        super(cena, x, y, 'entrada_animada', 0);
 
-        // Armazena referência da cena atual (caso seja necessário controle futuro)
+        // Armazena referências
         this.cenaAtual = cenaAtual;
-
-        // Guarda o nome da próxima cena para transição
         this.proximaCenaNome = proximaCenaNome;
+        this.player = player; 
 
-        // Inicializa um estado interno da porta dizendo que ainda não houve transição.
+        // Inicializa um estado interno da porta
         this.trocaDeCenaEmAndamento = false;
 
-        // Adiciona o sprite na cena
+        // Adiciona o sprite na cena e ativa a física
         cena.add.existing(this);
-
-        // Ativa o corpo físico do objeto
         cena.physics.add.existing(this);
-
-        // Define o corpo como imóvel (não reage a forças ou colisões físicas)
         this.body.setImmovable(true);
 
-        // Ajusta a escala da imagem
-        this.setScale(0.7);
-
-        // Define a posição do pivot
+        // Ajusta escala e pivot
+        this.setScale(2.8);
         this.setOrigin(0.5, 1);
+
+        // Cria a animação se ela ainda não existir
+        if (!cena.anims.exists('abrir_porta_roll')) {
+            cena.anims.create({
+                key: 'abrir_porta_roll',
+                // Gera os frames 0, 1, 2 da imagem 'entrada_animada'
+                frames: cena.anims.generateFrameNumbers('entrada_animada', { start: 0, end: 2 }),
+                frameRate: 6, // Velocidade da animação (ajuste se achar muito rápido/lento)
+                repeat: 0 // Toca apenas uma vez
+            });
+        }
     }
 
+    // Atualizamos o preload para carregar como spritesheet
     static preload(scene) {
-        scene.load.image('entrada', 'assets/imagens/entrada.png');
+        // !!! SUBSTITUA 100 E 150 PELOS TAMANHOS REAIS DO SEU QUADRO !!!
+        scene.load.spritesheet('entrada_animada', 'assets/imagens/entrada.animada.png', {
+            frameWidth: 52, // Largura de UM quadro (MUDE AQUI)
+            frameHeight: 70 // Altura do quadro (MUDE AQUI)
+        });
     }
 
+    /**
+     * Função update da própria porta: calcula distância do Marcielo e decide se abre
+     */
+    update() {
+        /// 1. Pega o jogador diretamente da cena principal
+        const jogador = this.scene.player;
+
+        if (!jogador || this.trocaDeCenaEmAndamento) return;
+
+        const distanciaParaAtivar = 120;
+        const dist = Phaser.Math.Distance.Between(jogador.x, jogador.y, this.x, this.y);
+
+        // 4. Lógica da Animação Corrigida
+        if (dist < distanciaParaAtivar) {
+            // Só manda abrir se ela ainda não estiver marcada como aberta
+            if (!this.portaAberta) {
+                this.play('abrir_porta_roll');
+                this.portaAberta = true; // Aciona a trava!
+            }
+        } else {
+            // Longe da porta: reseta tudo
+            if (this.portaAberta) {
+                this.stop();
+                this.setFrame(0); // Volta pro frame zero (fechada)
+                this.portaAberta = false; // Tira a trava para a próxima vez
+            }
+        }
+    }
     /**
      * Realiza a troca de cena utilizando o Scene Manager do Phaser
      */
     trocarDeCena() {
-
-        // Se a troca já começou, ignora novas chamadas.
         if (this.trocaDeCenaEmAndamento) {
             return;
         }
 
-        // Marca que a troca está em andamento antes de chamar o start.
         this.trocaDeCenaEmAndamento = true;
-
-        // Executa a troca de cena normalmente.
         this.scene.scene.start(this.proximaCenaNome);
     }
 }

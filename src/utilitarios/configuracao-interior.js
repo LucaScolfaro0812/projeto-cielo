@@ -7,6 +7,19 @@ export const ObjetosInterior = {
         { imagem: 'lanchonetePrateleiras', x: 1380, y: 600, escala: 0.55 }
     ],
 
+    'Frutaria': [
+        { imagem: 'frutaPrateleira', x: 1270, y: 400, escala: 0.45 },
+        { imagem: 'frutaMesa', x: 300, y: 720, escala: 0.39 },
+        { imagem: 'frutaMelão', x: 1300, y: 800, escala: 0.4 },
+        { imagem: 'frutaManga', x: 1200, y: 800, escala: 0.4},
+        { imagem: 'frutaMaçaLaranja', x: 1350, y: 700, escala: 0.4 },
+        { imagem: 'frutaFrutaVerde', x: 1400, y: 800, escala: 0.4 },
+        { imagem: 'frutaFrutasVermelhas', x: 240, y: 720, escala: 0.4 },
+        { imagem: 'frutaCestaDeFrutas', x: 290, y: 650, escala: 0.4 },
+        { imagem: 'frutaCaixaFrutaVermelha', x: 1200, y: 700, escala: 0.3 },
+        { imagem: 'frutaAbacaxi', x: 329, y: 720, escala: 0.35 }
+    ],
+
     'Pet': [
         { imagem: 'petshopBancada', x: 800, y: 350, escala: 2.5 },
         { imagem: 'petshopAquario', x: 1600, y: 400, escala: 0.45 },

@@ -24,11 +24,11 @@
 ### Orientador(a) 
 - <a href="https://www.linkedin.com/in/vanunes/">Vanessa Nunes</a>
 ### Instrutores
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 2</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 4</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 5</a> 
+- <a href="https://www.linkedin.com/in/cristiano-benites-ph-d-687647a8//">Cristiano Benites</a>
+- <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2/">Fabiana Martins</a> 
+- <a href="https://www.linkedin.com/in/geraldo-magela-severino-vasconcelos-22b1b220/">Geraldo Vasconcelos</a> 
+- <a href="https://www.linkedin.com/in/anacristinadossantos/">Ana Cristina</a>
+- <a href="https://www.linkedin.com/in/pedroteberga/">Pedro Teberga</a> 
 
 ## 📜 Descrição
 

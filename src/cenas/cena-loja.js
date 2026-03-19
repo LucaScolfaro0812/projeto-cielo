@@ -94,6 +94,7 @@ export default class LojaScene extends Phaser.Scene {
         this.load.image('modaManiquins', 'assets/imagens/itens-lojas/modaManiquins.png');
         this.load.image('modaMesa', 'assets/imagens/itens-lojas/modaMesa.png');
         this.load.image('modaSapatos', 'assets/imagens/itens-lojas/modaSapatos.png');
+        this.load.image('aberturaModa', 'assets/imagens/lojas/ao-abrir/EntradaLojaRoupas.png');
 
         // --- MÓVEIS ---
         this.load.image('moveisBancada', 'assets/imagens/itens-lojas/moveisBancada.png');
@@ -136,6 +137,13 @@ export default class LojaScene extends Phaser.Scene {
     // Executado quando a cena é criada
     create() {
         this._criarCenario();
+
+        // Mostra imagem exterior ao entrar na loja de roupas
+        if (this.nomeLoja === 'Roupas') {
+            this.exteriorImage = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'aberturaModa').setDepth(1000);
+            this.exteriorImage.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+        }
+
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 

@@ -35,7 +35,7 @@ var config = {
 
         arcade: {
             gravity: { y: 0 }, // Sem gravidade (movimento top-down)
-            debug: true      // Mostrar colisões (false para produção)
+            debug: false      // Mostrar colisões (false para produção)
         }
     },
 

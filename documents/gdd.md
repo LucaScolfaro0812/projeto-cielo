@@ -416,86 +416,151 @@ Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a n
 
 ### 3.8.1. Descrição
 
-A animação de entrada dos balões decorativos das lojas conquistadas utiliza cinemática bidimensional. Ao entrar na cena da cidade, cada balão parte de um ponto A e se move até um ponto B simultaneamente nos dois eixos: o eixo X utiliza **Movimento Uniforme (MU)** e o eixo Y utiliza **Movimento Uniformemente Variado (MUV)**, com velocidade inicial nula.
+Quando o jogador conquista uma loja, balões decorativos aparecem flutuando sobre ela. Para tornar essa entrada visualmente dinâmica, foi implementada uma animação baseada em **cinemática bidimensional** — o estudo do movimento de objetos considerando dois eixos ao mesmo tempo (horizontal e vertical).
+
+Cada balão parte de um ponto A (abaixo e à esquerda da posição final) e se move até o ponto B (posição decorativa sobre a loja), com dois tipos de movimento acontecendo simultaneamente:
+
+- **Eixo X — Movimento Uniforme (MU):** o balão se desloca lateralmente sempre com a mesma velocidade, sem acelerar nem desacelerar. É como um carro rodando em velocidade constante numa estrada reta — percorre sempre a mesma distância a cada segundo.
+
+- **Eixo Y — Movimento Uniformemente Variado (MUV):** o balão sobe a partir do repouso (velocidade zero) e vai acelerando progressivamente até chegar à posição final. É semelhante a uma bola lançada para cima: começa devagar e vai ganhando velocidade. Isso cria a sensação visual de leveza e fluidez na entrada do balão.
+
+A combinação de MU no eixo X com MUV no eixo Y resulta numa **trajetória parabólica** — o mesmo tipo de curva que uma bola faz quando lançada diagonalmente. O resultado visual é que cada balão entra em diagonal, subindo e se deslocando levemente para o lado, com cada um em um ritmo diferente para evitar que fiquem sincronizados.
 
 ### 3.8.2. Parâmetros do Modelo
 
 Parâmetros de entrada da função `animarElemento`:
 
-| Parâmetro | Descrição |
-| --- | --- |
-| $x_i$ | Posição X inicial do elemento (40px à esquerda da posição final) |
-| $y_i$ | Posição Y inicial do elemento (300px abaixo da posição final) |
-| $x_f$ | Posição X final do elemento (posição decorativa sobre a loja) |
-| $y_f$ | Posição Y final do elemento (posição decorativa sobre a loja) |
-| $T$ | Duração total da animação em segundos |
+| Parâmetro | Descrição | Valor no jogo |
+| --- | --- | --- |
+| $x_i$ | Posição X inicial do balão | 40px à esquerda da posição final |
+| $y_i$ | Posição Y inicial do balão | 300px abaixo da posição final |
+| $x_f$ | Posição X final do balão | Posição decorativa sobre a loja |
+| $y_f$ | Posição Y final do balão | Posição decorativa sobre a loja |
+| $T$ | Duração total da animação em segundos | 2,0s (1º balão), 2,3s (2º), 2,6s (3º) |
 
 Variável interna de execução (não é parâmetro de entrada):
 
 | Variável | Descrição |
 | --- | --- |
-| $t$ | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update`. Varia de $0$ até $T$. |
+| $t$ | Tempo decorrido desde o início da animação, em segundos. Incrementado a cada frame pelo método `update` com `dt = delta / 1000`. Varia de $0$ até $T$. |
 
 ### 3.8.3. Modelagem Matemática
 
-O movimento é bidimensional. A posição do elemento em qualquer instante $t$ é representada pelo vetor posição:
+> **Sistema de coordenadas do Phaser:** No motor gráfico utilizado, o eixo Y é invertido em relação ao plano cartesiano tradicional — o valor de Y **aumenta** conforme descemos na tela e **diminui** conforme subimos. Por isso, um balão que sobe tem $y_f < y_i$, e a aceleração $a_y$ é negativa.
+>
+> ```
+> (0,0) ──────────────► X
+>   │
+>   │     tela do jogo
+>   │
+>   ▼
+>   Y
+> ```
 
-$$\vec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+O movimento é bidimensional. Em qualquer instante $t$, a posição do balão é representada pelo vetor posição:
+
+$$ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
 
 E o vetor velocidade instantânea é:
 
-$$\vec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+$$ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
 
-Onde $\hat{i}$ é o vetor unitário no eixo X e $\hat{j}$ é o vetor unitário no eixo Y.
+Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o vetor unitário no eixo Y (vertical no sistema do Phaser).
 
 ---
 
 **Eixo X — Movimento Uniforme (MU)**
 
-Velocidade constante necessária para percorrer a distância horizontal em tempo $T$:
+No eixo X não há aceleração: o balão se desloca lateralmente sempre com a mesma velocidade. Para garantir que o balão percorra a distância $x_f - x_i$ exatamente em $T$ segundos, a velocidade constante é calculada por:
 
-$$v_x = \frac{x_f - x_i}{T}$$
+$$v_x = rac{x_f - x_i}{T}$$
 
-Posição em função do tempo:
+Como $x_f > x_i$ (o balão se move para a direita), $v_x$ é positivo. A posição em função do tempo é:
 
 $$x(t) = x_i + v_x \cdot t$$
+
+Isso significa que a cada segundo que passa, o balão avança exatamente $v_x$ pixels no eixo X, de forma linear e previsível.
 
 ---
 
 **Eixo Y — Movimento Uniformemente Variado (MUV)**
 
-O elemento parte do repouso ($v_{y0} = 0$). A aceleração necessária para percorrer a distância vertical em tempo $T$ é:
+No eixo Y, o balão parte do repouso ($v_{y0} = 0$) e acelera continuamente até chegar à posição final. A aceleração necessária para percorrer a distância vertical $y_f - y_i$ em tempo $T$, partindo do repouso, é:
 
-$$a_y = \frac{2 \cdot (y_f - y_i)}{T^2}$$
+$$a_y = rac{2 \cdot (y_f - y_i)}{T^2}$$
 
-Velocidade instantânea:
+Como o balão sobe no Phaser ($y_f < y_i$), $a_y$ é negativo — a aceleração aponta para cima. A velocidade aumenta em módulo a cada instante:
 
 $$v_y(t) = a_y \cdot t$$
 
-Posição em função do tempo:
+E a posição em função do tempo é dada pela equação horária do MUV com velocidade inicial nula:
 
-$$y(t) = y_i + \frac{1}{2} \cdot a_y \cdot t^2$$
+$$y(t) = y_i + rac{1}{2} \cdot a_y \cdot t^2$$
 
-### 3.8.4. Implementação em Código
+O termo $rac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no início o balão move-se devagar e vai acelerando progressivamente, criando a sensação visual de leveza.
+
+### 3.8.4. Exemplo Numérico
+
+Usando valores reais do jogo para o primeiro balão da Pet Shop ($T = 2{,}0$ s):
+
+| Parâmetro | Valor |
+| --- | --- |
+| $x_i$ | $360$ px |
+| $y_i$ | $700$ px |
+| $x_f$ | $400$ px |
+| $y_f$ | $400$ px |
+| $T$ | $2{,}0$ s |
+
+**Calculando as constantes de movimento:**
+
+$$v_x = \frac{400 - 360}{2{,}0} = \frac{40}{2} = 20 \text{ px/s}$$
+
+$$a_y = \frac{2 \cdot (400 - 700)}{2{,}0^2} = \frac{2 \cdot (-300)}{4} = -150 \text{ px/s}^2$$
+
+**Posições em instantes intermediários:**
+
+| $t$ (s) | $x(t)$ (px) | $v_x$ (px/s) | $y(t)$ (px) | $v_y(t)$ (px/s) | $\Delta y$ (px) |
+| --- | --- | --- | --- | --- | --- |
+| 0,0 | 360 | 20 | 700 | 0 | — |
+| 0,5 | 370 | 20 | 681 | −75 | −19 |
+| 1,0 | 380 | 20 | 625 | −150 | −56 |
+| 1,5 | 390 | 20 | 531 | −225 | −94 |
+| 2,0 | 400 | 20 | 400 | −300 | −131 |
+
+Observando a coluna $\Delta y$ (deslocamento vertical a cada 0,5 s): 19 → 56 → 94 → 131 px. Os valores crescem a cada intervalo, confirmando que o balão **acelera** no eixo Y — característica central do MUV. No eixo X, o balão avança sempre 10 px a cada 0,5 s, confirmando o **MU**.
+
+Ao final ($t = T = 2{,}0$ s), o balão chega exatamente em $(400, 400)$, que é a posição decorativa sobre a loja.
+
+### 3.8.5. Implementação em Código
 
 A função implementada é `animarElemento`, localizada em [`public/src/cenas/cena-cidade.js`](../public/src/cenas/cena-cidade.js) na **linha 498**.
 
-Ela recebe os parâmetros `(xInicial, yInicial, xFinal, yFinal, duracao, elemento)`, calcula `vx` e `ay` pelas fórmulas acima e armazena os dados no objeto `_anim` do sprite. A cada frame, o método `update` aplica as fórmulas para atualizar a posição e imprime no console:
+Ela recebe os parâmetros `(xInicial, yInicial, xFinal, yFinal, duracao, elemento)`, calcula `vx` e `ay` pelas fórmulas acima e armazena os dados no objeto `_anim` do sprite. A cada frame, o método `update` incrementa `t` com o tempo do frame (`dt`) e aplica as fórmulas para atualizar a posição:
 
 ```js
-// MU — eixo X
+// MU — eixo X: x(t) = xi + vx * t
 balao.x = a.xInicial + a.vx * a.t;
 console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
 
-// MUV — eixo Y
+// MUV — eixo Y: y(t) = yi + ½ * ay * t²
 const vy = a.ay * a.t;
 balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 ```
 
-A animação para quando `t >= duracao`.
+A animação para quando `t >= duracao`, momento em que o balão está exatamente sobre a loja.
 
-### 3.8.5. Fonte
+### 3.8.6. Glossário
+
+| Termo | Significado |
+| --- | --- |
+| **Frame** | Uma "fotografia" do jogo. O jogo roda tipicamente a 60 frames por segundo — a cada frame, todas as posições são recalculadas e a tela é redesenhada. |
+| **`update`** | Método chamado automaticamente pelo Phaser a cada frame. É onde a lógica de movimento é executada continuamente. |
+| **`dt` (delta time)** | Tempo em segundos que passou desde o último frame. Usado para que a animação tenha a mesma velocidade independente do desempenho do computador. |
+| **Pixel (px)** | Unidade de medida de posição no jogo. Um pixel corresponde a um ponto na grade do mapa. |
+| **Coordenadas do Phaser** | Sistema onde o ponto (0, 0) fica no canto superior esquerdo da tela, X cresce para a direita e Y cresce para baixo. |
+
+### 3.8.7. Fonte
 
 HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
 

@@ -303,8 +303,6 @@ export class GameScene extends Phaser.Scene {
             this.scene.launch('pauseScene');
         });
 
-    console.log('Lembrar de retirar');
-        this.scene.start('gamesScene');
 
     }
 

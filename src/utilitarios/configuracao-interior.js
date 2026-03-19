@@ -7,6 +7,14 @@ export const ObjetosInterior = {
         { imagem: 'lanchonetePrateleiras', x: 1380, y: 600, escala: 0.55 }
     ],
 
+    'Pet': [
+        { imagem: 'petshopBancada', x: 800, y: 350, escala: 2.5 },
+        { imagem: 'petshopAquario', x: 1600, y: 400, escala: 0.45 },
+        { imagem: 'petshopGaiolas', x: 1520, y: 780, escala: 0.5},
+        { imagem: 'petshopMesa', x: 250, y: 700, escala: 0.5 },
+        { imagem: 'petshopPrateleiras', x: 840, y: 840, escala: 0.5 }
+    ],
+
     'Cafe': [
         { imagem: 'docesMomentosBancada', x: 850, y: 320, escala: 0.9 },
         { imagem: 'docesMomentosMesa1', x: 400, y: 800, escala: 0.42 },

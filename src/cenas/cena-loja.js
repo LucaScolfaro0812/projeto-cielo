@@ -1,7 +1,6 @@
 // Importação das entidades utilizadas na cena
 import Player from '../entidades/jogador.js';
 import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js"; // Importa função para definir próximo spawn na cidade
-import { obterBancadaDaLoja, obterTipoBancada } from "../utilitarios/configuracao-bancadas.js";
 import Quiz from '../sistemas/quiz.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
@@ -41,10 +40,6 @@ export default class LojaScene extends Phaser.Scene {
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
-
-        // Carrega sprite da bancada da loja atual, se houver configuração
-        this._precarregarBancadaDaLoja();
-
 
         // --- AUTOESCOLA ---
         this.load.image('autoEscolaBancada', 'assets/imagens/itens-lojas/autoEscolaBancada.png');
@@ -141,7 +136,6 @@ export default class LojaScene extends Phaser.Scene {
     // Executado quando a cena é criada
     create() {
         this._criarCenario();
-        this._criarBancadaDaLoja();
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
@@ -184,71 +178,7 @@ export default class LojaScene extends Phaser.Scene {
         )
     }
 
-    // Cria a imagem da bancada na posição configurada.
-    _criarBancadaDaLoja() {
-        const configuracaoBancadaDaLoja = obterBancadaDaLoja(this.nomeLoja);
-
-        if (!configuracaoBancadaDaLoja) {
-            this.bancadaDaLoja = null;
-            this.corpoColisaoBancada = null;
-            return;
-        }
-
-        const tipoBancada = obterTipoBancada(configuracaoBancadaDaLoja.TipoBancada);
-
-        if (!tipoBancada || !this.textures.exists(tipoBancada.ChaveSprite)) {
-            this.bancadaDaLoja = null;
-            this.corpoColisaoBancada = null;
-            return;
-        }
-
-        const deveRenderizarSpriteBancada = configuracaoBancadaDaLoja.RenderizarSprite !== false;
-
-        if (deveRenderizarSpriteBancada) {
-            const escalaSpriteX = tipoBancada.EscalaSpriteX ?? 1;
-            const escalaSpriteY = tipoBancada.EscalaSpriteY ?? 1;
-
-            this.bancadaDaLoja = this.add.image(
-                configuracaoBancadaDaLoja.PosicaoX,
-                configuracaoBancadaDaLoja.PosicaoY,
-                tipoBancada.ChaveSprite
-            ).setOrigin(0.5, 0.5)
-                .setScale(escalaSpriteX, escalaSpriteY);
-        } else {
-            this.bancadaDaLoja = null;
-        }
-
-        // Cria um corpo físico invisível para bloquear o jogador.
-        this.corpoColisaoBancada = this.add.rectangle(
-            configuracaoBancadaDaLoja.PosicaoX + tipoBancada.OffsetColliderX,
-            configuracaoBancadaDaLoja.PosicaoY + tipoBancada.OffsetColliderY,
-            tipoBancada.LarguraCollider,
-            tipoBancada.AlturaCollider
-        );
-        this.corpoColisaoBancada.setVisible(false);
-
-        this.physics.add.existing(this.corpoColisaoBancada, true);
-    }
-
-    // Busca qual bancada a loja atual usa.
-    _precarregarBancadaDaLoja() {
-        const configuracaoBancadaDaLoja = obterBancadaDaLoja(this.nomeLoja);
-
-        if (!configuracaoBancadaDaLoja) {
-            return;
-        }
-
-        const tipoBancada = obterTipoBancada(configuracaoBancadaDaLoja.TipoBancada);
-
-        if (!tipoBancada) {
-            return;
-        }
-
-        if (!this.textures.exists(tipoBancada.ChaveSprite)) {
-            this.load.image(tipoBancada.ChaveSprite, tipoBancada.CaminhoSprite);
-        }
-    }
-
+    
     /**
      * Configura:
      * - Instância do Quiz

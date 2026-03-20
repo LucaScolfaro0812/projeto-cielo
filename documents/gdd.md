@@ -389,6 +389,8 @@ Não se aplica
 
 ### 3.3.4. Concept Art (sprint 2)
 
+Concept art são desenhos iniciais usados para definir como o jogo vai parecer. Eles ajudam a visualizar personagens, cenários e o estilo visual antes do desenvolvimento final, servindo como base para a equipe artística.
+
 <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width = 300>
 
 Figura 1: desenhos dos clientes feito a mão

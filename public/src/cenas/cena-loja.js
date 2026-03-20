@@ -195,7 +195,8 @@ export default class LojaScene extends Phaser.Scene {
      * - Instância do Quiz
      * - Criação do Player
      * - Criação do NPC
-     * - Colisão para iniciar o quiz
+     * - Botão de interação (aparece ao chegar perto do NPC)
+     * - Tecla E para iniciar o quiz
      */
     _configurarPlayerNpcQuiz() {
 
@@ -245,13 +246,9 @@ export default class LojaScene extends Phaser.Scene {
             this.npc.setDepth(101); 
         }
         else if (this.nomeLoja === 'Joalheria') {
-            this.npc.setDepth(101); 
+            this.npc.setDepth(101);
         }
-        else if (this.nomeLoja === 'Cafe') {
-            this.npc.setDepth(101); 
-        }
-        
-    
+
 
         this.quiz.aplicarVisualConquistado(this.npc);
 
@@ -319,8 +316,8 @@ export default class LojaScene extends Phaser.Scene {
         // Define se o jogador está perto o suficiente para interagir (raio de 300 pixels)
         const perto = distancia < 300;
 
-        // Mostra ou esconde o botão de interação conforme a proximidade
-        this.botaoInteracao.setVisible(perto);
+        // Mostra o botão apenas se o jogador estiver perto e o NPC ainda não tiver sido conquistado
+        this.botaoInteracao.setVisible(perto && !this.npc.vendeu);
 
         // Se o jogador estiver perto e pressionar E, inicia o quiz
         if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {

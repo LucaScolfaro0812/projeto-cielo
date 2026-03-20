@@ -262,45 +262,42 @@ Esta seção apresenta os requisitos do sistema, organizados em requisitos funci
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
+## Público-Alvo
+
 O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa etária média aproximada de 44 anos. Trata-se de um público adulto inserido em ambiente corporativo, com experiência prévia em vendas, negociação e relacionamento com clientes.
 
-Perfil Demográfico
+---
 
-Profissionais da área de vendas e relacionamento comercial
+### Perfil Demográfico
 
-Faixa etária média: 40–50 anos
+- Profissionais da área de vendas e relacionamento comercial; 
+- Faixa etária média: 40–50 anos; 
+- Usuários com familiaridade funcional com tecnologia digital;
+- Predominantemente non-gamers ou jogadores ocasionais;  
+- Tempo limitado para atividades de treinamento devido à rotina profissional.
 
-Usuários com familiaridade funcional com tecnologia digital
+---
 
-Predominantemente non-gamers ou jogadores ocasionais
-
-Tempo limitado para atividades de treinamento devido à rotina profissional
-
-Perfil Psicográfico e Preferências
+### Perfil Psicográfico e Preferências
 
 Esse público tende a demonstrar maior engajamento com experiências de aprendizado que:
 
-Possuam aplicação prática no contexto profissional
+- Possuam aplicação prática no contexto profissional; 
+- Simulem situações do cotidiano de vendas e negociação;  
+- Apresentem feedback claro de desempenho; 
+- Incentivem evolução contínua e melhoria de resultados. 
 
-Simulem situações do cotidiano de vendas e negociação
+---
 
-Apresentem feedback claro de desempenho
-
-Incentivem evolução contínua e melhoria de resultados
-
-Necessidades de Aprendizagem
+### Necessidades de Aprendizagem
 
 Considerando o contexto de atuação da equipe comercial, destacam-se como relevantes para o público:
 
-Persuasão e argumentação em vendas
-
-Tomada de decisão em situações de negociação
-
-Interpretação de perfis de clientes
-
-Estratégias de marketing e negociação
-
-Comunicação clara e assertiva
+- Persuasão e argumentação em vendas; 
+- Tomada de decisão em situações de negociação;  
+- Interpretação de perfis de clientes;  
+- Estratégias de marketing e negociação;  
+- Comunicação clara e assertiva. 
 
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 

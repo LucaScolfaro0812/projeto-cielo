@@ -451,7 +451,7 @@ export class GameScene extends Phaser.Scene {
         }
 
         const quantidadeBaloes = Math.max(1, decoracao.quantidade ?? 3);
-        const espacamentoEntreBaloes = decoracao.espacamentoX ?? 28;
+        const espacamentoEntreBaloes = decoracao.espacamentoX ?? 60;
         const escalaBaloes = decoracao.escala ?? 0.45;
         const deslocamentoInicialX = -((quantidadeBaloes - 1) * espacamentoEntreBaloes) / 2;
 
@@ -473,9 +473,9 @@ export class GameScene extends Phaser.Scene {
             const duracao = 2 + i * 0.3;
 
             // chama animarElemento:
-            // xInicial = 40px à esquerda da posição final (para ter MU visível no eixo X)
-            // yInicial = 300px abaixo da posição final (para ter MUV visível no eixo Y)
-            this.animarElemento(xFinal - 40, yFinal + 300, xFinal, yFinal, duracao, spriteBaloes);
+            // xInicial = 150px à esquerda da posição final (MU bem visível no eixo X)
+            // yInicial = 300px abaixo da posição final (MUV visível no eixo Y)
+            this.animarElemento(xFinal - 150, yFinal + 300, xFinal, yFinal, duracao, spriteBaloes);
 
             this.decoracoesBaloes.push(spriteBaloes);
         }

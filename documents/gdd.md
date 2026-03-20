@@ -421,22 +421,22 @@ Esses recursos funcionam como indicadores de progresso e apoio à tomada de deci
 
 **Descrição dos Itens e Recursos**
 
-**1. Tempo de Atendimento**
+**A. Tempo de Atendimento**
 
 Cada negociação possui um limite de tempo. Caso o jogador demore para responder, pode comprometer o resultado do atendimento.
 Esse recurso simula situações reais de pressão no ambiente comercial.
 
-**2. Nível de Conversão do Cliente**
+**B. Nível de Conversão do Cliente**
 
 As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de conversão do cliente. Respostas adequadas aumentam a conversão, enquanto decisões inadequadas podem reduzi-la.
 Esse sistema reforça o aspecto estratégico e educativo do jogo.
 
-**3. Feedback de Desempenho**
+**C. Feedback de Desempenho**
 
 Ao final de cada atendimento, o jogador recebe um resumo com sua pontuação e avaliação geral.
 Esse feedback tem função pedagógica, permitindo que o jogador compreenda seus erros e melhore em futuras interações.
 
-**4. Considerações**
+**D. Considerações**
 
 Os recursos do jogo foram planejados para reforçar a proposta de treinamento corporativo, priorizando a tomada de decisão estratégica, a análise de cenários e a avaliação de desempenho em vez de mecânicas tradicionais baseadas em coleta de itens ou combate.
 

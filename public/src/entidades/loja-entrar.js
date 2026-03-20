@@ -38,7 +38,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                 key: 'abrir_porta_roll',
                 // Gera os frames 0, 1, 2 da imagem 'entrada_animada'
                 frames: cena.anims.generateFrameNumbers('entrada_animada', { start: 0, end: 2 }),
-                frameRate: 6, // Velocidade da animação (ajuste se achar muito rápido/lento)
+                frameRate: 12, // Velocidade da animação (ajuste se achar muito rápido/lento)
                 repeat: 0 // Toca apenas uma vez
             });
         }

@@ -49,6 +49,10 @@ A Cielo atua no mercado brasileiro de adquirência, com modelo baseado em MDR e 
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
+Nesta seção, o modelo das Cinco Forças de Michael Porter é utilizado para analisar a estrutura competitiva do mercado brasileiro de adquirência, no qual a Cielo está inserida. A ferramenta permite avaliar o grau de atratividade do setor a partir de cinco dimensões: ameaça de novos entrantes, ameaça de produtos substitutos, poder de barganha de fornecedores, poder de barganha de clientes e rivalidade entre concorrentes existentes.
+
+A partir dessa análise, busca-se compreender as pressões competitivas que impactam a rentabilidade da empresa, bem como identificar os principais desafios estratégicos relacionados à manutenção de market share, diferenciação de serviços e adaptação às transformações do setor de pagamentos digitais.
+
 #### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
 
 A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
@@ -68,6 +72,15 @@ A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commer
 #### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
 
 A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
+
+
+
+A análise das Cinco Forças mostra que o setor de adquirência no Brasil é bastante competitivo, com forte disputa entre empresas, alto poder de negociação dos clientes e crescente presença de alternativas como o Pix.
+
+Apesar de existirem barreiras à entrada, como exigências regulatórias e necessidade de estrutura, elas não impedem o surgimento de novos competidores, especialmente aqueles com modelos mais digitais e enxutos.
+
+Diante desse cenário, a Cielo precisa lidar com pressão constante sobre margens e diferenciação. Assim, sua capacidade de se manter relevante no mercado depende principalmente de inovar em serviços, melhorar sua proposta de valor e acompanhar as mudanças no comportamento dos clientes e nas formas de pagamento.
+
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
@@ -108,7 +121,7 @@ A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidad
 
 A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2024). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2024).
 
----
+
 
 Com base nos dados levantados nesta sprint, fica claro que a Cielo possui uma infraestrutura massiva e um apoio bancário sólido, mas enfrenta o desafio de converter esse tamanho em agilidade. As informações retiradas mostram que, embora a empresa domine a capilaridade no Brasil, ela sofre com a pressão nas margens de lucro e a concorrência agressiva de modelos digitais mais leves. Em conclusão, o sucesso da Cielo dependerá de sua capacidade de transformar sua vasta base de dados em novos produtos de inteligência, compensando a queda nas taxas tradicionais e se adaptando à nova realidade de pagamentos instantâneos, como o Pix.
 
@@ -440,7 +453,7 @@ Os personagens não jogáveis presentes no mapa são NPCs que representam lojist
 
 ![alt text](other/image-4.png)
 
-Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se nas referências.
+Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
 
 ## 3.6. Regras do jogo (sprint 3)
 

@@ -160,6 +160,12 @@ export default class LojaScene extends Phaser.Scene {
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
 
+        // Abre o menu de pause ao pressionar ESC
+        this.input.keyboard.on('keydown-ESC', () => {
+            this.scene.pause();
+            this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
+        });
+
 
             this.objetosFisicos = this.physics.add.staticGroup(); // Grupo para objetos que não se movem
             this._criarMobiliario();

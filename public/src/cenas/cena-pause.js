@@ -16,10 +16,16 @@ export class PauseScene extends Phaser.Scene {
      * Cria todos os elementos visuais do menu de pause:
      * fundo escuro, título e botões de ação.
      */
-    create() {
+    create(data) {
+        // Garante que o pause apareça acima de qualquer outra cena (lojas são adicionadas depois)
+        this.scene.bringToTop();
+
         // Pega as dimensões da tela para centralizar os elementos
         const largura = this.scale.width;
         const altura = this.scale.height;
+
+        // Chave da cena que foi pausada (cidade ou loja)
+        const cenaAnterior = data?.cenaAnterior ?? 'gameScene';
 
         // Fundo escuro semitransparente para escurecer o jogo por baixo
         this.add.rectangle(largura / 2, altura / 2, largura, altura, 0x000000, 0.6);
@@ -33,13 +39,13 @@ export class PauseScene extends Phaser.Scene {
 
         // Pressionar ESC novamente fecha o pause e retoma o jogo
         this.input.keyboard.on('keydown-ESC', () => {
-            this.scene.resume('gameScene');
+            this.scene.resume(cenaAnterior);
             this.scene.stop();
         });
 
         // Botão Continuar — retoma o jogo de onde parou
         this._criarBotao(largura / 2, altura / 2 - 20, 'Continuar', () => {
-            this.scene.resume('gameScene');
+            this.scene.resume(cenaAnterior);
             this.scene.stop();
         });
 
@@ -51,16 +57,16 @@ export class PauseScene extends Phaser.Scene {
             localStorage.removeItem('npcsConquistadosIds');
             localStorage.removeItem('perguntasJaFeitas');
 
-            // Para a cena de pause e reinicia a gameScene do zero
+            // Para a cena pausada e reinicia o jogo do zero
             this.scene.stop();
-            this.scene.stop('gameScene');
+            this.scene.stop(cenaAnterior);
             this.scene.start('gameScene');
         });
 
         // Botão Menu — volta para a tela inicial do jogo
         this._criarBotao(largura / 2, altura / 2 + 140, 'Menu', () => {
             this.scene.stop();
-            this.scene.stop('gameScene');
+            this.scene.stop(cenaAnterior);
             this.scene.start('menuScene');
         });
     }

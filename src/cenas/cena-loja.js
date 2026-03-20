@@ -131,6 +131,9 @@ export default class LojaScene extends Phaser.Scene {
         this.load.image('videogameFliperamaDeLado', 'assets/imagens/itens-lojas/videogameFliperamaDeLado.png');
         this.load.image('videogameMesa', 'assets/imagens/itens-lojas/videogameMesa.png');
         this.load.image('videogameMesaNerd', 'assets/imagens/itens-lojas/videogameMesaNerd.png');
+
+        // Botão de interação exibido quando o jogador se aproxima do NPC
+        this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
 }
 
 
@@ -260,14 +263,15 @@ export default class LojaScene extends Phaser.Scene {
         }
         */
 
-        // Detecta sobreposição entre jogador e NPC
-        this.physics.add.overlap(this.npc, this.player, () => {
+        // Cria o botão de interação acima do NPC, invisível por padrão
+        // Ele aparece quando o jogador chega perto e some quando se afasta
+        this.botaoInteracao = this.add.image(this.npcX, this.npcY - 200, 'botaoInteracao')
+            .setScale(0.40)
+            .setVisible(false)
+            .setDepth(300);
 
-            // Inicia o quiz apenas se o NPC ainda não realizou sua ação principal
-            if (!this.npc.vendeu) {
-                this.quiz.iniciar(this.npc);
-            }
-        });
+        // Registra a tecla E para o jogador acionar a interação com o NPC
+        this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     }
 
     /**
@@ -306,8 +310,24 @@ export default class LojaScene extends Phaser.Scene {
         // Atualiza lógica do NPC (caso haja comportamento futuro)
         this.npc.update();
 
-        // 👇 ADICIONE A PORTA AQUI 👇
-        // Isso avisa a porta de saída para checar a distância do Marcielo
+        // Calcula a distância entre o jogador e o NPC a cada frame
+        const distancia = Phaser.Math.Distance.Between(
+            this.player.x, this.player.y,
+            this.npc.x, this.npc.y
+        );
+
+        // Define se o jogador está perto o suficiente para interagir (raio de 300 pixels)
+        const perto = distancia < 300;
+
+        // Mostra ou esconde o botão de interação conforme a proximidade
+        this.botaoInteracao.setVisible(perto);
+
+        // Se o jogador estiver perto e pressionar E, inicia o quiz
+        if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {
+            this.quiz.iniciar(this.npc);
+        }
+
+        // Avisa a porta de saída para checar a distância do Marcielo
         if (this.portaEntrada) {
             this.portaEntrada.update();
         }

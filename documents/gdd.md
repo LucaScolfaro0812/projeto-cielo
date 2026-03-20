@@ -447,6 +447,7 @@ O jogo não possui bestiário, pois sua proposta é voltada para simulações de
 Os personagens não jogáveis presentes no mapa são NPCs que representam lojistas e responsáveis pelos estabelecimentos. Eles funcionam como agentes de interação para os quizzes e para o desenvolvimento das situações de venda, sem exercer papel de adversários dentro da experiência.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
+Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando as etapas da experiência, desde o início até os objetivos finais. Ele representa como as ações do jogador, desafios, recompensas e transições entre estados se conectam para formar uma experiência contínua e coerente.
 
 ![alt text](other/image-4.png)
 

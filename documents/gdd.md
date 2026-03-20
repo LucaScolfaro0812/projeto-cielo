@@ -465,6 +465,8 @@ Durante a interação, o jogo apresenta um indicador de conversão do cliente, f
 
 O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar os quizzes de negociação com sucesso, conquistando cada cliente e demonstrando seu conhecimento sobre os produtos e serviços da Cielo.
 
+> **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP atual — sua porta não é acessível pelo jogador.
+
 Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a negociação com um estabelecimento, o jogador realiza o quiz e, ao final, o resultado é definitivo: se o cliente for conquistado, a venda é concluída; caso contrário, não é possível tentar novamente com aquele cliente. Essa regra simula a realidade do ambiente comercial, onde uma oportunidade mal aproveitada raramente se repete.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
@@ -933,7 +935,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | #   | pré-condição                                              | descrição do teste                                                      | pós-condição                                                                                 |
 | :-- | :-------------------------------------------------------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
 | 1   | Jogo aberto na tela inicial                               | Clicar no botão "Jogar"                                                 | O jogo deve iniciar                                                                          |
-| 2   | Jogo na tela inicial                                      | Clicar no botão "Configurações"                                         | A tela de configurações deve abrir                                                           |
+| 2   | Jogo na tela inicial                                      | Clicar no botão "Configurações"                                         | A tela de configurações deve abrir *(não implementado no MVP)*                               |
 | 3   | Jogo na tela inicial                                      | Clicar no botão "Tutorial"                                              | Deve abrir uma interface intuitiva que explica as mecânicas, o objetivo do jogo e como jogar |
 | 4   | Jogo com personagem parado                                | Pressionar D                                                            | Personagem deve se mover para a direita                                                      |
 | 5   | Jogo com personagem parado                                | Pressionar A                                                            | Personagem deve se mover para a esquerda                                                     |
@@ -952,7 +954,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 18  | Tempo limite da interação acabando                        | Tempo limite termina                                                    | Usuário perde o cliente e volta para o mapa                                                  |
 | 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
 | 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
-| 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra                                                                        |
+| 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra *(não implementado no MVP)*                                            |
 
 Fonte: elaborado pelo grupo.
 

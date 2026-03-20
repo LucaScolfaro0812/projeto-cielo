@@ -237,19 +237,19 @@ export default class LojaScene extends Phaser.Scene {
             `npc_${this.sceneLoja}`,
         );
 
+        // Nestas lojas o NPC fica atrás do balcão, então precisa de depth alto
+        // para aparecer na frente do mobiliário que é desenhado com depth 100
         if (this.nomeLoja === 'Cafe') {
-
-            this.npc.setDepth(101); 
-            
+            this.npc.setDepth(101);
         }
         else if (this.nomeLoja === 'Chocolate') {
-            this.npc.setDepth(101); 
+            this.npc.setDepth(101);
         }
         else if (this.nomeLoja === 'Autoescola') {
-            this.npc.setDepth(101); 
+            this.npc.setDepth(101);
         }
         else if (this.nomeLoja === 'Lanchonete') {
-            this.npc.setDepth(101); 
+            this.npc.setDepth(101);
         }
         else if (this.nomeLoja === 'Joalheria') {
             this.npc.setDepth(101);
@@ -258,8 +258,8 @@ export default class LojaScene extends Phaser.Scene {
 
         this.quiz.aplicarVisualConquistado(this.npc);
 
-        // Collider da bancada interna desativado temporariamente.
-        // Para reativar, descomente o bloco abaixo.
+        // Collider da bancada interna desativado: o mobiliário já usa staticGroup com colisão própria.
+        // Caso seja necessário reativar uma bancada separada, descomentar o bloco abaixo.
         /*
         if (this.corpoColisaoBancada) {
             this.physics.add.collider(this.player, this.corpoColisaoBancada);
@@ -336,6 +336,13 @@ export default class LojaScene extends Phaser.Scene {
         }
     }
 
+    /**
+     * Cria os móveis e objetos físicos do interior da loja.
+     * Busca a lista de objetos configurada em ObjetosInterior pelo nome da loja,
+     * cria cada móvel como um sprite estático com física e depth alto (100)
+     * para aparecer sobre o fundo da loja.
+     * Depende de this.objetosFisicos estar criado antes da chamada.
+     */
     _criarMobiliario() {
         console.log("-> 1. Iniciando montagem dos móveis para a loja:", this.nomeLoja);
         

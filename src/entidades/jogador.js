@@ -10,14 +10,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(cena, x, y) {
 
         // Agora o jogador já nasce com a imagem nova
-        super(cena, x, y, 'marcielo.parado.png');
+        super(cena, x, y, "idle1");
 
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
         this.cena = cena;
 
-        this.setScale(0.5);
+        this.setScale(0.6);
         this.setCollideWorldBounds(false);
 
         this.body.setSize(120, 150);
@@ -65,7 +65,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("s6", "assets/sprites/animacoes/jogador/marcielo.s6.png");
 
         // parado
-        scene.load.image("idle", "assets/sprites/animacoes/jogador/marcielo.parado.png");
+        scene.load.image("idle1", "assets/sprites/animacoes/jogador/marcielo.parado.png");
+        scene.load.image("idle2", "assets/sprites/animacoes/jogador/marcielo.respiracao.1.png");
+        scene.load.image("idle3", "assets/sprites/animacoes/jogador/marcielo.respiracao.2.png");
+        scene.load.image("idle4", "assets/sprites/animacoes/jogador/marcielo.respiracao.3.png");
 
         // animação para cima
         scene.load.image("c1", "assets/sprites/animacoes/jogador/marcielo.c1.png");
@@ -151,16 +154,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
                 this.anims.play("andar-baixo", true);
                 this.ultimaDirecao = "baixo";
             }
+        } 
+            else {
+        if (this.ultimaDirecao === "esquerda") {
+        this.setFlipX(true);
+        this.anims.play("idle-respirando", true);
         } else {
-            this.anims.stop();
-
-            if (this.ultimaDirecao === "esquerda") {
-                this.setTexture("idle");
-                this.setFlipX(true);
-            } else {
-                this.setTexture("idle");
-                this.setFlipX(false);
-            }
+        this.setFlipX(false);
+        this.anims.play("idle-respirando", true);
+        }
         }
     }
 
@@ -222,6 +224,19 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
                 repeat: -1
             });
         }
+        if (!cena.anims.exists("idle-respirando")) {
+    cena.anims.create({
+        key: "idle-respirando",
+        frames: [
+            { key: "idle1" },
+            { key: "idle2" },
+            { key: "idle3" },
+            { key: "idle4" }
+        ],
+        frameRate: 3,
+        repeat: -1
+    });
+}
 
     }
 

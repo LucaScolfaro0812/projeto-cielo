@@ -38,7 +38,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 342,
 
                 portaX: 240,
-                portaY: 325,
+                portaY: 340,
 
                 playerX: 190,
                 playerY: 380,
@@ -55,7 +55,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 330,
 
                 portaX: 200,
-                portaY: 260,
+                portaY: 280,
 
                 playerX: 190,
                 playerY: 300
@@ -72,7 +72,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 310,
 
                 portaX: 250,
-                portaY: 350,
+                portaY: 370,
 
                 playerX: 190,
                 playerY: 400, 
@@ -89,10 +89,10 @@ export class GameScene extends Phaser.Scene {
                 npcY: 245,
 
                 portaX: 205,
-                portaY: 280,
+                portaY: 300,
 
                 playerX: 190,
-                playerY: 300
+                playerY: 350
             },
             {
                 nomeLoja: 'Pet',
@@ -106,7 +106,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 300,
 
                 portaX: 180,
-                portaY: 255,
+                portaY: 270,
 
                 playerX: 200,
                 playerY: 310,
@@ -123,7 +123,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 350,
 
                 portaX: 240,
-                portaY: 345,
+                portaY: 360,
 
                 playerX: 190,
                 playerY: 390
@@ -140,7 +140,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 300,
 
                 portaX: 240,
-                portaY: 250,
+                portaY: 270,
 
                 playerX: 190,
                 playerY: 300
@@ -156,8 +156,8 @@ export class GameScene extends Phaser.Scene {
                 npcX: 730,
                 npcY: 248,
 
-                portaX: 230,
-                portaY: 225,
+                portaX: 233,
+                portaY: 240,
 
                 playerX: 190,
                 playerY: 300
@@ -173,8 +173,8 @@ export class GameScene extends Phaser.Scene {
                 npcX: 750,
                 npcY: 423,
 
-                portaX: 230,
-                portaY: 365,
+                portaX: 233,
+                portaY: 380,
 
                 playerX: 190,
                 playerY: 400
@@ -190,8 +190,8 @@ export class GameScene extends Phaser.Scene {
                 npcX: 750,
                 npcY: 285,
 
-                portaX: 255,
-                portaY: 250,
+                portaX: 257,
+                portaY: 264,
 
                 playerX: 190,
                 playerY: 300
@@ -208,7 +208,7 @@ export class GameScene extends Phaser.Scene {
                 npcY: 320,
 
                 portaX: 260,
-                portaY: 295,
+                portaY: 310,
 
                 playerX: 190,
                 playerY: 350,
@@ -224,8 +224,8 @@ export class GameScene extends Phaser.Scene {
                 npcX: 710,
                 npcY: 325,
 
-                portaX: 220,
-                portaY: 280,
+                portaX: 223,
+                portaY: 300,
 
                 playerX: 230,
                 playerY: 340

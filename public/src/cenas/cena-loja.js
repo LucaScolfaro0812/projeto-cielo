@@ -285,7 +285,7 @@ export default class LojaScene extends Phaser.Scene {
         );
 
         // Define o tamanho da porta
-        this.portaEntrada.setScale(0.5);
+        this.portaEntrada.setScale(2.8);
 
         // Detecta sobreposição entre jogador e porta
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
@@ -305,6 +305,12 @@ export default class LojaScene extends Phaser.Scene {
 
         // Atualiza lógica do NPC (caso haja comportamento futuro)
         this.npc.update();
+
+        // 👇 ADICIONE A PORTA AQUI 👇
+        // Isso avisa a porta de saída para checar a distância do Marcielo
+        if (this.portaEntrada) {
+            this.portaEntrada.update();
+        }
     }
 
     _criarMobiliario() {
@@ -324,14 +330,13 @@ export default class LojaScene extends Phaser.Scene {
             
             let movel = this.objetosFisicos.create(config.x, config.y, config.imagem);
             
-            // 🚨 FORÇA o móvel a renderizar por cima de TUDO (z-index bem alto)
+            // FORÇA o móvel a renderizar por cima de TUDO (z-index bem alto)
             movel.setDepth(100); 
 
             if (config.escala) {
                 movel.setScale(config.escala);
             }
-
-            // 🚨 No Phaser, quando mudamos o tamanho de um objeto estático, 
+ 
             // precisamos pedir pra física recalcular o tamanho dele:
             movel.refreshBody();
 
@@ -343,7 +348,6 @@ export default class LojaScene extends Phaser.Scene {
                 let recuoX = config.offsetX !== undefined ? config.offsetX : 0;
                 let recuoY = config.offsetY !== undefined ? config.offsetY : 0;
 
-                // 🚨 O TRUQUE MÁGICO PARA OBJETOS ESTÁTICOS:
                 // Calcula a posição exata da caixa azul forçando as coordenadas top-left
                 movel.body.x = (movel.x - (config.hitWidth / 2)) + recuoX;
                 movel.body.y = (movel.y - (config.hitHeight / 2)) + recuoY;

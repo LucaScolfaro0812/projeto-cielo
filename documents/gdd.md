@@ -982,53 +982,53 @@ _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
 # <a name="c7"></a>7. Referências
 
-ABECS. (2024). _Balanço do setor de meios de pagamento_. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
+ABECS. (2024). Balanço do setor de meios de pagamento. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
 
-Banco Central do Brasil. (2023). _Relatório de economia bancária 2023_. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
+Banco Central do Brasil. (2023). Relatório de economia bancária 2023. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-Banco Central do Brasil. (2024). _Relatório de vigilância do sistema de pagamentos brasileiro_. https://www.bcb.gov.br
+Banco Central do Brasil. (2024). Relatório de vigilância do sistema de pagamentos brasileiro. https://www.bcb.gov.br
 
-Banco Central do Brasil. (2025). _Relatórios de estabilidade e vigilância do SPB_. https://www.bcb.gov.br/publicacoes
+Banco Central do Brasil. (2025). Relatórios de estabilidade e vigilância do SPB. https://www.bcb.gov.br/publicacoes
 
-Cielo S.A. (2023). _Relatório anual e demonstrações financeiras 2023_. https://ri.cielo.com.br
+Cielo S.A. (2023). Relatório anual e demonstrações financeiras 2023. https://ri.cielo.com.br
 
-Cielo S.A. (2024). _Informações institucionais e dados operacionais_. https://www.cielo.com.br
+Cielo S.A. (2024). Informações institucionais e dados operacionais. https://www.cielo.com.br
 
-Cielo S.A. (2025). _Portal de relações com investidores_. https://ri.cielo.com.br/
+Cielo S.A. (2025). Portal de relações com investidores. https://ri.cielo.com.br/
 
-ClickPetróleo e Gás. (2025). _Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix_. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
+ClickPetróleo e Gás. (2025). Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
 
-CNN Brasil. (2025). _A guerra das maquininhas e a disputa no mercado de adquirentes_. https://www.cnnbrasil.com.br
+CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
 
-IBGE. (2022). _Censo demográfico 2022: Primeiros resultados_. https://www.ibge.gov.br/censo2022
+Deloitte. (2024). Relatórios sobre mercado financeiro e meios de pagamento. https://www2.deloitte.com/br
 
-Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. _Revista Brasileira de Gestão e Negócios_. https://doi.org/10.7819/rbgn.v23i2.4104
+IBGE. (2022). Censo demográfico 2022: Primeiros resultados. https://www.ibge.gov.br/censo2022
 
-PagBank. (2024). _Relatório institucional e atuação no mercado de pagamentos_. https://www.pagbank.com.br
+McKinsey & Company. (2024). Estudos sobre transformação digital e meios de pagamento. https://www.mckinsey.com.br
 
-PagSeguro Digital Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.pagseguro.com
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. Revista Brasileira de Gestão e Negócios. https://doi.org/10.7819/rbgn.v23i2.4104
 
-Reuters. (2026, 10 de fevereiro). _Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028_. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
+PagBank. (2024). Relatório institucional e atuação no mercado de pagamentos. https://www.pagbank.com.br
 
-Stone Co. (2024). _Formulário de referência e modelo de negócios_. https://investors.stone.co
+PagSeguro Digital Ltd. (2023). Form 20-F: Annual report 2023. https://investors.pagseguro.com
 
-StoneCo Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.stone.com
+Porter, M. E. (2008). The five competitive forces that shape strategy. Harvard Business Review.
 
-Valor Econômico. (2025). _Resultados financeiros da Cielo_. https://s3.glbimg.com
+PwC Brasil. (2024). Relatórios sobre tendências do mercado financeiro. https://www.pwc.com.br
 
-Vieira, S. (2025). _Mercado de adquirência: Um gigante em disputa na era do Pix_ [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+Reuters. (2026, 10 de fevereiro). Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
 
-Porter, M. E. (2008). _The five competitive forces that shape strategy_. Harvard Business Review.
+Stone Co. (2024). Formulário de referência e modelo de negócios. https://investors.stone.co
 
-Deloitte. (2024). _Relatórios sobre mercado financeiro e meios de pagamento_. https://www2.deloitte.com/br
+StoneCo Ltd. (2023). Form 20-F: Annual report 2023. https://investors.stone.com
 
-PwC Brasil. (2024). _Relatórios sobre tendências do mercado financeiro_. https://www.pwc.com.br
+Subadquirente. (2025). As tendências do mercado de meios de pagamentos no Brasil para 2025. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
-McKinsey & Company. (2024). _Estudos sobre transformação digital e meios de pagamento_. https://www.mckinsey.com.br
+Valor Econômico. (2025). Resultados financeiros da Cielo. https://s3.glbimg.com
 
-Veja. (2024). _Carteiras digitais ajudam cartões de crédito a se reinventar_. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
+Veja. (2024). Carteiras digitais ajudam cartões de crédito a se reinventar. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
 
-Subadquirente. (2025). _As tendências do mercado de meios de pagamentos no Brasil para 2025_. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
+Vieira, S. (2025). Mercado de adquirência: Um gigante em disputa na era do Pix [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
 # <a name="c8"></a>Anexos
 

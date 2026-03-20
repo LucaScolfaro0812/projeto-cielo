@@ -459,7 +459,7 @@ Devido à baixa qualidade da imagem, o link para melhor visualização encontra-
 
 No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo vender as maquininhas e os serviços de pagamento da empresa para diferentes estabelecimentos distribuídos pelo mapa.
 
-O jogador percorre o mapa, entra nos comércios e inicia negociações com os responsáveis. As interações ocorrem por meio de quizzes que simulam situações reais de venda. Cada pergunta possui tempo limite para resposta, aproximando a experiência de um cenário real de negociação.
+O jogador percorre o mapa, entra nos comércios e inicia negociações com os responsáveis. Ao se aproximar de um NPC dentro da loja, um ícone de interação aparece sobre ele; o jogador pressiona a tecla E para iniciar o diálogo. As interações ocorrem por meio de quizzes que simulam situações reais de venda. Cada pergunta possui tempo limite para resposta, aproximando a experiência de um cenário real de negociação.
 
 Durante a interação, o jogo apresenta um indicador de conversão do cliente, fornecendo feedback imediato sobre as decisões tomadas.
 
@@ -469,14 +469,16 @@ Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a n
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-| Comando                 | Tipo de Entrada | Ação Executada                    | Consequência no Jogo                                         |
-| ----------------------- | --------------- | --------------------------------- | ------------------------------------------------------------ |
-| W                       | Teclado         | Move o personagem para cima       | Permite navegação pelo mapa                                  |
-| A                       | Teclado         | Move o personagem para a esquerda | Permite navegação pelo mapa                                  |
-| S                       | Teclado         | Move o personagem para baixo      | Permite navegação pelo mapa                                  |
-| D                       | Teclado         | Move o personagem para a direita  | Permite navegação pelo mapa                                  |
-| Aproximação do NPC      | Movimento       | Colisão com o NPC dentro da loja  | Inicia automaticamente o diálogo de negociação (quiz)        |
-| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz     | Afeta o nível de conversão do cliente e o resultado da venda |
+| Comando                 | Tipo de Entrada | Ação Executada                                                | Consequência no Jogo                                         |
+| ----------------------- | --------------- | ------------------------------------------------------------- | ------------------------------------------------------------ |
+| W                       | Teclado         | Move o personagem para cima                                   | Permite navegação pelo mapa                                  |
+| A                       | Teclado         | Move o personagem para a esquerda                             | Permite navegação pelo mapa                                  |
+| S                       | Teclado         | Move o personagem para baixo                                  | Permite navegação pelo mapa                                  |
+| D                       | Teclado         | Move o personagem para a direita                              | Permite navegação pelo mapa                                  |
+| Aproximação do NPC      | Movimento       | Chegar a menos de 300px do NPC dentro da loja                 | Exibe o botão de interação (ícone E) sobre o NPC             |
+| E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC                  | Inicia o diálogo de negociação (quiz)                        |
+| ESC                     | Teclado         | Pressionar ESC durante o jogo                                 | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
+| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                                 | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -938,7 +940,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 6   | Jogo com personagem parado                                | Pressionar W                                                            | Personagem deve se mover para cima                                                           |
 | 7   | Jogo com personagem parado                                | Pressionar S                                                            | Personagem deve se mover para baixo                                                          |
 | 8   | Personagem próximo de uma loja                            | Encostou na porta                                                       | Personagem entra no estabelecimento                                                          |
-| 9   | Personagem perto de um NPC                                | Colisão com o NPC dentro da loja                                        | Interface de conversa (quiz) inicia automaticamente                                          |
+| 9   | Personagem perto de um NPC                                | Aproximar-se do NPC e pressionar a tecla E                              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada      |
 | 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta                            | A barra de conversão aumenta                                                                 |
 | 11  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta                         | A barra de conversão diminui                                                                 |
 | 12  | Conversão na faixa verde (última pergunta)                | Responder de forma a manter ou elevar a conversão                       | Cliente é conquistado e negociação é concluída com sucesso                                   |

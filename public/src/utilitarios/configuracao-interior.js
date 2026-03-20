@@ -8,16 +8,17 @@ export const ObjetosInterior = {
     ],
 
     'Frutaria': [
-        { imagem: 'frutaPrateleira', x: 1270, y: 400, escala: 0.45 },
-        { imagem: 'frutaMesa', x: 300, y: 720, escala: 0.39 },
-        { imagem: 'frutaMelão', x: 1300, y: 800, escala: 0.4 },
-        { imagem: 'frutaManga', x: 1200, y: 800, escala: 0.4},
-        { imagem: 'frutaMaçaLaranja', x: 1350, y: 700, escala: 0.4 },
-        { imagem: 'frutaFrutaVerde', x: 1400, y: 800, escala: 0.4 },
-        { imagem: 'frutaFrutasVermelhas', x: 240, y: 720, escala: 0.4 },
-        { imagem: 'frutaCestaDeFrutas', x: 290, y: 650, escala: 0.4 },
-        { imagem: 'frutaCaixaFrutaVermelha', x: 1200, y: 700, escala: 0.3 },
-        { imagem: 'frutaAbacaxi', x: 329, y: 720, escala: 0.35 }
+        { imagem: 'frutaPrateleira', x: 1270, y: 700, escala: 0.45 },
+        { imagem: 'frutaBancada', x: 750, y: 320, escala: 1.1 },
+        { imagem: 'frutaMesa', x: 270, y: 800, escala: 0.3 },
+        { imagem: 'frutaMelão', x: 1300, y: 300, escala: 0.4 },
+        { imagem: 'frutaManga', x: 1400, y: 380, escala: 0.4},
+        { imagem: 'frutaMaçaLaranja', x: 550, y: 500, escala: 0.3 },
+        { imagem: 'frutaFrutaVerde', x: 1400, y: 300, escala: 0.4 },
+        { imagem: 'frutaFrutasVermelhas', x: 228, y: 800, escala: 0.3 },
+        { imagem: 'frutaCestaDeFrutas', x: 265, y: 750, escala: 0.3 },
+        { imagem: 'frutaCaixaFrutaVermelha', x: 1300, y: 380, escala: 0.25 },
+        { imagem: 'frutaAbacaxi', x: 298, y: 800, escala: 0.28 }
     ],
 
     'Pet': [

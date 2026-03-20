@@ -65,6 +65,7 @@ export default class LojaScene extends Phaser.Scene {
         this.load.image('docesMomentosMesa2', 'assets/imagens/itens-lojas/docesMomentosMesa2.png');
 
         // --- FRUTARIA ---
+        this.load.image('frutaBancada', 'assets/imagens/itens-lojas/frutaBancada.png');
         this.load.image('frutaAbacaxi', 'assets/imagens/itens-lojas/frutaAbacaxi.png');
         this.load.image('frutaCaixaFrutaVermelha', 'assets/imagens/itens-lojas/frutaCaixaFrutaVermelha.png');
         this.load.image('frutaCestaDeFrutas', 'assets/imagens/itens-lojas/frutaCestaDeFrutas.png');
@@ -252,6 +253,9 @@ export default class LojaScene extends Phaser.Scene {
             this.npc.setDepth(101);
         }
         else if (this.nomeLoja === 'Joalheria') {
+            this.npc.setDepth(101);
+        }
+        else if (this.nomeLoja === 'Frutaria') {
             this.npc.setDepth(101);
         }
 

@@ -133,6 +133,31 @@ export default class LojaScene extends Phaser.Scene {
         this.load.image('videogameMesa', 'assets/imagens/itens-lojas/videogameMesa.png');
         this.load.image('videogameMesaNerd', 'assets/imagens/itens-lojas/videogameMesaNerd.png');
 
+        // --- IMAGENS DE ENTRADA EM FULLSCREEN ---
+        const entradaPorLoja = {
+            'Cafe': 'EntradaCafeteria',
+            'Games': 'EntradaLojaGames',
+            'Beleza': 'EntradaBeleza',
+            'Roupas': 'EntradaLojaRoupas',
+            'Pet': 'EntradaPetShop',
+            'Movel': 'EntradaLojaMoveis',
+            'Frutaria': 'EntradaFrutaria',
+            'Lanchonete': 'EntradaLanchonete',
+            'Chocolate': 'EntradaLojaChocolate',
+            'Pelucia': 'EntradaLojaBrinquedos',
+            'Autoescola': 'EntradaAutoescola',
+            'Joalheria': 'EntradaJoalheria'
+        };
+        
+        const nomeArquivo = entradaPorLoja[this.nomeLoja];
+        const chaveTextura = 'entradaLoja' + this.nomeLoja;
+        
+        if (nomeArquivo) {
+            this.load.image(chaveTextura, `assets/imagens/lojas/ao-abrir/${nomeArquivo}.png`);
+        } else {
+            console.warn(`Arquivo de entrada não encontrado para loja: ${this.nomeLoja}`);
+        }
+
         // Botão de interação exibido quando o jogador se aproxima do NPC
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
 }
@@ -142,11 +167,28 @@ export default class LojaScene extends Phaser.Scene {
     create() {
         this._criarCenario();
 
-        // Mostra imagem exterior ao entrar na loja de roupas
-        if (this.nomeLoja === 'Roupas') {
-            this.exteriorImage = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'aberturaModa').setDepth(1000);
-            this.exteriorImage.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
-        }
+        // Mostra imagem de entrada em fullscreen ao entrar em qualquer loja
+        const chaveTextura = 'entradaLoja' + this.nomeLoja;
+        this.exteriorImage = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 450, chaveTextura).setDepth(1000);
+        this.exteriorImage.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+
+        // Botão X para fechar a imagem - posicionado no canto superior direito da imagem
+        const botaoFechar = this.add.text(
+            this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
+            this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
+            'X',
+            {
+                fontSize: '48px',
+                fill: '#FFFFFF',
+                padding: { x: 10, y: 5 },
+                align: 'center'
+            }
+        ).setDepth(1001).setInteractive();
+
+        botaoFechar.on('pointerdown', () => {
+            this.exteriorImage.destroy();
+            botaoFechar.destroy();
+        });
 
         this._configurarPlayerNpcQuiz();
         this._criarPortas();

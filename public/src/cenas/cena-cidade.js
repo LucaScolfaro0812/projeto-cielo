@@ -11,8 +11,7 @@ import LojaScene from '../cenas/cena-loja.js';
 import { perguntasNpcRua } from '../sistemas/quiz-perguntas.js';
 import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
-import { obterListaNpcs } from "../utilitarios/progresoNPCs.js";
-import { obterCaminhoImagemNpc, obterListaNpcs } from "../utilitarios/progresoNPCs.js";
+import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
 
 // Definição da cena principal do jogo
 export class GameScene extends Phaser.Scene {
@@ -257,6 +256,14 @@ export class GameScene extends Phaser.Scene {
         const npc = obterListaNpcs()[0];
         this.load.image("npcPortraitHud", obterCaminhoImagemNpc(npc.id, npc.estado));
 
+        const npcs = obterListaNpcs();
+        npcs.forEach(npc => {
+            this.load.image(
+                obterCaminhoImagemNpc(npc.id, npc.estado),
+                obterCaminhoImagemNpc(npc.id, npc.estado)
+            );
+        });
+
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
@@ -329,6 +336,8 @@ export class GameScene extends Phaser.Scene {
         // Exemplo de como adicionar o ícone do NPC (portrait do primeiro NPC)
         // Ajuste o caminho e a posição conforme necessário
         this.add.image(650, 36, "npcPortraitHud"); // "npcPortraitHud" deve ser carregado no preload()
+
+        this.criarPainelNpcs();
     }
 
     /**
@@ -658,5 +667,25 @@ export class GameScene extends Phaser.Scene {
         }
 
         return false;
+    }
+
+    criarPainelNpcs() {
+        this.painelNpcs = this.add.container(400, 200);
+
+        const npcs = obterListaNpcs();
+        const colunas = 4;
+        const espacamento = 90;
+
+        npcs.forEach((npc, i) => {
+            const linha = Math.floor(i / colunas);
+            const coluna = i % colunas;
+            const caminhoImagem = obterCaminhoImagemNpc(npc.id, npc.estado);
+            const portrait = this.add.image(coluna * espacamento, linha * espacamento, caminhoImagem)
+                .setDisplaySize(80, 80);
+
+            this.painelNpcs.add(portrait);
+        });
+
+        this.painelNpcs.setVisible(false);
     }
 }

@@ -334,8 +334,13 @@ export class GameScene extends Phaser.Scene {
         );
 
         // Exemplo de como adicionar o ícone do NPC (portrait do primeiro NPC)
-        // Ajuste o caminho e a posição conforme necessário
-        this.add.image(650, 36, "npcPortraitHud"); // "npcPortraitHud" deve ser carregado no preload()
+        // Ao clicar no portrait, alterna o painel de NPCs
+        this.portraitHud = this.add.image(650, 36, "npcPortraitHud").setInteractive();
+        this.portraitHud.on('pointerdown', () => {
+            if (this.painelNpcs) {
+                this.painelNpcs.setVisible(!this.painelNpcs.visible);
+            }
+        });
 
         this.criarPainelNpcs();
     }

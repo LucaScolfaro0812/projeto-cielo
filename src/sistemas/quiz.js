@@ -396,9 +396,13 @@ export default class Quiz {
             this._salvarProgressoNpcConquistado();
 
             if (this.npcAtual) {
-                // Inversao da regra: ao conquistar, volta para o visual normal.
-                this.npcAtual.visualConquistado();
+                // Ao conquistar, muda para o visual de conquistado (ex: azul).                this.npcAtual.visualConquistado();
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
+
+                // Atualiza o painel de NPCs na cena principal
+                if (this.cena.atualizarPainelNpcs) {
+                    this.cena.atualizarPainelNpcs();
+                }
             }
         }
 

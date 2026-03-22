@@ -693,4 +693,16 @@ export class GameScene extends Phaser.Scene {
 
         this.painelNpcs.setVisible(false);
     }
+
+    // Método para percorre todos os portraits do painel e atualiza a textura de cada um conforme o estado atual do NPC. Assim, qualquer mudança de progresso é refletida visualmente imediatamente.
+    atualizarPainelNpcs() {
+        if (!this.painelNpcs) return;
+        const npcs = obterListaNpcs();
+        this.painelNpcs.iterate((portrait, i) => {
+            const npc = npcs[i];
+            if (npc) {
+                portrait.setTexture(obterCaminhoImagemNpc(npc.id, npc.estado));
+            }
+        });
+    }
 }

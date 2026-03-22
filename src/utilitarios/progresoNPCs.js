@@ -34,4 +34,10 @@ function atualizarEstadoNpc(idNpc, novoEstado) {
     }
 }
 
-export { obterListaNpcs, buscarNpcPorId, atualizarEstadoNpc };
+// Função para obter o caminho da imagem do portrait do NPC
+function obterCaminhoImagemNpc(idNpc, estado) {
+    // Exemplo de retorno: "assets/sprites/npcs/npc_cafeScene-interagido.png"
+    return `assets/sprites/npcs/${idNpc}-${estado}.png`;
+}
+
+export { obterListaNpcs, buscarNpcPorId, atualizarEstadoNpc, obterCaminhoImagemNpc };

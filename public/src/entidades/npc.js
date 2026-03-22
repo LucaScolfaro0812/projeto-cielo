@@ -66,8 +66,12 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
     }
 
 
+
     visualConquistado(){
-        this.setTexture("npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));
+        const nomeTextura = "npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja);
+        if (this.scene.textures.exists(nomeTextura)) {
+            this.setTexture(nomeTextura);
+        }
     }
 
     visualNaoConquistado(){

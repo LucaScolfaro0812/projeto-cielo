@@ -229,6 +229,11 @@ export default class Quiz {
 
         // Retoma física da cena
         this.cena.physics.resume();
+
+        // Garante atualização visual do NPC após retomar a física
+        if (this.npcAtual && this._npcJaConquistado(this.npcAtual.idNpc)) {
+            this.npcAtual.visualConquistado();
+        }
     }
 
     /**

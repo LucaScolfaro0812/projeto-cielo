@@ -22,5 +22,5 @@ class ProgressoNpc extends ProgressoEntidade {
     }
 }
 
-  // Métodos específicos de NPCs podem ser adicionados aqui futuramente
+// Métodos específicos de NPCs podem ser adicionados aqui futuramente
 export { ProgressoEntidade, ProgressoNpc };

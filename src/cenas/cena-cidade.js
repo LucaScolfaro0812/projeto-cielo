@@ -11,6 +11,8 @@ import LojaScene from '../cenas/cena-loja.js';
 import { perguntasNpcRua } from '../sistemas/quiz-perguntas.js';
 import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
+import { obterListaNpcs } from "../utilitarios/progresoNPCs.js";
+import { obterCaminhoImagemNpc, obterListaNpcs } from "../utilitarios/progresoNPCs.js";
 
 // Definição da cena principal do jogo
 export class GameScene extends Phaser.Scene {
@@ -75,7 +77,7 @@ export class GameScene extends Phaser.Scene {
                 portaY: 370,
 
                 playerX: 190,
-                playerY: 400, 
+                playerY: 400,
             },
             {
                 nomeLoja: 'Roupas',
@@ -251,6 +253,10 @@ export class GameScene extends Phaser.Scene {
             }
         });
 
+        // Preload da imagem de portrait do NPC para a HUD, usando o primeiro NPC da lista como referência.
+        const npc = obterListaNpcs()[0];
+        this.load.image("npcPortraitHud", obterCaminhoImagemNpc(npc.id, npc.estado));
+
         // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
@@ -303,7 +309,26 @@ export class GameScene extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.scene.key });
         });
 
+        // Obtém a lista de NPCs
+        const npcs = obterListaNpcs();
 
+
+        // Conta quantos NPCs estão conquistados
+        const totalNpcs = npcs.length;
+        const conquistados = npcs.filter(npc => npc.estado === "conquistado").length;
+
+
+        // Exibe o contador na HUD (exemplo simples, ajuste posição e estilo conforme necessário)
+        this.textoProgressoNpcs = this.add.text(
+            700, // x (ajuste conforme o tamanho da tela)
+            20,  // y
+            `${conquistados.toString().padStart(2, "0")}/${totalNpcs.toString().padStart(2, "0")}`,
+            { font: "32px Arial", fill: "#fff", backgroundColor: "#000", padding: { x: 10, y: 5 } }
+        );
+
+        // Exemplo de como adicionar o ícone do NPC (portrait do primeiro NPC)
+        // Ajuste o caminho e a posição conforme necessário
+        this.add.image(650, 36, "npcPortraitHud"); // "npcPortraitHud" deve ser carregado no preload()
     }
 
     /**
@@ -335,11 +360,11 @@ export class GameScene extends Phaser.Scene {
 
         this.carrinho = [];
         this.carrinho[0] = new Carro(this, 0, 1945, true);
-        
-        for(let i = 0; i < 3; i++){
+
+        for (let i = 0; i < 3; i++) {
             this.carrinho[i] = new Carro(this, i * 1250, 1945, true);
         }
-        for(let i = 0; i < this.carrinho.length; i++){
+        for (let i = 0; i < this.carrinho.length; i++) {
             this.physics.add.overlap(this.carrinho[i], this.player, () => {
                 this.player.morreu();
             });
@@ -426,7 +451,7 @@ export class GameScene extends Phaser.Scene {
             portaEntrada.trocarDeCena();
         });
 
-        if(config.nomeLoja === "Beleza"){
+        if (config.nomeLoja === "Beleza") {
             // a loja Beleza está temporariamente desativada: remove o colider e oculta a porta
             this.physics.world.removeCollider(l.getPorta());
             l.getPorta().setVisible(false);
@@ -527,10 +552,10 @@ export class GameScene extends Phaser.Scene {
         this.player.update();
 
         if (this.porta) {
-        this.porta.update();
-    }
+            this.porta.update();
+        }
 
-    if (this.portasPorNomeLoja) {
+        if (this.portasPorNomeLoja) {
             Object.values(this.portasPorNomeLoja).forEach(porta => {
                 if (porta) {
                     porta.update();
@@ -538,7 +563,7 @@ export class GameScene extends Phaser.Scene {
             });
         }
 
-        for(let i = 0; i < this.carrinho.length; i++){
+        for (let i = 0; i < this.carrinho.length; i++) {
             this.carrinho[i].update();
         }
 

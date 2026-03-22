@@ -11,6 +11,7 @@ import LojaScene from '../cenas/cena-loja.js';
 import { perguntasNpcRua } from '../sistemas/quiz-perguntas.js';
 import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
+import ProgressoNpcUI from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
 
 // Definição da cena principal do jogo
@@ -236,6 +237,8 @@ export class GameScene extends Phaser.Scene {
 
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
+            // Preload do fundo visual dos NPCs no popup
+            this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
         this.load.image('rua', 'assets/imagens/ambiente/Mapa.jpeg');
 
@@ -316,31 +319,31 @@ export class GameScene extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.scene.key });
         });
 
-        // Obtém a lista de NPCs
+
+        // HUD de progresso dos NPCs - design moderno e acessível
+        // Remove qualquer HUD antigo antes de criar o novo
+        if (this.hudNpcUI) {
+            this.hudNpcUI.destroy();
+        }
+
+        // Dados de progresso
         const npcs = obterListaNpcs();
-
-
-        // Conta quantos NPCs estão conquistados
         const totalNpcs = npcs.length;
         const conquistados = npcs.filter(npc => npc.estado === "conquistado").length;
 
+        // Importa o novo componente visual
+        // (import já está no topo do arquivo)
 
-        // Exibe o contador na HUD (exemplo simples, ajuste posição e estilo conforme necessário)
-        this.textoProgressoNpcs = this.add.text(
-            700, // x (ajuste conforme o tamanho da tela)
-            20,  // y
-            `${conquistados.toString().padStart(2, "0")}/${totalNpcs.toString().padStart(2, "0")}`,
-            { font: "32px Arial", fill: "#fff", backgroundColor: "#000", padding: { x: 10, y: 5 } }
-        );
-
-        // Exemplo de como adicionar o ícone do NPC (portrait do primeiro NPC)
-        // Ao clicar no portrait, alterna o painel de NPCs
-        this.portraitHud = this.add.image(650, 36, "npcPortraitHud").setInteractive();
-        this.portraitHud.on('pointerdown', () => {
-            if (this.painelNpcs) {
-                this.painelNpcs.setVisible(!this.painelNpcs.visible);
+        this.hudNpcUI = new ProgressoNpcUI(
+            this,
+            conquistados,
+            totalNpcs,
+            () => {
+                if (this.painelNpcs) {
+                    this.painelNpcs.setVisible(!this.painelNpcs.visible);
+                }
             }
-        });
+        );
 
         this.criarPainelNpcs();
     }
@@ -675,19 +678,53 @@ export class GameScene extends Phaser.Scene {
     }
 
     criarPainelNpcs() {
-        this.painelNpcs = this.add.container(400, 200);
+        // Centralizar painel na tela (vertical e horizontal)
+        const larguraTela = this.cameras.main.width;
+        const alturaTela = this.cameras.main.height;
+        this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(9999);
 
+        // Fundo escuro semitransparente (menor para garantir visibilidade)
+        const larguraPainel = 1200;
+        const alturaPainel = 1200;
+        const fundo = this.add.rectangle(0, 0, larguraPainel, alturaPainel, 0x000820, 0.92)
+            .setStrokeStyle(6, 0xffffff, 0.7)
+            .setOrigin(0.5)
+            .setScrollFactor(0);
+        this.painelNpcs.add(fundo);
+
+
+        // Grid de NPCs com visual aprimorado
         const npcs = obterListaNpcs();
         const colunas = 4;
-        const espacamento = 90;
+        const linhas = 3;
+        const espacamentoX = 400;
+        const espacamentoY = 400;
+        const offsetX = -((colunas - 1) * espacamentoX) / 2;
+        const offsetY = -((linhas - 1) * espacamentoY) / 2;
 
         npcs.forEach((npc, i) => {
             const linha = Math.floor(i / colunas);
             const coluna = i % colunas;
-            const caminhoImagem = obterCaminhoImagemNpc(npc.id, npc.estado);
-            const portrait = this.add.image(coluna * espacamento, linha * espacamento, caminhoImagem)
-                .setDisplaySize(80, 80);
+            const x = offsetX + coluna * espacamentoX;
+            const y = offsetY + linha * espacamentoY;
 
+            // Fundo visual: sprite "circulo-npc.png"
+            const fundo = this.add.image(x, y, 'circulo-npc')
+                .setDisplaySize(600, 600)
+                .setScrollFactor(0);
+
+            // Tint por estado
+            if (npc.estado === 'interagido') fundo.setTint(0xff3333);
+            else if (npc.estado === 'conquistado') fundo.setTint(0x3388ff);
+            else fundo.setTint(0xffffff);
+
+            this.painelNpcs.add(fundo);
+
+            // Portrait do NPC centralizado
+            const caminhoImagem = obterCaminhoImagemNpc(npc.id, npc.estado);
+            const portrait = this.add.image(x, y, caminhoImagem)
+                .setDisplaySize(600, 600)
+                .setScrollFactor(0);
             this.painelNpcs.add(portrait);
         });
 

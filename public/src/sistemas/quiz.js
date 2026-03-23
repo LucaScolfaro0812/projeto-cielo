@@ -118,8 +118,6 @@ export default class Quiz {
      * @param {Npc} npc - NPC que contém as perguntas
      */
     iniciar(npc) {
-        this.aplicarVisualConquistado(this.npc);
-
         this.npcAtual = npc;
 
         // 1) Bloqueia reabertura se esse NPC ja abriu quiz antes.
@@ -141,9 +139,6 @@ export default class Quiz {
         // 4) Fluxo normal do quiz.
         this.cena.physics.pause();
         npc.vendeu = true;
-
-        // Novo comportamento visual: ao iniciar a conversa/quiz, NPC fica vermelho.
-        this.aplicarVisualConquistado(this.npc);
 
         this.perguntas = [this.pegarPerguntas(), this.pegarPerguntas(), this.pegarPerguntas()];
         this.indicePerguntaAtual = 0;

@@ -1,6 +1,3 @@
-// Utilitários de persistência (localStorage com JSON e proteção de erro).
-import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
-
 // Classe responsável por representar um NPC interativo no jogo.
 // O NPC pode estar associado a um conjunto de perguntas (quiz)
 // e possui controle de estado (ex: se já vendeu ou não).

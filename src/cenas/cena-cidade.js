@@ -8,7 +8,6 @@ import Carro from '../entidades/carro.js';
 import Quiz from '../sistemas/quiz.js';
 import LojaFisica from '../entidades/loja-fisica.js';
 import LojaScene from '../cenas/cena-loja.js';
-import { perguntasNpcRua } from '../sistemas/quiz-perguntas.js';
 import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
 import ProgressoNpcUI from '../sistemas/progressoNpc-ui.js';
@@ -618,15 +617,9 @@ export class GameScene extends Phaser.Scene {
             // MU no eixo X: x(t) = xi + vx * t  (velocidade constante)
             balao.x = a.xInicial + a.vx * a.t;
 
-            // MUV no eixo Y: velocidade instantânea vy(t) = ay * t
-            const vy = a.ay * a.t;
-
             // Posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
-            // Imprime posição, velocidade e aceleração de cada eixo a cada frame
-            console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
-            console.log(`[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`);
 
             if (a.t >= a.duracao) {
                 balao._anim = null;

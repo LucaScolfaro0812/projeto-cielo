@@ -5,10 +5,10 @@
  * - Gerenciar tempo
  * - Calcular pontuação
  * - Controlar nível de conversão
- * - Comunicar-se com a camada de UI (QuizUI)
+ * - Comunicar-se com a camada de UI (InterfaceQuiz)
  */
 
-import QuizUI from "./quiz-ui.js";
+import InterfaceQuiz from "./quiz-ui.js";
 
 // Utilitários de persistência (localStorage com JSON e proteção de erro).
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
@@ -161,7 +161,7 @@ export default class Quiz {
             ? chaveImagemNpcVermelhoPorLoja
             : (this.cena.textures.exists("npc-vermelho") ? "npc-vermelho" : "npc");
 
-        this.ui = new QuizUI(this.cena, {
+        this.ui = new InterfaceQuiz(this.cena, {
             larguraModal: 1100,
             alturaModal: 660,
             padding: 40,

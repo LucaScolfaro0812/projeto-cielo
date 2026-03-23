@@ -1,4 +1,4 @@
-import Player from '../entidades/jogador.js';
+import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import Quiz from '../sistemas/quiz.js';
 import Npc from '../entidades/npc.js';
@@ -15,7 +15,7 @@ import {
 } from '../sistemas/quiz-perguntas.js';
 import { ObjetosInterior } from '../utilitarios/configuracao-interior.js';
 
-export default class LojaScene extends Phaser.Scene {
+export default class CenaLoja extends Phaser.Scene {
 
     constructor(configs) {
         super({ key: configs.nomeDaCena });
@@ -48,7 +48,7 @@ export default class LojaScene extends Phaser.Scene {
     preload() {
         this.load.image(this.fundoImage, `assets/imagens/lojas/interior/${this.fundoImage}.png`);
 
-        Player.preload(this);
+        Jogador.preload(this);
         Npc.preload(this);
 
         const entradaPorLoja = {
@@ -243,7 +243,7 @@ export default class LojaScene extends Phaser.Scene {
     _configurarPlayerNpcQuiz() {
         this.quiz = new Quiz(this);
 
-        this.player = new Player(this, this.playerX, this.playerY);
+        this.player = new Jogador(this, this.playerX, this.playerY);
         this.player.setCollideWorldBounds(true);
 
         const perguntasPorLoja = {

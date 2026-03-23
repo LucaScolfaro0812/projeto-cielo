@@ -34,6 +34,15 @@ export default class LojaScene extends Phaser.Scene {
         this.playerY = configs.playerY;
 
         this.fundoImage = 'lojaVazia' + this.nomeLoja;
+
+        this.somAmbientePorLoja = {
+            Autoescola: 'ambienteAutoEscola',
+            Pelucia: 'ambienteBrinquedo',
+            Chocolate: 'ambienteChocolateria',
+            Pet: 'ambientePetShop',
+            Roupas: 'ambienteRoupas',
+            Beleza: 'ambienteSalaoDeBeleza',
+        };
     }
 
     preload() {
@@ -65,10 +74,35 @@ export default class LojaScene extends Phaser.Scene {
         }
 
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
+
+        // Carrega som ambiente da loja (se houver)
+        const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
+        if (chaveSomAmbiente) {
+            if (!this.cache.audio.exists(chaveSomAmbiente)) {
+                this.load.audio(chaveSomAmbiente, `assets/sons/${chaveSomAmbiente}.mp3`);
+            }
+        }
+
+        // Carrega som da porta
+        if (!this.cache.audio.exists('portaAbrindoFechando')) {
+            this.load.audio('portaAbrindoFechando', 'assets/sons/portaAbrindoFechando.mp3');
+        }
     }
 
     create() {
         this._criarCenario();
+
+        // Som da porta ao entrar
+        if (this.cache.audio.exists('portaAbrindoFechando')) {
+            this.sound.play('portaAbrindoFechando');
+        }
+
+        // Inicia áudio ambiente em loop com volume reduzido
+        const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
+        if (chaveSomAmbiente && this.cache.audio.exists(chaveSomAmbiente)) {
+            this.somAmbiente = this.sound.add(chaveSomAmbiente, { loop: true, volume: 0.3 });
+            this.somAmbiente.play();
+        }
 
         const chave = 'entradaLoja' + this.nomeLoja;
 
@@ -110,6 +144,15 @@ export default class LojaScene extends Phaser.Scene {
         this._criarMobiliario();
 
         this.physics.add.collider(this.player, this.objetosFisicos);
+
+        this.events.on('shutdown', () => this._pararAudio());
+        this.events.on('destroy', () => this._pararAudio());
+    }
+
+    _pararAudio() {
+        if (this.somAmbiente && this.somAmbiente.isPlaying) {
+            this.somAmbiente.stop();
+        }
     }
 
     _criarCenario() {
@@ -161,13 +204,19 @@ export default class LojaScene extends Phaser.Scene {
 
         this.quiz.aplicarVisualConquistado(this.npc);
 
-        // BOTÃO DE INTERAÇÃO (já aparece + posição inicial)
+        // Diminui volume ao abrir quiz, restaura ao fechar
+        this.quiz.events?.on('quiz-aberto', () => {
+            if (this.somAmbiente) this.somAmbiente.setVolume(0.1);
+        });
+        this.quiz.events?.on('quiz-fechado', () => {
+            if (this.somAmbiente) this.somAmbiente.setVolume(0.3);
+        });
+
         this.botaoInteracao = this.add.image(this.npcX, this.npcY - 120, 'botaoInteracao')
             .setScale(0.4)
             .setVisible(!this.npc.vendeu)
             .setDepth(300);
 
-        // controle da animação
         this.tempoAnimacaoBotao = 0;
 
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
@@ -185,6 +234,11 @@ export default class LojaScene extends Phaser.Scene {
         this.portaEntrada.setScale(2.8);
 
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            if (this.cache.audio.exists('portaAbrindoFechando')) {
+                this.sound.play('portaAbrindoFechando');
+            }
+            this._pararAudio();
+
             definirProximoSpawnCidade(this.nomeLoja);
             this.portaEntrada.trocarDeCena();
         });
@@ -194,7 +248,6 @@ export default class LojaScene extends Phaser.Scene {
         this.player.update();
         this.npc.update();
 
-        // animação do botão (flutuar)
         this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 

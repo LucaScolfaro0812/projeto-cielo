@@ -459,17 +459,24 @@ Devido à baixa qualidade da imagem, o link para melhor visualização encontra-
 
 No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo vender as maquininhas e os serviços de pagamento da empresa para diferentes estabelecimentos distribuídos pelo mapa.
 
-O jogador percorre o mapa, entra nos comércios e inicia negociações com os responsáveis. Ao se aproximar de um NPC dentro da loja, um ícone de interação aparece sobre ele; o jogador pressiona a tecla E para iniciar o diálogo. As interações ocorrem por meio de quizzes que simulam situações reais de venda. Cada pergunta possui tempo limite para resposta, aproximando a experiência de um cenário real de negociação.
+**Regras objetivas do jogo:**
 
-Durante a interação, o jogo apresenta um indicador de conversão do cliente, fornecendo feedback imediato sobre as decisões tomadas.
-
-O objetivo do jogador é visitar todos os estabelecimentos do mapa e completar os quizzes de negociação com sucesso, conquistando cada cliente e demonstrando seu conhecimento sobre os produtos e serviços da Cielo.
+1. O jogador percorre o mapa a pé usando as teclas WASD e pode ser morto ao colidir com um dos 3 carros em circulação — ao morrer, a cena reinicia.
+2. Para entrar em uma loja, o jogador deve se aproximar da porta e aguardar a sobreposição de área.
+3. Dentro da loja, ao se aproximar a menos de **300 px** do NPC, um ícone de interação (tecla E) aparece sobre ele.
+4. O jogador pressiona **E** para iniciar o quiz de negociação com o NPC.
+5. Cada quiz contém **3 perguntas** sorteadas aleatoriamente do banco de perguntas daquela loja.
+6. Cada pergunta tem **60 segundos** de tempo limite. Ao esgotar o tempo, a pergunta é encerrada com **0 pontos** e o quiz avança automaticamente para a próxima pergunta — o jogador não perde o cliente imediatamente.
+7. A pontuação total máxima por quiz é **9 pontos** (3 pontos por resposta correta). O cliente é conquistado se o jogador obtiver **6 ou mais pontos** ao final das 3 perguntas.
+8. Cada cliente oferece ao jogador **apenas uma tentativa** de negociação. O resultado é definitivo: vitória ou derrota, não é possível repetir o quiz com o mesmo NPC.
+9. O progresso é salvo automaticamente via **localStorage**: NPCs conquistados, posição de spawn e estado das lojas persistem entre sessões.
+10. O menu de pausa (ESC) oferece 3 opções: **Continuar** (retoma o jogo), **Novo Jogo** (apaga todo o progresso salvo) e **Menu** (volta ao menu principal).
 
 > **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP atual — sua porta não é acessível pelo jogador.
 
-Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a negociação com um estabelecimento, o jogador realiza o quiz e, ao final, o resultado é definitivo: se o cliente for conquistado, a venda é concluída; caso contrário, não é possível tentar novamente com aquele cliente. Essa regra simula a realidade do ambiente comercial, onde uma oportunidade mal aproveitada raramente se repete.
-
 ## 3.7. Mecânicas do jogo (sprint 3)
+
+### 3.7.1. Controles
 
 | Comando                 | Tipo de Entrada | Ação Executada                                                | Consequência no Jogo                                         |
 | ----------------------- | --------------- | ------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -479,8 +486,67 @@ Cada cliente oferece ao jogador apenas uma tentativa de diálogo. Ao iniciar a n
 | D                       | Teclado         | Move o personagem para a direita                              | Permite navegação pelo mapa                                  |
 | Aproximação do NPC      | Movimento       | Chegar a menos de 300px do NPC dentro da loja                 | Exibe o botão de interação (ícone E) sobre o NPC             |
 | E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC                  | Inicia o diálogo de negociação (quiz)                        |
-| ESC                     | Teclado         | Pressionar ESC durante o jogo                                 | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
+| ESC                     | Teclado         | Pressionar ESC durante o jogo (cidade ou loja)                | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
 | Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                                 | Afeta o nível de conversão do cliente e o resultado da venda |
+
+### 3.7.2. Navegação pela cidade e carros
+
+O jogador navega pelo mapa da cidade usando WASD. O mapa contém **3 carros** que se deslocam em loop horizontal a **750 px/s**. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Essa mecânica introduz risco à navegação e exige que o jogador preste atenção ao atravessar a rua.
+
+### 3.7.3. As 12 lojas
+
+O jogo conta com **12 lojas distintas**, cada uma com cena interna própria, NPC exclusivo, banco de perguntas específico e mobiliário com colisão física. As lojas são:
+
+| Loja        | Banco de Perguntas       | Tema central                              |
+| ----------- | ------------------------ | ----------------------------------------- |
+| Café        | `perguntasCafe`          | Produtos Cielo para food service          |
+| Games       | `perguntasNpcRua`        | Soluções de pagamento digital             |
+| Beleza      | `perguntasNpcRua`        | Pagamentos em salões de beleza            |
+| Roupas      | `perguntasNpcRua`        | Pagamentos em moda e varejo               |
+| Pet Shop    | `perguntasPet`           | Soluções para pet shops                   |
+| Móveis      | `perguntasMovel`         | Antecipação de recebíveis e parcelamento  |
+| Frutaria    | `perguntasNpcRua`        | Pagamentos em hortifruti                  |
+| Lanchonete  | `perguntasLanchonete`    | Pagamentos rápidos em lanchonetes         |
+| Chocolate   | `perguntasChocolate`     | Pagamentos em confeitarias                |
+| Pelúcia     | `perguntasPelucia`       | Soluções para lojas de brinquedos         |
+| Autoescola  | `perguntasAutoescola`    | Pagamentos recorrentes e mensalidades     |
+| Joalheria   | `perguntasNpcRua`        | Pagamentos de alto valor em joalherias    |
+
+> **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP.
+
+Cada loja usa a mesma classe genérica `LojaScene`, configurada via parâmetros (nome, posição do NPC, posição da porta, escala do background). O mobiliário interno é definido pelo dicionário `ObjetosInterior`, com posição, escala e hitbox customizada por objeto.
+
+### 3.7.4. Sistema de entrada nas lojas
+
+Ao se aproximar da porta de uma loja na cidade, o jogador entra automaticamente por sobreposição de área. Um bloqueio de reentrada imediata impede que o jogador entre novamente na mesma loja de onde acabou de sair — o sistema usa um timer de **900 ms** e uma distância mínima de **260 px** antes de liberar a entrada. Isso evita loops acidentais de troca de cena.
+
+Ao sair de uma loja, o jogador reaparece exatamente na frente dela, usando o sistema de spawn dinâmico (`definirProximoSpawnCidade` / `consumirSpawnCidade`).
+
+### 3.7.5. Quiz de negociação
+
+Ao pressionar E próximo ao NPC, inicia-se o quiz:
+
+- **3 perguntas** sorteadas aleatoriamente do banco daquela loja (sem repetição na mesma sessão).
+- Cada pergunta tem **60 segundos** de timer. Tempo esgotado = 0 pontos na pergunta, quiz avança automaticamente.
+- Respostas corretas valem **3 pontos**; erradas valem **0 pontos**.
+- Pontuação total máxima: **9 pontos**. Limiar de conquista: **≥ 6 pontos**.
+- Um **indicador de conversão** (barra colorida) reflete o desempenho em tempo real: vermelho (baixa), amarelo (média), verde (alta).
+- O NPC muda visualmente de **vermelho para azul** ao ser conquistado.
+- Cada NPC só pode ser desafiado **uma vez** — resultado definitivo.
+
+### 3.7.6. Progressão persistente e balões decorativos
+
+O progresso do jogador é salvo via **localStorage** a cada conquista: IDs dos NPCs conquistados, ponto de spawn de retorno e estado de cada loja. Os dados persistem entre sessões do navegador e são restaurados ao recarregar o jogo.
+
+Ao conquistar uma loja, **balões decorativos** aparecem flutuando sobre ela no mapa da cidade. A animação usa cinemática bidimensional (detalhada na seção 3.8): MU no eixo X e MUV no eixo Y, criando uma trajetória parabólica de entrada. Cada balão tem duração diferente (2,0 s, 2,3 s, 2,6 s) para evitar sincronismo visual.
+
+### 3.7.7. Menu de pausa
+
+Acessado pela tecla ESC tanto na cidade quanto dentro de qualquer loja. Oferece três opções:
+
+- **Continuar** — retoma o jogo de onde parou.
+- **Novo Jogo** — apaga todo o progresso salvo no localStorage e reinicia do zero.
+- **Menu** — volta para a tela inicial do jogo.
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -801,27 +867,45 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
-Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo, mantendo as principais mecânicas implementadas na sprint anterior e incorporando novas funcionalidades ao sistema. O foco desta etapa foi aprimorar elementos relacionados aos NPCs, à estrutura do mapa e às primeiras mecânicas de interação entre o jogador e os personagens do ambiente.
+Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo. O foco foi implementar o núcleo da experiência: 12 lojas com interiores únicos, sistema de quiz completo com timer e barra de conversão, progressão persistente via localStorage, spawn dinâmico de retorno e os carros como mecânica de risco na cidade.
 
-### Funcionalidades implementadas:
+### Funcionalidades implementadas
 
-Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
+**Arquitetura data-driven das lojas**
 
-. Criação de NPCs em estilo pixel art para ampliar a diversidade de personagens no ambiente do jogo;
+As 12 lojas (Café, Games, Beleza, Roupas, Pet, Móveis, Frutaria, Lanchonete, Chocolate, Pelúcia, Autoescola, Joalheria) usam uma única classe genérica `LojaScene`, configurada por parâmetros. Não há duplicação de código entre lojas — cada uma define nome, posições de NPC/porta/player e escala do background. O mobiliário interno é configurado pelo dicionário `ObjetosInterior` com posição, escala e hitbox customizada por objeto.
 
-. Implementação do spritesheet do personagem principal (Marcielo), permitindo animações mais completas de movimentação;
+**Sistema de quiz**
 
-. Desenvolvimento e organização do mapa principal do jogo;
+- 3 perguntas sorteadas aleatoriamente por loja sem repetição (`_carregarPerguntasJaFeitas()`).
+- Timer de 60 segundos por pergunta; ao esgotar, a pergunta encerra com 0 pontos e o quiz avança.
+- Barra de conversão com 3 faixas de cor: vermelho (baixa), amarelo (média), verde (alta).
+- Pontuação: respostas corretas valem 3 pontos; limiar de conquista: **≥ 6 pontos** em 9 possíveis.
+- Zoom da câmera normalizado ao abrir o quiz para garantir legibilidade da interface.
 
-. Implementação de ambientes internos e externos das lojas;
+```js
+// Exemplo: lógica de conquista no quiz.js
+if (this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA) {
+    npc.conquistado = true;
+    salvarDados(npc.id, true);
+}
+```
 
-. Sistema de variação visual dos NPCs;
+**Progressão persistente**
 
-. Implementação das bordas do mapa, impedindo que o jogador ultrapasse os limites do cenário;
+Dados salvos via `localStorage` com `salvarDados` / `carregarDados` protegidos por `try/catch`. O que é salvo: IDs dos NPCs conquistados, ponto de spawn de retorno por loja e estado visual das lojas. O progresso persiste entre sessões do navegador.
 
-. Desenvolvimento inicial do sistema de quizzes para simular interações de negociação com clientes.
+**Spawn dinâmico e bloqueio de reentrada**
 
-Com essas implementações, o jogo passou a apresentar maior variedade visual, um ambiente mais estruturado e as primeiras mecânicas de interação baseadas em decisões do jogador.
+Ao sair de uma loja, o jogador reaparece na frente dela (`definirProximoSpawnCidade`). Um bloqueio de reentrada imediata (`nomeLojaRetornoBloqueada`) com timer de 900 ms e distância mínima de 260 px evita loops acidentais de troca de cena.
+
+**Carros e mecânica de risco**
+
+3 carros em loop horizontal a 750 px/s. Colisão com qualquer carro chama `player.morreu()`, reiniciando a cena da cidade (progresso salvo é mantido).
+
+**NPCs e variação visual**
+
+NPCs começam com sprite vermelho e mudam para azul ao serem conquistados. O método `aplicarVisualConquistado()` é chamado no `create()` da loja, garantindo que lojas já conquistadas exibem o NPC azul desde o início.
 
 ### Ilustrações da versão intermediária
 
@@ -928,7 +1012,7 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
 
-Nos testes do quiz, o indicador principal passa a ser a barra de conversão. Quando o jogador acerta, a conversão aumenta; quando erra, a conversão diminui. A barra usa três faixas visuais para facilitar a leitura de desempenho: verde (bom), laranja (intermediário) e vermelha (ruim).
+Nos testes do quiz, o indicador principal é a barra de conversão e a pontuação acumulada. Quando o jogador acerta uma pergunta, recebe **3 pontos**; ao errar, recebe **0 pontos**. O cliente é conquistado se a **soma dos pontos for ≥ 6** ao final das 3 perguntas (máximo de 9 pontos). A barra usa três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa).
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
@@ -951,7 +1035,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 15  | Conversão na faixa vermelha (última pergunta)             | Responder incorretamente ou manter desempenho ruim                      | Cliente não é conquistado                                                                    |
 | 16  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente, mas sem sair da faixa vermelha                  | Cliente não é conquistado                                                                    |
 | 17  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente e elevar para faixa laranja ou verde             | Cliente é conquistado                                                                        |
-| 18  | Tempo limite da interação acabando                        | Tempo limite termina                                                    | Usuário perde o cliente e volta para o mapa                                                  |
+| 18  | Tempo limite da pergunta esgotado                         | O timer chega a 0 durante o quiz                                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta  |
 | 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
 | 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
 | 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra *(não implementado no MVP)*                                            |

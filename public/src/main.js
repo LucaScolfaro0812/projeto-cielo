@@ -1,8 +1,8 @@
 // Importação das cenas que compõem o jogo
-import { menuScene } from './cenas/cena-menu.js';
-import { GameScene } from './cenas/cena-cidade.js';
-import { tutorialScene } from './cenas/cena-tutorial.js';
-import { PauseScene } from './cenas/cena-pause.js';
+import { CenaMenu } from './cenas/cena-menu.js';
+import { CenaCidade } from './cenas/cena-cidade.js';
+import { CenaTutorial } from './cenas/cena-tutorial.js';
+import { CenaPausa } from './cenas/cena-pause.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -40,7 +40,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [menuScene, tutorialScene, GameScene, PauseScene]
+    scene: [CenaMenu, CenaTutorial, CenaCidade, CenaPausa]
 };
 
 // Criação da instância principal do jogo

@@ -1,5 +1,5 @@
 /**
- * QuizUI - Interface visual do quiz (Phaser). Core do jogo - design impecável.
+ * InterfaceQuiz - Interface visual do quiz (Phaser). Core do jogo - design impecável.
  */
 
 // Bloco 1: dimensões dos elementos visuais
@@ -55,7 +55,7 @@ const TAM_FONTE_OPCAO_MIN = 18;        // limite inferior para manter as opçõe
 const TAM_FONTE_RESULTADO = "26px";   // tamanho base do texto da tela de resultado
 const TAM_FONTE_RESULTADO_MIN = 18;    // tamanho mínimo para resultado continuar legível
 
-export default class QuizUI {
+export default class InterfaceQuiz {
 
     constructor(cena, opcoes = {}) {
         this.cena = cena;

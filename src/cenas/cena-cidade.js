@@ -239,7 +239,7 @@ export class GameScene extends Phaser.Scene {
             // Preload do fundo visual dos NPCs no popup
             this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
-        this.load.image('rua', 'assets/imagens/ambiente/Mapa.jpeg');
+        this.load.image('rua', 'assets/imagens/ambiente/mapa.png');
 
         // Carrega todas as imagens de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {

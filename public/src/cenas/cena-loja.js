@@ -1,18 +1,23 @@
-// Importação das entidades utilizadas na cena
 import Player from '../entidades/jogador.js';
-import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js"; // Importa função para definir próximo spawn na cidade
+import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import Quiz from '../sistemas/quiz.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
-import { perguntasMovel, perguntasNpcRua, perguntasPelucia, perguntasPet, perguntasCafe, perguntasAutoescola, perguntasChocolate, perguntasLanchonete } from '../sistemas/quiz-perguntas.js';
+import {
+    perguntasMovel,
+    perguntasNpcRua,
+    perguntasPelucia,
+    perguntasPet,
+    perguntasCafe,
+    perguntasAutoescola,
+    perguntasChocolate,
+    perguntasLanchonete
+} from '../sistemas/quiz-perguntas.js';
 import { ObjetosInterior } from '../utilitarios/configuracao-interior.js';
 
-// Cena responsável pelo ambiente interno da loja
 export default class LojaScene extends Phaser.Scene {
 
     constructor(configs) {
-
-        // Define a chave única da cena no Scene Manager do Phaser
         super({ key: configs.nomeDaCena });
 
         this.nomeLoja = configs.nomeDaLoja;
@@ -25,164 +30,64 @@ export default class LojaScene extends Phaser.Scene {
         this.portaX = configs.portaX;
         this.portaY = configs.portaY;
 
-
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
 
         this.fundoImage = 'lojaVazia' + this.nomeLoja;
     }
 
-    // Carrega os assets necessários antes da criação da cena
     preload() {
-        // Imagem de fundo da padaria
         this.load.image(this.fundoImage, `assets/imagens/lojas/interior/${this.fundoImage}.png`);
 
-        // Pré carrega os objetos com uma função estática
         Player.preload(this);
         Npc.preload(this);
 
-        // --- AUTOESCOLA ---
-        this.load.image('autoEscolaBancada', 'assets/imagens/itens-lojas/autoEscolaBancada.png');
-        this.load.image('autoEscolaBanquinho', 'assets/imagens/itens-lojas/autoEscolaBanquinho.png');
-        this.load.image('autoEscolaMesa', 'assets/imagens/itens-lojas/autoEscolaMesa.png');
-        this.load.image('autoEscolaPlaca', 'assets/imagens/itens-lojas/autoEscolaPlaca.png');
-
-        // --- BRINQUEDOS (Pelúcia) ---
-        this.load.image('brinquedoBancada', 'assets/imagens/itens-lojas/brinquedoBancada.png');
-        this.load.image('brinquedoEstante', 'assets/imagens/itens-lojas/brinquedoEstante.png');
-        this.load.image('brinquedoLetreiro', 'assets/imagens/itens-lojas/brinquedoLetreiro.png');
-        this.load.image('brinquedoMesa', 'assets/imagens/itens-lojas/brinquedoMesa.png');
-        this.load.image('brinquedoPosters', 'assets/imagens/itens-lojas/brinquedoPosters.png');
-
-        // --- CHOCOLATE ---
-        this.load.image('chocolateBancada', 'assets/imagens/itens-lojas/chocolateBancada.png');
-        this.load.image('chocolateMesa', 'assets/imagens/itens-lojas/chocolateMesa.png');
-        this.load.image('chocolatePlaca', 'assets/imagens/itens-lojas/chocolatePlaca.png');
-
-        // --- DOCES MOMENTOS (Café/Lanchonete?) ---
-        this.load.image('docesMomentosBancada', 'assets/imagens/itens-lojas/docesMomentosBancada.png');
-        this.load.image('docesMomentosMesa1', 'assets/imagens/itens-lojas/docesMomentosMesa1.png');
-        this.load.image('docesMomentosMesa2', 'assets/imagens/itens-lojas/docesMomentosMesa2.png');
-
-        // --- FRUTARIA ---
-        this.load.image('frutaBancada', 'assets/imagens/itens-lojas/frutaBancada.png');
-        this.load.image('frutaAbacaxi', 'assets/imagens/itens-lojas/frutaAbacaxi.png');
-        this.load.image('frutaCaixaFrutaVermelha', 'assets/imagens/itens-lojas/frutaCaixaFrutaVermelha.png');
-        this.load.image('frutaCestaDeFrutas', 'assets/imagens/itens-lojas/frutaCestaDeFrutas.png');
-        this.load.image('frutaFrutasVermelhas', 'assets/imagens/itens-lojas/frutaFrutasVermelhas.png');
-        this.load.image('frutaFrutaVerde', 'assets/imagens/itens-lojas/frutaFrutaVerde.png');
-        this.load.image('frutaMaçaLaranja', 'assets/imagens/itens-lojas/frutaMaçaLaranja.png');
-        this.load.image('frutaManga', 'assets/imagens/itens-lojas/frutaManga.png');
-        this.load.image('frutaMelão', 'assets/imagens/itens-lojas/frutaMelão.png');
-        this.load.image('frutaMesa', 'assets/imagens/itens-lojas/frutaMesa.png');
-        this.load.image('frutaPrateleira', 'assets/imagens/itens-lojas/frutaPrateleira.png');
-
-        // --- JOALHERIA ---
-        this.load.image('joalheriaBancada', 'assets/imagens/itens-lojas/joalheriaBancada.png');
-        this.load.image('joalheriaMesa', 'assets/imagens/itens-lojas/joalheriaMesa.png');
-
-        // --- LANCHONETE ---
-        this.load.image('lanchoneteBancada', 'assets/imagens/itens-lojas/lanchoneteBancada.png');
-        this.load.image('lanchoneteMesa', 'assets/imagens/itens-lojas/lanchoneteMesa.png');
-        this.load.image('lanchonetePosters', 'assets/imagens/itens-lojas/lanchonetePosters.png');
-        this.load.image('lanchonetePrateleiras', 'assets/imagens/itens-lojas/lanchonetePrateleiras.png');
-
-        // --- MODA (Roupas) ---
-        this.load.image('modaArmarios1', 'assets/imagens/itens-lojas/modaArmarios1.png');
-        this.load.image('modaArmarios2', 'assets/imagens/itens-lojas/modaArmarios2.png');
-        this.load.image('modaBancada', 'assets/imagens/itens-lojas/modaBancada.png');
-        this.load.image('modaEspelho', 'assets/imagens/itens-lojas/modaEspelho.png');
-        this.load.image('modaManiquins', 'assets/imagens/itens-lojas/modaManiquins.png');
-        this.load.image('modaMesa', 'assets/imagens/itens-lojas/modaMesa.png');
-        this.load.image('modaSapatos', 'assets/imagens/itens-lojas/modaSapatos.png');
-        this.load.image('aberturaModa', 'assets/imagens/lojas/ao-abrir/EntradaLojaRoupas.png');
-
-        // --- MÓVEIS ---
-        this.load.image('moveisBancada', 'assets/imagens/itens-lojas/moveisBancada.png');
-        this.load.image('moveisCadeiras', 'assets/imagens/itens-lojas/moveisCadeiras.png');
-        this.load.image('moveisEstanteLuminárias', 'assets/imagens/itens-lojas/moveisEstanteLuminárias.png');
-        this.load.image('moveisImpressora', 'assets/imagens/itens-lojas/moveisImpressora.png');
-        this.load.image('moveisMesa1', 'assets/imagens/itens-lojas/moveisMesa1.png');
-        this.load.image('moveisMesa2', 'assets/imagens/itens-lojas/moveisMesa2.png');
-        this.load.image('moveisPoltrona', 'assets/imagens/itens-lojas/moveisPoltrona.png');
-        this.load.image('moveisSofas', 'assets/imagens/itens-lojas/moveisSofas.png');
-
-        // --- PETSHOP ---
-        this.load.image('petshopAquario', 'assets/imagens/itens-lojas/petshopAquario.png');
-        this.load.image('petshopBancada', 'assets/imagens/itens-lojas/petshopBancada.png');
-        this.load.image('petshopGaiolas', 'assets/imagens/itens-lojas/petshopGaiolas.png');
-        this.load.image('petshopMesa', 'assets/imagens/itens-lojas/petshopMesa.png');
-        this.load.image('petshopPrateleiras', 'assets/imagens/itens-lojas/petshopPrateleiras.png');
-
-        // --- SALÃO DE BELEZA ---
-        this.load.image('salaodebelezaBancada', 'assets/imagens/itens-lojas/salaodebelezaBancada.png');
-        this.load.image('salaodebelezaCadeira1', 'assets/imagens/itens-lojas/salaodebelezaCadeira1.png');
-        this.load.image('salaodebelezaCadeira2', 'assets/imagens/itens-lojas/salaodebelezaCadeira2.png');
-        this.load.image('salaodebelezaCadeirasCabelo', 'assets/imagens/itens-lojas/salaodebelezaCadeirasCabelo.png');
-        this.load.image('salaodebelezaCadeirasCabeloCortar', 'assets/imagens/itens-lojas/salaodebelezaCadeirasCabeloCortar.png'); 
-        this.load.image('salaodebelezaMesa', 'assets/imagens/itens-lojas/salaodebelezaMesa.png');
-        this.load.image('salaodebelezaToalhas', 'assets/imagens/itens-lojas/salaodebelezaToalhas.png');
-
-        // --- VIDEOGAME (Games) ---
-        this.load.image('videogameBancada', 'assets/imagens/itens-lojas/videogameBancada.png');
-        this.load.image('videogameEstante', 'assets/imagens/itens-lojas/videogameEstante.png');
-        this.load.image('videogameFliperama1', 'assets/imagens/itens-lojas/videogameFliperama1.png');
-        this.load.image('videogameFliperama2', 'assets/imagens/itens-lojas/videogameFliperama2.png');
-        this.load.image('videogameFliperama3', 'assets/imagens/itens-lojas/videogameFliperama3.png');
-        this.load.image('videogameFliperamaDeLado', 'assets/imagens/itens-lojas/videogameFliperamaDeLado.png');
-        this.load.image('videogameMesa', 'assets/imagens/itens-lojas/videogameMesa.png');
-        this.load.image('videogameMesaNerd', 'assets/imagens/itens-lojas/videogameMesaNerd.png');
-
-        // --- IMAGENS DE ENTRADA EM FULLSCREEN ---
         const entradaPorLoja = {
-            'Cafe': 'EntradaCafeteria',
-            'Games': 'EntradaLojaGames',
-            'Beleza': 'EntradaBeleza',
-            'Roupas': 'EntradaLojaRoupas',
-            'Pet': 'EntradaPetShop',
-            'Movel': 'EntradaLojaMoveis',
-            'Frutaria': 'EntradaFrutaria',
-            'Lanchonete': 'EntradaLanchonete',
-            'Chocolate': 'EntradaLojaChocolate',
-            'Pelucia': 'EntradaLojaBrinquedos',
-            'Autoescola': 'EntradaAutoescola',
-            'Joalheria': 'EntradaJoalheria'
+            Cafe: 'EntradaCafeteria',
+            Games: 'EntradaLojaGames',
+            Beleza: 'EntradaBeleza',
+            Roupas: 'EntradaLojaRoupas',
+            Pet: 'EntradaPetShop',
+            Movel: 'EntradaLojaMoveis',
+            Frutaria: 'EntradaFrutaria',
+            Lanchonete: 'EntradaLanchonete',
+            Chocolate: 'EntradaLojaChocolate',
+            Pelucia: 'EntradaLojaBrinquedos',
+            Autoescola: 'EntradaAutoescola',
+            Joalheria: 'EntradaJoalheria'
         };
-        
+
         const nomeArquivo = entradaPorLoja[this.nomeLoja];
-        const chaveTextura = 'entradaLoja' + this.nomeLoja;
-        
+        const chave = 'entradaLoja' + this.nomeLoja;
+
         if (nomeArquivo) {
-            this.load.image(chaveTextura, `assets/imagens/lojas/ao-abrir/${nomeArquivo}.png`);
-        } else {
-            console.warn(`Arquivo de entrada não encontrado para loja: ${this.nomeLoja}`);
+            this.load.image(chave, `assets/imagens/lojas/ao-abrir/${nomeArquivo}.png`);
         }
 
-        // Botão de interação exibido quando o jogador se aproxima do NPC
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
-}
+    }
 
-
-    // Executado quando a cena é criada
     create() {
         this._criarCenario();
 
-        // Mostra imagem de entrada em fullscreen ao entrar em qualquer loja
-        const chaveTextura = 'entradaLoja' + this.nomeLoja;
-        this.exteriorImage = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 450, chaveTextura).setDepth(1000);
-        this.exteriorImage.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+        const chave = 'entradaLoja' + this.nomeLoja;
 
-        // Botão X para fechar a imagem - posicionado no canto superior direito da imagem
+        this.exteriorImage = this.add.image(
+            this.cameras.main.centerX,
+            this.cameras.main.centerY + 450,
+            chave
+        ).setDepth(1000);
+
+        this.exteriorImage.setDisplaySize(
+            this.cameras.main.width,
+            this.cameras.main.height
+        );
+
         const botaoFechar = this.add.text(
             this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
             this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
             'X',
-            {
-                fontSize: '48px',
-                fill: '#FFFFFF',
-                padding: { x: 10, y: 5 },
-                align: 'center'
-            }
+            { fontSize: '48px', fill: '#FFF' }
         ).setDepth(1001).setInteractive();
 
         botaoFechar.on('pointerdown', () => {
@@ -193,70 +98,42 @@ export default class LojaScene extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
-        if (this.player) {
-            this.player.setDepth(150);
-        }
-
-        // Faz a câmera seguir o jogador
         this.cameras.main.startFollow(this.player);
-
-        // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
 
-        // Abre o menu de pause ao pressionar ESC
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        this.objetosFisicos = this.physics.add.staticGroup();
+        this._criarMobiliario();
 
-            this.objetosFisicos = this.physics.add.staticGroup(); // Grupo para objetos que não se movem
-            this._criarMobiliario();
-
-            // Colisão geral do jogador com todos os móveis da loja
-            this.physics.add.collider(this.player, this.objetosFisicos);
+        this.physics.add.collider(this.player, this.objetosFisicos);
     }
 
-    /**
-     * Cria o cenário visual
-     */
     _criarCenario() {
-        // Adiciona imagem de fundo na posição especificada
-        // setScale ajusta o tamanho da imagem para o layout da cena
-        this.fundo =
-            this.add.image(0, 0, this.fundoImage)
-                .setOrigin(0.5, 0.5)
-                .setScale(this.backgroundScale);
+        this.fundo = this.add.image(0, 0, this.fundoImage)
+            .setOrigin(0.5)
+            .setScale(this.backgroundScale);
 
         this.fundo.x = this.fundo.displayWidth / 2;
         this.fundo.y = this.fundo.displayHeight / 2;
+
         this.physics.world.setBounds(
             0,
             0,
             this.fundo.displayWidth,
             this.fundo.displayHeight
-        )
+        );
     }
 
-    
-    /**
-     * Configura:
-     * - Instância do Quiz
-     * - Criação do Player
-     * - Criação do NPC
-     * - Botão de interação (aparece ao chegar perto do NPC)
-     * - Tecla E para iniciar o quiz
-     */
     _configurarPlayerNpcQuiz() {
-
-        // Instancia sistema de perguntas
         this.quiz = new Quiz(this);
 
-        // Cria jogador na posição inicial dentro da cena
         this.player = new Player(this, this.playerX, this.playerY);
         this.player.setCollideWorldBounds(true);
 
-        // Mapa de perguntas por loja
         const perguntasPorLoja = {
             Movel: perguntasMovel,
             Cafe: perguntasCafe,
@@ -267,166 +144,103 @@ export default class LojaScene extends Phaser.Scene {
             Chocolate: perguntasChocolate
         };
 
-        // Seleciona as perguntas da loja atual, fallback para perguntasNpcRua se não encontrar
-        const perguntasDaLoja = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+        const perguntas = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
 
-        // Cria NPC com perguntas específicas da cena
         this.npc = new Npc(
             this,
             this.npcX,
             this.npcY,
-            perguntasDaLoja,
+            perguntas,
             "npc-vermelho",
-            `npc_${this.sceneLoja}`,
+            `npc_${this.sceneLoja}`
         );
 
-        // Nestas lojas o NPC fica atrás do balcão, então precisa de depth alto
-        // para aparecer na frente do mobiliário que é desenhado com depth 100
-        if (this.nomeLoja === 'Cafe') {
+        if (['Cafe','Chocolate','Autoescola','Lanchonete','Joalheria','Frutaria'].includes(this.nomeLoja)) {
             this.npc.setDepth(101);
         }
-        else if (this.nomeLoja === 'Chocolate') {
-            this.npc.setDepth(101);
-        }
-        else if (this.nomeLoja === 'Autoescola') {
-            this.npc.setDepth(101);
-        }
-        else if (this.nomeLoja === 'Lanchonete') {
-            this.npc.setDepth(101);
-        }
-        else if (this.nomeLoja === 'Joalheria') {
-            this.npc.setDepth(101);
-        }
-        else if (this.nomeLoja === 'Frutaria') {
-            this.npc.setDepth(101);
-        }
-
 
         this.quiz.aplicarVisualConquistado(this.npc);
 
-        // Collider da bancada interna desativado: o mobiliário já usa staticGroup com colisão própria.
-        // Caso seja necessário reativar uma bancada separada, descomentar o bloco abaixo.
-        /*
-        if (this.corpoColisaoBancada) {
-            this.physics.add.collider(this.player, this.corpoColisaoBancada);
-        }
-        */
-
-        // Cria o botão de interação acima do NPC, invisível por padrão
-        // Ele aparece quando o jogador chega perto e some quando se afasta
-        this.botaoInteracao = this.add.image(this.npcX, this.npcY - 200, 'botaoInteracao')
-            .setScale(0.40)
-            .setVisible(false)
+        // BOTÃO DE INTERAÇÃO (já aparece + posição inicial)
+        this.botaoInteracao = this.add.image(this.npcX, this.npcY - 120, 'botaoInteracao')
+            .setScale(0.4)
+            .setVisible(!this.npc.vendeu)
             .setDepth(300);
 
-        // Registra a tecla E para o jogador acionar a interação com o NPC
+        // controle da animação
+        this.tempoAnimacaoBotao = 0;
+
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     }
 
-    /**
-     * Cria porta de saída que retorna para a cena principal
-     */
     _criarPortas() {
-
-        // Cria objeto de entrada que redireciona para 'gameScene'
         this.portaEntrada = new Entrada(
-            this,        // cena atual
-            this.portaX,         // posição X
-            this.portaY,           // posição Y
-            this,        // referência da cena
-            'gameScene'  // nome da cena de destino
+            this,
+            this.portaX,
+            this.portaY,
+            this,
+            'gameScene'
         );
 
-        // Define o tamanho da porta
         this.portaEntrada.setScale(2.8);
 
-        // Detecta sobreposição entre jogador e porta
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
-            // Salva o identificador da loja atual
             definirProximoSpawnCidade(this.nomeLoja);
-
-            // Depois de salvar o contexto, faz a transição para a cidade.
             this.portaEntrada.trocarDeCena();
         });
     }
 
-    // Executado a cada frame do jogo
     update() {
-
-        // Atualiza lógica do jogador (movimento, animações, etc.)
         this.player.update();
-
-        // Atualiza lógica do NPC (caso haja comportamento futuro)
         this.npc.update();
 
-        // Calcula a distância entre o jogador e o NPC a cada frame
+        // animação do botão (flutuar)
+        this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
+        const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
+
+        this.botaoInteracao.setVisible(!this.npc.vendeu);
+
+        this.botaoInteracao.x = this.npc.x;
+        this.botaoInteracao.y = this.npc.y - 120 + deslocamento;
+
         const distancia = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
             this.npc.x, this.npc.y
         );
 
-        // Define se o jogador está perto o suficiente para interagir (raio de 300 pixels)
         const perto = distancia < 300;
 
-        // Mostra o botão apenas se o jogador estiver perto e o NPC ainda não tiver sido conquistado
-        this.botaoInteracao.setVisible(perto && !this.npc.vendeu);
-
-        // Se o jogador estiver perto e pressionar E, inicia o quiz
         if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {
             this.quiz.iniciar(this.npc);
         }
 
-        // Avisa a porta de saída para checar a distância do Marcielo
         if (this.portaEntrada) {
             this.portaEntrada.update();
         }
     }
 
-    /**
-     * Cria os móveis e objetos físicos do interior da loja.
-     * Busca a lista de objetos configurada em ObjetosInterior pelo nome da loja,
-     * cria cada móvel como um sprite estático com física e depth alto (100)
-     * para aparecer sobre o fundo da loja.
-     * Depende de this.objetosFisicos estar criado antes da chamada.
-     */
     _criarMobiliario() {
-        console.log("-> 1. Iniciando montagem dos móveis para a loja:", this.nomeLoja);
-        
-        const listaObjetos = ObjetosInterior[this.nomeLoja];
-        
-        if (!listaObjetos) {
-            console.log("-> ❌ Nenhuma lista de móveis encontrada para essa loja!");
-            return;
-        }
+        const lista = ObjetosInterior[this.nomeLoja];
+        if (!lista) return;
 
-        console.log("-> 2. Encontrei a lista! Quantidade de móveis para criar:", listaObjetos.length);
-
-        listaObjetos.forEach(config => {
-            console.log(`-> 3. Desenhando: ${config.imagem} em X: ${config.x}, Y: ${config.y}`);
-            
+        lista.forEach(config => {
             let movel = this.objetosFisicos.create(config.x, config.y, config.imagem);
-            
-            // FORÇA o móvel a renderizar por cima de TUDO (z-index bem alto)
-            movel.setDepth(100); 
+            movel.setDepth(100);
 
             if (config.escala) {
                 movel.setScale(config.escala);
             }
- 
-            // precisamos pedir pra física recalcular o tamanho dele:
+
             movel.refreshBody();
 
             if (config.hitWidth && config.hitHeight) {
-                // Atualiza o tamanho da caixa
                 movel.body.setSize(config.hitWidth, config.hitHeight);
 
-                // Força as variáveis de offset (se não existirem, valem 0)
-                let recuoX = config.offsetX !== undefined ? config.offsetX : 0;
-                let recuoY = config.offsetY !== undefined ? config.offsetY : 0;
+                let offX = config.offsetX ?? 0;
+                let offY = config.offsetY ?? 0;
 
-                // Calcula a posição exata da caixa azul forçando as coordenadas top-left
-                movel.body.x = (movel.x - (config.hitWidth / 2)) + recuoX;
-                movel.body.y = (movel.y - (config.hitHeight / 2)) + recuoY;
+                movel.body.x = (movel.x - config.hitWidth / 2) + offX;
+                movel.body.y = (movel.y - config.hitHeight / 2) + offY;
             }
         });
     }

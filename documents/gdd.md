@@ -2,7 +2,6 @@
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
 
 ## Nome dos integrantes Grupo
 
@@ -53,23 +52,23 @@ Nesta seção, o modelo das Cinco Forças de Michael Porter é utilizado para an
 
 A partir dessa análise, busca-se compreender as pressões competitivas que impactam a rentabilidade da empresa, bem como identificar os principais desafios estratégicos relacionados à manutenção de market share, diferenciação de serviços e adaptação às transformações do setor de pagamentos digitais.
 
-#### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
+#### A) Ameaça de Novos Entrantes (nível: moderado)
 
 A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.2 Ameaça de Produtos ou Serviços Substitutos (nível: alto)
+#### B) Ameaça de Produtos ou Serviços Substitutos (nível: alto)
 
 A ameaça de substitutos é alta. O Pix se consolidou como alternativa central aos pagamentos com cartão, reduzindo fricções de custo e prazo para parte dos lojistas e consumidores. Em paralelo, bancos digitais, marketplaces com pagamento embutido e carteiras digitais ampliam a substituição de soluções tradicionais de adquirência, sobretudo em segmentos sensíveis a taxa e experiência digital. Isso pressiona o modelo baseado em MDR e exige inovação contínua em serviços de valor agregado (Banco Central do Brasil, 2024; ABECS, 2024; Reuters, 2026).
 
-#### 1.1.1.1.3 Poder de Barganha dos Fornecedores (nível: moderado a alto)
+#### C) Poder de Barganha dos Fornecedores (nível: moderado a alto)
 
 O poder de barganha dos fornecedores é moderado a alto, variando por grupo. Bandeiras (Visa, Mastercard, Elo e American Express) possuem poder elevado por definirem padrões e regras operacionais críticas. Bancos emissores e parceiros de liquidação têm poder moderado, enquanto fornecedores de tecnologia (antifraude, gateways e infraestrutura) tendem a moderado-alto devido ao custo de substituição e dependência técnica. Já hardware e telecom apresentam poder moderado. Esse arranjo impacta custos, prazos e capacidade de inovação das adquirentes (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.4 Poder de Barganha dos Clientes (nível: alto)
+#### D) Poder de Barganha dos Clientes (nível: alto)
 
 A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commerce, autônomos e segmentos como bares e restaurantes. O poder de barganha desse grupo é alto, pois há ampla oferta de provedores, baixa barreira de troca e forte sensibilidade a taxa, prazo de recebimento e qualidade de serviço. A expansão do Pix reforça essa pressão competitiva e aumenta a exigência por propostas de valor mais completas, com serviços financeiros e integração digital (Cielo S.A., 2024; Banco Central do Brasil, 2024; Reuters, 2026).
 
-#### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
+#### E) Rivalidade entre Concorrentes Existentes (nível: muito alto)
 
 A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
@@ -595,11 +594,13 @@ Variável interna de execução (não é parâmetro de entrada):
 
 O movimento é bidimensional. Em qualquer instante $t$, a posição do balão é representada pelo vetor posição:
 
-$$ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+$$
+ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
 
 E o vetor velocidade instantânea é:
 
-$$ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+$$
+ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
 
 Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o vetor unitário no eixo Y (vertical no sistema do Phaser).
 
@@ -1121,7 +1122,6 @@ Vieira, S. (2025). Mercado de adquirência: Um gigante em disputa na era do Pix 
 
 # <a name="c8"></a>Anexos
 
-_Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_
 
 ### Diagramas
 

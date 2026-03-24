@@ -1,7 +1,7 @@
 // Cena inicial do jogo: exibe o menu com fundo animado,
 // imagem de título, loja decorativa e botões de navegação
 
-export class menuScene extends Phaser.Scene {
+export class CenaMenu extends Phaser.Scene {
 
     constructor() {
         super({ key: 'menuScene' });

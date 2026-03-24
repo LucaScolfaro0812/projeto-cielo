@@ -153,8 +153,8 @@ export default class CenaLoja extends Phaser.Scene {
         }
 
         // Carrega som da porta
-        if (!this.cache.audio.exists('portaAbrindoFechando')) {
-            this.load.audio('portaAbrindoFechando', 'assets/sons/portaAbrindoFechando.mp3');
+        if (!this.cache.audio.exists('portaAbrindo')) {
+            this.load.audio('portaAbrindo', 'assets/sons/portaAbrindo.mp3');
         }
     }
 
@@ -162,8 +162,8 @@ export default class CenaLoja extends Phaser.Scene {
         this._criarCenario();
 
         // Som da porta ao entrar
-        if (this.cache.audio.exists('portaAbrindoFechando')) {
-            this.sound.play('portaAbrindoFechando');
+        if (this.cache.audio.exists('portaAbrindo')) {
+            this.sound.play('portaAbrindo');
         }
 
         // Inicia áudio ambiente em loop com volume reduzido

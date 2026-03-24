@@ -20,8 +20,9 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
-        // Reduz o tamanho visual do carro para 50% do original
-        this.setScale(0.5);
+        // Escala o sprite para ~576px — visível no mapa sem ocupar espaço excessivo
+        this.setScale(9);
+
 
         // Define a profundidade de renderização — o carro aparece acima do mapa
         this.setDepth(10);

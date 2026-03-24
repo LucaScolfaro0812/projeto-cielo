@@ -541,7 +541,13 @@ O progresso do jogador é salvo via **localStorage** a cada conquista: IDs dos N
 
 Ao conquistar uma loja, **balões decorativos** aparecem flutuando sobre ela no mapa da cidade. A animação usa cinemática bidimensional (detalhada na seção 3.8): MU no eixo X e MUV no eixo Y, criando uma trajetória parabólica de entrada. Cada balão tem duração diferente (2,0 s, 2,3 s, 2,6 s) para evitar sincronismo visual.
 
-### 3.7.7. Menu de pausa
+### 3.7.7. Menu principal e tela de tutorial
+
+A tela inicial (`CenaMenu`) exibe o logotipo do jogo, nuvens com scroll horizontal contínuo e dois botões: **Jogar** e **Tutorial**. As nuvens se movem de forma independente em velocidades distintas, criando efeito de profundidade (parallax simples).
+
+A tela de tutorial exibe uma imagem explicativa com as mecânicas básicas do jogo (controles, objetivo, interação com NPCs e risco dos carros). O jogador retorna ao menu ao fechar o tutorial.
+
+### 3.7.8. Menu de pausa
 
 Acessado pela tecla ESC tanto na cidade quanto dentro de qualquer loja. Oferece três opções:
 
@@ -1028,12 +1034,12 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 9   | Personagem perto de um NPC                                | Aproximar-se do NPC e pressionar a tecla E                              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada      |
 | 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta                            | A barra de conversão aumenta                                                                 |
 | 11  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta                         | A barra de conversão diminui                                                                 |
-| 12  | Conversão na faixa verde (última pergunta)                | Responder de forma a manter ou elevar a conversão                       | Cliente é conquistado e negociação é concluída com sucesso                                   |
-| 13  | Conversão na faixa verde (última pergunta)                | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída                                               |
-| 14  | Conversão na faixa laranja (última pergunta)              | Responder incorretamente e reduzir a conversão para faixa vermelha      | Cliente não é conquistado                                                                    |
-| 15  | Conversão na faixa vermelha (última pergunta)             | Responder incorretamente ou manter desempenho ruim                      | Cliente não é conquistado                                                                    |
-| 16  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente, mas sem sair da faixa vermelha                  | Cliente não é conquistado                                                                    |
-| 17  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente e elevar para faixa laranja ou verde             | Cliente é conquistado                                                                        |
+| 12  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                       |
+| 13  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Errar a 3ª pergunta                                               | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
+| 14  | Jogador errou as 2 primeiras perguntas (0 pontos acumulados)    | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                   |
+| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
+| 16  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
+| 17  | Jogador errou todas as perguntas anteriores (0 pontos)          | Responder corretamente a 3ª pergunta                              | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
 | 18  | Tempo limite da pergunta esgotado                         | O timer chega a 0 durante o quiz                                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta  |
 | 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
 | 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |

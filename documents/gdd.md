@@ -882,35 +882,82 @@ As 12 lojas (Café, Games, Beleza, Roupas, Pet, Móveis, Frutaria, Lanchonete, C
 
 **Sistema de quiz**
 
-- 3 perguntas sorteadas aleatoriamente por loja sem repetição (`_carregarPerguntasJaFeitas()`).
-- Timer de 60 segundos por pergunta; ao esgotar, a pergunta encerra com 0 pontos e o quiz avança.
-- Barra de conversão com 3 faixas de cor: vermelho (baixa), amarelo (média), verde (alta).
-- Pontuação: respostas corretas valem 3 pontos; limiar de conquista: **≥ 6 pontos** em 9 possíveis.
-- Zoom da câmera normalizado ao abrir o quiz para garantir legibilidade da interface.
+Cada loja possui um banco de perguntas específico em `quiz-perguntas.js` (12 conjuntos no total: `perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola` e `perguntasNpcRua` compartilhado por Games, Beleza, Roupas, Frutaria e Joalheria). O mapeamento é feito por nome de loja:
 
 ```js
-// Exemplo: lógica de conquista no quiz.js
-if (this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA) {
-    npc.conquistado = true;
-    salvarDados(npc.id, true);
+// quiz.js — mapa de perguntas por loja
+const perguntasPorLoja = {
+    'Cafe': perguntasCafe,
+    'Pet': perguntasPet,
+    'Movel': perguntasMovel,
+    'Lanchonete': perguntasLanchonete,
+    'Chocolate': perguntasChocolate,
+    'Pelucia': perguntasPelucia,
+    'Autoescola': perguntasAutoescola,
+};
+```
+
+A cada quiz, 3 perguntas são sorteadas aleatoriamente sem repetição na mesma sessão (`_carregarPerguntasJaFeitas()`). O timer de 60 segundos por pergunta é controlado por `Phaser.Time.addEvent`. Ao esgotar, a pergunta encerra com 0 pontos e o quiz avança automaticamente.
+
+A barra de conversão usa 3 faixas de cor: vermelho (baixa), amarelo (média), verde (alta). A conquista do cliente ocorre se a **soma total for ≥ 6 pontos** ao final das 3 perguntas (máximo: 9 pontos):
+
+```js
+// quiz.js — verificação de conquista ao finalizar
+_verificarConquista() {
+    if (this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA) {
+        this.npcAtual.visualConquistado();
+        salvarProgressoNpc(this.npcAtual.idNpc);
+    }
 }
 ```
 
-**Progressão persistente**
+O zoom da câmera é normalizado ao abrir o quiz (`cameras.main.setZoom(1)`) e restaurado ao fechar, garantindo legibilidade da interface independente do zoom do mapa.
 
-Dados salvos via `localStorage` com `salvarDados` / `carregarDados` protegidos por `try/catch`. O que é salvo: IDs dos NPCs conquistados, ponto de spawn de retorno por loja e estado visual das lojas. O progresso persiste entre sessões do navegador.
+**Progressão persistente via localStorage**
+
+Dados salvos com `salvarDados` / `carregarDados`, protegidos por `try/catch` para evitar erros em modo privado ou com localStorage desabilitado:
+
+```js
+// armazenamento.js
+static salvarDados(chave, valor) {
+    try {
+        localStorage.setItem(chave, JSON.stringify(valor));
+    } catch (erro) {
+        console.warn("Storage.salvarDados erro:", erro);
+    }
+}
+```
+
+O que é persistido entre sessões: IDs dos NPCs conquistados, ponto de spawn de retorno por loja e estado visual das lojas (balões decorativos). O menu de pausa oferece "Novo Jogo" que apaga todas as chaves do localStorage e reinicia do zero.
 
 **Spawn dinâmico e bloqueio de reentrada**
 
-Ao sair de uma loja, o jogador reaparece na frente dela (`definirProximoSpawnCidade`). Um bloqueio de reentrada imediata (`nomeLojaRetornoBloqueada`) com timer de 900 ms e distância mínima de 260 px evita loops acidentais de troca de cena.
+Ao sair de uma loja, o jogador reaparece na frente dela usando `definirProximoSpawnCidade` / `consumirSpawnCidade`. Um bloqueio triplo de reentrada imediata evita loops acidentais: flag `nomeLojaRetornoBloqueada`, timer de **900 ms** e distância mínima de **260 px** antes de liberar a porta novamente.
+
+**Animação cinemática dos balões (MU + MUV)**
+
+Ao conquistar uma loja, balões decorativos aparecem com animação baseada em cinemática bidimensional. O eixo X usa Movimento Uniforme (velocidade constante) e o eixo Y usa Movimento Uniformemente Variado (aceleração constante a partir do repouso):
+
+```js
+// cena-cidade.js — animarElemento
+animarElemento(xInicial, yInicial, xFinal, yFinal, duracao, elemento) {
+    const vx = (xFinal - xInicial) / duracao;              // MU no eixo X
+    const ay = 2 * (yFinal - yInicial) / (duracao * duracao); // MUV no eixo Y
+    elemento._anim = { xInicial, yInicial, vx, ay, t: 0, duracao };
+}
+
+// No update():
+balao.x = a.xInicial + a.vx * a.t;                        // x(t) = xi + vx·t
+balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;            // y(t) = yi + ½·ay·t²
+```
 
 **Carros e mecânica de risco**
 
-3 carros em loop horizontal a 750 px/s. Colisão com qualquer carro chama `player.morreu()`, reiniciando a cena da cidade (progresso salvo é mantido).
+3 carros em loop horizontal a 750 px/s, cada um com cor sorteada aleatoriamente (branco, amarelo ou azul) ao spawnar. Colisão chama `player.morreu()`, reiniciando a cena da cidade mantendo o progresso salvo.
 
 **NPCs e variação visual**
 
-NPCs começam com sprite vermelho e mudam para azul ao serem conquistados. O método `aplicarVisualConquistado()` é chamado no `create()` da loja, garantindo que lojas já conquistadas exibem o NPC azul desde o início.
+NPCs começam com sprite vermelho e mudam para azul ao serem conquistados. O método `aplicarVisualConquistado()` é chamado no `create()` da loja, garantindo que lojas já conquistadas exibem o NPC azul desde o carregamento da cena.
 
 ### Ilustrações da versão intermediária
 
@@ -977,13 +1024,13 @@ Uma funcionalidade foi considerada concluída quando atendeu aos seguintes crit�
 
 Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encontram em desenvolvimento:
 
-. Quantidade limitada de quizzes disponíveis, tanto em número de questões quanto em variedade;
+. Quantidade limitada de perguntas por loja — algumas lojas compartilham o mesmo banco de perguntas (`perguntasNpcRua`), reduzindo a variedade;
 
-. Sistema de pontuação ainda em processo (Soma dos pontos totais);
+. Ausência de efeitos sonoros e trilha sonora durante a jogabilidade;
 
-. Necessidade de melhorias na interface gráfica e no sistema de progressão do jogador;
+. Interface gráfica do quiz ainda sem animações de transição entre perguntas;
 
-. Novos desafios planejados, como movimentação de carros nas ruas e máquinas de cartão quebradas, ainda não implementados.
+. Sem suporte a dispositivos móveis — controles exclusivamente por teclado e mouse.
 
 ### Próximos passos
 

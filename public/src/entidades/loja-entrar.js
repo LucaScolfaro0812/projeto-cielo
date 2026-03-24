@@ -109,7 +109,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     this.avisoNaTela = true;
 
                     // Cria o texto bonitinho flutuando acima da cabeça dele
-                    const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Tente converter outra loja primeiro!", {
+                    const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Você só pode retornar após converter outra loja!", {
                         fontSize: '34px',
                         fontFamily: 'Arial',
                         backgroundColor: '#ff0000', // Fundo vermelho

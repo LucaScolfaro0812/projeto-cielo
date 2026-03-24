@@ -1,11 +1,10 @@
 /**
  * Classe Carro — representa um carro que se move horizontalmente pela cidade.
- * O carro percorre a tela da esquerda para a direita (ou direita para esquerda)
- * em loop contínuo, reiniciando do lado oposto quando sai da tela.
+ * O carro percorre a tela da esquerda para a direita em loop contínuo.
+ * Cada carro sorteia uma das 3 variantes de cor ao ser criado e mantém
+ * essa cor fixa, ciclando os 8 frames manualmente para garantir independência
+ * entre instâncias.
  * Se o jogador colidir com o carro, ele morre.
- *
- * Animação: spritesheet com 8 frames (64x64 px cada), organizados em grade 3x3
- * (última célula vazia). Os frames simulam o movimento das rodas do carro.
  */
 export default class Carro extends Phaser.Physics.Arcade.Sprite {
 
@@ -17,21 +16,23 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
      * @param {boolean} esquerdaDireita - true = move para a direita, false = move para a esquerda
      */
     constructor(cena, x, y, esquerdaDireita){
-        // Inicia com o frame 0 do spritesheet
-        super(cena, x, y, "carro", 0);
+        // Sorteia a variante de cor antes de criar o sprite (1 = original, 2 = cor 1, 3 = cor 2)
+        const variante = Phaser.Math.Between(1, 3);
+
+        super(cena, x, y, `carro${variante}_frame_1`);
 
         // Adiciona o carro à cena visualmente e ao sistema de física
         cena.add.existing(this);
         cena.physics.add.existing(this);
 
-        // Escala o sprite para ~256px — visível no mapa sem ocupar espaço excessivo
-        this.setScale(4);
+        // Escala o sprite para o tamanho visível no mapa
+        this.setScale(9);
 
         // Define a profundidade de renderização — o carro aparece acima do mapa
         this.setDepth(10);
 
-        // Hitbox menor que o frame para ignorar as áreas transparentes ao redor do carro
-        this.setSize(56, 28);
+        // Define o hitbox proporcional ao frame 64x64 — o carro ocupa ~56x26px dentro do frame
+        this.setSize(56, 26);
 
         // Sincroniza o corpo físico com a posição e escala atual do sprite
         this.body.updateFromGameObject();
@@ -39,46 +40,50 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         // Guarda a direção de movimento para usar no método mover()
         this.esquerdaDireita = esquerdaDireita;
 
-        // Espelha horizontalmente quando o carro vai para a esquerda
-        if (!esquerdaDireita) {
-            this.setFlipX(true);
-        }
-
         // Velocidade de deslocamento em pixels por segundo
         this.velocidade = 750;
 
-        // Cria a animação uma única vez (evita recriar a cada instância)
-        if (!cena.anims.exists('carro-andando')) {
-            cena.anims.create({
-                key: 'carro-andando',
-                frames: cena.anims.generateFrameNumbers('carro', { start: 0, end: 7 }),
-                frameRate: 12,  // 12 frames por segundo — rodas giram suavemente
-                repeat: -1      // loop infinito
-            });
-        }
-
-        // Inicia a animação de rodas girando
-        this.play('carro-andando');
+        // Controle manual de animação — garante que cada carro cicla seus frames de forma independente
+        this._variante    = variante; // qual conjunto de frames usar (fixo para esta instância)
+        this._frameAtual  = 1;        // frame exibido no momento (1 a 8)
+        this._tempoFrame  = 0;        // acumulador de tempo em ms
+        this._msPorFrame  = 125;      // 8fps → 1000ms / 8 = 125ms por frame
     }
 
     /**
-     * Carrega o spritesheet do carro antes da cena iniciar.
-     * O spritesheet contém 8 frames de 64x64 px em grade 3x3 (1 célula vazia).
+     * Carrega os 8 frames das 3 variantes de cor antes da cena iniciar.
      * @param {Phaser.Scene} scene - a cena que está fazendo o preload
      */
     static preload(scene){
-        scene.load.spritesheet('carro', 'assets/sprites/spritesheet/Carro.png', {
-            frameWidth: 64,
-            frameHeight: 64
-        });
+        // Carrega os 8 frames das 3 variantes de cor (branco, amarelo e azul)
+        for (let i = 1; i <= 8; i++) {
+            scene.load.image(`carro1_frame_${i}`, `assets/sprites/animacoes/Carro/carro-branco-${i}.png`);
+            scene.load.image(`carro2_frame_${i}`, `assets/sprites/animacoes/Carro/carro-amarelo-${i}.png`);
+            scene.load.image(`carro3_frame_${i}`, `assets/sprites/animacoes/Carro/carro-azul-${i}.png`);
+        }
     }
 
     /**
      * Executado a cada frame pelo Phaser.
-     * Chama o método de movimentação para manter o carro em movimento contínuo.
+     * Avança o frame da animação manualmente e move o carro.
      */
     update(){
+        this._animarFrame();
         this.mover();
+    }
+
+    /**
+     * Cicla os frames da variante de cor deste carro de forma independente.
+     * Usa o delta do game loop para manter 8fps independente do framerate da tela.
+     */
+    _animarFrame(){
+        this._tempoFrame += this.scene.game.loop.delta;
+
+        if (this._tempoFrame >= this._msPorFrame) {
+            this._tempoFrame = 0;
+            this._frameAtual = (this._frameAtual % 8) + 1; // cicla de 1 a 8
+            this.setTexture(`carro${this._variante}_frame_${this._frameAtual}`);
+        }
     }
 
     /**
@@ -91,9 +96,9 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         this.setVelocity((this.esquerdaDireita ? 1 : -1) * this.velocidade, 0);
 
         // Verifica se o carro saiu completamente pela borda direita do mundo
-        if (this.x > this.scene.physics.world.bounds.width + (this.width/2)) {
+        if (this.x > this.scene.physics.world.bounds.width + (this.width / 2)) {
             // Reposiciona o carro no lado esquerdo, fora da tela, para recomeçar o loop
-            this.x = 0 - (this.width/2);
+            this.x = 0 - (this.width / 2);
         }
     }
 }

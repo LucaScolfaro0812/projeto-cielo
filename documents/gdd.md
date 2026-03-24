@@ -52,23 +52,23 @@ Nesta seção, o modelo das Cinco Forças de Michael Porter é utilizado para an
 
 A partir dessa análise, busca-se compreender as pressões competitivas que impactam a rentabilidade da empresa, bem como identificar os principais desafios estratégicos relacionados à manutenção de market share, diferenciação de serviços e adaptação às transformações do setor de pagamentos digitais.
 
-#### 1.1.1.1.1 Ameaça de Novos Entrantes (nível: moderado)
+#### A) Ameaça de Novos Entrantes (nível: moderado)
 
 A ameaça de novos entrantes é moderada. Embora o setor exija alto investimento inicial em tecnologia, prevenção a fraudes e capacidade operacional, também há barreiras regulatórias relevantes, já que participantes precisam cumprir exigências do Banco Central. Além disso, escala, reputação e rede comercial continuam sendo vantagens das incumbentes. O impacto dos novos entrantes ocorre principalmente por pressão em preços, redução de margens e maior disputa por participação de mercado (Porter, 2008; Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.2 Ameaça de Produtos ou Serviços Substitutos (nível: alto)
+#### B) Ameaça de Produtos ou Serviços Substitutos (nível: alto)
 
 A ameaça de substitutos é alta. O Pix se consolidou como alternativa central aos pagamentos com cartão, reduzindo fricções de custo e prazo para parte dos lojistas e consumidores. Em paralelo, bancos digitais, marketplaces com pagamento embutido e carteiras digitais ampliam a substituição de soluções tradicionais de adquirência, sobretudo em segmentos sensíveis a taxa e experiência digital. Isso pressiona o modelo baseado em MDR e exige inovação contínua em serviços de valor agregado (Banco Central do Brasil, 2024; ABECS, 2024; Reuters, 2026).
 
-#### 1.1.1.1.3 Poder de Barganha dos Fornecedores (nível: moderado a alto)
+#### C) Poder de Barganha dos Fornecedores (nível: moderado a alto)
 
 O poder de barganha dos fornecedores é moderado a alto, variando por grupo. Bandeiras (Visa, Mastercard, Elo e American Express) possuem poder elevado por definirem padrões e regras operacionais críticas. Bancos emissores e parceiros de liquidação têm poder moderado, enquanto fornecedores de tecnologia (antifraude, gateways e infraestrutura) tendem a moderado-alto devido ao custo de substituição e dependência técnica. Já hardware e telecom apresentam poder moderado. Esse arranjo impacta custos, prazos e capacidade de inovação das adquirentes (Banco Central do Brasil, 2024; Cielo S.A., 2024).
 
-#### 1.1.1.1.4 Poder de Barganha dos Clientes (nível: alto)
+#### D) Poder de Barganha dos Clientes (nível: alto)
 
 A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commerce, autônomos e segmentos como bares e restaurantes. O poder de barganha desse grupo é alto, pois há ampla oferta de provedores, baixa barreira de troca e forte sensibilidade a taxa, prazo de recebimento e qualidade de serviço. A expansão do Pix reforça essa pressão competitiva e aumenta a exigência por propostas de valor mais completas, com serviços financeiros e integração digital (Cielo S.A., 2024; Banco Central do Brasil, 2024; Reuters, 2026).
 
-#### 1.1.1.1.5 Rivalidade entre Concorrentes Existentes (nível: muito alto)
+#### E) Rivalidade entre Concorrentes Existentes (nível: muito alto)
 
 A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
@@ -161,9 +161,11 @@ Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao con
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam seu desempenho no jogo.
+A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e առաջարկar soluções adequadas.
 
-A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento e melhorar a performance em vendas, alinhando-se às necessidades reais do parceiro.
+O jogo foi concebido como um *serious game*, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
+
+A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Além disso, o ambiente simulado proporciona um espaço seguro para erros e experimentação, sem impactos reais nos resultados da empresa. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento entre os colaboradores e melhorar a performance em vendas, alinhando-se diretamente às necessidades reais do parceiro.
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
@@ -539,7 +541,13 @@ O progresso do jogador é salvo via **localStorage** a cada conquista: IDs dos N
 
 Ao conquistar uma loja, **balões decorativos** aparecem flutuando sobre ela no mapa da cidade. A animação usa cinemática bidimensional (detalhada na seção 3.8): MU no eixo X e MUV no eixo Y, criando uma trajetória parabólica de entrada. Cada balão tem duração diferente (2,0 s, 2,3 s, 2,6 s) para evitar sincronismo visual.
 
-### 3.7.7. Menu de pausa
+### 3.7.7. Menu principal e tela de tutorial
+
+A tela inicial (`CenaMenu`) exibe o logotipo do jogo, nuvens com scroll horizontal contínuo e dois botões: **Jogar** e **Tutorial**. As nuvens se movem de forma independente em velocidades distintas, criando efeito de profundidade (parallax simples).
+
+A tela de tutorial exibe uma imagem explicativa com as mecânicas básicas do jogo (controles, objetivo, interação com NPCs e risco dos carros). O jogador retorna ao menu ao fechar o tutorial.
+
+### 3.7.8. Menu de pausa
 
 Acessado pela tecla ESC tanto na cidade quanto dentro de qualquer loja. Oferece três opções:
 
@@ -594,11 +602,13 @@ Variável interna de execução (não é parâmetro de entrada):
 
 O movimento é bidimensional. Em qualquer instante $t$, a posição do balão é representada pelo vetor posição:
 
-$$ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+$$
+ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
 
 E o vetor velocidade instantânea é:
 
-$$ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+$$
+ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
 
 Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o vetor unitário no eixo Y (vertical no sistema do Phaser).
 
@@ -696,10 +706,6 @@ A animação para quando `t >= duracao`, momento em que o balão está exatament
 | **`dt` (delta time)**     | Tempo em segundos que passou desde o último frame. Usado para que a animação tenha a mesma velocidade independente do desempenho do computador.      |
 | **Pixel (px)**            | Unidade de medida de posição no jogo. Um pixel corresponde a um ponto na grade do mapa.                                                              |
 | **Coordenadas do Phaser** | Sistema onde o ponto (0, 0) fica no canto superior esquerdo da tela, X cresce para a direita e Y cresce para baixo.                                  |
-
-### 3.8.7. Fonte
-
-HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
@@ -1028,12 +1034,12 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 9   | Personagem perto de um NPC                                | Aproximar-se do NPC e pressionar a tecla E                              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada      |
 | 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta                            | A barra de conversão aumenta                                                                 |
 | 11  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta                         | A barra de conversão diminui                                                                 |
-| 12  | Conversão na faixa verde (última pergunta)                | Responder de forma a manter ou elevar a conversão                       | Cliente é conquistado e negociação é concluída com sucesso                                   |
-| 13  | Conversão na faixa verde (última pergunta)                | Responder de forma incorreta, mas mantendo conversão em faixa aceitável | Cliente é conquistado e negociação é concluída                                               |
-| 14  | Conversão na faixa laranja (última pergunta)              | Responder incorretamente e reduzir a conversão para faixa vermelha      | Cliente não é conquistado                                                                    |
-| 15  | Conversão na faixa vermelha (última pergunta)             | Responder incorretamente ou manter desempenho ruim                      | Cliente não é conquistado                                                                    |
-| 16  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente, mas sem sair da faixa vermelha                  | Cliente não é conquistado                                                                    |
-| 17  | Conversão na faixa vermelha (última pergunta)             | Responder corretamente e elevar para faixa laranja ou verde             | Cliente é conquistado                                                                        |
+| 12  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                       |
+| 13  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Errar a 3ª pergunta                                               | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
+| 14  | Jogador errou as 2 primeiras perguntas (0 pontos acumulados)    | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                   |
+| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
+| 16  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
+| 17  | Jogador errou todas as perguntas anteriores (0 pontos)          | Responder corretamente a 3ª pergunta                              | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
 | 18  | Tempo limite da pergunta esgotado                         | O timer chega a 0 durante o quiz                                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta  |
 | 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
 | 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
@@ -1091,6 +1097,8 @@ ClickPetróleo e Gás. (2025). Cielo loses historic lead in the ‘card machine 
 CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
 
 Deloitte. (2024). Relatórios sobre mercado financeiro e meios de pagamento. https://www2.deloitte.com/br
+
+HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
 
 IBGE. (2022). Censo demográfico 2022: Primeiros resultados. https://www.ibge.gov.br/censo2022
 

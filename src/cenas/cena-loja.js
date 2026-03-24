@@ -304,8 +304,8 @@ export default class CenaLoja extends Phaser.Scene {
         this.portaEntrada.setScale(2.8);
 
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
-            if (this.cache.audio.exists('portaAbrindoFechando')) {
-                this.sound.play('portaAbrindoFechando');
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
             }
             this._pararAudio();
 

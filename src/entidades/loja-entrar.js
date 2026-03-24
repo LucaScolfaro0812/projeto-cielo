@@ -1,3 +1,4 @@
+import { carregarDados } from "../utilitarios/armazenamento.js";
 // Classe responsável por representar uma porta/entrada
 // que permite a transição entre cenas
 export default class Entrada extends Phaser.Physics.Arcade.Sprite {
@@ -84,9 +85,51 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
     /**
      * Realiza a troca de cena utilizando o Scene Manager do Phaser
      */
-    trocarDeCena() {
+   trocarDeCena() {
         if (this.trocaDeCenaEmAndamento) {
             return;
+        }
+
+        const lojaBloqueada = carregarDados('lojaBloqueada', null);
+
+        if (lojaBloqueada === this.proximaCenaNome) {
+            
+            const jogador = this.scene.player;
+            
+            if (jogador) {
+                // Empurra o Marcielo para trás
+                jogador.y += 30; 
+                if (jogador.body) {
+                    jogador.body.setVelocity(0, 0);
+                }
+
+                // 💬 CÓDIGO NOVO: Cria um aviso visual na tela!
+                // Verifica se já não tem um aviso na tela para não criar vários
+                if (!this.avisoNaTela) {
+                    this.avisoNaTela = true;
+
+                    // Cria o texto bonitinho flutuando acima da cabeça dele
+                    const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Tente converter outra loja primeiro!", {
+                        fontSize: '34px',
+                        fontFamily: 'Arial',
+                        backgroundColor: '#ff0000', // Fundo vermelho
+                        color: '#ffffff',           // Letra branca
+                        padding: { x: 10, y: 5 },
+                        align: 'center'
+                    });
+                    
+                    textoAviso.setOrigin(0.5); // Centraliza o texto
+                    textoAviso.setDepth(9999); // Deixa na frente de tudo
+
+                    // Faz o texto sumir sozinho depois de 2 segundos (2000 ms)
+                    this.scene.time.delayedCall(2000, () => {
+                        textoAviso.destroy();
+                        this.avisoNaTela = false; // Libera para mostrar de novo se ele bater na porta
+                    });
+                }
+            }
+            
+            return; 
         }
 
         this.trocaDeCenaEmAndamento = true;

@@ -388,25 +388,30 @@ export default class Quiz {
      * Verifica conquista e exibe resultado antes de fechar
      */
     _encerrarQuiz() {
-        // Regra de conquista: pontuação mínima para considerar NPC conquistado.
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
 
-        // Salva progresso apenas em evento importante (quando conquista).
         if (conquistou) {
+            console.log("VENCEU O QUIZ! Limpando a lista de lojas bloqueadas.");
+            salvarDados('lojaBloqueada', null);
+
             this._salvarProgressoNpcConquistado();
 
             if (this.npcAtual) {
-                // Ao conquistar, muda para o visual de conquistado (ex: azul).                this.npcAtual.visualConquistado();
+                this.npcAtual.visualConquistado();
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
 
-                // Atualiza o painel de NPCs na cena principal
                 if (this.cena.atualizarPainelNpcs) {
                     this.cena.atualizarPainelNpcs();
                 }
             }
+        } else {
+            // Pega o nome da cena atual do quiz
+            const nomeDestaLoja = this.cena.scene.key;
+            
+            console.log("PERDEU O QUIZ! Bloqueando a loja com o nome exato de:", nomeDestaLoja);
+            salvarDados('lojaBloqueada', nomeDestaLoja);
         }
 
-        // Exibe resultado visual e depois retorna ao jogo.
         this.ui.exibirResultado(conquistou, () => this.finalizar());
     }
 }

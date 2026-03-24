@@ -56,6 +56,7 @@ export class CenaPausa extends Phaser.Scene {
             localStorage.removeItem('npcsQuizAbertos');
             localStorage.removeItem('npcsConquistadosIds');
             localStorage.removeItem('perguntasJaFeitas');
+            localStorage.removeItem('lojaBloqueada');
 
             // Para a cena pausada e reinicia o jogo do zero
             this.scene.stop();

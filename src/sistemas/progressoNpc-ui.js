@@ -1,9 +1,9 @@
 /**
- * ProgressoNpcUI - HUD visual de progresso dos NPCs (Phaser)
+ * InterfaceProgressoNpc - HUD visual de progresso dos NPCs (Phaser)
  * Exibe portrait, contador e fundo estilizado fixos no canto superior direito.
  */
 
-export default class ProgressoNpcUI {
+export default class InterfaceProgressoNpc {
     /**
      * @param {Phaser.Scene} cena - Cena onde o HUD será exibido
      * @param {function} aoClicarPortrait - Função chamada ao clicar no portrait

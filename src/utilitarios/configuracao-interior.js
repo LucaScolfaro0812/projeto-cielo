@@ -72,13 +72,6 @@ export const ObjetosInterior = {
        
     ],
 
-    'Doces': [
-        { imagem: 'docesBancada', x: 750, y: 360, escala: 0.8 },
-        { imagem: 'docesMesa', x: 350, y: 800, escala: 0.45 },
-        { imagem: 'docesPosters', x: 1200, y: 200, escala: 0.3 },
-        { imagem: 'docesPrateleiras', x: 1420, y: 750, escala: 0.55 }
-    ],
-
     'Pelucia': [
         { imagem: 'brinquedoBancada', x: 800, y: 340, escala: 2.0 },
         { imagem: 'brinquedoEstante', x: 1550, y: 650, escala: 0.5 },

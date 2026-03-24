@@ -3,7 +3,7 @@
  * É exibida por cima da gameScene quando o jogador pressiona ESC.
  * Oferece três opções: continuar o jogo, iniciar um novo jogo ou voltar ao menu principal.
  */
-export class PauseScene extends Phaser.Scene {
+export class CenaPausa extends Phaser.Scene {
 
     /**
      * Define a chave única da cena no Phaser.

@@ -1,20 +1,20 @@
 
 // importa as outras classes que contém objetos e dados do jogo
-import Player from '../entidades/jogador.js';
+import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
 import { obterSpawnCidadePorLoja } from "../utilitarios/spawn-cidade.js";
 import Npc from '../entidades/npc.js';
 import Carro from '../entidades/carro.js';
 import Quiz from '../sistemas/quiz.js';
 import LojaFisica from '../entidades/loja-fisica.js';
-import LojaScene from '../cenas/cena-loja.js';
+import CenaLoja from '../cenas/cena-loja.js';
 import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
-import ProgressoNpcUI from '../sistemas/progressoNpc-ui.js';
+import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
 
 // Definição da cena principal do jogo
-export class GameScene extends Phaser.Scene {
+export class CenaCidade extends Phaser.Scene {
 
     constructor() {
         // Define a chave única da cena dentro do Phaser
@@ -267,7 +267,7 @@ export class GameScene extends Phaser.Scene {
         });
 
         // Pré carrega os objetos com uma função estática
-        Player.preload(this);
+        Jogador.preload(this);
         Npc.preload(this);
         LojaFisica.preload(this);
         Carro.preload(this);
@@ -333,7 +333,7 @@ export class GameScene extends Phaser.Scene {
         // Importa o novo componente visual
         // (import já está no topo do arquivo)
 
-        this.hudNpcUI = new ProgressoNpcUI(
+        this.hudNpcUI = new InterfaceProgressoNpc(
             this,
             conquistados,
             totalNpcs,
@@ -349,10 +349,10 @@ export class GameScene extends Phaser.Scene {
 
     /**
      * Cria e configura:
-     * - Player
+     * - Jogador
      * - NPC
      * - Sistema de Quiz
-     * - Colisão entre Player e NPC
+     * - Colisão entre Jogador e NPC
      */
     _configurarPlayerNpcQuiz() {
 
@@ -367,7 +367,7 @@ export class GameScene extends Phaser.Scene {
         const coordenadasSpawnCidade = obterSpawnCidadePorLoja(idSpawnCidade);
 
         // Cria o Marcielo na posição correta em frente da loja de retorno.
-        this.player = new Player(
+        this.player = new Jogador(
             this,
             coordenadasSpawnCidade.x,
             coordenadasSpawnCidade.y
@@ -414,7 +414,7 @@ export class GameScene extends Phaser.Scene {
     _criarLoja(posX, posY, sprite, config) {
         // cria nova cena apenas se ela não existir
         if (!this.scene.manager.getScene(config.cena)) {
-            let cena = new LojaScene({
+            let cena = new CenaLoja({
                 nomeDaLoja: config.nomeLoja,
                 nomeDaCena: config.cena,
                 bgScale: config.bgScale,

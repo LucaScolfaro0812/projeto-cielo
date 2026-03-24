@@ -1,6 +1,6 @@
 // Classe responsável por representar o jogador controlável.
 // Herda de Phaser.Physics.Arcade.Sprite para utilizar física Arcade.
-export default class Player extends Phaser.Physics.Arcade.Sprite {
+export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
     /**
      * @param {Phaser.Scene} cena - Cena onde o jogador será criado

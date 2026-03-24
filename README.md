@@ -40,11 +40,8 @@ As Aventuras de Marcielo é um jogo educacional desenvolvido em Phaser 3 onde o 
 
 ```
 g05/
-├── .vscode
 ├── documents       
-├── public
-├── src\scenes
-├── .gitlab-ci.yml   
+├── public 
 └── README.md
 ```
 

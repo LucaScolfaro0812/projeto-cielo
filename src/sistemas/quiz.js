@@ -408,7 +408,7 @@ export default class Quiz {
             // Pega o nome da cena atual do quiz
             const nomeDestaLoja = this.cena.scene.key;
             
-            console.log("PERDEU O QUIZ! Bloqueando a loja com o nome exato de:", nomeDestaLoja);
+        
             salvarDados('lojaBloqueada', nomeDestaLoja);
         }
 

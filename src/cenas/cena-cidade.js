@@ -281,7 +281,7 @@ export class CenaCidade extends Phaser.Scene {
         this.fundo =
             this.add.image(0, 0, 'rua')
                 .setOrigin(0.5, 0.5)
-                .setScale(3);
+                .setScale(7.5);
 
         this.fundo.x = this.fundo.displayWidth / 2;
         this.fundo.y = this.fundo.displayHeight / 2;

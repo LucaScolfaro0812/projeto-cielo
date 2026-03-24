@@ -34,6 +34,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.7,
                 lojaFisicaOriginY: 0.62,
+                offsetFisicaX: 0,
+                offsetFisicaY: 0,
 
                 npcX: 840,
                 npcY: 342,
@@ -51,6 +53,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.55,
                 lojaFisicaOriginY: 0.62,
+                offsetFisicaX: 0,
+                offsetFisicaY: 0,
 
                 npcX: 730,
                 npcY: 330,
@@ -68,6 +72,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.6,
+                offsetFisicaX: 0,
+                offsetFisicaY: 0,
 
                 npcX: 800,
                 npcY: 310,
@@ -85,6 +91,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.63,
                 lojaFisicaOriginY: 0.61,
+                offsetFisicaX: 60,
+                offsetFisicaY: -30,
 
                 npcX: 770,
                 npcY: 245,
@@ -102,6 +110,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.61,
+                offsetFisicaX: 0,
+                offsetFisicaY: 0,
 
                 npcX: 840,
                 npcY: 300,
@@ -119,6 +129,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.6,
+                offsetFisicaX: -300,
+                offsetFisicaY: 0,
 
                 npcX: 820,
                 npcY: 350,
@@ -136,6 +148,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.64,
                 lojaFisicaOriginY: 0.60,
+                offsetFisicaX: -50,
+                offsetFisicaY: -100,
 
                 npcX: 754,
                 npcY: 288,
@@ -153,6 +167,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.57,
                 lojaFisicaOriginY: 0.66,
+                offsetFisicaX: 100,
+                offsetFisicaY: -80,
 
                 npcX: 730,
                 npcY: 248,
@@ -170,6 +186,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.62,
                 lojaFisicaOriginY: 0.63,
+                offsetFisicaX: 30,
+                offsetFisicaY: -80,
 
                 npcX: 750,
                 npcY: 423,
@@ -187,6 +205,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.625,
                 lojaFisicaOriginY: 0.6,
+                offsetFisicaX: 75,
+                offsetFisicaY: -80,
 
                 npcX: 750,
                 npcY: 285,
@@ -204,6 +224,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.61,
+                offsetFisicaX: 0,
+                offsetFisicaY: -50,
 
                 npcX: 800,
                 npcY: 320,
@@ -221,6 +243,8 @@ export class CenaCidade extends Phaser.Scene {
 
                 lojaFisicaOriginX: 0.69,
                 lojaFisicaOriginY: 0.62,
+                offsetFisicaX: -225,
+                offsetFisicaY: -50,
 
                 npcX: 710,
                 npcY: 325,
@@ -399,8 +423,8 @@ export class CenaCidade extends Phaser.Scene {
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
-            let posX = 600 + ((i % 4) * 550) + (Math.floor(i % 4 / 2) * 500);
-            let posY = 750 + (Math.floor(i / 4) * 1100);
+            let posX = 1500 + ((i % 6) * 1675) + (Math.floor(i % 6 / 2) * 500);
+            let posY = 3500 + (Math.floor(i / 6) * 2250);
 
             this.lojas[i] = this._criarLoja(
                 posX,
@@ -434,8 +458,8 @@ export class CenaCidade extends Phaser.Scene {
         // cria o objeto da loja
         let l = new LojaFisica(
             this,
-            posX,
-            posY,
+            posX + config.offsetFisicaX,
+            posY + config.offsetFisicaY,
             sprite,
             config.cena,
             config.nomeLoja
@@ -467,11 +491,6 @@ export class CenaCidade extends Phaser.Scene {
             portaEntrada.trocarDeCena();
         });
 
-        if (config.nomeLoja === "Beleza") {
-            // a loja Beleza está temporariamente desativada: remove o colider e oculta a porta
-            this.physics.world.removeCollider(l.getPorta());
-            l.getPorta().setVisible(false);
-        }
         // retornando a loja criada
         return l;
     }

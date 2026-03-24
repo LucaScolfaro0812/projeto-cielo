@@ -100,7 +100,9 @@ export default class InterfaceQuiz {
         this.containerPrincipal = this.cena.add.container(0, 0).setDepth(PROFUNDIDADE_UI);
     }
 
-    // Fundo escurecido que bloqueia o clique no jogo enquanto o quiz está aberto
+    // Cria um retângulo semitransparente sobre toda a cena para impedir que o jogador
+    // interaja com elementos do mapa (NPCs, portas, carros) enquanto o quiz está aberto.
+    // Sem esse overlay, cliques nas alternativas poderiam atravessar a UI e acionar objetos atrás dela.
     _criarOverlay() {
         const cam = this.cena.cameras.main;
 
@@ -195,7 +197,7 @@ export default class InterfaceQuiz {
 
         // Cria cada seção do conteúdo
         this._criarCabecalho(larguraConteudo);
-        this._criarPergunta(larguraConteudo);
+        this._criarPergunta();
         this._criarBotoes(larguraConteudo);
         this._criarAreaFeedback(larguraConteudo);
 
@@ -291,7 +293,7 @@ export default class InterfaceQuiz {
     }
 
     // Pergunta inicia após o portrait, com margem para não ser coberta
-    _criarPergunta(larguraConteudo) {
+    _criarPergunta() {
         const paddingHorizontalPergunta = 12;
         const paddingVerticalPergunta = 16;
         const posX = this.posXCaixaPergunta + paddingHorizontalPergunta;

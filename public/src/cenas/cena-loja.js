@@ -245,6 +245,7 @@ export default class LojaScene extends Phaser.Scene {
 
         this.player = new Player(this, this.playerX, this.playerY);
         this.player.setCollideWorldBounds(true);
+        this.player.setDepth(150);
 
         const perguntasPorLoja = {
             Movel: perguntasMovel,

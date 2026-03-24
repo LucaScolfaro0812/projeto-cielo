@@ -14,39 +14,35 @@ export class CenaTutorial extends Phaser.Scene {
         const h = this.scale.height;
 
         // ===============================
-        // OVERLAY ESCURO
-        // ===============================
-        this.add.rectangle(w/2, h/2, w, h, 0x000000, 0.6)
-            .setScrollFactor(0)
-            .setDepth(0);
-
-        // ===============================
         // IMAGEM DO TUTORIAL
         // ===============================
-        const tutorial = this.add.image(w/2, h/2, 'tutorial')
-            .setDisplaySize(w * 0.9, h * 0.85) // 👈 deixa margem embaixo
-            .setScrollFactor(0)
-            .setDepth(1);
+
+        const tutorial = this.add.image(w/2, h/2, 'tutorial');
+        tutorial.setDisplaySize(w, h);
 
         // ===============================
-        // BOTÃO SAIR (AJUSTADO)
+        // ESTILO BOTÃO
         // ===============================
+
         const estiloBotao = {
             fontFamily: 'Poppins',
-            fontSize: '32px',
+            fontSize: '34px',
             color: '#ffffff',
             backgroundColor: '#001caa',
-            padding: { x: 30, y: 12 },
+            padding: { x: 20, y: 8 },
             align: 'center'
         };
 
-        const botaoSair = this.add.text(w/2, h - 50, 'SAIR', estiloBotao)
-            .setOrigin(0.5, 1)
-            .setScrollFactor(0)
-            .setDepth(10)
-            .setInteractive({ useHandCursor: true });
+        // BOTÃO SAIR
+        const botaoSair = this.add.text(w/2, h - 20, 'SAIR', estiloBotao)
+        .setOrigin(0.5,1)
+        .setFixedSize(260,60)
+        .setAlign('center')
+        .setDepth(10);
 
-        // hover
+        botaoSair.setInteractive({ useHandCursor: true });
+
+        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoSair.on('pointerover', () => {
             botaoSair.setStyle({
                 backgroundColor: '#6FB7FF',
@@ -55,6 +51,7 @@ export class CenaTutorial extends Phaser.Scene {
             botaoSair.setScale(1.05);
         });
 
+        // Restaura a cor original ao tirar o mouse
         botaoSair.on('pointerout', () => {
             botaoSair.setStyle({
                 backgroundColor: '#001caa',
@@ -63,10 +60,12 @@ export class CenaTutorial extends Phaser.Scene {
             botaoSair.setScale(1);
         });
 
-        // clique
+        // Inicia o jogo ao clicar em sair do tutorial
         botaoSair.on('pointerdown', () => {
-            this.scene.stop();
-            this.scene.resume('gameScene');
+            this.scene.start('gameScene');
         });
+
     }
+
 }
+

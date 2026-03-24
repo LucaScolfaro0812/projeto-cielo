@@ -2,7 +2,6 @@
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
 
 ## Nome dos integrantes Grupo
 
@@ -1123,7 +1122,6 @@ Vieira, S. (2025). Mercado de adquirência: Um gigante em disputa na era do Pix 
 
 # <a name="c8"></a>Anexos
 
-_Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)_
 
 ### Diagramas
 

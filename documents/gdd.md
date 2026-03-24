@@ -697,10 +697,6 @@ A animação para quando `t >= duracao`, momento em que o balão está exatament
 | **Pixel (px)**            | Unidade de medida de posição no jogo. Um pixel corresponde a um ponto na grade do mapa.                                                              |
 | **Coordenadas do Phaser** | Sistema onde o ponto (0, 0) fica no canto superior esquerdo da tela, X cresce para a direita e Y cresce para baixo.                                  |
 
-### 3.8.7. Fonte
-
-HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
-
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
 Nesta seção, são apresentados os avanços iniciais no desenvolvimento do jogo, incluindo a definição da ideia principal, das mecânicas básicas e da estrutura geral. Até o momento, o foco foi organizar os elementos essenciais e realizar testes iniciais para orientar as próximas etapas do projeto.
@@ -1091,6 +1087,8 @@ ClickPetróleo e Gás. (2025). Cielo loses historic lead in the ‘card machine 
 CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
 
 Deloitte. (2024). Relatórios sobre mercado financeiro e meios de pagamento. https://www2.deloitte.com/br
+
+HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
 
 IBGE. (2022). Censo demográfico 2022: Primeiros resultados. https://www.ibge.gov.br/censo2022
 

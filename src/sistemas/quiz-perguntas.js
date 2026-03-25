@@ -55,6 +55,48 @@ export const perguntasMovel = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
+    {
+        id: "movel_4",
+        pergunta: "Pensando nos passos da visita planejamento e levantamento fazem parte de qual etapa do funil?",
+        opcoes: [
+            "a) Abordagem",
+            "b) Pré-venda", // resposta correta
+            "c) Fechamento",
+            "d) Pós-venda"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "movel_5",
+        pergunta: "Nós da Cielo temos três formas de inserir clientes no funil de venda. Quais são?",
+        opcoes: [
+            "a) Lead, PAP e indicação", // resposta correta
+            "b) Lead, marketing e vendas",
+            "c) Indicação, loja e suporte",
+            "d) Marketing, CRM e suporte"
+        ],
+        pontos: [3, 0, 0, 0],    // apenas "a" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "movel_6",
+        pergunta: "Frase de atração (CVBA):",
+        opcoes: [
+            "a) Quer comprar agora?",
+            "b) Receber adiantado ajuda seu negócio?", // resposta correta
+            "c) Temos promoção hoje",
+            "d) Posso instalar agora?"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
 ];
 
 // ============================================================
@@ -106,8 +148,51 @@ export const perguntasCafe = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
-];
+    {
+        // Pergunta técnica de venda sobre funil de vendas
+        id: "cafe_4",
+        pergunta: "Quais são as 5 etapas do funil de vendas?",
+        opcoes: [
+            "a) Prospecção, visita, venda, entrega e suporte",
+            "b) Abordagem, Sondagem, Demonstração, Negociação e Fechamento", // resposta correta
+            "c) Planejamento, execução, análise, venda e pós-venda",
+            "d) Prospecção, abordagem, venda, entrega e fidelização"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
 
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        // Pergunta técnica de venda sobre funil de vendas
+        id: "cafe_5",
+        pergunta: "O Ritmo te auxilia em quais fatores?",
+        opcoes: [
+            "a) Tempo e produtividade",
+            "b) Volume e Margem", // resposta correta
+            "c) Qualidade e atendimento",
+            "d) Planejamento e execução"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "cafe_6",
+        pergunta: "Relação PERDE X PERDE:",
+        opcoes: [
+            "a) Cliente não compra e continua limitado", // resposta correta
+            "b) Cliente compra e empresa perde",
+            "c) Empresa lucra e cliente perde",
+            "d) Cliente ganha e empresa perde"
+        ],
+        pontos: [3, 0, 0, 0],    // apenas "a" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];
 // ============================================================
 // Perguntas usadas no quiz da cena da petshop (lojaPet)
 // ============================================================
@@ -157,6 +242,48 @@ export const perguntasPet = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
+    {
+        id: "pet_4",
+        pergunta: "Na Sondagem, qual melhor tipo de pergunta?",
+        opcoes: [
+            "a) Perguntas fechadas",
+            "b) Perguntas diretas",
+            "c) Perguntas abertas", // resposta correta
+            "d) Perguntas rápidas"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "pet_5",
+        pergunta: "O que significa P.R.S?",
+        opcoes: [
+            "a) Processo, Resultado, Sistema",
+            "b) Pergunta, Resposta, Suporte", // resposta correta
+            "c) Planejamento, Revisão, Solução",
+            "d) Produto, Resultado, Serviço"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "pet_6",
+        pergunta: "Cliente mais de 100K ajuda em qual indicador?",
+        opcoes: [
+            "a) Margem",
+            "b) Volume", // resposta correta
+            "c) Qualidade",
+            "d) Tempo"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
 ];
 
 // ============================================================
@@ -195,7 +322,6 @@ export const perguntasLanchonete = [
     },
     {
         id: "lanchonete_3",
-        // Pergunta sobre o conceito: Salesforce
         pergunta: "Sobre o Salesforce, está correto dizer:",
         opcoes: [
             "a) Salesforce é uma ferramenta notícias",
@@ -204,6 +330,48 @@ export const perguntasLanchonete = [
             "d) Salesforce é uma ferramenta de Execução e Produção" // resposta correta
         ],
         pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "lanchonete_4",
+        pergunta: "Uma sondagem bem feita garante qual % da venda?",
+        opcoes: [
+            "a) 50%",
+            "b) 80%", // resposta correta
+            "c) 100%",
+            "d) 60%"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "lanchonete_5",
+        pergunta: " Qual melhor técnica de demonstração devemos usar?",
+        opcoes: [
+            "a) SPIN",
+            "b) AIDA",
+            "c) C.V.B.A", // resposta correta
+            "d) SWOT"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "lanchonete_6",
+        pergunta: "A ARV ajuda em qual indicador?",
+        opcoes: [
+           "a) Volume",
+           "b) Tempo",
+           "c) Margem", // resposta correta
+           "d) Qualidade"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
 
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
@@ -255,6 +423,48 @@ export const perguntasAutoescola = [
             "d) Sim" // resposta correta
         ],
         pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "autoescola_4",
+        pergunta: "O que significa C.V.B.A?",
+        opcoes: [
+            " a) Controle, Venda, Base, Ação",
+            " b) Cliente, Valor, Benefício, Acordo",
+            " c) Característica, Vantagem, Benefício, Atração", // resposta correta"
+            " d) Controle, Vantagem, Benefício, Ação ",
+        ],
+        pontos: [0, 0, 3, 0], // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "autoescola_5",
+        pergunta: "VExemplo de Benefício para R.A:",
+        opcoes: [
+            "a) Antecipação do dinheiro",
+            "b) Dinheiro à vista para negociar", // resposta correta
+            "c) Taxa reduzida",
+            "d) Recebimento parcelado",
+        ],
+        pontos: [0, 3, 0, 0], // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "autoescola_6",
+        pergunta: "Exemplo de fechamento alternativo:",
+        opcoes: [
+            "a) Quer comprar?",
+            "b) Vamos fechar com fidelidade ou sem?",
+            "c) Volto depois",
+            "d) Pense e me avise"
+        ],
+        pontos: [0, 3, 0, 0], // apenas "b" vale pontos
 
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
@@ -311,6 +521,48 @@ export const perguntasPelucia = [
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
+    {
+        id: "pelucia_4",
+        pergunta: "Exemplo de Vantagem para R.A:",
+        opcoes: [
+            "a) Fluxo de caixa, não precisar esperar", // resposta correta
+            "b) Recebimento automático",
+            "c) Aplicativo integrado",
+            "d) Taxa menor"
+        ],
+        pontos: [3, 0, 0, 0],    // apenas "a" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "pelucia_5",
+        pergunta: "Exemplo de Característica para R.A:",
+        opcoes: [
+            "a) Mais lucro",
+            "b) Antecipação do dinheiro", // resposta correta
+            "c) Melhor negociação",
+            "d) Aumento de clientes"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "pelucia_6",
+        pergunta: "Dicas de abordagem de sucesso:",
+        opcoes: [
+           "a) Falar rápido e direto",
+           "b) Afiado, entusiasmo, especialista", // resposta correta
+           "c) Ser informal e improvisar",
+           "d) Falar pouco e sair rápido"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
 ];
 
 // ============================================================
@@ -359,6 +611,48 @@ export const perguntasChocolate = [
             "d) Central de Ajuda" // resposta correta
         ],
         pontos: [0, 0, 0, 3],    // apenas "d" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "chocolate_4",
+        pergunta: "Relação GANHA X GANHA:",
+        opcoes: [
+            "a) Cliente não compra e empresa perde",
+            "b) Cliente compra sem vantagem",
+            "c) Cliente melhora gestão e empresa fideliza", // resposta correta
+            "d) Empresa lucra e cliente perde"
+        ],
+        pontos: [0, 0, 3, 0],    // apenas "c" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "chocolate_5",
+        pergunta: "Palavras mágicas na demonstração:",
+        opcoes: [
+            "a) Rápido, barato, simples",
+            "b) Exclusivo, inovador, vantagem", // resposta correta
+            "c) Fácil, comum, básico",
+            "d) Simples, comum, rápido"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
+
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "chocolate_6",
+        pergunta: "O que é cliente congelado?",
+        opcoes: [
+             "a) Cliente indeciso",
+             "b) Cliente fora do funil ou indisponível", // resposta correta
+             "c) Cliente novo",
+             "d) Cliente fiel"
+        ],
+        pontos: [0, 3, 0, 0],    // apenas "b" vale pontos
 
         feedbackAcerto: "Párabens! você respondeu corretamente",
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",

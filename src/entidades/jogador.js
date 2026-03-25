@@ -40,8 +40,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this._criarAnimacoes(cena);
 
         this.setDepth(10);
-
-        this.maquininhas = new Maquininhas();
     }
 
     static preload(scene) {
@@ -247,6 +245,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
     morreu(){
         this.cena.scene.start('gameScene', { mostrarTutorial: false });
-        this.maquininhas.definirMaquininhas(0);
+        Maquininhas.definirMaquininhas(0);
     }
 }

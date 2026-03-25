@@ -12,6 +12,7 @@ import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
 import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
+import { colisoresAmbiente } from '../utilitarios/configuracao-colisores-ambiente.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -331,6 +332,9 @@ export class CenaCidade extends Phaser.Scene {
         // Cria portas e define troca de cena
         this._criarLojasEPortas();
 
+        // Cria colisores invisíveis sobre árvores e casas do mapa
+        this._criarColisoresAmbiente();
+
         // Só libera entrada em loja depois que o jogador sair da área de qualquer porta.
         this.entradaLojasLiberada = false;
 
@@ -342,7 +346,6 @@ export class CenaCidade extends Phaser.Scene {
 
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
-
 
         // Abre o menu de pause ao pressionar ESC, passando a chave desta cena
         this.input.keyboard.on('keydown-ESC', () => {
@@ -407,6 +410,18 @@ export class CenaCidade extends Phaser.Scene {
      * - Sistema de Quiz
      * - Colisão entre Jogador e NPC
      */
+    _criarColisoresAmbiente() {
+        this.colisoresAmbiente = this.physics.add.staticGroup();
+
+        for (const c of colisoresAmbiente) {
+            const rect = this.add.rectangle(c.x, c.y, c.w, c.h);
+            this.physics.add.existing(rect, true);
+            this.colisoresAmbiente.add(rect);
+        }
+
+        this.physics.add.collider(this.player, this.colisoresAmbiente);
+    }
+
     _configurarPlayerNpcQuiz() {
 
         // Instancia o sistema de perguntas

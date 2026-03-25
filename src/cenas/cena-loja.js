@@ -181,6 +181,8 @@ export default class CenaLoja extends Phaser.Scene {
             chave
         ).setDepth(1000);
 
+        this.physics.pause();
+
         this.exteriorImage.setDisplaySize(
             this.cameras.main.width,
             this.cameras.main.height
@@ -194,6 +196,7 @@ export default class CenaLoja extends Phaser.Scene {
         ).setDepth(1001).setInteractive();
 
         botaoFechar.on('pointerdown', () => {
+            this.physics.resume();
             this.exteriorImage.destroy();
             botaoFechar.destroy();
         });

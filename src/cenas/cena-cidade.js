@@ -337,8 +337,12 @@ export class CenaCidade extends Phaser.Scene {
         // Faz a câmera seguir o jogador
         this.cameras.main.startFollow(this.player);
 
+        // Limita a câmera às bordas do mapa
+        this.cameras.main.setBounds(0, 0, this.fundo.displayWidth, this.fundo.displayHeight);
+
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
+
 
         // Abre o menu de pause ao pressionar ESC, passando a chave desta cena
         this.input.keyboard.on('keydown-ESC', () => {
@@ -424,11 +428,15 @@ export class CenaCidade extends Phaser.Scene {
         this.player.setScale(0.8);
 
         this.carrinho = [];
-        this.carrinho[0] = new Carro(this, 0, 1945, true);
 
-        for (let i = 0; i < 3; i++) {
-            this.carrinho[i] = new Carro(this, i * 1250, 1945, true);
-        }
+        const ruas = [2123, 4065, 6359];
+        ruas.forEach((y) => {
+            for (let i = 0; i < 3; i++) {
+                const carro = new Carro(this, i * 1250, y, true);
+                this.carrinho.push(carro);
+            }
+        });
+
         for (let i = 0; i < this.carrinho.length; i++) {
             this.physics.add.overlap(this.carrinho[i], this.player, () => {
                 this.player.morreu();
@@ -626,6 +634,7 @@ export class CenaCidade extends Phaser.Scene {
         for (let i = 0; i < this.carrinho.length; i++) {
             this.carrinho[i].update();
         }
+
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {

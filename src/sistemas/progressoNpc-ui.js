@@ -18,7 +18,7 @@ export default class InterfaceProgressoNpc {
 
     _criarHud() {
         const larguraTela = this.cena.cameras.main.width;
-        const margem = 0; // HUD bem colado no topo
+        const margem = -200; // HUD bem colado no topo
         const portraitSize = 180; // portrait ainda maior
         const padding = 0;
 
@@ -31,7 +31,7 @@ export default class InterfaceProgressoNpc {
 
         // Sombra
         this.sombra = this.cena.add.rectangle(
-            larguraTela - larguraHud + 10,
+            larguraTela - larguraHud + 10 + 300,
             margem + alturaHud / 2 + 10,
             larguraHud,
             alturaHud,
@@ -41,7 +41,7 @@ export default class InterfaceProgressoNpc {
 
         // Fundo arredondado
         this.fundo = this.cena.add.rectangle(
-            larguraTela - larguraHud,
+            larguraTela - larguraHud + 300,
             margem + portraitSize / 2,
             larguraHud,
             alturaHud,
@@ -50,14 +50,14 @@ export default class InterfaceProgressoNpc {
         ).setOrigin(0, 0.5).setScrollFactor(0);
         this.fundo.setStrokeStyle(8, 0xffffff, 1);
         this.portrait = this.cena.add.image(
-            larguraTela - larguraHud + padding + portraitSize / 2,
+            larguraTela - larguraHud + padding + portraitSize / 2 + 300,
             margem + alturaHud / 2,
             "npcPortraitHud"
         ).setDisplaySize(portraitSize, portraitSize).setScrollFactor(0);
 
         // Texto de progresso grande e claro 
         this.texto = this.cena.add.text(
-            larguraTela - larguraHud + padding + portraitSize + 80,
+            larguraTela - larguraHud + padding + portraitSize + 80 + 300,
             margem + alturaHud / 2,
             this._formatarTexto(),
             {

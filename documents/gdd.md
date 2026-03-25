@@ -140,19 +140,9 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
-**Ponto de vista do Cliente:**
-| Tarefas do cliente | Dores do cliente | Ganhos do cliente |
-| ------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------- |
-| Desenvolver habilidades práticas de vendas | Dificuldade de acesso a treinamentos presenciais | Aprender com flexibilidade de tempo e local |
-| Melhorar desempenho profissional | Métodos de ensino pouco interativos e desatualizados | Conteúdo aplicável à prática de vendas |
-| Participar de capacitações da empresa | Desigualdade no acesso ao ensino de qualidade | Evolução profissional mais rápida e consistente |
 
-**Mapa de valor:**
-| Produtos e serviços | Analgésicos (alívio das dores) | Criadores de ganhos |
-| ------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
-| Jogo interativo de simulação de vendas | Elimina a necessidade de deslocamento físico | Aprendizado mais engajador por meio de desafios e missões |
-| Plataforma digital acessível | Permite acesso ao conteúdo de qualquer lugar | Flexibilidade para aprender no próprio ritmo |
-| Treinamento gamificado com situações reais | Substitui métodos tradicionais pouco atrativos | Desenvolvimento prático de habilidades com feedback imediato |
+<img src ="../documents/other/PropostaDeValor.png" width= 700>
+
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
 Diferente de abordagens convencionais, o uso de um jogo interativo permite que o usuário aprenda por meio da prática, simulando situações reais de vendas e recebendo feedback imediato sobre seu desempenho. Isso torna o processo mais dinâmico, aumenta o engajamento e contribui para uma aprendizagem mais efetiva.

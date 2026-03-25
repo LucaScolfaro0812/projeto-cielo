@@ -3,6 +3,7 @@ import { CenaMenu } from './cenas/cena-menu.js';
 import { CenaCidade } from './cenas/cena-cidade.js';
 import { CenaTutorial } from './cenas/cena-tutorial.js';
 import { CenaPausa } from './cenas/cena-pause.js';
+import { CenaConfiguracoes } from './cenas/cena-configuracoes.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -40,7 +41,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [CenaMenu, CenaTutorial, CenaCidade, CenaPausa]
+    scene: [CenaMenu, CenaTutorial, CenaCidade, CenaPausa, CenaConfiguracoes]
 };
 
 // Criação da instância principal do jogo

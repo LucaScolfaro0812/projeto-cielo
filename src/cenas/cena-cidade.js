@@ -258,6 +258,10 @@ export class CenaCidade extends Phaser.Scene {
         ];
     }
 
+    init(data = {}) {
+        this.mostrarTutorialAoEntrar = Boolean(data.mostrarTutorial);
+    }
+
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
             // Preload do fundo visual dos NPCs no popup
@@ -342,6 +346,10 @@ export class CenaCidade extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.scene.key });
         });
 
+        this.input.keyboard.on('keydown-T', () => {
+            this._abrirTutorial();
+        });
+
 
         // HUD de progresso dos NPCs - design moderno e acessível
         // Remove qualquer HUD antigo antes de criar o novo
@@ -369,6 +377,23 @@ export class CenaCidade extends Phaser.Scene {
         );
 
         this.criarPainelNpcs();
+
+        if (this.mostrarTutorialAoEntrar) {
+            this._abrirTutorial();
+        }
+    }
+
+    _abrirTutorial() {
+        if (this.scene.isActive('tutorialScene')) {
+            return;
+        }
+
+        this.scene.pause();
+        this.scene.launch('tutorialScene', {
+            cenaOrigem: this.scene.key,
+            modoOverlay: true
+        });
+        this.scene.bringToTop('tutorialScene');
     }
 
     /**

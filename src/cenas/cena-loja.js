@@ -212,6 +212,10 @@ export default class CenaLoja extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        this.input.keyboard.on('keydown-T', () => {
+            this._abrirTutorial();
+        });
+
         this.objetosFisicos = this.physics.add.staticGroup();
         this._criarMobiliario();
 
@@ -225,6 +229,19 @@ export default class CenaLoja extends Phaser.Scene {
         if (this.somAmbiente && this.somAmbiente.isPlaying) {
             this.somAmbiente.stop();
         }
+    }
+
+    _abrirTutorial() {
+        if (this.scene.isActive('tutorialScene')) {
+            return;
+        }
+
+        this.scene.pause();
+        this.scene.launch('tutorialScene', {
+            cenaOrigem: this.sys.settings.key,
+            modoOverlay: true
+        });
+        this.scene.bringToTop('tutorialScene');
     }
 
     _criarCenario() {

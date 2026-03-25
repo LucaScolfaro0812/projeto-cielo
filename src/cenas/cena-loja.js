@@ -1,6 +1,7 @@
 import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import Quiz from '../sistemas/quiz.js';
+import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
 import {
@@ -269,6 +270,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
         this.player.setDepth(150);
 
+
         const perguntasPorLoja = {
             Movel: perguntasMovel,
             Cafe: perguntasCafe,
@@ -279,7 +281,9 @@ export default class CenaLoja extends Phaser.Scene {
             Chocolate: perguntasChocolate
         };
 
-        const perguntas = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+        // Sorteia 3 perguntas aleatórias das 6 disponíveis para a loja
+        const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+        const perguntas = sortearPerguntasAleatorias(perguntasOriginais, 3);
 
         this.npc = new Npc(
             this,

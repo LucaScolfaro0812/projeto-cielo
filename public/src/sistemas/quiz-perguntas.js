@@ -1,4 +1,3 @@
-import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 // quizPerguntas.js - Banco de perguntas do quiz.
 //
 // Estrutura de cada pergunta:

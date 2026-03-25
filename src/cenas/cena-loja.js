@@ -204,8 +204,10 @@ export default class CenaLoja extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
-        this.cameras.main.startFollow(this.player);
-        this.cameras.main.setZoom(0.60);
+        const zoomX = this.cameras.main.width / this.fundo.displayWidth;
+        const zoomY = this.cameras.main.height / this.fundo.displayHeight;
+        this.cameras.main.setZoom(Math.max(zoomX, zoomY));
+        this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();

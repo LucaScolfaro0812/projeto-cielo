@@ -333,6 +333,9 @@ export class CenaCidade extends Phaser.Scene {
         // Faz a câmera seguir o jogador
         this.cameras.main.startFollow(this.player);
 
+        // Limita a câmera às bordas do mapa
+        this.cameras.main.setBounds(0, 0, this.fundo.displayWidth, this.fundo.displayHeight);
+
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
 

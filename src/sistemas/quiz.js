@@ -18,6 +18,8 @@ import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
+import { pontosConquista, pontosDerrota } from "../utilitarios/pontos.js";
+
 // =====================
 // Constantes do sistema
 // =====================
@@ -393,6 +395,7 @@ export default class Quiz {
         if (conquistou) {
             console.log("VENCEU O QUIZ! Limpando a lista de lojas bloqueadas.");
             salvarDados('lojaBloqueada', null);
+            pontosConquista();
 
             this._salvarProgressoNpcConquistado();
 
@@ -410,6 +413,7 @@ export default class Quiz {
             
         
             salvarDados('lojaBloqueada', nomeDestaLoja);
+            pontosDerrota();
         }
 
         this.ui.exibirResultado(conquistou, () => this.finalizar());

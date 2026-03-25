@@ -4,6 +4,10 @@ import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
 export class Maquininhas {
 
+    constructor(){
+        
+    }
+
     static chaveDeValor = 'maquininhas';
     static maximoMaquininhas = 3;
 

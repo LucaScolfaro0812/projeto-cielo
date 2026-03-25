@@ -1052,8 +1052,73 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
-_Descreva e ilustre aqui o desenvolvimento da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e planos futuros._
+Durante a Sprint 4, foi realizada a consolidação final do MVP do jogo, com foco na integração completa dos sistemas desenvolvidos anteriormente, refinamento da experiência do usuário e adição de novos elementos de jogabilidade, interface e imersão.
+Esta etapa teve como objetivo garantir que o jogo estivesse funcional de ponta a ponta, com fluxo contínuo entre menu, tutorial, cidade e lojas, além de apresentar um conjunto robusto de mecânicas técnicas e visuais.
 
+Funcionalidades implementadas
+
+Nesta sprint foram desenvolvidas e integradas as seguintes funcionalidades:
+
+. Menu inicial e acesso ao jogo
+O menu principal foi refinado com melhorias visuais e organização dos elementos, incluindo botões interativos com efeitos de hover e animações suaves.
+Foi adicionado também um botão de configurações, preparado para futuras expansões como controle de áudio e preferências do usuário.
+
+. Sistema de tutorial integrado ao início da experiência
+Ao clicar em “Jogar”, o jogador é direcionado automaticamente para a tela de tutorial antes de iniciar a gameplay.
+O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T. O sistema identifica o contexto de origem e retorna corretamente ao jogo ou ao menu.
+
+. Entrada no mapa e ambientação sonora
+Ao iniciar o jogo, o jogador é inserido no mapa da cidade, com trilha sonora ambiente específica, aumentando a imersão.
+O sistema de áudio é controlado por cena, garantindo que o som seja ajustado automaticamente ao trocar entre cidade e lojas, sem sobreposição.
+
+. Sistema de spawn dinâmico
+O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
+Para evitar reentrada imediata, foi implementado um controle baseado em tempo, distância e estado da última loja acessada.
+
+. Movimentação e mecânica de risco (carros)
+Durante a navegação pela cidade, o jogador pode se movimentar livremente utilizando o teclado (W, A, S e D).
+Foram adicionados carros em movimento nas ruas, funcionando como obstáculos. A colisão com esses elementos penaliza o jogador, aumentando o nível de desafio e tornando a gameplay mais dinâmica.
+
+. HUD de progresso dos NPCs
+Durante a exploração, o jogador pode acompanhar seu progresso por meio de uma HUD que exibe quais NPCs já foram conquistados.
+Essa interface auxilia na orientação dentro do jogo e reforça os objetivos de progressão.
+
+. Entrada nas lojas e apresentação do cliente
+Ao entrar em uma loja, o jogador é direcionado para um ambiente interno específico. Nesse momento, é exibido um popup informativo do cliente (NPC), apresentando informações relevantes antes do início da interação.
+Cada loja possui ambientação própria, incluindo trilha sonora específica, reforçando a identidade de cada cenário.
+
+. Arquitetura das lojas (data-driven)
+As lojas foram implementadas utilizando uma arquitetura baseada em configuração, onde uma única estrutura de cena é reutilizada para diferentes lojas.
+Cada uma define seus próprios parâmetros, como posição de NPC, jogador, porta e escala do ambiente, garantindo organização do código e facilidade de expansão.
+
+. Sistema de quiz nas lojas
+Dentro das lojas, o jogador interage com NPCs por meio de quizzes. Cada loja possui um conjunto específico de perguntas, totalizando 12 conjuntos educacionais.
+
+O sistema apresenta:
+
+Sorteio aleatório de perguntas sem repetição;
+Timer de 60 segundos por pergunta;
+Encerramento automático ao fim do tempo.
+
+A pontuação é exibida por uma barra de conversão com três níveis (vermelho, amarelo e verde). A conquista do cliente ocorre ao atingir mínimo de 6 pontos ao final de 3 perguntas.
+
+. Feedback de conquista do NPC
+Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visualmente, sua aparência é alterada para a cor azul, permitindo identificação imediata pelo jogador.
+
+. Feedback visual no mapa (balões animados)
+Ao retornar à cidade após conquistar um NPC, a loja correspondente passa a exibir balões animados em sua parte superior.
+
+A animação utiliza conceitos de cinemática:
+
+Movimento Uniforme (eixo X);
+Movimento Uniformemente Variado (eixo Y).
+
+Esse efeito reforça visualmente a progressão do jogador no ambiente.
+
+. Sistema de pausa
+Durante o jogo, o jogador pode acessar o menu de pausa pressionando a tecla ESC, com opções para continuar, reiniciar ou retornar ao menu principal.
+
+O sistema preserva o estado da partida ao ser ativado.
 ## 4.5. Revisão do MVP (sprint 5)
 
 _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar._

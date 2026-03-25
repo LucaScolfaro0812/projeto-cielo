@@ -81,7 +81,7 @@ export class CenaTutorial extends Phaser.Scene {
                 return;
             }
 
-            this.scene.start('gameScene');
+            this.scene.start('gameScene', { mostrarTutorial: false });
         });
 
     }

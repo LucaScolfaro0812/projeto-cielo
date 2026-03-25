@@ -133,6 +133,6 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         }
 
         this.trocaDeCenaEmAndamento = true;
-        this.scene.scene.start(this.proximaCenaNome);
+        this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
     }
 }

@@ -151,7 +151,7 @@ Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao con
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e առաջարկar soluções adequadas.
+A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e utilizar soluções adequadas.
 
 O jogo foi concebido como um *serious game*, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
 

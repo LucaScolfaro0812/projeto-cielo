@@ -19,6 +19,7 @@ import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
 import { pontosConquista, pontosDerrota } from "../utilitarios/pontos.js";
+import { Maquininhas } from "./maquininhas.js";
 
 // =====================
 // Constantes do sistema
@@ -396,6 +397,7 @@ export default class Quiz {
             console.log("VENCEU O QUIZ! Limpando a lista de lojas bloqueadas.");
             salvarDados('lojaBloqueada', null);
             localStorage.removeItem('npcsQuizAbertos');
+            Maquininhas.removerMaquininhas(1);
             pontosConquista();
 
             this._salvarProgressoNpcConquistado();

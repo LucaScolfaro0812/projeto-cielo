@@ -431,8 +431,8 @@ export class CenaCidade extends Phaser.Scene {
 
         const ruas = [2123, 4065, 6359];
         ruas.forEach((y) => {
-            for (let i = 0; i < 3; i++) {
-                const carro = new Carro(this, i * 1250, y, true);
+            for (let i = 0; i < 5; i++) {
+                const carro = new Carro(this, i * 2500, y, true);
                 this.carrinho.push(carro);
             }
         });

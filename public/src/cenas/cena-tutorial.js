@@ -1,7 +1,12 @@
 export class CenaTutorial extends Phaser.Scene {
 
     constructor() {
-        super({ key: 'tutorialScene' });
+        super({ key: 'tutorialScene', transparent: true });
+    }
+
+    init(data = {}) {
+        this.cenaOrigem = data.cenaOrigem ?? 'gameScene';
+        this.modoOverlay = Boolean(data.modoOverlay);
     }
 
     preload() {
@@ -13,12 +18,18 @@ export class CenaTutorial extends Phaser.Scene {
         const w = this.scale.width;
         const h = this.scale.height;
 
+        this.scene.bringToTop();
+        this.cameras.main.setBackgroundColor('rgba(0,0,0,0)');
+
         // ===============================
         // IMAGEM DO TUTORIAL
         // ===============================
 
         const tutorial = this.add.image(w/2, h/2, 'tutorial');
-        tutorial.setDisplaySize(w, h);
+        const escalaTutorial = Math.min((w * 0.94) / tutorial.width, (h * 0.94) / tutorial.height);
+        tutorial.setScale(escalaTutorial);
+        tutorial.setScrollFactor(0);
+        tutorial.setDepth(1);
 
         // ===============================
         // ESTILO BOTÃO
@@ -26,17 +37,19 @@ export class CenaTutorial extends Phaser.Scene {
 
         const estiloBotao = {
             fontFamily: 'Poppins',
-            fontSize: '34px',
+            fontSize: '28px',
             color: '#ffffff',
             backgroundColor: '#001caa',
-            padding: { x: 20, y: 8 },
+            padding: { x: 16, y: 6 },
             align: 'center'
         };
 
         // BOTÃO SAIR
-        const botaoSair = this.add.text(w/2, h - 20, 'SAIR', estiloBotao)
-        .setOrigin(0.5,1)
-        .setFixedSize(260,60)
+        const yBotaoSair = Math.min(tutorial.getBounds().bottom + 16, h - 60);
+
+        const botaoSair = this.add.text(w / 2, yBotaoSair, 'SAIR', estiloBotao)
+        .setOrigin(0.5, 0)
+        .setFixedSize(200, 48)
         .setAlign('center')
         .setDepth(10);
 
@@ -60,8 +73,14 @@ export class CenaTutorial extends Phaser.Scene {
             botaoSair.setScale(1);
         });
 
-        // Inicia o jogo ao clicar em sair do tutorial
+        // Fecha o tutorial por cima do mapa ou segue o fluxo antigo
         botaoSair.on('pointerdown', () => {
+            if (this.modoOverlay) {
+                this.scene.resume(this.cenaOrigem);
+                this.scene.stop();
+                return;
+            }
+
             this.scene.start('gameScene');
         });
 

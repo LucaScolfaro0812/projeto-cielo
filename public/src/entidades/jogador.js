@@ -241,6 +241,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
     }
 
     morreu(){
-        this.cena.scene.start('gameScene');
+        this.cena.scene.start('gameScene', { mostrarTutorial: false });
     }
 }

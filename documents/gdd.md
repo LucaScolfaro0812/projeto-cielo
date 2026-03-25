@@ -140,19 +140,9 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
-**Ponto de vista do Cliente:**
-| Tarefas do cliente | Dores do cliente | Ganhos do cliente |
-| ------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------- |
-| Desenvolver habilidades práticas de vendas | Dificuldade de acesso a treinamentos presenciais | Aprender com flexibilidade de tempo e local |
-| Melhorar desempenho profissional | Métodos de ensino pouco interativos e desatualizados | Conteúdo aplicável à prática de vendas |
-| Participar de capacitações da empresa | Desigualdade no acesso ao ensino de qualidade | Evolução profissional mais rápida e consistente |
 
-**Mapa de valor:**
-| Produtos e serviços | Analgésicos (alívio das dores) | Criadores de ganhos |
-| ------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
-| Jogo interativo de simulação de vendas | Elimina a necessidade de deslocamento físico | Aprendizado mais engajador por meio de desafios e missões |
-| Plataforma digital acessível | Permite acesso ao conteúdo de qualquer lugar | Flexibilidade para aprender no próprio ritmo |
-| Treinamento gamificado com situações reais | Substitui métodos tradicionais pouco atrativos | Desenvolvimento prático de habilidades com feedback imediato |
+<img src ="../documents/other/PropostaDeValor.png" width= 700>
+
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
 Diferente de abordagens convencionais, o uso de um jogo interativo permite que o usuário aprenda por meio da prática, simulando situações reais de vendas e recebendo feedback imediato sobre seu desempenho. Isso torna o processo mais dinâmico, aumenta o engajamento e contribui para uma aprendizagem mais efetiva.
@@ -161,7 +151,7 @@ Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao con
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e առաջարկar soluções adequadas.
+A solução desenvolvida consiste em um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e utilizar soluções adequadas.
 
 O jogo foi concebido como um *serious game*, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
 
@@ -1052,8 +1042,73 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
-_Descreva e ilustre aqui o desenvolvimento da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e planos futuros._
+Durante a Sprint 4, foi realizada a consolidação final do MVP do jogo, com foco na integração completa dos sistemas desenvolvidos anteriormente, refinamento da experiência do usuário e adição de novos elementos de jogabilidade, interface e imersão.
+Esta etapa teve como objetivo garantir que o jogo estivesse funcional de ponta a ponta, com fluxo contínuo entre menu, tutorial, cidade e lojas, além de apresentar um conjunto robusto de mecânicas técnicas e visuais.
 
+Funcionalidades implementadas
+
+Nesta sprint foram desenvolvidas e integradas as seguintes funcionalidades:
+
+. Menu inicial e acesso ao jogo
+O menu principal foi refinado com melhorias visuais e organização dos elementos, incluindo botões interativos com efeitos de hover e animações suaves.
+Foi adicionado também um botão de configurações, preparado para futuras expansões como controle de áudio e preferências do usuário.
+
+. Sistema de tutorial integrado ao início da experiência
+Ao clicar em “Jogar”, o jogador é direcionado automaticamente para a tela de tutorial antes de iniciar a gameplay.
+O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T. O sistema identifica o contexto de origem e retorna corretamente ao jogo ou ao menu.
+
+. Entrada no mapa e ambientação sonora
+Ao iniciar o jogo, o jogador é inserido no mapa da cidade, com trilha sonora ambiente específica, aumentando a imersão.
+O sistema de áudio é controlado por cena, garantindo que o som seja ajustado automaticamente ao trocar entre cidade e lojas, sem sobreposição.
+
+. Sistema de spawn dinâmico
+O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
+Para evitar reentrada imediata, foi implementado um controle baseado em tempo, distância e estado da última loja acessada.
+
+. Movimentação e mecânica de risco (carros)
+Durante a navegação pela cidade, o jogador pode se movimentar livremente utilizando o teclado (W, A, S e D).
+Foram adicionados carros em movimento nas ruas, funcionando como obstáculos. A colisão com esses elementos penaliza o jogador, aumentando o nível de desafio e tornando a gameplay mais dinâmica.
+
+. HUD de progresso dos NPCs
+Durante a exploração, o jogador pode acompanhar seu progresso por meio de uma HUD que exibe quais NPCs já foram conquistados.
+Essa interface auxilia na orientação dentro do jogo e reforça os objetivos de progressão.
+
+. Entrada nas lojas e apresentação do cliente
+Ao entrar em uma loja, o jogador é direcionado para um ambiente interno específico. Nesse momento, é exibido um popup informativo do cliente (NPC), apresentando informações relevantes antes do início da interação.
+Cada loja possui ambientação própria, incluindo trilha sonora específica, reforçando a identidade de cada cenário.
+
+. Arquitetura das lojas (data-driven)
+As lojas foram implementadas utilizando uma arquitetura baseada em configuração, onde uma única estrutura de cena é reutilizada para diferentes lojas.
+Cada uma define seus próprios parâmetros, como posição de NPC, jogador, porta e escala do ambiente, garantindo organização do código e facilidade de expansão.
+
+. Sistema de quiz nas lojas
+Dentro das lojas, o jogador interage com NPCs por meio de quizzes. Cada loja possui um conjunto específico de perguntas, totalizando 12 conjuntos educacionais.
+
+O sistema apresenta:
+
+Sorteio aleatório de perguntas sem repetição;
+Timer de 60 segundos por pergunta;
+Encerramento automático ao fim do tempo.
+
+A pontuação é exibida por uma barra de conversão com três níveis (vermelho, amarelo e verde). A conquista do cliente ocorre ao atingir mínimo de 6 pontos ao final de 3 perguntas.
+
+. Feedback de conquista do NPC
+Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visualmente, sua aparência é alterada para a cor azul, permitindo identificação imediata pelo jogador.
+
+. Feedback visual no mapa (balões animados)
+Ao retornar à cidade após conquistar um NPC, a loja correspondente passa a exibir balões animados em sua parte superior.
+
+A animação utiliza conceitos de cinemática:
+
+Movimento Uniforme (eixo X);
+Movimento Uniformemente Variado (eixo Y).
+
+Esse efeito reforça visualmente a progressão do jogador no ambiente.
+
+. Sistema de pausa
+Durante o jogo, o jogador pode acessar o menu de pausa pressionando a tecla ESC, com opções para continuar, reiniciar ou retornar ao menu principal.
+
+O sistema preserva o estado da partida ao ser ativado.
 ## 4.5. Revisão do MVP (sprint 5)
 
 _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar._

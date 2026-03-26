@@ -1237,34 +1237,36 @@ _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da vers�
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
-
-Nos testes do quiz, o indicador principal é a barra de conversão e a pontuação acumulada. Quando o jogador acerta uma pergunta, recebe **3 pontos**; ao errar, recebe **0 pontos**. O cliente é conquistado se a **soma dos pontos for ≥ 6** ao final das 3 perguntas (máximo de 9 pontos). A barra usa três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa).
+Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação. A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação.
+Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso, o jogador recebe +15 pontos; caso contrário, recebe -15 pontos.
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
-| #   | pré-condição                                              | descrição do teste                                                      | pós-condição                                                                                 |
-| :-- | :-------------------------------------------------------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| 1   | Jogo aberto na tela inicial                               | Clicar no botão "Jogar"                                                 | O jogo deve iniciar                                                                          |
-| 2   | Jogo na tela inicial                                      | Clicar no botão "Configurações"                                         | A tela de configurações deve abrir *(não implementado no MVP)*                               |
-| 3   | Jogo na tela inicial                                      | Clicar no botão "Tutorial"                                              | Deve abrir uma interface intuitiva que explica as mecânicas, o objetivo do jogo e como jogar |
-| 4   | Jogo com personagem parado                                | Pressionar D                                                            | Personagem deve se mover para a direita                                                      |
-| 5   | Jogo com personagem parado                                | Pressionar A                                                            | Personagem deve se mover para a esquerda                                                     |
-| 6   | Jogo com personagem parado                                | Pressionar W                                                            | Personagem deve se mover para cima                                                           |
-| 7   | Jogo com personagem parado                                | Pressionar S                                                            | Personagem deve se mover para baixo                                                          |
-| 8   | Personagem próximo de uma loja                            | Encostou na porta                                                       | Personagem entra no estabelecimento                                                          |
-| 9   | Personagem perto de um NPC                                | Aproximar-se do NPC e pressionar a tecla E                              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada      |
-| 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na melhor resposta                            | A barra de conversão aumenta                                                                 |
-| 11  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta                         | A barra de conversão diminui                                                                 |
-| 12  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                       |
-| 13  | Jogador acertou as 2 primeiras perguntas (6 pontos acumulados)  | Errar a 3ª pergunta                                               | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
-| 14  | Jogador errou as 2 primeiras perguntas (0 pontos acumulados)    | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                   |
-| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Errar a 3ª pergunta                                               | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
-| 16  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pontos)   | Responder corretamente a 3ª pergunta                              | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
-| 17  | Jogador errou todas as perguntas anteriores (0 pontos)          | Responder corretamente a 3ª pergunta                              | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
-| 18  | Tempo limite da pergunta esgotado                         | O timer chega a 0 durante o quiz                                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta  |
-| 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
-| 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
-| 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra *(não implementado no MVP)*                                            |
+| #  | pré-condição                                | descrição do teste                         | pós-condição                                               |
+| :- | :------------------------------------------ | :----------------------------------------- | :--------------------------------------------------------- |
+| 1  | Jogo aberto na tela inicial                 | Clicar no botão "Jogar"                    | O jogo inicia e o tutorial é exibido automaticamente       |
+| 2  | Jogo na tela inicial                        | Clicar no botão "Configurações"            | A tela de configurações deve abrir *(em desenvolvimento)*  |
+| 3  | Jogo em execução                            | Pressionar tecla T                         | A tela de tutorial é exibida durante o jogo                |
+| 4  | Jogo com personagem parado                  | Pressionar D                               | Personagem deve se mover para a direita                    |
+| 5  | Jogo com personagem parado                  | Pressionar A                               | Personagem deve se mover para a esquerda                   |
+| 6  | Jogo com personagem parado                  | Pressionar W                               | Personagem deve se mover para cima                         |
+| 7  | Jogo com personagem parado                  | Pressionar S                               | Personagem deve se mover para baixo                        |
+| 8  | Personagem próximo de uma loja              | Encostar na porta                          | Personagem entra no estabelecimento                        |
+| 9  | Personagem retorna de uma loja              | Tentar reentrar imediatamente              | Entrada na loja é bloqueada temporariamente                |
+| 10 | Personagem próximo de um NPC                | Aproximar-se do NPC e pressionar a tecla E | A interface de quiz é iniciada                             |
+| 11 | Tela de quiz com barra de conversão visível | Selecionar resposta correta                | A barra de conversão aumenta                               |
+| 12 | Tela de quiz com barra de conversão visível | Selecionar resposta incorreta              | A barra de conversão diminui                               |
+| 13 | Quiz finalizado com bom desempenho          | Resultado da interação                     | Cliente é conquistado e o jogador recebe +15 pontos        |
+| 14 | Quiz finalizado com baixo desempenho        | Resultado da interação                     | Cliente não é conquistado e o jogador recebe -15 pontos    |
+| 15 | Tempo limite da pergunta esgotado           | O timer chega a 0 durante o quiz           | A pergunta é encerrada automaticamente                     |
+| 16 | Jogador em movimento no mapa                | Colidir com um carro                       | Jogador morre e a cena é reiniciada                        |
+| 17 | Jogador explorando o mapa                   | Caminhar pelas ruas                        | Carros aparecem como obstáculos dinâmicos                  |
+| 18 | NPC após ser conquistado                    | Finalizar quiz com sucesso                 | NPC muda aparência (camiseta azul)                         |
+| 19 | Loja com NPC conquistado                    | Retornar ao mapa                           | Balões aparecem sobre a loja                               |
+| 20 | Jogo em execução                            | Visualizar HUD                             | Interface mostra progresso dos NPCs                        |
+| 21 | Jogador entra em uma loja                   | Iniciar interação                          | Pop-up do cliente é exibido com informações                |
+| 22 | Jogador sem maquininhas                     | Necessidade de continuar o jogo            | Deve retornar à base da Cielo para obter novas maquininhas |
+| 23 | Jogo em execução                            | Pressionar ESC                             | Menu de pausa é exibido                                    |
 
 Fonte: elaborado pelo grupo.
 

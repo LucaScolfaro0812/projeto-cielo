@@ -177,8 +177,8 @@ export default class CenaLoja extends Phaser.Scene {
         const chave = 'entradaLoja' + this.nomeLoja;
 
         this.exteriorImage = this.add.image(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + 450,
+            this.cameras.main.centerX + 200,
+            this.cameras.main.centerY + 200,
             chave
         ).setDepth(1000);
 

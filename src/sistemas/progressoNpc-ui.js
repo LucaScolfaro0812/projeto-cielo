@@ -27,17 +27,7 @@ export default class InterfaceProgressoNpc {
         const larguraHud = portraitSize + 340 + padding * 2;
 
         // Container HUD
-        this.container = this.cena.add.container(0, 0).setScrollFactor(0).setDepth(9999);
-
-        // Sombra
-        this.sombra = this.cena.add.rectangle(
-            larguraTela - larguraHud + 10 + 300,
-            margem + alturaHud / 2 + 10,
-            larguraHud,
-            alturaHud,
-            0x000000,
-            0.35
-        ).setOrigin(0, 0).setScrollFactor(0);
+        this.container = this.cena.add.container(160, 0).setScrollFactor(0).setDepth(9999);
 
         // Fundo arredondado
         this.fundo = this.cena.add.rectangle(
@@ -49,11 +39,21 @@ export default class InterfaceProgressoNpc {
             0.98
         ).setOrigin(0, 0.5).setScrollFactor(0);
         this.fundo.setStrokeStyle(8, 0xffffff, 1);
+        // Seleciona o NPC principal para o HUD (exemplo: o primeiro da lista)
+        const npcs = window?.obterListaNpcs ? window.obterListaNpcs() : [];
+        let portraitKey = "npc_cafeScene-nao-interagido";
+        if (npcs && npcs.length > 0) {
+            // Mostra o primeiro NPC conquistado, ou o primeiro da lista
+            const npcConquistado = npcs.find(n => n.estado === "conquistado");
+            const npc = npcConquistado || npcs[0];
+            portraitKey = `${npc.id}-${npc.estado}`;
+        }
         this.portrait = this.cena.add.image(
             larguraTela - larguraHud + padding + portraitSize / 2 + 300,
             margem + alturaHud / 2,
-            "npcPortraitHud"
+            portraitKey
         ).setDisplaySize(portraitSize, portraitSize).setScrollFactor(0);
+        this.portrait.setScale(0.25);
 
         // Texto de progresso grande e claro 
         this.texto = this.cena.add.text(
@@ -61,18 +61,16 @@ export default class InterfaceProgressoNpc {
             margem + alturaHud / 2,
             this._formatarTexto(),
             {
-                font: "680px Arial Black, Arial, sans-serif",
+                font: "120px Arial Black, Arial, sans-serif",
                 fill: "#fff",
                 fontStyle: "bold",
-                align: "left",
-                stroke: "#000",
-                strokeThickness: 16,
-                shadow: { offsetX: 8, offsetY: 8, color: "#000", blur: 12, fill: true }
+                align: "left"
             }
         ).setOrigin(0, 0.5).setScrollFactor(0);
+        this.texto.setScale(5);
 
         // Adiciona ao container
-        this.container.add([this.sombra, this.fundo, this.portrait, this.texto]);
+        this.container.add([this.fundo, this.portrait, this.texto]);
 
         // Clique no portrait abre painel
         this.portrait.setInteractive({ useHandCursor: true });

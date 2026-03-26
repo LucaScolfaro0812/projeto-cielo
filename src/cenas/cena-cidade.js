@@ -766,7 +766,7 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(9999);
 
         // Fundo escuro semitransparente (menor para garantir visibilidade)
-        const larguraPainel = 1200;
+        const larguraPainel = 1600;
         const alturaPainel = 1200;
         const fundo = this.add.rectangle(0, 0, larguraPainel, alturaPainel, 0x000820, 0.92)
             .setStrokeStyle(6, 0xffffff, 0.7)
@@ -779,8 +779,8 @@ export class CenaCidade extends Phaser.Scene {
         const npcs = obterListaNpcs();
         const colunas = 4;
         const linhas = 3;
-        const espacamentoX = 400;
-        const espacamentoY = 400;
+        const espacamentoX = 440;
+        const espacamentoY = 440;
         const offsetX = -((colunas - 1) * espacamentoX) / 2;
         const offsetY = -((linhas - 1) * espacamentoY) / 2;
 

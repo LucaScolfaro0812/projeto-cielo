@@ -13,7 +13,7 @@ import InterfaceQuiz from "./quiz-ui.js";
 // Utilitários de persistência (localStorage com JSON e proteção de erro).
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
-import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
+import { getPerguntasPorLoja, selecionarTresAleatorias, perguntasNpcRua } from "../sistemas/quiz-perguntas.js";
 
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
@@ -124,15 +124,20 @@ export default class Quiz {
     iniciar(npc) {
         this.npcAtual = npc;
 
-        // 1) Bloqueia reabertura se esse NPC ja abriu quiz antes.
-        if (npc?.idNpc && this._npcJaAbriuQuiz(npc.idNpc)) {
-            npc.vendeu = true;
-            return;
-        }
+        // Sempre busca as perguntas corretas para a loja/NPC
+        this.perguntas = this.pegarPerguntasParaLoja();
 
-        // 2) Valida NPC/perguntas.
-        if (!npc || !npc.perguntas || npc.perguntas.length === 0) {
-            console.warn("Quiz: NPC sem perguntas validas.");
+        // Se não houver perguntas disponíveis, mostra mensagem e encerra
+        if (!this.perguntas || this.perguntas.length === 0) {
+            if (this.cena && this.cena.add && typeof this.cena.add.text === 'function') {
+                const msg = this.cena.add.text(
+                    this.cena.cameras.main.centerX,
+                    this.cena.cameras.main.centerY - 100,
+                    'Não há perguntas disponíveis para este NPC.',
+                    { fontSize: '32px', fill: '#ff0000', backgroundColor: '#fff', padding: { x: 20, y: 10 } }
+                ).setOrigin(0.5).setDepth(2000);
+                this.cena.time.delayedCall(1500, () => msg.destroy());
+            }
             return;
         }
 
@@ -144,7 +149,17 @@ export default class Quiz {
         this.cena.physics.pause();
         npc.vendeu = true;
 
-        this.perguntas = [this.pegarPerguntas(), this.pegarPerguntas(), this.pegarPerguntas()];
+        // Seleciona até 3 perguntas da loja, sem repetição
+        this.perguntas = this.pegarPerguntasParaLoja();
+
+        // Se não houver perguntas disponíveis, mostra mensagem e encerra
+        if (!this.perguntas || this.perguntas.length === 0) {
+            if (this.ui && typeof this.ui.definirPergunta === 'function') {
+                this.ui.definirPergunta({ pergunta: "Não há mais perguntas disponíveis para esta loja.", opcoes: ["", "", "", ""] });
+            }
+            setTimeout(() => this.finalizar(), 2000);
+            return;
+        }
         this.indicePerguntaAtual = 0;
         this.pontuacaoTotal = 0;
         this.nivelConversao = NIVEL_CONVERSAO_INICIAL;
@@ -184,22 +199,30 @@ export default class Quiz {
         this.iniciarTimer();
     }
 
-    pegarPerguntas() {
-        const perguntasJaFeitas = this._carregarPerguntasJaFeitas();
-
-        // Filtra as perguntas que ainda não foram feitas
-        const perguntasDisponiveis = perguntasNpc.filter(p => !perguntasJaFeitas.includes(p.id));
-
-        let p;
-
-        // recebe perguntas novas até esgotar o banco de perguntas.
-        if (perguntasDisponiveis.length > 0) {
-            p = perguntasDisponiveis[Phaser.Math.Between(0, perguntasDisponiveis.length - 1)];
-        } else {
-            // Quando todas já foram feitas, o sistema volta a sortear normalmente, evitando travar o quiz.
-            p = perguntasNpc[Phaser.Math.Between(0, perguntasNpc.length - 1)];
+    /**
+     * Seleciona até 3 perguntas aleatórias, não repetidas, da loja do NPC atual
+     */
+    pegarPerguntasParaLoja() {
+        // Determina o ID da loja (deve ser definido no NPC ou na cena)
+        let lojaId = this.npcAtual?.lojaId || this.cena?.nomeLoja;
+        if (typeof lojaId === 'string') lojaId = lojaId.toLowerCase();
+        console.log('[QUIZ] Buscando perguntas para lojaId:', lojaId);
+        let todas = lojaId ? getPerguntasPorLoja(lojaId) : [];
+        console.log('[QUIZ] Perguntas encontradas para lojaId', lojaId, ':', todas.length);
+        let fallbackUsado = false;
+        if (!todas || todas.length === 0) {
+            fallbackUsado = true;
+            todas = perguntasNpcRua;
+            console.log('[QUIZ] Usando fallback perguntasNpcRua:', todas.length);
         }
-        return p;
+        const perguntasJaFeitas = this._carregarPerguntasJaFeitas();
+        let disponiveis = todas.filter(q => !perguntasJaFeitas.includes(q.id));
+        if (disponiveis.length === 0 && todas.length > 0) {
+            console.log('[QUIZ] Todas as perguntas já respondidas, permitindo repetição.');
+            disponiveis = [...todas];
+        }
+        console.log('[QUIZ] Perguntas disponíveis para sorteio:', disponiveis.length, '| Fallback usado:', fallbackUsado);
+        return selecionarTresAleatorias(disponiveis);
     }
 
     aplicarVisualConquistado(npc) {

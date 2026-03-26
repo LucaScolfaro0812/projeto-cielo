@@ -32,7 +32,7 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         this.setDepth(10);
 
         // Define o hitbox proporcional ao frame 64x64 — o carro ocupa ~56x26px dentro do frame
-        this.setSize(56, 26);
+        this.setSize(56, 10);
 
         // Sincroniza o corpo físico com a posição e escala atual do sprite
         this.body.updateFromGameObject();

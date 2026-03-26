@@ -18,6 +18,9 @@ import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
+import { pontosConquista, pontosDerrota } from "../utilitarios/pontos.js";
+import { Maquininhas } from "./maquininhas.js";
+
 // =====================
 // Constantes do sistema
 // =====================
@@ -391,27 +394,27 @@ export default class Quiz {
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
 
         if (conquistou) {
-            console.log("VENCEU O QUIZ! Limpando a lista de lojas bloqueadas.");
-            salvarDados('lojaBloqueada', null);
-
-            this._salvarProgressoNpcConquistado();
-
+            // Jogador conquistou o NPC
+            atualizarEstadoNpc(this.npcAtual.idNpc, 'conquistado');
             if (this.npcAtual) {
-                this.npcAtual.visualConquistado();
+                this.npcAtual.setVisualConquista('conquistado');
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
-
                 if (this.cena.atualizarPainelNpcs) {
                     this.cena.atualizarPainelNpcs();
                 }
             }
         } else {
-            // Pega o nome da cena atual do quiz
-            const nomeDestaLoja = this.cena.scene.key;
-            
-        
-            salvarDados('lojaBloqueada', nomeDestaLoja);
+            // Jogador não conquistou o NPC
+            atualizarEstadoNpc(this.npcAtual.idNpc, 'interagido');
+            if (this.npcAtual) {
+                this.npcAtual.setVisualConquista('nao-conquistado');
+                if (this.cena.atualizarPainelNpcs) {
+                    this.cena.atualizarPainelNpcs();
+                }
+            }
         }
 
+        // Exibe o resultado final do quiz e chama finalizar ao fechar
         this.ui.exibirResultado(conquistou, () => this.finalizar());
     }
 }

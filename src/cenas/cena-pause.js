@@ -61,7 +61,7 @@ export class CenaPausa extends Phaser.Scene {
             // Para a cena pausada e reinicia o jogo do zero
             this.scene.stop();
             this.scene.stop(cenaAnterior);
-            this.scene.start('gameScene');
+            this.scene.start('gameScene', { mostrarTutorial: false });
         });
 
         // Botão Menu — volta para a tela inicial do jogo

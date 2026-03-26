@@ -1,6 +1,7 @@
 import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import Quiz from '../sistemas/quiz.js';
+import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
 import {
@@ -214,6 +215,10 @@ export default class CenaLoja extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        this.input.keyboard.on('keydown-T', () => {
+            this._abrirTutorial();
+        });
+
         this.objetosFisicos = this.physics.add.staticGroup();
         this._criarMobiliario();
 
@@ -227,6 +232,19 @@ export default class CenaLoja extends Phaser.Scene {
         if (this.somAmbiente && this.somAmbiente.isPlaying) {
             this.somAmbiente.stop();
         }
+    }
+
+    _abrirTutorial() {
+        if (this.scene.isActive('tutorialScene')) {
+            return;
+        }
+
+        this.scene.pause();
+        this.scene.launch('tutorialScene', {
+            cenaOrigem: this.sys.settings.key,
+            modoOverlay: true
+        });
+        this.scene.bringToTop('tutorialScene');
     }
 
     _criarCenario() {
@@ -252,6 +270,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
         this.player.setDepth(150);
 
+
         const perguntasPorLoja = {
             Movel: perguntasMovel,
             Cafe: perguntasCafe,
@@ -262,7 +281,9 @@ export default class CenaLoja extends Phaser.Scene {
             Chocolate: perguntasChocolate
         };
 
-        const perguntas = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+        // Sorteia 3 perguntas aleatórias das 6 disponíveis para a loja
+        const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
+        const perguntas = sortearPerguntasAleatorias(perguntasOriginais, 3);
 
         this.npc = new Npc(
             this,

@@ -408,13 +408,26 @@ export class CenaCidade extends Phaser.Scene {
             conquistados,
             totalNpcs,
             () => {
-                if (this.painelNpcs) {
-                    this.painelNpcs.setVisible(!this.painelNpcs.visible);
+                // Botão só abre — marca flag para ignorar o pointerdown deste mesmo clique
+                if (this.painelNpcs && !this.painelNpcs.visible) {
+                    this._painelAbertoNesteClique = true;
+                    this.painelNpcs.setVisible(true);
                 }
             }
         );
 
         this.criarPainelNpcs();
+
+        // Fecha o painel ao clicar em qualquer lugar — ignora o clique que o abriu
+        this.input.on('pointerdown', () => {
+            if (this._painelAbertoNesteClique) {
+                this._painelAbertoNesteClique = false;
+                return;
+            }
+            if (this.painelNpcs && this.painelNpcs.visible) {
+                this.painelNpcs.setVisible(false);
+            }
+        });
 
         if (this.mostrarTutorialAoEntrar) {
             this._abrirTutorial();

@@ -16,6 +16,9 @@ import {
 } from '../sistemas/quiz-perguntas.js';
 import { ObjetosInterior } from '../utilitarios/configuracao-interior.js';
 
+// Cena base usada por todas as lojas do jogo.
+// Recebe um objeto de configs no construtor, o que permite reutilizar
+// essa mesma classe para lojas diferentes sem duplicar código.
 export default class CenaLoja extends Phaser.Scene {
 
     constructor(configs) {
@@ -25,17 +28,23 @@ export default class CenaLoja extends Phaser.Scene {
         this.sceneLoja = configs.nomeDaCena;
         this.backgroundScale = configs.bgScale;
 
+        // Posição do NPC dentro da loja
         this.npcX = configs.npcX;
         this.npcY = configs.npcY;
 
+        // Posição da porta de saída
         this.portaX = configs.portaX;
         this.portaY = configs.portaY;
 
+        // Posição inicial do jogador ao entrar na loja
         this.playerX = configs.playerX;
         this.playerY = configs.playerY;
 
+        // Chave da imagem de fundo do interior da loja
         this.fundoImage = 'lojaVazia' + this.nomeLoja;
 
+        // Mapeia cada loja ao arquivo de som ambiente correspondente.
+        // Lojas sem som ambiente (Lanchonete, Joalheria) simplesmente não aparecem aqui.
         this.somAmbientePorLoja = {
             Autoescola: 'ambienteAutoEscola',
             Pelucia: 'ambienteBrinquedo',
@@ -43,15 +52,21 @@ export default class CenaLoja extends Phaser.Scene {
             Pet: 'ambientePetShop',
             Roupas: 'ambienteRoupas',
             Beleza: 'ambienteSalaoDeBeleza',
+            Cafe: 'ambienteCafeteria',
+            Frutaria: 'ambienteFrutaria',
+            Movel: 'ambienteMóveis',
+            Games: 'ambienteVideoGame',
         };
     }
 
     preload() {
+        // Carrega o fundo do interior da loja
         this.load.image(this.fundoImage, `assets/imagens/lojas/interior/${this.fundoImage}.png`);
 
         Jogador.preload(this);
         Npc.preload(this);
 
+        // Mapeia cada loja ao arquivo de imagem exibido ao entrar
         const entradaPorLoja = {
             Cafe: 'EntradaCafeteria',
             Games: 'EntradaLojaGames',
@@ -76,7 +91,7 @@ export default class CenaLoja extends Phaser.Scene {
 
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
 
-        // Itens de mobiliário das lojas (removidos acidentalmente no commit c175ea9)
+        // Itens de mobiliário de todas as lojas
         this.load.image('autoEscolaBancada', 'assets/imagens/itens-lojas/autoEscolaBancada.png');
         this.load.image('autoEscolaBanquinho', 'assets/imagens/itens-lojas/autoEscolaBanquinho.png');
         this.load.image('autoEscolaMesa', 'assets/imagens/itens-lojas/autoEscolaMesa.png');
@@ -145,7 +160,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.load.image('videogameMesa', 'assets/imagens/itens-lojas/videogameMesa.png');
         this.load.image('videogameMesaNerd', 'assets/imagens/itens-lojas/videogameMesaNerd.png');
 
-        // Carrega som ambiente da loja (se houver)
+        // Carrega o som ambiente da loja, se houver e ainda não estiver em cache
         const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
         if (chaveSomAmbiente) {
             if (!this.cache.audio.exists(chaveSomAmbiente)) {
@@ -153,7 +168,7 @@ export default class CenaLoja extends Phaser.Scene {
             }
         }
 
-        // Carrega som da porta
+        // Carrega o som da porta, se ainda não estiver em cache
         if (!this.cache.audio.exists('portaAbrindo')) {
             this.load.audio('portaAbrindo', 'assets/sons/portaAbrindo.mp3');
         }
@@ -162,12 +177,12 @@ export default class CenaLoja extends Phaser.Scene {
     create() {
         this._criarCenario();
 
-        // Som da porta ao entrar
+        // Toca o som da porta ao entrar na loja
         if (this.cache.audio.exists('portaAbrindo')) {
             this.sound.play('portaAbrindo');
         }
 
-        // Inicia áudio ambiente em loop com volume reduzido
+        // Inicia o som ambiente em loop com volume baixo
         const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
         if (chaveSomAmbiente && this.cache.audio.exists(chaveSomAmbiente)) {
             this.somAmbiente = this.sound.add(chaveSomAmbiente, { loop: true, volume: 0.3 });
@@ -176,12 +191,14 @@ export default class CenaLoja extends Phaser.Scene {
 
         const chave = 'entradaLoja' + this.nomeLoja;
 
+        // Exibe a imagem de entrada da loja sobreposta à cena
         this.exteriorImage = this.add.image(
             this.cameras.main.centerX,
             this.cameras.main.centerY + 450,
             chave
         ).setDepth(1000);
 
+        // Pausa a física enquanto a tela de entrada está visível
         this.physics.pause();
 
         this.exteriorImage.setDisplaySize(
@@ -189,6 +206,7 @@ export default class CenaLoja extends Phaser.Scene {
             this.cameras.main.height
         );
 
+        // Botão para fechar a tela de entrada e liberar o jogador
         const botaoFechar = this.add.text(
             this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
             this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
@@ -205,16 +223,19 @@ export default class CenaLoja extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
+        // Ajusta o zoom da câmera para cobrir toda a tela sem barras pretas
         const zoomX = this.cameras.main.width / this.fundo.displayWidth;
         const zoomY = this.cameras.main.height / this.fundo.displayHeight;
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
+        // Atalho para abrir o menu de pausa
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        // Atalho para abrir o tutorial
         this.input.keyboard.on('keydown-T', () => {
             this._abrirTutorial();
         });
@@ -222,18 +243,22 @@ export default class CenaLoja extends Phaser.Scene {
         this.objetosFisicos = this.physics.add.staticGroup();
         this._criarMobiliario();
 
+        // Aplica colisão entre o jogador e os móveis da loja
         this.physics.add.collider(this.player, this.objetosFisicos);
 
+        // Garante que o áudio pare ao sair ou destruir a cena
         this.events.on('shutdown', () => this._pararAudio());
         this.events.on('destroy', () => this._pararAudio());
     }
 
+    // Para o som ambiente caso esteja tocando
     _pararAudio() {
         if (this.somAmbiente && this.somAmbiente.isPlaying) {
             this.somAmbiente.stop();
         }
     }
 
+    // Abre o tutorial em overlay sem destruir a cena atual
     _abrirTutorial() {
         if (this.scene.isActive('tutorialScene')) {
             return;
@@ -247,6 +272,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.scene.bringToTop('tutorialScene');
     }
 
+    // Cria o fundo da loja e define os limites do mundo físico
     _criarCenario() {
         this.fundo = this.add.image(0, 0, this.fundoImage)
             .setOrigin(0.5)
@@ -263,6 +289,7 @@ export default class CenaLoja extends Phaser.Scene {
         );
     }
 
+    // Instancia o jogador, o NPC e o sistema de quiz da loja
     _configurarPlayerNpcQuiz() {
         this.quiz = new Quiz(this);
 
@@ -270,7 +297,8 @@ export default class CenaLoja extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
         this.player.setDepth(150);
 
-
+        // Associa cada loja ao seu banco de perguntas.
+        // Lojas sem banco próprio usam as perguntas genéricas de NPC de rua.
         const perguntasPorLoja = {
             Movel: perguntasMovel,
             Cafe: perguntasCafe,
@@ -281,7 +309,7 @@ export default class CenaLoja extends Phaser.Scene {
             Chocolate: perguntasChocolate
         };
 
-        // Sorteia 3 perguntas aleatórias das 6 disponíveis para a loja
+        // Sorteia 3 perguntas aleatórias das disponíveis para a loja
         const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
         const perguntas = sortearPerguntasAleatorias(perguntasOriginais, 3);
 
@@ -294,13 +322,15 @@ export default class CenaLoja extends Phaser.Scene {
             `npc_${this.sceneLoja}`
         );
 
+        // Algumas lojas precisam que o NPC fique na frente de certos elementos
         if (['Cafe','Chocolate','Autoescola','Lanchonete','Joalheria','Frutaria'].includes(this.nomeLoja)) {
             this.npc.setDepth(101);
         }
 
+        // Aplica o visual de NPC já conquistado, se for o caso
         this.quiz.aplicarVisualConquistado(this.npc);
 
-        // Diminui volume ao abrir quiz, restaura ao fechar
+        // Reduz o volume do ambiente enquanto o quiz estiver aberto
         this.quiz.events?.on('quiz-aberto', () => {
             if (this.somAmbiente) this.somAmbiente.setVolume(0.1);
         });
@@ -308,6 +338,7 @@ export default class CenaLoja extends Phaser.Scene {
             if (this.somAmbiente) this.somAmbiente.setVolume(0.3);
         });
 
+        // Botão flutuante acima do NPC que indica que ele pode ser interagido
         this.botaoInteracao = this.add.image(this.npcX, this.npcY - 120, 'botaoInteracao')
             .setScale(0.4)
             .setVisible(!this.npc.vendeu)
@@ -318,6 +349,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     }
 
+    // Cria a porta de saída e configura o overlap que troca de cena ao passar por ela
     _criarPortas() {
         this.portaEntrada = new Entrada(
             this,
@@ -344,6 +376,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.player.update();
         this.npc.update();
 
+        // Animação de flutuação do botão de interação acima do NPC
         this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
@@ -359,6 +392,7 @@ export default class CenaLoja extends Phaser.Scene {
 
         const perto = distancia < 300;
 
+        // Abre o quiz ao pressionar E perto do NPC, se ele ainda não tiver vendido
         if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {
             this.quiz.iniciar(this.npc);
         }
@@ -368,6 +402,7 @@ export default class CenaLoja extends Phaser.Scene {
         }
     }
 
+    // Instancia os móveis da loja com base na configuração de ObjetosInterior
     _criarMobiliario() {
         const lista = ObjetosInterior[this.nomeLoja];
         if (!lista) return;
@@ -382,6 +417,7 @@ export default class CenaLoja extends Phaser.Scene {
 
             movel.refreshBody();
 
+            // Ajusta o hitbox do móvel se a config definir tamanho e offset manualmente
             if (config.hitWidth && config.hitHeight) {
                 movel.body.setSize(config.hitWidth, config.hitHeight);
 

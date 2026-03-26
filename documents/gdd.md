@@ -577,6 +577,24 @@ Pressionar ESC novamente enquanto o menu de pausa estiver aberto também fecha o
 
 No mapa da cidade existe um prédio especial que representa a **Central da Cielo** (`CenaCentral`). O jogador pode entrar nele da mesma forma que entra nas lojas — por sobreposição com a porta ao se aproximar do prédio. A Central da Cielo é implementada como uma cena própria (`centralScene`), com interior dedicado, câmera que segue o jogador e porta de saída que retorna à cidade. A tecla ESC também funciona dentro da Central, abrindo o menu de pausa. No contexto do enredo, a Central representa a base de operações do personagem Marcielo.
 
+### 3.7.10. Sistema de transição entre cenas
+
+Todas as trocas de cena do jogo utilizam um efeito de transição visual implementado em [`public/src/utilitarios/transicao-cena.js`](../public/src/utilitarios/transicao-cena.js). O sistema é composto por duas funções:
+
+- **`transicionarPara(cena, nomeCena, dados, texto)`** — chamada antes de iniciar uma nova cena. Para todos os sons ativos, executa um fade da câmera principal para a cor azul da Cielo (`#009FDA`) em 400 ms e, ao concluir, exibe um texto centralizado (ex: *"Entrando..."*, *"Voltando à cidade..."*) sobre a tela azul antes de iniciar a cena de destino.
+- **`revelarCena(cena)`** — chamada no `create()` de cada cena de destino. Executa o fade inverso, partindo do azul Cielo para transparente em 400 ms, revelando o cenário gradualmente.
+
+O efeito usa o sistema nativo de câmera do Phaser (`cameras.main.fadeOut` / `cameras.main.fadeIn`), o que garante compatibilidade com qualquer nível de zoom sem ajustes adicionais.
+
+| Transição | De → Para | Função utilizada |
+|---|---|---|
+| Clicar em Jogar | Menu → Cidade | `transicionarPara` + `revelarCena` |
+| Entrar em loja | Cidade → Loja | `transicionarPara` + `revelarCena` |
+| Sair de loja | Loja → Cidade | `transicionarPara` + `revelarCena` |
+| Entrar na Central | Cidade → Central | `transicionarPara` + `revelarCena` |
+| Novo Jogo (pausa) | Pausa → Cidade | `transicionarPara` + `revelarCena` |
+| Menu (pausa) | Pausa → Menu | `transicionarPara` + `revelarCena` |
+
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
 ### 3.8.1. Descrição

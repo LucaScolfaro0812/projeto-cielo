@@ -4,6 +4,7 @@ import Quiz from '../sistemas/quiz.js';
 import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
+import { revelarCena } from '../utilitarios/transicao-cena.js';
 import {
     perguntasMovel,
     perguntasNpcRua,
@@ -175,6 +176,9 @@ export default class CenaLoja extends Phaser.Scene {
     }
 
     create() {
+        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
+        revelarCena(this);
+
         this._criarCenario();
 
         // Toca o som da porta ao entrar na loja
@@ -373,10 +377,12 @@ export default class CenaLoja extends Phaser.Scene {
         this.portaEntrada.setScale(2.8);
 
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            if (this.portaEntrada.trocaDeCenaEmAndamento) return;
+
+            this._pararAudio();
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
-            this._pararAudio();
 
             definirProximoSpawnCidade(this.nomeLoja);
             this.portaEntrada.trocarDeCena();

@@ -1,6 +1,8 @@
 // Cena inicial do jogo: exibe o menu com fundo animado,
 // imagem de título, loja decorativa e botões de navegação
 
+import { transicionarPara, revelarCena } from '../utilitarios/transicao-cena.js';
+
 export class CenaMenu extends Phaser.Scene {
 
     constructor() {
@@ -15,6 +17,8 @@ export class CenaMenu extends Phaser.Scene {
     }
 
     create() {
+        // Fade de entrada partindo do azul Cielo — completa a transição vinda de outra cena
+        revelarCena(this);
 
         const w = this.scale.width;
         const h = this.scale.height;
@@ -87,7 +91,7 @@ export class CenaMenu extends Phaser.Scene {
 
         // Inicia o jogo ao clicar e pede para abrir o tutorial sobre o mapa
         botaoJogar.on('pointerdown', () => {
-            this.scene.start('gameScene', { mostrarTutorial: true });
+            transicionarPara(this, 'gameScene', { mostrarTutorial: true }, 'Iniciando jogo...');
         });
 
         // Animação de flutuação suave do botão (sobe e desce em loop)

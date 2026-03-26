@@ -1047,7 +1047,7 @@ Esta etapa teve como objetivo garantir que o jogo estivesse funcional de ponta a
 
 ### Funcionalidades implementadas
 
-Nesta sprint foram desenvolvidas e integradas as seguintes funcionalidades:
+Nesta sprint foram desenvolvidas e integradas as seguintes funcionalidades, organizadas de acordo com o fluxo de uso do jogador:
 
 . **Menu inicial e acesso ao jogo**
 O menu principal foi refinado com melhorias visuais e organização dos elementos, incluindo botões interativos com efeitos de hover e animações suaves.
@@ -1055,19 +1055,24 @@ Foi adicionado também um botão de configurações, preparado para futuras expa
 
 . **Sistema de tutorial integrado ao início da experiência**
 Ao clicar em “Jogar”, o jogador é direcionado automaticamente para a tela de tutorial antes de iniciar a gameplay.
-O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T. O sistema identifica o contexto de origem e retorna corretamente ao jogo ou ao menu.
+O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T, permitindo ao jogador consultar as instruções sem perder o progresso.
 
 . **Entrada no mapa e ambientação sonora**
 Ao iniciar o jogo, o jogador é inserido no mapa da cidade, com trilha sonora ambiente específica, aumentando a imersão.
-O sistema de áudio é controlado por cena, garantindo que o som seja ajustado automaticamente ao trocar entre cidade e lojas, sem sobreposição.
+O sistema de áudio é controlado por cena, garantindo que o som seja ajustado automaticamente ao trocar entre cidade e lojas, evitando sobreposição de trilhas.
+
+. **Base da Cielo e sistemade coleta de maquininhas**
+Foi implementado no mapa um ponto específico que representa a base da empresa Cielo, funcionando como local de apoio ao jogador durante a partida.
+Nesse local, o jogador pode coletar maquininhas, recurso essencial para a realização das interações com os clientes. Sempre que o jogador ficar sem maquininhas, será necessário retornar até a base para se reabastecer e continuar progredindo no jogo.
+Essa mecânica introduz um ciclo de gameplay baseado em gerenciamento de recursos e deslocamento estratégico pelo mapa.
 
 . **Sistema de spawn dinâmico**
-O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
+Durante a navegação pela cidade, o O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
 Para evitar reentrada imediata, foi implementado um controle baseado em tempo, distância e estado da última loja acessada.
 
 . **Movimentação e mecânica de risco (carros)**
 Durante a navegação pela cidade, o jogador pode se movimentar livremente utilizando o teclado (W, A, S e D).
-Foram adicionados carros em movimento nas ruas, funcionando como obstáculos. A colisão com esses elementos penaliza o jogador, aumentando o nível de desafio e tornando a gameplay mais dinâmica.
+Foram adicionados carros em movimento nas ruas, funcionando como obstáculos. A colisão com esses elementos penaliza o jogador, tornando a jogabilidade mais dinâmica e desafiadora.
 
 . **HUD de progresso dos NPCs**
 Durante a exploração, o jogador pode acompanhar seu progresso por meio de uma HUD que exibe quais NPCs já foram conquistados.
@@ -1079,7 +1084,7 @@ Cada loja possui ambientação própria, incluindo trilha sonora específica, re
 
 . **Arquitetura das lojas (data-driven)**
 As lojas foram implementadas utilizando uma arquitetura baseada em configuração, onde uma única estrutura de cena é reutilizada para diferentes lojas.
-Cada uma define seus próprios parâmetros, como posição de NPC, jogador, porta e escala do ambiente, garantindo organização do código e facilidade de expansão.
+Cada loja define parâmetros como posição de NPC, jogador, porta e escala do ambiente, garantindo organização do código e facilidade de manutenção e expansão.
 
 . **Sistema de quiz nas lojas**
 Dentro das lojas, o jogador interage com NPCs por meio de quizzes. Cada loja possui um conjunto específico de perguntas, totalizando 12 conjuntos educacionais.
@@ -1089,8 +1094,8 @@ O sistema apresenta:
 Sorteio aleatório de perguntas sem repetição;
 Timer de 60 segundos por pergunta;
 Encerramento automático ao fim do tempo.
-
-A pontuação é exibida por uma barra de conversão com três níveis (vermelho, amarelo e verde). A conquista do cliente ocorre ao atingir mínimo de 6 pontos ao final de 3 perguntas.
+A cada interação com um cliente, o resultado do quiz impacta diretamente a pontuação do jogador. Ao conquistar o cliente, o jogador recebe +15 pontos, enquanto em caso de falha na conversão, há penalização de -15 pontos.
+Esse sistema reforça a importância das decisões tomadas durante o quiz e adiciona um elemento de risco e recompensa à jogabilidade.
 
 . **Feedback de conquista do NPC**
 Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visualmente, sua aparência é alterada para a cor azul, permitindo identificação imediata pelo jogador.
@@ -1099,19 +1104,100 @@ Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visu
 Ao retornar à cidade após conquistar um NPC, a loja correspondente passa a exibir balões animados em sua parte superior.
 
 A animação utiliza conceitos de cinemática:
-
 Movimento Uniforme (eixo X);
 Movimento Uniformemente Variado (eixo Y).
-
 Esse efeito reforça visualmente a progressão do jogador no ambiente.
+
+. **Persistência de progresso (localStorage)**
+O progresso do jogador é armazenado utilizando localStorage, permitindo continuidade entre sessões.
+
+São persistidos:
+NPCs conquistados;
+Estado visual das lojas;
+Perguntas já realizadas;
+Posição de retorno no mapa.
+Esse sistema garante consistência e continuidade da experiência do jogador.
 
 . **Sistema de pausa**
 Durante o jogo, o jogador pode acessar o menu de pausa pressionando a tecla ESC, com opções para continuar, reiniciar ou retornar ao menu principal.
-
-. **Sistema de coleta de maquininhas**
-Foi implementado no mapa um ponto específico que representa a base da empresa Cielo, funcionando como local de apoio ao jogador durante a partida. Nesse local, o jogador pode coletar maquininhas, recurso essencial para a realização das interações com os clientes. Sempre que o jogador ficar sem maquininhas, será necessário retornar até a base para se reabastecer e continuar progredindo no jogo. Essa mecânica introduz um ciclo de gameplay baseado em gerenciamento de recursos e deslocamento estratégico pelo mapa, reforçando a dinâmica de exploração e planejamento das ações do jogador.
+O sistema preserva o estado da partida ao ser ativado.
 
 ### Ilustrações da versão final
+
+Figura 1 – Menu inicial do jogo
+
+Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
+
+Figura 2 – Tela de tutorial
+
+Apresentação das instruções do jogo antes do início da gameplay.
+
+Figura 3 – Mapa da cidade
+
+Ambiente principal do jogo onde o jogador se movimenta livremente.
+
+Figura 4 – Base da Cielo (coleta de maquininhas)
+
+Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
+
+Figura 5 – HUD de progresso dos NPCs
+
+Interface que exibe quais clientes já foram conquistados pelo jogador.
+
+Figura 6 – Jogador explorando o mapa com obstáculos (carros)
+
+Demonstração da movimentação do jogador e presença dos carros como mecânica de risco.
+
+Figura 7 – Entrada em uma loja
+
+Momento em que o jogador acessa o interior de uma loja.
+
+Figura 8 – Popup de informações do cliente
+
+Tela exibida ao entrar na loja, apresentando detalhes do NPC antes da interação.
+
+Figura 9 – Sistema de quiz
+
+Interface de perguntas e respostas utilizada na interação com o cliente.
+
+Figura 10 – Feedback positivo (cliente conquistado)
+
+Exemplo de sucesso no quiz, indicando conversão do cliente.
+
+Figura 11 – Feedback negativo (cliente não conquistado)
+
+Exemplo de falha na interação, mostrando a penalização.
+
+Figura 12 – NPC com visual alterado (conquistado)
+
+Mudança visual do personagem (cor azul) após ser conquistado.
+
+Figura 13 – Loja com balões animados
+
+Indicação visual no mapa de que a loja foi concluída.
+
+Figura 14 – Menu de pausa
+
+Tela acessada ao pressionar ESC, com opções de controle da partida.
+
+### Como executar a aplicação
+A aplicação foi disponibilizada online por meio do GitLab Pages, permitindo sua execução diretamente em navegadores modernos, sem a necessidade de instalação de ferramentas adicionais ou configuração de ambiente local.
+O jogo pode ser acessado por meio do link do projeto, sendo carregado automaticamente no navegador e direcionando o usuário ao menu inicial. A partir dessa tela, o jogador pode iniciar a experiência ao clicar no botão “Jogar”, sendo então conduzido ao tutorial e, posteriormente, ao ambiente principal do jogo.
+Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
+Além disso, o jogador pode navegar livremente pelo mapa, acessar lojas, acompanhar seu progresso por meio da interface e utilizar os recursos disponíveis no jogo, como o sistema de pausa e o acesso ao tutorial durante a partida.
+
+### Dificuldades encontradas 
+
+Durante o desenvolvimento da Sprint 4, foram identificados diversos desafios relacionados à integração dos sistemas, refinamento da jogabilidade e estabilidade da aplicação.
+Um dos principais desafios foi a integração entre as diferentes cenas do jogo, especialmente no controle de fluxo entre menu, tutorial, mapa e lojas. Garantir que o jogador fosse direcionado corretamente entre essas etapas, sem perda de estado ou inconsistências, exigiu ajustes na lógica de transição e gerenciamento de cenas do Phaser.
+Outro ponto relevante foi a implementação do sistema de persistência utilizando localStorage, que exigiu cuidados no armazenamento e recuperação dos dados, além do tratamento de possíveis erros em ambientes onde o armazenamento pode estar indisponível ou restrito.
+A criação do sistema de spawn dinâmico também apresentou complexidade, principalmente no controle de retorno do jogador à cidade após sair das lojas. Foi necessário implementar mecanismos adicionais para evitar reentrada imediata nas lojas, utilizando verificações de tempo, distância e estado da última interação.
+A adição dos carros como obstáculos dinâmicos trouxe desafios relacionados à detecção de colisão e equilíbrio da dificuldade, garantindo que a mecânica fosse desafiadora sem comprometer a experiência do jogador.
+Outro desafio importante foi o desenvolvimento do sistema de quiz integrado, incluindo controle de tempo, lógica de pontuação e fluxo de perguntas. Foi necessário garantir que o sistema funcionasse corretamente em todas as lojas, mantendo consistência na experiência do usuário.
+A implementação dos feedbacks visuais, como a mudança de aparência dos NPCs e a animação dos balões nas lojas, também exigiu atenção especial, principalmente na sincronização com o estado do jogo e na atualização correta após mudanças de progresso.
+Além disso, a integração de áudio ambiente nas diferentes cenas apresentou dificuldades no controle de reprodução, sendo necessário evitar sobreposição de trilhas sonoras ao alternar entre mapa e interiores.
+Por fim, houve desafios relacionados à organização e escalabilidade do código, especialmente na manutenção de uma arquitetura reutilizável para as lojas e sistemas do jogo, garantindo que novas funcionalidades pudessem ser adicionadas sem comprometer a estrutura existente.
+
 
 
 ## 4.5. Revisão do MVP (sprint 5)

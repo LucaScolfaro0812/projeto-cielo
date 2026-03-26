@@ -1219,6 +1219,15 @@ O sistema de pontuação também é relativamente simples, baseado em ganhos e p
 Também há ausência de suporte para dispositivos móveis, sendo o jogo otimizado para uso em computador.
 Por fim, o salvamento de progresso permanece limitado ao localStorage, sem integração com soluções em nuvem.
 
+### Próximas passos
+
+Para a continuidade do desenvolvimento do projeto, os próximos passos estão voltados principalmente ao refinamento e aprimoramento das funcionalidades já implementadas, com foco na melhoria da experiência do usuário e na estabilidade do sistema.
+Um dos pontos a ser aprimorado é a central de maquininhas (base da empresa Cielo), que ainda pode receber maior detalhamento em sua funcionalidade e melhor integração com o fluxo do jogo, especialmente no momento em que o jogador precisa obter novas maquininhas.
+Também estão previstos ajustes no sistema de quiz, incluindo melhorias no balanceamento das perguntas, ampliação do banco de questões e refinamento da interface durante as interações.
+Além disso, pretende-se aprimorar a interface do usuário, com ajustes visuais, maior clareza das informações e melhorias nas transições entre diferentes estados do jogo.
+Outro ponto importante é a finalização do menu de configurações, ampliando as opções de personalização disponíveis ao jogador.
+Por fim, busca-se melhorar a organização e otimização do código, visando maior estabilidade, desempenho e facilidade de manutenção do projeto.
+
 ## 4.5. Revisão do MVP (sprint 5)
 
 _Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar._

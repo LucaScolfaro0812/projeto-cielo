@@ -15,7 +15,7 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
      * @param {number} y - posição Y inicial
      * @param {boolean} esquerdaDireita - true = move para a direita, false = move para a esquerda
      */
-    constructor(cena, x, y, esquerdaDireita){
+    constructor(cena, x, y, esquerdaDireita, velocidade = 750){
         // Sorteia a variante de cor antes de criar o sprite (1 = original, 2 = cor 1, 3 = cor 2)
         const variante = Phaser.Math.Between(1, 3);
 
@@ -40,8 +40,11 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         // Guarda a direção de movimento para usar no método mover()
         this.esquerdaDireita = esquerdaDireita;
 
+        // Espelha o sprite horizontalmente quando vai para a esquerda
+        this.setFlipX(!esquerdaDireita);
+
         // Velocidade de deslocamento em pixels por segundo
-        this.velocidade = 750;
+        this.velocidade = velocidade;
 
         // Controle manual de animação — garante que cada carro cicla seus frames de forma independente
         this._variante    = variante; // qual conjunto de frames usar (fixo para esta instância)
@@ -95,10 +98,14 @@ export default class Carro extends Phaser.Physics.Arcade.Sprite {
         // Define a velocidade horizontal — positivo = direita, negativo = esquerda
         this.setVelocity((this.esquerdaDireita ? 1 : -1) * this.velocidade, 0);
 
-        // Verifica se o carro saiu completamente pela borda direita do mundo
-        if (this.x > this.scene.physics.world.bounds.width + (this.width / 2)) {
-            // Reposiciona o carro no lado esquerdo, fora da tela, para recomeçar o loop
-            this.x = 0 - (this.width / 2);
+        const larguraMundo = this.scene.physics.world.bounds.width;
+        const metade = this.width / 2;
+
+        // Reposiciona o carro ao sair pela borda oposta à direção de movimento
+        if (this.esquerdaDireita && this.x > larguraMundo + metade) {
+            this.x = -metade;
+        } else if (!this.esquerdaDireita && this.x < -metade) {
+            this.x = larguraMundo + metade;
         }
     }
 }

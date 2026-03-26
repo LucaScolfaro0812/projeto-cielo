@@ -25,7 +25,6 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
 
         this.cena = cena;
 
-
         // Ajusta a escala visual do NPC
         this.setScale(0.3);
         this.setOrigin(0.5, 0.5);
@@ -48,9 +47,21 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         this.idNpc = idNpc;
     }
 
+    setVisualConquista(estado) {
+        // estado pode ser: 'padrao', 'conquistado', 'nao-conquistado'
+        if (estado === 'conquistado') {
+            this.setTexture('npc-azul'); // Exemplo: azul para conquistado
+        } else if (estado === 'nao-conquistado') {
+            this.setTexture('npc-vermelho'); // Exemplo: vermelho para não conquistado
+        } else {
+            this.setTexture('npc'); // Padrão
+        }
+        this.chaveImagemNpc = this.texture.key;
+    }
+
     // método estático para carregar as imagens do npc
     static preload(scene) {
-        if(scene.nomeLoja === undefined){
+        if (scene.nomeLoja === undefined) {
             scene.load.image('npc', 'assets/sprites/personagens/npc.png');
             scene.load.image('npc-azul', 'assets/sprites/personagens/npc.png');
             scene.load.image("npc-vermelho", "assets/sprites/personagens/npc.png");
@@ -62,9 +73,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("npc-vermelho" + scene.nomeLoja, "assets/sprites/personagens/npc" + "Vermelho" + scene.nomeLoja + '.png');
     }
 
-
-
-    visualConquistado(){
+    visualConquistado() {
         const nomeTextura = "npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja);
         if (this.scene.textures.exists(nomeTextura)) {
             this.setTexture(nomeTextura);
@@ -80,7 +89,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         });
     }
 
-    visualNaoConquistado(){
+    visualNaoConquistado() {
         this.setTexture("npc-vermelho" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));
     }
 

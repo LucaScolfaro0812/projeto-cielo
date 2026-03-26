@@ -1181,6 +1181,7 @@ Figura 14 – Menu de pausa
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 
 ### Como executar a aplicação
+
 A aplicação foi disponibilizada online por meio do GitLab Pages, permitindo sua execução diretamente em navegadores modernos, sem a necessidade de instalação de ferramentas adicionais ou configuração de ambiente local.
 O jogo pode ser acessado por meio do link do projeto, sendo carregado automaticamente no navegador e direcionando o usuário ao menu inicial. A partir dessa tela, o jogador pode iniciar a experiência ao clicar no botão “Jogar”, sendo então conduzido ao tutorial e, posteriormente, ao ambiente principal do jogo.
 Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
@@ -1198,7 +1199,34 @@ A implementação dos feedbacks visuais, como a mudança de aparência dos NPCs 
 Além disso, a integração de áudio ambiente nas diferentes cenas apresentou dificuldades no controle de reprodução, sendo necessário evitar sobreposição de trilhas sonoras ao alternar entre mapa e interiores.
 Por fim, houve desafios relacionados à organização e escalabilidade do código, especialmente na manutenção de uma arquitetura reutilizável para as lojas e sistemas do jogo, garantindo que novas funcionalidades pudessem ser adicionadas sem comprometer a estrutura existente.
 
+### Critérios de pronto
 
+Uma funcionalidade foi considerada concluída quando atendeu a um conjunto de critérios técnicos e funcionais que garantem sua correta implementação e integração ao sistema do jogo.
+Inicialmente, foi verificado o funcionamento correto da funcionalidade durante a execução, assegurando que não houvesse falhas na lógica ou comportamentos inesperados durante a jogabilidade.
+Também foi considerada essencial a integração adequada com as demais cenas e sistemas do jogo, como menu, tutorial, mapa, lojas e sistema de quiz, garantindo um fluxo contínuo e sem interrupções na experiência do usuário.
+Outro critério adotado foi a ausência de erros no console do navegador, indicando estabilidade na execução do código e conformidade com boas práticas de desenvolvimento em JavaScript.
+Além disso, foi avaliada a interação do jogador com a funcionalidade, garantindo que os elementos implementados fossem acessíveis, compreensíveis e funcionais dentro do contexto do jogo.
+A validação também incluiu testes práticos realizados pela equipe, nos quais as funcionalidades foram executadas em diferentes cenários para verificar consistência, desempenho e comportamento esperado.
+Por fim, considerou-se como critério de pronto a coerência com as mecânicas e objetivos do jogo, assegurando que cada funcionalidade contribuísse efetivamente para a experiência proposta e estivesse alinhada ao escopo do projeto.
+
+### Limitações atuais
+
+Apesar do avanço significativo no desenvolvimento do MVP, algumas limitações ainda estão presentes e podem ser aprimoradas em versões futuras.
+Uma das principais limitações está relacionada à gestão do tempo durante o desenvolvimento, o que impactou o nível de refinamento e a profundidade de algumas funcionalidades.
+Além disso, a equipe apresentou limitações em termos de especialização técnica em áreas como programação e design, o que influenciou o nível de detalhamento de certos recursos, apesar de atenderem aos requisitos funcionais.
+No sistema de quiz, ainda há limitação na quantidade e variedade de perguntas, podendo afetar a repetibilidade da experiência.
+O sistema de pontuação também é relativamente simples, baseado em ganhos e perdas fixas (+15 e -15 pontos), podendo ser expandido futuramente.
+Também há ausência de suporte para dispositivos móveis, sendo o jogo otimizado para uso em computador.
+Por fim, o salvamento de progresso permanece limitado ao localStorage, sem integração com soluções em nuvem.
+
+### Próximas passos
+
+Para a continuidade do desenvolvimento do projeto, os próximos passos estão voltados principalmente ao refinamento e aprimoramento das funcionalidades já implementadas, com foco na melhoria da experiência do usuário e na estabilidade do sistema.
+Um dos pontos a ser aprimorado é a central de maquininhas (base da empresa Cielo), que ainda pode receber maior detalhamento em sua funcionalidade e melhor integração com o fluxo do jogo, especialmente no momento em que o jogador precisa obter novas maquininhas.
+Também estão previstos ajustes no sistema de quiz, incluindo melhorias no balanceamento das perguntas, ampliação do banco de questões e refinamento da interface durante as interações.
+Além disso, pretende-se aprimorar a interface do usuário, com ajustes visuais, maior clareza das informações e melhorias nas transições entre diferentes estados do jogo.
+Outro ponto importante é a finalização do menu de configurações, ampliando as opções de personalização disponíveis ao jogador.
+Por fim, busca-se melhorar a organização e otimização do código, visando maior estabilidade, desempenho e facilidade de manutenção do projeto.
 
 ## 4.5. Revisão do MVP (sprint 5)
 

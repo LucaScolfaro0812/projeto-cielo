@@ -6,6 +6,7 @@ export const chavesArmazenamento = {
     npcsConquistadosQuantidade: "npcsConquistadosQuantidade",
     npcsQuizAbertos: "npcsQuizAbertos",
     npcsConquistadosIds: "npcsConquistadosIds",
+    npcsInteragidosIds: "npcsInteragidosIds",
     perguntasJaFeitas: "perguntasJaFeitas"
 };
 /**

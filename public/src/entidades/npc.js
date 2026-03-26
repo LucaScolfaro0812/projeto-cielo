@@ -69,6 +69,15 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         if (this.scene.textures.exists(nomeTextura)) {
             this.setTexture(nomeTextura);
         }
+
+        // Animação de scale (aumento e diminuição)
+        this.scene.tweens.add({
+            targets: this,
+            scale: 0.5,           // aumenta para 0.5 (de 0.3)
+            duration: 10000,      // 10 segundos
+            yoyo: true,           // volta automaticamente ao tamanho original
+            ease: 'Elastic.easeOut' // efeito suave e elástico
+        });
     }
 
     visualNaoConquistado(){

@@ -3,6 +3,8 @@
  * É exibida por cima da gameScene quando o jogador pressiona ESC.
  * Oferece três opções: continuar o jogo, iniciar um novo jogo ou voltar ao menu principal.
  */
+import { transicionarPara } from '../utilitarios/transicao-cena.js';
+
 export class CenaPausa extends Phaser.Scene {
 
     /**
@@ -17,6 +19,9 @@ export class CenaPausa extends Phaser.Scene {
      * fundo escuro, título e botões de ação.
      */
     create(data) {
+        // Reseta o flag de transição para que futuras transições deste menu funcionem
+        this._transicionando = false;
+
         // Garante que o pause apareça acima de qualquer outra cena (lojas são adicionadas depois)
         this.scene.bringToTop();
 
@@ -58,17 +63,15 @@ export class CenaPausa extends Phaser.Scene {
             localStorage.removeItem('perguntasJaFeitas');
             localStorage.removeItem('lojaBloqueada');
 
-            // Para a cena pausada e reinicia o jogo do zero
-            this.scene.stop();
+            // Para a cena pausada e inicia novo jogo com fade azul Cielo
             this.scene.stop(cenaAnterior);
-            this.scene.start('gameScene', { mostrarTutorial: false });
+            transicionarPara(this, 'gameScene', { mostrarTutorial: false }, 'Iniciando novo jogo...');
         });
 
-        // Botão Menu — volta para a tela inicial do jogo
+        // Botão Menu — para a cena pausada e volta ao menu com fade azul Cielo
         this._criarBotao(largura / 2, altura / 2 + 140, 'Menu', () => {
-            this.scene.stop();
             this.scene.stop(cenaAnterior);
-            this.scene.start('menuScene');
+            transicionarPara(this, 'menuScene', {}, 'Voltando ao menu...');
         });
     }
 

@@ -1,4 +1,5 @@
 import { carregarDados } from "../utilitarios/armazenamento.js";
+import { transicionarPara } from "../utilitarios/transicao-cena.js";
 // Classe responsável por representar uma porta/entrada
 // que permite a transição entre cenas
 export default class Entrada extends Phaser.Physics.Arcade.Sprite {
@@ -132,7 +133,13 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
             return; 
         }
 
+        // Marca a troca em andamento para evitar disparos repetidos pelo overlap
         this.trocaDeCenaEmAndamento = true;
-        this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
+
+        // Texto da transição depende do destino: cidade ou loja
+        const texto = this.proximaCenaNome === 'gameScene' ? 'Voltando à cidade...' : 'Entrando...';
+
+        // Inicia a transição com fade azul Cielo para a cena de destino
+        transicionarPara(this.scene, this.proximaCenaNome, { mostrarTutorial: false }, texto);
     }
 }

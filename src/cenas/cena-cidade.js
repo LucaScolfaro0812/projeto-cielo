@@ -16,6 +16,7 @@ import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
 import { carregarDados } from "../utilitarios/armazenamento.js";
 import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 import Entrada from '../entidades/loja-entrar.js';
+import { revelarCena } from '../utilitarios/transicao-cena.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -311,6 +312,9 @@ export class CenaCidade extends Phaser.Scene {
 
     // Método executado quando a cena é criada
     create() {
+        // Revela a cena com fade azul Cielo
+        revelarCena(this);
+
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem

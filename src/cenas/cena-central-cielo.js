@@ -1,5 +1,6 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
+import { revelarCena } from '../utilitarios/transicao-cena.js';
 
 export class CenaCentral extends Phaser.Scene {
     constructor(){
@@ -21,6 +22,9 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     create() {
+        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
+        revelarCena(this);
+
         this._criarCenario();
 
         if (this.cache.audio.exists('portaAbrindo')) {
@@ -65,13 +69,15 @@ export class CenaCentral extends Phaser.Scene {
         this.portaEntrada.setScale(2.8);
 
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            if (this.portaEntrada.trocaDeCenaEmAndamento) return;
+
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
             // Define que o Marcielo deve aparecer na porta da Central quando voltar pra rua
             // (Você vai precisar criar esse spawn 'Central' na sua gameScene depois)
-            // definirProximoSpawnCidade('Central'); 
-            
+            // definirProximoSpawnCidade('Central');
+
             this.portaEntrada.trocarDeCena();
         });
     }

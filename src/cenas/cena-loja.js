@@ -4,6 +4,7 @@ import Quiz from '../sistemas/quiz.js';
 import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
+import { revelarCena } from '../utilitarios/transicao-cena.js';
 import {
     perguntasMovel,
     perguntasNpcRua,
@@ -175,6 +176,9 @@ export default class CenaLoja extends Phaser.Scene {
     }
 
     create() {
+        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
+        revelarCena(this);
+
         this._criarCenario();
 
         // Toca o som da porta ao entrar na loja
@@ -192,11 +196,21 @@ export default class CenaLoja extends Phaser.Scene {
         const chave = 'entradaLoja' + this.nomeLoja;
 
         // Exibe a imagem de entrada da loja sobreposta à cena
+        const overlay = this.add.graphics();
+        overlay.fillStyle(0x000000, 0.6);
+        overlay.fillRect(
+            this.cameras.main.scrollX,
+            this.cameras.main.scrollY,
+            this.cameras.main.width * 3 / this.cameras.main.zoom,
+            this.cameras.main.height * 3 / this.cameras.main.zoom
+        );
+        overlay.setDepth(999);
+
         this.exteriorImage = this.add.image(
             this.cameras.main.centerX,
-            this.cameras.main.centerY + 450,
+            this.cameras.main.centerY,
             chave
-        ).setDepth(1000);
+        ).setDepth(1000).setScrollFactor(0);
 
         // Pausa a física enquanto a tela de entrada está visível
         this.physics.pause();
@@ -218,6 +232,7 @@ export default class CenaLoja extends Phaser.Scene {
             this.physics.resume();
             this.exteriorImage.destroy();
             botaoFechar.destroy();
+            overlay.destroy();
         });
 
         this._configurarPlayerNpcQuiz();
@@ -362,10 +377,12 @@ export default class CenaLoja extends Phaser.Scene {
         this.portaEntrada.setScale(2.8);
 
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
+            if (this.portaEntrada.trocaDeCenaEmAndamento) return;
+
+            this._pararAudio();
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
-            this._pararAudio();
 
             definirProximoSpawnCidade(this.nomeLoja);
             this.portaEntrada.trocarDeCena();

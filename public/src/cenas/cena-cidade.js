@@ -469,6 +469,12 @@ export class CenaCidade extends Phaser.Scene {
             coordenadasSpawnCidade.x,
             coordenadasSpawnCidade.y
         );
+
+        if (idSpawnCidade === 'Central') {
+            this.player.x = 5800; // 👈 Troque pelo número X da porta da Central na rua
+            this.player.y = 1350; // 👈 Troque pelo número Y da porta da Central na rua
+        }
+
         this.player.setScale(0.8);
 
         this.carrinho = [];

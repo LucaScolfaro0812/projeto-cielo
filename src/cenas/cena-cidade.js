@@ -17,6 +17,8 @@ import { carregarDados } from "../utilitarios/armazenamento.js";
 import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 import Entrada from '../entidades/loja-entrar.js';
 
+import Entrada from '../entidades/loja-entrar.js';
+
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
 

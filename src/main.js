@@ -5,6 +5,7 @@ import { CenaTutorial } from './cenas/cena-tutorial.js';
 import { CenaPausa } from './cenas/cena-pause.js';
 import { CenaCentral } from './cenas/cena-central-cielo.js';
 import { CenaConfiguracoes } from './cenas/cena-configuracoes.js';
+import { aplicarConfiguracoesJogo } from './utilitarios/configuracoes-jogo.js';
 
 // Objeto de configuração principal do jogo
 var config = {
@@ -47,6 +48,8 @@ var config = {
 
 // Criação da instância principal do jogo
 var game = new Phaser.Game(config);
+
+aplicarConfiguracoesJogo({ game });
 
 // Inicia o jogo carregando a cena de menu primeiro
 game.scene.start('menuScene');

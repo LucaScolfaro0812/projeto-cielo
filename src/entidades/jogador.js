@@ -1,6 +1,7 @@
 // Classe responsável por representar o jogador controlável.
 
 import { Maquininhas } from "../sistemas/maquininhas.js";
+import { carregarConfiguracoesJogo } from "../utilitarios/configuracoes-jogo.js";
 
 // Herda de Phaser.Physics.Arcade.Sprite para utilizar física Arcade.
 export default class Jogador extends Phaser.Physics.Arcade.Sprite {
@@ -43,12 +44,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
     }
 
     _obterMultiplicadorVelocidade() {
-        const valorSalvo = Number(localStorage.getItem("velocidadeMarcielo"));
-        if (Number.isNaN(valorSalvo)) {
-            return 1;
-        }
-
-        return Phaser.Math.Clamp(valorSalvo, 0.6, 1.4);
+        return carregarConfiguracoesJogo().velocidadeMarcielo;
     }
 
     static preload(scene) {

@@ -90,7 +90,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
             return;
         }
 
-        const lojaBloqueada = carregarDados('lojaBloqueada', null);
+        const lojaBloqueada = localStorage.getItem('lojaBloqueada');
 
         if (lojaBloqueada === this.proximaCenaNome) {
             
@@ -103,7 +103,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     jogador.body.setVelocity(0, 0);
                 }
 
-                // 💬 CÓDIGO NOVO: Cria um aviso visual na tela!
+                // Cria um aviso visual na tela!
                 // Verifica se já não tem um aviso na tela para não criar vários
                 if (!this.avisoNaTela) {
                     this.avisoNaTela = true;

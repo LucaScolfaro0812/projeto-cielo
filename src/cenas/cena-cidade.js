@@ -1,4 +1,3 @@
-
 // importa as outras classes que contém objetos e dados do jogo
 import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
@@ -13,6 +12,10 @@ import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/conf
 import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
 import { colisoresAmbiente } from '../utilitarios/configuracao-colisores-ambiente.js';
+import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
+import { carregarDados } from "../utilitarios/armazenamento.js";
+import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
+import Entrada from '../entidades/loja-entrar.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -269,12 +272,15 @@ export class CenaCidade extends Phaser.Scene {
             this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
         this.load.image('rua', 'assets/imagens/ambiente/mapa.png');
+        this.load.image('marcielocabeca', 'assets/imagens/marcielocabeca.png');
 
         // Carrega todas as imagens de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
             let lojaKey = 'loja' + this.lojasConfigs[i].nomeLoja + 'Fisica';
             this.load.image(lojaKey, `assets/imagens/lojas/exterior/${lojaKey}.png`);
         }
+
+        this.load.image('predioCentral', 'assets/imagens/central-cielo/central-cielo.png');
 
         // Preload das variacoes de baloes usadas como decoracao externa.
         Object.values(VariantesBaloes).forEach((item) => {
@@ -283,16 +289,17 @@ export class CenaCidade extends Phaser.Scene {
             }
         });
 
-        // Preload da imagem de portrait do NPC para a HUD, usando o primeiro NPC da lista como referência.
-        const npc = obterListaNpcs()[0];
-        this.load.image("npcPortraitHud", obterCaminhoImagemNpc(npc.id, npc.estado));
-
+        // Preload de todas as imagens de portrait dos NPCs para todos os estados possíveis
         const npcs = obterListaNpcs();
+        const estados = ['conquistado', 'interagido', 'nao-interagido'];
         npcs.forEach(npc => {
-            this.load.image(
-                obterCaminhoImagemNpc(npc.id, npc.estado),
-                obterCaminhoImagemNpc(npc.id, npc.estado)
-            );
+            estados.forEach(estado => {
+                const key = `${npc.id}-${estado}`;
+                const path = `assets/sprites/npcs/${key}.png`;
+                if (!this.textures.exists(key)) {
+                    this.load.image(key, path);
+                }
+            });
         });
 
         // Pré carrega os objetos com uma função estática
@@ -324,6 +331,7 @@ export class CenaCidade extends Phaser.Scene {
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
         this.player.setCollideWorldBounds(true);
+        this.player.setDepth(100);
 
         this.posicaoSpawnCidadeX = this.player.x;
         this.posicaoSpawnCidadeY = this.player.y;
@@ -347,6 +355,9 @@ export class CenaCidade extends Phaser.Scene {
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
 
+        // Cria o minimap no canto superior direito
+        this._criarMinimap();
+
         // Abre o menu de pause ao pressionar ESC, passando a chave desta cena
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
@@ -366,6 +377,24 @@ export class CenaCidade extends Phaser.Scene {
 
         // Dados de progresso
         const npcs = obterListaNpcs();
+
+        // --- Restaura o estado salvo dos NPCs ao carregar a cena ---
+        const npcsConquistados = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+        const npcsInteragidos = carregarDados(chavesArmazenamento.npcsInteragidosIds, []);
+        npcs.forEach(npc => {
+            if (npcsConquistados.includes(npc.id)) {
+                atualizarEstadoNpc(npc.id, 'conquistado');
+            } else if (npcsInteragidos.includes(npc.id)) {
+                atualizarEstadoNpc(npc.id, 'interagido');
+            } else {
+                atualizarEstadoNpc(npc.id, 'nao-interagido');
+            }
+        });
+        if (this.atualizarPainelNpcs) {
+            this.atualizarPainelNpcs();
+        }
+        // --- Fim da restauração de estado ---
+
         const totalNpcs = npcs.length;
         const conquistados = npcs.filter(npc => npc.estado === "conquistado").length;
 
@@ -481,6 +510,69 @@ export class CenaCidade extends Phaser.Scene {
                 this.lojasConfigs[i]
             );
         }
+
+        const centralX = 5800; 
+        const centralY = 1020;
+        // 2. Desenha o prédio na tela usando a imagem que carregamos no preload
+        this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
+        this.predioCentral.setDepth(1); // Garante que fique na frente do chão
+        this.predioCentral.setScale(1.5); // Descomente e ajuste se o prédio ficar muito pequeno
+
+        // 3. Cria a porta invisível bem na base do prédio
+        // Se a porta ficar muito no alto, aumente esse valor (ex: +200, +250)
+        const portaY = centralY + 180; 
+        const portaX = centralX; 
+
+        // Cria a porta usando a sua classe (ela já desenha a 'entrada_animada')
+        this.portaCentral = new Entrada(
+            this,
+            portaX,
+            portaY,
+            this,
+            'centralScene',
+            this.player // Passando o player, pois vi no seu código que o construtor pede!
+        );
+
+        // Garante que a porta fique na frente do prédio!
+        this.portaCentral.setDepth(11);  
+
+        // Colisão da porta com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+            
+            this.portaCentral.trocarDeCena();
+        });
+
+        // 4. Colisão da porta com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+            
+            this.portaCentral.trocarDeCena();
+        });
+
+        // Colisão com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            
+            // Só deixa entrar se o tempo mínimo já passou (para não entrar sem querer ao nascer)
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+
+            // Opcional: Se quiser que o Marcielo nasça na porta da Central quando sair
+            // definirProximoSpawnCidade('Central'); 
+            
+            this.portaCentral.trocarDeCena();
+        });
     }
 
     _criarLoja(posX, posY, sprite, config) {
@@ -628,6 +720,55 @@ export class CenaCidade extends Phaser.Scene {
         };
     }
 
+    /**
+     * Cria o minimapa no canto superior esquerdo da tela.
+     *
+     * O minimapa usa duas câmeras secundárias do Phaser sobrepostas:
+     *   1. Câmera de borda — levemente maior, exibe apenas uma cor sólida como moldura.
+     *      É apontada para fora do mapa para não mostrar nenhum conteúdo do mundo.
+     *   2. Câmera do minimap — mostra o mapa inteiro em tamanho reduzido, centralizado.
+     *
+     * O zoom é calculado com Math.max para garantir que o mapa preencha o espaço
+     * sem bordas pretas, mesmo que as proporções não sejam iguais.
+     *
+     * O marcador é uma imagem da cabeça do Marcielo posicionada no mundo no local
+     * exato do jogador. Seu tamanho é calculado como 32 / zoom para sempre aparecer
+     * com 32 pixels de tamanho na tela do minimap, independente do tamanho do mapa.
+     * A câmera principal e a de borda ignoram o marcador — só o minimap o exibe.
+     */
+    _criarMinimap() {
+        const mapW = this.fundo.displayWidth;
+        const mapH = this.fundo.displayHeight;
+
+        // Posição e tamanho do minimap na tela (em pixels)
+        const x = 16, y = 16, w = 220, h = 130;
+
+        // Zoom que faz o mapa inteiro caber no minimap sem bordas pretas
+        const zoom = Math.max(w / mapW, h / mapH);
+
+        // Câmera de borda: 3px maior em cada lado, cor azul sólida.
+        // scrollX/scrollY apontam para fora do mapa — só aparece a cor de fundo.
+        const borda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
+        borda.setBackgroundColor(0x88bbff);
+        borda.scrollX = mapW + 10000;
+        borda.scrollY = mapH + 10000;
+
+        // Câmera do minimap: renderiza em cima da borda, centralizada no mapa
+        this.minimapCam = this.cameras.add(x, y, w, h);
+        this.minimapCam.setZoom(zoom);
+        this.minimapCam.centerOn(mapW / 2, mapH / 2);
+
+        // Marcador: cabeça do Marcielo no mundo, tamanho = 32px / zoom para ser fixo na tela
+        const tamanho = 32 / zoom;
+        this.minimapMarcador = this.add.image(this.player.x, this.player.y, 'marcielocabeca')
+            .setDisplaySize(tamanho, tamanho)
+            .setDepth(9999);
+
+        // Oculta o marcador da câmera principal e da borda — só o minimap o vê
+        this.cameras.main.ignore(this.minimapMarcador);
+        borda.ignore(this.minimapMarcador);
+    }
+
     // Método executado a cada frame do jogo
     update() {
 
@@ -650,6 +791,11 @@ export class CenaCidade extends Phaser.Scene {
             this.carrinho[i].update();
         }
 
+        // Atualiza posição do marcador no minimap
+        if (this.minimapMarcador) {
+            this.minimapMarcador.x = this.player.x;
+            this.minimapMarcador.y = this.player.y;
+        }
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {
@@ -745,7 +891,7 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(9999);
 
         // Fundo escuro semitransparente (menor para garantir visibilidade)
-        const larguraPainel = 1200;
+        const larguraPainel = 1600;
         const alturaPainel = 1200;
         const fundo = this.add.rectangle(0, 0, larguraPainel, alturaPainel, 0x000820, 0.92)
             .setStrokeStyle(6, 0xffffff, 0.7)
@@ -758,8 +904,8 @@ export class CenaCidade extends Phaser.Scene {
         const npcs = obterListaNpcs();
         const colunas = 4;
         const linhas = 3;
-        const espacamentoX = 400;
-        const espacamentoY = 400;
+        const espacamentoX = 440;
+        const espacamentoY = 440;
         const offsetX = -((colunas - 1) * espacamentoX) / 2;
         const offsetY = -((linhas - 1) * espacamentoY) / 2;
 
@@ -782,8 +928,8 @@ export class CenaCidade extends Phaser.Scene {
             this.painelNpcs.add(fundo);
 
             // Portrait do NPC centralizado
-            const caminhoImagem = obterCaminhoImagemNpc(npc.id, npc.estado);
-            const portrait = this.add.image(x, y, caminhoImagem)
+            const portraitKey = `${npc.id}-${npc.estado}`;
+            const portrait = this.add.image(x, y, portraitKey)
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
             this.painelNpcs.add(portrait);

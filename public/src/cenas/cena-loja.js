@@ -192,11 +192,21 @@ export default class CenaLoja extends Phaser.Scene {
         const chave = 'entradaLoja' + this.nomeLoja;
 
         // Exibe a imagem de entrada da loja sobreposta à cena
+        const overlay = this.add.graphics();
+        overlay.fillStyle(0x000000, 0.6);
+        overlay.fillRect(
+            this.cameras.main.scrollX,
+            this.cameras.main.scrollY,
+            this.cameras.main.width * 3 / this.cameras.main.zoom,
+            this.cameras.main.height * 3 / this.cameras.main.zoom
+        );
+        overlay.setDepth(999);
+
         this.exteriorImage = this.add.image(
-            this.cameras.main.centerX + 200,
-            this.cameras.main.centerY + 200,
+            this.cameras.main.centerX,
+            this.cameras.main.centerY,
             chave
-        ).setDepth(1000);
+        ).setDepth(1000).setScrollFactor(0);
 
         // Pausa a física enquanto a tela de entrada está visível
         this.physics.pause();
@@ -218,6 +228,7 @@ export default class CenaLoja extends Phaser.Scene {
             this.physics.resume();
             this.exteriorImage.destroy();
             botaoFechar.destroy();
+            overlay.destroy();
         });
 
         this._configurarPlayerNpcQuiz();

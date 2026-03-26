@@ -27,7 +27,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(25, 150);
         this.body.updateFromGameObject();
 
-        this.velocidade = 320;
+        this.velocidade = 1000;
         this.ultimaDirecao = "baixo";
 
         this.teclas = this.scene.input.keyboard.addKeys({

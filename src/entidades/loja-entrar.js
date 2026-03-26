@@ -86,9 +86,8 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
      * Realiza a troca de cena utilizando o Scene Manager do Phaser
      */
    trocarDeCena() {
-        if (this.trocaDeCenaEmAndamento) {
-            return;
-        }
+        // Removido o bloqueio "if (this.trocaDeCenaEmAndamento)" daqui, 
+        // porque a gente já travou o overlap lá na Cena Central!
 
         const lojaBloqueada = localStorage.getItem('lojaBloqueada');
 
@@ -103,12 +102,10 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     jogador.body.setVelocity(0, 0);
                 }
 
-                // Cria um aviso visual na tela!
-                // Verifica se já não tem um aviso na tela para não criar vários
+                // Cria um aviso visual na tela
                 if (!this.avisoNaTela) {
                     this.avisoNaTela = true;
 
-                    // Cria o texto bonitinho flutuando acima da cabeça dele
                     const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Você só pode retornar após converter outra loja!", {
                         fontSize: '34px',
                         fontFamily: 'Arial',
@@ -121,18 +118,20 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     textoAviso.setOrigin(0.5); // Centraliza o texto
                     textoAviso.setDepth(9999); // Deixa na frente de tudo
 
-                    // Faz o texto sumir sozinho depois de 2 segundos (2000 ms)
+                    // Faz o texto sumir sozinho depois de 2 segundos
                     this.scene.time.delayedCall(2000, () => {
                         textoAviso.destroy();
-                        this.avisoNaTela = false; // Libera para mostrar de novo se ele bater na porta
+                        this.avisoNaTela = false; 
+                        
+                        // IMPORTANTE: Destrava a porta para ele tentar de novo depois
+                        this.trocaDeCenaEmAndamento = false; 
                     });
                 }
             }
             
-            return; 
+            return; // Interrompe aqui porque a loja tá bloqueada
         }
 
-        this.trocaDeCenaEmAndamento = true;
-        this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
-    }
-}
+        // 👇 A MÁGICA QUE FALTAVA! O COMANDO DO TELETRANSPORTE:
+        this.scene.scene.start(this.proximaCenaNome);
+    }}

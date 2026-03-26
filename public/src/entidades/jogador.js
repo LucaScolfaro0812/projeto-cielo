@@ -27,7 +27,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(25, 150);
         this.body.updateFromGameObject();
 
-        this.velocidade = 1000;
+        this.velocidade = 1000 * this._obterMultiplicadorVelocidade();
         this.ultimaDirecao = "baixo";
 
         this.teclas = this.scene.input.keyboard.addKeys({
@@ -40,6 +40,15 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this._criarAnimacoes(cena);
 
         this.setDepth(10);
+    }
+
+    _obterMultiplicadorVelocidade() {
+        const valorSalvo = Number(localStorage.getItem("velocidadeMarcielo"));
+        if (Number.isNaN(valorSalvo)) {
+            return 1;
+        }
+
+        return Phaser.Math.Clamp(valorSalvo, 0.6, 1.4);
     }
 
     static preload(scene) {

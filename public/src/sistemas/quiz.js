@@ -393,23 +393,24 @@ export default class Quiz {
     _encerrarQuiz() {
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
 
-        // Se o jogador conquistou o NPC (pontuação suficiente)
         if (conquistou) {
-            // Atualiza o visual do NPC para "conquistado" (ex: camiseta azul)
+            // Jogador conquistou o NPC
+            atualizarEstadoNpc(this.npcAtual.idNpc, 'conquistado');
             if (this.npcAtual) {
                 this.npcAtual.setVisualConquista('conquistado');
-                // Marca o NPC como conquistado no progresso salvo
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
-                // Atualiza painel de NPCs, se existir
                 if (this.cena.atualizarPainelNpcs) {
                     this.cena.atualizarPainelNpcs();
                 }
             }
         } else {
-            // Se o jogador não conquistou o NPC
+            // Jogador não conquistou o NPC
+            atualizarEstadoNpc(this.npcAtual.idNpc, 'interagido');
             if (this.npcAtual) {
-                // Atualiza o visual do NPC para "não conquistado" (ex: camiseta vermelha)
                 this.npcAtual.setVisualConquista('nao-conquistado');
+                if (this.cena.atualizarPainelNpcs) {
+                    this.cena.atualizarPainelNpcs();
+                }
             }
         }
 

@@ -12,6 +12,7 @@ import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
 import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
+import Entrada from '../entidades/loja-entrar.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -271,6 +272,8 @@ export class CenaCidade extends Phaser.Scene {
             this.load.image(lojaKey, `assets/imagens/lojas/exterior/${lojaKey}.png`);
         }
 
+        this.load.image('predioCentral', 'assets/imagens/central-cielo/central-cielo.png');
+
         // Preload das variacoes de baloes usadas como decoracao externa.
         Object.values(VariantesBaloes).forEach((item) => {
             if (!this.textures.exists(item.chave)) {
@@ -319,6 +322,7 @@ export class CenaCidade extends Phaser.Scene {
         // Configura player, npc e sistema de quiz
         this._configurarPlayerNpcQuiz();
         this.player.setCollideWorldBounds(true);
+        this.player.setDepth(100);
 
         this.posicaoSpawnCidadeX = this.player.x;
         this.posicaoSpawnCidadeY = this.player.y;
@@ -441,6 +445,69 @@ export class CenaCidade extends Phaser.Scene {
                 this.lojasConfigs[i]
             );
         }
+
+        const centralX = 5800; 
+        const centralY = 1020;
+        // 2. Desenha o prédio na tela usando a imagem que carregamos no preload
+        this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
+        this.predioCentral.setDepth(1); // Garante que fique na frente do chão
+        this.predioCentral.setScale(1.5); // Descomente e ajuste se o prédio ficar muito pequeno
+
+        // 3. Cria a porta invisível bem na base do prédio
+        // Se a porta ficar muito no alto, aumente esse valor (ex: +200, +250)
+        const portaY = centralY + 180; 
+        const portaX = centralX; 
+
+        // Cria a porta usando a sua classe (ela já desenha a 'entrada_animada')
+        this.portaCentral = new Entrada(
+            this,
+            portaX,
+            portaY,
+            this,
+            'centralScene',
+            this.player // Passando o player, pois vi no seu código que o construtor pede!
+        );
+
+        // Garante que a porta fique na frente do prédio!
+        this.portaCentral.setDepth(11);  
+
+        // Colisão da porta com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+            
+            this.portaCentral.trocarDeCena();
+        });
+
+        // 4. Colisão da porta com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+            
+            this.portaCentral.trocarDeCena();
+        });
+
+        // Colisão com o jogador
+        this.physics.add.overlap(this.portaCentral, this.player, () => {
+            
+            // Só deixa entrar se o tempo mínimo já passou (para não entrar sem querer ao nascer)
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+
+            // Opcional: Se quiser que o Marcielo nasça na porta da Central quando sair
+            // definirProximoSpawnCidade('Central'); 
+            
+            this.portaCentral.trocarDeCena();
+        });
     }
 
     _criarLoja(posX, posY, sprite, config) {

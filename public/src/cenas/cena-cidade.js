@@ -271,6 +271,7 @@ export class CenaCidade extends Phaser.Scene {
             this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
         this.load.image('rua', 'assets/imagens/ambiente/mapa.png');
+        this.load.image('marcielocabeca', 'assets/imagens/marcielocabeca.png');
 
         // Carrega todas as imagens de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
@@ -349,6 +350,9 @@ export class CenaCidade extends Phaser.Scene {
 
         // Define nível de zoom da câmera
         this.cameras.main.setZoom(0.60);
+
+        // Cria o minimap no canto superior direito
+        this._criarMinimap();
 
         // Abre o menu de pause ao pressionar ESC, passando a chave desta cena
         this.input.keyboard.on('keydown-ESC', () => {
@@ -649,6 +653,55 @@ export class CenaCidade extends Phaser.Scene {
         };
     }
 
+    /**
+     * Cria o minimapa no canto superior esquerdo da tela.
+     *
+     * O minimapa usa duas câmeras secundárias do Phaser sobrepostas:
+     *   1. Câmera de borda — levemente maior, exibe apenas uma cor sólida como moldura.
+     *      É apontada para fora do mapa para não mostrar nenhum conteúdo do mundo.
+     *   2. Câmera do minimap — mostra o mapa inteiro em tamanho reduzido, centralizado.
+     *
+     * O zoom é calculado com Math.max para garantir que o mapa preencha o espaço
+     * sem bordas pretas, mesmo que as proporções não sejam iguais.
+     *
+     * O marcador é uma imagem da cabeça do Marcielo posicionada no mundo no local
+     * exato do jogador. Seu tamanho é calculado como 32 / zoom para sempre aparecer
+     * com 32 pixels de tamanho na tela do minimap, independente do tamanho do mapa.
+     * A câmera principal e a de borda ignoram o marcador — só o minimap o exibe.
+     */
+    _criarMinimap() {
+        const mapW = this.fundo.displayWidth;
+        const mapH = this.fundo.displayHeight;
+
+        // Posição e tamanho do minimap na tela (em pixels)
+        const x = 16, y = 16, w = 220, h = 130;
+
+        // Zoom que faz o mapa inteiro caber no minimap sem bordas pretas
+        const zoom = Math.max(w / mapW, h / mapH);
+
+        // Câmera de borda: 3px maior em cada lado, cor azul sólida.
+        // scrollX/scrollY apontam para fora do mapa — só aparece a cor de fundo.
+        const borda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
+        borda.setBackgroundColor(0x88bbff);
+        borda.scrollX = mapW + 10000;
+        borda.scrollY = mapH + 10000;
+
+        // Câmera do minimap: renderiza em cima da borda, centralizada no mapa
+        this.minimapCam = this.cameras.add(x, y, w, h);
+        this.minimapCam.setZoom(zoom);
+        this.minimapCam.centerOn(mapW / 2, mapH / 2);
+
+        // Marcador: cabeça do Marcielo no mundo, tamanho = 32px / zoom para ser fixo na tela
+        const tamanho = 32 / zoom;
+        this.minimapMarcador = this.add.image(this.player.x, this.player.y, 'marcielocabeca')
+            .setDisplaySize(tamanho, tamanho)
+            .setDepth(9999);
+
+        // Oculta o marcador da câmera principal e da borda — só o minimap o vê
+        this.cameras.main.ignore(this.minimapMarcador);
+        borda.ignore(this.minimapMarcador);
+    }
+
     // Método executado a cada frame do jogo
     update() {
 
@@ -671,6 +724,11 @@ export class CenaCidade extends Phaser.Scene {
             this.carrinho[i].update();
         }
 
+        // Atualiza posição do marcador no minimap
+        if (this.minimapMarcador) {
+            this.minimapMarcador.x = this.player.x;
+            this.minimapMarcador.y = this.player.y;
+        }
 
         // Evita reentrada automática: só libera entrada após sair do contato com portas.
         if (!this.entradaLojasLiberada) {

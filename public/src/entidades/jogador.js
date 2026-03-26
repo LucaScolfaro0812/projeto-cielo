@@ -1,4 +1,7 @@
 // Classe responsável por representar o jogador controlável.
+
+import { Maquininhas } from "../sistemas/maquininhas.js";
+
 // Herda de Phaser.Physics.Arcade.Sprite para utilizar física Arcade.
 export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
@@ -241,6 +244,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
     }
 
     morreu(){
-        this.cena.scene.start('gameScene');
+        this.cena.scene.start('gameScene', { mostrarTutorial: false });
+        Maquininhas.definirMaquininhas(0);
     }
 }

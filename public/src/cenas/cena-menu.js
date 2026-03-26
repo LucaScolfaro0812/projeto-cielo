@@ -85,9 +85,9 @@ export class CenaMenu extends Phaser.Scene {
             botaoJogar.setScale(1);
         });
 
-        // Inicia o jogo ao clicar
+        // Inicia o jogo ao clicar e pede para abrir o tutorial sobre o mapa
         botaoJogar.on('pointerdown', () => {
-            this.scene.start('gameScene');
+            this.scene.start('gameScene', { mostrarTutorial: true });
         });
 
         // Animação de flutuação suave do botão (sobe e desce em loop)
@@ -104,40 +104,43 @@ export class CenaMenu extends Phaser.Scene {
         // BOTÃO TUTORIAL
         // ===============================
 
-        const botaoTutorial = this.add.text(w/2, h/2 + 80, 'TUTORIAL', estiloBotao)
+        const botaoConfiguracoes = this.add.text(w/2, h/2 + 80, 'CONFIGURAÇÕES', estiloBotao)
         .setOrigin(0.5)
         .setFixedSize(260,60)
         .setAlign('center');
 
-        botaoTutorial.setInteractive({ useHandCursor: true });
+        botaoConfiguracoes.setInteractive({ useHandCursor: true });
+        botaoConfiguracoes.setFontSize('24px');
+        botaoConfiguracoes.setPadding(0, 8, 0, 8);
 
         // Muda a cor do botão ao passar o mouse por cima (efeito hover)
-        botaoTutorial.on('pointerover', () => {
-            botaoTutorial.setStyle({
+        botaoConfiguracoes.on('pointerover', () => {
+            botaoConfiguracoes.setStyle({
                 backgroundColor: '#6FB7FF',
                 color: '#1B2A4A'
             });
-            botaoTutorial.setScale(1.05);
+            botaoConfiguracoes.setScale(1.05);
         });
 
         // Restaura a cor original ao tirar o mouse
-        botaoTutorial.on('pointerout', () => {
-            botaoTutorial.setStyle({
+        botaoConfiguracoes.on('pointerout', () => {
+            botaoConfiguracoes.setStyle({
                 backgroundColor: '#001caa',
                 color: '#ffffff'
             });
-            botaoTutorial.setScale(1);
+            botaoConfiguracoes.setScale(1);
         });
 
-        // Abre a cena de tutorial ao clicar
-        botaoTutorial.on('pointerdown', () => {
-            this.scene.start('tutorialScene');
+        // Abre a cena de configurações por cima do menu
+        botaoConfiguracoes.on('pointerdown', () => {
+            this.scene.pause();
+            this.scene.launch('configScene', { cenaOrigem: this.scene.key });
         });
 
         // Animação de flutuação suave do botão (sobe e desce em loop)
         this.tweens.add({
-            targets: botaoTutorial,
-            y: botaoTutorial.y - 6,
+            targets: botaoConfiguracoes,
+            y: botaoConfiguracoes.y - 6,
             duration: 900,
             yoyo: true,
             repeat: -1,

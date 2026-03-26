@@ -1,4 +1,3 @@
-
 // importa as outras classes que contém objetos e dados do jogo
 import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
@@ -13,6 +12,9 @@ import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/conf
 import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
 import { colisoresAmbiente } from '../utilitarios/configuracao-colisores-ambiente.js';
+import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
+import { carregarDados } from "../utilitarios/armazenamento.js";
+import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -283,16 +285,17 @@ export class CenaCidade extends Phaser.Scene {
             }
         });
 
-        // Preload da imagem de portrait do NPC para a HUD, usando o primeiro NPC da lista como referência.
-        const npc = obterListaNpcs()[0];
-        this.load.image("npcPortraitHud", obterCaminhoImagemNpc(npc.id, npc.estado));
-
+        // Preload de todas as imagens de portrait dos NPCs para todos os estados possíveis
         const npcs = obterListaNpcs();
+        const estados = ['conquistado', 'interagido', 'nao-interagido'];
         npcs.forEach(npc => {
-            this.load.image(
-                obterCaminhoImagemNpc(npc.id, npc.estado),
-                obterCaminhoImagemNpc(npc.id, npc.estado)
-            );
+            estados.forEach(estado => {
+                const key = `${npc.id}-${estado}`;
+                const path = `assets/sprites/npcs/${key}.png`;
+                if (!this.textures.exists(key)) {
+                    this.load.image(key, path);
+                }
+            });
         });
 
         // Pré carrega os objetos com uma função estática
@@ -366,6 +369,24 @@ export class CenaCidade extends Phaser.Scene {
 
         // Dados de progresso
         const npcs = obterListaNpcs();
+
+        // --- Restaura o estado salvo dos NPCs ao carregar a cena ---
+        const npcsConquistados = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+        const npcsInteragidos = carregarDados(chavesArmazenamento.npcsInteragidosIds, []);
+        npcs.forEach(npc => {
+            if (npcsConquistados.includes(npc.id)) {
+                atualizarEstadoNpc(npc.id, 'conquistado');
+            } else if (npcsInteragidos.includes(npc.id)) {
+                atualizarEstadoNpc(npc.id, 'interagido');
+            } else {
+                atualizarEstadoNpc(npc.id, 'nao-interagido');
+            }
+        });
+        if (this.atualizarPainelNpcs) {
+            this.atualizarPainelNpcs();
+        }
+        // --- Fim da restauração de estado ---
+
         const totalNpcs = npcs.length;
         const conquistados = npcs.filter(npc => npc.estado === "conquistado").length;
 
@@ -782,8 +803,8 @@ export class CenaCidade extends Phaser.Scene {
             this.painelNpcs.add(fundo);
 
             // Portrait do NPC centralizado
-            const caminhoImagem = obterCaminhoImagemNpc(npc.id, npc.estado);
-            const portrait = this.add.image(x, y, caminhoImagem)
+            const portraitKey = `${npc.id}-${npc.estado}`;
+            const portrait = this.add.image(x, y, portraitKey)
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
             this.painelNpcs.add(portrait);

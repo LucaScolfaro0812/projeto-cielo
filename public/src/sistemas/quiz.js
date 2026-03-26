@@ -19,6 +19,7 @@ import { perguntasNpc } from "../sistemas/quiz-perguntas.js";
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
 import { pontosConquista, pontosDerrota } from "../utilitarios/pontos.js";
+import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
 import { Maquininhas } from "./maquininhas.js";
 
 // =====================
@@ -396,6 +397,13 @@ export default class Quiz {
         if (conquistou) {
             // Jogador conquistou o NPC
             atualizarEstadoNpc(this.npcAtual.idNpc, 'conquistado');
+            // Atualiza localStorage: remove de interagidos e adiciona em conquistados
+            let conquistados = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+            let interagidos = carregarDados(chavesArmazenamento.npcsInteragidosIds, []);
+            if (!conquistados.includes(this.npcAtual.idNpc)) conquistados.push(this.npcAtual.idNpc);
+            interagidos = interagidos.filter(id => id !== this.npcAtual.idNpc);
+            salvarDados(chavesArmazenamento.npcsConquistadosIds, conquistados);
+            salvarDados(chavesArmazenamento.npcsInteragidosIds, interagidos);
             if (this.npcAtual) {
                 this.npcAtual.setVisualConquista('conquistado');
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);
@@ -406,6 +414,10 @@ export default class Quiz {
         } else {
             // Jogador não conquistou o NPC
             atualizarEstadoNpc(this.npcAtual.idNpc, 'interagido');
+            // Atualiza localStorage: adiciona em interagidos se não estiver
+            let interagidos = carregarDados(chavesArmazenamento.npcsInteragidosIds, []);
+            if (!interagidos.includes(this.npcAtual.idNpc)) interagidos.push(this.npcAtual.idNpc);
+            salvarDados(chavesArmazenamento.npcsInteragidosIds, interagidos);
             if (this.npcAtual) {
                 this.npcAtual.setVisualConquista('nao-conquistado');
                 if (this.cena.atualizarPainelNpcs) {

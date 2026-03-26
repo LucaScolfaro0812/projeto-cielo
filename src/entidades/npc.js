@@ -74,20 +74,49 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
     }
 
     visualConquistado() {
+
+
+    visualConquistado() {
         const nomeTextura = "npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja);
         if (this.scene.textures.exists(nomeTextura)) {
             this.setTexture(nomeTextura);
-        }
+    }
 
-        // Animação de scale (aumento e diminuição)
+    // Animação de confetes
+    this.lancarConfetes();
+}
+
+    lancarConfetes() {
+    const cores = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff, 0xffa500];
+    const totalConfetes = 80;
+
+    for (let i = 0; i < totalConfetes; i++) {
+        const cor = cores[Phaser.Math.Between(0, cores.length - 1)];
+
+        // Cria um retângulo colorido como confete
+        const confete = this.scene.add.rectangle(
+            this.x,
+            this.y,
+            Phaser.Math.Between(6, 12),
+            Phaser.Math.Between(6, 12),
+            cor
+        );
+
+        // Animação de cada confete
         this.scene.tweens.add({
-            targets: this,
-            scale: 0.5,           // aumenta para 0.5 (de 0.3)
-            duration: 10000,      // 10 segundos
-            yoyo: true,           // volta automaticamente ao tamanho original
-            ease: 'Elastic.easeOut' // efeito suave e elástico
+            targets: confete,
+            x: this.x + Phaser.Math.Between(-150, 150),
+            y: this.y + Phaser.Math.Between(-200, 50),
+            alpha: { from: 1, to: 0 },
+            angle: Phaser.Math.Between(-360, 360),
+            duration: Phaser.Math.Between(800, 1500),
+            ease: 'Power2',
+            onComplete: () => {
+                confete.destroy(); // remove da cena ao terminar
+            }
         });
     }
+}
 
     visualNaoConquistado() {
         this.setTexture("npc-vermelho" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));

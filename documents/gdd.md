@@ -388,14 +388,23 @@ Figura 1: desenhos dos clientes feito a mão
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-_Descreva a trilha sonora do jogo, indicando quais músicas serão utilizadas no mundo e nas fases. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes._
+O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.sound`). Não há trilha musical contínua — o áudio é pontual por evento ou ambiente por cena.
 
-_Exemplo de tabela_
-\# | titulo | ocorrência | autoria
---- | --- | --- | ---
-1 | tema de abertura | tela de início | própria
-2 | tema de combate | cena de combate com inimigos comuns | Hans Zimmer
-3 | ...
+| # | Identificador no código      | Ocorrência                                         | Arquivo                         |
+|---|------------------------------|----------------------------------------------------|---------------------------------|
+| 1 | `portaAbrindo`               | Ao entrar em qualquer loja ou na Central da Cielo  | `assets/sons/portaAbrindo.mp3`  |
+| 2 | `ambienteAutoEscola`         | Som ambiente em loop dentro da Autoescola          | `assets/sons/ambienteAutoEscola.mp3` |
+| 3 | `ambienteBrinquedo`          | Som ambiente em loop dentro da Loja de Pelúcia     | `assets/sons/ambienteBrinquedo.mp3` |
+| 4 | `ambienteChocolateria`       | Som ambiente em loop dentro da Loja de Chocolate   | `assets/sons/ambienteChocolateria.mp3` |
+| 5 | `ambientePetShop`            | Som ambiente em loop dentro do Pet Shop            | `assets/sons/ambientePetShop.mp3` |
+| 6 | `ambienteRoupas`             | Som ambiente em loop dentro da Loja de Roupas      | `assets/sons/ambienteRoupas.mp3` |
+| 7 | `ambienteSalaoDeBeleza`      | Som ambiente em loop dentro do Salão de Beleza     | `assets/sons/ambienteSalaoDeBeleza.mp3` |
+| 8 | `ambienteCafeteria`          | Som ambiente em loop dentro do Café                | `assets/sons/ambienteCafeteria.mp3` |
+| 9 | `ambienteFrutaria`           | Som ambiente em loop dentro da Frutaria            | `assets/sons/ambienteFrutaria.mp3` |
+| 10 | `ambienteMóveis`            | Som ambiente em loop dentro da Loja de Móveis      | `assets/sons/ambienteMóveis.mp3` |
+| 11 | `ambienteVideoGame`         | Som ambiente em loop dentro da Loja de Games       | `assets/sons/ambienteVideoGame.mp3` |
+
+> **Nota:** As lojas Lanchonete e Joalheria não possuem som ambiente definido no MVP atual. O volume dos sons ambiente é fixado em `0.3` (30%). Não há trilha musical para o menu principal, mapa da cidade ou Central da Cielo no MVP.
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -446,13 +455,15 @@ Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando a
 
 Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
 
+> **Nota:** O diagrama foi elaborado na Sprint 2. Desde então foram adicionadas duas cenas não representadas na imagem: `CenaConfiguracoes` (acessada pelo botão Configurações do menu) e `CenaCentral` (prédio da Cielo no mapa). As cenas registradas no sistema são: `CenaMenu`, `CenaTutorial`, `CenaCidade`, `CenaPausa`, `CenaConfiguracoes`, `CenaCentral` e as 12 cenas de lojas.
+
 ## 3.6. Regras do jogo (sprint 3)
 
 No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo vender as maquininhas e os serviços de pagamento da empresa para diferentes estabelecimentos distribuídos pelo mapa.
 
 **Regras objetivas do jogo:**
 
-1. O jogador percorre o mapa a pé usando as teclas WASD e pode ser morto ao colidir com um dos 3 carros em circulação — ao morrer, a cena reinicia.
+1. O jogador percorre o mapa a pé usando as teclas WASD e pode ser morto ao colidir com qualquer carro nas 3 ruas do mapa (13 carros no total) — ao morrer, a cena reinicia.
 2. Para entrar em uma loja, o jogador deve se aproximar da porta e aguardar a sobreposição de área.
 3. Dentro da loja, ao se aproximar a menos de **300 px** do NPC, um ícone de interação (tecla E) aparece sobre ele.
 4. O jogador pressiona **E** para iniciar o quiz de negociação com o NPC.
@@ -462,6 +473,8 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 8. Cada cliente oferece ao jogador **apenas uma tentativa** de negociação. O resultado é definitivo: vitória ou derrota, não é possível repetir o quiz com o mesmo NPC.
 9. O progresso é salvo automaticamente via **localStorage**: NPCs conquistados, posição de spawn e estado das lojas persistem entre sessões.
 10. O menu de pausa (ESC) oferece 3 opções: **Continuar** (retoma o jogo), **Novo Jogo** (apaga todo o progresso salvo) e **Menu** (volta ao menu principal).
+11. A tecla **T** abre o tutorial a qualquer momento durante o jogo (cidade ou loja), sem perder o progresso da cena atual.
+12. O mapa possui um prédio da **Central da Cielo** que o jogador pode visitar, funcionando como ponto de apoio no enredo.
 
 > **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP atual — sua porta não é acessível pelo jogador.
 
@@ -478,11 +491,20 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 | Aproximação do NPC      | Movimento       | Chegar a menos de 300px do NPC dentro da loja                 | Exibe o botão de interação (ícone E) sobre o NPC             |
 | E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC                  | Inicia o diálogo de negociação (quiz)                        |
 | ESC                     | Teclado         | Pressionar ESC durante o jogo (cidade ou loja)                | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
+| T                       | Teclado         | Pressionar T durante o jogo (cidade ou loja)                  | Abre a tela de tutorial sem sair do jogo (modo overlay)      |
 | Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                                 | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ### 3.7.2. Navegação pela cidade e carros
 
-O jogador navega pelo mapa da cidade usando WASD. O mapa contém **3 carros** que se deslocam em loop horizontal a **750 px/s**. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Essa mecânica introduz risco à navegação e exige que o jogador preste atenção ao atravessar a rua.
+O jogador navega pelo mapa da cidade usando WASD. O mapa contém **3 ruas com tráfego**, cada uma com carros independentes em loop horizontal. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Cada carro sorteia aleatoriamente uma entre três cores (branco, amarelo ou azul) ao ser criado, e o sprite é espelhado horizontalmente quando o carro se move para a esquerda.
+
+| Rua    | Posição Y (aprox.) | Qtd. carros | Direção              | Velocidade  | Espaçamento |
+|--------|--------------------|-------------|----------------------|-------------|-------------|
+| Rua 1  | y ≈ 2123           | 4           | Esquerda → Direita   | 650 px/s    | 3000 px     |
+| Rua 2  | y ≈ 4065           | 6           | Direita → Esquerda   | 1000 px/s   | 2000 px     |
+| Rua 3  | y ≈ 6359           | 3           | Esquerda → Direita   | 450 px/s    | 4000 px     |
+
+Essa mecânica introduz risco à navegação e exige que o jogador preste atenção ao atravessar as ruas.
 
 ### 3.7.3. As 12 lojas
 
@@ -505,7 +527,7 @@ O jogo conta com **12 lojas distintas**, cada uma com cena interna própria, NPC
 
 > **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP.
 
-Cada loja usa a mesma classe genérica `LojaScene`, configurada via parâmetros (nome, posição do NPC, posição da porta, escala do background). O mobiliário interno é definido pelo dicionário `ObjetosInterior`, com posição, escala e hitbox customizada por objeto.
+Cada loja usa a mesma classe genérica `CenaLoja`, configurada via parâmetros (nome, posição do NPC, posição da porta, escala do background). O mobiliário interno é definido pelo dicionário `ObjetosInterior`, com posição, escala e hitbox customizada por objeto.
 
 ### 3.7.4. Sistema de entrada nas lojas
 
@@ -533,17 +555,45 @@ Ao conquistar uma loja, **balões decorativos** aparecem flutuando sobre ela no 
 
 ### 3.7.7. Menu principal e tela de tutorial
 
-A tela inicial (`CenaMenu`) exibe o logotipo do jogo, nuvens com scroll horizontal contínuo e dois botões: **Jogar** e **Tutorial**. As nuvens se movem de forma independente em velocidades distintas, criando efeito de profundidade (parallax simples).
+A tela inicial (`CenaMenu`) exibe o logotipo do jogo, fundo de céu com nuvens em scroll horizontal contínuo, uma imagem de loja decorativa na parte inferior e dois botões: **Jogar** e **Configurações**. Ambos os botões possuem efeito de hover (cor e escala) e animação de flutuação suave (oscilação vertical em loop).
 
-A tela de tutorial exibe uma imagem explicativa com as mecânicas básicas do jogo (controles, objetivo, interação com NPCs e risco dos carros). O jogador retorna ao menu ao fechar o tutorial.
+Ao clicar em **Jogar**, o jogo inicia a `gameScene` com o parâmetro `mostrarTutorial: true`, que exibe a tela de tutorial automaticamente sobre o mapa antes de liberar o controle ao jogador.
+
+Ao clicar em **Configurações**, a cena `configScene` é lançada por cima do menu (modo overlay), sem encerrá-lo.
+
+A tela de tutorial (`CenaTutorial`) funciona como overlay transparente sobre qualquer cena ativa — pode ser aberta tanto ao iniciar o jogo quanto a qualquer momento pressionando a tecla **T**. Ela exibe uma imagem estática com as mecânicas básicas do jogo e um botão **SAIR** para fechar e retornar à cena anterior.
 
 ### 3.7.8. Menu de pausa
 
-Acessado pela tecla ESC tanto na cidade quanto dentro de qualquer loja. Oferece três opções:
+Acessado pela tecla ESC tanto na cidade quanto dentro de qualquer loja (incluindo a Central da Cielo). Oferece três opções clicáveis:
 
 - **Continuar** — retoma o jogo de onde parou.
 - **Novo Jogo** — apaga todo o progresso salvo no localStorage e reinicia do zero.
 - **Menu** — volta para a tela inicial do jogo.
+
+Pressionar ESC novamente enquanto o menu de pausa estiver aberto também fecha o pause e retoma o jogo (equivalente ao botão Continuar).
+
+### 3.7.9. Central da Cielo
+
+No mapa da cidade existe um prédio especial que representa a **Central da Cielo** (`CenaCentral`). O jogador pode entrar nele da mesma forma que entra nas lojas — por sobreposição com a porta ao se aproximar do prédio. A Central da Cielo é implementada como uma cena própria (`centralScene`), com interior dedicado, câmera que segue o jogador e porta de saída que retorna à cidade. A tecla ESC também funciona dentro da Central, abrindo o menu de pausa. No contexto do enredo, a Central representa a base de operações do personagem Marcielo.
+
+### 3.7.10. Sistema de transição entre cenas
+
+Todas as trocas de cena do jogo utilizam um efeito de transição visual implementado em [`public/src/utilitarios/transicao-cena.js`](../public/src/utilitarios/transicao-cena.js). O sistema é composto por duas funções:
+
+- **`transicionarPara(cena, nomeCena, dados, texto)`** — chamada antes de iniciar uma nova cena. Para todos os sons ativos, executa um fade da câmera principal para a cor azul da Cielo (`#009FDA`) em 400 ms e, ao concluir, exibe um texto centralizado (ex: *"Entrando..."*, *"Voltando à cidade..."*) sobre a tela azul antes de iniciar a cena de destino.
+- **`revelarCena(cena)`** — chamada no `create()` de cada cena de destino. Executa o fade inverso, partindo do azul Cielo para transparente em 400 ms, revelando o cenário gradualmente.
+
+O efeito usa o sistema nativo de câmera do Phaser (`cameras.main.fadeOut` / `cameras.main.fadeIn`), o que garante compatibilidade com qualquer nível de zoom sem ajustes adicionais.
+
+| Transição | De → Para | Função utilizada |
+|---|---|---|
+| Clicar em Jogar | Menu → Cidade | `transicionarPara` + `revelarCena` |
+| Entrar em loja | Cidade → Loja | `transicionarPara` + `revelarCena` |
+| Sair de loja | Loja → Cidade | `transicionarPara` + `revelarCena` |
+| Entrar na Central | Cidade → Central | `transicionarPara` + `revelarCena` |
+| Novo Jogo (pausa) | Pausa → Cidade | `transicionarPara` + `revelarCena` |
+| Menu (pausa) | Pausa → Menu | `transicionarPara` + `revelarCena` |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -565,7 +615,7 @@ Parâmetros de entrada da função `animarElemento`:
 
 | Parâmetro | Descrição                             | Valor no jogo                         |
 | --------- | ------------------------------------- | ------------------------------------- |
-| $x_i$     | Posição X inicial do balão            | 40px à esquerda da posição final      |
+| $x_i$     | Posição X inicial do balão            | 150px à esquerda da posição final     |
 | $y_i$     | Posição Y inicial do balão            | 300px abaixo da posição final         |
 | $x_f$     | Posição X final do balão              | Posição decorativa sobre a loja       |
 | $y_f$     | Posição Y final do balão              | Posição decorativa sobre a loja       |
@@ -668,21 +718,16 @@ Ao final ($t = T = 2{,}0$ s), o balão chega exatamente em $(400, 400)$, que é 
 
 ### 3.8.5. Implementação em Código
 
-A função implementada é `animarElemento`, localizada em [`public/src/cenas/cena-cidade.js`](../public/src/cenas/cena-cidade.js) na **linha 498**.
+A função implementada é `animarElemento`, localizada em [`public/src/cenas/cena-cidade.js`](../public/src/cenas/cena-cidade.js) na **linha 713**.
 
 Ela recebe os parâmetros `(xInicial, yInicial, xFinal, yFinal, duracao, elemento)`, calcula `vx` e `ay` pelas fórmulas acima e armazena os dados no objeto `_anim` do sprite. A cada frame, o método `update` incrementa `t` com o tempo do frame (`dt`) e aplica as fórmulas para atualizar a posição:
 
 ```js
 // MU — eixo X: x(t) = xi + vx * t
 balao.x = a.xInicial + a.vx * a.t;
-console.log(`[MU]  x: ${balao.x.toFixed(1)} | vx: ${a.vx.toFixed(2)}`);
 
 // MUV — eixo Y: y(t) = yi + ½ * ay * t²
-const vy = a.ay * a.t;
 balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
-console.log(
-  `[MUV] y: ${balao.y.toFixed(1)} | vy: ${vy.toFixed(2)} | ay: ${a.ay.toFixed(2)}`,
-);
 ```
 
 A animação para quando `t >= duracao`, momento em que o balão está exatamente sobre a loja.
@@ -868,23 +913,25 @@ Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo. O foco
 
 **Arquitetura data-driven das lojas**
 
-As 12 lojas (Café, Games, Beleza, Roupas, Pet, Móveis, Frutaria, Lanchonete, Chocolate, Pelúcia, Autoescola, Joalheria) usam uma única classe genérica `LojaScene`, configurada por parâmetros. Não há duplicação de código entre lojas — cada uma define nome, posições de NPC/porta/player e escala do background. O mobiliário interno é configurado pelo dicionário `ObjetosInterior` com posição, escala e hitbox customizada por objeto.
+As 12 lojas (Café, Games, Beleza, Roupas, Pet, Móveis, Frutaria, Lanchonete, Chocolate, Pelúcia, Autoescola, Joalheria) usam uma única classe genérica `CenaLoja`, configurada por parâmetros. Não há duplicação de código entre lojas — cada uma define nome, posições de NPC/porta/player e escala do background. O mobiliário interno é configurado pelo dicionário `ObjetosInterior` com posição, escala e hitbox customizada por objeto.
 
 **Sistema de quiz**
 
 Cada loja possui um banco de perguntas específico em `quiz-perguntas.js` (12 conjuntos no total: `perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola` e `perguntasNpcRua` compartilhado por Games, Beleza, Roupas, Frutaria e Joalheria). O mapeamento é feito por nome de loja:
 
 ```js
-// quiz.js — mapa de perguntas por loja
+// cena-loja.js — mapa de perguntas por loja
 const perguntasPorLoja = {
-    'Cafe': perguntasCafe,
-    'Pet': perguntasPet,
-    'Movel': perguntasMovel,
-    'Lanchonete': perguntasLanchonete,
-    'Chocolate': perguntasChocolate,
-    'Pelucia': perguntasPelucia,
-    'Autoescola': perguntasAutoescola,
+    Cafe: perguntasCafe,
+    Pet: perguntasPet,
+    Movel: perguntasMovel,
+    Lanchonete: perguntasLanchonete,
+    Chocolate: perguntasChocolate,
+    Pelucia: perguntasPelucia,
+    Autoescola: perguntasAutoescola,
 };
+// Lojas sem entrada no mapa (Games, Beleza, Roupas, Frutaria, Joalheria) usam perguntasNpcRua como fallback
+const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
 ```
 
 A cada quiz, 3 perguntas são sorteadas aleatoriamente sem repetição na mesma sessão (`_carregarPerguntasJaFeitas()`). O timer de 60 segundos por pergunta é controlado por `Phaser.Time.addEvent`. Ao esgotar, a pergunta encerra com 0 pontos e o quiz avança automaticamente.
@@ -1058,13 +1105,15 @@ Ao clicar em “Jogar”, o jogador é direcionado automaticamente para a tela d
 O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T, permitindo ao jogador consultar as instruções sem perder o progresso.
 
 . **Entrada no mapa e ambientação sonora**
-Ao iniciar o jogo, o jogador é inserido no mapa da cidade, com trilha sonora ambiente específica, aumentando a imersão.
-O sistema de áudio é controlado por cena, garantindo que o som seja ajustado automaticamente ao trocar entre cidade e lojas, evitando sobreposição de trilhas.
+Ao iniciar o jogo, o jogador é inserido no mapa da cidade. O mapa da cidade não possui trilha musical de fundo no MVP — o áudio se limita ao efeito sonoro da porta ao entrar em qualquer loja.
+O sistema de áudio é controlado por cena: cada loja possui som ambiente próprio em loop (volume 0.3), que é iniciado ao entrar e encerrado ao sair, evitando sobreposição de trilhas.
 
 . **Base da Cielo e sistemade coleta de maquininhas**
 Foi implementado no mapa um ponto específico que representa a base da empresa Cielo, funcionando como local de apoio ao jogador durante a partida.
 Nesse local, o jogador pode coletar maquininhas, recurso essencial para a realização das interações com os clientes. Sempre que o jogador ficar sem maquininhas, será necessário retornar até a base para se reabastecer e continuar progredindo no jogo.
 Essa mecânica introduz um ciclo de gameplay baseado em gerenciamento de recursos e deslocamento estratégico pelo mapa.
+
+> **Nota:** O sistema de maquininhas (`maquininhas.js`) foi implementado como classe estática com persistência no localStorage, mas no MVP atual ainda não está integrado ao fluxo de quiz nem ao bloqueio de interação com NPCs. A mecânica de gerenciamento de estoque está prevista para versões futuras do jogo.
 
 . **Sistema de spawn dinâmico**
 Durante a navegação pela cidade, o O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
@@ -1230,15 +1279,116 @@ Por fim, busca-se melhorar a organização e otimização do código, visando ma
 
 ## 4.5. Revisão do MVP (sprint 5)
 
-_Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar._
+Durante a Sprint 5, o foco do desenvolvimento esteve no refinamento e na correção de inconsistências identificadas no MVP entregue na sprint anterior. As melhorias abrangeram navegação pelo mapa, sistema de pontuação, carros, minimapa, feedback visual de conquista e correções de comportamento inesperado no tutorial e nas portas das lojas.
+
+### Funcionalidades implementadas
+
+Nesta sprint foram entregues os seguintes refinamentos e novas funcionalidades:
+
+. **Colisores invisíveis de ambiente**
+O mapa da cidade passou a contar com colisores invisíveis posicionados sobre todos os elementos não navegáveis do cenário: árvores, arbustos, casas e bordas do mapa. Antes dessa implementação, o jogador conseguia caminhar por dentro de construções e sobre vegetação, quebrando a imersão visual.
+Os colisores são definidos em `configuracao-colisores-ambiente.js` como uma lista de retângulos com posição e dimensões específicas para cada obstáculo. Durante a criação da cena da cidade, cada retângulo é instanciado como objeto estático de física (`staticGroup`) e registrado como colisor do jogador. O modo de depuração (`debug: true` no `main.js`) permite visualizar os retângulos em tempo real para facilitar ajustes de posicionamento.
+
+. **Câmera com limites no mapa**
+A câmera principal da cidade foi configurada para nunca ultrapassar as bordas do mapa usando `cameras.main.setBounds(0, 0, largura, altura)`. Antes desse ajuste, ao se aproximar das bordas, o jogador via o fundo preto além do mapa, o que causava desorientação visual. Agora a câmera para exatamente no limite do mapa, mantendo o fundo sempre preenchido.
+
+. **Sistema de pontuação com persistência**
+Foi implementado um sistema de pontuação persistente armazenado no localStorage. A lógica central está em `pontos.js` e funciona da seguinte forma: ao conquistar um NPC (quiz bem-sucedido), o jogador recebe **+15 pontos**; ao falhar na negociação, perde **-15 pontos**. A pontuação acumulada persiste entre sessões, sendo lida e atualizada a cada interação.
+
+. **Configuração diferenciada das três ruas de carros**
+O sistema de carros foi expandido para cobrir três ruas distintas do mapa, cada uma com características independentes de direção, velocidade, quantidade de carros e espaçamento entre eles:
+
+  - Rua 1 (y≈2123): 4 carros em direção da esquerda para a direita, velocidade de 650 px/s, espaçamento de 3000 px;
+  - Rua 2 (y≈4065): 6 carros em direção da direita para a esquerda (sentido oposto), velocidade de 1000 px/s, espaçamento de 2000 px;
+  - Rua 3 (y≈6359): 3 carros em direção da esquerda para a direita, velocidade de 450 px/s, espaçamento de 4000 px.
+
+O sprite do carro é espelhado horizontalmente (`setFlipX`) quando o carro se move para a esquerda, garantindo que o carro sempre pareça estar apontado na direção correta. Cada carro sorteia aleatoriamente uma entre três variantes de cor (branco, amarelo ou azul) ao ser criado, e cicla 8 frames de animação de forma independente a 8 fps.
+
+. **Spawn do jogador na frente da porta correta ao sair de lojas**
+Ao sair de qualquer loja, o jogador agora reaparece exatamente na frente da porta daquela loja no mapa da cidade. O mapeamento entre cada loja e sua coordenada de retorno está centralizado em `spawn-cidade.js` (`MapaSpawnCidade.PorLoja`), com entradas para todas as 12 lojas distribuídas nas duas fileiras do mapa. Caso a loja não esteja mapeada, o sistema usa uma posição padrão de fallback. Esse comportamento foi refinado em relação à sprint anterior, que usava uma posição genérica de retorno.
+
+. **Correção do tutorial (não reabre ao sair de loja)**
+O tutorial passou a ser exibido apenas na entrada inicial no jogo (quando `data.mostrarTutorial` é `true`). Nas versões anteriores, ao sair de uma loja e retornar ao mapa, o tutorial era reaberto automaticamente, interrompendo a jogabilidade. A correção consistiu em separar o controle de exibição do tutorial do fluxo de retorno das lojas.
+
+. **Minimapa no canto superior esquerdo**
+Foi adicionado um minimapa permanente no canto superior esquerdo da tela. Ele é composto por duas câmeras secundárias sobrepostas:
+
+  - **Câmera de borda**: levemente maior que o minimapa, exibe apenas uma cor azul sólida como moldura visual, apontada para fora do mapa para não renderizar conteúdo do jogo;
+  - **Câmera do minimapa**: exibe o mapa inteiro em tamanho reduzido com zoom calculado automaticamente para preencher o espaço sem bordas pretas.
+
+Um marcador de posição — a imagem da cabeça do Marcielo — é posicionado no mundo no local exato do jogador e tem seu tamanho calculado como `32 / zoom` para sempre aparecer com 32 px na tela do minimapa, independentemente do tamanho do mapa. A câmera principal ignora o marcador para que ele só apareça no minimapa.
+
+. **Painel de NPCs fecha ao clicar em qualquer lugar da tela**
+O painel lateral que exibe o progresso de conquista dos NPCs passou a fechar automaticamente ao clicar em qualquer ponto da tela fora dele. Para evitar que o mesmo clique que abre o painel o feche imediatamente, foi implementado um controle de estado via flag `_painelAbertoNesteClique`, que descarta o primeiro evento de clique após a abertura.
+
+. **Efeito visual de conquista**
+Ao conquistar um NPC com sucesso, além da mudança de cor do sprite do NPC (de vermelho para azul), o jogo dispara um efeito visual de celebração composto por:
+  - **Confetes coloridos animados**: 80 retângulos com cores aleatórias (vermelho, verde, azul, amarelo, magenta, ciano e laranja) são lançados a partir do NPC com rotação e fade-out em 800–1500 ms;
+  - O efeito é destruído automaticamente ao término da animação, sem deixar objetos residuais na cena.
+
+### Dificuldades encontradas
+
+Durante a Sprint 5, os principais desafios técnicos foram:
+
+. **Posicionamento preciso dos colisores de ambiente**: cada colisor invisível precisou ser ajustado manualmente por coordenadas (x, y, largura, altura) com base na posição visual de cada elemento do mapa. O processo exigiu uso do modo de depuração do Phaser para visualizar os retângulos em tempo real e múltiplos ciclos de ajuste fino.
+
+. **Comportamento do minimapa com múltiplas câmeras**: a composição de duas câmeras secundárias para criar a borda e o conteúdo do minimapa exigiu atenção especial à ordem de renderização e ao controle de quais objetos cada câmera ignora, para evitar que o marcador de posição apareça na câmera principal ou na câmera de borda.
+
+. **Sincronização do estado do tutorial com o fluxo de retorno das lojas**: identificar o ponto exato no código onde o tutorial era reativado indevidamente ao sair das lojas exigiu rastreamento do fluxo de dados entre cenas (`data.mostrarTutorial`) e ajuste na lógica de controle do parâmetro.
+
+. **Independência de animação entre carros**: garantir que cada carro ciclasse seus frames de forma independente (sem que todos trocassem de frame ao mesmo tempo) exigiu implementar um contador de tempo por instância (`_tempoFrame` e `_frameAtual`) em vez de usar o sistema nativo de animações do Phaser, que compartilharia o estado entre sprites com a mesma chave.
+
+. **Controle do painel de NPCs sem fechamento duplo**: o evento de clique que abre o painel também dispara o listener global que o fecha, o que causava o painel abrindo e fechando instantaneamente. A solução com flag `_painelAbertoNesteClique` precisou ser validada em diferentes sequências de cliques para garantir comportamento consistente.
+
+### Critérios de pronto
+
+Uma funcionalidade foi considerada concluída quando atendeu a todos os seguintes critérios:
+
+. Funcionamento correto e estável durante a execução do jogo, sem comportamentos inesperados;
+
+. Integração sem conflitos com os sistemas já existentes (lojas, quiz, câmera, física, persistência);
+
+. Ausência de erros ou avisos relevantes no console do navegador;
+
+. Validação manual pela equipe em diferentes fluxos de uso (entrar em loja, sair, conquistar NPC, colidir com carro, abrir e fechar painel);
+
+. Comportamento visual condizente com a intenção de design (colisores não visíveis ao jogador, minimapa legível, confetes aparecendo apenas na conquista).
+
+### Limitações atuais
+
+Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
+
+. O sistema de pontuação está implementado mas ainda não é exibido ao jogador em nenhuma interface visível durante o jogo — os pontos são acumulados no localStorage mas não há HUD mostrando o total em tempo real;
+
+. Os colisores de ambiente foram ajustados manualmente e podem apresentar pequenas imprecisões em regiões do mapa com elementos visuais sobrepostos ou com escalas diferentes;
+
+. O minimapa não diferencia lojas conquistadas de lojas ainda não visitadas — exibe apenas a posição do jogador sobre o mapa geral;
+
+. O efeito de confetes não possui controle de quantidade máxima simultânea — em situações de múltiplas conquistas rápidas, pode haver acúmulo visual temporário;
+
+. Não há suporte a dispositivos móveis; os controles permanecem exclusivamente por teclado e mouse.
+
+### Próximos passos
+
+Para versões futuras do jogo, as melhorias prioritárias identificadas são:
+
+. Exibição da pontuação acumulada em uma HUD permanente na tela, mostrando o total de pontos em tempo real durante a jogabilidade;
+
+. Aprimoramento do minimapa para indicar visualmente quais lojas já foram conquistadas, usando marcadores ou cores diferenciadas;
+
+. Adição de um placar final ao término da partida, exibindo a pontuação total, o número de NPCs conquistados e o tempo de jogo;
+
+. Expansão do banco de perguntas por loja, reduzindo a repetição ao longo de uma mesma sessão de jogo;
+
+. Melhorias de acessibilidade, incluindo suporte a dispositivos touch e ampliação das opções de configuração de controles.
 
 # <a name="c5"></a>5. Testes
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
-
-Nos testes do quiz, o indicador principal é a barra de conversão e a pontuação acumulada. Quando o jogador acerta uma pergunta, recebe **3 pontos**; ao errar, recebe **0 pontos**. O cliente é conquistado se a **soma dos pontos for ≥ 6** ao final das 3 perguntas (máximo de 9 pontos). A barra usa três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa).
+Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação. A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação.
+Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso, o jogador recebe +15 pontos; caso contrário, recebe -15 pontos.
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
@@ -1265,6 +1415,18 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 19  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
 | 20  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
 | 21  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra *(não implementado no MVP)*                                            |
+| 22  | Jogo em execução na cidade ou dentro de loja              | Pressionar a tecla T                                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                        |
+| 23  | Tela de tutorial aberta via tecla T                       | Clicar no botão "SAIR"                                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                       |
+| 24  | Jogador caminhando em direção a uma árvore ou casa no mapa | Tentar atravessar o elemento                                           | O jogador deve ser bloqueado pelo colisor invisível e não conseguir atravessar              |
+| 25  | Jogador próximo à borda do mapa                           | Tentar sair pelos limites do mapa                                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa        |
+| 26  | Jogador colide com um carro em qualquer rua               | Carro atinge o jogador durante a navegação                              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                    |
+| 27  | Jogador navega pela cidade                                | Observar o minimapa no canto superior esquerdo                          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador |
+| 28  | Jogador conquista um NPC (quiz bem-sucedido)              | Finaliza o quiz com pontuação ≥ 6                                       | O jogador recebe +15 pontos persistidos no localStorage; efeito de confetes é exibido       |
+| 29  | Jogador falha em um quiz (pontuação < 6)                  | Finaliza o quiz com pontuação < 6                                       | O jogador perde 15 pontos persistidos no localStorage                                       |
+| 30  | Jogador se aproxima do prédio Central da Cielo no mapa    | Encosta na porta do prédio                                              | O jogador deve entrar na cena da Central da Cielo                                           |
+| 31  | Jogador dentro da Central da Cielo                        | Pressionar ESC                                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo e Menu                        |
+| 32  | Jogo com progresso salvo (NPCs conquistados)              | Fechar o navegador e reabrir o jogo                                     | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas |
+| 33  | Menu de pausa aberto                                      | Clicar em "Novo Jogo"                                                   | Todo o progresso salvo deve ser apagado do localStorage e o jogo deve reiniciar do zero     |
 
 Fonte: elaborado pelo grupo.
 
@@ -1299,59 +1461,109 @@ _Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
 
 # <a name="c7"></a>7. Referências
 
-ABECS. (2024). Balanço do setor de meios de pagamento. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
+ABECS. (2024). *Balanço do setor de meios de pagamento*. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
 
-Banco Central do Brasil. (2023). Relatório de economia bancária 2023. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
+Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-Banco Central do Brasil. (2024). Relatório de vigilância do sistema de pagamentos brasileiro. https://www.bcb.gov.br
+Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
 
-Banco Central do Brasil. (2025). Relatórios de estabilidade e vigilância do SPB. https://www.bcb.gov.br/publicacoes
+Banco Central do Brasil. (2025). *Relatórios de estabilidade e vigilância do SPB*. https://www.bcb.gov.br/publicacoes
 
-Cielo S.A. (2023). Relatório anual e demonstrações financeiras 2023. https://ri.cielo.com.br
+Cielo S.A. (2023). *Relatório anual e demonstrações financeiras 2023*. https://ri.cielo.com.br
 
-Cielo S.A. (2024). Informações institucionais e dados operacionais. https://www.cielo.com.br
+Cielo S.A. (2024). *Informações institucionais e dados operacionais*. https://www.cielo.com.br
 
-Cielo S.A. (2025). Portal de relações com investidores. https://ri.cielo.com.br/
+Cielo S.A. (2025). *Portal de relações com investidores*. https://ri.cielo.com.br
 
-ClickPetróleo e Gás. (2025). Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96/
+ClickPetróleo e Gás. (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix*. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96
 
-CNN Brasil. (2025). A guerra das maquininhas e a disputa no mercado de adquirentes. https://www.cnnbrasil.com.br
+CNN Brasil. (2025). *A guerra das maquininhas e a disputa no mercado de adquirentes*. https://www.cnnbrasil.com.br
 
-Deloitte. (2024). Relatórios sobre mercado financeiro e meios de pagamento. https://www2.deloitte.com/br
+Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
 
-HALLIDAY, D.; RESNICK, R.; WALKER, J. **Fundamentos de Física — Vol. 1: Mecânica**. 10. ed. Rio de Janeiro: LTC, 2016. Cap. 2 — Movimento em Linha Reta.
+Halliday, D., Resnick, R., & Walker, J. (2016). *Fundamentos de Física — Vol. 1: Mecânica* (10ª ed.). LTC.
 
-IBGE. (2022). Censo demográfico 2022: Primeiros resultados. https://www.ibge.gov.br/censo2022
+IBGE. (2022). *Censo demográfico 2022: Primeiros resultados*. https://www.ibge.gov.br/censo2022
 
-McKinsey & Company. (2024). Estudos sobre transformação digital e meios de pagamento. https://www.mckinsey.com.br
+McKinsey & Company. (2024). *Estudos sobre transformação digital e meios de pagamento*. https://www.mckinsey.com.br
 
-Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. Revista Brasileira de Gestão e Negócios. https://doi.org/10.7819/rbgn.v23i2.4104
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. https://doi.org/10.7819/rbgn.v23i2.4104
 
-PagBank. (2024). Relatório institucional e atuação no mercado de pagamentos. https://www.pagbank.com.br
+PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*. https://www.pagbank.com.br
 
-PagSeguro Digital Ltd. (2023). Form 20-F: Annual report 2023. https://investors.pagseguro.com
+PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
 
-Porter, M. E. (2008). The five competitive forces that shape strategy. Harvard Business Review.
+Photon Storm Ltd. (2025). *Phaser 3 — HTML5 game framework*. https://phaser.io
 
-PwC Brasil. (2024). Relatórios sobre tendências do mercado financeiro. https://www.pwc.com.br
+Porter, M. E. (2008). The five competitive forces that shape strategy. *Harvard Business Review*.
 
-Reuters. (2026, 10 de fevereiro). Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10/
+PwC Brasil. (2024). *Relatórios sobre tendências do mercado financeiro*. https://www.pwc.com.br
 
-Stone Co. (2024). Formulário de referência e modelo de negócios. https://investors.stone.co
+Reuters. (2026, February 10). Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10
 
-StoneCo Ltd. (2023). Form 20-F: Annual report 2023. https://investors.stone.com
+Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
 
-Subadquirente. (2025). As tendências do mercado de meios de pagamentos no Brasil para 2025. https://www.subadquirente.com/post/as-tend%25C3%25AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
+StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
 
-Valor Econômico. (2025). Resultados financeiros da Cielo. https://s3.glbimg.com
+Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%C3%AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
-Veja. (2024). Carteiras digitais ajudam cartões de crédito a se reinventar. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar/
+Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
 
-Vieira, S. (2025). Mercado de adquirência: Um gigante em disputa na era do Pix [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+Veja. (2024). Carteiras digitais ajudam cartões de crédito a se reinventar. *Veja*. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar
+
+Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
 # <a name="c8"></a>Anexos
 
+## A.1. Diagramas
 
-### Diagramas
+### Diagrama de cenas
 
-Diagrama de cenas : https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Representa o fluxo de navegação entre as cenas do jogo, mostrando as transições possíveis entre menu, tutorial, cidade, lojas, pausa e central da Cielo.
+
+Link: https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_content=DAHCEIJ-7zY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+### Diagrama de arquitetura das lojas
+
+O jogo utiliza uma arquitetura *data-driven* para as lojas: uma única classe `CenaLoja` é instanciada com configurações diferentes para cada loja (posição do NPC, do jogador, da porta, escala do fundo). As 12 lojas do jogo são geradas a partir do array `lojasConfigs` em `cena-cidade.js`, evitando duplicação de código.
+
+### Diagrama de fluxo do sistema de quiz
+
+O quiz segue o fluxo: abertura → exibição de pergunta → contagem regressiva de 60 segundos → resposta do jogador (ou tempo esgotado) → atualização da barra de conversão → próxima pergunta (ou encerramento). Ao final das 3 perguntas, a soma de pontos é comparada ao limiar de 6 pontos para determinar conquista ou derrota.
+
+### Diagrama do sistema de pontuação
+
+A pontuação é gerenciada por `pontos.js` e persistida no localStorage com a chave `pontuacaoJogador`. A cada conquista de NPC, +15 pontos são adicionados; a cada derrota, -15 pontos são subtraídos. A função `obterPontos()` lê o valor atual com fallback para 0 caso a chave não exista.
+
+## A.2. Recursos visuais e assets
+
+### Sprites do jogador (Marcielo)
+
+O personagem principal possui animações para quatro direções de movimento e um estado de idle. Os frames são carregados como imagens individuais no método estático `Jogador.preload()`:
+
+- Movimento lateral (esquerda/direita com flip): 8 frames (`f1`–`f8`)
+- Movimento para baixo: 6 frames (`s1`–`s6`)
+- Movimento para cima: 6 frames (`c1`–`c6`)
+- Idle (respiração): 4 frames (`idle1`–`idle4`)
+
+### Sprites dos carros
+
+Cada carro possui 3 variantes de cor (branco, amarelo, azul), cada uma com 8 frames de animação, totalizando 24 imagens carregadas em `Carro.preload()`. A animação é controlada manualmente por instância para garantir independência entre carros.
+
+### Sprites dos NPCs
+
+Cada NPC possui três estados visuais representados por imagens distintas: `nao-interagido`, `interagido` e `conquistado`. As imagens são nomeadas no padrão `{id-do-npc}-{estado}.png` e carregadas no preload da cena da cidade a partir da lista retornada por `obterListaNpcs()`.
+
+## A.3. Arquivos de configuração relevantes
+
+| Arquivo | Responsabilidade |
+| :--- | :--- |
+| `configuracao-colisores-ambiente.js` | Lista de retângulos de colisão invisíveis para árvores, arbustos, casas e bordas do mapa |
+| `spawn-cidade.js` | Mapa de coordenadas de retorno do jogador para cada loja ao sair do interior |
+| `configuracao-interior.js` | Lista de móveis e posições para cada loja (usada para criar o mobiliário físico interno) |
+| `configuracao-baloes.js` | Definição das variantes de balões decorativos exibidos nas lojas conquistadas |
+| `estado-jogo.js` | Chaves centralizadas do localStorage e estado global de progresso entre cenas |
+| `pontos.js` | Sistema de pontuação: +15 conquista, -15 derrota, leitura e escrita no localStorage |
+| `quiz-perguntas.js` | Banco de perguntas de todos os bancos (`perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola`, `perguntasNpcRua`) |
+| `maquininhas.js` | Controle do estoque de maquininhas do jogador (classe estática com persistência no localStorage) |
+| `progresoNPCs.js` | Lista de todos os NPCs do jogo com ID, loja e estado atual (`nao-interagido`, `interagido`, `conquistado`) |

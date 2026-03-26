@@ -27,11 +27,14 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     create() {
+        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
+        revelarCena(this);
+
         this._criarCenario();
 
         if (this.cache.audio.exists('portaAbrindo')) {
             this.sound.play('portaAbrindo');
-        }
+            }
 
         this.balcao = this.physics.add.staticImage(400, 300, 'cieloBalcão');
         this.filtro = this.physics.add.staticImage(200, 250, 'cieloFiltro');

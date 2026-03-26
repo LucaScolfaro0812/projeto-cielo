@@ -16,6 +16,7 @@ import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
 import { carregarDados } from "../utilitarios/armazenamento.js";
 import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 import Entrada from '../entidades/loja-entrar.js';
+import { revelarCena } from '../utilitarios/transicao-cena.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -311,6 +312,9 @@ export class CenaCidade extends Phaser.Scene {
 
     // Método executado quando a cena é criada
     create() {
+        // Revela a cena com fade azul Cielo
+        revelarCena(this);
+
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
@@ -406,13 +410,26 @@ export class CenaCidade extends Phaser.Scene {
             conquistados,
             totalNpcs,
             () => {
-                if (this.painelNpcs) {
-                    this.painelNpcs.setVisible(!this.painelNpcs.visible);
+                // Botão só abre — marca flag para ignorar o pointerdown deste mesmo clique
+                if (this.painelNpcs && !this.painelNpcs.visible) {
+                    this._painelAbertoNesteClique = true;
+                    this.painelNpcs.setVisible(true);
                 }
             }
         );
 
         this.criarPainelNpcs();
+
+        // Fecha o painel ao clicar em qualquer lugar — ignora o clique que o abriu
+        this.input.on('pointerdown', () => {
+            if (this._painelAbertoNesteClique) {
+                this._painelAbertoNesteClique = false;
+                return;
+            }
+            if (this.painelNpcs && this.painelNpcs.visible) {
+                this.painelNpcs.setVisible(false);
+            }
+        });
 
         if (this.mostrarTutorialAoEntrar) {
             this._abrirTutorial();
@@ -479,10 +496,14 @@ export class CenaCidade extends Phaser.Scene {
 
         this.carrinho = [];
 
-        const ruas = [2123, 4065, 6359];
-        ruas.forEach((y) => {
-            for (let i = 0; i < 5; i++) {
-                const carro = new Carro(this, i * 2500, y, true);
+        const ruas = [
+            { y: 2123, direcao: true,  quantidade: 4, velocidade: 650,  espacamento: 3000 },
+            { y: 4065, direcao: false, quantidade: 6, velocidade: 1000, espacamento: 2000 },
+            { y: 6359, direcao: true,  quantidade: 3, velocidade: 450,  espacamento: 4000 },
+        ];
+        ruas.forEach(({ y, direcao, quantidade, velocidade, espacamento }) => {
+            for (let i = 0; i < quantidade; i++) {
+                const carro = new Carro(this, i * espacamento, y, direcao, velocidade);
                 this.carrinho.push(carro);
             }
         });

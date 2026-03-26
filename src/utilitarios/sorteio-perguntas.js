@@ -5,8 +5,8 @@
  * @returns {Array} Array com as perguntas sorteadas.
  */
 export function sortearPerguntasAleatorias(perguntas, quantidade = 3) {
-    if (!Array.isArray(perguntas) || perguntas.length < quantidade) {
-        throw new Error('Quantidade de perguntas insuficiente para o sorteio.');
+    if (!Array.isArray(perguntas) || perguntas.length === 0) {
+        return [];
     }
     // Cria uma cópia do array para não modificar o original
     const perguntasCopia = [...perguntas];
@@ -15,6 +15,6 @@ export function sortearPerguntasAleatorias(perguntas, quantidade = 3) {
         const j = Math.floor(Math.random() * (i + 1));
         [perguntasCopia[i], perguntasCopia[j]] = [perguntasCopia[j], perguntasCopia[i]];
     }
-    // Retorna as N primeiras perguntas embaralhadas
-    return perguntasCopia.slice(0, quantidade);
+    // Se houver menos perguntas do que a quantidade desejada, retorna todas embaralhadas
+    return perguntasCopia.slice(0, Math.min(quantidade, perguntasCopia.length));
 }

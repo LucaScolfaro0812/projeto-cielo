@@ -7,6 +7,31 @@
 //             0 = resposta errada | 3 = resposta correta
 
 // ============================================================
+
+// Utilitário para obter perguntas por loja
+export function getPerguntasPorLoja(lojaId) {
+    switch (lojaId) {
+        case 'movel': return perguntasMovel;
+        case 'cafe': return perguntasCafe;
+        case 'pet': return perguntasPet;
+        case 'lanchonete': return perguntasLanchonete;
+        case 'autoescola': return perguntasAutoescola;
+        case 'pelucia': return perguntasPelucia;
+        case 'chocolate': return perguntasChocolate;
+        default: return [];
+    }
+}
+
+// Seleciona até 3 perguntas aleatórias, sem repetição
+export function selecionarTresAleatorias(array) {
+    const copia = [...array];
+    const selecionadas = [];
+    for (let i = 0; i < 3 && copia.length > 0; i++) {
+        const idx = Math.floor(Math.random() * copia.length);
+        selecionadas.push(copia.splice(idx, 1)[0]);
+    }
+    return selecionadas;
+}
 // Perguntas usadas no quiz da cena da Loja de Movéis (lojaMovel)
 // ============================================================
 export const perguntasMovel = [

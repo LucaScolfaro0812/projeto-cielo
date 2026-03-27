@@ -93,9 +93,13 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         // Removido o bloqueio "if (this.trocaDeCenaEmAndamento)" daqui, 
         // porque a gente já travou o overlap lá na Cena Central!
 
+        if (this.trocaDeCenaEmAndamento) {
+            return;
+        }
+
         const lojaBloqueada = localStorage.getItem('lojaBloqueada');
 
-        if (lojaBloqueada === this.proximaCenaNome) {
+        if (lojaBloqueada === this.proximaCenaNome && this.proximaCenaNome !== 'gameScene') {
             
             const jogador = this.scene.player;
             
@@ -106,11 +110,13 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     jogador.body.setVelocity(0, 0);
                 }
 
-                // Cria um aviso visual na tela
+                // CÓDIGO NOVO: Cria um aviso visual na tela!
+                // Verifica se já não tem um aviso na tela para não criar vários
                 if (!this.avisoNaTela) {
                     this.avisoNaTela = true;
 
-                    const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Você só pode retornar após converter outra loja!", {
+                    // Cria o texto bonitinho flutuando acima da cabeça dele
+                    const textoAviso = this.scene.add.text(jogador.x, jogador.y - 60, "Tente converter outra loja primeiro!", {
                         fontSize: '34px',
                         fontFamily: 'Arial',
                         backgroundColor: '#ff0000', // Fundo vermelho
@@ -122,13 +128,10 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                     textoAviso.setOrigin(0.5); // Centraliza o texto
                     textoAviso.setDepth(9999); // Deixa na frente de tudo
 
-                    // Faz o texto sumir sozinho depois de 2 segundos
-                    this.scene.time.delayedCall(2000, () => {
+                    // Faz o texto sumir sozinho depois de 2 segundos (2000 ms)
+                    this.scene.time.delayedCall(3000, () => {
                         textoAviso.destroy();
-                        this.avisoNaTela = false; 
-                        
-                        // IMPORTANTE: Destrava a porta para ele tentar de novo depois
-                        this.trocaDeCenaEmAndamento = false; 
+                        this.avisoNaTela = false; // Libera para mostrar de novo se ele bater na porta
                     });
                 }
             }
@@ -138,6 +141,22 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
 
         // Ao voltar para o mapa principal, não reabre o tutorial automaticamente.
         if (this.proximaCenaNome === 'gameScene') {
+            
+            if (window.vitoriaRecente) {
+            window.vitoriaRecente = false; // Resetamos para a próxima vez
+            localStorage.removeItem('lojaBloqueada'); // Garante que está limpo
+            this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
+            return;
+        }
+
+            const jaTemBloqueio = localStorage.getItem('lojaBloqueada');
+            if (!jaTemBloqueio) {
+                console.log("Trancando a loja atual:", this.scene.scene.key);
+                localStorage.setItem('lojaBloqueada', this.scene.scene.key); 
+            } else {
+                console.log("Já existe um bloqueio ativo:", jaTemBloqueio, ". Não vou sobrescrever.");
+            }
+            
             this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
             return;
         }

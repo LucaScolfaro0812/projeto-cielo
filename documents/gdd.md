@@ -284,9 +284,9 @@ Deixar o jogo mais divertido e dinâmico.
 
 | Objetivo | Indicador               | Meta  | Resultado Alcançado | Status |
 | -------- | ----------------------- | ----- | ------------------- | ------ |
-| Obj. 1   | Mecânicas               | ≥ 7   |                     |        |
-| Obj. 1   | Animações               | ≥ 5   |                     |        |
-| Obj. 1   | Sons                    | ≥ 13  |                     |        |
+| Obj. 1   | Mecânicas               | ≥ 7   |          4          |Não alcançada|
+| Obj. 1   | Animações               | ≥ 5   |          3          |Não alcançada|
+| Obj. 1   | Sons                    | ≥ 13  |          19         |Alcançado|
 | Obj. 1   | Tempo médio de sessão   | +20%  |                     |        |
 | Obj. 1   | Satisfação dos usuários | ≥ 4,0 |                     |        |
 

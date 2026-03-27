@@ -200,6 +200,7 @@ export default class Quiz {
             this._marcarNpcQuizComoAberto(npc.idNpc);
         }
 
+        this.cena.hudMaquininhas?.container.setVisible(false);
         this.ui.mostrar();
         this.ui.definirConversao(this.nivelConversao);
         this.exibirPerguntaAtual();
@@ -255,6 +256,7 @@ export default class Quiz {
      */
     finalizar() {
         if (this.ui) this.ui.esconder();
+        this.cena.hudMaquininhas?.container.setVisible(true);
 
         // Restaura o zoom original da cena para manter a navegacao no mapa como antes.
         if (this.zoomOriginalCamera !== null) {

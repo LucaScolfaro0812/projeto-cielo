@@ -31,17 +31,29 @@ export class CenaCentral extends Phaser.Scene {
         if (!this.cache.audio.exists('portaAbrindo')) {
             this.load.audio('portaAbrindo', 'assets/sons/portaAbrindo.mp3');
         }
+
+        // Carrega música ambiente da Central Cielo
+        if (!this.cache.audio.exists('ambienteCielo')) {
+            this.load.audio('ambienteCielo', 'assets/sons/ambienteCielo.mp3');
+        }
     }
 
     create() {
-        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
-        //this.revelarCena(this, 1000);
-
         this._criarCenario();
 
         if (this.cache.audio.exists('portaAbrindo')) {
             this.sound.play('portaAbrindo');
-            }
+        }
+
+        // Inicia música ambiente em loop
+        if (this.cache.audio.exists('ambienteCielo')) {
+            this.somAmbiente = this.sound.add('ambienteCielo', { loop: true, volume: 0.3 });
+            this.somAmbiente.play();
+        }
+
+        // Para o som ao sair ou destruir a cena
+        this.events.on('shutdown', () => this._pararAudio());
+        this.events.on('destroy', () => this._pararAudio());
 
         this.balcao = this.physics.add.staticImage(1150, 470, 'cieloBalcão');
         this.filtro = this.physics.add.staticImage(2000, 400, 'cieloFiltro');
@@ -95,11 +107,6 @@ export class CenaCentral extends Phaser.Scene {
         // Tecla E para recarregar
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
-
-        // Configura Câmera e Pause
-        //this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setZoom(0.60);
-
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
@@ -120,6 +127,12 @@ export class CenaCentral extends Phaser.Scene {
         });
     }
 
+    _pararAudio() {
+        if (this.somAmbiente && this.somAmbiente.isPlaying) {
+            this.somAmbiente.stop();
+        }
+    }
+
     _criarCenario() {
         this.fundo = this.add.image(0, 0, this.fundoImage).setOrigin(0.5);
         this.fundo.setScale(1.5);
@@ -133,38 +146,32 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     _criarPortaSaida(x, y) {
-        // Usa a mesma lógica de Entrada, mas para voltar para a gameScene.
-        // O this.player foi adicionado no final para a porta não dar erro!
         this.portaEntrada = new Entrada(this, x, y, this, 'gameScene', this.player);
         this.portaEntrada.setScale(2.8);
-        
-        // Garante que a porta fique desenhada atrás do Marcielo (150), mas na frente do fundo
-        this.portaEntrada.setDepth(140); 
+        this.portaEntrada.setDepth(140);
 
         this.portaEntrada.setTexture('entrada_animada', 0);
         this.portaEntrada.anims.stop();
 
-        this.portaEntrada.podeUsar = false;this.time.delayedCall(1000, () => {
+        this.portaEntrada.podeUsar = false;
+        this.time.delayedCall(1000, () => {
             this.portaEntrada.podeUsar = true;
-            });
+        });
 
+        this.physics.add.overlap(this.portaEntrada, this.player, () => {
 
-
-       this.physics.add.overlap(this.portaEntrada, this.player, () => {
-
-            if (!this.portaEntrada.podeUsar) {
-                return;
-            }
-
+            if (!this.portaEntrada.podeUsar) return;
             if (this.portaEntrada.trocaDeCenaEmAndamento) return;
             this.portaEntrada.trocaDeCenaEmAndamento = true;
 
             definirProximoSpawnCidade('Central');
 
+            // Para a música ambiente antes de sair
+            this._pararAudio();
+
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
-        
             
             this.time.delayedCall(500, () => {
                 this.portaEntrada.trocarDeCena();

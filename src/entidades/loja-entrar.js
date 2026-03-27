@@ -64,7 +64,7 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
 
         if (!jogador || this.trocaDeCenaEmAndamento) return;
 
-        const distanciaParaAtivar = 120;
+        const distanciaParaAtivar = 300;
         const dist = Phaser.Math.Distance.Between(jogador.x, jogador.y, this.x, this.y);
 
         // 4. Lógica da Animação Corrigida
@@ -81,6 +81,9 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
                 this.setFrame(0); // Volta pro frame zero (fechada)
                 this.portaAberta = false; // Tira a trava para a próxima vez
             }
+        }
+        if (this.portaCentral) {
+            this.portaCentral.update(); 
         }
     }
     /**

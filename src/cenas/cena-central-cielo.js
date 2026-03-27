@@ -19,6 +19,8 @@ export class CenaCentral extends Phaser.Scene {
         this.load.image('cieloComputador', 'assets/imagens/central-cielo/cieloComputador.png');
         this.load.image('cieloFiltro', 'assets/imagens/central-cielo/cieloFiltro.png');
         this.load.image('cieloPlanta', 'assets/imagens/central-cielo/cieloPlanta.png');
+        this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
+        this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
 
         // Carrega som da porta
         if (!this.cache.audio.exists('portaAbrindo')) {
@@ -28,7 +30,7 @@ export class CenaCentral extends Phaser.Scene {
 
     create() {
         // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
-        revelarCena(this);
+        //this.revelarCena(this, 1000);
 
         this._criarCenario();
 
@@ -36,37 +38,47 @@ export class CenaCentral extends Phaser.Scene {
             this.sound.play('portaAbrindo');
             }
 
-        this.balcao = this.physics.add.staticImage(400, 300, 'cieloBalcão');
-        this.filtro = this.physics.add.staticImage(200, 250, 'cieloFiltro');
-        this.planta = this.physics.add.staticImage(600, 250, 'cieloPlanta');
-        this.computador = this.physics.add.staticImage(500, 400, 'cieloComputador');
+        this.balcao = this.physics.add.staticImage(1150, 470, 'cieloBalcão');
+        this.filtro = this.physics.add.staticImage(2000, 400, 'cieloFiltro');
+        this.planta = this.physics.add.staticImage(100, 450, 'cieloPlanta');
+        this.computador = this.physics.add.staticImage(2130, 750, 'cieloComputador');
+        this.placa = this.physics.add.staticImage(1140, 120, 'cieloPlaca');
+        this.npc = this.physics.add.staticImage(1160, 380, 'cieloNPC');
+        this.npc.setScale(0.3);
+        
 
     
 
-        const playerX = this.fundo.displayWidth / 2;
-        const playerY = this.fundo.displayHeight - 150;
-        const portaX = this.fundo.displayWidth / 5;
-        const portaY = this.fundo.displayHeight - 950;
+        const playerX = 400;
+        const playerY = 500;
+        const portaX = 400;
+        const portaY = 415;
 
         // Cria o Jogador
         this.player = new Jogador(this, playerX, playerY);
         this.player.setCollideWorldBounds(true);
         this.player.setDepth(150);
 
+        // Conecta o jogador com cada um dos móveis estáticos para que ele colida com eles
+        this.physics.add.collider(this.player, this.balcao);
+        this.physics.add.collider(this.player, this.filtro);
+        this.physics.add.collider(this.player, this.planta);
+        this.physics.add.collider(this.player, this.computador);
+
         // Cria a Porta de Saída para a Cidade
         this._criarPortaSaida(portaX, portaY);
 
 
         // Configura Câmera e Pause
-        this.cameras.main.startFollow(this.player);
-        this.cameras.main.setZoom(0.60);
+        //this.cameras.main.startFollow(this.player);
+        //this.cameras.main.setZoom(0.60);
 
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
-         const zoomX = this.cameras.main.width / this.fundo.displayWidth;
+        const zoomX = this.cameras.main.width / this.fundo.displayWidth;
         const zoomY = this.cameras.main.height / this.fundo.displayHeight;
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
@@ -79,7 +91,10 @@ export class CenaCentral extends Phaser.Scene {
         this.fundo.x = this.fundo.displayWidth / 2;
         this.fundo.y = this.fundo.displayHeight / 2;
 
-        this.physics.world.setBounds(0, 0, this.fundo.displayWidth, this.fundo.displayHeight);
+        const larguraMundo = this.fundo.displayWidth;
+        const alturaMundo = this.fundo.displayHeight;
+
+        this.physics.world.setBounds(0, 0, larguraMundo, alturaMundo);
     }
 
     _criarPortaSaida(x, y) {
@@ -101,10 +116,8 @@ export class CenaCentral extends Phaser.Scene {
 
 
        this.physics.add.overlap(this.portaEntrada, this.player, () => {
-            console.log("Passo 1: Bateu na porta!");
 
             if (!this.portaEntrada.podeUsar) {
-                console.log("Passo 2: Ainda não deu 1 segundo. Ignorando...");
                 return;
             }
 
@@ -113,17 +126,12 @@ export class CenaCentral extends Phaser.Scene {
 
             definirProximoSpawnCidade('Central');
 
-            console.log("Passo 3: Passou pelas travas! Vai preparar pra sair.");
-
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
-            
-            // 👇 SUSPEITO NÚMERO 1: Vamos comentar (desligar) a animação para testar!
-            // this.portaEntrada.play('abrir_porta_roll');
+        
             
             this.time.delayedCall(500, () => {
-                console.log("Passo 4: Chamando a função de trocar de cena!");
                 this.portaEntrada.trocarDeCena();
             });
         });

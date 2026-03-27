@@ -1,6 +1,8 @@
 import Jogador from '../entidades/jogador.js';
 import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import Quiz from '../sistemas/quiz.js';
+import { Maquininhas } from '../sistemas/maquininhas.js';
+import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 import { sortearPerguntasAleatorias } from '../utilitarios/sorteio-perguntas.js';
 import Npc from '../entidades/npc.js';
 import Entrada from '../entidades/loja-entrar.js';
@@ -92,6 +94,7 @@ export default class CenaLoja extends Phaser.Scene {
         }
 
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
+        this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
 
         // Itens de mobiliário de todas as lojas
         this.load.image('autoEscolaBancada', 'assets/imagens/itens-lojas/autoEscolaBancada.png');
@@ -245,6 +248,8 @@ export default class CenaLoja extends Phaser.Scene {
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
+        this.hudMaquininhas = new HudMaquininhas(this);
+
         // Atalho para abrir o menu de pausa
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
@@ -266,6 +271,10 @@ export default class CenaLoja extends Phaser.Scene {
         // Garante que o áudio pare ao sair ou destruir a cena
         this.events.on('shutdown', () => this._pararAudio());
         this.events.on('destroy', () => this._pararAudio());
+    }
+
+    atualizarHudMaquininhas() {
+        this.hudMaquininhas?.atualizar();
     }
 
     // Para o som ambiente caso esteja tocando
@@ -432,7 +441,8 @@ export default class CenaLoja extends Phaser.Scene {
         this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
-        this.botaoInteracao.setVisible(!this.npc.vendeu);
+        const temMaquininha = Maquininhas.qntMaquininhas > 0;
+        this.botaoInteracao.setVisible(!this.npc.vendeu && temMaquininha);
 
         this.botaoInteracao.x = this.npc.x;
         this.botaoInteracao.y = this.npc.y - 120 + deslocamento;
@@ -444,9 +454,9 @@ export default class CenaLoja extends Phaser.Scene {
 
         const perto = distancia < 300;
 
-        // Abre o quiz ao pressionar E perto do NPC, se ele ainda não tiver vendido e não foi conquistado
+        // Abre o quiz ao pressionar E perto do NPC, se tiver maquininha, o NPC não tiver vendido e não foi conquistado
         const quizJaConquistado = this.quiz._npcJaConquistado && this.quiz._npcJaConquistado(this.npc.idNpc);
-        if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu && !quizJaConquistado) {
+        if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu && !quizJaConquistado && temMaquininha) {
             this.quiz.iniciar(this.npc);
         }
 

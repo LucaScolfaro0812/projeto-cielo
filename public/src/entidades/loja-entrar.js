@@ -90,13 +90,6 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
      * Realiza a troca de cena utilizando o Scene Manager do Phaser
      */
    trocarDeCena() {
-        // Removido o bloqueio "if (this.trocaDeCenaEmAndamento)" daqui, 
-        // porque a gente já travou o overlap lá na Cena Central!
-
-        if (this.trocaDeCenaEmAndamento) {
-            return;
-        }
-
         const lojaBloqueada = localStorage.getItem('lojaBloqueada');
 
         if (lojaBloqueada === this.proximaCenaNome && this.proximaCenaNome !== 'gameScene') {

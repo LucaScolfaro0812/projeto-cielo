@@ -476,6 +476,14 @@ export default class Quiz {
             }
         }
 
+        // Consome 1 maquininha apenas se o jogador conquistou o NPC
+        if (conquistou) {
+            Maquininhas.removerMaquininhas(1);
+            if (this.cena.atualizarHudMaquininhas) {
+                this.cena.atualizarHudMaquininhas();
+            }
+        }
+
         // Exibe o resultado final do quiz e chama finalizar ao fechar
         this.ui.exibirResultado(conquistou, () => this.finalizar());
     }

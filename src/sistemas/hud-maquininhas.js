@@ -17,11 +17,14 @@ export default class HudMaquininhas {
         const espaco = this.espacamento / zoom;
         const max = Maquininhas.maximoMaquininhas;
 
+        const offSetX = 1100;
+        const offSetY = -150;
+
         const pad = 3 / zoom;
         const largura = max * tamanho + (max - 1) * espaco + pad * 2;
         const altura = tamanho + pad * 2;
 
-        this.container = this.cena.add.container(this.xTela / zoom, this.yTela / zoom)
+        this.container = this.cena.add.container(this.xTela / zoom + offSetX, this.yTela / zoom + offSetY)
             .setScrollFactor(0)
             .setDepth(9999);
 
@@ -37,6 +40,15 @@ export default class HudMaquininhas {
                 'maquininhaCielo'
             ).setDisplaySize(tamanho, tamanho).setOrigin(0, 0);
             this.slots.push(img);
+
+            const fator = 1.5;
+
+            const escala = Math.min(
+                tamanho / img.width,
+                tamanho / img.height
+            ) * fator;
+
+            img.setScale(escala);
         }
 
         this.container.add([fundo, ...this.slots]);

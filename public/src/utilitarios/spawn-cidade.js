@@ -6,7 +6,7 @@
 export const MapaSpawnCidade = {
 
     // Posição padrão de spawn — usada como fallback se a loja não estiver mapeada
-    Padrao: { x: 1500, y: 1600 },
+    Padrao: { x: 5800, y: 1350 },
 
     // Mapa de posições de spawn por loja — cada entrada corresponde à porta da loja no mapa
     PorLoja: {

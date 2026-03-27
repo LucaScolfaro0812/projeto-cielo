@@ -133,6 +133,11 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
             return; // Interrompe aqui porque a loja tá bloqueada
         }
 
-        // 👇 A MÁGICA QUE FALTAVA! O COMANDO DO TELETRANSPORTE:
+        // Ao voltar para o mapa principal, não reabre o tutorial automaticamente.
+        if (this.proximaCenaNome === 'gameScene') {
+            this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
+            return;
+        }
+
         this.scene.scene.start(this.proximaCenaNome);
     }}

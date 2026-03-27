@@ -447,6 +447,7 @@ export class CenaCidade extends Phaser.Scene {
             modoOverlay: true
         });
         this.scene.bringToTop('tutorialScene');
+
     }
 
     /**

@@ -14,6 +14,7 @@ export class CenaCentral extends Phaser.Scene {
         this.load.image(this.fundoImage, `assets/imagens/central-cielo/${this.fundoImage}.png`);
         
         Jogador.preload(this);
+        Entrada.preload(this);
 
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
 

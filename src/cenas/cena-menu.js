@@ -90,7 +90,7 @@ export class CenaMenu extends Phaser.Scene {
         botaoJogar.on('pointerdown', () => {
             if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
-            transicionarPara(this, 'gameScene', { mostrarTutorial: true }, 'Iniciando jogo...');
+            transicionarPara(this, 'centralScene', { mostrarTutorial: true }, 'Iniciando jogo...');
         });
 
         this.tweens.add({

@@ -9,7 +9,7 @@ export class Maquininhas {
     }
 
     static chaveDeValor = 'maquininhas';
-    static maximoMaquininhas = 3;
+    static maximoMaquininhas = 2;
 
     static _qntMaquininhas = carregarDados(this.chaveDeValor, 0);
 

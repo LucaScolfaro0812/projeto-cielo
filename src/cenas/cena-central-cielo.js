@@ -1,6 +1,8 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
 import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
+import { Maquininhas } from '../sistemas/maquininhas.js';
+import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
 export class CenaCentral extends Phaser.Scene {
     constructor(){
@@ -21,6 +23,8 @@ export class CenaCentral extends Phaser.Scene {
         this.load.image('cieloPlanta', 'assets/imagens/central-cielo/cieloPlanta.png');
         this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
         this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
+
+        this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
 
         // Carrega som da porta
         if (!this.cache.audio.exists('portaAbrindo')) {
@@ -45,9 +49,6 @@ export class CenaCentral extends Phaser.Scene {
         this.placa = this.physics.add.staticImage(1140, 120, 'cieloPlaca');
         this.npc = this.physics.add.staticImage(1160, 380, 'cieloNPC');
         this.npc.setScale(0.3);
-        
-
-    
 
         const playerX = 400;
         const playerY = 500;
@@ -68,6 +69,14 @@ export class CenaCentral extends Phaser.Scene {
         // Cria a Porta de Saída para a Cidade
         this._criarPortaSaida(portaX, portaY);
 
+        this.botaoRecarga = this.add.image(this.npc.x, this.npc.y - 120, 'botaoInteracao')
+            .setScale(0.4)
+            .setDepth(300);
+        this.tempoAnimacaoBotao = 0;
+
+        // Tecla E para recarregar
+        this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
 
         // Configura Câmera e Pause
         //this.cameras.main.startFollow(this.player);
@@ -83,6 +92,7 @@ export class CenaCentral extends Phaser.Scene {
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
+        this.hudMaquininhas = new HudMaquininhas(this);
     }
 
     _criarCenario() {
@@ -141,6 +151,23 @@ export class CenaCentral extends Phaser.Scene {
         this.player.update();
         if (this.portaEntrada) {
             this.portaEntrada.update();
+        }
+
+        this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
+        const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
+
+        const podeRecarregar = Maquininhas.qntMaquininhas < Maquininhas.maximoMaquininhas;
+        this.botaoRecarga.setVisible(podeRecarregar);
+        this.botaoRecarga.y = this.npc.y - 120 + deslocamento;
+
+        const distancia = Phaser.Math.Distance.Between(
+            this.player.x, this.player.y,
+            this.npc.x, this.npc.y
+        );
+
+        if (distancia < 300 && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
+            Maquininhas.definirMaquininhas(Maquininhas.maximoMaquininhas);
+            this.hudMaquininhas.atualizar();
         }
     }
 }

@@ -17,6 +17,7 @@ import { carregarDados } from "../utilitarios/armazenamento.js";
 import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 import Entrada from '../entidades/loja-entrar.js';
 import { revelarCena } from '../utilitarios/transicao-cena.js';
+import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -274,6 +275,7 @@ export class CenaCidade extends Phaser.Scene {
         // Imagens estáticas
         this.load.image('rua', 'assets/imagens/ambiente/mapa.png');
         this.load.image('marcielocabeca', 'assets/imagens/marcielocabeca.png');
+        this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
 
         // Carrega todas as imagens de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
@@ -430,6 +432,8 @@ export class CenaCidade extends Phaser.Scene {
         );
 
         this.criarPainelNpcs();
+
+        this.hudMaquininhas = new HudMaquininhas(this);
 
         // Fecha o painel ao clicar em qualquer lugar — ignora o clique que o abriu
         this.input.on('pointerdown', () => {

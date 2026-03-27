@@ -336,33 +336,6 @@ export default class CenaLoja extends Phaser.Scene {
         if (perguntasOriginais.length > 0) {
             perguntas = sortearPerguntasAleatorias(perguntasOriginais, 3);
         }
-        // DEBUG: Mostra quantas perguntas foram sorteadas, seus IDs e se é fallback
-        if (this.add && typeof this.add.text === 'function') {
-            let textoDebug = `Perguntas sorteadas: ${perguntas.length}\n` +
-                perguntas.map(p => p?.id || 'sem id').join(', ');
-            if (usandoFallbackNpcRua) {
-                textoDebug += "\n[FALLBACK perguntasNpcRua]";
-            }
-            const msg = this.add.text(
-                this.cameras.main.centerX,
-                this.cameras.main.centerY - 250,
-                textoDebug,
-                { fontSize: '18px', fill: usandoFallbackNpcRua ? '#f00' : '#880', backgroundColor: '#fff', padding: { x: 10, y: 6 } }
-            ).setOrigin(0.5).setDepth(2100);
-            this.time.delayedCall(2000, () => msg.destroy());
-        }
-        // DEBUG: Mostra quantas perguntas foram sorteadas e seus IDs
-        if (this.add && typeof this.add.text === 'function') {
-            const textoDebug = `Perguntas sorteadas: ${perguntas.length}\n` +
-                perguntas.map(p => p?.id || 'sem id').join(', ');
-            const msg = this.add.text(
-                this.cameras.main.centerX,
-                this.cameras.main.centerY - 250,
-                textoDebug,
-                { fontSize: '18px', fill: '#880', backgroundColor: '#fff', padding: { x: 10, y: 6 } }
-            ).setOrigin(0.5).setDepth(2100);
-            this.time.delayedCall(2000, () => msg.destroy());
-        }
 
         this.npc = new Npc(
             this,
@@ -447,16 +420,6 @@ export default class CenaLoja extends Phaser.Scene {
 
         // Abre o quiz ao pressionar E perto do NPC, se ele ainda não tiver vendido
         if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {
-            // DEBUG: Mostra feedback visual ao tentar abrir o quiz
-            if (this.add && typeof this.add.text === 'function') {
-                const msg = this.add.text(
-                    this.cameras.main.centerX,
-                    this.cameras.main.centerY - 200,
-                    'Tentando abrir o quiz...',
-                    { fontSize: '28px', fill: '#00f', backgroundColor: '#fff', padding: { x: 16, y: 8 } }
-                ).setOrigin(0.5).setDepth(2000);
-                this.time.delayedCall(1000, () => msg.destroy());
-            }
             this.quiz.iniciar(this.npc);
         }
 

@@ -418,6 +418,8 @@ export default class Quiz {
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
 
         if (conquistou) {
+            localStorage.removeItem('lojaBloqueada');
+            window.vitoriaRecente = true;
             // Jogador conquistou o NPC
             atualizarEstadoNpc(this.npcAtual.idNpc, 'conquistado');
             // Atualiza localStorage: remove de interagidos e adiciona em conquistados

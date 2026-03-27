@@ -248,7 +248,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
-        this.hudMaquininhas = new HudMaquininhas(this);
+        //this.hudMaquininhas = new HudMaquininhas(this);
 
         // Atalho para abrir o menu de pausa
         this.input.keyboard.on('keydown-ESC', () => {

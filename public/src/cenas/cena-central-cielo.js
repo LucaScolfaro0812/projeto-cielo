@@ -66,6 +66,23 @@ export class CenaCentral extends Phaser.Scene {
         this.physics.add.collider(this.player, this.planta);
         this.physics.add.collider(this.player, this.computador);
 
+        // Paredes invisíveis
+        const paredesData = [
+            [9, 387, 311, 7],
+            [339, 241, 459, 7],
+            [462, 394, 2297, 2],
+        ];
+        this.paredes = paredesData.map(([x1, y1, x2, y2]) => {
+            const cx = (x1 + x2) / 2;
+            const cy = (y1 + y2) / 2;
+            const w = Math.abs(x2 - x1);
+            const h = Math.abs(y2 - y1);
+            const parede = this.add.rectangle(cx, cy, w, h);
+            this.physics.add.existing(parede, true);
+            this.physics.add.collider(this.player, parede);
+            return parede;
+        });
+
         // Cria a Porta de Saída para a Cidade
         this._criarPortaSaida(portaX, portaY);
 
@@ -93,6 +110,13 @@ export class CenaCentral extends Phaser.Scene {
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         this.hudMaquininhas = new HudMaquininhas(this);
+
+        // DEBUG: clique para logar coordenadas no console
+        this.input.on('pointerdown', (pointer) => {
+            const worldX = Math.round(pointer.worldX);
+            const worldY = Math.round(pointer.worldY);
+            console.log(`x: ${worldX}, y: ${worldY}`);
+        });
     }
 
     _criarCenario() {

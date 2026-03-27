@@ -445,8 +445,6 @@ export default class Quiz {
             }
 
         if (conquistou) {
-            localStorage.removeItem('lojaBloqueada');
-            window.vitoriaRecente = true;
             // Jogador conquistou o NPC
             atualizarEstadoNpc(this.npcAtual.idNpc, 'conquistado');
             // Atualiza localStorage: remove de interagidos e adiciona em conquistados

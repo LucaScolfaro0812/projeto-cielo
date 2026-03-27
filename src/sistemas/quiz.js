@@ -184,6 +184,13 @@ export default class Quiz {
             duracaoFeedback: 1.5,
             chaveImagemNpc
         });
+            if (!this.cena.cache.audio.exists('clienteGanho')) {
+             this.cena.load.audio('clienteGanho', 'assets/sons/clienteGanho.mp3');
+            }
+        if (!this.cena.cache.audio.exists('clientePerdido')) {
+        this.cena.load.audio('clientePerdido', 'assets/sons/clientePerdido.mp3');
+            }
+        this.cena.load.start();
 
         this.ui.aoSelecionarResposta = (indiceEscolhido) =>
             this.responder(indiceEscolhido);
@@ -197,8 +204,14 @@ export default class Quiz {
         this.ui.definirConversao(this.nivelConversao);
         this.exibirPerguntaAtual();
         this.iniciarTimer();
+
+        if (!this.cena.cache.audio.exists('somClicando')) {
+          this.cena.load.audio('somClicando', 'assets/sons/somClicando.mp3');
+            }
+            this.cena.load.start();
     }
 
+    
     /**
      * Seleciona até 3 perguntas aleatórias, não repetidas, da loja do NPC atual
      */
@@ -416,6 +429,18 @@ export default class Quiz {
      */
     _encerrarQuiz() {
         const conquistou = this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA;
+
+        if (conquistou) {
+          if (this.cena.cache.audio.exists('clienteGanho')) {
+        this.cena.sound.play('clienteGanho', { volume: 0.6 });
+         }
+            // ... resto do código já existente
+        }   else {
+            if (this.cena.cache.audio.exists('clientePerdido')) {
+        this.cena.sound.play('clientePerdido', { volume: 3 });
+        }
+        // ... resto do código já existente
+            }
 
         if (conquistou) {
             localStorage.removeItem('lojaBloqueada');

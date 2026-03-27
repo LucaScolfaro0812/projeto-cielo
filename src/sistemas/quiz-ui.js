@@ -374,9 +374,12 @@ export default class InterfaceQuiz {
             // Ao clicar, chama a função de resposta com o índice da alternativa
             const idx = i;
             retanguloFundoBotao.on("pointerdown", () => {
-                if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
-                    this.aoSelecionarResposta(idx);
-                }
+            if (this.cena.cache.audio.exists('somClicando')) {
+             this.cena.sound.play('somClicando', { volume: 0.5 });
+               }
+               if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
+             this.aoSelecionarResposta(idx);
+           }
             });
 
             this.containerBotoes.add([retanguloFundoBotao, retanguloBadge, textoBadgeLetra, textoOpcaoBotao]);

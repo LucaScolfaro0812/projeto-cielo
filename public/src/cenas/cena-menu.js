@@ -15,17 +15,20 @@ export class CenaMenu extends Phaser.Scene {
         this.load.image('titulo', 'assets/ui/titulo-jogo.webp');
         this.load.image('loja', 'assets/imagens/lojas/interior/store-bg.webp');
         if (!this.cache.audio.exists('menuSom')) {
-        this.load.audio('menuSom', 'assets/sons/menuSom.mp3');
-}
+            this.load.audio('menuSom', 'assets/sons/menuSom.mp3');
+        }
+        if (!this.cache.audio.exists('somClicando')) {
+            this.load.audio('somClicando', 'assets/sons/somClicando.mp3');
+        }
     }
 
     create() {
         this.events.on('shutdown', () => {
-         if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
+            if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
         });
-        // Fade de entrada partindo do azul Cielo — completa a transição vinda de outra cena
+
         revelarCena(this);
-        
+
         this.somMenu = this.sound.add('menuSom', { loop: true, volume: 0.3 });
         this.somMenu.play();
 
@@ -46,19 +49,13 @@ export class CenaMenu extends Phaser.Scene {
         // Título
         const imagemTitulo = this.add.image(w / 2, h * 0.25, 'titulo')
             .setOrigin(0.5);
-
         imagemTitulo.setScale(w / imagemTitulo.width * 0.75);
 
         // Loja
         const imagemLoja = this.add.image(w / 2, h, 'loja')
             .setOrigin(0.5, 1);
-
         const escalaX = w / imagemLoja.width;
         imagemLoja.setScale(escalaX, escalaX);
-
-        // ===============================
-        // ESTILO PADRÃO DOS BOTÕES
-        // ===============================
 
         const estiloBotao = {
             fontFamily: 'Poppins',
@@ -74,85 +71,67 @@ export class CenaMenu extends Phaser.Scene {
         // ===============================
 
         const botaoJogar = this.add.text(w/2, h/2, 'JOGAR', estiloBotao)
-        .setOrigin(0.5)
-        .setFixedSize(260,60)
-        .setAlign('center');
+            .setOrigin(0.5)
+            .setFixedSize(260, 60)
+            .setAlign('center');
 
         botaoJogar.setInteractive({ useHandCursor: true });
 
-        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoJogar.on('pointerover', () => {
-            botaoJogar.setStyle({
-                backgroundColor: '#6FB7FF',
-                color: '#1B2A4A'
-            });
-            botaoJogar.setScale(1.05); // leve aumento de tamanho ao hover
+            botaoJogar.setStyle({ backgroundColor: '#6FB7FF', color: '#1B2A4A' });
+            botaoJogar.setScale(1.05);
         });
 
-        // Restaura a cor original ao tirar o mouse
         botaoJogar.on('pointerout', () => {
-            botaoJogar.setStyle({
-                backgroundColor: '#001caa',
-                color: '#ffffff'
-            });
+            botaoJogar.setStyle({ backgroundColor: '#001caa', color: '#ffffff' });
             botaoJogar.setScale(1);
         });
 
-        // Inicia o jogo ao clicar e pede para abrir o tutorial sobre o mapa
         botaoJogar.on('pointerdown', () => {
+            if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             transicionarPara(this, 'gameScene', { mostrarTutorial: true }, 'Iniciando jogo...');
         });
 
-        // Animação de flutuação suave do botão (sobe e desce em loop)
         this.tweens.add({
             targets: botaoJogar,
-            y: botaoJogar.y - 6,  // desloca 6px para cima
-            duration: 900,         // tempo de ida em ms
-            yoyo: true,            // volta automaticamente à posição original
-            repeat: -1,            // repete infinitamente
-            ease: 'Sine.easeInOut' // suaviza o movimento
+            y: botaoJogar.y - 6,
+            duration: 900,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
         });
 
         // ===============================
-        // BOTÃO TUTORIAL
+        // BOTÃO CONFIGURAÇÕES
         // ===============================
 
         const botaoConfiguracoes = this.add.text(w/2, h/2 + 80, 'CONFIGURAÇÕES', estiloBotao)
-        .setOrigin(0.5)
-        .setFixedSize(260,60)
-        .setAlign('center');
+            .setOrigin(0.5)
+            .setFixedSize(260, 60)
+            .setAlign('center');
 
         botaoConfiguracoes.setInteractive({ useHandCursor: true });
         botaoConfiguracoes.setFontSize('24px');
         botaoConfiguracoes.setPadding(0, 8, 0, 8);
 
-        // Muda a cor do botão ao passar o mouse por cima (efeito hover)
         botaoConfiguracoes.on('pointerover', () => {
-            botaoConfiguracoes.setStyle({
-                backgroundColor: '#6FB7FF',
-                color: '#1B2A4A'
-            });
+            botaoConfiguracoes.setStyle({ backgroundColor: '#6FB7FF', color: '#1B2A4A' });
             botaoConfiguracoes.setScale(1.05);
         });
 
-        // Restaura a cor original ao tirar o mouse
         botaoConfiguracoes.on('pointerout', () => {
-            botaoConfiguracoes.setStyle({
-                backgroundColor: '#001caa',
-                color: '#ffffff'
-            });
+            botaoConfiguracoes.setStyle({ backgroundColor: '#001caa', color: '#ffffff' });
             botaoConfiguracoes.setScale(1);
         });
 
-        // Abre a cena de configurações por cima do menu
         botaoConfiguracoes.on('pointerdown', () => {
+            if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             this.scene.pause();
             this.scene.launch('configScene', { cenaOrigem: this.scene.key });
         });
 
-        // Animação de flutuação suave do botão (sobe e desce em loop)
         this.tweens.add({
             targets: botaoConfiguracoes,
             y: botaoConfiguracoes.y - 6,
@@ -161,8 +140,6 @@ export class CenaMenu extends Phaser.Scene {
             repeat: -1,
             ease: 'Sine.easeInOut'
         });
-        
-
     }
 
     update() {

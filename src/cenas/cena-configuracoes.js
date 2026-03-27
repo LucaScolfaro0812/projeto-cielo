@@ -14,6 +14,12 @@ export class CenaConfiguracoes extends Phaser.Scene {
         this.cenaOrigem = data.cenaOrigem ?? "menuScene";
     }
 
+    preload() {
+        if (!this.cache.audio.exists('somClicando')) {
+            this.load.audio('somClicando', 'assets/sons/somClicando.mp3');
+        }
+    }
+
     create() {
         this.scene.bringToTop();
 
@@ -106,6 +112,12 @@ export class CenaConfiguracoes extends Phaser.Scene {
         this._persistirEAplicar();
     }
 
+    _tocarClique() {
+        if (this.cache.audio.exists('somClicando')) {
+            this.sound.play('somClicando', { volume: 0.5 });
+        }
+    }
+
     _criarLinhaOpcao(x, y, titulo, descricao) {
         const largura = 760;
         const altura = 74;
@@ -165,22 +177,19 @@ export class CenaConfiguracoes extends Phaser.Scene {
         botao.corBase = cor;
 
         botao.on("pointerover", () => {
-            botao.setStyle({
-                backgroundColor: "#6FB7FF",
-                color: "#1B2A4A"
-            });
+            botao.setStyle({ backgroundColor: "#6FB7FF", color: "#1B2A4A" });
             botao.setScale(1.03);
         });
 
         botao.on("pointerout", () => {
-            botao.setStyle({
-                backgroundColor: botao.corBase,
-                color: "#ffffff"
-            });
+            botao.setStyle({ backgroundColor: botao.corBase, color: "#ffffff" });
             botao.setScale(1);
         });
 
-        botao.on("pointerdown", onClick);
+        botao.on("pointerdown", () => {
+            this._tocarClique();
+            onClick();
+        });
 
         return botao;
     }
@@ -212,15 +221,9 @@ export class CenaConfiguracoes extends Phaser.Scene {
             this.barraVelocidade.largura * ((this.velocidadeMarcielo - 0.6) / 0.8);
 
         this.botaoSom.corBase = this.somAtivo ? "#2a9d8f" : "#d64545";
-        this.botaoSom.setStyle({
-            backgroundColor: this.botaoSom.corBase,
-            color: "#ffffff"
-        });
+        this.botaoSom.setStyle({ backgroundColor: this.botaoSom.corBase, color: "#ffffff" });
 
         this.botaoContraste.corBase = this.contrasteAtual === "alto" ? "#7c3aed" : "#355070";
-        this.botaoContraste.setStyle({
-            backgroundColor: this.botaoContraste.corBase,
-            color: "#ffffff"
-        });
+        this.botaoContraste.setStyle({ backgroundColor: this.botaoContraste.corBase, color: "#ffffff" });
     }
 }

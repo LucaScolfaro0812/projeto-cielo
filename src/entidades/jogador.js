@@ -13,7 +13,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
      */
     constructor(cena, x, y) {
 
-        // Agora o jogador já nasce com a imagem nova
         super(cena, x, y, "idle1");
 
         cena.add.existing(this);
@@ -41,6 +40,9 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this._criarAnimacoes(cena);
 
         this.setDepth(10);
+
+        // Som de passos
+        this.somPassos = null;
     }
 
     _obterMultiplicadorVelocidade() {
@@ -48,12 +50,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
     }
 
     static preload(scene) {
-        // Se você não usa mais a spritesheet antiga, pode remover isso:
-        // scene.load.spritesheet('player', 'assets/marcielo.png', {
-        //     frameWidth: 128,
-        //     frameHeight: 128
-        // });
-
         // animação lateral
         scene.load.image("f1", "assets/sprites/animacoes/jogador/marcielo.f1.png");
         scene.load.image("f2", "assets/sprites/animacoes/jogador/marcielo.f2.png");
@@ -85,6 +81,11 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("c4", "assets/sprites/animacoes/jogador/marcielo.c4.png");
         scene.load.image("c5", "assets/sprites/animacoes/jogador/marcielo.c5.png");
         scene.load.image("c6", "assets/sprites/animacoes/jogador/marcielo.c6.png");
+
+        // som de passos
+        if (!scene.cache.audio.exists('andandoRua')) {
+            scene.load.audio('andandoRua', 'assets/sons/andandoRua.mp3');
+        }
     }
 
     update() {
@@ -101,7 +102,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         const direita = this.teclas.D.isDown;
         const cima = this.teclas.W.isDown;
         const baixo = this.teclas.S.isDown;
-
 
         // eixo horizontal
         if (esquerda) {
@@ -121,27 +121,19 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             movendo = true;
         }
 
-        // Calcula o módulo (comprimento) do vetor de força usando Pitágoras
-        // Isso é necessário para normalizar o vetor e evitar que o jogador
-        // ande mais rápido na diagonal (onde X e Y seriam somados sem normalizar)
         const modulo = Math.sqrt(forca[0] * forca[0] + forca[1] * forca[1]);
 
-        // Normaliza o vetor dividindo cada componente pelo módulo
-        // Após normalizar, o vetor tem comprimento 1 em qualquer direção
         if (modulo > 0) {
             forca[0] /= modulo;
             forca[1] /= modulo;
         }
 
-        // Multiplica o vetor normalizado pela velocidade para obter a velocidade final
         forca[0] *= this.velocidade;
         forca[1] *= this.velocidade;
 
         this.setVelocity(forca[0], forca[1]);
 
-        // escolha da animação
         if (movendo) {
-            // prioridade para animação horizontal quando estiver na diagonal
             if (esquerda) {
                 this.setFlipX(true);
                 this.anims.play("andar-direita", true);
@@ -162,15 +154,29 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
                 this.anims.play("andar-baixo", true);
                 this.ultimaDirecao = "baixo";
             }
-        } 
-            else {
-        if (this.ultimaDirecao === "esquerda") {
-        this.setFlipX(true);
-        this.anims.play("idle-respirando", true);
+
+            // Toca o som de passos se ainda não estiver tocando
+            if (!this.somPassos || !this.somPassos.isPlaying) {
+                if (this.cena.cache.audio.exists('andandoRua')) {
+                    this.somPassos = this.cena.sound.add('andandoRua', { loop: true, volume: 0.4 });
+                    this.somPassos.play();
+                }
+            }
+
         } else {
-        this.setFlipX(false);
-        this.anims.play("idle-respirando", true);
-        }
+
+            // Para o som ao parar de mover
+            if (this.somPassos && this.somPassos.isPlaying) {
+                this.somPassos.stop();
+            }
+
+            if (this.ultimaDirecao === "esquerda") {
+                this.setFlipX(true);
+                this.anims.play("idle-respirando", true);
+            } else {
+                this.setFlipX(false);
+                this.anims.play("idle-respirando", true);
+            }
         }
     }
 
@@ -180,7 +186,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
      * @param {Phaser.Scene} cena - cena onde as animações serão registradas
      */
     _criarAnimacoes(cena) {
-        // Animação de andar para os lados (usada tanto para esquerda quanto direita, com flip)
         if (!cena.anims.exists("andar-direita")) {
             cena.anims.create({
                 key: "andar-direita",
@@ -199,7 +204,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             });
         }
 
-        // Animação de andar para cima
         if (!cena.anims.exists("andar-cima")) {
             cena.anims.create({
                 key: "andar-cima",
@@ -216,7 +220,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             });
         }
 
-        // Animação de andar para baixo
         if (!cena.anims.exists("andar-baixo")) {
             cena.anims.create({
                 key: "andar-baixo",
@@ -232,23 +235,26 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
                 repeat: -1
             });
         }
-        if (!cena.anims.exists("idle-respirando")) {
-    cena.anims.create({
-        key: "idle-respirando",
-        frames: [
-            { key: "idle1" },
-            { key: "idle2" },
-            { key: "idle3" },
-            { key: "idle4" }
-        ],
-        frameRate: 3,
-        repeat: -1
-    });
-}
 
+        if (!cena.anims.exists("idle-respirando")) {
+            cena.anims.create({
+                key: "idle-respirando",
+                frames: [
+                    { key: "idle1" },
+                    { key: "idle2" },
+                    { key: "idle3" },
+                    { key: "idle4" }
+                ],
+                frameRate: 3,
+                repeat: -1
+            });
+        }
     }
 
-    morreu(){
+    morreu() {
+        if (this.somPassos && this.somPassos.isPlaying) {
+            this.somPassos.stop();
+        }
         this.cena.scene.start('gameScene', { mostrarTutorial: false });
         Maquininhas.definirMaquininhas(0);
     }

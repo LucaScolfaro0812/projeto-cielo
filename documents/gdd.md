@@ -286,7 +286,7 @@ Deixar o jogo mais divertido e dinâmico.
 | -------- | ----------------------- | ----- | ------------------- | ------ |
 | Obj. 1   | Mecânicas               | ≥ 7   |          4          |Não alcançada|
 | Obj. 1   | Animações               | ≥ 5   |          3          |Não alcançada|
-| Obj. 1   | Sons                    | ≥ 13  |          19         |Alcançado|
+| Obj. 1   | Sons                    | ≥ 13  |          20         |Alcançado|
 | Obj. 1   | Tempo médio de sessão   | +20%  |                     |        |
 | Obj. 1   | Satisfação dos usuários | ≥ 4,0 |                     |        |
 
@@ -481,8 +481,16 @@ O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.s
 | 9 | `ambienteFrutaria`           | Som ambiente em loop dentro da Frutaria            | `assets/sons/ambienteFrutaria.mp3` |
 | 10 | `ambienteMóveis`            | Som ambiente em loop dentro da Loja de Móveis      | `assets/sons/ambienteMóveis.mp3` |
 | 11 | `ambienteVideoGame`         | Som ambiente em loop dentro da Loja de Games       | `assets/sons/ambienteVideoGame.mp3` |
+| 12 | `ambienteJoalheria`         | Som ambiente em loop dentro da Joalheria           | `assets/sons/ambienteJoalheria.mp3` |
+| 13 | `ambienteLanchonete`        | Som ambiente em loop dentro da Lanchonete          | `assets/sons/ambienteLanchonete.mp3` |
+| 14 | `ambienteCielo`             | Som ambiente em loop dentro da Central Cielo       | `assets/sons/ambienteCielo.mp3` |
+| 15 | `andandoRua`                | Som dos passos do jogador ao se mover              | `assets/sons/andandoRua.mp3` |
+| 16 | `clienteGanho`              | Tocado ao conquistar um NPC no quiz                | `assets/sons/clienteGanho.mp3` |
+| 17 | `clientePerdido`            | Tocado ao perder um NPC no quiz                    | `assets/sons/clientePerdido.mp3` |
+| 18 | `menuSom`                   | Música de fundo em loop no menu principal          | `assets/sons/menuSom.mp3` |
+| 19 | `somCidade`                 | Som ambiente em loop na cena da cidade             | `assets/sons/somCidade.mp3` |
+| 20 | `somClicando`               | Tocado ao clicar em botões da interface            | `assets/sons/somClicando.mp3` |
 
-> **Nota:** As lojas Lanchonete e Joalheria não possuem som ambiente definido no MVP atual. O volume dos sons ambiente é fixado em `0.3` (30%). Não há trilha musical para o menu principal, mapa da cidade ou Central da Cielo no MVP.
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 

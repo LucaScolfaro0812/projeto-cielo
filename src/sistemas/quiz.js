@@ -223,11 +223,10 @@ export default class Quiz {
         console.log('[QUIZ] Buscando perguntas para lojaId:', lojaId);
         let todas = lojaId ? getPerguntasPorLoja(lojaId) : [];
         console.log('[QUIZ] Perguntas encontradas para lojaId', lojaId, ':', todas.length);
-        let fallbackUsado = false;
+        // Não usa mais fallback para perguntasNpcRua
         if (!todas || todas.length === 0) {
-            fallbackUsado = true;
-            todas = perguntasNpcRua;
-            console.log('[QUIZ] Usando fallback perguntasNpcRua:', todas.length);
+            // Retorna array vazio, o quiz mostrará mensagem de erro
+            return [];
         }
         const perguntasJaFeitas = this._carregarPerguntasJaFeitas();
         let disponiveis = todas.filter(q => !perguntasJaFeitas.includes(q.id));
@@ -235,7 +234,7 @@ export default class Quiz {
             console.log('[QUIZ] Todas as perguntas já respondidas, permitindo repetição.');
             disponiveis = [...todas];
         }
-        console.log('[QUIZ] Perguntas disponíveis para sorteio:', disponiveis.length, '| Fallback usado:', fallbackUsado);
+        console.log('[QUIZ] Perguntas disponíveis para sorteio:', disponiveis.length);
         return selecionarTresAleatorias(disponiveis);
     }
 

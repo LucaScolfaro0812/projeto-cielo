@@ -14,11 +14,20 @@ export class CenaMenu extends Phaser.Scene {
         this.load.image('ceu', 'assets/imagens/ambiente/sky-bg.png');
         this.load.image('titulo', 'assets/ui/titulo-jogo.webp');
         this.load.image('loja', 'assets/imagens/lojas/interior/store-bg.webp');
+        if (!this.cache.audio.exists('menuSom')) {
+        this.load.audio('menuSom', 'assets/sons/menuSom.mp3');
+}
     }
 
     create() {
+        this.events.on('shutdown', () => {
+         if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
+        });
         // Fade de entrada partindo do azul Cielo — completa a transição vinda de outra cena
         revelarCena(this);
+        
+        this.somMenu = this.sound.add('menuSom', { loop: true, volume: 0.3 });
+        this.somMenu.play();
 
         const w = this.scale.width;
         const h = this.scale.height;
@@ -91,6 +100,7 @@ export class CenaMenu extends Phaser.Scene {
 
         // Inicia o jogo ao clicar e pede para abrir o tutorial sobre o mapa
         botaoJogar.on('pointerdown', () => {
+            if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             transicionarPara(this, 'gameScene', { mostrarTutorial: true }, 'Iniciando jogo...');
         });
 
@@ -137,6 +147,7 @@ export class CenaMenu extends Phaser.Scene {
 
         // Abre a cena de configurações por cima do menu
         botaoConfiguracoes.on('pointerdown', () => {
+            if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             this.scene.pause();
             this.scene.launch('configScene', { cenaOrigem: this.scene.key });
         });

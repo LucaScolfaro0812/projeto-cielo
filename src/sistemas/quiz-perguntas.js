@@ -827,3 +827,423 @@ export const perguntasNpc = [
         feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
     },
 ];
+
+// ============================================================
+// GAMES
+// ============================================================
+export const perguntasGames = [
+    {
+        id: "games_1",
+        pergunta: "Uma loja de games tem alto volume de vendas no crédito parcelado e o dono quer receber o dinheiro mais rápido. Qual produto Cielo é o mais indicado?",
+        opcoes: [
+            "a) PIX",
+            "b) ARV",
+            "c) Link de Pagamento",
+            "d) Cielo +"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "games_2",
+        pergunta: "O dono de uma loja de games afirma que a maioria dos clientes paga no débito e dinheiro. Qual é a melhor abordagem antes de propor novos produtos Cielo?",
+        opcoes: [
+            "a) Oferecer imediatamente todas as soluções disponíveis",
+            "b) Fazer sondagem para entender o perfil de pagamento dos clientes",
+            "c) Falar das taxas antes de qualquer outra coisa",
+            "d) Encerrar a visita se o cliente já tiver maquininha"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "games_3",
+        pergunta: "Um cliente da loja de games quer vender jogos online e precisa receber de clientes em todo o Brasil sem maquininha física. Qual solução Cielo atende essa necessidade?",
+        opcoes: [
+            "a) Maquininha física",
+            "b) Cielo +",
+            "c) Link de Pagamento",
+            "d) Crediário Cielo"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "games_4",
+        pergunta: "Qual etapa do funil de vendas consiste em entender a necessidade do cliente antes de apresentar qualquer produto?",
+        opcoes: [
+            "a) Fechamento",
+            "b) Pós-venda",
+            "c) Demonstração",
+            "d) Sondagem"
+        ],
+        pontos: [0, 0, 0, 3],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "games_5",
+        pergunta: "A sigla CVBA representa quais etapas da argumentação de vendas?",
+        opcoes: [
+            "a) Cliente, Valor, Benefício, Ação",
+            "b) Custo, Volume, Base, Atendimento",
+            "c) Característica, Vantagem, Benefício, Ação",
+            "d) Conversão, Venda, Bloqueio, Atração"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "games_6",
+        pergunta: "Durante uma visita à loja de games, o cliente apresenta objeção dizendo que as taxas da Cielo são altas. Qual é a melhor resposta?",
+        opcoes: [
+            "a) Concordar e reduzir imediatamente as taxas",
+            "b) Ignorar a objeção e continuar apresentando produtos",
+            "c) Contornar a objeção mostrando o valor agregado dos produtos e serviços Cielo",
+            "d) Encerrar a conversa e retornar outro dia"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];
+
+// ============================================================
+// BELEZA
+// ============================================================
+export const perguntasBeleza = [
+    {
+        id: "beleza_1",
+        pergunta: "Uma proprietária de salão de beleza relata que recebe muitos pagamentos no crédito, mas sente que o dinheiro demora muito para cair na conta. Qual produto Cielo resolve esse problema?",
+        opcoes: [
+            "a) PIX",
+            "b) ARV",
+            "c) Cielo +",
+            "d) Link de Pagamento"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "beleza_2",
+        pergunta: "O salão de beleza quer facilitar o pagamento antecipado de agendamentos sem precisar de maquininha. Qual produto Cielo indicar?",
+        opcoes: [
+            "a) Maquininha com crédito parcelado",
+            "b) Link de Pagamento",
+            "c) Cielo LIO",
+            "d) ARV"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "beleza_3",
+        pergunta: "Na visita ao salão de beleza, a proprietária menciona que o negócio tem pico de faturamento nos finais de semana. Qual etapa do funil garante que você identifique essa informação?",
+        opcoes: [
+            "a) Pré-venda",
+            "b) Abordagem",
+            "c) Sondagem",
+            "d) Fechamento"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "beleza_4",
+        pergunta: "O Vendeu Tá na Conta é mais indicado para salões de beleza porque:",
+        opcoes: [
+            "a) Permite parcelar compras de insumos com fornecedores",
+            "b) Garante que o valor das vendas caia na conta de hora em hora, melhorando o fluxo de caixa",
+            "c) Reduz as taxas de débito para zero",
+            "d) Bloqueia chargebacks automaticamente"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "beleza_5",
+        pergunta: "Durante uma visita de pós-venda ao salão, você percebe que a proprietária não está usando o PIX Cielo que você vendeu. A melhor atitude é:",
+        opcoes: [
+            "a) Ignorar, pois o produto já foi vendido",
+            "b) Ligar para o suporte técnico imediatamente",
+            "c) Entender o motivo da não utilização e apoiar na adoção do produto",
+            "d) Propor a troca por outro produto imediatamente"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "beleza_6",
+        pergunta: "Frase de atração (CVBA) para oferecer o PIX Cielo a um salão de beleza:",
+        opcoes: [
+            "a) Quer comprar agora?",
+            "b) Nossa taxa é a mais barata do mercado",
+            "c) Posso instalar a maquininha hoje mesmo?",
+            "d) O PIX cai na hora, sem taxa para receber, seu caixa melhora imediatamente. Quer ativar agora?"
+        ],
+        pontos: [0, 0, 0, 3],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];
+
+// ============================================================
+// ROUPAS
+// ============================================================
+export const perguntasRoupas = [
+    {
+        id: "roupas_1",
+        pergunta: "Uma loja de roupas tem faturamento alto nas viradas de estação e quer antecipar os recebíveis de crédito parcelado. Qual produto Cielo indicar?",
+        opcoes: [
+            "a) Cielo +",
+            "b) PIX",
+            "c) Link de Pagamento",
+            "d) ARV"
+        ],
+        pontos: [0, 0, 0, 3],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "roupas_2",
+        pergunta: "O proprietário de uma loja de roupas diz que seus clientes preferem pagar parcelado no crédito. Qual argumento fortalece a venda da maquininha Cielo?",
+        opcoes: [
+            "a) A Cielo oferece parcelamento em até 18x, permitindo vender peças de maior valor com prestações acessíveis ao cliente",
+            "b) O PIX substitui o crédito parcelado",
+            "c) O débito é sempre mais vantajoso que o crédito",
+            "d) A Cielo não cobra taxa no crédito parcelado"
+        ],
+        pontos: [3, 0, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "roupas_3",
+        pergunta: "Qual etapa do funil de vendas é responsável pelo planejamento e levantamento antes da visita ao cliente?",
+        opcoes: [
+            "a) Fechamento",
+            "b) Pré-venda",
+            "c) Sondagem",
+            "d) Pós-venda"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "roupas_4",
+        pergunta: "O proprietário da loja de roupas pergunta por que usar o PIX Cielo em vez de transferência bancária comum. A melhor resposta é:",
+        opcoes: [
+            "a) O PIX Cielo tem taxa para receber, mas oferece vantagens exclusivas",
+            "b) A transferência bancária é sempre melhor que o PIX",
+            "c) O PIX Cielo é idêntico a qualquer outro PIX",
+            "d) O PIX Cielo integra os recebimentos diretamente no painel Cielo, facilitando a gestão do caixa"
+        ],
+        pontos: [0, 0, 0, 3],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "roupas_5",
+        pergunta: "A frase 'Receber mais rápido ajuda a repor o estoque antes do próximo final de semana' é um exemplo de qual componente do CVBA?",
+        opcoes: [
+            "a) Característica",
+            "b) Vantagem",
+            "c) Benefício",
+            "d) Ação"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "roupas_6",
+        pergunta: "Nós da Cielo temos três formas de inserir clientes no funil de venda. Quais são?",
+        opcoes: [
+            "a) Lead, PAP e indicação",
+            "b) Lead, marketing e vendas",
+            "c) Indicação, loja e suporte",
+            "d) Marketing, CRM e suporte"
+        ],
+        pontos: [3, 0, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];
+
+// ============================================================
+// FRUTARIA
+// ============================================================
+export const perguntasFrutaria = [
+    {
+        id: "frutaria_1",
+        pergunta: "O dono de uma frutaria relata que 90% dos pagamentos são em dinheiro e gostaria de aumentar suas vendas. Qual produto Cielo é o mais indicado para iniciar a migração para meios digitais?",
+        opcoes: [
+            "a) ARV",
+            "b) Link de Pagamento",
+            "c) Maquininha com PIX e débito",
+            "d) Cielo LIO"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "frutaria_2",
+        pergunta: "A frutaria tem ticket médio baixo e alto volume de clientes. Qual argumento é mais eficaz para convencer o dono a aceitar cartão?",
+        opcoes: [
+            "a) Aceitar cartão aumenta o ticket médio e atrai clientes que não carregam dinheiro",
+            "b) O cartão substitui completamente o dinheiro no caixa",
+            "c) A taxa do débito é zero na Cielo",
+            "d) O cartão só serve para clientes de alto valor"
+        ],
+        pontos: [3, 0, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "frutaria_3",
+        pergunta: "O proprietário da frutaria diz que já tentou aceitar cartão antes mas a maquininha era difícil de usar. Como contornar essa objeção?",
+        opcoes: [
+            "a) Concordar e não insistir na venda",
+            "b) Demonstrar pessoalmente o uso da maquininha Cielo, mostrando sua facilidade e o suporte disponível",
+            "c) Falar mal da concorrência para justificar a diferença",
+            "d) Oferecer desconto imediato nas taxas sem consultar o gestor"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "frutaria_4",
+        pergunta: "Pensando nos passos da visita, planejamento e levantamento fazem parte de qual etapa do funil?",
+        opcoes: [
+            "a) Abordagem",
+            "b) Pré-venda",
+            "c) Fechamento",
+            "d) Pós-venda"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "frutaria_5",
+        pergunta: "Qual produto Cielo permite ao dono da frutaria acompanhar o volume de vendas e os recebimentos pelo celular?",
+        opcoes: [
+            "a) ARV",
+            "b) Link de Pagamento",
+            "c) Cielo +",
+            "d) Crediário Cielo"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "frutaria_6",
+        pergunta: "Frase de atração (CVBA) para o dono da frutaria:",
+        opcoes: [
+            "a) Quer comprar nossa maquininha hoje?",
+            "b) Aceitar cartão e PIX faz seu caixa crescer. Posso ativar agora?",
+            "c) Temos promoção somente essa semana",
+            "d) Você não precisa de maquininha se aceita dinheiro"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];
+
+// ============================================================
+// JOALHERIA
+// ============================================================
+export const perguntasJoalheria = [
+    {
+        id: "joalheria_1",
+        pergunta: "Uma joalheria tem faturamento elevado no crédito parcelado e o proprietário reclama que o dinheiro demora muito para cair. Qual produto Cielo resolve isso?",
+        opcoes: [
+            "a) PIX",
+            "b) Cielo +",
+            "c) ARV",
+            "d) Link de Pagamento"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "joalheria_2",
+        pergunta: "O dono de uma joalheria quer oferecer parcelamento em mais vezes para aumentar o ticket médio. Qual argumento reforça a venda da maquininha Cielo?",
+        opcoes: [
+            "a) A Cielo oferece parcelamento de até 18x, permitindo vender peças de maior valor com prestações acessíveis ao cliente",
+            "b) O PIX substitui o crédito parcelado para compras de alto valor",
+            "c) Parcelar em mais vezes reduz o faturamento da loja",
+            "d) A Cielo não oferece parcelamento acima de 6x"
+        ],
+        pontos: [3, 0, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "joalheria_3",
+        pergunta: "Durante a sondagem em uma joalheria, você descobre que 70% do faturamento é no crédito parcelado. Qual produto complementar ao ARV você poderia oferecer?",
+        opcoes: [
+            "a) Somente a maquininha básica",
+            "b) Vendeu Tá na Conta",
+            "c) Apenas o PIX",
+            "d) Nenhum produto adicional é necessário"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "joalheria_4",
+        pergunta: "Qual etapa do funil de vendas é responsável por apresentar formalmente a solução ao cliente após identificar sua necessidade?",
+        opcoes: [
+            "a) Sondagem",
+            "b) Pré-venda",
+            "c) Demonstração",
+            "d) Pós-venda"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "joalheria_5",
+        pergunta: "O proprietário da joalheria questiona a segurança das transações na maquininha Cielo. A melhor resposta é:",
+        opcoes: [
+            "a) Confirmar que há riscos, mas são mínimos",
+            "b) Explicar que a Cielo possui tecnologia de criptografia e segurança antifraude certificada",
+            "c) Mudar de assunto para evitar constrangimento",
+            "d) Dizer que todos os meios de pagamento têm o mesmo nível de segurança"
+        ],
+        pontos: [0, 3, 0, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+    {
+        id: "joalheria_6",
+        pergunta: "Cite duas argumentações de vendas para fomentar o ARV a um cliente de joalheria com alto volume de crédito parcelado:",
+        opcoes: [
+            "a) Redução de impostos e isenção de taxas",
+            "b) Aumento de estoque e expansão da loja",
+            "c) Giro de caixa e oportunidade de reinvestimento imediato",
+            "d) Fidelização de clientes e redução de chargebacks"
+        ],
+        pontos: [0, 0, 3, 0],
+        feedbackAcerto: "Párabens! você respondeu corretamente",
+        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    },
+];

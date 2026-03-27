@@ -317,6 +317,10 @@ export class CenaCidade extends Phaser.Scene {
 
     // Método executado quando a cena é criada
     create() {
+
+        this.events.on('shutdown', () => {
+         if (this.somCidade && this.somCidade.isPlaying) this.somCidade.stop();
+         });
         // Revela a cena com fade azul Cielo
         revelarCena(this);
 

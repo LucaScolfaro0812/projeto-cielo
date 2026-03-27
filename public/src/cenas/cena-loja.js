@@ -258,6 +258,7 @@ export default class CenaLoja extends Phaser.Scene {
 
         this.objetosFisicos = this.physics.add.staticGroup();
         this._criarMobiliario();
+        this._criarParedesInternas();
 
         // Aplica colisão entre o jogador e os móveis da loja
         this.physics.add.collider(this.player, this.objetosFisicos);
@@ -303,6 +304,31 @@ export default class CenaLoja extends Phaser.Scene {
             this.fundo.displayWidth,
             this.fundo.displayHeight
         );
+    }
+
+    _criarParedesInternas() {
+        this.paredesInternas?.forEach((parede) => parede.destroy());
+        this.paredesInternas = [];
+
+        const largura = this.fundo.displayWidth;
+        const altura = this.fundo.displayHeight;
+        const alturaParedeTopo = Math.max(170, altura * 0.24);
+        const larguraQuina = Math.max(70, largura * 0.05);
+        const alturaQuina = Math.max(120, altura * 0.20);
+
+        const paredes = [
+            { x: largura / 2, y: alturaParedeTopo / 2, w: largura, h: alturaParedeTopo },
+            { x: larguraQuina / 2, y: alturaParedeTopo + alturaQuina / 2, w: larguraQuina, h: alturaQuina },
+            { x: largura - larguraQuina / 2, y: alturaParedeTopo + alturaQuina / 2, w: larguraQuina, h: alturaQuina }
+        ];
+
+        paredes.forEach(({ x, y, w, h }) => {
+            const parede = this.add.rectangle(x, y, w, h);
+            parede.setVisible(false);
+            this.physics.add.existing(parede, true);
+            this.physics.add.collider(this.player, parede);
+            this.paredesInternas.push(parede);
+        });
     }
 
     // Instancia o jogador, o NPC e o sistema de quiz da loja

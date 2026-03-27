@@ -84,6 +84,7 @@ export class CenaCentral extends Phaser.Scene {
             [9, 387, 311, 7],
             [339, 241, 459, 7],
             [462, 394, 2297, 2],
+            [329, 270, 4]
         ];
         this.paredes = paredesData.map(([x1, y1, x2, y2]) => {
             const cx = (x1 + x2) / 2;

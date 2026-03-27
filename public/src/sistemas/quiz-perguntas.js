@@ -10,7 +10,9 @@
 
 // Utilitário para obter perguntas por loja
 export function getPerguntasPorLoja(lojaId) {
-    switch (lojaId) {
+    if (!lojaId) return [];
+    const id = lojaId.toLowerCase();
+    switch (id) {
         case 'movel': return perguntasMovel;
         case 'cafe': return perguntasCafe;
         case 'pet': return perguntasPet;
@@ -18,6 +20,11 @@ export function getPerguntasPorLoja(lojaId) {
         case 'autoescola': return perguntasAutoescola;
         case 'pelucia': return perguntasPelucia;
         case 'chocolate': return perguntasChocolate;
+        case 'games': return perguntasGames;
+        case 'beleza': return perguntasBeleza;
+        case 'roupas': return perguntasRoupas;
+        case 'frutaria': return perguntasFrutaria;
+        case 'joalheria': return perguntasJoalheria;
         default: return [];
     }
 }

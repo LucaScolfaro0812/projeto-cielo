@@ -418,8 +418,9 @@ export default class CenaLoja extends Phaser.Scene {
 
         const perto = distancia < 300;
 
-        // Abre o quiz ao pressionar E perto do NPC, se ele ainda não tiver vendido
-        if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu) {
+        // Abre o quiz ao pressionar E perto do NPC, se ele ainda não tiver vendido e não foi conquistado
+        const quizJaConquistado = this.quiz._npcJaConquistado && this.quiz._npcJaConquistado(this.npc.idNpc);
+        if (perto && Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.npc.vendeu && !quizJaConquistado) {
             this.quiz.iniciar(this.npc);
         }
 

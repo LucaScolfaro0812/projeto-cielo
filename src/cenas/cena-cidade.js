@@ -303,6 +303,9 @@ export class CenaCidade extends Phaser.Scene {
             });
         });
 
+        if (!this.cache.audio.exists('somCidade')) {
+    this.load.audio('somCidade', 'assets/sons/somCidade.mp3');
+}
         // Pré carrega os objetos com uma função estática
         Jogador.preload(this);
         Npc.preload(this);
@@ -317,6 +320,8 @@ export class CenaCidade extends Phaser.Scene {
         // Revela a cena com fade azul Cielo
         revelarCena(this);
 
+        this.somCidade = this.sound.add('somCidade', { loop: true, volume: 0.3 });
+        this.somCidade.play();
         // Adiciona o background da rua na posição (0,0)
         // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
         // setScale(6) amplia a imagem
@@ -610,6 +615,10 @@ export class CenaCidade extends Phaser.Scene {
             }
             
             this.portaCentral.trocarDeCena();
+
+            if (this.somCidade && this.somCidade.isPlaying) {
+            this.somCidade.stop();
+}
         });
 
        
@@ -627,6 +636,10 @@ export class CenaCidade extends Phaser.Scene {
             // definirProximoSpawnCidade('Central'); 
             
             this.portaCentral.trocarDeCena();
+
+            if (this.somCidade && this.somCidade.isPlaying) {
+            this.somCidade.stop();
+}
         });
     }
 
@@ -684,6 +697,10 @@ export class CenaCidade extends Phaser.Scene {
 
             // Só depois de salvar o contexto, troca para a cena interna da loja.
             portaEntrada.trocarDeCena();
+
+            if (this.somCidade && this.somCidade.isPlaying) {
+            this.somCidade.stop();
+}
         });
 
         // retornando a loja criada

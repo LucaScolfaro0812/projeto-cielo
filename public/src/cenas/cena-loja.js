@@ -45,10 +45,9 @@ export default class CenaLoja extends Phaser.Scene {
         this.fundoImage = 'lojaVazia' + this.nomeLoja;
 
         // Mapeia cada loja ao arquivo de som ambiente correspondente.
-        // Lojas sem som ambiente (Lanchonete, Joalheria) simplesmente não aparecem aqui.
         this.somAmbientePorLoja = {
             Autoescola: 'ambienteAutoEscola',
-            Pelucia: 'ambienteBrinquedo',
+            Pelucia: 'ambientePelucia',
             Chocolate: 'ambienteChocolateria',
             Pet: 'ambientePetShop',
             Roupas: 'ambienteRoupas',
@@ -57,6 +56,8 @@ export default class CenaLoja extends Phaser.Scene {
             Frutaria: 'ambienteFrutaria',
             Movel: 'ambienteMóveis',
             Games: 'ambienteVideoGame',
+            Joalheria: 'ambienteJoalheria',
+            Lanchonete: 'ambienteLanchonete'
         };
     }
 
@@ -324,9 +325,7 @@ export default class CenaLoja extends Phaser.Scene {
             Chocolate: perguntasChocolate
         };
 
-
-
-        // Agora: lojas sem perguntas próprias usam perguntasNpcRua como fallback
+        // Lojas sem perguntas próprias usam perguntasNpcRua como fallback
         let perguntasOriginais = perguntasPorLoja[this.nomeLoja];
         let usandoFallbackNpcRua = false;
         if (!perguntasOriginais) {

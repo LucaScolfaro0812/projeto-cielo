@@ -181,32 +181,62 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 1. **Integrante faltar na apresentação**
   Poderemos enfrentar esse risco caso algum membro do grupo se ausente em um dia de apresentação sem aviso prévio aos demais integrantes. Os responsáveis por esse risco são os próprios membros da equipe.  
   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Sempre ter duas pessoas de reserva por apresentação.
+ 
+   **Impacto:** Alto
+  
+    **Probabilidade:** Baixa
+  
+    **Plano de Resposta ao Risco:** Sempre ter duas pessoas de reserva por apresentação.
 
 2. **Falta de testes reais com os gerentes de negócios**
   Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
   **Responsáveis:** Thiago (coordenador da equipe de treinamento)  
-  **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
+
+   **Impacto:** Alto
+
+    **Probabilidade:** Média
+
+    **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
 
 3. **Problemas técnicos**
   Esse risco refere-se à possibilidade de falhas técnicas durante o desenvolvimento, testes ou apresentação do projeto, envolvendo software e hardware. Esses problemas podem incluir bugs, falhas de integração entre sistemas ou módulos, incompatibilidade entre ferramentas, instabilidade da aplicação, perda de dados, baixo desempenho e dificuldades no ambiente de execução (como configurações incorretas, dependências ausentes ou diferenças entre ambientes).  
   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Ter maior cuidado ao modificar o código, realizar testes constantes e manter uma comunicação eficiente entre os membros da equipe.
+
+    **Impacto:** Alto
+
+   **Probabilidade:** Média
+
+   **Plano de Resposta ao Risco:** Ter maior cuidado ao modificar o código, realizar testes constantes e manter uma comunicação eficiente entre os membros da equipe.
 
 4. **Desbalanceamento da dificuldade do jogo**
   O jogo pode apresentar níveis de dificuldade desbalanceados, com partes excessivamente fáceis ou difíceis, comprometendo a experiência do usuário.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
+
+    **Impacto:** Médio
+
+    **Probabilidade:** Alta
+
+    **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
 
 5. **Feedback pouco claro após erros/acertos**
   Devido ao conhecimento limitado sobre os conceitos da Cielo, pode haver dificuldade na elaboração de perguntas e feedbacks claros e eficazes para os gerentes de negócios.  
-  **Responsáveis:** Lyria (analista da Cielo)  
-  **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
+  **Responsáveis:** Lyria (analista da Cielo)
+
+    **Impacto:** Alto
+
+    **Probabilidade:** Baixa
+
+    **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
 
 6. **Não entregar o MVP completo no prazo estipulado**
   Um dos principais riscos do projeto é a não entrega do MVP completo dentro do prazo, possivelmente causada por falta de organização da equipe.  
   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
+
+    **Impacto:** Alto
+
+    **Probabilidade:** Média
+
+    **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
 
 ---
 
@@ -216,22 +246,42 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 1. **Gamificação aumentar a retenção de conhecimento**
   A aplicação de elementos de jogos pode tornar o aprendizado mais engajador, facilitando a compreensão e a memorização do conteúdo.  
   **Responsáveis:** Cielo  
-  **Plano de Resposta ao Risco:** Adicionar elementos como desafios, animações e interações para evitar que o jogo se torne monótono.
+
+    **Impacto:** Alto
+
+    **Probabilidade:** Média
+    
+    **Plano de Resposta ao Risco:** Adicionar elementos como desafios, animações e interações para evitar que o jogo se torne monótono.
 
 2. **Desenvolvimento de soft skills dos membros do grupo**
   Refere-se à oportunidade de desenvolvimento de habilidades comportamentais essenciais, como comunicação, colaboração, organização, gestão de tempo, proatividade e resolução de conflitos.  
   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Incentivar a comunicação e a colaboração entre os integrantes para fortalecer essas habilidades.
+
+    **Impacto:** Alto
+
+    **Probabilidade:**  Alta
+    
+    **Plano de Resposta ao Risco:** Incentivar a comunicação e a colaboração entre os integrantes para fortalecer essas habilidades.
 
 3. **Adicionar todos os itens desejáveis planejados**
   Consiste na implementação de funcionalidades extras previstas, ampliando a experiência do usuário e agregando valor ao projeto, sem comprometer as entregas principais.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Definir prioridades e manter uma organização eficiente para garantir a entrega completa.
+  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo 
+
+    **Impacto:** Alto
+
+    **Probabilidade:** Alta
+
+    **Plano de Resposta ao Risco:** Definir prioridades e manter uma organização eficiente para garantir a entrega completa.
 
 4. **Demonstrar habilidades para uma grande empresa**
   Ao desenvolver o projeto, a equipe terá a oportunidade de demonstrar competências relevantes para o mercado.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
-  **Plano de Resposta ao Risco:** Desenvolver um trabalho de alta qualidade, buscando reconhecimento dos avaliadores da Cielo.
+  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+
+    **Impacto:**  Alta
+
+    **Probabilidade:** Alta
+    
+    **Plano de Resposta ao Risco:** Desenvolver um trabalho de alta qualidade, buscando reconhecimento dos avaliadores da Cielo.
 
 ---
 

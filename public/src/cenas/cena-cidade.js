@@ -308,6 +308,8 @@ export class CenaCidade extends Phaser.Scene {
         Npc.preload(this);
         LojaFisica.preload(this);
         Carro.preload(this);
+
+        
     }
 
     // Método executado quando a cena é criada
@@ -545,7 +547,43 @@ export class CenaCidade extends Phaser.Scene {
         this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
         this.predioCentral.setDepth(1); // Garante que fique na frente do chão
         this.predioCentral.setScale(1.5); // Descomente e ajuste se o prédio ficar muito pequeno
+        // Cria um grupo físico estático para guardar nossas paredes invisíveis
+        this.paredesCentral = this.physics.add.staticGroup();
 
+        // Ajuda nos cálculos das coordenadas (Dimensões scaled da imagem)
+        const totalW = this.predioCentral.displayWidth;
+        const totalH = this.predioCentral.displayHeight;
+        
+        // --- DEFINE AS PAREDES (EU TIVE QUE CHUTAR, VOCÊ PRECISA AJUSTAR) ---
+        // Vamos criar 3 retângulos invisíveis (Top, Left, Right) em volta da porta.
+        // Deixando o centro-baixo limpo para ele passar.
+
+        // Chute de espessura das paredes (scaled)
+        const espessuraParede = 30; 
+
+        // 1. Parede Superior (Teto): Cobre toda a largura em cima
+        const topRect = this.add.rectangle(centralX, (centralY - totalH/1.5) + espessuraParede/2, totalW, espessuraParede);
+        this.paredesCentral.add(topRect);
+
+        // 2. Parede Esquerda (Canto Esquerdo): Cobre a altura lateral até perto da porta
+        // Chute: A parede para a 80% da altura da imagem, deixando 20% livre embaixo.
+        const lateralH = totalH * 0.8; 
+        const lateralW = totalW * 0.4; // Chute: 40% da largura é parede na esquerda
+
+        const leftRect = this.add.rectangle((centralX - totalW/2) + lateralW/2, (centralY - totalH/1.5) + lateralH/2, lateralW, lateralH);
+        this.paredesCentral.add(leftRect);
+
+        // 3. Parede Direita (Canto Direito)
+        const rightRect = this.add.rectangle((centralX + totalW/2) - lateralW/2, (centralY - totalH/1.5) + lateralH/2, lateralW, lateralH);
+        this.paredesCentral.add(rightRect);
+
+        // Oculta os retângulos para não aparecerem no jogo (A física continua ativa)
+        topRect.setVisible(false);
+        leftRect.setVisible(false);
+        rightRect.setVisible(false);
+
+        // Liga a colisão real entre o Marcielo e as "PAREDES" (Não a imagem do prédio)
+        this.physics.add.collider(this.player, this.paredesCentral);
         // 3. Cria a porta invisível bem na base do prédio
         // Se a porta ficar muito no alto, aumente esse valor (ex: +200, +250)
         const portaY = centralY + 180; 
@@ -567,7 +605,6 @@ export class CenaCidade extends Phaser.Scene {
         // Colisão da porta com o jogador
         this.physics.add.overlap(this.portaCentral, this.player, () => {
             if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
-
             if (this.cache.audio.exists('portaAbrindo')) {
                 this.sound.play('portaAbrindo');
             }
@@ -575,17 +612,7 @@ export class CenaCidade extends Phaser.Scene {
             this.portaCentral.trocarDeCena();
         });
 
-        // 4. Colisão da porta com o jogador
-        this.physics.add.overlap(this.portaCentral, this.player, () => {
-            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
-
-            if (this.cache.audio.exists('portaAbrindo')) {
-                this.sound.play('portaAbrindo');
-            }
-            
-            this.portaCentral.trocarDeCena();
-        });
-
+       
         // Colisão com o jogador
         this.physics.add.overlap(this.portaCentral, this.player, () => {
             
@@ -800,12 +827,13 @@ export class CenaCidade extends Phaser.Scene {
     // Método executado a cada frame do jogo
     update() {
 
-        // Atualiza lógica de movimentação e estado do jogador
         this.player.update();
 
-        if (this.porta) {
-            this.porta.update();
+        if (this.portaCentral) {
+            this.portaCentral.update();
         }
+        
+        
 
         if (this.portasPorNomeLoja) {
             Object.values(this.portasPorNomeLoja).forEach(porta => {

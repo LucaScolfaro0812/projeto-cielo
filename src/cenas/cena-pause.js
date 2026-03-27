@@ -4,6 +4,7 @@
  * Oferece três opções: continuar o jogo, iniciar um novo jogo ou voltar ao menu principal.
  */
 import { transicionarPara } from '../utilitarios/transicao-cena.js';
+import { Maquininhas } from "../sistemas/maquininhas.js";
 
 export class CenaPausa extends Phaser.Scene {
 
@@ -62,6 +63,7 @@ export class CenaPausa extends Phaser.Scene {
             localStorage.removeItem('npcsConquistadosIds');
             localStorage.removeItem('perguntasJaFeitas');
             localStorage.removeItem('maquininhas');
+            Maquininhas.definirMaquininhas(0);
 
 
             // Para a cena pausada e inicia novo jogo com fade azul Cielo

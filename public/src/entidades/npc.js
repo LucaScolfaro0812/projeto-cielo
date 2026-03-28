@@ -47,6 +47,14 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         this.idNpc = idNpc;
     }
 
+    /**
+     * Atualiza a textura do NPC conforme o resultado da negociação.
+     * - "conquistado": exibe textura azul (cliente convertido)
+     * - "nao-conquistado": exibe textura vermelha (cliente perdido)
+     * - qualquer outro valor: exibe textura neutra (sem interação)
+     * O sufixo da loja é adicionado ao nome da textura para usar o sprite correto de cada loja.
+     * @param {string} estado - "conquistado" | "nao-conquistado" | outro
+     */
     setVisualConquista(estado) {
         const sufixoLoja = this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja;
         const texturaPadrao = "npc" + sufixoLoja;
@@ -61,6 +69,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
             this.setTexture(texturaPadrao);
         }
 
+        // Atualiza a chave de imagem usada no quiz para refletir o novo visual
         this.chaveImagemNpc = this.texture.key;
     }
 
@@ -79,16 +88,25 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         scene.load.image("npc-vermelho" + scene.nomeLoja, "assets/sprites/personagens/npcVermelho" + scene.nomeLoja + ".png");
     }
 
+    /**
+     * Aplica o visual de NPC conquistado (textura azul) e dispara a animação de confetes.
+     * Chamado pelo Quiz após confirmar que o NPC foi conquistado.
+     */
     visualConquistado() {
         const nomeTextura = "npc-azul" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja);
         if (this.scene.textures.exists(nomeTextura)) {
             this.setTexture(nomeTextura);
         }
 
-        // Animacao de confetes
+        // Animacao de confetes para celebrar a conquista
         this.lancarConfetes();
     }
 
+    /**
+     * Dispara 80 confetes coloridos em animação ao redor do NPC.
+     * Cada confete é um retângulo com cor aleatória, tamanho aleatório e trajetória aleatória.
+     * O tween anima posição, rotação e transparência — ao terminar, o confete é destruído.
+     */
     lancarConfetes() {
         const cores = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff, 0xffa500];
         const totalConfetes = 80;
@@ -96,7 +114,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         for (let i = 0; i < totalConfetes; i++) {
             const cor = cores[Phaser.Math.Between(0, cores.length - 1)];
 
-            // Cria um retangulo colorido como confete
+            // Cria um retangulo colorido como confete na posição do NPC
             const confete = this.scene.add.rectangle(
                 this.x,
                 this.y,
@@ -105,7 +123,7 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
                 cor
             );
 
-            // Animacao de cada confete
+            // Anima o confete: ele se afasta do NPC, gira e desaparece
             this.scene.tweens.add({
                 targets: confete,
                 x: this.x + Phaser.Math.Between(-150, 150),
@@ -121,6 +139,10 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
+    /**
+     * Aplica o visual de NPC não conquistado (textura vermelha).
+     * Chamado pelo Quiz quando o jogador perde a negociação.
+     */
     visualNaoConquistado() {
         this.setTexture("npc-vermelho" + (this.cena.nomeLoja === undefined ? "" : this.cena.nomeLoja));
     }

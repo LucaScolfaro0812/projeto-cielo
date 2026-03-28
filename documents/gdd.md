@@ -1317,6 +1317,8 @@ Tela inicial com opções de navegação, incluindo botão “Jogar” e configu
 
 Figura 2 – Tela de tutorial
 
+![alt text](../public/assets/imagens/tutorial2.png)
+
 Apresentação das instruções do jogo antes do início da gameplay.
 
 Figura 3 – Mapa da cidade
@@ -1343,33 +1345,41 @@ Figura 6 – Entrada em uma loja
 
 ![alt text](image-6.png)
 
-Momento em que o jogador acessa o interior de uma loja.
-
-Figura 7 – Popup de informações do cliente
-
-Tela exibida ao entrar na loja, apresentando detalhes do NPC antes da interação.
+Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
 
 Figura 8 – Sistema de quiz
+
+![alt text](image-7.png)
 
 Interface de perguntas e respostas utilizada na interação com o cliente.
 
 Figura 9 – Feedback positivo (cliente conquistado)
 
+![alt text](<image-8.png>)
+
 Exemplo de sucesso no quiz, indicando conversão do cliente.
 
 Figura 10 – Feedback negativo (cliente não conquistado)
+
+![alt text](<image-9.png>)
 
 Exemplo de falha na interação, mostrando a penalização.
 
 Figura 11 – NPC com visual alterado (conquistado)
 
+![alt text](image-10.png)
+
 Mudança visual do personagem (cor azul) após ser conquistado.
 
 Figura 12 – Loja com balões animados
 
+![alt text](image-11.png)
+
 Indicação visual no mapa de que a loja foi concluída.
 
 Figura 13 – Menu de pausa
+
+![alt text](image-12.png)
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 

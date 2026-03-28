@@ -339,12 +339,12 @@ O Sprint 4 teve como foco consolidar e aprimorar a experiência do jogador, torn
 | Objetivo | Indicador                        | Meta         | Resultado Alcançado | Status         |
 |----------|----------------------------------|--------------|---------------------|----------------|
 | Obj. 1   | Mecânicas                        | ≥ 7          |          5          |Não alcançado   |
-| Obj. 2   | Animações                        | ≥ 5          |          3          |Não alcançado   |
-| Obj. 3   | Sons                             | ≥ 13         |          20         |Alcançado       |
-| Obj. 4   | HUDs implementados               | ≥2 HUDs      |          2          |Alcançado       |
-| Obj. 5   | Menu de configurações funcional  |  100%        |          80%        |Não alcançado   |
-| Obj. 6   | Tempo médio de sessão            | +20%         |         +30%        |Não alcançado   |
-| Obj. 7   | Satisfação dos usuários          | ≥ 4,0        |          3          |Não alcançado   |
+| Obj. 1   | Animações                        | ≥ 5          |          3          |Não alcançado   |
+| Obj. 1   | Sons                             | ≥ 13         |          20         |Alcançado       |
+| Obj. 1   | HUDs implementados               | ≥2 HUDs      |          2          |Alcançado       |
+| Obj. 1   | Menu de configurações funcional  |  100%        |          80%        |Não alcançado   |
+| Obj. 1   | Tempo médio de sessão            | +20%         |         +30%        |Não alcançado   |
+| Obj. 1   | Satisfação dos usuários          | ≥ 4,0        |          3          |Não alcançado   |
 
 ---
 

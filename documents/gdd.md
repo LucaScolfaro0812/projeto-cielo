@@ -1324,7 +1324,7 @@ O sistema preserva o estado da partida ao ser ativado.
 
 Figura 1 – Menu inicial do jogo
 
-![alt text](image-1.png)
+![alt text](assets/image-1.png)
 
 Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
 
@@ -1336,63 +1336,63 @@ Apresentação das instruções do jogo antes do início da gameplay.
 
 Figura 3 – Mapa da cidade
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 Ambiente principal do jogo onde o jogador se movimenta livremente.
 
 Figura 4 – Base da Cielo (coleta de maquininhas)
 
-![alt text](image-3.png)
+![alt text](assets/image-3.png)
 
-![alt text](image-4.png)
+![alt text](assets/image-4.png)
 
 Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
 
 Figura 5 – HUD de progresso dos NPCs
 
-![alt text](image-5.png)
+![alt text](assets/image-5.png)
 
 Interface que exibe quais clientes já foram conquistados pelo jogador.
 
 Figura 6 – Entrada em uma loja
 
-![alt text](image-6.png)
+![alt text](assets/image-6.png)
 
 Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
 
 Figura 8 – Sistema de quiz
 
-![alt text](image-7.png)
+![alt text](assets/image-7.png)
 
 Interface de perguntas e respostas utilizada na interação com o cliente.
 
 Figura 9 – Feedback positivo (cliente conquistado)
 
-![alt text](<image-8.png>)
+![alt text](assets/image-8.png)
 
 Exemplo de sucesso no quiz, indicando conversão do cliente.
 
 Figura 10 – Feedback negativo (cliente não conquistado)
 
-![alt text](<image-9.png>)
+![alt text](assets/image-9.png)
 
 Exemplo de falha na interação, mostrando a penalização.
 
 Figura 11 – NPC com visual alterado (conquistado)
 
-![alt text](image-10.png)
+![alt text](assets/image-10.png)
 
 Mudança visual do personagem (cor azul) após ser conquistado.
 
 Figura 12 – Loja com balões animados
 
-![alt text](image-11.png)
+![alt text](assets/image-11.png)
 
 Indicação visual no mapa de que a loja foi concluída.
 
 Figura 13 – Menu de pausa
 
-![alt text](image-12.png)
+![alt text](assets/image-12.png)
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 

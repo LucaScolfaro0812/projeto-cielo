@@ -1331,10 +1331,11 @@ Figura 4 – Base da Cielo (coleta de maquininhas)
 
 ![alt text](image-4.png)
 
-
 Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
 
 Figura 5 – HUD de progresso dos NPCs
+
+![alt text](image-5.png)
 
 Interface que exibe quais clientes já foram conquistados pelo jogador.
 

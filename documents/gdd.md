@@ -1311,7 +1311,10 @@ O sistema preserva o estado da partida ao ser ativado.
 
 Figura 1 – Menu inicial do jogo
 
+![alt text](image-1.png)
+
 Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
+
 
 Figura 2 – Tela de tutorial
 

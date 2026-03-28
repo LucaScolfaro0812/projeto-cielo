@@ -1315,16 +1315,22 @@ Figura 1 – Menu inicial do jogo
 
 Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
 
-
 Figura 2 – Tela de tutorial
 
 Apresentação das instruções do jogo antes do início da gameplay.
 
 Figura 3 – Mapa da cidade
 
+![alt text](image-2.png)
+
 Ambiente principal do jogo onde o jogador se movimenta livremente.
 
 Figura 4 – Base da Cielo (coleta de maquininhas)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
 
 Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
 

@@ -289,95 +289,109 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 A matriz de riscos foi utilizada de forma ativa ao longo do projeto, permitindo à equipe antecipar ameaças, planejar respostas e aproveitar oportunidades. O acompanhamento contínuo dos riscos contribuiu para a organização do grupo, a entrega do MVP no prazo e a elevação da qualidade do produto final. A análise sistemática dos riscos, aliada à comunicação eficiente e à definição clara de responsabilidades, foi fundamental para o sucesso do desenvolvimento e para a superação dos principais desafios enfrentados.
 
+
+
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-**Descrição geral:**
-Este sprint teve como foco aprimorar a experiência do jogador, tornando o jogo mais divertido e dinâmico por meio de melhorias estruturais e validação com usuários.
+Os Objetivos, Metas e Indicadores são ferramentas essenciais de gestão em projetos. Os objetivos definem o que se deseja alcançar de forma ampla e estratégica. As metas detalham esses objetivos em resultados específicos, mensuráveis, alcançáveis, relevantes e temporais (SMART). Já os indicadores permitem acompanhar o progresso e avaliar o sucesso das ações implementadas, fornecendo dados concretos para tomada de decisão e melhoria contínua.
+
+**Descrição geral:**  
+O Sprint 4 teve como foco consolidar e aprimorar a experiência do jogador, tornando o jogo mais dinâmico, acessível e engajador. Foram priorizadas melhorias estruturais, novas funcionalidades (como HUDs, sistema de sons e configurações), além da validação contínua com usuários reais para garantir alinhamento com as necessidades do público-alvo.
 
 ---
 
-#### 🔹 Objetivo 1:
+#### 🔹 Objetivo 1: Tornar o jogo mais divertido, dinâmico e acessível
 
-Deixar o jogo mais divertido e dinâmico.
-
-- **Meta (SMART):**<br>
-  _Específica:_ Melhorar a experiência do jogador com a adição de novas mecânicas, animações e efeitos sonoros, além de validar a percepção dos usuários.<br>
-  _Mensurável:_ Implementar melhorias técnicas e alcançar indicadores positivos de engajamento e satisfação.<br>
-  _Alcançável:_ Utilizando os recursos da equipe de desenvolvimento e testes com usuários.<br>
-  _Relevante:_ Aumenta a retenção, engajamento e qualidade da experiência no jogo.<br>
-  _Temporal:_ Concluir até o final da Sprint 4.
+- **Meta (SMART):**
+  - _Específica:_ Implementar novas mecânicas, HUDs informativos, sistema de sons, menu de configurações e aprimorar o feedback visual e sonoro, validando a experiência com usuários.
+  - _Mensurável:_ Atingir metas quantitativas de funcionalidades, engajamento e satisfação.
+  - _Alcançável:_ Utilizando os recursos da equipe, testes internos e feedback de usuários reais.
+  - _Relevante:_ Melhora a retenção, o engajamento e a qualidade do aprendizado no jogo.
+  - _Temporal:_ Concluir até o final da Sprint 4.
 
 - **Indicadores de desempenho (Key Results):**
-  - Indicador 1: Número de mecânicas implementadas
-    - Fórmula/forma de medição: Contagem de mecânicas adicionadas ao jogo
-    - Meta esperada: Aumentar de 4 para no mínimo 7 mecânicas
-
-  - Indicador 2: Número de animações adicionadas
-    - Fórmula/forma de medição: Contagem de animações implementadas
-    - Meta esperada: ≥ 5 animações
-
-  - Indicador 3: Número de efeitos sonoros implementados
-    - Fórmula/forma de medição: Contagem de efeitos sonoros distintos no jogo
-    - Meta esperada: ≥ 13 efeitos sonoros (mínimo de 1 por ambiente)
-
-  - Indicador 4: Tempo médio de sessão dos jogadores
-    - Fórmula/forma de medição: Média de tempo (em minutos) por sessão de jogo
-    - Meta esperada: Aumento de ≥ 20% em relação ao sprint anterior
-
-  - Indicador 5: Índice de satisfação dos usuários
-    - Fórmula/forma de medição: Média das avaliações em testes (escala de 1 a 5)
-    - Meta esperada: ≥ 4,0
+  - **KR1:** Número de mecânicas implementadas  
+    _Medição:_ Contagem de mecânicas novas (ex: HUDs, quizzes, configurações, sons, etc.)  
+    _Meta:_ ≥ 7 mecânicas
+  - **KR2:** Número de animações adicionadas  
+    _Medição:_ Contagem de animações implementadas  
+    _Meta:_ ≥ 5 animações
+  - **KR3:** Número de efeitos sonoros distintos  
+    _Medição:_ Contagem de efeitos sonoros únicos no jogo  
+    _Meta:_ ≥ 13 sons
+  - **KR4:** Implementação dos HUDs informativos  
+    _Medição:_ HUD de NPCs coletados com feedback visual em tempo real e HUD de maquininhas funcionando corretamente  
+    _Meta:_ Ambos HUDs implementados e validados em testes
+  - **KR5:** Funcionalidade do menu de configurações  
+    _Medição:_ Ajuste de volume, ativação/desativação de sons e reinício de progresso funcionando  
+    _Meta:_ Todas opções disponíveis e testadas
+  - **KR6:** Tempo médio de sessão dos jogadores  
+    _Medição:_ Média de tempo (em minutos) por sessão  
+    _Meta:_ Aumento de ≥ 20% em relação ao sprint anterior
+  - **KR7:** Índice de satisfação dos usuários  
+    _Medição:_ Média das avaliações em testes (escala de 1 a 5)  
+    _Meta:_ ≥ 4,0
 
 ---
 
 ### 📊 Resumo dos Indicadores do Sprint
 
-| Objetivo | Indicador               | Meta  | Resultado Alcançado | Status |
-| -------- | ----------------------- | ----- | ------------------- | ------ |
-| Obj. 1   | Mecânicas               | ≥ 7   |          4          |Não alcançada|
-| Obj. 1   | Animações               | ≥ 5   |          3          |Não alcançada|
-| Obj. 1   | Sons                    | ≥ 13  |          20         |Alcançada|
-| Obj. 1   | Tempo médio de sessão   | +20%  |                     |        |
-| Obj. 1   | Satisfação dos usuários | ≥ 4,0 |                     |        |
+| Objetivo | Indicador                        | Meta         | Resultado Alcançado | Status         |
+|----------|----------------------------------|--------------|---------------------|----------------|
+| Obj. 1   | Mecânicas                        | ≥ 7          |                     |                |
+| Obj. 1   | Animações                        | ≥ 5          |                     |                |
+| Obj. 1   | Sons                             | ≥ 13         |                     |                |
+| Obj. 1   | HUDs implementados               | 2 HUDs       |                     |                |
+| Obj. 1   | Menu de configurações funcional  | 100%         |                     |                |
+| Obj. 1   | Tempo médio de sessão            | +20%         |                     |                |
+| Obj. 1   | Satisfação dos usuários          | ≥ 4,0        |                     |                |
 
 ---
 
 ### 📌 Observações
 
-Além das entregas técnicas, este sprint passou a considerar indicadores de impacto no usuário, permitindo avaliar não apenas o que foi desenvolvido, mas também a efetividade das melhorias na experiência do jogador. Esses dados servirão como base para decisões mais estratégicas nos próximos sprints.
+- Os indicadores foram definidos para garantir não só a entrega técnica, mas também a efetividade das melhorias na experiência do jogador.
+- A validação com usuários reais foi fundamental para ajustar funcionalidades e priorizar o que realmente gera valor para o público-alvo.
+- O acompanhamento desses indicadores serve de base para decisões estratégicas nos próximos sprints, promovendo melhoria contínua do produto.
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
 Esta seção apresenta os requisitos do sistema, organizados em requisitos funcionais (RF) e requisitos não funcionais (RNF). Os requisitos funcionais descrevem as funcionalidades e comportamentos que o sistema deve oferecer ao usuário. Já os requisitos não funcionais definem características de qualidade e restrições do sistema, como desempenho, usabilidade e ambiente de execução. As tabelas a seguir detalham cada um desses requisitos, identificados por código e acompanhados de suas respectivas descrições.
 
+
 ### 1.2.1. Requisitos Funcionais
 
-| ID   | Requisito Funcional                | Descrição                                                                                                                                                                                                                                                                                                                                        |
-| ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| RF01 | Menu inicial                       | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                                                       |
-| RF02 | Menu de configurações e novo jogo  | O sistema deve disponibilizar um menu de configurações com opção para ajustar o volume do jogo e um botão de novo jogo, responsável por iniciar uma nova partida apagando os dados do jogo anterior.                                                                                                                                             |
-| RF03 | Progresso da sessão                | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação.                                                                                                                                                                                                                   |
-| RF04 | Tutorial inicial                   | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistema de pontuação antes da primeira partida.                                                                                                                                                                        |
-| RF05 | Sistema de quizzes de negociação   | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido.                                            |
-| RF06 | Sistema de variáveis do cliente    | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                                                                                     |
-| RF07 | Sistema de pontuação               | O sistema deve calcular automaticamente a pontuação considerando escolhas do quiz e estado de humor do cliente ao final da interação.                                                                                                                                                                                                            |
-| RF08 | Painel de desempenho em tempo real | O sistema deve exibir painel visual com indicadores da partida atual, incluindo pontuação, status do cliente e progresso do jogador, sendo reiniciado ao final da sessão.                                                                                                                                                                        |
-| RF09 | Interação com NPCs                 | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                                                                                                                                      |
-| RF10 | Navegação em mundo aberto          | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                                                                                                                                                  |
-| RF11 | Sistema de feedback educativo      | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
+| ID   | Requisito Funcional                | Descrição                                                                                                                                                                                                                                                                                                                                                      |
+| ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RF01 | Menu inicial                       | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                             |
+| RF02 | Menu de configurações              | O sistema deve disponibilizar um menu de configurações acessível a partir do menu inicial, permitindo ajustar o volume dos sons do jogo, ativar/desativar efeitos sonoros e redefinir o progresso (novo jogo).                                                                                                         |
+| RF03 | Progresso da sessão                | O sistema deve manter o progresso do jogador apenas durante a sessão ativa, sem persistência após o encerramento da aplicação.                                                                                                                                                                                         |
+| RF04 | Tutorial inicial                   | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistemas de HUD antes da primeira partida.                                                                                                                                                   |
+| RF05 | Sistema de quizzes de negociação   | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas com 4 opções de resposta (1 correta). O jogador conquista o cliente ao acertar pelo menos 2 perguntas; caso erre 2, a negociação falha e o cliente é perdido.                |
+| RF06 | Sistema de variáveis do cliente    | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                     |
+| RF07 | HUD de NPCs coletados              | O sistema deve exibir um HUD visual que mostra em tempo real a quantidade de NPCs coletados/interagidos, com feedback de cores atualizado conforme o progresso do jogador.                                                                                                       |
+| RF08 | HUD de maquininhas                 | O sistema deve exibir um HUD visual indicando a quantidade de maquininhas que o personagem Marcielo está carregando para realizar vendas, atualizando em tempo real conforme as ações do jogador.                                                                                |
+| RF09 | Sistema de sons                    | O sistema deve reproduzir efeitos sonoros distintos para diferentes ações e ambientes do jogo, permitindo ajuste de volume e ativação/desativação pelo menu de configurações.                                                                                                   |
+| RF10 | Interação com NPCs                 | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                                                                      |
+| RF11 | Navegação em mundo aberto          | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                                                                                  |
+| RF12 | Sistema de feedback educativo      | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
+
 
 ### 1.2.2. Requisitos Não Funcionais
 
-| ID    | Requisito Não Funcional    | Descrição                                                                                                                                                   |
-| ----- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RNF01 | Ambiente gráfico           | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
-| RNF02 | Plataforma de execução     | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                |
-| RNF03 | Usabilidade e linguagem    | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                     |
-| RNF04 | Interface do usuário       | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador.                                          |
-| RNF05 | Identidade visual          | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto.                                       |
-| RNF06 | Acessibilidade             | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários.                         |
-| RNF07 | Desempenho                 | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                          |
-| RNF08 | Acessibilidade operacional | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                           |
+| ID    | Requisito Não Funcional        | Descrição                                                                                                                                                   |
+| ----- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RNF01 | Ambiente gráfico               | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
+| RNF02 | Plataforma de execução         | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                |
+| RNF03 | Usabilidade e linguagem        | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                     |
+| RNF04 | Interface do usuário           | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador.                                          |
+| RNF05 | Identidade visual              | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto.                                       |
+| RNF06 | Acessibilidade                 | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários.                         |
+| RNF07 | Desempenho                     | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                          |
+| RNF08 | Acessibilidade operacional     | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                           |
+| RNF09 | Experiência sonora             | O sistema deve garantir que os efeitos sonoros sejam claros, não intrusivos e ajustáveis pelo usuário, contribuindo para a imersão e acessibilidade.       |
+| RNF10 | Feedback visual em tempo real  | O sistema deve fornecer feedback visual imediato e dinâmico nos HUDs de NPCs coletados e maquininhas, facilitando o acompanhamento do progresso pelo jogador. |
+| RNF11 | Personalização básica           | O sistema deve permitir ao usuário personalizar configurações básicas, como volume de som e reinício do progresso, de forma simples e acessível.           |
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 

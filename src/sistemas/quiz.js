@@ -57,19 +57,30 @@ export default class Quiz {
         // Permite customização futura do tempo por pergunta
         this.tempoPorPergunta = TEMPO_PADRAO_POR_PERGUNTA;
     }
-    // Carrega do localStorage a lista de NPCs que já abriram o quiz anteriormente
+    /**
+     * Carrega do localStorage a lista de IDs de NPCs que já abriram o quiz anteriormente.
+     * Retorna array vazio se não houver dados ou se o dado salvo não for um array.
+     * @returns {string[]}
+     */
     _carregarNpcsQuizAbertos() {
         const lista = carregarDados(chavesArmazenamento.npcsQuizAbertos, []);
         return Array.isArray(lista) ? lista : [];
     }
 
-    // Verifica se um NPC específico já abriu o quiz (pelo seu ID)
+    /**
+     * Verifica se um NPC específico já iniciou o quiz pelo menos uma vez.
+     * @param {string} idNpc - ID do NPC a verificar
+     * @returns {boolean}
+     */
     _npcJaAbriuQuiz(idNpc) {
         if (!idNpc) return false;
         return this._carregarNpcsQuizAbertos().includes(idNpc);
     }
 
-    // Registra no localStorage que um NPC abriu o quiz, evitando duplicatas
+    /**
+     * Registra no localStorage que um NPC abriu o quiz, evitando duplicatas.
+     * @param {string} idNpc - ID do NPC a marcar
+     */
     _marcarNpcQuizComoAberto(idNpc) {
         if (!idNpc) return;
         const lista = this._carregarNpcsQuizAbertos();
@@ -79,13 +90,20 @@ export default class Quiz {
         }
     }
 
-    //  busca no localStorage a lista de perguntas já feitas, garantindo que sempre retorna um array.
+    /**
+     * Busca no localStorage a lista de IDs de perguntas já respondidas pelo jogador.
+     * Garante que sempre retorna um array, mesmo se o dado salvo estiver corrompido.
+     * @returns {string[]}
+     */
     _carregarPerguntasJaFeitas() {
         const lista = carregarDados(chavesArmazenamento.perguntasJaFeitas, []);
         return Array.isArray(lista) ? lista : [];
     }
 
-    // adiciona o id de uma pergunta ao array salvo, evitando duplicatas, e salva de volta no localStorage.
+    /**
+     * Registra o ID de uma pergunta como já respondida, evitando repetição no mesmo ciclo.
+     * @param {string} perguntaId - ID da pergunta a marcar
+     */
     _salvarPerguntaFeita(perguntaId) {
         if (!perguntaId) return;
         const lista = this._carregarPerguntasJaFeitas();
@@ -95,19 +113,29 @@ export default class Quiz {
         }
     }
 
-    // Carrega do localStorage a lista de IDs de NPCs já conquistados pelo jogador
+    /**
+     * Carrega do localStorage a lista de IDs de NPCs já conquistados pelo jogador.
+     * @returns {string[]}
+     */
     _carregarNpcsConquistadosIds() {
         const lista = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
         return Array.isArray(lista) ? lista : [];
     }
 
-    // Verifica se um NPC já foi conquistado pelo jogador (pelo seu ID)
+    /**
+     * Verifica se um NPC já foi conquistado pelo jogador.
+     * @param {string} idNpc - ID do NPC a verificar
+     * @returns {boolean}
+     */
     _npcJaConquistado(idNpc) {
         if (!idNpc) return false;
         return this._carregarNpcsConquistadosIds().includes(idNpc);
     }
 
-    // Registra no localStorage que um NPC foi conquistado, evitando duplicatas
+    /**
+     * Registra no localStorage que um NPC foi conquistado, evitando duplicatas.
+     * @param {string} idNpc - ID do NPC a marcar como conquistado
+     */
     _marcarNpcComoConquistado(idNpc) {
         if (!idNpc) return;
         const lista = this._carregarNpcsConquistadosIds();
@@ -359,7 +387,8 @@ export default class Quiz {
         // Atualiza pontuação total
         this.pontuacaoTotal += pontos;
 
-        // Ajusta nível de conversão conforme desempenho
+        // Ajusta nível de conversão conforme a qualidade da resposta:
+        // 3 pts (excelente) → +30 | 2 pts (boa) → +10 | 1 pt (neutra) → sem mudança | 0 pts (incorreta) → -50
         if (pontos === 3)
             this.nivelConversao += PONTOS_CONVERSAO_EXCELENTE;
         else if (pontos === 2)
@@ -383,6 +412,11 @@ export default class Quiz {
         this.proximaPergunta();
     }
 
+    /**
+     * Incrementa o contador total de NPCs conquistados no localStorage.
+     * Usa merge com estado inicial para garantir estrutura consistente mesmo
+     * se o dado salvo estiver incompleto ou ausente.
+     */
     _salvarProgressoNpcConquistado() {
         // 1) Cria base segura de progresso caso não exista nada salvo.
         const progressoInicial = criarEstadoProgressoInicial();

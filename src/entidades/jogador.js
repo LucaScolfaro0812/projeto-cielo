@@ -45,6 +45,11 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.somPassos = null;
     }
 
+    /**
+     * Retorna o multiplicador de velocidade configurado pelo jogador nas configurações.
+     * O valor varia entre 0.6 (devagar) e 1.4 (rápido), padrão 1.
+     * @returns {number}
+     */
     _obterMultiplicadorVelocidade() {
         return carregarConfiguracoesJogo().velocidadeMarcielo;
     }
@@ -92,6 +97,14 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this._movimentar();
     }
 
+    /**
+     * Lê as teclas pressionadas, calcula a direção de movimento e aplica ao corpo físico.
+     *
+     * Para evitar que o jogador ande mais rápido na diagonal (problema clássico de movimento 8 direções),
+     * o vetor de força é normalizado antes de multiplicar pela velocidade:
+     * se forca = [-1, -1] (diagonal), o módulo seria √2 ≈ 1.41, mas após dividir pelo módulo
+     * o vetor vira [-0.707, -0.707], mantendo o comprimento total igual a 1.
+     */
     _movimentar() {
         this.setVelocity(0);
 
@@ -121,6 +134,8 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             movendo = true;
         }
 
+        // Normalização: calcula o comprimento do vetor e divide cada componente por ele,
+        // garantindo velocidade constante em qualquer direção (inclusive diagonais)
         const modulo = Math.sqrt(forca[0] * forca[0] + forca[1] * forca[1]);
 
         if (modulo > 0) {
@@ -128,6 +143,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             forca[1] /= modulo;
         }
 
+        // Aplica a velocidade configurada ao vetor já normalizado
         forca[0] *= this.velocidade;
         forca[1] *= this.velocidade;
 
@@ -251,6 +267,11 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
+    /**
+     * Chamado quando o jogador colide com um carro.
+     * Para o som de passos, reinicia a cena cidade e zera as maquininhas
+     * (o jogador precisa recarregar na Central ao voltar).
+     */
     morreu() {
         if (this.somPassos && this.somPassos.isPlaying) {
             this.somPassos.stop();

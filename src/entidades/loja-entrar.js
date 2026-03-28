@@ -56,10 +56,12 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
     }
 
     /**
-     * Função update da própria porta: calcula distância do Marcielo e decide se abre
+     * Atualiza o estado da animação da porta a cada frame.
+     * Máquina de dois estados: aberta (animação tocando) e fechada (frame 0).
+     * A trava `portaAberta` evita chamar `play` repetidamente a cada frame enquanto
+     * o jogador permanece na área de ativação.
      */
     update() {
-        /// 1. Pega o jogador diretamente da cena principal
         const jogador = this.scene.player;
 
         if (!jogador || this.trocaDeCenaEmAndamento) return;
@@ -67,29 +69,31 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
         const distanciaParaAtivar = 300;
         const dist = Phaser.Math.Distance.Between(jogador.x, jogador.y, this.x, this.y);
 
-        // 4. Lógica da Animação Corrigida
         if (dist < distanciaParaAtivar) {
-            // Só manda abrir se ela ainda não estiver marcada como aberta
+            // Jogador dentro da área: abre a porta (só dispara a animação uma vez)
             if (!this.portaAberta) {
                 this.play('abrir_porta_roll');
-                this.portaAberta = true; // Aciona a trava!
+                this.portaAberta = true;
             }
         } else {
-            // Longe da porta: reseta tudo
+            // Jogador saiu da área: fecha a porta e reseta para o próximo uso
             if (this.portaAberta) {
                 this.stop();
-                this.setFrame(0); // Volta pro frame zero (fechada)
-                this.portaAberta = false; // Tira a trava para a próxima vez
+                this.setFrame(0);
+                this.portaAberta = false;
             }
         }
         if (this.portaCentral) {
-            this.portaCentral.update(); 
+            this.portaCentral.update();
         }
     }
+
     /**
-     * Realiza a troca de cena utilizando o Scene Manager do Phaser
+     * Realiza a troca de cena utilizando o Scene Manager do Phaser.
+     * Para a cena da cidade (gameScene), passa o parâmetro `mostrarTutorial: false`
+     * para não reexibir o tutorial quando o jogador retorna de uma loja.
      */
-   trocarDeCena() {
+    trocarDeCena() {
         if (this.proximaCenaNome === 'gameScene') {
             this.scene.scene.start(this.proximaCenaNome, { mostrarTutorial: false });
             return;

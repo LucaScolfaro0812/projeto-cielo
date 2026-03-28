@@ -1,6 +1,6 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
-import { definirProximoSpawnCidade, consumirSpawnCidade } from "../utilitarios/estado-jogo.js";
+import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
 import { Maquininhas } from '../sistemas/maquininhas.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
@@ -79,7 +79,9 @@ export class CenaCentral extends Phaser.Scene {
         this.physics.add.collider(this.player, this.planta);
         this.physics.add.collider(this.player, this.computador);
 
-        // Paredes invisíveis
+        // Paredes invisíveis que delimitam as bordas internas da Central da Cielo.
+        // Cada entrada é [x1, y1, x2, y2] representando dois pontos opostos do retângulo.
+        // O código converte para centro (cx, cy) e dimensões (w, h) que o Phaser exige.
         const paredesData = [
             [9, 387, 311, 7],
             [339, 241, 459, 7],
@@ -87,11 +89,13 @@ export class CenaCentral extends Phaser.Scene {
             [329, 270, 4]
         ];
         this.paredes = paredesData.map(([x1, y1, x2, y2]) => {
+            // Converte os dois pontos para centro + dimensões (formato do Phaser)
             const cx = (x1 + x2) / 2;
             const cy = (y1 + y2) / 2;
             const w = Math.abs(x2 - x1);
             const h = Math.abs(y2 - y1);
             const parede = this.add.rectangle(cx, cy, w, h);
+            // true = corpo estático (não se move, mas bloqueia colisões)
             this.physics.add.existing(parede, true);
             this.physics.add.collider(this.player, parede);
             return parede;

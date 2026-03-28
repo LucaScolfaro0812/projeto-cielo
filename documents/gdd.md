@@ -1339,39 +1339,37 @@ Figura 5 – HUD de progresso dos NPCs
 
 Interface que exibe quais clientes já foram conquistados pelo jogador.
 
-Figura 6 – Jogador explorando o mapa com obstáculos (carros)
+Figura 6 – Entrada em uma loja
 
-Demonstração da movimentação do jogador e presença dos carros como mecânica de risco.
-
-Figura 7 – Entrada em uma loja
+![alt text](image-6.png)
 
 Momento em que o jogador acessa o interior de uma loja.
 
-Figura 8 – Popup de informações do cliente
+Figura 7 – Popup de informações do cliente
 
 Tela exibida ao entrar na loja, apresentando detalhes do NPC antes da interação.
 
-Figura 9 – Sistema de quiz
+Figura 8 – Sistema de quiz
 
 Interface de perguntas e respostas utilizada na interação com o cliente.
 
-Figura 10 – Feedback positivo (cliente conquistado)
+Figura 9 – Feedback positivo (cliente conquistado)
 
 Exemplo de sucesso no quiz, indicando conversão do cliente.
 
-Figura 11 – Feedback negativo (cliente não conquistado)
+Figura 10 – Feedback negativo (cliente não conquistado)
 
 Exemplo de falha na interação, mostrando a penalização.
 
-Figura 12 – NPC com visual alterado (conquistado)
+Figura 11 – NPC com visual alterado (conquistado)
 
 Mudança visual do personagem (cor azul) após ser conquistado.
 
-Figura 13 – Loja com balões animados
+Figura 12 – Loja com balões animados
 
 Indicação visual no mapa de que a loja foi concluída.
 
-Figura 14 – Menu de pausa
+Figura 13 – Menu de pausa
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 

@@ -1,6 +1,6 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
-import { definirProximoSpawnCidade } from "../utilitarios/estado-jogo.js";
+import { definirProximoSpawnCidade, consumirTutorialInicial } from "../utilitarios/estado-jogo.js";
 import { Maquininhas } from '../sistemas/maquininhas.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
@@ -38,6 +38,10 @@ export class CenaCentral extends Phaser.Scene {
         }
     }
 
+    init() {
+        this.mostrarTutorial = consumirTutorialInicial();
+    }
+
     create() {
         this._criarCenario();
 
@@ -54,6 +58,12 @@ export class CenaCentral extends Phaser.Scene {
         // Para o som ao sair ou destruir a cena
         this.events.on('shutdown', () => this._pararAudio());
         this.events.on('destroy', () => this._pararAudio());
+
+        if (this.mostrarTutorial) {
+            this.scene.pause();
+            this.scene.launch('tutorialScene', { cenaOrigem: this.scene.key, modoOverlay: true });
+            this.scene.bringToTop('tutorialScene');
+        }
 
         this.balcao = this.physics.add.staticImage(1150, 470, 'cieloBalcão');
         this.filtro = this.physics.add.staticImage(2000, 400, 'cieloFiltro');

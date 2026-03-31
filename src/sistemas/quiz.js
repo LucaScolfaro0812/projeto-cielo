@@ -248,9 +248,7 @@ export default class Quiz {
         // Determina o ID da loja (deve ser definido no NPC ou na cena)
         let lojaId = this.npcAtual?.lojaId || this.cena?.nomeLoja;
         if (typeof lojaId === 'string') lojaId = lojaId.toLowerCase();
-        console.log('[QUIZ] Buscando perguntas para lojaId:', lojaId);
         let todas = lojaId ? getPerguntasPorLoja(lojaId) : [];
-        console.log('[QUIZ] Perguntas encontradas para lojaId', lojaId, ':', todas.length);
         // Não usa mais fallback para perguntasNpcRua
         if (!todas || todas.length === 0) {
             // Retorna array vazio, o quiz mostrará mensagem de erro
@@ -259,10 +257,8 @@ export default class Quiz {
         const perguntasJaFeitas = this._carregarPerguntasJaFeitas();
         let disponiveis = todas.filter(q => !perguntasJaFeitas.includes(q.id));
         if (disponiveis.length === 0 && todas.length > 0) {
-            console.log('[QUIZ] Todas as perguntas já respondidas, permitindo repetição.');
             disponiveis = [...todas];
         }
-        console.log('[QUIZ] Perguntas disponíveis para sorteio:', disponiveis.length);
         return selecionarTresAleatorias(disponiveis);
     }
 

@@ -271,7 +271,7 @@ export class CenaCidade extends Phaser.Scene {
 
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
-        this.load.image('seta', 'assets/imagens/marcielocabeca.png');
+        this.load.image('seta', 'assets/imagens/seta.png');
 
 
         // Preload do fundo visual dos NPCs no popup
@@ -860,7 +860,7 @@ export class CenaCidade extends Phaser.Scene {
     update() {
 
         this.player.update();
-        this.seta.update(this.player);
+        this.seta.update(this.player, Math.PI);
 
         if (this.portaCentral) {
             this.portaCentral.update();

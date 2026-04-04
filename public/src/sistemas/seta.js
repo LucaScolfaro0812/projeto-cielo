@@ -18,7 +18,7 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         }
     }
 
-    update(jogador) {
+    update(jogador, angleOffset) {
         if (!this.alvo || !jogador) return;
 
         const cam = this.scene.cameras.main;
@@ -36,8 +36,9 @@ export default class Seta extends Phaser.GameObjects.Sprite {
             jogador.y,
             this.alvo.x,
             this.alvo.y
-        );
+        ) + angleOffset;
 
         this.setRotation(angulo);
+        this.setScale(0.3);
     }
 }

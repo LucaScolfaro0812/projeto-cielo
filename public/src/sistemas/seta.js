@@ -9,6 +9,11 @@ export default class Seta extends Phaser.GameObjects.Sprite {
 
         this.margem = 20; // distância da borda da tela
         this.cena = scene;
+
+        this.alerta = scene.add.sprite(0, 0, 'alerta');
+        this.alerta.setScrollFactor(1); // fica no mundo
+        this.alerta.setVisible(false);
+        this.alerta.setScale(0.15);
     }
 
     definirAlvo(alvo) {
@@ -48,11 +53,11 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         this.setScale(0.3);
 
         if (dentroTela) {
-            // 🔵 alvo visível → seta acima do jogador
-            const screenX = jogador.x - cam.scrollX;
-            const screenY = jogador.y - cam.scrollY;
+            this.setVisible(false);
+            this.alerta.setVisible(true);
 
-            this.setPosition(screenX, screenY - 40);
+            // posiciona acima do alvo (no mundo)
+            this.alerta.setPosition(this.alvo.x, this.alvo.y - 200);
         } else {
 
             const margem = this.margem;

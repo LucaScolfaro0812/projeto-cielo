@@ -18,6 +18,7 @@ import { chavesArmazenamento } from "../utilitarios/estado-jogo.js";
 import Entrada from '../entidades/loja-entrar.js';
 import { revelarCena } from '../utilitarios/transicao-cena.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
+import Seta from '../sistemas/seta.js'
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -270,8 +271,11 @@ export class CenaCidade extends Phaser.Scene {
 
     // Método responsável por carregar todos os assets antes da cena iniciar
     preload() {
-            // Preload do fundo visual dos NPCs no popup
-            this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
+        this.load.image('seta', 'assets/imagens/marcielocabeca.png');
+
+
+        // Preload do fundo visual dos NPCs no popup
+        this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
         this.load.image('rua', 'assets/imagens/ambiente/mapa.png');
         this.load.image('marcielocabeca', 'assets/imagens/marcielocabeca.png');
@@ -306,8 +310,8 @@ export class CenaCidade extends Phaser.Scene {
         });
 
         if (!this.cache.audio.exists('somCidade')) {
-    this.load.audio('somCidade', 'assets/sons/somCidade.mp3');
-}
+            this.load.audio('somCidade', 'assets/sons/somCidade.mp3');
+        }
         // Pré carrega os objetos com uma função estática
         Jogador.preload(this);
         Npc.preload(this);
@@ -449,6 +453,9 @@ export class CenaCidade extends Phaser.Scene {
         if (this.mostrarTutorialAoEntrar) {
             this._abrirTutorial();
         }
+
+        this.seta = new Seta(this);
+        this.seta.definirAlvo(this.lojas[0]);
     }
 
     _abrirTutorial() {
@@ -853,6 +860,7 @@ export class CenaCidade extends Phaser.Scene {
     update() {
 
         this.player.update();
+        this.seta.update(this.player);
 
         if (this.portaCentral) {
             this.portaCentral.update();

@@ -1,15 +1,14 @@
-
-
 export default class Seta extends Phaser.GameObjects.Sprite {
     constructor(scene) {
         super(scene, 100, 100, 'seta');
 
         scene.add.existing(this);
 
-        // fixa na HUD (não se move com a câmera)
-        this.setScrollFactor(0);
-
+        this.setScrollFactor(0); // HUD fixa
         this.alvo = null;
+
+        this.margem = 20; // distância da borda da tela
+        this.cena = scene;
     }
 
     definirAlvo(alvo) {
@@ -18,19 +17,26 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         }
     }
 
-    update(jogador, angleOffset) {
+    update(jogador, angleOffset = 0) {
         if (!this.alvo || !jogador) return;
 
-        const cam = this.scene.cameras.main;
+        const cam = this.cena.cameras.main;
 
-        // converte posição do jogador para coordenadas da tela (HUD)
-        const screenX = jogador.x - cam.scrollX;
-        const screenY = jogador.y - cam.scrollY;
+        const largura = cam.width;
+        const altura = cam.height;
 
-        // posiciona a seta acima do jogador na tela
-        this.setPosition(screenX, screenY - 40);
+        // posição do alvo na tela
+        const alvoScreenX = this.alvo.x - cam.scrollX;
+        const alvoScreenY = this.alvo.y - cam.scrollY;
 
-        // calcula ângulo até o alvo (em coordenadas de mundo)
+        // verifica se está dentro da tela
+        const dentroTela =
+            alvoScreenX >= 0 &&
+            alvoScreenX <= largura &&
+            alvoScreenY >= 0 &&
+            alvoScreenY <= altura;
+
+        // ângulo do jogador até o alvo (mundo)
         const angulo = Phaser.Math.Angle.Between(
             jogador.x,
             jogador.y,
@@ -40,5 +46,22 @@ export default class Seta extends Phaser.GameObjects.Sprite {
 
         this.setRotation(angulo);
         this.setScale(0.3);
+
+        if (dentroTela) {
+            // 🔵 alvo visível → seta acima do jogador
+            const screenX = jogador.x - cam.scrollX;
+            const screenY = jogador.y - cam.scrollY;
+
+            this.setPosition(screenX, screenY - 40);
+        } else {
+
+            const margem = this.margem;
+
+            // clamp direto nas bordas
+            const posX = Phaser.Math.Clamp(alvoScreenX, margem, largura - margem);
+            const posY = Phaser.Math.Clamp(alvoScreenY, margem, altura - margem);
+
+            this.setPosition(posX, posY);
+        }
     }
 }

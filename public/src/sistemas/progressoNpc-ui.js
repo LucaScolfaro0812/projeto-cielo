@@ -1,3 +1,6 @@
+import { carregarDados, salvarDados } from "../utilitarios/armazenamento.js";
+import { obterListaNpcs } from "../utilitarios/progresoNPCs.js";
+
 /**
  * InterfaceProgressoNpc - HUD visual de progresso dos NPCs (Phaser)
  * Exibe portrait, contador e fundo estilizado fixos no canto superior direito.
@@ -15,6 +18,11 @@ export default class InterfaceProgressoNpc {
         this.conquistados = conquistados;
         this.totalNpcs = totalNpcs;
         this.aoClicarPortrait = aoClicarPortrait;
+        this.chaveAssinaturaReconhecida = "hudNpcAssinaturaReconhecida";
+        this.escalaBaseExclamacao = 2.4;
+        this.temMudancaPendente = false;
+        this.tweenExclamacao = null;
+        this.eventoMonitoramentoExclamacao = null;
         this._criarHud();
     }
 
@@ -53,7 +61,7 @@ export default class InterfaceProgressoNpc {
 
         // Seleciona o NPC a exibir no portrait:
         // prioriza o primeiro conquistado; se nenhum, usa o primeiro da lista
-        const npcs = window?.obterListaNpcs ? window.obterListaNpcs() : [];
+        const npcs = obterListaNpcs();
         let portraitKey = "npc_cafeScene-nao-interagido";
         if (npcs && npcs.length > 0) {
             const npcConquistado = npcs.find(n => n.estado === "conquistado");
@@ -72,11 +80,14 @@ export default class InterfaceProgressoNpc {
         // Indicador simples: apenas exclamação vermelha, sem círculo de fundo.
         this.indicadorExclamacao = this.cena.add.container(
             larguraTela - larguraHud + padding + portraitSize / 2 + 360,
-            margem + 78
+            margem + 62
         ).setScrollFactor(0);
+        this.indicadorExclamacao.setScale(this.escalaBaseExclamacao);
         const hasteExclamacao = this.cena.add.rectangle(0, -6, 8, 24, 0xff2d2d);
         const pontoExclamacao = this.cena.add.circle(0, 12, 4, 0xff2d2d);
         this.indicadorExclamacao.add([hasteExclamacao, pontoExclamacao]);
+
+        this._inicializarNotificacaoExclamacao();
 
         // Texto de progresso em formato "XX/YY"
         this.texto = this.cena.add.text(
@@ -98,10 +109,83 @@ export default class InterfaceProgressoNpc {
         // Clique no portrait aciona o callback (abre painel lateral de NPCs)
         this.portrait.setInteractive({ useHandCursor: true });
         this.portrait.on('pointerdown', () => {
+            this._reconhecerMudancasNpcs();
             if (this.aoClicarPortrait) {
                 this.aoClicarPortrait();
             }
         });
+    }
+
+    _obterAssinaturaEstadosNpcs() {
+        const npcs = obterListaNpcs();
+        return npcs.map((npc) => `${npc.id}:${npc.estado}`).join("|");
+    }
+
+    _inicializarNotificacaoExclamacao() {
+        const assinaturaAtual = this._obterAssinaturaEstadosNpcs();
+        const assinaturaReconhecida = carregarDados(this.chaveAssinaturaReconhecida, null);
+
+        if (!assinaturaReconhecida) {
+            this._salvarAssinaturaReconhecida(assinaturaAtual);
+            this.temMudancaPendente = false;
+        } else {
+            this.temMudancaPendente = assinaturaReconhecida !== assinaturaAtual;
+        }
+
+        this.ultimaAssinaturaObservada = assinaturaAtual;
+        this._atualizarEstadoVisualExclamacao();
+
+        this.eventoMonitoramentoExclamacao = this.cena.time.addEvent({
+            delay: 500,
+            loop: true,
+            callback: () => {
+                const novaAssinatura = this._obterAssinaturaEstadosNpcs();
+                if (novaAssinatura !== this.ultimaAssinaturaObservada) {
+                    this.ultimaAssinaturaObservada = novaAssinatura;
+                    this.temMudancaPendente = true;
+                    this._atualizarEstadoVisualExclamacao();
+                }
+            }
+        });
+    }
+
+    _salvarAssinaturaReconhecida(assinatura) {
+        salvarDados(this.chaveAssinaturaReconhecida, assinatura);
+    }
+
+    _reconhecerMudancasNpcs() {
+        const assinaturaAtual = this._obterAssinaturaEstadosNpcs();
+        this.ultimaAssinaturaObservada = assinaturaAtual;
+        this._salvarAssinaturaReconhecida(assinaturaAtual);
+        this.temMudancaPendente = false;
+        this._atualizarEstadoVisualExclamacao();
+    }
+
+    _atualizarEstadoVisualExclamacao() {
+        if (this.temMudancaPendente) {
+            if (!this.tweenExclamacao) {
+                this.tweenExclamacao = this.cena.tweens.add({
+                    targets: this.indicadorExclamacao,
+                    scaleX: this.escalaBaseExclamacao + 0.3,
+                    scaleY: this.escalaBaseExclamacao + 0.3,
+                    alpha: 0.65,
+                    duration: 650,
+                    yoyo: true,
+                    repeat: -1,
+                    ease: 'Sine.easeInOut'
+                });
+            }
+            return;
+        }
+
+        if (this.tweenExclamacao) {
+            this.tweenExclamacao.stop();
+            this.cena.tweens.remove(this.tweenExclamacao);
+            this.tweenExclamacao = null;
+        }
+
+        this.indicadorExclamacao.setScale(this.escalaBaseExclamacao);
+        this.indicadorExclamacao.setAlpha(1);
     }
 
     /**
@@ -137,6 +221,15 @@ export default class InterfaceProgressoNpc {
      * Deve ser chamado ao trocar de cena para evitar vazamento de objetos.
      */
     destroy() {
+        if (this.tweenExclamacao) {
+            this.tweenExclamacao.stop();
+            this.cena.tweens.remove(this.tweenExclamacao);
+            this.tweenExclamacao = null;
+        }
+        if (this.eventoMonitoramentoExclamacao) {
+            this.eventoMonitoramentoExclamacao.remove(false);
+            this.eventoMonitoramentoExclamacao = null;
+        }
         this.container.destroy();
     }
 }

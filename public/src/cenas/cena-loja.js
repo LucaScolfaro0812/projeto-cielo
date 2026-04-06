@@ -61,6 +61,23 @@ export default class CenaLoja extends Phaser.Scene {
             Joalheria: 'ambienteJoalheria',
             Lanchonete: 'ambienteLanchonete'
         };
+
+        // Diálogos exibidos letra a letra ao entrar em cada loja
+        this.dialogosPorLoja = {
+            Autoescola: 'Olá, pode entrar, eu sou a responsável pela autoescola, e fico feliz em te receber. Como trabalho com pacotes de maior valor, preciso de boas opções de parcelamento, taxas equilibradas e soluções como links de pagamento para facilitar o dia a dia dos alunos. Você teria um tempinho para me explicar melhor como suas soluções podem me ajudar?',
+            Pelucia:    'Oi! Seja bem-vindo ao Mundo das Pelúcias, fico feliz em te receber. Aqui preciso de um atendimento rápido no pagamento e boas opções de parcelamento para facilitar as compras. Você teria um tempinho para entrar e me explicar algumas coisas?',
+            Chocolate:  'Oi, seja bem-vindo à ChocoMania! Sou o dono daqui e fico feliz em te receber. Como tenho picos de movimento, preciso de uma solução de pagamento rápida, que aceite diferentes formas e ofereça antecipação. Você pode me explicar melhor como suas soluções funcionam?',
+            Pet:        'Oi! Seja bem-vindo ao Lar dos Amiguinhos. Aqui tenho bastante movimento, com vendas de produtos e serviços, então preciso de um sistema rápido, organizado e que separe bem cada tipo de operação, além de ajudar na fidelização dos clientes. Você teria um tempinho para me explicar melhor como suas soluções podem me ajudar?',
+            Roupas:     'Oi! Seja bem-vindo à Camila Concept Store, eu sou a Camila e fico feliz em te receber. Como vendo muito online, preciso de soluções de pagamento seguras, com envio fácil de links e bom controle das vendas. Você teria um tempinho para me explicar melhor como isso pode funcionar?',
+            Beleza:     'Olá, seja bem-vindo a Barbearia! Aqui preciso de soluções de pagamento práticas e modernas, com aproximação, bom parcelamento e taxas bem configuradas para garantir um atendimento ágil e eficiente. Você pode entrar um instante para me mostrar como suas soluções funcionam?',
+            Cafe:       'Seja bem-vindo ao Café da Mariana! Fico muito feliz em te receber. Aqui me preocupo com cada detalhe do negócio, então busco soluções de pagamento que sejam eficientes, tenham boas taxas, aceitem vouchers e também combinem com a estética do café. Agora que você já chegou, gostaria de entrar para conversarmos mais?',
+            Frutaria:   'Oi! Pode entrar, seja bem-vindo ao meu Pomar! Muito prazer. Aqui preciso de soluções simples e rápidas para o caixa, que funcionem bem mesmo com a loja cheia e aceitem vale alimentação, já que muitos clientes pedem essa opção. Você teria um tempinho para me explicar melhor como isso pode funcionar?',
+            Movel:      'Olá, seja bem-vindo! Trabalho com vendas de maior valor, então preciso de taxas claras, boas opções de parcelamento e um bom controle financeiro para garantir que tudo funcione bem no dia a dia. Você teria um tempinho para entrar e me explicar algumas coisas?',
+            Games:      'E aí, seja bem-vindo à Estação de Jogos! Eu sou o dono daqui, e é um prazer te receber. Aqui preciso de soluções de pagamento rápidas e modernas, tanto no físico quanto no online, com opções como Pix e bom parcelamento para vendas de maior valor. Você teria um tempinho para entrar e me explicar melhor como isso pode funcionar aqui?',
+            Joalheria:  'Olá, seja bem-vindo! Eu sou o joalheiro e responsável pelo atelier, é um prazer te receber. Trabalho com peças exclusivas e transações de alto valor, então preciso de soluções seguras, com bom parcelamento, recebimento ágil e que estejam alinhadas com a estética do espaço. Você teria um tempinho para entrar e me explicar melhor como suas soluções funcionam?',
+            Lanchonete: 'Seja bem-vindo à Lanchonete do Carlos! Aqui busco oferecer um atendimento rápido, prático e acessível, então preciso de soluções que me permitam atender com agilidade, inclusive direto nas mesas. Você teria um tempinho para entrar e conversarmos mais?'
+};
+
     }
 
     preload() {
@@ -72,18 +89,18 @@ export default class CenaLoja extends Phaser.Scene {
 
         // Mapeia cada loja ao arquivo de imagem exibido ao entrar
         const entradaPorLoja = {
-            Cafe: 'EntradaCafeteria',
-            Games: 'EntradaLojaGames',
-            Beleza: 'EntradaBeleza',
-            Roupas: 'EntradaLojaRoupas',
-            Pet: 'EntradaPetShop',
-            Movel: 'EntradaLojaMoveis',
-            Frutaria: 'EntradaFrutaria',
-            Lanchonete: 'EntradaLanchonete',
-            Chocolate: 'EntradaLojaChocolate',
-            Pelucia: 'EntradaLojaBrinquedos',
-            Autoescola: 'EntradaAutoescola',
-            Joalheria: 'EntradaJoalheria'
+            Cafe: 'EntradaCafeteria1',
+            Games: 'EntradaLojaGames1',
+            Beleza: 'EntradaBeleza1',
+            Roupas: 'EntradaLojaRoupas1',
+            Pet: 'EntradaPetShop1',
+            Movel: 'EntradaLojaMoveis1',
+            Frutaria: 'EntradaFrutaria1',
+            Lanchonete: 'EntradaLanchonete1',
+            Chocolate: 'EntradaLojaChocolate1',
+            Pelucia: 'EntradaLojaBrinquedos1',
+            Autoescola: 'EntradaAutoescola1',
+            Joalheria: 'EntradaJoalheria1'
         };
 
         const nomeArquivo = entradaPorLoja[this.nomeLoja];
@@ -180,64 +197,92 @@ export default class CenaLoja extends Phaser.Scene {
     }
 
     create() {
-        // Fade de entrada partindo do azul Cielo — completa a transição vinda da cidade
-        revelarCena(this);
+    revelarCena(this);
+    this._criarCenario();
 
-        this._criarCenario();
+    if (this.cache.audio.exists('portaAbrindo')) {
+        this.sound.play('portaAbrindo');
+    }
 
-        // Toca o som da porta ao entrar na loja
-        if (this.cache.audio.exists('portaAbrindo')) {
-            this.sound.play('portaAbrindo');
+    const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
+    if (chaveSomAmbiente && this.cache.audio.exists(chaveSomAmbiente)) {
+        this.somAmbiente = this.sound.add(chaveSomAmbiente, { loop: true, volume: 0.3 });
+        this.somAmbiente.play();
+    }
+
+    const chave = 'entradaLoja' + this.nomeLoja;
+
+    // Overlay escuro de fundo
+    const overlay = this.add.graphics();
+    overlay.fillStyle(0x000000, 0.6);
+    overlay.fillRect(
+        this.cameras.main.scrollX,
+        this.cameras.main.scrollY,
+        this.cameras.main.width * 3 / this.cameras.main.zoom,
+        this.cameras.main.height * 3 / this.cameras.main.zoom
+    );
+    overlay.setDepth(999);
+
+    this.exteriorImage = this.add.image(
+        this.cameras.main.centerX,
+        this.cameras.main.centerY,
+        chave
+    ).setDepth(1000).setScrollFactor(0);
+
+    this.physics.pause();
+
+    this.exteriorImage.setDisplaySize(
+        this.cameras.main.width,
+        this.cameras.main.height
+    );
+
+    // ✅ NOVO: texto digitado letra por letra sobre o pop-up
+    const textoCompleto = this.dialogosPorLoja?.[this.nomeLoja] ?? '';
+
+    const textoChat = this.add.text(
+        this.cameras.main.centerX -170,
+        this.cameras.main.centerY + 60,  // ajuste Y conforme sua imagem
+        '',
+        {
+            fontSize: '35px',
+            fontFamily: 'Arial, sans-serif',
+            color : '#000000',
+            wordWrap: { width: this.cameras.main.width * 0.55 },
+            align: 'left',
+            lineSpacing: 3
         }
+    )
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0.5);
 
-        // Inicia o som ambiente em loop com volume baixo
-        const chaveSomAmbiente = this.somAmbientePorLoja[this.nomeLoja];
-        if (chaveSomAmbiente && this.cache.audio.exists(chaveSomAmbiente)) {
-            this.somAmbiente = this.sound.add(chaveSomAmbiente, { loop: true, volume: 0.3 });
-            this.somAmbiente.play();
+    let charIndex = 0;
+
+    const eventoDigitacao = this.time.addEvent({
+        delay: 30,            // milissegundos entre cada letra (diminua para mais rápido)
+        repeat: textoCompleto.length - 1,
+        callback: () => {
+            charIndex++;
+            textoChat.setText(textoCompleto.substring(0, charIndex));
         }
+    });
 
-        const chave = 'entradaLoja' + this.nomeLoja;
+    // Botão X para fechar
+    const botaoFechar = this.add.text(
+        this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
+        this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
+        'X',
+        { fontSize: '48px', fill: '#FFF' }
+    ).setDepth(1001).setInteractive().setScrollFactor(0);
 
-        // Exibe a imagem de entrada da loja sobreposta à cena
-        const overlay = this.add.graphics();
-        overlay.fillStyle(0x000000, 0.6);
-        overlay.fillRect(
-            this.cameras.main.scrollX,
-            this.cameras.main.scrollY,
-            this.cameras.main.width * 3 / this.cameras.main.zoom,
-            this.cameras.main.height * 3 / this.cameras.main.zoom
-        );
-        overlay.setDepth(999);
-
-        this.exteriorImage = this.add.image(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY,
-            chave
-        ).setDepth(1000).setScrollFactor(0);
-
-        // Pausa a física enquanto a tela de entrada está visível
-        this.physics.pause();
-
-        this.exteriorImage.setDisplaySize(
-            this.cameras.main.width,
-            this.cameras.main.height
-        );
-
-        // Botão para fechar a tela de entrada e liberar o jogador
-        const botaoFechar = this.add.text(
-            this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
-            this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
-            'X',
-            { fontSize: '48px', fill: '#FFF' }
-        ).setDepth(1001).setInteractive();
-
-        botaoFechar.on('pointerdown', () => {
-            this.physics.resume();
-            this.exteriorImage.destroy();
-            botaoFechar.destroy();
-            overlay.destroy();
-        });
+    botaoFechar.on('pointerdown', () => {
+        eventoDigitacao.remove();   // cancela a digitação ao fechar
+        this.physics.resume();
+        this.exteriorImage.destroy();
+        botaoFechar.destroy();
+        textoChat.destroy();
+        overlay.destroy();
+    });
 
         this._configurarPlayerNpcQuiz();
         this._criarPortas();

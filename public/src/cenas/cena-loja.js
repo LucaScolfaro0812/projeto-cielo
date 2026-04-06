@@ -194,6 +194,10 @@ export default class CenaLoja extends Phaser.Scene {
         if (!this.cache.audio.exists('portaAbrindo')) {
             this.load.audio('portaAbrindo', 'assets/sons/portaAbrindo.mp3');
         }
+
+        if (!this.cache.audio.exists('somEscrita')) {
+    this.load.audio('somEscrita', 'assets/sons/somEscrita.mp3');
+}
     }
 
     create() {
@@ -236,7 +240,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.cameras.main.height
     );
 
-    // ✅ NOVO: texto digitado letra por letra sobre o pop-up
+    //texto digitado letra por letra sobre o pop-up
     const textoCompleto = this.dialogosPorLoja?.[this.nomeLoja] ?? '';
 
     const textoChat = this.add.text(
@@ -258,31 +262,50 @@ export default class CenaLoja extends Phaser.Scene {
 
     let charIndex = 0;
 
-    const eventoDigitacao = this.time.addEvent({
-        delay: 30,            // milissegundos entre cada letra (diminua para mais rápido)
-        repeat: textoCompleto.length - 1,
-        callback: () => {
-            charIndex++;
-            textoChat.setText(textoCompleto.substring(0, charIndex));
+  
+const somEscrita = this.sound.add('somEscrita', { loop: true, volume: 1 });
+somEscrita.play();
+
+const eventoDigitacao = this.time.addEvent({
+    delay: 15,
+    repeat: textoCompleto.length - 1,
+    callback: () => {
+        charIndex++;
+        textoChat.setText(textoCompleto.substring(0, charIndex));
+
+        if (charIndex >= textoCompleto.length) {
+            somEscrita.stop();
         }
-    });
+    }
+});
 
     // Botão X para fechar
+    const btnX = this.exteriorImage.x + (this.cameras.main.width / 2) - 240;
+    const btnY = this.exteriorImage.y - (this.cameras.main.height / 2) + 180;
+
+    const fundoBotao = this.add.graphics();
+    fundoBotao.fillStyle(0xff0000, 1);
+    fundoBotao.fillRect(btnX - 10, btnY - 5, 45, 52);
+    fundoBotao.setDepth(1001).setScrollFactor(0);
+
     const botaoFechar = this.add.text(
-        this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
-        this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
+        btnX,
+        btnY,
         'X',
         { fontSize: '48px', fill: '#FFF' }
-    ).setDepth(1001).setInteractive().setScrollFactor(0);
+    ).setDepth(1002).setInteractive().setScrollFactor(0);
 
     botaoFechar.on('pointerdown', () => {
-        eventoDigitacao.remove();   // cancela a digitação ao fechar
+        eventoDigitacao.remove();
+        somEscrita.stop();
         this.physics.resume();
         this.exteriorImage.destroy();
         botaoFechar.destroy();
+        fundoBotao.destroy(); 
         textoChat.destroy();
         overlay.destroy();
     });
+    
 
         this._configurarPlayerNpcQuiz();
         this._criarPortas();

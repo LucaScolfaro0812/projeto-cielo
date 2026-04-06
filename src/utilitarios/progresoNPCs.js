@@ -34,10 +34,15 @@ function atualizarEstadoNpc(idNpc, novoEstado) {
     }
 }
 
+// Restaura todos os NPCs para o estado inicial de uma nova partida.
+function resetarEstadosNpcs() {
+    listaNpcs.forEach((npc) => npc.atualizarEstado("nao-interagido"));
+}
+
 // Função para obter o caminho da imagem do portrait do NPC
 function obterCaminhoImagemNpc(idNpc, estado) {
     // Exemplo de retorno: "assets/sprites/npcs/npc_cafeScene-interagido.png"
     return `assets/sprites/npcs/${idNpc}-${estado}.png`;
 }
 
-export { obterListaNpcs, buscarNpcPorId, atualizarEstadoNpc, obterCaminhoImagemNpc };
+export { obterListaNpcs, buscarNpcPorId, atualizarEstadoNpc, resetarEstadosNpcs, obterCaminhoImagemNpc };

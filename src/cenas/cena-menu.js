@@ -3,6 +3,7 @@
 
 import { transicionarPara, revelarCena } from '../utilitarios/transicao-cena.js';
 import { ativarTutorialInicial } from '../utilitarios/estado-jogo.js';
+import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
 
 export class CenaMenu extends Phaser.Scene {
 
@@ -91,6 +92,7 @@ export class CenaMenu extends Phaser.Scene {
         botaoJogar.on('pointerdown', () => {
             if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
+            resetarSessaoJogo();
             ativarTutorialInicial();
             transicionarPara(this, 'centralScene', {}, 'Iniciando jogo...');
         });

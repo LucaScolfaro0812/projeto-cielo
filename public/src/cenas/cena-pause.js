@@ -50,15 +50,20 @@ export class CenaPausa extends Phaser.Scene {
         });
 
         // Botão Continuar — retoma o jogo de onde parou
-        this._criarBotao(largura / 2, altura / 2 - 20, 'Continuar', () => {
+        this._criarBotao(largura / 2, altura / 2 - 40, 'Continuar', () => {
             this.scene.resume(cenaAnterior);
             this.scene.stop();
         });
 
-        // Botão Novo Jogo — apaga o progresso salvo e reinicia o jogo do zero
-        this._criarBotao(largura / 2, altura / 2 + 60, 'Novo Jogo', () => {
-            resetarSessaoJogo();
+        // Botão Configurações — abre o menu de configurações por cima do pause
+        this._criarBotao(largura / 2, altura / 2 + 40, 'Configurações', () => {
+            this.scene.launch('configScene', { cenaOrigem: 'pauseScene' });
+            this.scene.bringToTop('configScene');
+        });
 
+        // Botão Novo Jogo — apaga o progresso salvo e reinicia o jogo do zero
+        this._criarBotao(largura / 2, altura / 2 + 120, 'Novo Jogo', () => {
+            resetarSessaoJogo();
 
             // Para a cena pausada e inicia novo jogo com fade azul Cielo
             this.scene.stop(cenaAnterior);
@@ -66,7 +71,7 @@ export class CenaPausa extends Phaser.Scene {
         });
 
         // Botão Menu — para a cena pausada e volta ao menu com fade azul Cielo
-        this._criarBotao(largura / 2, altura / 2 + 140, 'Menu', () => {
+        this._criarBotao(largura / 2, altura / 2 + 200, 'Menu', () => {
             this.scene.stop(cenaAnterior);
             transicionarPara(this, 'menuScene', {}, 'Voltando ao menu...');
         });

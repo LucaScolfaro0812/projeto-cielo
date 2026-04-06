@@ -71,8 +71,8 @@ export const colisoresAmbiente = [
     { nome: '', x: 2065, y: 5423, w: 158,  h: 369  },
     { nome: '', x: 2452, y: 5405, w: 194,  h: 369  },
     { nome: '', x: 2268, y: 5862, w: 1547, h: 123  },
-    { nome: '', x: 800,  y: 5862, w: 721,  h: 158  },
-    { nome: '', x: 580,  y: 5168, w: 316,  h: 1477 },
+    { nome: 'quadra-inf-esq-base', x: 990,  y: 5862, w: 300,  h: 158  },
+    { nome: 'quadra-inf-esq-lateral', x: 650,  y: 5168, w: 16,   h: 1477 },
 
     { nome: '', x: 6126,  y: 2734, w: 3322, h: 615  },
     { nome: '', x: 7681,  y: 3085, w: 176,  h: 1389 },
@@ -86,7 +86,7 @@ export const colisoresAmbiente = [
     { nome: '', x: 10783, y: 3674, w: 580,  h: 175  },
     { nome: '', x: 9755,  y: 3656, w: 1090, h: 140  },
     { nome: '', x: 8604,  y: 3683, w: 686,  h: 123  },
-    { nome: '', x: 9623,  y: 3252, w: 158,  h: 387  },
-    { nome: '', x: 9913,  y: 3252, w: 176,  h: 387  },
+    { nome: 'petshop-arbusto-1', x: 9752,  y: 3256, w: 16,   h: 108  },
+    { nome: 'petshop-arbusto-2', x: 9972,  y: 3246, w: 84,   h: 128  },
 
 ];

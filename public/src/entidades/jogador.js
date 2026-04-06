@@ -23,8 +23,8 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.setScale(0.6);
         this.setCollideWorldBounds(false);
 
-        this.body.setSize(120, 150);
-        this.body.setOffset(25, 150);
+        this.body.setSize(96, 118);
+        this.body.setOffset(37, 182);
         this.body.updateFromGameObject();
 
         this.velocidade = 1000 * this._obterMultiplicadorVelocidade();
@@ -136,6 +136,10 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
         // Normalização: calcula o comprimento do vetor e divide cada componente por ele,
         // garantindo velocidade constante em qualquer direção (inclusive diagonais)
+        const deslizamento = this._ajustarDeslizamentoEmQuinas(forca[0], forca[1]);
+        forca[0] = deslizamento.x;
+        forca[1] = deslizamento.y;
+
         const modulo = Math.sqrt(forca[0] * forca[0] + forca[1] * forca[1]);
 
         if (modulo > 0) {
@@ -201,6 +205,30 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
      * Verifica se a animação já existe antes de criar para evitar erros ao reiniciar a cena.
      * @param {Phaser.Scene} cena - cena onde as animações serão registradas
      */
+    _ajustarDeslizamentoEmQuinas(eixoX, eixoY) {
+        if (!this.body || eixoX === 0 || eixoY === 0) {
+            return { x: eixoX, y: eixoY };
+        }
+
+        const bloqueadoHorizontal =
+            (eixoX < 0 && this.body.blocked.left) ||
+            (eixoX > 0 && this.body.blocked.right);
+
+        const bloqueadoVertical =
+            (eixoY < 0 && this.body.blocked.up) ||
+            (eixoY > 0 && this.body.blocked.down);
+
+        if (bloqueadoHorizontal && !bloqueadoVertical) {
+            return { x: 0, y: eixoY };
+        }
+
+        if (bloqueadoVertical && !bloqueadoHorizontal) {
+            return { x: eixoX, y: 0 };
+        }
+
+        return { x: eixoX, y: eixoY };
+    }
+
     _criarAnimacoes(cena) {
         if (!cena.anims.exists("andar-direita")) {
             cena.anims.create({

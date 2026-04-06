@@ -1622,11 +1622,69 @@ _Descreva nesta seção um plano de melhorias sobre o jogo, com base nos resulta
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
-_Escreva de que formas a solução do jogo atingiu os objetivos descritos na seção 1 deste documento. Indique pontos fortes e pontos a melhorar de maneira geral._
+A solução desenvolvida, baseada em um serious game de simulação de vendas, demonstrou forte aderência aos objetivos propostos inicialmente. O jogo conseguiu transformar o processo de treinamento comercial da Cielo em uma experiência prática, interativa e engajadora, permitindo que os usuários apliquem conhecimentos em um ambiente simulado e seguro.
+A mecânica de controle do personagem Marcielo em um mapa 2D, aliada às interações com diferentes estabelecimentos, se mostrou eficaz na reprodução de situações reais enfrentadas pela equipe comercial. Os quizzes e tomadas de decisão inseridos no jogo contribuem diretamente para o desenvolvimento de habilidades essenciais, como identificação de perfil de cliente, argumentação e contorno de objeções.
+Além disso, elementos estruturais do jogo tiveram papel fundamental na experiência do usuário:
+HUDs (Heads-Up Displays): foram implementados para facilitar a visualização de informações relevantes em tempo real, como desempenho, progresso e status do jogador, apoiando a tomada de decisão durante as interações.
+Flow do jogo: o encadeamento das ações e desafios foi estruturado de forma a manter o jogador engajado continuamente, favorecendo a imersão e o equilíbrio entre desafio e compreensão.
+Feedbacks visuais: retornos visuais imediatos auxiliam o jogador a acompanhar seu desempenho ao longo da experiência.
+Dessa forma, a solução não apenas cumpre seu papel educacional, mas também se destaca como uma ferramenta de engajamento, aumentando a efetividade do treinamento e a retenção de conhecimento.
+Pontos fortes
+Forte alinhamento com o objetivo de treinamento prático da equipe comercial
+Simulação realista de situações de vendas
+Alto potencial de engajamento por meio da gamificação
+Uso eficiente de HUDs para facilitar a leitura de informações
+Flow contínuo que favorece a imersão do jogador
+Ambiente seguro para experimentação e erro
 
-_Relacione os pontos de melhorias evidenciados nos testes com plano de ações para serem implementadas no jogo. O grupo não precisa implementá-las, pode deixar registrado aqui o plano para futuros desenvolvimentos._
+Pontos a melhorar
+Implementação de ranking e sistema de pontuação mais estruturado para aumentar a competitividade e o engajamento
+Desenvolvimento de feedbacks mais personalizados e específicos para cada pergunta, tornando o aprendizado mais direcionado
+Inclusão de obstáculos e inimigos para enriquecer a dinâmica do jogo e aumentar o nível de desafio
+Maior profundidade nas interações de venda, com cenários mais complexos
+Evolução da progressão e variedade de experiências ao longo do jogo
 
-_Relacione também quaisquer ideias que o grupo tenha para melhorias futuras_
+Trabalhos futuros e plano de melhorias
+Com base nos testes realizados, foram identificadas oportunidades relevantes de evolução do jogo, descritas a seguir com seus respectivos planos de ação:
+1. Sistema de ranking e pontuação
+Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
+Plano de ação:
+Implementar ranking entre jogadores
+Criar sistema de pontuação baseado em desempenho e decisões
+Adicionar recompensas e metas para estimular progressão
+
+2. Feedbacks personalizados
+Problema identificado: Feedbacks ainda genéricos e pouco direcionados ao aprendizado individual.
+Plano de ação:
+Criar feedbacks específicos para cada resposta do jogador
+Explicar por que a decisão foi correta ou incorreta
+Adaptar orientações conforme o desempenho do usuário
+
+3. Inclusão de obstáculos e inimigos
+Problema identificado: Dinâmica do jogo ainda pouco desafiadora em termos de gameplay.
+Plano de ação:
+Inserir obstáculos no mapa que impactem a jornada do jogador
+Criar “inimigos” ou desafios que simulem dificuldades reais de vendas
+Aumentar a complexidade das interações ao longo do jogo
+
+4. Evolução do flow do jogo
+Problema identificado: Possível previsibilidade na progressão das interações.
+Plano de ação:
+Introduzir eventos dinâmicos e variações de cenário
+Criar níveis ou fases com desafios progressivos
+Ajustar o ritmo entre desafio e recompensa
+
+5. Expansão das simulações de vendas
+Problema identificado: Limitação na diversidade de cenários e perfis de clientes.
+Plano de ação:
+Adicionar novos tipos de estabelecimentos
+Incluir diferentes perfis de clientes e objeções
+Simular situações mais complexas e realistas do dia a dia comercial
+
+Conclusão final
+A solução desenvolvida se mostrou eficaz ao transformar o treinamento comercial em uma experiência prática, imersiva e orientada à aprendizagem. A combinação de simulação realista, estrutura gamificada, uso estratégico de HUDs e um flow bem definido contribuiu diretamente para o atingimento dos objetivos do projeto.
+Os pontos de melhoria identificados indicam um alto potencial de evolução, especialmente no aumento do engajamento, personalização do aprendizado e complexidade do jogo. Com a implementação das melhorias propostas, a solução tende a se consolidar como uma ferramenta ainda mais robusta e eficiente para capacitação da equipe comercial da Cielo.
+
 
 # <a name="c7"></a>7. Referências
 

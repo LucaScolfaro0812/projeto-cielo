@@ -194,6 +194,10 @@ export default class CenaLoja extends Phaser.Scene {
         if (!this.cache.audio.exists('portaAbrindo')) {
             this.load.audio('portaAbrindo', 'assets/sons/portaAbrindo.mp3');
         }
+
+        if (!this.cache.audio.exists('somEscrita')) {
+    this.load.audio('somEscrita', 'assets/sons/somEscrita.mp3');
+}
     }
 
     create() {
@@ -236,7 +240,7 @@ export default class CenaLoja extends Phaser.Scene {
         this.cameras.main.height
     );
 
-    // ✅ NOVO: texto digitado letra por letra sobre o pop-up
+    //texto digitado letra por letra sobre o pop-up
     const textoCompleto = this.dialogosPorLoja?.[this.nomeLoja] ?? '';
 
     const textoChat = this.add.text(
@@ -258,14 +262,22 @@ export default class CenaLoja extends Phaser.Scene {
 
     let charIndex = 0;
 
-    const eventoDigitacao = this.time.addEvent({
-        delay: 15,            // milissegundos entre cada letra
-        repeat: textoCompleto.length - 1,
-        callback: () => {
-            charIndex++;
-            textoChat.setText(textoCompleto.substring(0, charIndex));
+  
+const somEscrita = this.sound.add('somEscrita', { loop: true, volume: 1 });
+somEscrita.play();
+
+const eventoDigitacao = this.time.addEvent({
+    delay: 15,
+    repeat: textoCompleto.length - 1,
+    callback: () => {
+        charIndex++;
+        textoChat.setText(textoCompleto.substring(0, charIndex));
+
+        if (charIndex >= textoCompleto.length) {
+            somEscrita.stop();
         }
-    });
+    }
+});
 
     // Botão X para fechar
     const btnX = this.exteriorImage.x + (this.cameras.main.width / 2) - 240;
@@ -285,10 +297,11 @@ export default class CenaLoja extends Phaser.Scene {
 
     botaoFechar.on('pointerdown', () => {
         eventoDigitacao.remove();
+        somEscrita.stop();
         this.physics.resume();
         this.exteriorImage.destroy();
         botaoFechar.destroy();
-        fundoBotao.destroy(); // 👈 novo
+        fundoBotao.destroy(); 
         textoChat.destroy();
         overlay.destroy();
     });

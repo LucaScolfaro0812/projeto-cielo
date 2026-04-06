@@ -69,6 +69,15 @@ export default class InterfaceProgressoNpc {
         ).setDisplaySize(portraitSize, portraitSize).setScrollFactor(0);
         this.portrait.setScale(0.25);
 
+        // Indicador simples: apenas exclamação vermelha, sem círculo de fundo.
+        this.indicadorExclamacao = this.cena.add.container(
+            larguraTela - larguraHud + padding + portraitSize / 2 + 360,
+            margem + 78
+        ).setScrollFactor(0);
+        const hasteExclamacao = this.cena.add.rectangle(0, -6, 8, 24, 0xff2d2d);
+        const pontoExclamacao = this.cena.add.circle(0, 12, 4, 0xff2d2d);
+        this.indicadorExclamacao.add([hasteExclamacao, pontoExclamacao]);
+
         // Texto de progresso em formato "XX/YY"
         this.texto = this.cena.add.text(
             larguraTela - larguraHud + padding + portraitSize + 80 + 300,
@@ -84,7 +93,7 @@ export default class InterfaceProgressoNpc {
         this.texto.setScale(5);
 
         // Adiciona todos os elementos ao container
-        this.container.add([this.fundo, this.portrait, this.texto]);
+        this.container.add([this.fundo, this.portrait, this.indicadorExclamacao, this.texto]);
 
         // Clique no portrait aciona o callback (abre painel lateral de NPCs)
         this.portrait.setInteractive({ useHandCursor: true });

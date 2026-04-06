@@ -31,6 +31,18 @@ function atualizarEstadoNpc(idNpc, novoEstado) {
     const npc = buscarNpcPorId(idNpc);
     if (npc) {
         npc.atualizarEstado(novoEstado);
+        
+    // Conta quantos NPCs foram conquistados
+    const quantidadeConquistados = listaNpcs.filter(npc => npc.estado === "conquistado").length;
+
+    // Se chegou em 12, vai pra cena final
+     if (quantidadeConquistados >= 12) {
+        // pega a cena atual e muda
+        if (window.game && window.game.scene) {
+            const cenaAtual = window.game.scene.getScenes(true)[0];
+            cenaAtual.scene.start('cenaFinal');
+        }
+      }
     }
 }
 

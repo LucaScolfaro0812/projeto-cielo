@@ -483,6 +483,16 @@ export default class Quiz {
             interagidos = interagidos.filter(id => id !== this.npcAtual.idNpc);
             salvarDados(chavesArmazenamento.npcsConquistadosIds, conquistados);
             salvarDados(chavesArmazenamento.npcsInteragidosIds, interagidos);
+
+            const totalLojas = this.cena.lojasConfigs ? this.cena.lojasConfigs.length : 12;
+            const totalConquistados = conquistados.length;
+
+            if (totalConquistados >= 12 ) {
+                this.cena.time.delayedCall(1500, () => {
+                this.cena.scene.start('cenaFinal'); 
+                });
+            }
+
             if (this.npcAtual) {
                 this.npcAtual.setVisualConquista('conquistado');
                 this._marcarNpcComoConquistado(this.npcAtual.idNpc);

@@ -484,12 +484,113 @@ export class CenaCidade extends Phaser.Scene {
         this.colisoresAmbiente = this.physics.add.staticGroup();
 
         for (const c of colisoresAmbiente) {
-            const rect = this.add.rectangle(c.x, c.y, c.w, c.h);
-            this.physics.add.existing(rect, true);
-            this.colisoresAmbiente.add(rect);
+            const partes = this._obterPartesColisorAmbiente(c);
+            partes.forEach((colisor) => {
+                const rect = this.add.rectangle(colisor.x, colisor.y, colisor.w, colisor.h);
+                rect.setVisible(false);
+                this.physics.add.existing(rect, true);
+                this.colisoresAmbiente.add(rect);
+            });
         }
 
         this.physics.add.collider(this.player, this.colisoresAmbiente);
+    }
+
+    _obterPartesColisorAmbiente(colisor) {
+        const base = this._ajustarColisorAmbiente(colisor);
+        const nome = typeof colisor.nome === 'string' ? colisor.nome : '';
+        const ehBorda = nome.startsWith('borda') || nome.startsWith('area-');
+
+        if (ehBorda) {
+            return [base];
+        }
+
+        const pareceVegetacao =
+            colisor.w <= 900 &&
+            colisor.h <= 950 &&
+            (colisor.w <= 350 || colisor.h <= 450);
+
+        if (pareceVegetacao) {
+            return [base];
+        }
+
+        const chanfro = Math.min(
+            32,
+            Math.floor(base.w * 0.14),
+            Math.floor(base.h * 0.14)
+        );
+
+        if (chanfro < 12) {
+            return [base];
+        }
+
+        return [
+            {
+                x: base.x,
+                y: base.y,
+                w: base.w,
+                h: Math.max(12, base.h - (chanfro * 2))
+            },
+            {
+                x: base.x,
+                y: base.y - ((base.h - chanfro) / 2),
+                w: Math.max(12, base.w - (chanfro * 2)),
+                h: chanfro
+            },
+            {
+                x: base.x,
+                y: base.y + ((base.h - chanfro) / 2),
+                w: Math.max(12, base.w - (chanfro * 2)),
+                h: chanfro
+            }
+        ];
+    }
+
+    _ajustarColisorAmbiente(colisor) {
+        const nome = typeof colisor.nome === 'string' ? colisor.nome : '';
+        const ehBorda = nome.startsWith('borda') || nome.startsWith('area-');
+
+        if (ehBorda) {
+            return { x: colisor.x, y: colisor.y, w: colisor.w, h: colisor.h };
+        }
+
+        if (nome.startsWith('petshop-arbusto')) {
+            const largura = Math.max(12, Math.round(colisor.w * 0.46));
+            const altura = Math.max(12, Math.round(colisor.h * 0.22));
+            const deslocamentoY = Math.round((colisor.h - altura) * 0.14);
+
+            return {
+                x: colisor.x,
+                y: colisor.y + deslocamentoY,
+                w: largura,
+                h: altura
+            };
+        }
+
+        const pareceVegetacao =
+            colisor.w <= 900 &&
+            colisor.h <= 950 &&
+            (colisor.w <= 350 || colisor.h <= 450);
+
+        if (pareceVegetacao) {
+            const largura = Math.max(12, Math.round(colisor.w * 0.84));
+            const altura = Math.max(12, Math.round(colisor.h * 0.52));
+            const deslocamentoY = Math.round((colisor.h - altura) * 0.04);
+
+            return {
+                x: colisor.x,
+                y: colisor.y + deslocamentoY,
+                w: largura,
+                h: altura
+            };
+        }
+
+        return {
+            x: colisor.x,
+            y: colisor.y,
+            w: Math.max(12, colisor.w - 28),
+            h: Math.max(12, colisor.h - 28)
+        };
     }
 
     _configurarPlayerNpcQuiz() {

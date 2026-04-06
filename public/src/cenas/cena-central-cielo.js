@@ -73,8 +73,8 @@ export class CenaCentral extends Phaser.Scene {
         this.npc = this.physics.add.staticImage(1160, 380, 'cieloNPC');
         this.npc.setScale(0.3);
 
-        const playerX = 400;
-        const playerY = 500;
+        const playerX = 1150;
+        const playerY = 800;
         const portaX = 400;
         const portaY = 415;
 
@@ -82,6 +82,10 @@ export class CenaCentral extends Phaser.Scene {
         this.player = new Jogador(this, playerX, playerY);
         this.player.setCollideWorldBounds(true);
         this.player.setDepth(150);
+        this.player.setScale(0.8);
+        this.player.velocidade = 650;
+      
+
 
         // Conecta o jogador com cada um dos móveis estáticos para que ele colida com eles
         this.physics.add.collider(this.player, this.balcao);

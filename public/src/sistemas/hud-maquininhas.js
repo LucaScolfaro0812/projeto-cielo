@@ -36,7 +36,7 @@ export default class HudMaquininhas {
         const max = Maquininhas.maximoMaquininhas;
 
         // Deslocamento em relação à posição base para posicionar no canto superior direito
-        const offSetX = 1100;
+        const offSetX = 870;
         const offSetY = -150;
 
         const pad = 3 / zoom;

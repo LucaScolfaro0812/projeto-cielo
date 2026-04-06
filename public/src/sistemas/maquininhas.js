@@ -21,7 +21,7 @@ export class Maquininhas {
     static chaveDeValor = 'maquininhas';
 
     // Quantidade máxima de maquininhas que o jogador pode carregar
-    static maximoMaquininhas = 2;
+    static maximoMaquininhas = 3;
 
     // Carrega o valor salvo ao inicializar; usa 0 como padrão se não houver valor salvo
     static _qntMaquininhas = carregarDados(this.chaveDeValor, 0);

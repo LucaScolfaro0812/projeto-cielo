@@ -259,7 +259,7 @@ export default class CenaLoja extends Phaser.Scene {
     let charIndex = 0;
 
     const eventoDigitacao = this.time.addEvent({
-        delay: 30,            // milissegundos entre cada letra (diminua para mais rápido)
+        delay: 15,            // milissegundos entre cada letra
         repeat: textoCompleto.length - 1,
         callback: () => {
             charIndex++;
@@ -268,21 +268,31 @@ export default class CenaLoja extends Phaser.Scene {
     });
 
     // Botão X para fechar
+    const btnX = this.exteriorImage.x + (this.cameras.main.width / 2) - 240;
+    const btnY = this.exteriorImage.y - (this.cameras.main.height / 2) + 180;
+
+    const fundoBotao = this.add.graphics();
+    fundoBotao.fillStyle(0xff0000, 1);
+    fundoBotao.fillRect(btnX - 10, btnY - 5, 45, 52);
+    fundoBotao.setDepth(1001).setScrollFactor(0);
+
     const botaoFechar = this.add.text(
-        this.exteriorImage.x + (this.cameras.main.width / 2) - 350,
-        this.exteriorImage.y - (this.cameras.main.height / 2) + 100,
+        btnX,
+        btnY,
         'X',
         { fontSize: '48px', fill: '#FFF' }
-    ).setDepth(1001).setInteractive().setScrollFactor(0);
+    ).setDepth(1002).setInteractive().setScrollFactor(0);
 
     botaoFechar.on('pointerdown', () => {
-        eventoDigitacao.remove();   // cancela a digitação ao fechar
+        eventoDigitacao.remove();
         this.physics.resume();
         this.exteriorImage.destroy();
         botaoFechar.destroy();
+        fundoBotao.destroy(); // 👈 novo
         textoChat.destroy();
         overlay.destroy();
     });
+    
 
         this._configurarPlayerNpcQuiz();
         this._criarPortas();

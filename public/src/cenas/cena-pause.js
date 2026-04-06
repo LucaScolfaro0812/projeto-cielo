@@ -4,7 +4,7 @@
  * Oferece três opções: continuar o jogo, iniciar um novo jogo ou voltar ao menu principal.
  */
 import { transicionarPara } from '../utilitarios/transicao-cena.js';
-import { Maquininhas } from "../sistemas/maquininhas.js";
+import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
 
 export class CenaPausa extends Phaser.Scene {
 
@@ -57,13 +57,7 @@ export class CenaPausa extends Phaser.Scene {
 
         // Botão Novo Jogo — apaga o progresso salvo e reinicia o jogo do zero
         this._criarBotao(largura / 2, altura / 2 + 60, 'Novo Jogo', () => {
-            // Remove todas as chaves de progresso do localStorage
-            localStorage.removeItem('npcsConquistadosQuantidade');
-            localStorage.removeItem('npcsQuizAbertos');
-            localStorage.removeItem('npcsConquistadosIds');
-            localStorage.removeItem('perguntasJaFeitas');
-            localStorage.removeItem('maquininhas');
-            Maquininhas.definirMaquininhas(0);
+            resetarSessaoJogo();
 
 
             // Para a cena pausada e inicia novo jogo com fade azul Cielo

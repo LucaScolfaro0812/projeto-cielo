@@ -1,5 +1,6 @@
 import { carregarDados } from '../utilitarios/armazenamento.js';
 import { chavesArmazenamento } from '../utilitarios/estado-jogo.js';
+import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
 
 export default class CenaFinal extends Phaser.Scene {
     constructor() {
@@ -38,7 +39,8 @@ export default class CenaFinal extends Phaser.Scene {
             botao.on('pointerover', () => botao.setStyle({ backgroundColor: '#6FB7FF', fill: '#1B2A4A' }));
             botao.on('pointerout', () => botao.setStyle({ backgroundColor: '#001caa', fill: '#ffffff' }));
             botao.on('pointerdown', () => {
-                this.scene.start('cenaFinal');  
+                resetarSessaoJogo();
+                this.scene.start('centralScene');
             });
         }
     }

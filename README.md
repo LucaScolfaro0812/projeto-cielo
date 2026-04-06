@@ -1,7 +1,7 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="public/assets/ui/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
+<a href= "https://www.inteli.edu.br/"><img src="documents/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
 </p>
 
 <br>
@@ -92,7 +92,6 @@ Depois acesse `http://localhost:8080` no navegador.
 
 * 0.5.0 - 28/03/2026
     * Sistema de maquininhas com HUD e ciclo de recarga na Central da Cielo
-    * Quiz com pontuação em 4 níveis (excelente, boa, neutra, incorreta)
     * HUD de progresso dos NPCs com painel expandido
     * Sistema de áudio completo com 20 sons (ambiente por loja, passos, clique, menu)
     * Interior da Central da Cielo implementado

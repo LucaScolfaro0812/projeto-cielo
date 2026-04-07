@@ -84,8 +84,6 @@ export class CenaCentral extends Phaser.Scene {
         this.player.setDepth(150);
         this.player.setScale(0.8);
         this.player.velocidade = 650;
-      
-
 
         // Conecta o jogador com cada um dos móveis estáticos para que ele colida com eles
         this.physics.add.collider(this.player, this.balcao);
@@ -100,7 +98,7 @@ export class CenaCentral extends Phaser.Scene {
             [9, 387, 311, 7],
             [339, 241, 459, 7],
             [462, 394, 2297, 2],
-            [329, 270, 4]
+            [329, 270, 460, 4]
         ];
         this.paredes = paredesData.map(([x1, y1, x2, y2]) => {
             // Converte os dois pontos para centro + dimensões (formato do Phaser)
@@ -131,25 +129,35 @@ export class CenaCentral extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        this.input.keyboard.on('keydown-T', () => {
+            this._abrirTutorial();
+        });
+
         const zoomX = this.cameras.main.width / this.fundo.displayWidth;
         const zoomY = this.cameras.main.height / this.fundo.displayHeight;
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         this.hudMaquininhas = new HudMaquininhas(this);
-
-        // DEBUG: clique para logar coordenadas no console
-        this.input.on('pointerdown', (pointer) => {
-            const worldX = Math.round(pointer.worldX);
-            const worldY = Math.round(pointer.worldY);
-            console.log(`x: ${worldX}, y: ${worldY}`);
-        });
     }
 
     _pararAudio() {
         if (this.somAmbiente && this.somAmbiente.isPlaying) {
             this.somAmbiente.stop();
         }
+    }
+
+    _abrirTutorial() {
+        if (this.scene.isActive('tutorialScene')) {
+            return;
+        }
+
+        this.scene.pause();
+        this.scene.launch('tutorialScene', {
+            cenaOrigem: this.scene.key,
+            modoOverlay: true
+        });
+        this.scene.bringToTop('tutorialScene');
     }
 
     _criarCenario() {

@@ -138,7 +138,7 @@ Quando bem estruturada, a proposta de valor permite compreender com mais precis�
 
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
-Diferente de abordagens convencionais, o uso de um jogo interativo permite que o usuário aprenda por meio da prática, simulando situações reais de vendas e recebendo feedback imediato sobre seu desempenho. Isso torna o processo mais dinâmico, aumenta o engajamento e contribui para uma aprendizagem mais efetiva.
+Diferente de abordagens convencionais, o uso de um jogo interativo permite que o usuário aprenda por meio da prática, simulando situações reais de vendas e recebendo feedback imediato sobre seu desempenho. O conteúdo do jogo é distintivo porque as perguntas são baseadas em cenários reais da rotina comercial da Cielo — como identificar o produto adequado para cada perfil de lojista e contornar objeções comuns — e cada resposta possui quatro níveis de qualidade (excelente, boa, neutra e incorreta), refletindo a gradação real de uma negociação em vez de tratar o conhecimento como simplesmente certo ou errado. Isso torna o processo mais dinâmico, aumenta o engajamento e contribui para uma aprendizagem mais efetiva e aplicável.
 
 Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao conhecimento, permitindo que mais pessoas se desenvolvam profissionalmente independentemente de sua localização. Dessa forma, a solução não apenas resolve problemas existentes, mas também potencializa os resultados dos usuários, tornando o aprendizado mais eficiente, inclusivo e alinhado às demandas do mercado.
 
@@ -149,6 +149,8 @@ A solução desenvolvida busca resolver a dificuldade enfrentada pela equipe com
 O jogo foi concebido como um _serious game_, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
 
 A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Além disso, o ambiente simulado proporciona um espaço seguro para erros e experimentação, sem impactos reais nos resultados da empresa. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento entre os colaboradores e melhorar a performance em vendas, alinhando-se diretamente às necessidades reais do parceiro.
+
+**Perfil do usuário e modo de acesso:** o público-alvo direto são os gerentes de negócios (GNs) da Cielo, profissionais responsáveis pela prospecção e atendimento de lojistas. O jogo pode ser utilizado em dois contextos principais: durante o onboarding de novos GNs, como parte da trilha de capacitação inicial, e periodicamente como reforço de treinamento para equipes já formadas. O acesso é feito exclusivamente via navegador (Chrome, Firefox ou Edge), sem necessidade de instalação ou configuração — basta acessar o link publicado no GitLab Pages da Inteli. Não há dependência de infraestrutura corporativa ou VPN, o que garante acessibilidade independente da localização do colaborador.
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
@@ -169,15 +171,15 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 #### Lista de Riscos — Ameaças
 
-1. **Integrante faltar na apresentação**
-   Poderemos enfrentar esse risco caso algum membro do grupo se ausente em um dia de apresentação sem aviso prévio aos demais integrantes. Os responsáveis por esse risco são os próprios membros da equipe.  
-   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+1. **Baixa adoção do jogo pelos gerentes de negócios**
+   Há o risco de os GNs não utilizarem o jogo voluntariamente após a entrega, seja por falta de incentivo institucional da Cielo, por não enxergarem valor prático na ferramenta ou por resistência a métodos digitais de treinamento. Sem adoção real, o impacto no desempenho comercial será nulo.
+   **Responsáveis:** Lyria (mentora da Cielo), coordenação de treinamento
 
    **Impacto:** Alto
 
-   **Probabilidade:** Baixa
+   **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Sempre ter duas pessoas de reserva por apresentação.
+   **Plano de Resposta ao Risco:** Validar o jogo com GNs reais durante o desenvolvimento para garantir aderência ao contexto real. Recomendar à Cielo que o jogo seja incorporado formalmente à trilha de onboarding, tornando o uso estrutural e não opcional.
 
 2. **Falta de testes reais com os gerentes de negócios**
    Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
@@ -228,6 +230,16 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
    **Probabilidade:** Média
 
    **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
+
+7. **Desatualização do conteúdo do jogo**
+   Os produtos, serviços e processos comerciais da Cielo podem mudar ao longo do tempo. Se as perguntas e cenários do quiz não forem atualizados, o treinamento passará a reforçar informações desatualizadas, comprometendo a eficácia da ferramenta e potencialmente causando erros operacionais nos GNs.
+   **Responsáveis:** Equipe de produto da Cielo, coordenação de treinamento
+
+   **Impacto:** Alto
+
+   **Probabilidade:** Média
+
+   **Plano de Resposta ao Risco:** Documentar claramente onde as perguntas estão no código (`quiz-perguntas.js`) para facilitar atualizações futuras. Recomendar à Cielo a revisão semestral do banco de perguntas com o time de produto.
 
 ---
 
@@ -795,7 +807,7 @@ Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o veto
 
 No eixo X não há aceleração: o balão se desloca lateralmente sempre com a mesma velocidade. Para garantir que o balão percorra a distância $x_f - x_i$ exatamente em $T$ segundos, a velocidade constante é calculada por:
 
-$$v_x = rac{x_f - x_i}{T}$$
+$$v_x = \frac{x_f - x_i}{T}$$
 
 Como $x_f > x_i$ (o balão se move para a direita), $v_x$ é positivo. A posição em função do tempo é:
 
@@ -809,7 +821,7 @@ Isso significa que a cada segundo que passa, o balão avança exatamente $v_x$ p
 
 No eixo Y, o balão parte do repouso ($v_{y0} = 0$) e acelera continuamente até chegar à posição final. A aceleração necessária para percorrer a distância vertical $y_f - y_i$ em tempo $T$, partindo do repouso, é:
 
-$$a_y = rac{2 \cdot (y_f - y_i)}{T^2}$$
+$$a_y = \frac{2 \cdot (y_f - y_i)}{T^2}$$
 
 Como o balão sobe no Phaser ($y_f < y_i$), $a_y$ é negativo — a aceleração aponta para cima. A velocidade aumenta em módulo a cada instante:
 
@@ -817,9 +829,9 @@ $$v_y(t) = a_y \cdot t$$
 
 E a posição em função do tempo é dada pela equação horária do MUV com velocidade inicial nula:
 
-$$y(t) = y_i + rac{1}{2} \cdot a_y \cdot t^2$$
+$$y(t) = y_i + \frac{1}{2} \cdot a_y \cdot t^2$$
 
-O termo $rac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no início o balão move-se devagar e vai acelerando progressivamente, criando a sensação visual de leveza.
+O termo $\frac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no início o balão move-se devagar e vai acelerando progressivamente, criando a sensação visual de leveza.
 
 ### 3.8.4. Exemplo Numérico
 

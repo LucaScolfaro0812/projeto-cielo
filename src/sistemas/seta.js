@@ -59,6 +59,8 @@ export default class Seta extends Phaser.GameObjects.Sprite {
             // posiciona acima do alvo (no mundo)
             this.alerta.setPosition(this.alvo.x, this.alvo.y - 200);
         } else {
+            this.setVisible(true);
+            this.alerta.setVisible(false);
 
             const margem = this.margem;
 

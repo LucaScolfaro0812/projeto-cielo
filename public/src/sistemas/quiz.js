@@ -3,7 +3,6 @@
  * Responsável por:
  * - Controlar fluxo das perguntas
  * - Gerenciar tempo
- * - Calcular pontuação
  * - Controlar nível de conversão
  * - Comunicar-se com a camada de UI (InterfaceQuiz)
  */
@@ -18,7 +17,6 @@ import { getPerguntasPorLoja, selecionarTresAleatorias, perguntasNpcRua } from "
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";
 
-import { pontosConquista, pontosDerrota } from "../utilitarios/pontos.js";
 import { atualizarEstadoNpc } from "../utilitarios/progresoNPCs.js";
 import { Maquininhas } from "./maquininhas.js";
 

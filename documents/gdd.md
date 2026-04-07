@@ -364,7 +364,7 @@ Esta seção apresenta os requisitos do sistema, organizados em requisitos funci
 | ---- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | RF01 | Menu inicial                     | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                                                                                                                                                                 |
 | RF02 | Menu de configurações            | O sistema deve disponibilizar um menu de configurações acessível a partir do menu inicial, permitindo ajustar o volume dos sons do jogo, ativar/desativar efeitos sonoros e redefinir o progresso (novo jogo).                                                                                                                                                                                                                                             |
-| RF03 | Progresso da sessão              | O sistema deve manter o progresso do jogador de forma persistente entre sessões, salvando via localStorage: NPCs conquistados, quantidade de maquininhas, pontuação acumulada e posição de retorno no mapa. O progresso é restaurado automaticamente ao reabrir o jogo.                                                                                                                                                                                    |
+| RF03 | Progresso da sessão              | O sistema deve manter o progresso do jogador de forma persistente entre sessões, salvando via localStorage: NPCs conquistados, quantidade de maquininhas e posição de retorno no mapa. O progresso é restaurado automaticamente ao reabrir o jogo.                                                                                                                                                                                    |
 | RF04 | Tutorial inicial                 | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistemas de HUD antes da primeira partida.                                                                                                                                                                                                                                                                                       |
 | RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas sorteadas aleatoriamente do banco daquela loja, com 4 opções de resposta. Respostas corretas valem 3 pontos; incorretas valem 0 pontos. O jogador conquista o cliente ao acumular 6 ou mais pontos ao final das 3 perguntas (máximo: 9 pontos). Cada NPC só pode ser desafiado uma vez — o resultado é definitivo. |
 | RF06 | Sistema de variáveis do cliente  | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                                                                                                                                                                                               |
@@ -1293,8 +1293,7 @@ O sistema apresenta:
 Sorteio aleatório de perguntas sem repetição;
 Timer de 60 segundos por pergunta;
 Encerramento automático ao fim do tempo.
-A cada interação com um cliente, o resultado do quiz impacta diretamente a pontuação do jogador. Ao conquistar o cliente, o jogador recebe +15 pontos, enquanto em caso de falha na conversão, há penalização de -15 pontos.
-Esse sistema reforça a importância das decisões tomadas durante o quiz e adiciona um elemento de risco e recompensa à jogabilidade.
+A cada interação com um cliente, o resultado do quiz determina se o NPC foi conquistado ou não, com base na pontuação acumulada internamente pelas respostas (limiar de ≥ 6 pontos). Esse sistema reforça a importância das decisões tomadas durante o quiz e adiciona um elemento de risco e recompensa à jogabilidade.
 
 . **Feedback de conquista do NPC**
 Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visualmente, sua aparência é alterada para a cor azul, permitindo identificação imediata pelo jogador.
@@ -1432,7 +1431,7 @@ Apesar do avanço significativo no desenvolvimento do MVP, algumas limitações 
 Uma das principais limitações está relacionada à gestão do tempo durante o desenvolvimento, o que impactou o nível de refinamento e a profundidade de algumas funcionalidades.
 Além disso, a equipe apresentou limitações em termos de especialização técnica em áreas como programação e design, o que influenciou o nível de detalhamento de certos recursos, apesar de atenderem aos requisitos funcionais.
 No sistema de quiz, ainda há limitação na quantidade e variedade de perguntas, podendo afetar a repetibilidade da experiência.
-O sistema de pontuação também é relativamente simples, baseado em ganhos e perdas fixas (+15 e -15 pontos), podendo ser expandido futuramente.
+O sistema de conquista de NPCs é funcional, mas pode ser expandido futuramente com novos tipos de feedback e mecânicas de progressão.
 Também há ausência de suporte para dispositivos móveis, sendo o jogo otimizado para uso em computador.
 Por fim, o salvamento de progresso permanece limitado ao localStorage, sem integração com soluções em nuvem.
 
@@ -1447,7 +1446,7 @@ Por fim, busca-se melhorar a organização e otimização do código, visando ma
 
 ## 4.5. Revisão do MVP (sprint 5)
 
-Durante a Sprint 5, o foco do desenvolvimento esteve no refinamento e na correção de inconsistências identificadas no MVP entregue na sprint anterior. As melhorias abrangeram navegação pelo mapa, sistema de pontuação, carros, minimapa, feedback visual de conquista e correções de comportamento inesperado no tutorial e nas portas das lojas.
+Durante a Sprint 5, o foco do desenvolvimento esteve no refinamento e na correção de inconsistências identificadas no MVP entregue na sprint anterior. As melhorias abrangeram navegação pelo mapa, carros, minimapa, feedback visual de conquista e correções de comportamento inesperado no tutorial e nas portas das lojas.
 
 ### Funcionalidades implementadas
 
@@ -1460,8 +1459,6 @@ Os colisores são definidos em `configuracao-colisores-ambiente.js` como uma lis
 . **Câmera com limites no mapa**
 A câmera principal da cidade foi configurada para nunca ultrapassar as bordas do mapa usando `cameras.main.setBounds(0, 0, largura, altura)`. Antes desse ajuste, ao se aproximar das bordas, o jogador via o fundo preto além do mapa, o que causava desorientação visual. Agora a câmera para exatamente no limite do mapa, mantendo o fundo sempre preenchido.
 
-. **Sistema de pontuação com persistência**
-Foi implementado um sistema de pontuação persistente armazenado no localStorage. A lógica central está em `pontos.js` e funciona da seguinte forma: ao conquistar um NPC (quiz bem-sucedido), o jogador recebe **+15 pontos**; ao falhar na negociação, perde **-15 pontos**. A pontuação acumulada persiste entre sessões, sendo lida e atualizada a cada interação.
 
 . **Configuração diferenciada das três ruas de carros**
 O sistema de carros foi expandido para cobrir três ruas distintas do mapa, cada uma com características independentes de direção, velocidade, quantidade de carros e espaçamento entre eles:
@@ -1527,7 +1524,6 @@ Uma funcionalidade foi considerada concluída quando atendeu a todos os seguinte
 
 Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 
-. O sistema de pontuação está implementado mas ainda não é exibido ao jogador em nenhuma interface visível durante o jogo — os pontos são acumulados no localStorage mas não há HUD mostrando o total em tempo real;
 
 . Os colisores de ambiente foram ajustados manualmente e podem apresentar pequenas imprecisões em regiões do mapa com elementos visuais sobrepostos ou com escalas diferentes;
 
@@ -1541,7 +1537,6 @@ Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 
 Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 
-. Exibição da pontuação acumulada em uma HUD permanente na tela, mostrando o total de pontos em tempo real durante a jogabilidade;
 
 . Aprimoramento do minimapa para indicar visualmente quais lojas já foram conquistadas, usando marcadores ou cores diferenciadas;
 
@@ -1557,7 +1552,7 @@ Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
 Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação. A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação. Cada resposta vale **3 pts** (correta, +30 na barra) ou **0 pts** (incorreta, −50 na barra). A barra começa em 50 pontos e é limitada entre 0 e 100.
-Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso (pontuação total ≥ 6), o jogador recebe +15 pontos e consome 1 maquininha; em caso de derrota, recebe -15 pontos e nenhuma maquininha é consumida.
+Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso (pontuação total ≥ 6), o jogador consome 1 maquininha; em caso de derrota, nenhuma maquininha é consumida.
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
@@ -1589,7 +1584,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 24  | Jogador próximo à borda do mapa                                   | Tentar sair pelos limites do mapa                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa                                                               |
 | 25  | Jogador colide com um carro em qualquer rua                       | Carro atinge o jogador durante a navegação              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                                                                           |
 | 26  | Jogador navega pela cidade                                        | Observar o minimapa no canto superior esquerdo          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador                      |
-| 27  | Jogador conquista um NPC (quiz bem-sucedido)                      | Finaliza o quiz com pontuação ≥ 6                       | O jogador recebe +15 pontos persistidos no localStorage; efeito de confetes é exibido; 1 maquininha é consumida                                    |
+| 27  | Jogador conquista um NPC (quiz bem-sucedido)                      | Finaliza o quiz com pontuação ≥ 6                       | Efeito de confetes é exibido; 1 maquininha é consumida                                                                                             |
 | 28  | Jogador falha em um quiz (pontuação < 6)                          | Finaliza o quiz com pontuação < 6                       | O jogador perde 15 pontos persistidos no localStorage; nenhuma maquininha é consumida                                                              |
 | 29  | Jogador se aproxima do prédio Central da Cielo no mapa            | Encosta na porta do prédio                              | O jogador deve entrar na cena da Central da Cielo                                                                                                  |
 | 30  | Jogador dentro da Central da Cielo                                | Pressionar ESC                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo, Configurações e Menu                                                                |
@@ -1776,9 +1771,6 @@ O jogo utiliza uma arquitetura _data-driven_ para as lojas: uma única classe `C
 
 O quiz segue o fluxo: abertura → exibição de pergunta → contagem regressiva de 60 segundos → resposta do jogador (ou tempo esgotado) → atualização da barra de conversão → próxima pergunta (ou encerramento). Ao final das 3 perguntas, a soma de pontos é comparada ao limiar de 6 pontos para determinar conquista ou derrota.
 
-### Diagrama do sistema de pontuação
-
-A pontuação é gerenciada por `pontos.js` e persistida no localStorage com a chave `pontuacaoJogador`. A cada conquista de NPC, +15 pontos são adicionados; a cada derrota, -15 pontos são subtraídos. A função `obterPontos()` lê o valor atual com fallback para 0 caso a chave não exista.
 
 ## A.2. Recursos visuais e assets
 
@@ -1808,7 +1800,6 @@ Cada NPC possui três estados visuais representados por imagens distintas: `nao-
 | `configuracao-interior.js`           | Lista de móveis e posições para cada loja (usada para criar o mobiliário físico interno)                                                                                                             |
 | `configuracao-baloes.js`             | Definição das variantes de balões decorativos exibidos nas lojas conquistadas                                                                                                                        |
 | `estado-jogo.js`                     | Chaves centralizadas do localStorage e estado global de progresso entre cenas                                                                                                                        |
-| `pontos.js`                          | Sistema de pontuação: +15 conquista, -15 derrota, leitura e escrita no localStorage                                                                                                                  |
 | `quiz-perguntas.js`                  | Banco de perguntas de todos os bancos (`perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola`, `perguntasNpcRua`) |
 | `maquininhas.js`                     | Controle do estoque de maquininhas do jogador (classe estática com persistência no localStorage)                                                                                                     |
 | `progresoNPCs.js`                    | Lista de todos os NPCs do jogo com ID, loja e estado atual (`nao-interagido`, `interagido`, `conquistado`)                                                                                           |

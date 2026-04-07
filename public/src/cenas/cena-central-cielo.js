@@ -84,8 +84,6 @@ export class CenaCentral extends Phaser.Scene {
         this.player.setDepth(150);
         this.player.setScale(0.8);
         this.player.velocidade = 650;
-      
-
 
         // Conecta o jogador com cada um dos móveis estáticos para que ele colida com eles
         this.physics.add.collider(this.player, this.balcao);
@@ -100,7 +98,7 @@ export class CenaCentral extends Phaser.Scene {
             [9, 387, 311, 7],
             [339, 241, 459, 7],
             [462, 394, 2297, 2],
-            [329, 270, 4]
+            [329, 270, 460, 4]
         ];
         this.paredes = paredesData.map(([x1, y1, x2, y2]) => {
             // Converte os dois pontos para centro + dimensões (formato do Phaser)
@@ -141,13 +139,6 @@ export class CenaCentral extends Phaser.Scene {
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         this.hudMaquininhas = new HudMaquininhas(this);
-
-        // DEBUG: clique para logar coordenadas no console
-        this.input.on('pointerdown', (pointer) => {
-            const worldX = Math.round(pointer.worldX);
-            const worldY = Math.round(pointer.worldY);
-            console.log(`x: ${worldX}, y: ${worldY}`);
-        });
     }
 
     _pararAudio() {

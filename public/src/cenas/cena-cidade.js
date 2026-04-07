@@ -935,9 +935,33 @@ export class CenaCidade extends Phaser.Scene {
         this.cameras.main.ignore(this.minimapMarcador);
         borda.ignore(this.minimapMarcador);
     }
+    
+    pegarLojaMaisProxima(objeto) {
+        if (!this.lojas || this.lojas.length === 0) return null; // No stores available
+
+        let lojaMaisProxima = this.lojas[0];
+        let menorDistancia = this.distanciaEntreObjetos(objeto, this.lojas[0]);
+
+        for (let i = 1; i < this.lojas.length; i++) {
+            const distancia = this.distanciaEntreObjetos(objeto, this.lojas[i]);
+            if (distancia < menorDistancia) {
+                lojaMaisProxima = this.lojas[i];
+                menorDistancia = distancia;
+            }
+        }
+
+        return lojaMaisProxima;
+    }
+    
+    distanciaEntreObjetos(obj1, obj2) {
+        const dx = obj2.x - obj1.x;
+        const dy = obj2.y - obj1.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
 
     // Método executado a cada frame do jogo
     update() {
+        this.seta.definirAlvo(this.pegarLojaMaisProxima(this.player));
 
         this.player.update();
         this.seta.update(this.player, Math.PI);

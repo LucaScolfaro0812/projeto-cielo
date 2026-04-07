@@ -8,7 +8,6 @@ export default class CenaFinal extends Phaser.Scene {
         this.load.image('cieloBalcao', 'assets/imagens/central-cielo/cieloBalcao.png');
         this.load.image('cieloComputador', 'assets/imagens/central-cielo/cieloComputador.png');
         this.load.image('cieloFiltro', 'assets/imagens/central-cielo/cieloFiltro.png');
-        this.load.image('cieloPlanta', 'assets/imagens/central-cielo/cieloPlanta.png');
         this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
         this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
         this.load.image('NPCAzulAutoescola', 'assets/sprites/personagens/npcAzulAutoEscola.png');
@@ -20,6 +19,9 @@ export default class CenaFinal extends Phaser.Scene {
         this.load.image('NPCAzulMovel', 'assets/sprites/personagens/npcAzulMovel.png');
         this.load.image('NPCAzulFrutaria', 'assets/sprites/personagens/npcAzulFrutaria.png');
         this.load.image('NPCAzulLanchonete', 'assets/sprites/personagens/npcAzulLanchonete.png');
+        this.load.image('NPCAzulChocolate', 'assets/sprites/personagens/npcAzulChocolate.png');
+        this.load.image('NPCAzulPelucia', 'assets/sprites/personagens/npcAzulPelucia.png');
+        this.load.image('NPCAzulJoalheria', 'assets/sprites/personagens/npcAzulJoalheria.png');
     }
 
     create() {
@@ -32,22 +34,27 @@ export default class CenaFinal extends Phaser.Scene {
         .setDisplaySize(w, h);
 
     // Elementos da cena
-    this.filtro = this.physics.add.staticImage(2000, 400, 'cieloFiltro').setScale(0.4);
-    this.planta = this.physics.add.staticImage(100, 450, 'cieloPlanta').setScale(0.4);
+    this.filtro     = this.physics.add.staticImage(2000, 400, 'cieloFiltro').setScale(0.4);
     this.computador = this.physics.add.staticImage(2130, 750, 'cieloComputador').setScale(0.4);
-    this.placa = this.physics.add.staticImage(w * 0.5, 120, 'cieloPlaca').setScale(0.5);
-    this.balcao = this.physics.add.staticImage(w * 0.5, 380, 'cieloBalcao').setScale(0.5);
-    this.npc = this.physics.add.staticImage(w * 0.5, 300, 'cieloNPC').setScale(0.5);
+    this.placa      = this.physics.add.staticImage(w * 0.5, 120, 'cieloPlaca').setScale(0.5);
+    this.balcao     = this.physics.add.staticImage(w * 0.5, 380, 'cieloBalcao').setScale(0.5);
+    this.npc        = this.physics.add.staticImage(w * 0.5, 290, 'cieloNPC').setScale(0.35); // menor, proporcional ao balcão
 
-    // NPCs espalhados pela tela
-    this.physics.add.staticImage(w * 0.1,  h * 0.5, 'NPCAzulAutoescola').setScale(0.4);
-    this.physics.add.staticImage(w * 0.2,  h * 0.6, 'NPCAzulCafe').setScale(0.4);
-    this.physics.add.staticImage(w * 0.3,  h * 0.5, 'NPCAzulGames').setScale(0.4);
-    this.physics.add.staticImage(w * 0.4,  h * 0.6, 'NPCAzulBeleza').setScale(0.4);
-    this.physics.add.staticImage(w * 0.5,  h * 0.7, 'NPCAzulRoupas').setScale(0.4);
-    this.physics.add.staticImage(w * 0.6,  h * 0.5, 'NPCAzulPet').setScale(0.4);
-    this.physics.add.staticImage(w * 0.7,  h * 0.6, 'NPCAzulMovel').setScale(0.4);
-    this.physics.add.staticImage(w * 0.8,  h * 0.5, 'NPCAzulFrutaria').setScale(0.4);
-    this.physics.add.staticImage(w * 0.9,  h * 0.6, 'NPCAzulLanchonete').setScale(0.4);
+    // NPCs alinhados na base da tela — maiores, levemente cortados embaixo
+    const npcY = h * 0.9; // um pouco abaixo da tela para cortar as pernas
+    const npcScale = 0.5;
+
+    this.physics.add.staticImage(w * 0.03, npcY, 'NPCAzulAutoescola').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.10, npcY, 'NPCAzulCafe').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.17, npcY, 'NPCAzulGames').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.24, npcY, 'NPCAzulBeleza').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.31, npcY, 'NPCAzulRoupas').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.38, npcY, 'NPCAzulPet').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.45, npcY, 'NPCAzulMovel').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.52, npcY, 'NPCAzulFrutaria').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.58, npcY, 'NPCAzulLanchonete').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.65, npcY, 'NPCAzulChocolate').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.72, npcY, 'NPCAzulPelucia').setScale(npcScale);
+    this.physics.add.staticImage(w * 0.79, npcY, 'NPCAzulJoalheria').setScale(npcScale);
 }
 }

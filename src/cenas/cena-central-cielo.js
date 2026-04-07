@@ -131,6 +131,10 @@ export class CenaCentral extends Phaser.Scene {
             this.scene.launch('pauseScene', { cenaAnterior: this.sys.settings.key });
         });
 
+        this.input.keyboard.on('keydown-T', () => {
+            this._abrirTutorial();
+        });
+
         const zoomX = this.cameras.main.width / this.fundo.displayWidth;
         const zoomY = this.cameras.main.height / this.fundo.displayHeight;
         this.cameras.main.setZoom(Math.max(zoomX, zoomY));
@@ -150,6 +154,19 @@ export class CenaCentral extends Phaser.Scene {
         if (this.somAmbiente && this.somAmbiente.isPlaying) {
             this.somAmbiente.stop();
         }
+    }
+
+    _abrirTutorial() {
+        if (this.scene.isActive('tutorialScene')) {
+            return;
+        }
+
+        this.scene.pause();
+        this.scene.launch('tutorialScene', {
+            cenaOrigem: this.scene.key,
+            modoOverlay: true
+        });
+        this.scene.bringToTop('tutorialScene');
     }
 
     _criarCenario() {

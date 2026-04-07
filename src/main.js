@@ -54,3 +54,5 @@ aplicarConfiguracoesJogo({ game });
 
 // Inicia o jogo carregando a cena de menu primeiro
 game.scene.start('menuScene');
+
+export default game;

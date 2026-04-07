@@ -19,6 +19,7 @@ import Entrada from '../entidades/loja-entrar.js';
 import { revelarCena } from '../utilitarios/transicao-cena.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 import Seta from '../sistemas/seta.js'
+import { Maquininhas } from '../sistemas/maquininhas.js';
 
 // Definição da cena principal do jogo
 export class CenaCidade extends Phaser.Scene {
@@ -457,6 +458,8 @@ export class CenaCidade extends Phaser.Scene {
 
         this.seta = new Seta(this);
         this.seta.definirAlvo(this.lojas[0]);
+
+        this.maquininha = new Maquininhas(this);
     }
 
     _abrirTutorial() {

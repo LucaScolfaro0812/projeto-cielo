@@ -515,9 +515,9 @@ export class CenaCidade extends Phaser.Scene {
         }
 
         const chanfro = Math.min(
-            32,
-            Math.floor(base.w * 0.14),
-            Math.floor(base.h * 0.14)
+            60,
+            Math.floor(base.w * 0.26),
+            Math.floor(base.h * 0.26)
         );
 
         if (chanfro < 12) {
@@ -588,8 +588,8 @@ export class CenaCidade extends Phaser.Scene {
         return {
             x: colisor.x,
             y: colisor.y,
-            w: Math.max(12, colisor.w - 28),
-            h: Math.max(12, colisor.h - 28)
+            w: Math.max(12, colisor.w - 68),
+            h: Math.max(12, colisor.h - 68)
         };
     }
 

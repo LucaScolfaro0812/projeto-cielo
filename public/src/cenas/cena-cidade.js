@@ -710,31 +710,60 @@ export class CenaCidade extends Phaser.Scene {
         const portaY = centralY + 180; 
         const portaX = centralX; 
 
-        // Cria a porta usando a sua classe (ela já desenha a 'entrada_animada')
-        this.portaCentral = new Entrada(
-            this,
-            portaX,
-            portaY,
-            this,
-            'centralScene',
-            this.player // Passando o player, pois vi no seu código que o construtor pede!
+        const brilhoOffsetX = -5; // Valores positivos movem para direita, negativos para esquerda
+        const brilhoOffsetY = -95; // Valores positivos movem para baixo, negativos para cima
+        // Adicionamos o offset na posição X e Y do sprite
+        this.portaCentralGlow = this.add.sprite(
+            portaX + brilhoOffsetX, 
+            portaY + brilhoOffsetY, 
+            'entrada_animada', 
+            0
         );
+        
+        // Aquele tom de luz marrom/quente
+        this.portaCentralGlow.setTintFill(0xCD853F); 
+        this.portaCentralGlow.setScale(2.8); 
+        
+        // Tem que ser menor que a profundidade da porta (você colocou a porta no 13, 
+        // então o brilho fica no 12 para ficar atrás dela)
+        this.portaCentralGlow.setDepth(150); 
+        
+        this.portaCentralGlow.setBlendMode(Phaser.BlendModes.ADD);
+        this.portaCentralGlow.setAlpha(0.8);
 
-        // Garante que a porta fique na frente do prédio!
-        this.portaCentral.setDepth(11);  
+        this.portaCentralTween = this.tweens.add({
+            targets: this.portaCentralGlow,
+            alpha: 0.2,
+            duration: 1500,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
 
-        // Colisão da porta com o jogador
+        this.portaCentral = new Entrada(
+        this,
+        portaX,
+        portaY,
+        this,
+        'centralScene',
+        this.player 
+    );
+
+        this.portaCentral.setDepth(13);  
+        this.portaCentral.brilho = this.portaCentralGlow;
+
         this.physics.add.overlap(this.portaCentral, this.player, () => {
-            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
-            if (this.cache.audio.exists('portaAbrindo')) {
-                this.sound.play('portaAbrindo');
-            }
-            
-            this.portaCentral.trocarDeCena();
+        if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
+        
+        if (this.cache.audio.exists('portaAbrindo')) {
+            this.sound.play('portaAbrindo');
+        }
+        
+        this.portaCentral.trocarDeCena();
 
-            if (this.somCidade && this.somCidade.isPlaying) {
-                this.somCidade.stop();
-            }
+        if (this.somCidade && this.somCidade.isPlaying) {
+            this.somCidade.stop();
+        }
         });
     }
 
@@ -966,30 +995,68 @@ export class CenaCidade extends Phaser.Scene {
         this.player.update();
         this.seta.update(this.player, Math.PI);
 
+        // --- 1. LÓGICA DAS PORTAS DAS LOJAS ---
         this.lojas.forEach(loja => {
-    const porta = loja.getPorta();
-    if (!porta?.brilho) return;
+            const porta = loja.getPorta();
+            if (!porta?.brilho) return;
 
-    const distancia = Phaser.Math.Distance.Between(
-        this.player.x, this.player.y,
-        porta.brilho.x, porta.brilho.y
-    );
+            const distanciaLoja = Phaser.Math.Distance.Between(
+                this.player.x, this.player.y,
+                porta.brilho.x, porta.brilho.y
+            );
 
-    const raioMax = 400;
-    const raioMin = 390;
+            const raioMaxLoja = 400;
+            const raioMinLoja = 390;
 
-    if (distancia >= raioMax) {
-        // Longe: não toca no alpha, o tween pulsa livremente
-        return;
-    }
+            if (distanciaLoja >= raioMaxLoja) {
+                // Longe: não toca no alpha, o tween pulsa livremente
+                return;
+            }
 
-    // Perto ou na zona de transição: sobrescreve o alpha do tween
-    const alpha = Phaser.Math.Clamp(
-        (distancia - raioMin) / (raioMax - raioMin) * 0.25,
-        0, 0.25
-    );
-    porta.brilho.setAlpha(alpha);
-});
+            // Perto ou na zona de transição: sobrescreve o alpha do tween
+            const alpha = Phaser.Math.Clamp(
+                (distanciaLoja - raioMinLoja) / (raioMaxLoja - raioMinLoja) * 0.25,
+                0, 0.25
+            );
+            porta.brilho.setAlpha(alpha);
+        }); 
+
+
+        // --- 2. LÓGICA DA PORTA DA CENTRAL CIELO ---
+        if (this.portaCentralGlow) {
+            const distanciaCentral = Phaser.Math.Distance.Between(
+                this.player.x, this.player.y,
+                this.portaCentralGlow.x, this.portaCentralGlow.y
+            );
+
+            const raioMaxCentral = 400;
+            const raioMinCentral = 390; 
+
+            if (distanciaCentral < raioMaxCentral) {
+                
+                if (this.portaCentralTween && this.portaCentralTween.isPlaying()) {
+                    this.portaCentralTween.pause();
+                }
+
+                // E faz o fade out suave baseado na distância
+                const alphaCentral = Phaser.Math.Clamp(
+                    (distanciaCentral - raioMinCentral) / (raioMaxCentral - raioMinCentral) * 0.8,
+                    0, 0.8
+                );
+                this.portaCentralGlow.setAlpha(alphaCentral);
+                
+            } else {
+                // Se está longe, SOLTA a animação para ele voltar a piscar
+                if (this.portaCentralTween && this.portaCentralTween.isPaused()) {
+                    this.portaCentralTween.resume();
+                }
+            }
+        }
+        
+        if (this.portaCentral) {
+            this.portaCentral.update();
+        }
+    
 
         if (this.portaCentral) {
             this.portaCentral.update();

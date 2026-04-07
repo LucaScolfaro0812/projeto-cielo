@@ -976,7 +976,7 @@ export class CenaCidade extends Phaser.Scene {
     );
 
     const raioMax = 400;
-    const raioMin = 250;
+    const raioMin = 390;
 
     if (distancia >= raioMax) {
         // Longe: não toca no alpha, o tween pulsa livremente

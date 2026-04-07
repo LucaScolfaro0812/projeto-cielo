@@ -629,6 +629,42 @@ export default class CenaLoja extends Phaser.Scene {
 
         this.portaEntrada.setScale(2.8);
 
+        this.portaEntrada.setTexture('entrada_animada', 0);
+        this.portaEntrada.anims.stop();
+
+        this.portaEntrada.podeUsar = false;
+        this.time.delayedCall(1000, () => {
+            this.portaEntrada.podeUsar = true;
+        });
+
+        const glowOffsetX = -5;  // positivo = direita, negativo = esquerda
+        const glowOffsetY = -95;  // positivo = baixo, negativo = cima
+
+        const portaTexture = this.textures.get('entrada_animada');
+        const portaWidth = portaTexture.getSourceImage().width;
+        const portaHeight = portaTexture.getSourceImage().height;
+
+     this.portaGlow = this.add.rectangle(
+        this.portaX + glowOffsetX,
+        this.portaY + glowOffsetY,
+        portaWidth - 103,
+        portaHeight + 35,
+        0xffffff
+    );
+    this.portaGlow.setDepth(141);
+    this.portaGlow.setScale(1.5);
+    this.portaGlow.setBlendMode(Phaser.BlendModes.ADD);
+    this.portaGlow.setAlpha(0.25);
+
+    this.tweens.add({
+        targets: this.portaGlow,
+        alpha: 0.01,
+        duration: 1500,
+        yoyo: true,
+        repeat: -1,
+        ease: 'Sine.easeInOut'
+    });
+
         this.physics.add.overlap(this.portaEntrada, this.player, () => {
             if (this.portaEntrada.trocaDeCenaEmAndamento) return;
 
@@ -672,6 +708,24 @@ export default class CenaLoja extends Phaser.Scene {
         if (this.portaEntrada) {
             this.portaEntrada.update();
         }
+
+        if (this.portaGlow) {
+        const distancia = Phaser.Math.Distance.Between(
+            this.player.x, this.player.y,
+            this.portaGlow.x, this.portaGlow.y
+        );
+
+        const raioMax = 400;
+        const raioMin = 390;
+
+        if (distancia < raioMax) {
+            const alpha = Phaser.Math.Clamp(
+                (distancia - raioMin) / (raioMax - raioMin) * 0.25,
+                0, 0.25
+            );
+            this.portaGlow.setAlpha(alpha);
+        }
+    }
     }
 
     // Instancia os móveis da loja com base na configuração de ObjetosInterior

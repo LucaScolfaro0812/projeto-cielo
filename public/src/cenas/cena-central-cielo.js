@@ -458,7 +458,7 @@ export class CenaCentral extends Phaser.Scene {
         );
 
         const raioMax = 400;
-        const raioMin = 250;
+        const raioMin = 390;
 
         if (distancia < raioMax) {
             const alpha = Phaser.Math.Clamp(

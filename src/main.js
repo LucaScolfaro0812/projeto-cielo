@@ -39,7 +39,7 @@ var config = {
 
         arcade: {
             gravity: { y: 0 }, // Sem gravidade (movimento top-down)
-            debug: true
+            debug: false
         }
     },
 

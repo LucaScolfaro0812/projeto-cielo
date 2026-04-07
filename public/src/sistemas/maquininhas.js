@@ -1,81 +1,121 @@
-
-// Utilitários de persistência (localStorage com JSON e proteção de erro).
+// Utilitários de persistência
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
 /**
- * Maquininhas - Gerencia o estoque de maquininhas do jogador.
- *
- * O jogador precisa de pelo menos 1 maquininha para iniciar uma negociação.
- * Ao conquistar um NPC, 1 maquininha é consumida.
- * O estoque pode ser recarregado até o máximo visitando a Central da Cielo.
- *
- * O valor é persistido no localStorage para sobreviver entre sessões.
+ * Maquininhas - lógica + UI
  */
 export class Maquininhas {
 
-    constructor(){
+    constructor(scene){
+        this.scene = scene;
+        this.criarAlerta();
 
+        // registra UI atual
+        Maquininhas.registrarUI(this);
+
+        // 🔥 mostra alerta apenas se veio de transição válida
+        if (
+            Maquininhas.precisaMostrarAlerta &&
+            Maquininhas.qntMaquininhas === 0
+        ) {
+            this.mostrarAlertaSemMaquininhas();
+            Maquininhas.precisaMostrarAlerta = false;
+        }
     }
 
-    // Chave usada para salvar/carregar o valor no localStorage
-    static chaveDeValor = 'maquininhas';
+    // =============================
+    //  UI
+    // =============================
 
-    // Quantidade máxima de maquininhas que o jogador pode carregar
+    criarAlerta(){
+        const scene = this.scene;
+
+        this.mensagemSemMaquininhas = scene.add.text(
+            scene.cameras.main.centerX,
+            scene.cameras.main.centerY,
+            '',
+            {
+                fontFamily: 'Arial',
+                fontSize: '80px',
+                color: '#ff0000',
+                backgroundColor: '#dedede',
+                padding: { x: 20, y: 10 },
+                align: 'center',
+                stroke: '#000',
+                strokeThickness: 4
+            }
+        )
+        .setOrigin(0.5)
+        .setDepth(500)
+        .setScrollFactor(0)
+        .setVisible(false);
+    }
+
+    mostrarAlertaSemMaquininhas() {
+        
+        const texto = this.mensagemSemMaquininhas;
+
+        if (!texto || !texto.active) return;
+
+        texto.setText("Você não possui mais maquininhas!");
+        texto.setAlpha(1);
+        texto.setVisible(true);
+    }
+
+    // =============================
+    //  Conexão UI ↔ lógica
+    // =============================
+
+    static ui = null;
+    static precisaMostrarAlerta = false;
+
+    static registrarUI(uiInstance) {
+        this.ui = uiInstance;
+    }
+
+    // =============================
+    //  Lógica de dados
+    // =============================
+
+    static chaveDeValor = 'maquininhas';
     static maximoMaquininhas = 3;
 
-    // Carrega o valor salvo ao inicializar; usa 0 como padrão se não houver valor salvo
     static _qntMaquininhas = carregarDados(this.chaveDeValor, 0);
 
-    /**
-     * Retorna a quantidade atual de maquininhas do jogador.
-     * @returns {number}
-     */
     static get qntMaquininhas() {
         return this._qntMaquininhas;
     }
 
-    /**
-     * Define a quantidade de maquininhas, garantindo que fique entre 0 e o máximo.
-     * Persiste o novo valor no localStorage automaticamente.
-     * @param {number} valor
-     */
     static set qntMaquininhas(valor) {
-        // Clamp garante que o valor nunca ultrapasse 0 (mínimo) nem maximoMaquininhas (máximo)
+        const valorAnterior = this._qntMaquininhas;
         const v = Phaser.Math.Clamp(valor, 0, this.maximoMaquininhas);
 
         this._qntMaquininhas = v;
         salvarDados(this.chaveDeValor, v);
+
+        // 🔥 só dispara se acabou de zerar
+        if (v === 0 && valorAnterior > 0) {
+            this.precisaMostrarAlerta = true;
+
+            // tenta mostrar imediatamente (se ainda estiver na mesma cena)
+            if (this.ui) {
+                this.ui.mostrarAlertaSemMaquininhas();
+            }
+        }
     }
 
-    /**
-     * Adiciona uma quantidade de maquininhas ao estoque atual.
-     * @param {number} qnt - Quantidade a adicionar
-     */
     static adicionarMaquininhas(qnt) {
         this.qntMaquininhas = this.qntMaquininhas + qnt;
     }
 
-    /**
-     * Remove uma quantidade de maquininhas do estoque atual.
-     * @param {number} qnt - Quantidade a remover
-     */
     static removerMaquininhas(qnt) {
         this.qntMaquininhas = this.qntMaquininhas - qnt;
     }
 
-    /**
-     * Define a quantidade de maquininhas para um valor específico.
-     * Usado para recarregar na Central da Cielo ou zerar no Novo Jogo.
-     * @param {number} qnt - Novo valor absoluto
-     */
     static definirMaquininhas(qnt) {
         this.qntMaquininhas = qnt;
     }
 
-    /**
-     * Sincroniza o valor em memória com o que está salvo no localStorage.
-     * Útil ao iniciar uma cena após uma sessão anterior.
-     */
     static recarregar() {
         this._qntMaquininhas = carregarDados(this.chaveDeValor, 0);
     }

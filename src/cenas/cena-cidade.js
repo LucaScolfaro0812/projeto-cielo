@@ -966,6 +966,31 @@ export class CenaCidade extends Phaser.Scene {
         this.player.update();
         this.seta.update(this.player, Math.PI);
 
+        this.lojas.forEach(loja => {
+    const porta = loja.getPorta();
+    if (!porta?.brilho) return;
+
+    const distancia = Phaser.Math.Distance.Between(
+        this.player.x, this.player.y,
+        porta.brilho.x, porta.brilho.y
+    );
+
+    const raioMax = 400;
+    const raioMin = 250;
+
+    if (distancia >= raioMax) {
+        // Longe: não toca no alpha, o tween pulsa livremente
+        return;
+    }
+
+    // Perto ou na zona de transição: sobrescreve o alpha do tween
+    const alpha = Phaser.Math.Clamp(
+        (distancia - raioMin) / (raioMax - raioMin) * 0.25,
+        0, 0.25
+    );
+    porta.brilho.setAlpha(alpha);
+});
+
         if (this.portaCentral) {
             this.portaCentral.update();
         }

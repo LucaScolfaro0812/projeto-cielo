@@ -1000,6 +1000,18 @@ export class CenaCidade extends Phaser.Scene {
             // Posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
+            // Velocidade instantânea no eixo Y: vy(t) = ay * t
+            const vy = a.ay * a.t;
+
+            // Log cinemático: imprime t, posição e velocidades a cada 0,5s aproximadamente
+            if (Math.abs(a.t % 0.5) < dt) {
+                console.log(
+                    `[balão] t=${a.t.toFixed(2)}s | ` +
+                    `x=${balao.x.toFixed(1)}px | y=${balao.y.toFixed(1)}px | ` +
+                    `vx=${a.vx.toFixed(2)}px/s | vy=${vy.toFixed(2)}px/s | ` +
+                    `ay=${a.ay.toFixed(2)}px/s²`
+                );
+            }
 
             if (a.t >= a.duracao) {
                 balao._anim = null;

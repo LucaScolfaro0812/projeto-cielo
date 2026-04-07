@@ -795,7 +795,7 @@ Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o veto
 
 No eixo X não há aceleração: o balão se desloca lateralmente sempre com a mesma velocidade. Para garantir que o balão percorra a distância $x_f - x_i$ exatamente em $T$ segundos, a velocidade constante é calculada por:
 
-$$v_x = rac{x_f - x_i}{T}$$
+$$v_x = \frac{x_f - x_i}{T}$$
 
 Como $x_f > x_i$ (o balão se move para a direita), $v_x$ é positivo. A posição em função do tempo é:
 
@@ -809,7 +809,7 @@ Isso significa que a cada segundo que passa, o balão avança exatamente $v_x$ p
 
 No eixo Y, o balão parte do repouso ($v_{y0} = 0$) e acelera continuamente até chegar à posição final. A aceleração necessária para percorrer a distância vertical $y_f - y_i$ em tempo $T$, partindo do repouso, é:
 
-$$a_y = rac{2 \cdot (y_f - y_i)}{T^2}$$
+$$a_y = \frac{2 \cdot (y_f - y_i)}{T^2}$$
 
 Como o balão sobe no Phaser ($y_f < y_i$), $a_y$ é negativo — a aceleração aponta para cima. A velocidade aumenta em módulo a cada instante:
 
@@ -817,9 +817,9 @@ $$v_y(t) = a_y \cdot t$$
 
 E a posição em função do tempo é dada pela equação horária do MUV com velocidade inicial nula:
 
-$$y(t) = y_i + rac{1}{2} \cdot a_y \cdot t^2$$
+$$y(t) = y_i + \frac{1}{2} \cdot a_y \cdot t^2$$
 
-O termo $rac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no início o balão move-se devagar e vai acelerando progressivamente, criando a sensação visual de leveza.
+O termo $\frac{1}{2} \cdot a_y \cdot t^2$ representa o deslocamento acumulado: no início o balão move-se devagar e vai acelerando progressivamente, criando a sensação visual de leveza.
 
 ### 3.8.4. Exemplo Numérico
 

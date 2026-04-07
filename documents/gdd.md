@@ -2,7 +2,6 @@
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
-
 ## Nome dos integrantes Grupo
 
 Gabriel Gomes Pimentel <br>
@@ -72,14 +71,11 @@ A base de clientes inclui pequenos e médios varejistas, grandes redes, e-commer
 
 A rivalidade no setor de adquirência é muito alta. Após o fim do modelo de exclusividade entre bandeiras e adquirentes, o mercado ficou mais pulverizado, com competição intensa em preço, tecnologia, crédito, antecipação, conta digital e integração com Pix. Concorrentes como Rede, Getnet, Stone, PagBank e Mercado Pago disputam os mesmos segmentos e pressionam margens. Para a Cielo, o impacto direto é a maior pressão sobre market share e necessidade contínua de investimento para retenção e diferenciação competitiva (Banco Central do Brasil, 2023; Cielo S.A., 2023; StoneCo Ltd., 2023; PagSeguro Digital Ltd., 2023).
 
-
-
 A análise das Cinco Forças mostra que o setor de adquirência no Brasil é bastante competitivo, com forte disputa entre empresas, alto poder de negociação dos clientes e crescente presença de alternativas como o Pix.
 
 Apesar de existirem barreiras à entrada, como exigências regulatórias e necessidade de estrutura, elas não impedem o surgimento de novos competidores, especialmente aqueles com modelos mais digitais e enxutos.
 
 Diante desse cenário, a Cielo precisa lidar com pressão constante sobre margens e diferenciação. Assim, sua capacidade de se manter relevante no mercado depende principalmente de inovar em serviços, melhorar sua proposta de valor e acompanhar as mudanças no comportamento dos clientes e nas formas de pagamento.
-
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
@@ -120,8 +116,6 @@ A vasta base de dados transacionais acumulada pela Cielo oferece uma oportunidad
 
 A principal ameaça ao modelo de negócio tradicional é a consolidação do Pix, que reduz a dependência dos cartões de débito e impacta diretamente as receitas provenientes de taxas de intercâmbio (Banco Central do Brasil, 2024). Paralelamente, a intensa "guerra das maquininhas" promove uma competição predatória de taxas, forçando a compressão das margens líquidas (Moraes & Silva, 2021). O cenário é agravado pela entrada de Big Techs no fluxo de pagamentos e pelas constantes atualizações regulatórias do Banco Central (Banco Central do Brasil, 2024).
 
-
-
 Com base nos dados levantados nesta sprint, fica claro que a Cielo possui uma infraestrutura massiva e um apoio bancário sólido, mas enfrenta o desafio de converter esse tamanho em agilidade. As informações retiradas mostram que, embora a empresa domine a capilaridade no Brasil, ela sofre com a pressão nas margens de lucro e a concorrência agressiva de modelos digitais mais leves. Em conclusão, o sucesso da Cielo dependerá de sua capacidade de transformar sua vasta base de dados em novos produtos de inteligência, compensando a queda nas taxas tradicionais e se adaptando à nova realidade de pagamentos instantâneos, como o Pix.
 
 ---
@@ -140,7 +134,6 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
-
 <img src ="../documents/other/PropostaDeValor.png" width= 700>
 
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
@@ -153,12 +146,11 @@ Além disso, a acessibilidade da plataforma reduz desigualdades no acesso ao con
 
 A solução desenvolvida busca resolver a dificuldade enfrentada pela equipe comercial da Cielo em realizar treinamentos práticos, engajadores e eficazes, especialmente no que diz respeito à aplicação de conhecimentos no dia a dia de vendas. Nesse contexto, foi criado um jogo gamificado de simulação de vendas, no qual o usuário controla o personagem Marcielo em um mapa 2D e interage com diferentes estabelecimentos. Ao entrar nas lojas, o jogador participa de situações que simulam o processo real de vendas da Cielo, respondendo a quizzes e tomando decisões que impactam diretamente seu desempenho no jogo. Essas interações foram pensadas para reproduzir desafios cotidianos enfrentados pela equipe comercial, como identificar o perfil do cliente, contornar objeções e utilizar soluções adequadas.
 
-O jogo foi concebido como um *serious game*, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
+O jogo foi concebido como um _serious game_, ou seja, um tipo de jogo desenvolvido com um propósito principal que vai além do entretenimento, neste caso, o aprendizado e a capacitação profissional. Diferentemente de jogos tradicionais, o foco de um serious game está na aplicação prática do conhecimento, utilizando elementos lúdicos para facilitar a assimilação de conteúdos e estimular o engajamento do usuário.
 
 A proposta tem como objetivo tornar o treinamento do time comercial mais prático, interativo e eficiente, permitindo que os vendedores aprendam na prática como identificar necessidades dos clientes e oferecer as soluções adequadas. Além disso, o ambiente simulado proporciona um espaço seguro para erros e experimentação, sem impactos reais nos resultados da empresa. Dessa forma, a solução gera valor ao aumentar o engajamento no aprendizado, padronizar o conhecimento entre os colaboradores e melhorar a performance em vendas, alinhando-se diretamente às necessidades reais do parceiro.
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
-
 
 A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utilizada para identificar, classificar e planejar respostas a eventos que possam impactar negativamente (ameaças) ou positivamente (oportunidades) o desenvolvimento do jogo. Ela permite visualizar, de forma estruturada, os principais riscos do projeto, avaliando sua probabilidade de ocorrência e o impacto potencial sobre os resultados. A análise e o acompanhamento contínuo desses riscos são essenciais para garantir a entrega do MVP no prazo, com qualidade e alinhamento aos objetivos do grupo.
 
@@ -177,119 +169,115 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 #### Lista de Riscos — Ameaças
 
-
 1. **Integrante faltar na apresentação**
-  Poderemos enfrentar esse risco caso algum membro do grupo se ausente em um dia de apresentação sem aviso prévio aos demais integrantes. Os responsáveis por esse risco são os próprios membros da equipe.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
- 
+   Poderemos enfrentar esse risco caso algum membro do grupo se ausente em um dia de apresentação sem aviso prévio aos demais integrantes. Os responsáveis por esse risco são os próprios membros da equipe.  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+
    **Impacto:** Alto
-  
-    **Probabilidade:** Baixa
-  
-    **Plano de Resposta ao Risco:** Sempre ter duas pessoas de reserva por apresentação.
+
+   **Probabilidade:** Baixa
+
+   **Plano de Resposta ao Risco:** Sempre ter duas pessoas de reserva por apresentação.
 
 2. **Falta de testes reais com os gerentes de negócios**
-  Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
-  **Responsáveis:** Thiago (coordenador da equipe de treinamento)  
+   Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
+   **Responsáveis:** Thiago (coordenador da equipe de treinamento)
 
    **Impacto:** Alto
 
-    **Probabilidade:** Média
+   **Probabilidade:** Média
 
-    **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
+   **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
 
 3. **Problemas técnicos**
-  Esse risco refere-se à possibilidade de falhas técnicas durante o desenvolvimento, testes ou apresentação do projeto, envolvendo software e hardware. Esses problemas podem incluir bugs, falhas de integração entre sistemas ou módulos, incompatibilidade entre ferramentas, instabilidade da aplicação, perda de dados, baixo desempenho e dificuldades no ambiente de execução (como configurações incorretas, dependências ausentes ou diferenças entre ambientes).  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
+   Esse risco refere-se à possibilidade de falhas técnicas durante o desenvolvimento, testes ou apresentação do projeto, envolvendo software e hardware. Esses problemas podem incluir bugs, falhas de integração entre sistemas ou módulos, incompatibilidade entre ferramentas, instabilidade da aplicação, perda de dados, baixo desempenho e dificuldades no ambiente de execução (como configurações incorretas, dependências ausentes ou diferenças entre ambientes).  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
    **Probabilidade:** Média
 
    **Plano de Resposta ao Risco:** Ter maior cuidado ao modificar o código, realizar testes constantes e manter uma comunicação eficiente entre os membros da equipe.
 
 4. **Desbalanceamento da dificuldade do jogo**
-  O jogo pode apresentar níveis de dificuldade desbalanceados, com partes excessivamente fáceis ou difíceis, comprometendo a experiência do usuário.  
-   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
+   O jogo pode apresentar níveis de dificuldade desbalanceados, com partes excessivamente fáceis ou difíceis, comprometendo a experiência do usuário.  
+    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:** Médio
+   **Impacto:** Médio
 
-    **Probabilidade:** Alta
+   **Probabilidade:** Alta
 
-    **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
+   **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
 
 5. **Feedback pouco claro após erros/acertos**
-  Devido ao conhecimento limitado sobre os conceitos da Cielo, pode haver dificuldade na elaboração de perguntas e feedbacks claros e eficazes para os gerentes de negócios.  
-  **Responsáveis:** Lyria (analista da Cielo)
+   Devido ao conhecimento limitado sobre os conceitos da Cielo, pode haver dificuldade na elaboração de perguntas e feedbacks claros e eficazes para os gerentes de negócios.  
+   **Responsáveis:** Lyria (analista da Cielo)
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
-    **Probabilidade:** Baixa
+   **Probabilidade:** Baixa
 
-    **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
+   **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
 
 6. **Não entregar o MVP completo no prazo estipulado**
-  Um dos principais riscos do projeto é a não entrega do MVP completo dentro do prazo, possivelmente causada por falta de organização da equipe.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
+   Um dos principais riscos do projeto é a não entrega do MVP completo dentro do prazo, possivelmente causada por falta de organização da equipe.  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
-    **Probabilidade:** Média
+   **Probabilidade:** Média
 
-    **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
+   **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
 
 ---
 
 #### Lista de Riscos — Oportunidades
 
-
 1. **Gamificação aumentar a retenção de conhecimento**
-  A aplicação de elementos de jogos pode tornar o aprendizado mais engajador, facilitando a compreensão e a memorização do conteúdo.  
-  **Responsáveis:** Cielo  
+   A aplicação de elementos de jogos pode tornar o aprendizado mais engajador, facilitando a compreensão e a memorização do conteúdo.  
+   **Responsáveis:** Cielo
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
-    **Probabilidade:** Média
-    
-    **Plano de Resposta ao Risco:** Adicionar elementos como desafios, animações e interações para evitar que o jogo se torne monótono.
+   **Probabilidade:** Média
+
+   **Plano de Resposta ao Risco:** Adicionar elementos como desafios, animações e interações para evitar que o jogo se torne monótono.
 
 2. **Desenvolvimento de soft skills dos membros do grupo**
-  Refere-se à oportunidade de desenvolvimento de habilidades comportamentais essenciais, como comunicação, colaboração, organização, gestão de tempo, proatividade e resolução de conflitos.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo  
+   Refere-se à oportunidade de desenvolvimento de habilidades comportamentais essenciais, como comunicação, colaboração, organização, gestão de tempo, proatividade e resolução de conflitos.  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
-    **Probabilidade:**  Alta
-    
-    **Plano de Resposta ao Risco:** Incentivar a comunicação e a colaboração entre os integrantes para fortalecer essas habilidades.
+   **Probabilidade:** Alta
+
+   **Plano de Resposta ao Risco:** Incentivar a comunicação e a colaboração entre os integrantes para fortalecer essas habilidades.
 
 3. **Adicionar todos os itens desejáveis planejados**
-  Consiste na implementação de funcionalidades extras previstas, ampliando a experiência do usuário e agregando valor ao projeto, sem comprometer as entregas principais.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo 
+   Consiste na implementação de funcionalidades extras previstas, ampliando a experiência do usuário e agregando valor ao projeto, sem comprometer as entregas principais.  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:** Alto
+   **Impacto:** Alto
 
-    **Probabilidade:** Alta
+   **Probabilidade:** Alta
 
-    **Plano de Resposta ao Risco:** Definir prioridades e manter uma organização eficiente para garantir a entrega completa.
+   **Plano de Resposta ao Risco:** Definir prioridades e manter uma organização eficiente para garantir a entrega completa.
 
 4. **Demonstrar habilidades para uma grande empresa**
-  Ao desenvolver o projeto, a equipe terá a oportunidade de demonstrar competências relevantes para o mercado.  
-  **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+   Ao desenvolver o projeto, a equipe terá a oportunidade de demonstrar competências relevantes para o mercado.  
+   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-    **Impacto:**  Alta
+   **Impacto:** Alta
 
-    **Probabilidade:** Alta
-    
-    **Plano de Resposta ao Risco:** Desenvolver um trabalho de alta qualidade, buscando reconhecimento dos avaliadores da Cielo.
+   **Probabilidade:** Alta
+
+   **Plano de Resposta ao Risco:** Desenvolver um trabalho de alta qualidade, buscando reconhecimento dos avaliadores da Cielo.
 
 ---
 
 #### Conclusão e Síntese
 
 A matriz de riscos foi utilizada de forma ativa ao longo do projeto, permitindo à equipe antecipar ameaças, planejar respostas e aproveitar oportunidades. O acompanhamento contínuo dos riscos contribuiu para a organização do grupo, a entrega do MVP no prazo e a elevação da qualidade do produto final. A análise sistemática dos riscos, aliada à comunicação eficiente e à definição clara de responsabilidades, foi fundamental para o sucesso do desenvolvimento e para a superação dos principais desafios enfrentados.
-
-
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
@@ -336,15 +324,15 @@ O Sprint 4 teve como foco consolidar e aprimorar a experiência do jogador, torn
 
 ### 📊 Resumo dos Indicadores do Sprint
 
-| Objetivo | Indicador                        | Meta         | Resultado Alcançado | Status         |
-|----------|----------------------------------|--------------|---------------------|----------------|
-| Obj. 1   | Mecânicas                        | ≥ 7          |          5          |Não alcançado   |
-| Obj. 1   | Animações                        | ≥ 5          |          3          |Não alcançado   |
-| Obj. 1   | Sons                             | ≥ 13         |          20         |Alcançado       |
-| Obj. 1   | HUDs implementados               | ≥2 HUDs      |          2          |Alcançado       |
-| Obj. 1   | Menu de configurações funcional  |  100%        |          80%        |Não alcançado   |
-| Obj. 1   | Tempo médio de sessão            | +20%         |         +30%        |Não alcançado   |
-| Obj. 1   | Satisfação dos usuários          | ≥ 4,0        |          3          |Não alcançado   |
+| Objetivo | Indicador                       | Meta    | Resultado Alcançado | Status        |
+| -------- | ------------------------------- | ------- | ------------------- | ------------- |
+| Obj. 1   | Mecânicas                       | ≥ 7     | 5                   | Não alcançado |
+| Obj. 1   | Animações                       | ≥ 5     | 3                   | Não alcançado |
+| Obj. 1   | Sons                            | ≥ 13    | 20                  | Alcançado     |
+| Obj. 1   | HUDs implementados              | ≥2 HUDs | 2                   | Alcançado     |
+| Obj. 1   | Menu de configurações funcional | 100%    | 80%                 | Não alcançado |
+| Obj. 1   | Tempo médio de sessão           | +20%    | +30%                | Não alcançado |
+| Obj. 1   | Satisfação dos usuários         | ≥ 4,0   | 3                   | Não alcançado |
 
 ---
 
@@ -358,40 +346,38 @@ O Sprint 4 teve como foco consolidar e aprimorar a experiência do jogador, torn
 
 Esta seção apresenta os requisitos do sistema, organizados em requisitos funcionais (RF) e requisitos não funcionais (RNF). Os requisitos funcionais descrevem as funcionalidades e comportamentos que o sistema deve oferecer ao usuário. Já os requisitos não funcionais definem características de qualidade e restrições do sistema, como desempenho, usabilidade e ambiente de execução. As tabelas a seguir detalham cada um desses requisitos, identificados por código e acompanhados de suas respectivas descrições.
 
-
 ### 1.2.1. Requisitos Funcionais
 
-| ID   | Requisito Funcional                | Descrição                                                                                                                                                                                                                                                                                                                                                      |
-| ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| RF01 | Menu inicial                       | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                             |
-| RF02 | Menu de configurações              | O sistema deve disponibilizar um menu de configurações acessível a partir do menu inicial, permitindo ajustar o volume dos sons do jogo, ativar/desativar efeitos sonoros e redefinir o progresso (novo jogo).                                                                                                         |
-| RF03 | Progresso da sessão                | O sistema deve manter o progresso do jogador de forma persistente entre sessões, salvando via localStorage: NPCs conquistados, quantidade de maquininhas, pontuação acumulada e posição de retorno no mapa. O progresso é restaurado automaticamente ao reabrir o jogo.                                                |
-| RF04 | Tutorial inicial                   | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistemas de HUD antes da primeira partida.                                                                                                                                                   |
-| RF05 | Sistema de quizzes de negociação   | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas sorteadas aleatoriamente do banco daquela loja, com 4 opções de resposta. Respostas corretas valem 3 pontos; incorretas valem 0 pontos. O jogador conquista o cliente ao acumular 6 ou mais pontos ao final das 3 perguntas (máximo: 9 pontos). Cada NPC só pode ser desafiado uma vez — o resultado é definitivo.               |
-| RF06 | Sistema de variáveis do cliente    | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                     |
-| RF07 | HUD de NPCs coletados              | O sistema deve exibir um HUD visual que mostra em tempo real a quantidade de NPCs coletados/interagidos, com feedback de cores atualizado conforme o progresso do jogador.                                                                                                       |
-| RF08 | HUD de maquininhas                 | O sistema deve exibir um HUD visual indicando a quantidade de maquininhas que o personagem Marcielo está carregando para realizar vendas, atualizando em tempo real conforme as ações do jogador.                                                                                |
-| RF09 | Sistema de sons                    | O sistema deve reproduzir efeitos sonoros distintos para diferentes ações e ambientes do jogo, permitindo ajuste de volume e ativação/desativação pelo menu de configurações.                                                                                                   |
-| RF10 | Interação com NPCs                 | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                                                                      |
-| RF11 | Navegação em mundo aberto          | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                                                                                  |
-| RF12 | Sistema de feedback educativo      | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso. |
-
+| ID   | Requisito Funcional              | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RF01 | Menu inicial                     | O sistema deve apresentar um menu inicial que permita ao jogador iniciar a partida e acessar as opções principais do jogo.                                                                                                                                                                                                                                                                                                                                 |
+| RF02 | Menu de configurações            | O sistema deve disponibilizar um menu de configurações acessível a partir do menu inicial, permitindo ajustar o volume dos sons do jogo, ativar/desativar efeitos sonoros e redefinir o progresso (novo jogo).                                                                                                                                                                                                                                             |
+| RF03 | Progresso da sessão              | O sistema deve manter o progresso do jogador de forma persistente entre sessões, salvando via localStorage: NPCs conquistados, quantidade de maquininhas, pontuação acumulada e posição de retorno no mapa. O progresso é restaurado automaticamente ao reabrir o jogo.                                                                                                                                                                                    |
+| RF04 | Tutorial inicial                 | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistemas de HUD antes da primeira partida.                                                                                                                                                                                                                                                                                       |
+| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas sorteadas aleatoriamente do banco daquela loja, com 4 opções de resposta. Respostas corretas valem 3 pontos; incorretas valem 0 pontos. O jogador conquista o cliente ao acumular 6 ou mais pontos ao final das 3 perguntas (máximo: 9 pontos). Cada NPC só pode ser desafiado uma vez — o resultado é definitivo. |
+| RF06 | Sistema de variáveis do cliente  | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                                                                                                                                                                                               |
+| RF07 | HUD de NPCs coletados            | O sistema deve exibir um HUD visual que mostra em tempo real a quantidade de NPCs coletados/interagidos, com feedback de cores atualizado conforme o progresso do jogador.                                                                                                                                                                                                                                                                                 |
+| RF08 | HUD de maquininhas               | O sistema deve exibir um HUD visual indicando a quantidade de maquininhas que o personagem Marcielo está carregando para realizar vendas, atualizando em tempo real conforme as ações do jogador.                                                                                                                                                                                                                                                          |
+| RF09 | Sistema de sons                  | O sistema deve reproduzir efeitos sonoros distintos para diferentes ações e ambientes do jogo, permitindo ajuste de volume e ativação/desativação pelo menu de configurações.                                                                                                                                                                                                                                                                              |
+| RF10 | Interação com NPCs               | O sistema deve permitir interação com NPCs distribuídos no mapa para iniciar negociações e acessar quizzes.                                                                                                                                                                                                                                                                                                                                                |
+| RF11 | Navegação em mundo aberto        | O sistema deve permitir movimentação livre do jogador em ambiente 2D top-down, possibilitando exploração e seleção de clientes.                                                                                                                                                                                                                                                                                                                            |
+| RF12 | Sistema de feedback educativo    | O sistema deve apresentar um feedback educativo após cada resposta selecionada no quiz, mostrando qual é a alternativa correta, caso tenha errado. Ao final de cada cena, o sistema deve exibir um feedback geral da negociação: positivo caso o jogador conquiste o NPC cliente ou negativo caso não consiga concluir a negociação com sucesso.                                                                                                           |
 
 ### 1.2.2. Requisitos Não Funcionais
 
-| ID    | Requisito Não Funcional        | Descrição                                                                                                                                                   |
-| ----- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RNF01 | Ambiente gráfico               | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional. |
-| RNF02 | Plataforma de execução         | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                |
-| RNF03 | Usabilidade e linguagem        | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                     |
-| RNF04 | Interface do usuário           | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador.                                          |
-| RNF05 | Identidade visual              | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto.                                       |
-| RNF06 | Acessibilidade                 | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários.                         |
-| RNF07 | Desempenho                     | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                          |
-| RNF08 | Acessibilidade operacional     | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                           |
-| RNF09 | Experiência sonora             | O sistema deve garantir que os efeitos sonoros sejam claros, não intrusivos e ajustáveis pelo usuário, contribuindo para a imersão e acessibilidade.       |
-| RNF10 | Feedback visual em tempo real  | O sistema deve fornecer feedback visual imediato e dinâmico nos HUDs de NPCs coletados e maquininhas, facilitando o acompanhamento do progresso pelo jogador. |
-| RNF11 | Personalização básica           | O sistema deve permitir ao usuário personalizar configurações básicas, como volume de som e reinício do progresso, de forma simples e acessível.           |
+| ID    | Requisito Não Funcional       | Descrição                                                                                                                                                     |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RNF01 | Ambiente gráfico              | O jogo deve ser desenvolvido em ambiente 2D com perspectiva top-down, priorizando navegação simples, leitura visual clara e baixa complexidade operacional.   |
+| RNF02 | Plataforma de execução        | O jogo deve ser executável diretamente em navegadores web modernos, sem necessidade de instalação ou configuração adicional.                                  |
+| RNF03 | Usabilidade e linguagem       | O jogo deve utilizar linguagem clara, objetiva e adequada ao contexto comercial e educacional da Cielo.                                                       |
+| RNF04 | Interface do usuário          | O sistema deve apresentar interface visual organizada e intuitiva, facilitando a navegação e interação do jogador.                                            |
+| RNF05 | Identidade visual             | O sistema deve manter padronização de cores, tipografia e elementos gráficos conforme a identidade visual do projeto.                                         |
+| RNF06 | Acessibilidade                | A interface deve priorizar leitura clara, contraste adequado e elementos visuais compreensíveis para diferentes perfis de usuários.                           |
+| RNF07 | Desempenho                    | O jogo deve manter execução fluida em navegadores corporativos padrão, evitando quedas perceptíveis de desempenho.                                            |
+| RNF08 | Acessibilidade operacional    | As mecânicas devem exigir baixo nível de habilidade gamer, permitindo uso por usuários sem experiência prévia com jogos digitais.                             |
+| RNF09 | Experiência sonora            | O sistema deve garantir que os efeitos sonoros sejam claros, não intrusivos e ajustáveis pelo usuário, contribuindo para a imersão e acessibilidade.          |
+| RNF10 | Feedback visual em tempo real | O sistema deve fornecer feedback visual imediato e dinâmico nos HUDs de NPCs coletados e maquininhas, facilitando o acompanhamento do progresso pelo jogador. |
+| RNF11 | Personalização básica         | O sistema deve permitir ao usuário personalizar configurações básicas, como volume de som e reinício do progresso, de forma simples e acessível.              |
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
@@ -403,10 +389,10 @@ O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa 
 
 ### Perfil Demográfico
 
-- Profissionais da área de vendas e relacionamento comercial; 
-- Faixa etária média: 40–50 anos; 
+- Profissionais da área de vendas e relacionamento comercial;
+- Faixa etária média: 40–50 anos;
 - Usuários com familiaridade funcional com tecnologia digital;
-- Predominantemente non-gamers ou jogadores ocasionais;  
+- Predominantemente non-gamers ou jogadores ocasionais;
 - Tempo limitado para atividades de treinamento devido à rotina profissional.
 
 ---
@@ -415,10 +401,10 @@ O jogo é direcionado aos colaboradores da equipe comercial da Cielo, com faixa 
 
 Esse público tende a demonstrar maior engajamento com experiências de aprendizado que:
 
-- Possuam aplicação prática no contexto profissional; 
-- Simulem situações do cotidiano de vendas e negociação;  
-- Apresentem feedback claro de desempenho; 
-- Incentivem evolução contínua e melhoria de resultados. 
+- Possuam aplicação prática no contexto profissional;
+- Simulem situações do cotidiano de vendas e negociação;
+- Apresentem feedback claro de desempenho;
+- Incentivem evolução contínua e melhoria de resultados.
 
 ---
 
@@ -426,11 +412,11 @@ Esse público tende a demonstrar maior engajamento com experiências de aprendiz
 
 Considerando o contexto de atuação da equipe comercial, destacam-se como relevantes para o público:
 
-- Persuasão e argumentação em vendas; 
-- Tomada de decisão em situações de negociação;  
-- Interpretação de perfis de clientes;  
-- Estratégias de marketing e negociação;  
-- Comunicação clara e assertiva. 
+- Persuasão e argumentação em vendas;
+- Tomada de decisão em situações de negociação;
+- Interpretação de perfis de clientes;
+- Estratégias de marketing e negociação;
+- Comunicação clara e assertiva.
 
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
@@ -532,29 +518,28 @@ Figura 1: desenhos dos clientes feito a mão
 
 O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.sound`). Não há trilha musical contínua — o áudio é pontual por evento ou ambiente por cena.
 
-| # | Identificador no código      | Ocorrência                                         | Arquivo                         |
-|---|------------------------------|----------------------------------------------------|---------------------------------|
-| 1 | `portaAbrindo`               | Ao entrar em qualquer loja ou na Central da Cielo  | `assets/sons/portaAbrindo.mp3`  |
-| 2 | `ambienteAutoEscola`         | Som ambiente em loop dentro da Autoescola          | `assets/sons/ambienteAutoEscola.mp3` |
-| 3 | `ambienteBrinquedo`          | Som ambiente em loop dentro da Loja de Pelúcia     | `assets/sons/ambienteBrinquedo.mp3` |
-| 4 | `ambienteChocolateria`       | Som ambiente em loop dentro da Loja de Chocolate   | `assets/sons/ambienteChocolateria.mp3` |
-| 5 | `ambientePetShop`            | Som ambiente em loop dentro do Pet Shop            | `assets/sons/ambientePetShop.mp3` |
-| 6 | `ambienteRoupas`             | Som ambiente em loop dentro da Loja de Roupas      | `assets/sons/ambienteRoupas.mp3` |
-| 7 | `ambienteSalaoDeBeleza`      | Som ambiente em loop dentro do Salão de Beleza     | `assets/sons/ambienteSalaoDeBeleza.mp3` |
-| 8 | `ambienteCafeteria`          | Som ambiente em loop dentro do Café                | `assets/sons/ambienteCafeteria.mp3` |
-| 9 | `ambienteFrutaria`           | Som ambiente em loop dentro da Frutaria            | `assets/sons/ambienteFrutaria.mp3` |
-| 10 | `ambienteMóveis`            | Som ambiente em loop dentro da Loja de Móveis      | `assets/sons/ambienteMóveis.mp3` |
-| 11 | `ambienteVideoGame`         | Som ambiente em loop dentro da Loja de Games       | `assets/sons/ambienteVideoGame.mp3` |
-| 12 | `ambienteJoalheria`         | Som ambiente em loop dentro da Joalheria           | `assets/sons/ambienteJoalheria.mp3` |
-| 13 | `ambienteLanchonete`        | Som ambiente em loop dentro da Lanchonete          | `assets/sons/ambienteLanchonete.mp3` |
-| 14 | `ambienteCielo`             | Som ambiente em loop dentro da Central Cielo       | `assets/sons/ambienteCielo.mp3` |
-| 15 | `andandoRua`                | Som dos passos do jogador ao se mover              | `assets/sons/andandoRua.mp3` |
-| 16 | `clienteGanho`              | Tocado ao conquistar um NPC no quiz                | `assets/sons/clienteGanho.mp3` |
-| 17 | `clientePerdido`            | Tocado ao perder um NPC no quiz                    | `assets/sons/clientePerdido.mp3` |
-| 18 | `menuSom`                   | Música de fundo em loop no menu principal          | `assets/sons/menuSom.mp3` |
-| 19 | `somCidade`                 | Som ambiente em loop na cena da cidade             | `assets/sons/somCidade.mp3` |
-| 20 | `somClicando`               | Tocado ao clicar em botões da interface            | `assets/sons/somClicando.mp3` |
-
+| #   | Identificador no código | Ocorrência                                        | Arquivo                                 |
+| --- | ----------------------- | ------------------------------------------------- | --------------------------------------- |
+| 1   | `portaAbrindo`          | Ao entrar em qualquer loja ou na Central da Cielo | `assets/sons/portaAbrindo.mp3`          |
+| 2   | `ambienteAutoEscola`    | Som ambiente em loop dentro da Autoescola         | `assets/sons/ambienteAutoEscola.mp3`    |
+| 3   | `ambienteBrinquedo`     | Som ambiente em loop dentro da Loja de Pelúcia    | `assets/sons/ambienteBrinquedo.mp3`     |
+| 4   | `ambienteChocolateria`  | Som ambiente em loop dentro da Loja de Chocolate  | `assets/sons/ambienteChocolateria.mp3`  |
+| 5   | `ambientePetShop`       | Som ambiente em loop dentro do Pet Shop           | `assets/sons/ambientePetShop.mp3`       |
+| 6   | `ambienteRoupas`        | Som ambiente em loop dentro da Loja de Roupas     | `assets/sons/ambienteRoupas.mp3`        |
+| 7   | `ambienteSalaoDeBeleza` | Som ambiente em loop dentro do Salão de Beleza    | `assets/sons/ambienteSalaoDeBeleza.mp3` |
+| 8   | `ambienteCafeteria`     | Som ambiente em loop dentro do Café               | `assets/sons/ambienteCafeteria.mp3`     |
+| 9   | `ambienteFrutaria`      | Som ambiente em loop dentro da Frutaria           | `assets/sons/ambienteFrutaria.mp3`      |
+| 10  | `ambienteMóveis`        | Som ambiente em loop dentro da Loja de Móveis     | `assets/sons/ambienteMóveis.mp3`        |
+| 11  | `ambienteVideoGame`     | Som ambiente em loop dentro da Loja de Games      | `assets/sons/ambienteVideoGame.mp3`     |
+| 12  | `ambienteJoalheria`     | Som ambiente em loop dentro da Joalheria          | `assets/sons/ambienteJoalheria.mp3`     |
+| 13  | `ambienteLanchonete`    | Som ambiente em loop dentro da Lanchonete         | `assets/sons/ambienteLanchonete.mp3`    |
+| 14  | `ambienteCielo`         | Som ambiente em loop dentro da Central Cielo      | `assets/sons/ambienteCielo.mp3`         |
+| 15  | `andandoRua`            | Som dos passos do jogador ao se mover             | `assets/sons/andandoRua.mp3`            |
+| 16  | `clienteGanho`          | Tocado ao conquistar um NPC no quiz               | `assets/sons/clienteGanho.mp3`          |
+| 17  | `clientePerdido`        | Tocado ao perder um NPC no quiz                   | `assets/sons/clientePerdido.mp3`        |
+| 18  | `menuSom`               | Música de fundo em loop no menu principal         | `assets/sons/menuSom.mp3`               |
+| 19  | `somCidade`             | Som ambiente em loop na cena da cidade            | `assets/sons/somCidade.mp3`             |
+| 20  | `somClicando`           | Tocado ao clicar em botões da interface           | `assets/sons/somClicando.mp3`           |
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -599,6 +584,7 @@ O jogo não possui bestiário, pois sua proposta é voltada para simulações de
 Os personagens não jogáveis presentes no mapa são NPCs que representam lojistas e responsáveis pelos estabelecimentos. Eles funcionam como agentes de interação para os quizzes e para o desenvolvimento das situações de venda, sem exercer papel de adversários dentro da experiência.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
+
 Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando as etapas da experiência, desde o início até os objetivos finais. Ele representa como as ações do jogador, desafios, recompensas e transições entre estados se conectam para formar uma experiência contínua e coerente.
 
 ![alt text](other/image-4.png)
@@ -631,27 +617,27 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 
 ### 3.7.1. Controles
 
-| Comando                 | Tipo de Entrada | Ação Executada                                                | Consequência no Jogo                                         |
-| ----------------------- | --------------- | ------------------------------------------------------------- | ------------------------------------------------------------ |
-| W                       | Teclado         | Move o personagem para cima                                   | Permite navegação pelo mapa                                  |
-| A                       | Teclado         | Move o personagem para a esquerda                             | Permite navegação pelo mapa                                  |
-| S                       | Teclado         | Move o personagem para baixo                                  | Permite navegação pelo mapa                                  |
-| D                       | Teclado         | Move o personagem para a direita                              | Permite navegação pelo mapa                                  |
-| Aproximação do NPC      | Movimento       | Chegar a menos de 300px do NPC dentro da loja                 | Exibe o botão de interação (ícone E) sobre o NPC             |
-| E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC                  | Inicia o diálogo de negociação (quiz)                        |
-| ESC                     | Teclado         | Pressionar ESC durante o jogo (cidade ou loja)                | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
-| T                       | Teclado         | Pressionar T durante o jogo (cidade ou loja)                  | Abre a tela de tutorial sem sair do jogo (modo overlay)      |
-| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                                 | Afeta o nível de conversão do cliente e o resultado da venda |
+| Comando                 | Tipo de Entrada | Ação Executada                                 | Consequência no Jogo                                         |
+| ----------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| W                       | Teclado         | Move o personagem para cima                    | Permite navegação pelo mapa                                  |
+| A                       | Teclado         | Move o personagem para a esquerda              | Permite navegação pelo mapa                                  |
+| S                       | Teclado         | Move o personagem para baixo                   | Permite navegação pelo mapa                                  |
+| D                       | Teclado         | Move o personagem para a direita               | Permite navegação pelo mapa                                  |
+| Aproximação do NPC      | Movimento       | Chegar a menos de 300px do NPC dentro da loja  | Exibe o botão de interação (ícone E) sobre o NPC             |
+| E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC   | Inicia o diálogo de negociação (quiz)                        |
+| ESC                     | Teclado         | Pressionar ESC durante o jogo (cidade ou loja) | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
+| T                       | Teclado         | Pressionar T durante o jogo (cidade ou loja)   | Abre a tela de tutorial sem sair do jogo (modo overlay)      |
+| Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                  | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ### 3.7.2. Navegação pela cidade e carros
 
 O jogador navega pelo mapa da cidade usando WASD. O mapa contém **3 ruas com tráfego**, cada uma com carros independentes em loop horizontal. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Cada carro sorteia aleatoriamente uma entre três cores (branco, amarelo ou azul) ao ser criado, e o sprite é espelhado horizontalmente quando o carro se move para a esquerda.
 
-| Rua    | Posição Y (aprox.) | Qtd. carros | Direção              | Velocidade  | Espaçamento |
-|--------|--------------------|-------------|----------------------|-------------|-------------|
-| Rua 1  | y ≈ 2123           | 4           | Esquerda → Direita   | 650 px/s    | 3000 px     |
-| Rua 2  | y ≈ 4065           | 6           | Direita → Esquerda   | 1000 px/s   | 2000 px     |
-| Rua 3  | y ≈ 6359           | 3           | Esquerda → Direita   | 450 px/s    | 4000 px     |
+| Rua   | Posição Y (aprox.) | Qtd. carros | Direção            | Velocidade | Espaçamento |
+| ----- | ------------------ | ----------- | ------------------ | ---------- | ----------- |
+| Rua 1 | y ≈ 2123           | 4           | Esquerda → Direita | 650 px/s   | 3000 px     |
+| Rua 2 | y ≈ 4065           | 6           | Direita → Esquerda | 1000 px/s  | 2000 px     |
+| Rua 3 | y ≈ 6359           | 3           | Esquerda → Direita | 450 px/s   | 4000 px     |
 
 Essa mecânica introduz risco à navegação e exige que o jogador preste atenção ao atravessar as ruas.
 
@@ -659,20 +645,20 @@ Essa mecânica introduz risco à navegação e exige que o jogador preste atenç
 
 O jogo conta com **12 lojas distintas**, cada uma com cena interna própria, NPC exclusivo, banco de perguntas específico e mobiliário com colisão física. As lojas são:
 
-| Loja        | Banco de Perguntas       | Tema central                              |
-| ----------- | ------------------------ | ----------------------------------------- |
-| Café        | `perguntasCafe`          | Produtos Cielo para food service          |
-| Games       | `perguntasNpcRua`        | Soluções de pagamento digital             |
-| Beleza      | `perguntasNpcRua`        | Pagamentos em salões de beleza            |
-| Roupas      | `perguntasNpcRua`        | Pagamentos em moda e varejo               |
-| Pet Shop    | `perguntasPet`           | Soluções para pet shops                   |
-| Móveis      | `perguntasMovel`         | Antecipação de recebíveis e parcelamento  |
-| Frutaria    | `perguntasNpcRua`        | Pagamentos em hortifruti                  |
-| Lanchonete  | `perguntasLanchonete`    | Pagamentos rápidos em lanchonetes         |
-| Chocolate   | `perguntasChocolate`     | Pagamentos em confeitarias                |
-| Pelúcia     | `perguntasPelucia`       | Soluções para lojas de brinquedos         |
-| Autoescola  | `perguntasAutoescola`    | Pagamentos recorrentes e mensalidades     |
-| Joalheria   | `perguntasNpcRua`        | Pagamentos de alto valor em joalherias    |
+| Loja       | Banco de Perguntas    | Tema central                             |
+| ---------- | --------------------- | ---------------------------------------- |
+| Café       | `perguntasCafe`       | Produtos Cielo para food service         |
+| Games      | `perguntasNpcRua`     | Soluções de pagamento digital            |
+| Beleza     | `perguntasNpcRua`     | Pagamentos em salões de beleza           |
+| Roupas     | `perguntasNpcRua`     | Pagamentos em moda e varejo              |
+| Pet Shop   | `perguntasPet`        | Soluções para pet shops                  |
+| Móveis     | `perguntasMovel`      | Antecipação de recebíveis e parcelamento |
+| Frutaria   | `perguntasNpcRua`     | Pagamentos em hortifruti                 |
+| Lanchonete | `perguntasLanchonete` | Pagamentos rápidos em lanchonetes        |
+| Chocolate  | `perguntasChocolate`  | Pagamentos em confeitarias               |
+| Pelúcia    | `perguntasPelucia`    | Soluções para lojas de brinquedos        |
+| Autoescola | `perguntasAutoescola` | Pagamentos recorrentes e mensalidades    |
+| Joalheria  | `perguntasNpcRua`     | Pagamentos de alto valor em joalherias   |
 
 > **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP.
 
@@ -730,19 +716,19 @@ No mapa da cidade existe um prédio especial que representa a **Central da Cielo
 
 Todas as trocas de cena do jogo utilizam um efeito de transição visual implementado em [`public/src/utilitarios/transicao-cena.js`](../public/src/utilitarios/transicao-cena.js). O sistema é composto por duas funções:
 
-- **`transicionarPara(cena, nomeCena, dados, texto)`** — chamada antes de iniciar uma nova cena. Para todos os sons ativos, executa um fade da câmera principal para a cor azul da Cielo (`#009FDA`) em 400 ms e, ao concluir, exibe um texto centralizado (ex: *"Entrando..."*, *"Voltando à cidade..."*) sobre a tela azul antes de iniciar a cena de destino.
+- **`transicionarPara(cena, nomeCena, dados, texto)`** — chamada antes de iniciar uma nova cena. Para todos os sons ativos, executa um fade da câmera principal para a cor azul da Cielo (`#009FDA`) em 400 ms e, ao concluir, exibe um texto centralizado (ex: _"Entrando..."_, _"Voltando à cidade..."_) sobre a tela azul antes de iniciar a cena de destino.
 - **`revelarCena(cena)`** — chamada no `create()` de cada cena de destino. Executa o fade inverso, partindo do azul Cielo para transparente em 400 ms, revelando o cenário gradualmente.
 
 O efeito usa o sistema nativo de câmera do Phaser (`cameras.main.fadeOut` / `cameras.main.fadeIn`), o que garante compatibilidade com qualquer nível de zoom sem ajustes adicionais.
 
-| Transição | De → Para | Função utilizada |
-|---|---|---|
-| Clicar em Jogar | Menu → Cidade | `transicionarPara` + `revelarCena` |
-| Entrar em loja | Cidade → Loja | `transicionarPara` + `revelarCena` |
-| Sair de loja | Loja → Cidade | `transicionarPara` + `revelarCena` |
+| Transição         | De → Para        | Função utilizada                   |
+| ----------------- | ---------------- | ---------------------------------- |
+| Clicar em Jogar   | Menu → Cidade    | `transicionarPara` + `revelarCena` |
+| Entrar em loja    | Cidade → Loja    | `transicionarPara` + `revelarCena` |
+| Sair de loja      | Loja → Cidade    | `transicionarPara` + `revelarCena` |
 | Entrar na Central | Cidade → Central | `transicionarPara` + `revelarCena` |
-| Novo Jogo (pausa) | Pausa → Cidade | `transicionarPara` + `revelarCena` |
-| Menu (pausa) | Pausa → Menu | `transicionarPara` + `revelarCena` |
+| Novo Jogo (pausa) | Pausa → Cidade   | `transicionarPara` + `revelarCena` |
+| Menu (pausa)      | Pausa → Menu     | `transicionarPara` + `revelarCena` |
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -792,12 +778,14 @@ Variável interna de execução (não é parâmetro de entrada):
 O movimento é bidimensional. Em qualquer instante $t$, a posição do balão é representada pelo vetor posição:
 
 $$
-ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}$$
+ec{r}(t) = x(t)\,\hat{i} + y(t)\,\hat{j}
+$$
 
 E o vetor velocidade instantânea é:
 
 $$
-ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}$$
+ec{v}(t) = v_x\,\hat{i} + v_y(t)\,\hat{j}
+$$
 
 Onde $\hat{i}$ é o vetor unitário no eixo X (horizontal) e $\hat{j}$ é o vetor unitário no eixo Y (vertical no sistema do Phaser).
 
@@ -901,37 +889,37 @@ Nesta seção, são apresentados os avanços iniciais no desenvolvimento do jogo
 
 #### A. Visão Geral
 
-   Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
-   Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
-   O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
+Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
+Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
+O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
 
 #### B. Ambiente do Jogo
 
-   Ao iniciar o jogo, o jogador visualiza:
-   Um cenário urbano em estilo pixel art
-   Rua com faixa de pedestre
-   Prédios comerciais
-   Estabelecimentos que representam possíveis empresas ou clientes
-   Um personagem controlável
-   Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
+Ao iniciar o jogo, o jogador visualiza:
+Um cenário urbano em estilo pixel art
+Rua com faixa de pedestre
+Prédios comerciais
+Estabelecimentos que representam possíveis empresas ou clientes
+Um personagem controlável
+Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
 
 #### C. Funcionalidades Atuais
 
-   Na versão atual, o jogador pode:
-   Controlar o personagem
-   Movimentar-se pelo mapa
-   Explorar o cenário
-   Neste momento, o jogo funciona como um espaço explorável.
-   Ainda não existem interações comerciais ativas.
+Na versão atual, o jogador pode:
+Controlar o personagem
+Movimentar-se pelo mapa
+Explorar o cenário
+Neste momento, o jogo funciona como um espaço explorável.
+Ainda não existem interações comerciais ativas.
 
 #### D. Funcionalidades Planejadas (Ainda Não Implementadas)
 
-   A proposta completa do jogo é ser um simulador de negociação comercial.
-   Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
-   4.1 Sistema de Cards
-   Durante uma negociação, o jogador escolheria respostas em formato de cards.
-   Cada card representaria um argumento estratégico diferente.
-   Esse sistema ainda não foi implementado.
+A proposta completa do jogo é ser um simulador de negociação comercial.
+Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
+4.1 Sistema de Cards
+Durante uma negociação, o jogador escolheria respostas em formato de cards.
+Cada card representaria um argumento estratégico diferente.
+Esse sistema ainda não foi implementado.
 
 #### E. Tempo de Resposta
 
@@ -957,6 +945,7 @@ Recompensa por decisões estratégicas corretas
 Esse sistema ainda não está implementado.
 
 #### I. Sistema de Níveis
+
 O jogador deverá:
 Subir de nível conforme acumula pontos
 Enfrentar clientes mais exigentes em níveis mais altos
@@ -971,12 +960,12 @@ Essa certificação gamificada ainda não foi implementada.
 
 #### K. Objetivo do MVP
 
-   Esta primeira versão foi criada para:
-   Construir a base visual do projeto
-   Testar a movimentação do personagem
-   Estruturar o ambiente onde ocorrerão as futuras negociações
-   Criar a fundação técnica para o desenvolvimento completo
-   O foco desta versão é estrutural, não funcional.
+Esta primeira versão foi criada para:
+Construir a base visual do projeto
+Testar a movimentação do personagem
+Estruturar o ambiente onde ocorrerão as futuras negociações
+Criar a fundação técnica para o desenvolvimento completo
+O foco desta versão é estrutural, não funcional.
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
@@ -1071,13 +1060,13 @@ Cada loja possui um banco de perguntas específico em `quiz-perguntas.js` (12 co
 ```js
 // cena-loja.js — mapa de perguntas por loja
 const perguntasPorLoja = {
-    Cafe: perguntasCafe,
-    Pet: perguntasPet,
-    Movel: perguntasMovel,
-    Lanchonete: perguntasLanchonete,
-    Chocolate: perguntasChocolate,
-    Pelucia: perguntasPelucia,
-    Autoescola: perguntasAutoescola,
+  Cafe: perguntasCafe,
+  Pet: perguntasPet,
+  Movel: perguntasMovel,
+  Lanchonete: perguntasLanchonete,
+  Chocolate: perguntasChocolate,
+  Pelucia: perguntasPelucia,
+  Autoescola: perguntasAutoescola,
 };
 // Lojas sem entrada no mapa (Games, Beleza, Roupas, Frutaria, Joalheria) usam perguntasNpcRua como fallback
 const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
@@ -1403,7 +1392,7 @@ O jogo pode ser acessado por meio do link do projeto, sendo carregado automatica
 Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
 Além disso, o jogador pode navegar livremente pelo mapa, acessar lojas, acompanhar seu progresso por meio da interface e utilizar os recursos disponíveis no jogo, como o sistema de pausa e o acesso ao tutorial durante a partida.
 
-### Dificuldades encontradas 
+### Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 4, foram identificados diversos desafios relacionados à integração dos sistemas, refinamento da jogabilidade e estabilidade da aplicação.
 Um dos principais desafios foi a integração entre as diferentes cenas do jogo, especialmente no controle de fluxo entre menu, tutorial, mapa e lojas. Garantir que o jogador fosse direcionado corretamente entre essas etapas, sem perda de estado ou inconsistências, exigiu ajustes na lógica de transição e gerenciamento de cenas do Phaser.
@@ -1465,9 +1454,9 @@ Foi implementado um sistema de pontuação persistente armazenado no localStorag
 . **Configuração diferenciada das três ruas de carros**
 O sistema de carros foi expandido para cobrir três ruas distintas do mapa, cada uma com características independentes de direção, velocidade, quantidade de carros e espaçamento entre eles:
 
-  - Rua 1 (y≈2123): 4 carros em direção da esquerda para a direita, velocidade de 650 px/s, espaçamento de 3000 px;
-  - Rua 2 (y≈4065): 6 carros em direção da direita para a esquerda (sentido oposto), velocidade de 1000 px/s, espaçamento de 2000 px;
-  - Rua 3 (y≈6359): 3 carros em direção da esquerda para a direita, velocidade de 450 px/s, espaçamento de 4000 px.
+- Rua 1 (y≈2123): 4 carros em direção da esquerda para a direita, velocidade de 650 px/s, espaçamento de 3000 px;
+- Rua 2 (y≈4065): 6 carros em direção da direita para a esquerda (sentido oposto), velocidade de 1000 px/s, espaçamento de 2000 px;
+- Rua 3 (y≈6359): 3 carros em direção da esquerda para a direita, velocidade de 450 px/s, espaçamento de 4000 px.
 
 O sprite do carro é espelhado horizontalmente (`setFlipX`) quando o carro se move para a esquerda, garantindo que o carro sempre pareça estar apontado na direção correta. Cada carro sorteia aleatoriamente uma entre três variantes de cor (branco, amarelo ou azul) ao ser criado, e cicla 8 frames de animação de forma independente a 8 fps.
 
@@ -1480,8 +1469,8 @@ O tutorial passou a ser exibido apenas na entrada inicial no jogo (quando `data.
 . **Minimapa no canto superior esquerdo**
 Foi adicionado um minimapa permanente no canto superior esquerdo da tela. Ele é composto por duas câmeras secundárias sobrepostas:
 
-  - **Câmera de borda**: levemente maior que o minimapa, exibe apenas uma cor azul sólida como moldura visual, apontada para fora do mapa para não renderizar conteúdo do jogo;
-  - **Câmera do minimapa**: exibe o mapa inteiro em tamanho reduzido com zoom calculado automaticamente para preencher o espaço sem bordas pretas.
+- **Câmera de borda**: levemente maior que o minimapa, exibe apenas uma cor azul sólida como moldura visual, apontada para fora do mapa para não renderizar conteúdo do jogo;
+- **Câmera do minimapa**: exibe o mapa inteiro em tamanho reduzido com zoom calculado automaticamente para preencher o espaço sem bordas pretas.
 
 Um marcador de posição — a imagem da cabeça do Marcielo — é posicionado no mundo no local exato do jogador e tem seu tamanho calculado como `32 / zoom` para sempre aparecer com 32 px na tela do minimapa, independentemente do tamanho do mapa. A câmera principal ignora o marcador para que ele só apareça no minimapa.
 
@@ -1490,8 +1479,9 @@ O painel lateral que exibe o progresso de conquista dos NPCs passou a fechar aut
 
 . **Efeito visual de conquista**
 Ao conquistar um NPC com sucesso, além da mudança de cor do sprite do NPC (de vermelho para azul), o jogo dispara um efeito visual de celebração composto por:
-  - **Confetes coloridos animados**: 80 retângulos com cores aleatórias (vermelho, verde, azul, amarelo, magenta, ciano e laranja) são lançados a partir do NPC com rotação e fade-out em 800–1500 ms;
-  - O efeito é destruído automaticamente ao término da animação, sem deixar objetos residuais na cena.
+
+- **Confetes coloridos animados**: 80 retângulos com cores aleatórias (vermelho, verde, azul, amarelo, magenta, ciano e laranja) são lançados a partir do NPC com rotação e fade-out em 800–1500 ms;
+- O efeito é destruído automaticamente ao término da animação, sem deixar objetos residuais na cena.
 
 ### Dificuldades encontradas
 
@@ -1559,43 +1549,43 @@ Ao final do quiz, o resultado da interação define se o cliente foi conquistado
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
-| #   | pré-condição                                              | descrição do teste                                                      | pós-condição                                                                                 |
-| :-- | :-------------------------------------------------------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| 1   | Jogo aberto na tela inicial                               | Clicar no botão "Jogar"                                                 | O jogo deve iniciar e a tela de tutorial deve ser exibida automaticamente como overlay antes de liberar o controle ao jogador |
-| 2   | Jogo na tela inicial                                      | Clicar no botão "Configurações"                                         | A tela de configurações deve abrir, permitindo ajustar volume, som, contraste e velocidade do Marcielo |
-| 3   | Jogo com personagem parado                                | Pressionar D                                                            | Personagem deve se mover para a direita                                                      |
-| 4   | Jogo com personagem parado                                | Pressionar A                                                            | Personagem deve se mover para a esquerda                                                     |
-| 5   | Jogo com personagem parado                                | Pressionar W                                                            | Personagem deve se mover para cima                                                           |
-| 6   | Jogo com personagem parado                                | Pressionar S                                                            | Personagem deve se mover para baixo                                                          |
-| 7   | Personagem próximo de uma loja                            | Encostou na porta                                                       | Personagem entra no estabelecimento                                                          |
-| 8   | Personagem perto de um NPC com pelo menos 1 maquininha    | Aproximar-se do NPC e pressionar a tecla E                              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada      |
-| 9   | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo na resposta correta (3 pts)                   | A barra de conversão aumenta em 30 pontos                                                    |
-| 10  | Tela de quiz com 4 respostas e barra de conversão visível | Clicar com botão esquerdo em resposta incorreta (0 pts)                 | A barra de conversão diminui em 50 pontos                                                    |
-| 11  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder corretamente (3 pts) na 3ª pergunta                   | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                       |
-| 12  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder incorretamente (0 pts) na 3ª pergunta                  | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
-| 13  | Jogador errou as 2 primeiras perguntas (0 pts acumulados)       | Responder incorretamente (0 pts) na 3ª pergunta                   | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                   |
-| 14  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)      | Responder incorretamente (0 pts) na 3ª pergunta                   | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
-| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)      | Responder corretamente (3 pts) na 3ª pergunta                     | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                       |
-| 16  | Jogador errou todas as perguntas anteriores (0 pts)             | Responder corretamente (3 pts) na 3ª pergunta                     | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                   |
-| 17  | Tempo limite da pergunta esgotado                         | O timer chega a 0 durante o quiz                                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta  |
-| 18  | Negociação finalizada com sucesso ou falha                | Resultado da interação é definido                                       | Sistema exibe feedback do resultado da negociação                                            |
-| 19  | Perto de um cliente já conquistado                        | Se aproxima                                                             | Nada acontece, cliente permanece com camiseta azul                                           |
-| 20  | Tempo limite do jogo acabando                             | O tempo acaba                                                           | A gameplay se encerra *(não implementado no MVP)*                                            |
-| 21  | Jogo em execução na cidade ou dentro de loja              | Pressionar a tecla T                                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                        |
-| 22  | Tela de tutorial aberta via tecla T                       | Clicar no botão "SAIR"                                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                       |
-| 23  | Jogador caminhando em direção a uma árvore ou casa no mapa | Tentar atravessar o elemento                                           | O jogador deve ser bloqueado pelo colisor invisível e não conseguir atravessar              |
-| 24  | Jogador próximo à borda do mapa                           | Tentar sair pelos limites do mapa                                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa        |
-| 25  | Jogador colide com um carro em qualquer rua               | Carro atinge o jogador durante a navegação                              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                    |
-| 26  | Jogador navega pela cidade                                | Observar o minimapa no canto superior esquerdo                          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador |
-| 27  | Jogador conquista um NPC (quiz bem-sucedido)              | Finaliza o quiz com pontuação ≥ 6                                       | O jogador recebe +15 pontos persistidos no localStorage; efeito de confetes é exibido; 1 maquininha é consumida |
-| 28  | Jogador falha em um quiz (pontuação < 6)                  | Finaliza o quiz com pontuação < 6                                       | O jogador perde 15 pontos persistidos no localStorage; nenhuma maquininha é consumida       |
-| 29  | Jogador se aproxima do prédio Central da Cielo no mapa    | Encosta na porta do prédio                                              | O jogador deve entrar na cena da Central da Cielo                                           |
-| 30  | Jogador dentro da Central da Cielo                        | Pressionar ESC                                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo e Menu                        |
-| 31  | Jogo com progresso salvo (NPCs conquistados, maquininhas)  | Fechar o navegador e reabrir o jogo                                    | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas, quantidade de maquininhas é mantida |
-| 32  | Menu de pausa aberto                                      | Clicar em "Novo Jogo"                                                   | Todo o progresso salvo (incluindo maquininhas) deve ser apagado do localStorage, maquininhas zeradas a 0, e o jogo deve reiniciar do zero |
-| 33  | Jogador com 0 maquininhas entra em uma loja               | Se aproxima do NPC a menos de 300 px                                    | O botão de interação (tecla E) não aparece sobre o NPC; o quiz não pode ser iniciado        |
-| 34  | Jogador dentro da Central da Cielo com menos de 2 maquininhas | Aproximar-se do NPC a menos de 300 px e pressionar E              | As maquininhas são recarregadas para o máximo (2); o HUD é atualizado                       |
-| 35  | Jogador dentro da Central da Cielo com 2 maquininhas (máximo) | Aproximar-se do NPC                                               | O botão de recarga não aparece; pressionar E não tem efeito                                 |
+| #   | pré-condição                                                      | descrição do teste                                      | pós-condição                                                                                                                                       |
+| :-- | :---------------------------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Jogo aberto na tela inicial                                       | Clicar no botão "Jogar"                                 | O jogo deve iniciar e a tela de tutorial deve ser exibida automaticamente como overlay antes de liberar o controle ao jogador                      |
+| 2   | Jogo na tela inicial                                              | Clicar no botão "Configurações"                         | A tela de configurações deve abrir, permitindo ajustar volume, som, contraste e velocidade do Marcielo                                             |
+| 3   | Jogo com personagem parado                                        | Pressionar D                                            | Personagem deve se mover para a direita                                                                                                            |
+| 4   | Jogo com personagem parado                                        | Pressionar A                                            | Personagem deve se mover para a esquerda                                                                                                           |
+| 5   | Jogo com personagem parado                                        | Pressionar W                                            | Personagem deve se mover para cima                                                                                                                 |
+| 6   | Jogo com personagem parado                                        | Pressionar S                                            | Personagem deve se mover para baixo                                                                                                                |
+| 7   | Personagem próximo de uma loja                                    | Encostou na porta                                       | Personagem entra no estabelecimento                                                                                                                |
+| 8   | Personagem perto de um NPC com pelo menos 1 maquininha            | Aproximar-se do NPC e pressionar a tecla E              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada                                                            |
+| 9   | Tela de quiz com 4 respostas e barra de conversão visível         | Clicar com botão esquerdo na resposta correta (3 pts)   | A barra de conversão aumenta em 30 pontos                                                                                                          |
+| 10  | Tela de quiz com 4 respostas e barra de conversão visível         | Clicar com botão esquerdo em resposta incorreta (0 pts) | A barra de conversão diminui em 50 pontos                                                                                                          |
+| 11  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder corretamente (3 pts) na 3ª pergunta           | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                                                                              |
+| 12  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                                                                              |
+| 13  | Jogador errou as 2 primeiras perguntas (0 pts acumulados)         | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                                                                          |
+| 14  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)        | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                                                                          |
+| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)        | Responder corretamente (3 pts) na 3ª pergunta           | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                                                                              |
+| 16  | Jogador errou todas as perguntas anteriores (0 pts)               | Responder corretamente (3 pts) na 3ª pergunta           | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                                                                          |
+| 17  | Tempo limite da pergunta esgotado                                 | O timer chega a 0 durante o quiz                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta                                                        |
+| 18  | Negociação finalizada com sucesso ou falha                        | Resultado da interação é definido                       | Sistema exibe feedback do resultado da negociação                                                                                                  |
+| 19  | Perto de um cliente já conquistado                                | Se aproxima                                             | Nada acontece, cliente permanece com camiseta azul                                                                                                 |
+| 20  | Tempo limite do jogo acabando                                     | O tempo acaba                                           | A gameplay se encerra _(não implementado no MVP)_                                                                                                  |
+| 21  | Jogo em execução na cidade ou dentro de loja                      | Pressionar a tecla T                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                                                                               |
+| 22  | Tela de tutorial aberta via tecla T                               | Clicar no botão "SAIR"                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                                                                             |
+| 23  | Jogador caminhando em direção a uma árvore ou casa no mapa        | Tentar atravessar o elemento                            | O jogador deve ser bloqueado pelo colisor invisível e não conseguir atravessar                                                                     |
+| 24  | Jogador próximo à borda do mapa                                   | Tentar sair pelos limites do mapa                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa                                                               |
+| 25  | Jogador colide com um carro em qualquer rua                       | Carro atinge o jogador durante a navegação              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                                                                           |
+| 26  | Jogador navega pela cidade                                        | Observar o minimapa no canto superior esquerdo          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador                      |
+| 27  | Jogador conquista um NPC (quiz bem-sucedido)                      | Finaliza o quiz com pontuação ≥ 6                       | O jogador recebe +15 pontos persistidos no localStorage; efeito de confetes é exibido; 1 maquininha é consumida                                    |
+| 28  | Jogador falha em um quiz (pontuação < 6)                          | Finaliza o quiz com pontuação < 6                       | O jogador perde 15 pontos persistidos no localStorage; nenhuma maquininha é consumida                                                              |
+| 29  | Jogador se aproxima do prédio Central da Cielo no mapa            | Encosta na porta do prédio                              | O jogador deve entrar na cena da Central da Cielo                                                                                                  |
+| 30  | Jogador dentro da Central da Cielo                                | Pressionar ESC                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo e Menu                                                                               |
+| 31  | Jogo com progresso salvo (NPCs conquistados, maquininhas)         | Fechar o navegador e reabrir o jogo                     | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas, quantidade de maquininhas é mantida |
+| 32  | Menu de pausa aberto                                              | Clicar em "Novo Jogo"                                   | Todo o progresso salvo (incluindo maquininhas) deve ser apagado do localStorage, maquininhas zeradas a 0, e o jogo deve reiniciar do zero          |
+| 33  | Jogador com 0 maquininhas entra em uma loja                       | Se aproxima do NPC a menos de 300 px                    | O botão de interação (tecla E) não aparece sobre o NPC; o quiz não pode ser iniciado                                                               |
+| 34  | Jogador dentro da Central da Cielo com menos de 2 maquininhas     | Aproximar-se do NPC a menos de 300 px e pressionar E    | As maquininhas são recarregadas para o máximo (2); o HUD é atualizado                                                                              |
+| 35  | Jogador dentro da Central da Cielo com 2 maquininhas (máximo)     | Aproximar-se do NPC                                     | O botão de recarga não aparece; pressionar E não tem efeito                                                                                        |
 
 Fonte: elaborado pelo grupo.
 
@@ -1618,7 +1608,19 @@ _Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores
 
 ### 5.2.2 Melhorias
 
-_Descreva nesta seção um plano de melhorias sobre o jogo, com base nos resultados dos testes de jogabilidade_
+Com base nos resultados obtidos nos testes de jogabilidade, foram identificadas oportunidades de aprimoramento para tornar o jogo mais envolvente, desafiador e recompensador para os jogadores. A seguir, estão descritas as principais melhorias planejadas:
+
+- **Ranking:** Implementar um sistema de classificação global e/ou local, permitindo que os jogadores comparem suas pontuações com outros. Isso incentiva a competitividade e aumenta a rejogabilidade.
+
+- **Feedbacks mais personalizados e específicos:** Desenvolver mensagens de feedback detalhadas para cada pergunta ou ação do jogador, explicando erros e acertos de forma clara. Isso melhora a experiência de aprendizado e aumenta o engajamento.
+
+- **Mais obstáculos:** Adicionar novos tipos de obstáculos ao jogo, com diferentes níveis de dificuldade e padrões de comportamento, tornando a jogabilidade mais dinâmica e desafiadora.
+
+- **Inimigos:** Introduzir inimigos com comportamentos variados (como perseguição, bloqueio de caminho ou ataque), enriquecendo o jogo e exigindo mais estratégia por parte do jogador, tornando a experiência mais dinâmica e divertida.
+
+- **Pontuação:** Refinar o sistema de pontuação, considerando fatores como tempo de resposta, precisão e desempenho geral. Também podem ser incluídos bônus, combos e recompensas por sequência de acertos, incentivando melhores resultados.
+
+Essas melhorias visam aumentar a profundidade do jogo, promover maior engajamento dos jogadores e proporcionar uma experiência mais rica e satisfatória.
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
@@ -1646,99 +1648,99 @@ Evolução da progressão e variedade de experiências ao longo do jogo
 
 Trabalhos futuros e plano de melhorias
 Com base nos testes realizados, foram identificadas oportunidades relevantes de evolução do jogo, descritas a seguir com seus respectivos planos de ação:
+
 1. Sistema de ranking e pontuação
-Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
-Plano de ação:
-Implementar ranking entre jogadores
-Criar sistema de pontuação baseado em desempenho e decisões
-Adicionar recompensas e metas para estimular progressão
+   Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
+   Plano de ação:
+   Implementar ranking entre jogadores
+   Criar sistema de pontuação baseado em desempenho e decisões
+   Adicionar recompensas e metas para estimular progressão
 
 2. Feedbacks personalizados
-Problema identificado: Feedbacks ainda genéricos e pouco direcionados ao aprendizado individual.
-Plano de ação:
-Criar feedbacks específicos para cada resposta do jogador
-Explicar por que a decisão foi correta ou incorreta
-Adaptar orientações conforme o desempenho do usuário
+   Problema identificado: Feedbacks ainda genéricos e pouco direcionados ao aprendizado individual.
+   Plano de ação:
+   Criar feedbacks específicos para cada resposta do jogador
+   Explicar por que a decisão foi correta ou incorreta
+   Adaptar orientações conforme o desempenho do usuário
 
 3. Inclusão de obstáculos e inimigos
-Problema identificado: Dinâmica do jogo ainda pouco desafiadora em termos de gameplay.
-Plano de ação:
-Inserir obstáculos no mapa que impactem a jornada do jogador
-Criar “inimigos” ou desafios que simulem dificuldades reais de vendas
-Aumentar a complexidade das interações ao longo do jogo
+   Problema identificado: Dinâmica do jogo ainda pouco desafiadora em termos de gameplay.
+   Plano de ação:
+   Inserir obstáculos no mapa que impactem a jornada do jogador
+   Criar “inimigos” ou desafios que simulem dificuldades reais de vendas
+   Aumentar a complexidade das interações ao longo do jogo
 
 4. Evolução do flow do jogo
-Problema identificado: Possível previsibilidade na progressão das interações.
-Plano de ação:
-Introduzir eventos dinâmicos e variações de cenário
-Criar níveis ou fases com desafios progressivos
-Ajustar o ritmo entre desafio e recompensa
+   Problema identificado: Possível previsibilidade na progressão das interações.
+   Plano de ação:
+   Introduzir eventos dinâmicos e variações de cenário
+   Criar níveis ou fases com desafios progressivos
+   Ajustar o ritmo entre desafio e recompensa
 
 5. Expansão das simulações de vendas
-Problema identificado: Limitação na diversidade de cenários e perfis de clientes.
-Plano de ação:
-Adicionar novos tipos de estabelecimentos
-Incluir diferentes perfis de clientes e objeções
-Simular situações mais complexas e realistas do dia a dia comercial
+   Problema identificado: Limitação na diversidade de cenários e perfis de clientes.
+   Plano de ação:
+   Adicionar novos tipos de estabelecimentos
+   Incluir diferentes perfis de clientes e objeções
+   Simular situações mais complexas e realistas do dia a dia comercial
 
 Conclusão final
 A solução desenvolvida se mostrou eficaz ao transformar o treinamento comercial em uma experiência prática, imersiva e orientada à aprendizagem. A combinação de simulação realista, estrutura gamificada, uso estratégico de HUDs e um flow bem definido contribuiu diretamente para o atingimento dos objetivos do projeto.
 Os pontos de melhoria identificados indicam um alto potencial de evolução, especialmente no aumento do engajamento, personalização do aprendizado e complexidade do jogo. Com a implementação das melhorias propostas, a solução tende a se consolidar como uma ferramenta ainda mais robusta e eficiente para capacitação da equipe comercial da Cielo.
 
-
 # <a name="c7"></a>7. Referências
 
-ABECS. (2024). *Balanço do setor de meios de pagamento*. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
+ABECS. (2024). _Balanço do setor de meios de pagamento_. https://abecs.org.br/balanco-do-setor-de-meios-de-pagamento
 
-Banco Central do Brasil. (2023). *Relatório de economia bancária 2023*. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
+Banco Central do Brasil. (2023). _Relatório de economia bancária 2023_. https://www.bcb.gov.br/publicacoes/relatorioeconomiabancaria
 
-Banco Central do Brasil. (2024). *Relatório de vigilância do sistema de pagamentos brasileiro*. https://www.bcb.gov.br
+Banco Central do Brasil. (2024). _Relatório de vigilância do sistema de pagamentos brasileiro_. https://www.bcb.gov.br
 
-Banco Central do Brasil. (2025). *Relatórios de estabilidade e vigilância do SPB*. https://www.bcb.gov.br/publicacoes
+Banco Central do Brasil. (2025). _Relatórios de estabilidade e vigilância do SPB_. https://www.bcb.gov.br/publicacoes
 
-Cielo S.A. (2023). *Relatório anual e demonstrações financeiras 2023*. https://ri.cielo.com.br
+Cielo S.A. (2023). _Relatório anual e demonstrações financeiras 2023_. https://ri.cielo.com.br
 
-Cielo S.A. (2024). *Informações institucionais e dados operacionais*. https://www.cielo.com.br
+Cielo S.A. (2024). _Informações institucionais e dados operacionais_. https://www.cielo.com.br
 
-Cielo S.A. (2025). *Portal de relações com investidores*. https://ri.cielo.com.br
+Cielo S.A. (2025). _Portal de relações com investidores_. https://ri.cielo.com.br
 
-ClickPetróleo e Gás. (2025). *Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix*. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96
+ClickPetróleo e Gás. (2025). _Cielo loses historic lead in the ‘card machine war’ after competitors advance, new Central Bank rules, and the rise of Pix_. https://en.clickpetroleoegas.com.br/Cielo-loses-historic-leadership-in-the-war-of-payment-machines-after-the-advance-of-competitors--new-rules-from-the-central-bank-and-the-rise-of-Pix-btl96
 
-CNN Brasil. (2025). *A guerra das maquininhas e a disputa no mercado de adquirentes*. https://www.cnnbrasil.com.br
+CNN Brasil. (2025). _A guerra das maquininhas e a disputa no mercado de adquirentes_. https://www.cnnbrasil.com.br
 
-Deloitte. (2024). *Relatórios sobre mercado financeiro e meios de pagamento*. https://www2.deloitte.com/br
+Deloitte. (2024). _Relatórios sobre mercado financeiro e meios de pagamento_. https://www2.deloitte.com/br
 
-Halliday, D., Resnick, R., & Walker, J. (2016). *Fundamentos de Física — Vol. 1: Mecânica* (10ª ed.). LTC.
+Halliday, D., Resnick, R., & Walker, J. (2016). _Fundamentos de Física — Vol. 1: Mecânica_ (10ª ed.). LTC.
 
-IBGE. (2022). *Censo demográfico 2022: Primeiros resultados*. https://www.ibge.gov.br/censo2022
+IBGE. (2022). _Censo demográfico 2022: Primeiros resultados_. https://www.ibge.gov.br/censo2022
 
-McKinsey & Company. (2024). *Estudos sobre transformação digital e meios de pagamento*. https://www.mckinsey.com.br
+McKinsey & Company. (2024). _Estudos sobre transformação digital e meios de pagamento_. https://www.mckinsey.com.br
 
-Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. *Revista Brasileira de Gestão e Negócios*. https://doi.org/10.7819/rbgn.v23i2.4104
+Moraes, R. A., & Silva, J. P. (2021). A guerra das maquininhas: Competição e inovação no setor de adquirência brasileiro. _Revista Brasileira de Gestão e Negócios_. https://doi.org/10.7819/rbgn.v23i2.4104
 
-PagBank. (2024). *Relatório institucional e atuação no mercado de pagamentos*. https://www.pagbank.com.br
+PagBank. (2024). _Relatório institucional e atuação no mercado de pagamentos_. https://www.pagbank.com.br
 
-PagSeguro Digital Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.pagseguro.com
+PagSeguro Digital Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.pagseguro.com
 
-Photon Storm Ltd. (2025). *Phaser 3 — HTML5 game framework*. https://phaser.io
+Photon Storm Ltd. (2025). _Phaser 3 — HTML5 game framework_. https://phaser.io
 
-Porter, M. E. (2008). The five competitive forces that shape strategy. *Harvard Business Review*.
+Porter, M. E. (2008). The five competitive forces that shape strategy. _Harvard Business Review_.
 
-PwC Brasil. (2024). *Relatórios sobre tendências do mercado financeiro*. https://www.pwc.com.br
+PwC Brasil. (2024). _Relatórios sobre tendências do mercado financeiro_. https://www.pwc.com.br
 
 Reuters. (2026, February 10). Instant payment system Pix poised to capture half of Brazil’s e-commerce market by 2028. https://www.reuters.com/world/americas/instant-payment-system-pix-poised-capture-half-brazils-e-commerce-market-by-2028-2026-02-10
 
-Stone Co. (2024). *Formulário de referência e modelo de negócios*. https://investors.stone.co
+Stone Co. (2024). _Formulário de referência e modelo de negócios_. https://investors.stone.co
 
-StoneCo Ltd. (2023). *Form 20-F: Annual report 2023*. https://investors.stone.com
+StoneCo Ltd. (2023). _Form 20-F: Annual report 2023_. https://investors.stone.com
 
-Subadquirente. (2025). *As tendências do mercado de meios de pagamentos no Brasil para 2025*. https://www.subadquirente.com/post/as-tend%C3%AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
+Subadquirente. (2025). _As tendências do mercado de meios de pagamentos no Brasil para 2025_. https://www.subadquirente.com/post/as-tend%C3%AAncias-do-mercado-de-meios-de-pagamentos-no-brasil-para-2025
 
-Valor Econômico. (2025). *Resultados financeiros da Cielo*. https://s3.glbimg.com
+Valor Econômico. (2025). _Resultados financeiros da Cielo_. https://s3.glbimg.com
 
-Veja. (2024). Carteiras digitais ajudam cartões de crédito a se reinventar. *Veja*. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar
+Veja. (2024). Carteiras digitais ajudam cartões de crédito a se reinventar. _Veja_. https://veja.abril.com.br/economia/carteiras-digitais-ajudam-cartoes-de-credito-a-se-reinventar
 
-Vieira, S. (2025). *Mercado de adquirência: Um gigante em disputa na era do Pix* [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
+Vieira, S. (2025). _Mercado de adquirência: Um gigante em disputa na era do Pix_ [Publicação no LinkedIn]. https://pt.linkedin.com/posts/sandra-vieira-servicos-financeiros_pagamentos-adquir%C3%AAncia-pix-activity-7350464091540336643-WWyA
 
 # <a name="c8"></a>Anexos
 
@@ -1752,7 +1754,7 @@ Link: https://www.canva.com/design/DAHCEIJ-7zY/IdmuREdNconLz6UI9TNmkw/edit?utm_c
 
 ### Diagrama de arquitetura das lojas
 
-O jogo utiliza uma arquitetura *data-driven* para as lojas: uma única classe `CenaLoja` é instanciada com configurações diferentes para cada loja (posição do NPC, do jogador, da porta, escala do fundo). As 12 lojas do jogo são geradas a partir do array `lojasConfigs` em `cena-cidade.js`, evitando duplicação de código.
+O jogo utiliza uma arquitetura _data-driven_ para as lojas: uma única classe `CenaLoja` é instanciada com configurações diferentes para cada loja (posição do NPC, do jogador, da porta, escala do fundo). As 12 lojas do jogo são geradas a partir do array `lojasConfigs` em `cena-cidade.js`, evitando duplicação de código.
 
 ### Diagrama de fluxo do sistema de quiz
 
@@ -1783,14 +1785,14 @@ Cada NPC possui três estados visuais representados por imagens distintas: `nao-
 
 ## A.3. Arquivos de configuração relevantes
 
-| Arquivo | Responsabilidade |
-| :--- | :--- |
-| `configuracao-colisores-ambiente.js` | Lista de retângulos de colisão invisíveis para árvores, arbustos, casas e bordas do mapa |
-| `spawn-cidade.js` | Mapa de coordenadas de retorno do jogador para cada loja ao sair do interior |
-| `configuracao-interior.js` | Lista de móveis e posições para cada loja (usada para criar o mobiliário físico interno) |
-| `configuracao-baloes.js` | Definição das variantes de balões decorativos exibidos nas lojas conquistadas |
-| `estado-jogo.js` | Chaves centralizadas do localStorage e estado global de progresso entre cenas |
-| `pontos.js` | Sistema de pontuação: +15 conquista, -15 derrota, leitura e escrita no localStorage |
-| `quiz-perguntas.js` | Banco de perguntas de todos os bancos (`perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola`, `perguntasNpcRua`) |
-| `maquininhas.js` | Controle do estoque de maquininhas do jogador (classe estática com persistência no localStorage) |
-| `progresoNPCs.js` | Lista de todos os NPCs do jogo com ID, loja e estado atual (`nao-interagido`, `interagido`, `conquistado`) |
+| Arquivo                              | Responsabilidade                                                                                                                                                                                     |
+| :----------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `configuracao-colisores-ambiente.js` | Lista de retângulos de colisão invisíveis para árvores, arbustos, casas e bordas do mapa                                                                                                             |
+| `spawn-cidade.js`                    | Mapa de coordenadas de retorno do jogador para cada loja ao sair do interior                                                                                                                         |
+| `configuracao-interior.js`           | Lista de móveis e posições para cada loja (usada para criar o mobiliário físico interno)                                                                                                             |
+| `configuracao-baloes.js`             | Definição das variantes de balões decorativos exibidos nas lojas conquistadas                                                                                                                        |
+| `estado-jogo.js`                     | Chaves centralizadas do localStorage e estado global de progresso entre cenas                                                                                                                        |
+| `pontos.js`                          | Sistema de pontuação: +15 conquista, -15 derrota, leitura e escrita no localStorage                                                                                                                  |
+| `quiz-perguntas.js`                  | Banco de perguntas de todos os bancos (`perguntasCafe`, `perguntasPet`, `perguntasMovel`, `perguntasLanchonete`, `perguntasChocolate`, `perguntasPelucia`, `perguntasAutoescola`, `perguntasNpcRua`) |
+| `maquininhas.js`                     | Controle do estoque de maquininhas do jogador (classe estática com persistência no localStorage)                                                                                                     |
+| `progresoNPCs.js`                    | Lista de todos os NPCs do jogo com ID, loja e estado atual (`nao-interagido`, `interagido`, `conquistado`)                                                                                           |

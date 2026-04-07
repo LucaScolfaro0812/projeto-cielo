@@ -128,8 +128,10 @@ export class CenaTutorial extends Phaser.Scene {
             if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
 
             if (this.modoOverlay) {
+                const cenaOrigem = this.scene.get(this.cenaOrigem);
                 this.scene.resume(this.cenaOrigem);
                 this.scene.stop();
+                cenaOrigem?.aoFecharTutorialOverlay?.();
                 return;
             }
 

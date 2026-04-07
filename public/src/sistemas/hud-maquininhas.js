@@ -3,8 +3,8 @@ import { Maquininhas } from './maquininhas.js';
 /**
  * HudMaquininhas - Exibe o estoque de maquininhas do jogador na tela.
  *
- * Cria um container fixo (scrollFactor 0) com um slot para cada maquininha possível.
- * Slots com maquininha disponível ficam opacos; slots vazios ficam translúcidos.
+ * Cria um container fixo (scrollFactor 0) com uma maquininha e um contador textual.
+ * O contador usa o formato "3x", "2x", "1x" ou "0x".
  */
 export default class HudMaquininhas {
 
@@ -17,13 +17,12 @@ export default class HudMaquininhas {
         this.cena = cena;
         this.xTela = xTela;
         this.yTela = yTela;
-        this.slotSize = 140;
-        this.espacamento = 4;
+        this.slotSize = 100;
         this._criarHud();
     }
 
     /**
-     * Cria os elementos visuais do HUD: fundo e slots de maquininha.
+     * Cria os elementos visuais do HUD: uma maquininha e o texto de quantidade.
      * Os tamanhos são ajustados pelo zoom da câmera para manter proporção visual
      * independente do nível de zoom da cena.
      */
@@ -32,21 +31,16 @@ export default class HudMaquininhas {
         // Divide pelo zoom para que o HUD apareça no tamanho correto em tela
         const zoom = cam.zoom || 1;
         const tamanho = this.slotSize / zoom;
-        const espaco = this.espacamento / zoom;
-        const max = Maquininhas.maximoMaquininhas;
 
-        // Deslocamento em relação à posição base para posicionar no canto superior direito
-        const offSetX = 870;
-        const offSetY = -150;
-
-        const pad = 3 / zoom;
-
-        // Calcula dimensões totais do fundo com base na quantidade de slots
-        const largura = max * tamanho + (max - 1) * espaco + pad * 2;
+        const pad = 10 / zoom;
+        const largura = tamanho + pad * 2;
         const altura = tamanho + pad * 2;
+        const tamanhoIcone = tamanho * 2.5;
+        const posicaoX = cam.width - largura + 430;
+        const posicaoY = 5;
 
         // Container fixo na tela (não se move com a câmera)
-        this.container = this.cena.add.container(this.xTela / zoom + offSetX, this.yTela / zoom + offSetY)
+        this.container = this.cena.add.container(posicaoX, posicaoY)
             .setScrollFactor(0)
             .setDepth(9999);
 
@@ -55,41 +49,40 @@ export default class HudMaquininhas {
             .setOrigin(0, 0)
             .setStrokeStyle(2 / zoom, 0xffffff, 0.8);
 
-        this.slots = [];
-        for (let i = 0; i < max; i++) {
-            const img = this.cena.add.image(
-                pad + i * (tamanho + espaco),
-                pad,
-                'maquininhaCielo'
-            ).setDisplaySize(tamanho, tamanho).setOrigin(0, 0);
-            this.slots.push(img);
+        this.icone = this.cena.add.image(
+            pad + tamanho / 2,
+            pad + tamanho / 2,
+            'maquininhaCielo'
+        ).setDisplaySize(tamanhoIcone, tamanhoIcone).setOrigin(0.5, 0.5);
 
-            // Aplica escala extra para que a imagem da maquininha fique maior que o slot base
-            const fator = 1.5;
-            const escala = Math.min(
-                tamanho / img.width,
-                tamanho / img.height
-            ) * fator;
+        this.textoQuantidade = this.cena.add.text(
+            pad + tamanho,
+            pad,
+            '0x',
+            {
+                fontFamily: 'Arial',
+                fontSize: `${Math.round(30 / zoom)}px`,
+                fontStyle: 'bold',
+                color: '#ffffff',
+                stroke: '#0b1a2b',
+                strokeThickness: Math.max(2, Math.round(3 / zoom))
+            }
+        ).setOrigin(1, 0);
 
-            img.setScale(escala);
-        }
-
-        this.container.add([fundo, ...this.slots]);
+        this.container.add([fundo, this.icone, this.textoQuantidade]);
 
         // Sincroniza visualmente com o estoque atual ao criar
         this.atualizar();
     }
 
     /**
-     * Atualiza a opacidade de cada slot conforme a quantidade atual de maquininhas.
-     * Slots com maquininha: alpha 1 (totalmente visíveis).
-     * Slots vazios: alpha 0.25 (translúcidos, indicando que estão indisponíveis).
+     * Atualiza o contador textual conforme a quantidade atual de maquininhas.
+     * Exemplo: 3x, 2x, 1x ou 0x.
      */
     atualizar() {
         const qnt = Maquininhas.qntMaquininhas;
-        this.slots.forEach((slot, i) => {
-            slot.setAlpha(i < qnt ? 1 : 0.25);
-        });
+        this.textoQuantidade.setText(`${qnt}x`);
+        this.icone.setAlpha(qnt > 0 ? 1 : 0.55);
     }
 
     /**

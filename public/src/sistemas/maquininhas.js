@@ -52,7 +52,6 @@ export class Maquininhas {
     }
 
     mostrarAlertaSemMaquininhas() {
-        
         const texto = this.mensagemSemMaquininhas;
 
         if (!texto || !texto.active) return;
@@ -60,6 +59,24 @@ export class Maquininhas {
         texto.setText("Você não possui mais maquininhas!");
         texto.setAlpha(1);
         texto.setVisible(true);
+
+        this.scene.tweens.add({
+            targets: texto,
+            alpha: 0,
+            duration: 300,
+            yoyo: true,
+            repeat: 5,
+            onComplete: () => {
+                if (texto && texto.active) {
+                    this.scene.tweens.add({
+                        targets: texto,
+                        alpha: 0,
+                        duration: 500,
+                        onComplete: () => texto.setVisible(false)
+                    });
+                }
+            }
+        });
     }
 
     // =============================

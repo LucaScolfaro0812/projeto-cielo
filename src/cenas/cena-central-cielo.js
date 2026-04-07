@@ -8,6 +8,21 @@ export class CenaCentral extends Phaser.Scene {
     constructor(){
         super({key: 'centralScene'});
         this.fundoImage = "cieloVazia";
+        this.dialogoIntroducaoExibido = false;
+        this.dialogoAberto = false;
+        this.aguardandoDialogoAposTutorial = false;
+        this.falasIntroducao = [
+            'Seja bem-vindo a As aventuras de Marcielo.',
+            'Você será representado pelo Marcielo, um gerente de negócios da Cielo, e vai viver de perto essa jornada.',
+            'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e descobrir o que cada negócio precisa para vender melhor.',
+            'Preste atenção em cada conversa, porque é assim que você entende qual solução faz mais sentido para cada cliente.',
+            'Em vários momentos, você vai responder perguntas e tomar decisões para mostrar como a Cielo pode ajudar no dia a dia de cada loja.',
+            'A Central da Cielo é o seu ponto de apoio durante toda essa jornada.',
+            'As maquininhas são uma parte essencial da sua missão, porque representam a solução que você leva até o cliente no momento da conquista.',
+            'É sempre importante andar com a maquininha para garantir a instalação imediata e a ativação do cliente',
+            'Então aproveite a jornada, explore a cidade e, sempre que precisar, volte para a Central para recarregar suas maquininhas e seguir em frente.'
+        ];
+        this.estadoDialogo = null;
     }
     
     preload() {
@@ -24,6 +39,7 @@ export class CenaCentral extends Phaser.Scene {
         this.load.image('cieloPlanta', 'assets/imagens/central-cielo/cieloPlanta.png');
         this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
         this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
+        this.load.image('marcieloDialogo', 'assets/ui/marcielo-dialogo.png');
 
         this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
 
@@ -36,10 +52,15 @@ export class CenaCentral extends Phaser.Scene {
         if (!this.cache.audio.exists('ambienteCielo')) {
             this.load.audio('ambienteCielo', 'assets/sons/ambienteCielo.mp3');
         }
+
+        if (!this.cache.audio.exists('somEscrita')) {
+            this.load.audio('somEscrita', 'assets/sons/somEscrita.mp3');
+        }
     }
 
     init() {
         this.mostrarTutorial = consumirTutorialInicial();
+        this.aguardandoDialogoAposTutorial = this.mostrarTutorial;
     }
 
     create() {
@@ -120,9 +141,11 @@ export class CenaCentral extends Phaser.Scene {
             .setScale(0.4)
             .setDepth(300);
         this.tempoAnimacaoBotao = 0;
+        this.botaoRecarga.setVisible(false);
 
         // Tecla E para recarregar
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        this.teclaEspaco = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
@@ -158,6 +181,21 @@ export class CenaCentral extends Phaser.Scene {
             modoOverlay: true
         });
         this.scene.bringToTop('tutorialScene');
+    }
+
+    aoFecharTutorialOverlay() {
+        if (!this.aguardandoDialogoAposTutorial || this.dialogoIntroducaoExibido || this.dialogoAberto) {
+            return;
+        }
+
+        this.aguardandoDialogoAposTutorial = false;
+        this.time.delayedCall(120, () => {
+            if (!this.scene.isActive() || this.dialogoIntroducaoExibido || this.dialogoAberto) {
+                return;
+            }
+
+            this._abrirDialogoIntroducao();
+        });
     }
 
     _criarCenario() {
@@ -206,7 +244,177 @@ export class CenaCentral extends Phaser.Scene {
         });
     }
 
+    _abrirDialogoIntroducao() {
+        if (this.dialogoAberto) {
+            return;
+        }
+
+        this.dialogoAberto = true;
+        this.physics.pause();
+
+        const { width, height, centerX, centerY } = this.cameras.main;
+
+        const overlay = this.add.rectangle(centerX, centerY, width, height, 0x022b45, 0.82)
+            .setScrollFactor(0)
+            .setDepth(1000);
+
+        const painel = this.add.rectangle(centerX, centerY, width * 0.84, height * 0.68, 0x005b96, 0.97)
+            .setScrollFactor(0)
+            .setDepth(1001)
+            .setStrokeStyle(5, 0x7fd6ff, 1);
+
+        const titulo = this.add.text(centerX, centerY - height * 0.25, 'Central da Cielo', {
+            fontSize: '36px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#ffffff',
+            fontStyle: 'bold'
+        })
+            .setOrigin(0.5)
+            .setScrollFactor(0)
+            .setDepth(1002);
+
+        const molduraRetrato = this.add.rectangle(centerX - width * 0.27, centerY + height * 0.02, 180, 180, 0x08395b, 1)
+            .setScrollFactor(0)
+            .setDepth(1002)
+            .setStrokeStyle(4, 0xb8ecff, 1);
+
+        const retrato = this.add.image(molduraRetrato.x, molduraRetrato.y, 'marcieloDialogo')
+            .setScrollFactor(0)
+            .setDepth(1003)
+            .setDisplaySize(156, 156);
+
+        const texto = this.add.text(centerX - width * 0.14, molduraRetrato.y - 90, '', {
+            fontSize: '31px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#f0f7ff',
+            wordWrap: { width: width * 0.48 },
+            lineSpacing: 14
+        })
+            .setOrigin(0, 0)
+            .setScrollFactor(0)
+            .setDepth(1002);
+
+        const dica = this.add.text(centerX, centerY + height * 0.24, 'Pressione ESPACO para continuar.', {
+            fontSize: '22px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#d6f2ff'
+        })
+            .setOrigin(0.5)
+            .setScrollFactor(0)
+            .setDepth(1002);
+
+        let indiceChar = 0;
+        let indiceFala = 0;
+        let somEscrita = null;
+
+        if (this.cache.audio.exists('somEscrita')) {
+            somEscrita = this.sound.add('somEscrita', { loop: true, volume: 0.8 });
+        }
+
+        const iniciarDigitacao = () => {
+            const falaAtual = this.falasIntroducao[indiceFala];
+            indiceChar = 0;
+            texto.setText('');
+
+            this.estadoDialogo?.eventoDigitacao?.remove();
+
+            if (somEscrita && !somEscrita.isPlaying) {
+                somEscrita.play();
+            }
+
+            const eventoDigitacao = this.time.addEvent({
+                delay: 18,
+                repeat: falaAtual.length - 1,
+                callback: () => {
+                    indiceChar += 1;
+                    texto.setText(falaAtual.substring(0, indiceChar));
+
+                    if (indiceChar >= falaAtual.length && somEscrita?.isPlaying) {
+                        somEscrita.stop();
+                    }
+                }
+            });
+
+            this.estadoDialogo = {
+                overlay,
+                painel,
+                titulo,
+                molduraRetrato,
+                retrato,
+                texto,
+                dica,
+                eventoDigitacao,
+                somEscrita,
+                indiceFala,
+                digitando: true
+            };
+        };
+
+        const fecharDialogo = () => {
+            this.estadoDialogo?.eventoDigitacao?.remove();
+            somEscrita?.stop();
+
+            overlay.destroy();
+            painel.destroy();
+            titulo.destroy();
+            molduraRetrato.destroy();
+            retrato.destroy();
+            texto.destroy();
+            dica.destroy();
+
+            this.dialogoAberto = false;
+            this.dialogoIntroducaoExibido = true;
+            this.estadoDialogo = null;
+            this.physics.resume();
+        };
+
+        const fecharHandler = () => {
+            this.input.keyboard.off('keydown-SPACE', avancarDialogo);
+            fecharDialogo();
+        };
+
+        const avancarDialogo = () => {
+            const falaAtual = this.falasIntroducao[indiceFala];
+            const terminouDigitacao = indiceChar >= falaAtual.length;
+
+            if (!terminouDigitacao) {
+                this.estadoDialogo?.eventoDigitacao?.remove();
+                texto.setText(falaAtual);
+                indiceChar = falaAtual.length;
+                somEscrita?.stop();
+                if (this.estadoDialogo) {
+                    this.estadoDialogo.digitando = false;
+                }
+                return;
+            }
+
+            indiceFala += 1;
+
+            if (indiceFala >= this.falasIntroducao.length) {
+                fecharHandler();
+                return;
+            }
+
+            iniciarDigitacao();
+        };
+
+        this.input.keyboard.on('keydown-SPACE', avancarDialogo);
+        this.events.once('shutdown', () => {
+            this.input.keyboard.off('keydown-SPACE', avancarDialogo);
+        });
+        this.events.once('destroy', () => {
+            this.input.keyboard.off('keydown-SPACE', avancarDialogo);
+        });
+
+        this.estadoDialogo = { overlay, painel, titulo, molduraRetrato, retrato, texto, dica, somEscrita, indiceFala, digitando: true, eventoDigitacao: null };
+        iniciarDigitacao();
+    }
+
     update() {
+        if (this.dialogoAberto) {
+            return;
+        }
+
         this.player.update();
         if (this.portaEntrada) {
             this.portaEntrada.update();
@@ -216,7 +424,6 @@ export class CenaCentral extends Phaser.Scene {
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
         const podeRecarregar = Maquininhas.qntMaquininhas < Maquininhas.maximoMaquininhas;
-        this.botaoRecarga.setVisible(podeRecarregar);
         this.botaoRecarga.y = this.npc.y - 120 + deslocamento;
 
         const distancia = Phaser.Math.Distance.Between(
@@ -224,8 +431,11 @@ export class CenaCentral extends Phaser.Scene {
             this.npc.x, this.npc.y
         );
 
-        if (distancia < 300 && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
-            Maquininhas.definirMaquininhas(Maquininhas.maximoMaquininhas);
+        const pertoDoNpc = distancia < 300;
+        this.botaoRecarga.setVisible(pertoDoNpc && this.dialogoIntroducaoExibido && podeRecarregar);
+
+        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
+            Maquininhas.definirMaquininhas(3);
             this.hudMaquininhas.atualizar();
         }
     }

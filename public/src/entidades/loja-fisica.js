@@ -36,6 +36,39 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
         // Define o ponto de origem do sprite na base central (para alinhar ao chão)
         this.setOrigin(0.5, 1);
 
+        const ajusteX = -5;   // Ex: 10 para direita, -10 para esquerda
+        const ajusteY = -95;  // Ex: 40 para baixo, -40 para cima
+
+        const portaTexture = cena.textures.get('entrada_animada');
+        const portaWidth = portaTexture.getSourceImage().width;
+        const portaHeight = portaTexture.getSourceImage().height;
+
+        this.portaGlow = cena.add.rectangle(
+        x + ajusteX, 
+        y + ajusteY, 
+        portaWidth + -103, // 20 pixels mais largo
+        portaHeight + 35, // 20 pixels mais alto
+        0xffffff // Cor branca pura
+        );
+
+        this.portaGlow.setDepth(130); 
+    
+        // Mesma escala da porta para alinhar
+        this.portaGlow.setScale(1.5); 
+        
+        this.portaGlow.setBlendMode(Phaser.BlendModes.ADD);
+        this.portaGlow.setAlpha(0.25);
+
+        // Faz o brilho pulsar
+        cena.tweens.add({
+            targets: this.portaGlow,
+            alpha: 0.01,
+            duration: 1500,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
+
         // Cria a porta de entrada posicionada no mesmo local da loja
         this.porta = new Entrada(
             cena,          // cena onde a porta será criada
@@ -44,6 +77,8 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
             cena,          // contexto da cena para o Scene Manager
             cenaDaLoja     // nome da cena de destino ao colidir
         );
+
+        this.porta.brilho = this.portaGlow;
     }
 
     static preload(scene){

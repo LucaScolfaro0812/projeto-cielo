@@ -326,8 +326,8 @@ export class CenaCidade extends Phaser.Scene {
     create() {
 
         this.events.on('shutdown', () => {
-         if (this.somCidade && this.somCidade.isPlaying) this.somCidade.stop();
-         });
+            if (this.somCidade && this.somCidade.isPlaying) this.somCidade.stop();
+        });
         // Revela a cena com fade azul Cielo
         revelarCena(this);
 
@@ -668,7 +668,7 @@ export class CenaCidade extends Phaser.Scene {
         // 2. Desenha o prédio na tela usando a imagem que carregamos no preload
         this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
         this.predioCentral.setDepth(1); // Garante que fique na frente do chão
-        this.predioCentral.setScale(1.5); // Descomente e ajuste se o prédio ficar muito pequeno
+        this.predioCentral.setScale(1.5);
         // Cria um grupo físico estático para guardar nossas paredes invisíveis
         this.paredesCentral = this.physics.add.staticGroup();
 
@@ -676,21 +676,17 @@ export class CenaCidade extends Phaser.Scene {
         const totalW = this.predioCentral.displayWidth;
         const totalH = this.predioCentral.displayHeight;
         
-        // --- DEFINE AS PAREDES (EU TIVE QUE CHUTAR, VOCÊ PRECISA AJUSTAR) ---
-        // Vamos criar 3 retângulos invisíveis (Top, Left, Right) em volta da porta.
-        // Deixando o centro-baixo limpo para ele passar.
-
-        // Chute de espessura das paredes (scaled)
-        const espessuraParede = 30; 
+        // 3 retângulos invisíveis (Top, Left, Right) delimitam o prédio da Central,
+        // deixando o centro-baixo livre para o jogador entrar pela porta.
+        const espessuraParede = 30;
 
         // 1. Parede Superior (Teto): Cobre toda a largura em cima
         const topRect = this.add.rectangle(centralX, (centralY - totalH/1.5) + espessuraParede/2, totalW, espessuraParede);
         this.paredesCentral.add(topRect);
 
-        // 2. Parede Esquerda (Canto Esquerdo): Cobre a altura lateral até perto da porta
-        // Chute: A parede para a 80% da altura da imagem, deixando 20% livre embaixo.
-        const lateralH = totalH * 0.8; 
-        const lateralW = totalW * 0.4; // Chute: 40% da largura é parede na esquerda
+        // 2. Parede Esquerda (Canto Esquerdo): Cobre 80% da altura lateral, deixando 20% livre embaixo para a porta
+        const lateralH = totalH * 0.8;
+        const lateralW = totalW * 0.4;
 
         const leftRect = this.add.rectangle((centralX - totalW/2) + lateralW/2, (centralY - totalH/1.5) + lateralH/2, lateralW, lateralH);
         this.paredesCentral.add(leftRect);
@@ -734,29 +730,8 @@ export class CenaCidade extends Phaser.Scene {
             this.portaCentral.trocarDeCena();
 
             if (this.somCidade && this.somCidade.isPlaying) {
-            this.somCidade.stop();
-}
-        });
-
-       
-        // Colisão com o jogador
-        this.physics.add.overlap(this.portaCentral, this.player, () => {
-            
-            // Só deixa entrar se o tempo mínimo já passou (para não entrar sem querer ao nascer)
-            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
-
-            if (this.cache.audio.exists('portaAbrindo')) {
-                this.sound.play('portaAbrindo');
+                this.somCidade.stop();
             }
-
-            // Opcional: Se quiser que o Marcielo nasça na porta da Central quando sair
-            // definirProximoSpawnCidade('Central'); 
-            
-            this.portaCentral.trocarDeCena();
-
-            if (this.somCidade && this.somCidade.isPlaying) {
-            this.somCidade.stop();
-}
         });
     }
 
@@ -816,8 +791,8 @@ export class CenaCidade extends Phaser.Scene {
             portaEntrada.trocarDeCena();
 
             if (this.somCidade && this.somCidade.isPlaying) {
-            this.somCidade.stop();
-}
+                this.somCidade.stop();
+            }
         });
 
         // retornando a loja criada

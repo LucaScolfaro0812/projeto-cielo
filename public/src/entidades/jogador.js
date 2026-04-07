@@ -23,8 +23,8 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.setScale(0.6);
         this.setCollideWorldBounds(false);
 
-        this.body.setSize(96, 118);
-        this.body.setOffset(37, 182);
+        this.body.setSize(78, 100);
+        this.body.setOffset(46, 198);
         this.body.updateFromGameObject();
 
         this.velocidade = 1000 * this._obterMultiplicadorVelocidade();

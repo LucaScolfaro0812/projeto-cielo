@@ -475,7 +475,7 @@ export const perguntasAutoescola = [
     },
     {
         id: "autoescola_5",
-        pergunta: "VExemplo de Benefício para R.A:",
+        pergunta: "Exemplo de Benefício para R.A:",
         opcoes: [
             "Antecipação do dinheiro",
             "Dinheiro à vista para negociar", // resposta correta

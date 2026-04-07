@@ -479,7 +479,7 @@ export default class InterfaceQuiz {
             .setDepth(PROFUNDIDADE_UI + 1);
 
         // Mensagem centralizada
-        const msg = conquistou ? this.pergunta.feedbackAcerto + '\n+15 pontos' : this.pergunta.feedbackErro+ '\n-15 pontos';
+        const msg = conquistou ? this.pergunta.feedbackAcerto : this.pergunta.feedbackErro;
         const texto = this.cena.add.text(cx, cy, msg, {
             fontSize: TAM_FONTE_RESULTADO,
             color: "#ffffff",

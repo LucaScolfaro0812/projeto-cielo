@@ -25,9 +25,9 @@ export class CenaTutorial extends Phaser.Scene {
         const controles = [
             ['W A S D', 'Mover personagem'],
             ['E', 'Interagir com NPC'],
+            ['M', 'Abrir minimapa'],
             ['T', 'Abrir tutorial'],
-            ['ESC', 'Abrir pausa'],
-            ['Mouse', 'Selecionar alternativa no quiz']
+            ['ESC', 'Abrir pausa']
         ];
 
         this.scene.bringToTop();
@@ -104,7 +104,7 @@ export class CenaTutorial extends Phaser.Scene {
             align: 'center'
         };
 
-        const yBotaoSair = topoCard + alturaCard - 42;
+        const yBotaoSair = topoCard + alturaCard - 28;
 
         const botaoSair = this.add.text(w / 2, yBotaoSair, 'FECHAR', estiloBotao)
             .setOrigin(0.5, 0)

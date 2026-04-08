@@ -179,7 +179,7 @@ export class CenaCentral extends Phaser.Scene {
             strokeThickness: 4
         }).setOrigin(0.5);
 
-        const textoTecla = this.add.text(30, -19, 'M', {
+        const textoTecla = this.add.text(30, -19, 'E', {
             fontSize: '32px',
             fontFamily: 'Verdana, Arial, sans-serif',
             color: '#ffffff',
@@ -204,7 +204,6 @@ export class CenaCentral extends Phaser.Scene {
 
         // Teclas de interação
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-        this.teclaM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
         this.teclaEspaco = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         this.input.keyboard.on('keydown-ESC', () => {
@@ -572,7 +571,7 @@ export class CenaCentral extends Phaser.Scene {
         const pertoDoNpc = distancia < 300;
         this.balaoRecarga.setVisible(this.dialogoIntroducaoExibido && podeRecarregar);
 
-        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaM) && podeRecarregar) {
+        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
             Maquininhas.definirMaquininhas(3);
             this.hudMaquininhas.atualizar();
         }

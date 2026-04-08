@@ -1,6 +1,6 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
-import { definirProximoSpawnCidade, consumirTutorialInicial } from "../utilitarios/estado-jogo.js";
+import { definirProximoSpawnCidade, consumirTutorialInicial, consumirDialogoInicialCentral } from "../utilitarios/estado-jogo.js";
 import { Maquininhas } from '../sistemas/maquininhas.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
@@ -29,8 +29,6 @@ export class CenaCentral extends Phaser.Scene {
         Jogador.preload(this);
         Entrada.preload(this);
 
-        this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
-
         this.load.image('cieloBalcão', 'assets/imagens/central-cielo/cieloBalcao.png');
         this.load.image('cieloComputador', 'assets/imagens/central-cielo/cieloComputador.png');
         this.load.image('cieloFiltro', 'assets/imagens/central-cielo/cieloFiltro.png');
@@ -56,11 +54,15 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     init(data = {}) {
-        this.dialogoIntroducaoExibido = false;
-        this.dialogoAberto = false;
-        this.estadoDialogo = null;
         this.mostrarTutorial = consumirTutorialInicial();
-        this.mostrarDialogoInicial = Boolean(data.mostrarDialogoInicial);
+        this.mostrarDialogoInicial = consumirDialogoInicialCentral() || Boolean(data.mostrarDialogoInicial);
+
+        if (this.mostrarDialogoInicial) {
+            this.dialogoIntroducaoExibido = false;
+            this.dialogoAberto = false;
+            this.estadoDialogo = null;
+        }
+
         this.aguardandoDialogoAposTutorial = this.mostrarTutorial && this.mostrarDialogoInicial;
     }
 
@@ -138,14 +140,49 @@ export class CenaCentral extends Phaser.Scene {
         // Cria a Porta de Saída para a Cidade
         this._criarPortaSaida(portaX, portaY);
 
-        this.botaoRecarga = this.add.image(this.npc.x, this.npc.y - 120, 'botaoInteracao')
-            .setScale(0.4)
+        this.balaoRecarga = this.add.container(this.npc.x, this.npc.y - 92)
             .setDepth(300);
-        this.tempoAnimacaoBotao = 0;
-        this.botaoRecarga.setVisible(false);
+        const fundoBalaoRecarga = this.add.graphics();
+        fundoBalaoRecarga.fillStyle(0x0a4f86, 0.98);
+        fundoBalaoRecarga.lineStyle(3, 0xd9f4ff, 1);
+        fundoBalaoRecarga.fillRoundedRect(-122, -34, 244, 76, 22);
+        fundoBalaoRecarga.strokeRoundedRect(-122, -34, 244, 76, 22);
 
-        // Tecla E para recarregar
+        const textoAperte = this.add.text(-62, -18, 'Aperte', {
+            fontSize: '22px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#fff7a8',
+            fontStyle: 'bold',
+            stroke: '#063554',
+            strokeThickness: 4
+        }).setOrigin(0.5);
+
+        const textoTecla = this.add.text(30, -19, 'M', {
+            fontSize: '32px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#ffffff',
+            fontStyle: 'bold',
+            stroke: '#063554',
+            strokeThickness: 5
+        }).setOrigin(0.5);
+
+        const textoColeta = this.add.text(0, 12, 'para coletar máquinas', {
+            fontSize: '18px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#ffffff',
+            fontStyle: 'bold',
+            stroke: '#063554',
+            strokeThickness: 3,
+            align: 'center'
+        }).setOrigin(0.5);
+
+        this.balaoRecarga.add([fundoBalaoRecarga, textoAperte, textoTecla, textoColeta]);
+        this.tempoAnimacaoBotao = 0;
+        this.balaoRecarga.setVisible(true);
+
+        // Teclas de interação
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        this.teclaM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
         this.teclaEspaco = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         this.input.keyboard.on('keydown-ESC', () => {
@@ -484,7 +521,8 @@ export class CenaCentral extends Phaser.Scene {
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
         const podeRecarregar = Maquininhas.qntMaquininhas < Maquininhas.maximoMaquininhas;
-        this.botaoRecarga.y = this.npc.y - 120 + deslocamento;
+        this.balaoRecarga.x = this.npc.x;
+        this.balaoRecarga.y = this.npc.y - 92 + deslocamento;
 
         const distancia = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
@@ -492,9 +530,9 @@ export class CenaCentral extends Phaser.Scene {
         );
 
         const pertoDoNpc = distancia < 300;
-        this.botaoRecarga.setVisible(pertoDoNpc && this.dialogoIntroducaoExibido && podeRecarregar);
+        this.balaoRecarga.setVisible(this.dialogoIntroducaoExibido && podeRecarregar);
 
-        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
+        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaM) && podeRecarregar) {
             Maquininhas.definirMaquininhas(3);
             this.hudMaquininhas.atualizar();
         }

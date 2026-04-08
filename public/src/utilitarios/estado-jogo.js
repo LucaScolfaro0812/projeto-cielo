@@ -64,15 +64,26 @@ export function limparEstadoTransicaoCena() {
 }
 
 let _deveExibirTutorial = false;
+let _deveExibirDialogoCentral = false;
 
 // Chamado pelo menu ao iniciar novo jogo para sinalizar que o tutorial deve aparecer uma vez.
 export function ativarTutorialInicial() {
     _deveExibirTutorial = true;
 }
 
+export function ativarDialogoInicialCentral() {
+    _deveExibirDialogoCentral = true;
+}
+
 // Lê e zera o flag em uma única chamada — evita que o tutorial apareça mais de uma vez.
 export function consumirTutorialInicial() {
     const valor = _deveExibirTutorial;
     _deveExibirTutorial = false;
+    return valor;
+}
+
+export function consumirDialogoInicialCentral() {
+    const valor = _deveExibirDialogoCentral;
+    _deveExibirDialogoCentral = false;
     return valor;
 }

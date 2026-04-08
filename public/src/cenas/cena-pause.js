@@ -69,7 +69,7 @@ export class CenaPausa extends Phaser.Scene {
 
             // Para a cena pausada e inicia novo jogo pela Central, com tutorial e diálogo iniciais
             this.scene.stop(cenaAnterior);
-            transicionarPara(this, 'centralScene', {}, 'Iniciando novo jogo...');
+            transicionarPara(this, 'centralScene', { mostrarDialogoInicial: true }, 'Iniciando novo jogo...');
         });
 
         // Botão Menu — para a cena pausada e volta ao menu com fade azul Cielo

@@ -574,6 +574,66 @@ export class CenaCentral extends Phaser.Scene {
         if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
             Maquininhas.definirMaquininhas(3);
             this.hudMaquininhas.atualizar();
+            this._mostrarBannerRecarga();
         }
+    }
+
+    _mostrarBannerRecarga() {
+        const cam = this.cameras.main;
+        const cx = cam.centerX;
+
+        const bannerW = 520;
+        const bannerH = 90;
+        // Posição inicial: colado no topo da tela
+        const inicioY = bannerH / 2 + 4;
+        // Posição de repouso: um pouco mais abaixo (desliza suavemente para cá)
+        const repousoY = inicioY + 14;
+
+        const fundo = this.add.rectangle(cx, inicioY, bannerW, bannerH, 0x0051a5, 1)
+            .setScrollFactor(0)
+            .setDepth(10000)
+            .setStrokeStyle(4, 0xffffff, 1)
+            .setAlpha(0);
+
+        const texto = this.add.text(cx, inicioY, '✔  Maquininhas recarregadas!  3x', {
+            fontFamily: 'Arial Black, Arial, sans-serif',
+            fontSize: '26px',
+            color: '#ffffff',
+            fontStyle: 'bold'
+        }).setOrigin(0.5).setScrollFactor(0).setDepth(10001).setAlpha(0);
+
+        // 1. Entrada: sobe levemente e aparece em fade-in
+        this.tweens.add({
+            targets: [fundo, texto],
+            alpha: 1,
+            y: repousoY,
+            duration: 300,
+            ease: 'Back.easeOut',
+            onComplete: () => {
+                // 2. Flutuação contínua enquanto visível
+                this.tweens.add({
+                    targets: [fundo, texto],
+                    y: repousoY - 10,
+                    duration: 700,
+                    yoyo: true,
+                    repeat: 2,
+                    ease: 'Sine.easeInOut',
+                    onComplete: () => {
+                        // 3. Saída: sobe e some em fade-out
+                        this.tweens.add({
+                            targets: [fundo, texto],
+                            alpha: 0,
+                            y: repousoY - 30,
+                            duration: 500,
+                            ease: 'Sine.easeIn',
+                            onComplete: () => {
+                                fundo.destroy();
+                                texto.destroy();
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }
 }

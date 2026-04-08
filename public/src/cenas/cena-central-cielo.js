@@ -37,7 +37,6 @@ export class CenaCentral extends Phaser.Scene {
         this.load.image('cieloPlanta', 'assets/imagens/central-cielo/cieloPlanta.png');
         this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
         this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
-        this.load.image('marcieloDialogo', 'assets/ui/marcielo-dialogo.png');
 
         this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
 
@@ -316,10 +315,11 @@ export class CenaCentral extends Phaser.Scene {
             .setDepth(1002)
             .setStrokeStyle(4, 0xb8ecff, 1);
 
-        const retrato = this.add.image(molduraRetrato.x, molduraRetrato.y, 'marcieloDialogo')
+        const retrato = this.add.image(molduraRetrato.x + 4, molduraRetrato.y + 2, 'cieloNPC')
+            .setOrigin(0.5)
             .setScrollFactor(0)
             .setDepth(1003)
-            .setDisplaySize(156, 156);
+            .setDisplaySize(198, 198);
 
         const texto = this.add.text(centerX - width * 0.14, molduraRetrato.y - 90, '', {
             fontSize: '31px',

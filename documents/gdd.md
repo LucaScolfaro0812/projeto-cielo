@@ -1600,21 +1600,35 @@ Tabela 1 - Casos de teste funcionais do jogo.
 Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
+   
+   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidade e oportunidades de melhoria. 
+   Esse tipo de teste tem como objetivo validar se as mecânicas do jogo são compreensíveis, se a interface é intuitiva e se a experiência geral é adequada para diferentes perfis de jogadores. A metodologia adotada consiste na observação da interação dos usuários com o jogo, registrando comportamentos, dificuldades e percepções. Esses dados são posteriormente analisados para orientar ajustes e melhorias no desenvolvimento. 
 
 ### 5.2.1 Registros de testes
 
 _Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir._
 
-| Nome                                     | João Jonas (use nomes fictícios)                                                                                                         |
+| Nome                                     | Julia Silva                                         |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | sim, é um jogador casual                                                                                                                 |
-| Conseguiu iniciar o jogo?                | sim                                                                                                                                      |
-| Entendeu as regras e mecânicas do jogo?  | entendeu as regras, mas sobre as mecânicas, apenas as essenciais, não explorou os comandos complexos                                     |
-| Conseguiu progredir no jogo?             | sim, sem dificuldades                                                                                                                    |
-| Apresentou dificuldades?                 | Não, conseguiu jogar com facilidade e afirmou ser fácil                                                                                  |
-| Que nota deu ao jogo?                    | 9.0                                                                                                                                      |
-| O que gostou no jogo?                    | Gostou de como o jogo vai ficando mais difícil ao longo do tempo sem deixar de ser divertido                                             |
-| O que poderia melhorar no jogo?          | A responsividade do personagem aos controles, disse que havia um pouco de atraso desde o momento do comando até a resposta do personagem |
+| Já possuía experiência prévia com games? | Sim, é uma jogadora casual                                                                                                         |
+| Conseguiu iniciar o jogo?                | Sim                                                                                                                                     |
+| Entendeu as regras e mecânicas do jogo?  | Apresentou dificuldades em compreender algumas mecânicas mas compreendeu as regras. 
+| Conseguiu progredir no jogo?             | Sim, mas de forma lenta, após um período de adaptação                                                                              |
+| Apresentou dificuldades?                 | Sim, na movimentação do personagem, localizar as lojas no mapa e obteve dificuldade em ler os textos                           |
+| Que nota deu ao jogo?                    |8.0                                                                                                                                    |
+| O que gostou no jogo?                    | Gostou das músicas e após a dificuldade, conseguiu se adaptar melhor ao jogo e passou a gostar mais da dinâmica      |
+| O que poderia melhorar no jogo?          | A clareza das intruções iniciais, ajustar a legibilidade dos textos e adicionar algo no mapa que indique onde tem estabelecimentos |
+
+| Nome                                     | Rogério França                             |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual                                                                                                             |
+| Conseguiu iniciar o jogo?                | Com dificuldade mas sim                                                                                                            |
+| Entendeu as regras e mecânicas do jogo?  | Iniciou o jogo confuso, principalmente na cena inicial, mas depois começou a compreender mais as regras. 
+| Conseguiu progredir no jogo?             | Sim, após superar a confusão inicial.                                          |
+| Apresentou dificuldades?                 | Sim, teve a sensação de estar "preso" na tela inicial e sentiu falta de orientações mais claras
+| Que nota deu ao jogo?                    |7.5                                                                                                                                    |
+| O que gostou no jogo?                    | Gostou da ideia de progressão com os NPCs e a presença de elementos dinâmicos, como a movimentação dos carros e os confetes após a conquista do cliente. |
+| O que poderia melhorar no jogo?          | Inserir instruções claras no início do jogo, indicar melhor o objetivo do jogador e guiar os primeiros passos para evitar a sensação de bloqueio | 
 
 ### 5.2.2 Melhorias
 

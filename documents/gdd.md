@@ -603,7 +603,7 @@ Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando a
 
 Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
 
-> **Nota:** O diagrama foi elaborado na Sprint 2. Desde então foram adicionadas duas cenas não representadas na imagem: `CenaConfiguracoes` (acessada pelo botão Configurações do menu) e `CenaCentral` (prédio da Cielo no mapa). As cenas registradas no sistema são: `CenaMenu`, `CenaTutorial`, `CenaCidade`, `CenaPausa`, `CenaConfiguracoes`, `CenaCentral` e as 12 cenas de lojas.
+> **Nota:** O diagrama foi elaborado na Sprint 2. Desde então foram adicionadas cenas não representadas na imagem: `CenaConfiguracoes` (acessada pelo botão Configurações do menu), `CenaCentral` (prédio da Cielo no mapa) e `CenaMapa` (mapa completo com legenda, aberto pela tecla M). As cenas registradas no sistema são: `CenaMenu`, `CenaTutorial`, `CenaCidade`, `CenaPausa`, `CenaConfiguracoes`, `CenaCentral`, `CenaMapa` e as 12 cenas de lojas.
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -639,6 +639,7 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 | E                       | Teclado         | Pressionar E enquanto estiver próximo ao NPC   | Inicia o diálogo de negociação (quiz)                        |
 | ESC                     | Teclado         | Pressionar ESC durante o jogo (cidade ou loja) | Abre o menu de pausa com opções: Continuar, Novo Jogo, Menu  |
 | T                       | Teclado         | Pressionar T durante o jogo (cidade ou loja)   | Abre a tela de tutorial sem sair do jogo (modo overlay)      |
+| M                       | Teclado         | Pressionar M durante a navegação pela cidade   | Abre o mapa completo da cidade com legenda e marcador da posição atual do jogador |
 | Botão esquerdo do mouse | Mouse           | Seleciona alternativa no quiz                  | Afeta o nível de conversão do cliente e o resultado da venda |
 
 ### 3.7.2. Navegação pela cidade e carros
@@ -1538,8 +1539,6 @@ Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 
 
-. Aprimoramento do minimapa para indicar visualmente quais lojas já foram conquistadas, usando marcadores ou cores diferenciadas;
-
 . Adição de um placar final ao término da partida, exibindo a pontuação total, o número de NPCs conquistados e o tempo de jogo;
 
 . Expansão do banco de perguntas por loja, reduzindo a repetição ao longo de uma mesma sessão de jogo;
@@ -1596,7 +1595,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 36  | Jogo com HUD de progresso de NPC ativo e NPC em estado não interagido | Alterar o estado do NPC (conquistar ou não conquistar) e observar o HUD | O NPC deve exibir camiseta branca quando não interagido, vermelha quando não conquistado e azul quando conquistado; a cada alteração de estado, um alerta com exclamação deve piscar e só parar ao clicar para abrir o pop-up de progresso |
 | 37  | Jogador em cidade com seta de indicação ativa e pelo menos uma loja não conquistada | Conquistar o NPC da loja atual e retornar ao mapa       | A seta deve atualizar o alvo automaticamente: após a conquista, deixa de apontar para a loja concluída e passa a apontar para a próxima loja mais próxima disponível |
 | 38  | Jogador com os 11 NPCs já conquistados                             | Conquistar o último NPC restante                        | O jogo deve reconhecer a conquista de todos os 12 NPCs, redirecionar automaticamente para a cena final e exibir a mensagem de parabéns por ter vencido o jogo |
-| 39  | Jogador na cidade com o minimapa visível                           | Clicar no minimapa                                     | O mapa deve expandir e mostrar a cidade inteira de forma completa, facilitando a visualização geral do cenário e das lojas |
+| 39  | Jogador navegando pela cidade                                      | Pressionar M                                           | O mapa completo da cidade deve abrir em overlay, exibindo a imagem com legenda das lojas e um marcador pulsante na posição atual do jogador; pressionar M ou ESC fecha o mapa |
 
 Fonte: elaborado pelo grupo.
 

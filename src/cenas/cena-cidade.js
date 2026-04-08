@@ -1306,6 +1306,68 @@ export class CenaCidade extends Phaser.Scene {
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
             this.painelNpcs.add(portrait);
+
+            // Número da loja no canto inferior direito do portrait
+            const badgeR = 38;
+            const badgeX = x + 110;
+            const badgeY = y + 110;
+            const corBadge = [
+                0x22aa55, 0x9944cc, 0xff6633, 0xcc2222,
+                0x22aaaa, 0xcc9922, 0x44aa22, 0xff4422,
+                0x3344cc, 0xcc3388, 0x8844aa, 0x228899,
+            ][i] ?? 0x555555;
+
+            const badgeCirculo = this.add.circle(badgeX, badgeY, badgeR, corBadge).setScrollFactor(0);
+            const badgeBorda   = this.add.circle(badgeX, badgeY, badgeR).setStrokeStyle(4, 0xffffff, 1).setScrollFactor(0);
+            const badgeTexto   = this.add.text(badgeX, badgeY, String(i + 1), {
+                fontFamily: 'Arial Black', fontSize: '42px', color: '#ffffff'
+            }).setOrigin(0.5, 0.5).setScrollFactor(0);
+            this.painelNpcs.add([badgeCirculo, badgeBorda, badgeTexto]);
+        });
+
+        // ── Legenda lateral direita do painel ───────────────────────────────
+        const CORES_LEG = [
+            0x22aa55, 0x9944cc, 0xff6633, 0xcc2222,
+            0x22aaaa, 0xcc9922, 0x44aa22, 0xff4422,
+            0x3344cc, 0xcc3388, 0x8844aa, 0x228899,
+        ];
+        const NOMES_LEG = [
+            'Cafe', 'Games', 'Beleza', 'Roupas', 'Pet', 'Movel',
+            'Frutaria', 'Lanchonete', 'Chocolate', 'Pelucia', 'Autoescola', 'Joalheria'
+        ];
+
+        const legW    = 280;
+        const legItemH = alturaPainel / (NOMES_LEG.length + 1);
+        const raioLeg = 18;
+        const legX    = larguraPainel / 2 + 20; // imediatamente à direita do painel
+        const legTopY = -alturaPainel / 2;
+
+        const legFundo = this.add.rectangle(legX + legW / 2, 0, legW, alturaPainel, 0x071a2d, 0.95)
+            .setOrigin(0.5, 0.5).setScrollFactor(0).setStrokeStyle(4, 0x6fd1ff, 0.5);
+        this.painelNpcs.add(legFundo);
+
+        const legTitulo = this.add.text(legX + legW / 2, legTopY + 24, 'LEGENDA', {
+            fontFamily: 'Arial Black', fontSize: '22px', color: '#6fd1ff'
+        }).setOrigin(0.5, 0).setScrollFactor(0);
+        this.painelNpcs.add(legTitulo);
+
+        NOMES_LEG.forEach((nome, i) => {
+            const conquistada = npcs[i]?.estado === 'conquistado';
+            const cor = conquistada ? CORES_LEG[i] : 0x555555;
+            const ix  = legX + 16;
+            const iy  = legTopY + 60 + i * legItemH + legItemH / 2;
+
+            const circ  = this.add.circle(ix + raioLeg, iy, raioLeg, cor).setScrollFactor(0);
+            const borda = this.add.circle(ix + raioLeg, iy, raioLeg).setStrokeStyle(3, 0xffffff, 0.7).setScrollFactor(0);
+            const num   = this.add.text(ix + raioLeg, iy, String(i + 1), {
+                fontFamily: 'Arial Black', fontSize: '18px', color: '#ffffff'
+            }).setOrigin(0.5, 0.5).setScrollFactor(0);
+            const label = this.add.text(ix + raioLeg * 2 + 8, iy, nome, {
+                fontFamily: 'Arial', fontSize: '18px',
+                color: conquistada ? '#e8f4ff' : '#888888'
+            }).setOrigin(0, 0.5).setScrollFactor(0);
+
+            this.painelNpcs.add([circ, borda, num, label]);
         });
 
         this.painelNpcs.setVisible(false);

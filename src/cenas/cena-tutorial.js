@@ -27,7 +27,7 @@ export class CenaTutorial extends Phaser.Scene {
             ['E', 'Interagir com NPC'],
             ['M', 'Abrir minimapa'],
             ['T', 'Abrir tutorial'],
-            ['ESC', 'Abrir pausa']
+            ['ESC', 'Abrir pausa e sair do minimapa']
         ];
 
         this.scene.bringToTop();

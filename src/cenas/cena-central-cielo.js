@@ -332,7 +332,7 @@ export class CenaCentral extends Phaser.Scene {
             .setScrollFactor(0)
             .setDepth(1002);
 
-        const dica = this.add.text(centerX, centerY + height * 0.24, 'Pressione ESPACO para continuar.', {
+        const dica = this.add.text(centerX, centerY + height * 0.24, 'Pressione ESPAÇO para continuar.', {
             fontSize: '22px',
             fontFamily: 'Verdana, Arial, sans-serif',
             color: '#d6f2ff'

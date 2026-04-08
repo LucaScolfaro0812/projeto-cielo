@@ -311,13 +311,13 @@ export default class CenaLoja extends Phaser.Scene {
         .setOrigin(0.5);
 
         // Indicador "ESPAÇO para continuar" no canto inferior do popup
-        const indicadorX = this.cameras.main.centerX + (this.cameras.main.width / 2) - 20;
+        const indicadorX = this.cameras.main.centerX;
         const indicadorY = this.cameras.main.centerY + (this.cameras.main.height / 2) - 40;
 
         const textoIndicador = this.add.text(
             indicadorX,
             indicadorY,
-            '[ ESPAÇO ]',
+            'Pressione ESPAÇO para continuar',
             {
                 fontSize: '26px',
                 fontFamily: 'Arial, sans-serif',
@@ -327,7 +327,7 @@ export default class CenaLoja extends Phaser.Scene {
         )
         .setDepth(1002)
         .setScrollFactor(0)
-        .setOrigin(1, 1);
+        .setOrigin(1, 3);
 
         // Estado interno do popup
         let parteAtual = 0;

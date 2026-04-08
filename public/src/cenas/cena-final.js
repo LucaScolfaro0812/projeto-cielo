@@ -1,16 +1,18 @@
+import { transicionarPara } from '../utilitarios/transicao-cena.js';
+
 export default class CenaFinal extends Phaser.Scene {
     constructor() {
         super({ key: 'cenaFinal' });
     }
 
     preload() {
-        this.load.image('cieloVazia',        'assets/imagens/central-cielo/cieloVazia.png');
-        this.load.image('cieloBalcao',       'assets/imagens/central-cielo/cieloBalcao.png');
-        this.load.image('cieloComputador',   'assets/imagens/central-cielo/cieloComputador.png');
-        this.load.image('cieloFiltro',       'assets/imagens/central-cielo/cieloFiltro.png');
-        this.load.image('cieloPlaca',        'assets/imagens/central-cielo/cieloPlaca.png');
-        this.load.image('cieloNPC',          'assets/imagens/central-cielo/cieloNPC.png');
-        this.load.image('trofeu',            'assets/ui/trofeuCenaFinal.png');
+        this.load.image('cieloVazia', 'assets/imagens/central-cielo/cieloVazia.png');
+        this.load.image('cieloBalcao', 'assets/imagens/central-cielo/cieloBalcao.png');
+        this.load.image('cieloComputador', 'assets/imagens/central-cielo/cieloComputador.png');
+        this.load.image('cieloFiltro', 'assets/imagens/central-cielo/cieloFiltro.png');
+        this.load.image('cieloPlaca', 'assets/imagens/central-cielo/cieloPlaca.png');
+        this.load.image('cieloNPC', 'assets/imagens/central-cielo/cieloNPC.png');
+        this.load.image('trofeu', 'assets/ui/trofeuCenaFinal.png');
         this.load.image('NPCAzulAutoescola', 'assets/sprites/personagens/npcAzulAutoEscola.png');
         this.load.image('NPCAzulCafe',       'assets/sprites/personagens/npcAzulCafe.png');
         this.load.image('NPCAzulGames',      'assets/sprites/personagens/npcAzulGames.png');
@@ -50,13 +52,13 @@ export default class CenaFinal extends Phaser.Scene {
         adicionar(w * 0.5, 290, 'cieloNPC', 0.35);
         adicionar(w * 0.40, 340, 'trofeu', 0.2);
 
-        const npcY     = h * 0.9;
+        const npcY = h * 0.9;
         const npcScale = 0.5;
         const npcs = [
-            'NPCAzulAutoescola', 'NPCAzulCafe',      'NPCAzulGames',
-            'NPCAzulBeleza',     'NPCAzulRoupas',     'NPCAzulPet',
-            'NPCAzulMovel',      'NPCAzulFrutaria',   'NPCAzulLanchonete',
-            'NPCAzulChocolate',  'NPCAzulPelucia',    'NPCAzulJoalheria',
+            'NPCAzulAutoescola', 'NPCAzulCafe', 'NPCAzulGames',
+            'NPCAzulBeleza', 'NPCAzulRoupas', 'NPCAzulPet',
+            'NPCAzulMovel', 'NPCAzulFrutaria', 'NPCAzulLanchonete',
+            'NPCAzulChocolate', 'NPCAzulPelucia', 'NPCAzulJoalheria',
         ];
         npcs.forEach((key, i) => {
             const x = w * (0.04 + i * (0.92 / (npcs.length - 1)));
@@ -68,10 +70,10 @@ export default class CenaFinal extends Phaser.Scene {
 
     criarBalaoFala(w, h) {
         const npcX = w * 0.5;
-        const bx   = npcX + 310;
-        const by   = 190;
-        const bw   = 520;
-        const bh   = 170;
+        const bx = npcX + 310;
+        const by = 190;
+        const bw = 520;
+        const bh = 170;
 
         const balao = this.add.graphics();
         balao.fillStyle(0xffffff, 1);
@@ -82,14 +84,14 @@ export default class CenaFinal extends Phaser.Scene {
         // Rabinho para a esquerda
         balao.fillStyle(0xffffff, 1);
         balao.fillTriangle(
-            bx - bw / 2,      by - 12,
-            bx - bw / 2,      by + 12,
+            bx - bw / 2, by - 12,
+            bx - bw / 2, by + 12,
             bx - bw / 2 - 22, by
         );
         balao.lineStyle(2, 0x333333, 1);
         balao.strokeTriangle(
-            bx - bw / 2,      by - 12,
-            bx - bw / 2,      by + 12,
+            bx - bw / 2, by - 12,
+            bx - bw / 2, by + 12,
             bx - bw / 2 - 22, by
         );
 
@@ -103,7 +105,7 @@ export default class CenaFinal extends Phaser.Scene {
         }).setOrigin(0.5, 0);
 
         this.textoEspaco = this.add.text(bx, by + bh / 2 - 22, 'Pressione ESPAÇO para fechar', {
-            fontSize: '17px', 
+            fontSize: '17px',
             color: '#555555',
             align: 'center',
             fontStyle: 'italic'
@@ -147,16 +149,16 @@ export default class CenaFinal extends Phaser.Scene {
         const h = this.scale.height;
         const cores = [0xff0000, 0x00ccff, 0xffff00, 0xff69b4, 0x00ff99, 0xff8800, 0xaa00ff];
 
-        // Faixa de confetes que vai descendo — quando cobrir a tela, some com os objetos
+        // Faixa de confetes descendo; quando cobrir a tela, os objetos da cena desaparecem.
         let maiorDuracao = 0;
 
         for (let i = 0; i < 150; i++) {
-            const x        = Phaser.Math.Between(0, w);
-            const cor      = cores[Phaser.Math.Between(0, cores.length - 1)];
-            const largura  = Phaser.Math.Between(6, 12);
-            const altura   = Phaser.Math.Between(10, 18);
-            const duracao  = Phaser.Math.Between(1500, 3000);
-            const delay    = Phaser.Math.Between(0, 800);
+            const x = Phaser.Math.Between(0, w);
+            const cor = cores[Phaser.Math.Between(0, cores.length - 1)];
+            const largura = Phaser.Math.Between(6, 12);
+            const altura = Phaser.Math.Between(10, 18);
+            const duracao = Phaser.Math.Between(1500, 3000);
+            const delay = Phaser.Math.Between(0, 800);
 
             if (duracao + delay > maiorDuracao) maiorDuracao = duracao + delay;
 
@@ -240,10 +242,8 @@ export default class CenaFinal extends Phaser.Scene {
         });
 
         zona.on('pointerdown', () => {
-            // Reinicia o jogo voltando ao menu
-            this.scene.stop();
-            this.game.destroy(true);
-            window.location.reload();
+            // Retorna ao menu pelo fluxo padrao de transicao do projeto.
+            transicionarPara(this, 'menuScene', {}, 'Voltando ao menu...');
         });
     }
 }

@@ -253,6 +253,11 @@ export default class CenaLoja extends Phaser.Scene {
         revelarCena(this);
         this._criarCenario();
 
+        const zoomX = this.cameras.main.width / this.fundo.displayWidth;
+        const zoomY = this.cameras.main.height / this.fundo.displayHeight;
+        this.cameras.main.setZoom(Math.max(zoomX, zoomY));
+        this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
+
         if (this.cache.audio.exists('portaAbrindo')) {
             this.sound.play('portaAbrindo');
         }
@@ -272,11 +277,10 @@ export default class CenaLoja extends Phaser.Scene {
         const overlay = this.add.graphics();
         overlay.fillStyle(0x000000, 0.6);
         overlay.fillRect(
-            this.cameras.main.scrollX,
-            this.cameras.main.scrollY,
-            this.cameras.main.width * 3 / this.cameras.main.zoom,
-            this.cameras.main.height * 3 / this.cameras.main.zoom
-        );
+                        0, 0,
+            this.fundo.displayWidth,
+            this.fundo.displayHeight
+);
         overlay.setDepth(999);
 
         this.exteriorImage = this.add.image(
@@ -288,8 +292,8 @@ export default class CenaLoja extends Phaser.Scene {
         this.physics.pause();
 
         this.exteriorImage.setDisplaySize(
-            this.cameras.main.width,
-            this.cameras.main.height
+            this.cameras.main.width / this.cameras.main.zoom,
+            this.cameras.main.height / this.cameras.main.zoom
         );
 
         // Texto digitado letra por letra
@@ -454,11 +458,6 @@ export default class CenaLoja extends Phaser.Scene {
         this._configurarPlayerNpcQuiz();
         this._criarPortas();
 
-        // Ajusta o zoom da câmera para cobrir toda a tela sem barras pretas
-        const zoomX = this.cameras.main.width / this.fundo.displayWidth;
-        const zoomY = this.cameras.main.height / this.fundo.displayHeight;
-        this.cameras.main.setZoom(Math.max(zoomX, zoomY));
-        this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         // Atalho para abrir o menu de pausa
         this.input.keyboard.on('keydown-ESC', () => {

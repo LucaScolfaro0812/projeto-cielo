@@ -395,6 +395,10 @@ export class CenaCidade extends Phaser.Scene {
             this._abrirTutorial();
         });
 
+        this.input.keyboard.on('keydown-M', () => {
+            this._abrirMapa();
+        });
+
 
         // HUD de progresso dos NPCs - design moderno e acessível
         // Remove qualquer HUD antigo antes de criar o novo
@@ -466,6 +470,19 @@ export class CenaCidade extends Phaser.Scene {
         this.seta.definirAlvo(this.lojas[0]);
 
         this.maquininha = new Maquininhas(this);
+    }
+
+    _abrirMapa() {
+        if (this.scene.isActive('mapaScene')) return;
+        this.scene.pause();
+        this.scene.launch('mapaScene', {
+            cenaOrigem: this.scene.key,
+            playerX: this.player.x,
+            playerY: this.player.y,
+            worldW: this.fundo.displayWidth,
+            worldH: this.fundo.displayHeight,
+        });
+        this.scene.bringToTop('mapaScene');
     }
 
     _abrirTutorial() {
@@ -969,6 +986,7 @@ export class CenaCidade extends Phaser.Scene {
         // Oculta o marcador da câmera principal e da borda — só o minimap o vê
         this.cameras.main.ignore(this.minimapMarcador);
         borda.ignore(this.minimapMarcador);
+
     }
 
     pegarLojaMaisProxima(objeto) {

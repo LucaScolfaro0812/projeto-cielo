@@ -2,16 +2,14 @@
 const CHAVES_CONFIGURACAO = {
     volume: "volumeJogo",
     somAtivo: "somJogoAtivo",
-    contraste: "contrasteJogo",
-    velocidadeMarcielo: "velocidadeMarcielo"
+    contraste: "contrasteJogo"
 };
 
 // Valores usados quando nenhuma configuração foi salva ainda (primeira execução)
 const CONFIGURACOES_PADRAO = {
     volume: 1,
     somAtivo: true,
-    contraste: "normal",
-    velocidadeMarcielo: 1
+    contraste: "normal"
 };
 
 /**
@@ -20,14 +18,12 @@ const CONFIGURACOES_PADRAO = {
  * - volume: número entre 0 e 1 (Clamp); usa padrão se NaN
  * - somAtivo: booleano; usa padrão se null (nunca salvo)
  * - contraste: aceita apenas "alto" ou "normal"
- * - velocidadeMarcielo: número entre 0.6 e 1.4 (Clamp); usa padrão se NaN
- * @returns {{ volume: number, somAtivo: boolean, contraste: string, velocidadeMarcielo: number }}
+ * @returns {{ volume: number, somAtivo: boolean, contraste: string }}
  */
 export function carregarConfiguracoesJogo() {
     const volumeSalvo = Number(localStorage.getItem(CHAVES_CONFIGURACAO.volume));
     const somAtivoSalvo = localStorage.getItem(CHAVES_CONFIGURACAO.somAtivo);
     const contrasteSalvo = localStorage.getItem(CHAVES_CONFIGURACAO.contraste);
-    const velocidadeSalva = Number(localStorage.getItem(CHAVES_CONFIGURACAO.velocidadeMarcielo));
 
     return {
         // Number(null) → 0, mas Number("") → 0 também, então usamos NaN check
@@ -39,23 +35,19 @@ export function carregarConfiguracoesJogo() {
             ? CONFIGURACOES_PADRAO.somAtivo
             : somAtivoSalvo === "true",
         // Só aceita "alto"; qualquer outro valor (incluindo null) vira "normal"
-        contraste: contrasteSalvo === "alto" ? "alto" : CONFIGURACOES_PADRAO.contraste,
-        velocidadeMarcielo: Number.isNaN(velocidadeSalva)
-            ? CONFIGURACOES_PADRAO.velocidadeMarcielo
-            : Phaser.Math.Clamp(velocidadeSalva, 0.6, 1.4)
+        contraste: contrasteSalvo === "alto" ? "alto" : CONFIGURACOES_PADRAO.contraste
     };
 }
 
 /**
  * Persiste as configurações fornecidas no localStorage.
  * Todos os valores são convertidos para string, pois localStorage só armazena strings.
- * @param {{ volume: number, somAtivo: boolean, contraste: string, velocidadeMarcielo: number }} configuracoes
+ * @param {{ volume: number, somAtivo: boolean, contraste: string }} configuracoes
  */
 export function salvarConfiguracoesJogo(configuracoes) {
     localStorage.setItem(CHAVES_CONFIGURACAO.volume, String(configuracoes.volume));
     localStorage.setItem(CHAVES_CONFIGURACAO.somAtivo, String(configuracoes.somAtivo));
     localStorage.setItem(CHAVES_CONFIGURACAO.contraste, configuracoes.contraste);
-    localStorage.setItem(CHAVES_CONFIGURACAO.velocidadeMarcielo, String(configuracoes.velocidadeMarcielo));
 }
 
 /**
@@ -65,8 +57,8 @@ export function salvarConfiguracoesJogo(configuracoes) {
  * @param {object} opcoes
  * @param {Phaser.Game|null} opcoes.game - Instância principal do Phaser (para canvas e sound manager global)
  * @param {Phaser.Sound.BaseSoundManager|null} opcoes.sound - Sound manager da cena atual
- * @param {Jogador|null} opcoes.player - Instância do jogador (para atualizar velocidade em tempo real)
- * @returns {{ volume: number, somAtivo: boolean, contraste: string, velocidadeMarcielo: number }}
+ * @param {Jogador|null} opcoes.player - Instância do jogador
+ * @returns {{ volume: number, somAtivo: boolean, contraste: string }}
  */
 export function aplicarConfiguracoesJogo({ game = null, sound = null, player = null } = {}) {
     const configuracoes = carregarConfiguracoesJogo();
@@ -84,11 +76,6 @@ export function aplicarConfiguracoesJogo({ game = null, sound = null, player = n
         canvas.style.filter = configuracoes.contraste === "alto"
             ? "contrast(1.35) saturate(1.15) brightness(1.05)"
             : "none";
-    }
-
-    // Atualiza a velocidade do jogador se ele estiver disponível na cena
-    if (player) {
-        player.velocidade = 1000 * configuracoes.velocidadeMarcielo;
     }
 
     return configuracoes;

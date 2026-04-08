@@ -1,7 +1,6 @@
 // Classe responsável por representar o jogador controlável.
 
 import { Maquininhas } from "../sistemas/maquininhas.js";
-import { carregarConfiguracoesJogo } from "../utilitarios/configuracoes-jogo.js";
 
 // Herda de Phaser.Physics.Arcade.Sprite para utilizar física Arcade.
 export default class Jogador extends Phaser.Physics.Arcade.Sprite {
@@ -27,7 +26,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(46, 198);
         this.body.updateFromGameObject();
 
-        this.velocidade = 1000 * this._obterMultiplicadorVelocidade();
+        this.velocidade = 1000;
         this.ultimaDirecao = "baixo";
 
         this.teclas = this.scene.input.keyboard.addKeys({
@@ -45,15 +44,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.somPassos = null;
         this.cena.sound.stopByKey('andandoRua');
         this._somPassosCriado = false;
-    }
-
-    /**
-     * Retorna o multiplicador de velocidade configurado pelo jogador nas configurações.
-     * O valor varia entre 0.6 (devagar) e 1.4 (rápido), padrão 1.
-     * @returns {number}
-     */
-    _obterMultiplicadorVelocidade() {
-        return carregarConfiguracoesJogo().velocidadeMarcielo;
     }
 
     static preload(scene) {

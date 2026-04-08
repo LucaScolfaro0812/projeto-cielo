@@ -1608,7 +1608,7 @@ Fonte: elaborado pelo grupo.
 
 _Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir._
 
-| Nome                                     | Julia Silva                                         |
+| Nome                                     | Julia                                          |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Já possuía experiência prévia com games? | Sim, é uma jogadora casual                                                                                                         |
 | Conseguiu iniciar o jogo?                | Sim                                                                                                                                     |
@@ -1619,16 +1619,77 @@ _Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores
 | O que gostou no jogo?                    | Gostou das músicas e após a dificuldade, conseguiu se adaptar melhor ao jogo e passou a gostar mais da dinâmica      |
 | O que poderia melhorar no jogo?          | A clareza das intruções iniciais, ajustar a legibilidade dos textos e adicionar algo no mapa que indique onde tem estabelecimentos |
 
-| Nome                                     | Rogério França                             |
+
+| Nome                                     | Rogério      |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | Sim, é um jogador casual                                                                                                             |
-| Conseguiu iniciar o jogo?                | Com dificuldade mas sim                                                                                                            |
-| Entendeu as regras e mecânicas do jogo?  | Iniciou o jogo confuso, principalmente na cena inicial, mas depois começou a compreender mais as regras. 
-| Conseguiu progredir no jogo?             | Sim, após superar a confusão inicial.                                          |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual                |
+| Conseguiu iniciar o jogo?                | Com dificuldade mas sim                |
+| Entendeu as regras e mecânicas do jogo?  | Iniciou o jogo confuso, principalmente na cena inicial, mas depois começou a compreender mais as regras 
+| Conseguiu progredir no jogo?             | Sim, após superar a confusão inicial                 |
 | Apresentou dificuldades?                 | Sim, teve a sensação de estar "preso" na tela inicial e sentiu falta de orientações mais claras
-| Que nota deu ao jogo?                    |7.5                                                                                                                                    |
-| O que gostou no jogo?                    | Gostou da ideia de progressão com os NPCs e a presença de elementos dinâmicos, como a movimentação dos carros e os confetes após a conquista do cliente. |
+| Que nota deu ao jogo?                    |7.5    |
+| O que gostou no jogo?                    | Gostou da ideia de progressão com os NPCs e a presença de elementos dinâmicos, como a movimentação dos carros e os confetes após a conquista do cliente |
 | O que poderia melhorar no jogo?          | Inserir instruções claras no início do jogo, indicar melhor o objetivo do jogador e guiar os primeiros passos para evitar a sensação de bloqueio | 
+
+
+| Nome                                     | Virginia            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Nenhuma                        |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Pouco, apresentou dificuldades em compreender o objetivo do jogo e como interagir com os elementos disponíveis  |
+| Conseguiu progredir no jogo?             | Com muita confusão mas conseguiu     |
+| Apresentou dificuldades?                 | Sim, não sabia como fechar as mensagens inciais das lojas, não entendeu o que deveria fazer no jogo e teve dificuldade em compreender as interações básicas (ex: uso da maquininha)      | 
+| Que nota deu ao jogo?                   | 6.0         |
+| O que gostou no jogo?                    | Gostou do design do jogo e achou a dinâmica do jogo legal depois que entendeu como as coisas funcionavam | 
+| O que poderia melhorar no jogo?          | Inserir um tutorial incial claro e guiado, tornar os botões mais visíveis e melhorar a intuitividade da interface | 
+
+| Nome                                     | Carol               |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Sim                      |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Apresentou boa compreensão geral do jogo   |
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, dificuldade em compreender alguns elementos da interface e possuiu dúvidas pontuais em relação à mecânica das maquininhas.  |
+| Que nota deu ao jogo?               | 10         |
+| O que gostou no jogo?                    | Gostou do design visual, minimapa e o sistema de diálogo e quiz | 
+| O que poderia melhorar no jogo?          | Poderia ter mais clareza de alguns elementos da interface e um explicação melhor de determinadas mecânicas no início do jogo | 
+
+| Nome                        | Luiz            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Sim                      |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Parcial, pois não sabia o que fazer dentro da central Cielo 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, não sabia o que fazer dentro da central Cielo, teve dificuldade de entender como pegar maquininha e teve problema com as coalisões externas
+| Que nota deu ao jogo?               | 9.0     |
+| O que gostou no jogo?                    | Gostou do contraste visual, do design em geral, minimapa, tela de diálogo, sistema de quiz e os balões que aparecem fora da loja quando ela é conquistada |
+| O que poderia melhorar no jogo?          | Poderia inserir instruções mais claras sobre o que fazer no início, explicar melhor o funcionamento do HUD, melhorar a legibilidade dos elementos visuais e ajustar os problemas de coalisões |
+
+| Nome                        | Daniel   |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Sim         |
+| Conseguiu iniciar o jogo?                | Sim       |
+| Entendeu as regras e mecânicas do jogo?  | Sim | 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, não entendeu como utilizava as maquininhas, não sabia onde cada estabelecimento estava e o minimapa estava muito pequeno então não ajudava  |
+| Que nota deu ao jogo?               | 8.5    |
+| O que gostou no jogo?         | Gostou do minimapa, das perguntas feitas no quiz e do design em geral mas principalmente os clientes e suas a troca de cor ao ser conquistado | 
+| O que poderia melhorar no jogo?          | Poderia destacar mais o Marcielo na central Cielo, melhorar a qualidade da escrita ao entrar na loja, explicar a mecânica das maquininhas e ajustar o tamanho do minimapa |
+
+| Nome                        | Tatiana      |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Já possuía experiência prévia com games? | Sim         |
+| Conseguiu iniciar o jogo?                | Sim         |
+| Entendeu as regras e mecânicas do jogo?  | Sim | 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, se sentiu perdida no começo dentro da central Cielo e por isso acabou demorando para entender o que eram as maquininhas e para que serviam |
+| Que nota deu ao jogo?               | 8.0  |
+| O que gostou no jogo?    | Gostou da dinâmica de interação com os NPCs, gostou da fluidez do jogo e do design visual e da ambientação | 
+| O que poderia melhorar no jogo?          | Poderia melhorar a comunicação das mecânicas (principalmente as maquininhas) e tornar os objetivos mais explícitos nas primeiras fases | 
+
+A partir dos testes realizados, observou-se que o jogo apresenta boa aceitação geral, principalmente em relação ao design, ambientação e elementos como o minimapa, diálogos e sistema de quiz. Jogadores com maior experiência conseguiram progredir com mais facilidade e destacaram aspectos postivos da dinâmica e da progressão. No entanto, foi recorrente entre a diferentes perfis a dificuldade de compreender o que fazer na central Cielo e como utilizar as maquininhas, indicando a falta de orientação clara no início do jogo. 
+
+Além disso, foram identificados problemas de usabilidade e interface, como HUD pouco intuitivo, dificuldade de leitura de alguns elementos e minimapa pequeno. Jogadores com menos expêriencia apresentaram maior dificuldade na adaptação, reforçando a necessidade de melhorias na clareza das macânicas e na navegação. Dessa forma, concluimos que o jogo possui uma base sólida, mas requer ajustes principalmente na comunicação com o jogador e na usabilidade para proporcionar uma experiência mais intuitiva e acessível. 
 
 ### 5.2.2 Melhorias
 

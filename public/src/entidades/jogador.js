@@ -43,6 +43,8 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
         // Som de passos
         this.somPassos = null;
+        this.cena.sound.stopByKey('andandoRua');
+        this._somPassosCriado = false;
     }
 
     /**
@@ -176,12 +178,14 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             }
 
             // Toca o som de passos se ainda não estiver tocando
-            if (!this.somPassos || !this.somPassos.isPlaying) {
+           if (!this.somPassos) {
                 if (this.cena.cache.audio.exists('andandoRua')) {
-                    this.somPassos = this.cena.sound.add('andandoRua', { loop: true, volume: 0.4 });
-                    this.somPassos.play();
-                }
-            }
+                 this.somPassos = this.cena.sound.add('andandoRua', { loop: true, volume: 0.4 });
+             }
+                    }
+                        if (this.somPassos && !this.somPassos.isPlaying) {
+                     this.somPassos.play();
+                    }
 
         } else {
 

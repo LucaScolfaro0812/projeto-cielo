@@ -12,6 +12,29 @@ export function salvarDados(chave, valor) {
     // transforma o objeto em texto JSON e salva na chave informada.
     try {
         const valorSerializado = JSON.stringify(valor);
+
+        // Evita sobrescrita desnecessária: só grava quando houve mudança real no conteúdo.
+        const valorAtualSerializado = localStorage.getItem(chave);
+        if (valorAtualSerializado === valorSerializado) {
+            return true;
+        }
+
+        // Proteção contra regressão: não apaga progresso existente com valor vazio/padrão acidental.
+        const valorEhArrayVazio = Array.isArray(valor) && valor.length === 0;
+        const valorEhObjetoVazio =
+            typeof valor === "object" &&
+            valor !== null &&
+            !Array.isArray(valor) &&
+            Object.keys(valor).length === 0;
+
+        if (
+            valorAtualSerializado !== null &&
+            (valor === null || valor === undefined || valorEhArrayVazio || valorEhObjetoVazio)
+        ) {
+            return false;
+        }
+
+        // Escrita centralizada no localStorage para toda a aplicação.
         localStorage.setItem(chave, valorSerializado);
         return true;
     } catch (erro) {

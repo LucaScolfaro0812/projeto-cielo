@@ -3,7 +3,7 @@
 
 import { transicionarPara, revelarCena } from '../utilitarios/transicao-cena.js';
 import { ativarTutorialInicial, ativarDialogoInicialCentral } from '../utilitarios/estado-jogo.js';
-import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
+import { existeProgressoPartidaSalvo } from '../utilitarios/sessao-jogo.js';
 
 export class CenaMenu extends Phaser.Scene {
 
@@ -68,11 +68,15 @@ export class CenaMenu extends Phaser.Scene {
             align: 'center'
         };
 
+        // Leitura do localStorage no início do menu para decidir se o jogador vai continuar ou iniciar a primeira partida.
+        const possuiProgressoSalvo = existeProgressoPartidaSalvo();
+        const textoBotaoJogar = possuiProgressoSalvo ? 'CONTINUAR' : 'JOGAR';
+
         // ===============================
         // BOTÃO JOGAR
         // ===============================
 
-        const botaoJogar = this.add.text(w/2, h/2, 'JOGAR', estiloBotao)
+        const botaoJogar = this.add.text(w/2, h/2, textoBotaoJogar, estiloBotao)
             .setOrigin(0.5)
             .setFixedSize(260, 60)
             .setAlign('center');
@@ -92,10 +96,19 @@ export class CenaMenu extends Phaser.Scene {
         botaoJogar.on('pointerdown', () => {
             if (this.cache.audio.exists('somClicando')) this.sound.play('somClicando', { volume: 0.5 });
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
-            resetarSessaoJogo();
-            ativarTutorialInicial();
-            ativarDialogoInicialCentral();
-            transicionarPara(this, 'centralScene', {}, 'Iniciando jogo...');
+
+            // Ajuste de persistência: não reseta dados ao entrar pelo menu;
+            // reset completo fica restrito ao fluxo explícito de "Novo Jogo".
+            if (!possuiProgressoSalvo) {
+                ativarTutorialInicial();
+                ativarDialogoInicialCentral();
+            }
+
+            const mensagemTransicao = possuiProgressoSalvo
+                ? 'Carregando progresso salvo...'
+                : 'Iniciando jogo...';
+
+            transicionarPara(this, 'centralScene', {}, mensagemTransicao);
         });
 
         this.tweens.add({

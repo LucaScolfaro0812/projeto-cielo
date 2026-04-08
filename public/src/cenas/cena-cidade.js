@@ -524,10 +524,9 @@ export class CenaCidade extends Phaser.Scene {
             this.seta.setHudVisible(visivel);
         }
 
-        // Esconde/mostra a câmera do minimap
-        if (this.minimapCam) {
-            this.minimapCam.visible = visivel;
-        }
+        // Esconde/mostra o minimap (câmera de conteúdo + câmera de borda)
+        if (this.minimapCam) this.minimapCam.visible = visivel;
+        if (this.minimapBorda) this.minimapBorda.visible = visivel;
     }
 
     /**
@@ -1011,7 +1010,8 @@ export class CenaCidade extends Phaser.Scene {
 
         // Câmera de borda: 3px maior em cada lado, cor azul sólida.
         // scrollX/scrollY apontam para fora do mapa — só aparece a cor de fundo.
-        const borda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
+        this.minimapBorda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
+        const borda = this.minimapBorda;
         borda.setBackgroundColor(0x88bbff);
         borda.scrollX = mapW + 10000;
         borda.scrollY = mapH + 10000;

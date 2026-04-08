@@ -134,7 +134,12 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
-<img src ="../documents/other/PropostaDeValor.png" width= 700>
+<div align="center">
+  <sub>Proposta de Valor</sub><br>
+  <img src="../documents/other/PropostaDeValor.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
 
 A relação entre o perfil do cliente e o mapa de valor evidencia como a solução foi pensada de forma estratégica. As principais dificuldades identificadas, como a limitação de acesso a treinamentos presenciais e a falta de engajamento em métodos tradicionais, são diretamente atendidas por uma plataforma digital interativa que utiliza a gamificação como ferramenta de aprendizado.
 
@@ -160,12 +165,25 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 <div align="center">
 
-<img src="assets/matriz-de-risco/classificacao-de-impacto.png" width="400" alt="Classificação de Impacto">
-<br>
-<img src="assets/matriz-de-risco/classificacao-de-probabilidade.png" width="400" alt="Classificação de Probabilidade">
-<br>
-<img src="assets/matriz-de-risco/matriz.png" width="500" alt="Matriz de Risco">
-</div>
+<div align="center">
+  <sub>Classificação de Impacto</sub><br>
+  <img src="assets/matriz-de-risco/classificacao-de-impacto.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
+<div align="center">
+  <sub>Classificação de Probabilidade</sub><br>
+  <img src="assets/matriz-de-risco/classificacao-de-probabilidade.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
+<div align="center">
+  <sub>Matriz de Risco</sub><br>
+  <img src="assets/matriz-de-risco/matriz.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
+
 
 ---
 
@@ -476,11 +494,33 @@ Aproximadamente 15 minutos.
 
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
+<div align="center">
+ 
+  <img src="other/image.png" width="100%" alt="Descrição breve"><br>
+  
+</div
 
-![alt text](other/image.png)
-![alt text](other/image-1.png)
-![alt text](other/image-2.png)
-![alt text](other/image-3.png)
+<div align="center">
+ 
+  <img src="other/image-1.png" width="100%" alt="Descrição breve"><br>
+  
+</div
+
+<div align="center">
+
+  <img src="other/image-2.png" width="100%" alt="Descrição breve"><br>
+
+</div
+
+<div align="center">
+  <sub>Imagem 1 - Título</sub><br>
+  <img src="other/image-3.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
+
+
+
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -488,7 +528,11 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<img src="../public/assets/sprites/personagens/NPCs.jpeg" width= 350>
+<div align="center">
+  <sub>NPCs</sub><br>
+  <img src="../public/assets/sprites/personagens/NPCs.jpeg" width="100%" alt="Descrição breve"><br>
+</div
+
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
@@ -508,7 +552,12 @@ Aproximadamente 15 minutos.
 
 Segue abaixo o mapa:
 
-<img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width = 250>
+<div align="center">
+  <sub>Imagem 1 - Título</sub><br>
+  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
@@ -522,7 +571,12 @@ Não se aplica
 
 Concept art são desenhos iniciais usados para definir como o jogo vai parecer. Eles ajudam a visualizar personagens, cenários e o estilo visual antes do desenvolvimento final, servindo como base para a equipe artística.
 
-<img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width = 300>
+<div align="center">
+  <sub>Concept Art</sub><br>
+  <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div
+
 
 Figura 1: desenhos dos clientes feito a mão
 
@@ -599,7 +653,11 @@ Os personagens não jogáveis presentes no mapa são NPCs que representam lojist
 
 Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando as etapas da experiência, desde o início até os objetivos finais. Ele representa como as ações do jogador, desafios, recompensas e transições entre estados se conectam para formar uma experiência contínua e coerente.
 
-![alt text](other/image-4.png)
+<div align="center">
+  <sub>Diagrama de Cenas</sub><br>
+  <img src="other/image-4.png" width="100%" alt="Descrição breve"><br>
+</div>
+
 
 Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
 
@@ -1010,15 +1068,30 @@ Com essas implementações, o jogo já permite ao usuário iniciar a aplicação
 
 Figura 1 – Menu inicial do jogo
 
-![Menu inicial do jogo](../public/assets/ui/titulo-jogo.webp)
+<div align="center">
+  <sub>Imagem 1 - Título</sub><br>
+  <img src="../public/assets/ui/titulo-jogo.webp" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div>
+
 
 Figura 2 – Ambiente da padaria
 
-![Ambiente interno da loja](../public/assets/imagens/lojas/interior/lojaCafeInterior.png)
+<div align="center">
+  <sub>Imagem 1 - Título</sub><br>
+  <img src="../public/assets/imagens/lojas/interior/lojaCafeInterior.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div>
+
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
-![Mapa com estrutura de interação](../public/assets/imagens/ambiente/novoMapa.jpeg)
+<div align="center">
+  <sub>Imagem 1 - Título</sub><br>
+  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Autores</sup>
+</div>
+
 
 ### Dificuldades encontradas
 

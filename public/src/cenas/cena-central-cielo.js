@@ -90,14 +90,16 @@ export class CenaCentral extends Phaser.Scene {
         this._criarCenario();
 
         if (this.cache.audio.exists('portaAbrindo')) {
+             this.sound.stopByKey('portaAbrindo');
             this.sound.play('portaAbrindo');
-        }
+}
 
         // Inicia música ambiente em loop
-        if (this.cache.audio.exists('ambienteCielo')) {
+       if (this.cache.audio.exists('ambienteCielo')) {
+            this.sound.stopByKey('ambienteCielo');
             this.somAmbiente = this.sound.add('ambienteCielo', { loop: true, volume: 0.3 });
             this.somAmbiente.play();
-        }
+            }   
 
         // Para o som ao sair ou destruir a cena
         this.events.on('shutdown', () => this._pararAudio());

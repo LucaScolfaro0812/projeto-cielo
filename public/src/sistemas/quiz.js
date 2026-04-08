@@ -513,6 +513,12 @@ export default class Quiz {
             }
         }
 
+        // Mantém as listas de lojas da CenaCidade sincronizadas em tempo real
+        // com o estado persistido dos NPCs após finalizar este quiz.
+        if (this.cena.atualizarListasLojas) {
+            this.cena.atualizarListasLojas();
+        }
+
         // Consome 1 maquininha apenas se o jogador conquistou o NPC
         if (conquistou) {
             Maquininhas.removerMaquininhas(1);

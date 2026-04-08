@@ -12,13 +12,11 @@ export class CenaCentral extends Phaser.Scene {
         this.dialogoAberto = false;
         this.aguardandoDialogoAposTutorial = false;
         this.falasIntroducao = [
-            'Seja bem-vindo a As aventuras de Marcielo.',
-            'Você será representado pelo Marcielo, um gerente de negócios da Cielo, e vai viver de perto essa jornada.',
-            'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e descobrir o que cada negócio precisa para vender melhor.',
-            'Preste atenção em cada conversa, porque é assim que você entende qual solução faz mais sentido para cada cliente.',
-            'Em vários momentos, você vai responder perguntas e tomar decisões para mostrar como a Cielo pode ajudar no dia a dia de cada loja.',
-            'A Central da Cielo é o seu ponto de apoio durante toda essa jornada.',
-            'As maquininhas são uma parte essencial da sua missão, porque representam a solução que você leva até o cliente no momento da conquista.',
+            'Seja bem-vindo As aventuras de Marcielo. Eu sou Thiago e vou te acompanhar nesse começo.',
+            'Você será representado pelo Marcielo, um gerente de negócios da Cielo, nessa jornada.',
+            'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e entender o que cada negócio precisa para vender melhor.',
+            'Preste atenção nas conversas e nas perguntas, porque é assim que você descobre qual solução faz mais sentido para cada cliente.',
+            'A Central da Cielo é o seu ponto de apoio, e as maquininhas são parte essencial da sua missão.',
             'É sempre importante andar com a maquininha para garantir a instalação imediata e a ativação do cliente',
             'Então aproveite a jornada, explore a cidade e, sempre que precisar, volte para a Central para recarregar suas maquininhas e seguir em frente.'
         ];
@@ -58,9 +56,13 @@ export class CenaCentral extends Phaser.Scene {
         }
     }
 
-    init() {
+    init(data = {}) {
+        this.dialogoIntroducaoExibido = false;
+        this.dialogoAberto = false;
+        this.estadoDialogo = null;
         this.mostrarTutorial = consumirTutorialInicial();
-        this.aguardandoDialogoAposTutorial = this.mostrarTutorial;
+        this.mostrarDialogoInicial = Boolean(data.mostrarDialogoInicial);
+        this.aguardandoDialogoAposTutorial = this.mostrarTutorial && this.mostrarDialogoInicial;
     }
 
     create() {
@@ -162,6 +164,14 @@ export class CenaCentral extends Phaser.Scene {
         this.cameras.main.centerOn(this.fundo.displayWidth / 2, this.fundo.displayHeight / 2);
 
         this.hudMaquininhas = new HudMaquininhas(this);
+
+        if (this.mostrarDialogoInicial && !this.mostrarTutorial) {
+            this.time.delayedCall(120, () => {
+                if (!this.dialogoIntroducaoExibido && !this.dialogoAberto) {
+                    this._abrirDialogoIntroducao();
+                }
+            });
+        }
     }
 
     _pararAudio() {

@@ -94,7 +94,7 @@ export class CenaMenu extends Phaser.Scene {
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             resetarSessaoJogo();
             ativarTutorialInicial();
-            transicionarPara(this, 'centralScene', {}, 'Iniciando jogo...');
+            transicionarPara(this, 'centralScene', { mostrarDialogoInicial: true }, 'Iniciando jogo...');
         });
 
         this.tweens.add({

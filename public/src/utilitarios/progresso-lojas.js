@@ -49,3 +49,27 @@ export function lojaFoiConquistada(nomeLoja) {
     // Verifica se o ID do NPC desta loja está na lista de conquistados
     return idsConquistados.includes(idNpc);
 }
+
+/**
+ * Retorna as listas de lojas conquistadas e não conquistadas
+ * com base no estado salvo dos NPCs.
+ * A fonte de verdade continua sendo npcsConquistadosIds.
+ * @returns {{ lojasConquistadas: string[], lojasNaoConquistadas: string[] }}
+ */
+export function obterListasLojasPorConquista() {
+    const idsConquistados = carregarDados(chavesArmazenamento.npcsConquistadosIds, []);
+    const idsConquistadosSet = new Set(Array.isArray(idsConquistados) ? idsConquistados : []);
+
+    const lojasConquistadas = [];
+    const lojasNaoConquistadas = [];
+
+    Object.entries(mapaIdNpcPorLoja).forEach(([nomeLoja, idNpc]) => {
+        if (idsConquistadosSet.has(idNpc)) {
+            lojasConquistadas.push(nomeLoja);
+        } else {
+            lojasNaoConquistadas.push(nomeLoja);
+        }
+    });
+
+    return { lojasConquistadas, lojasNaoConquistadas };
+}

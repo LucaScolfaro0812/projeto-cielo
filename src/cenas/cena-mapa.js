@@ -15,6 +15,9 @@ export class CenaMapa extends Phaser.Scene {
         if (!this.textures.exists('mapaLegenda')) {
             this.load.image('mapaLegenda', 'assets/imagens/mapa/mapa-cidade_2.png');
         }
+        if (!this.textures.exists('marcielocabeca')) {
+            this.load.image('marcielocabeca', 'assets/imagens/marcielocabeca.png');
+        }
     }
 
     create() {
@@ -57,8 +60,8 @@ export class CenaMapa extends Phaser.Scene {
         const pinoX = imgX + pinoImgX * escalaFit;
         const pinoY = imgY + pinoImgY * escalaFit;
 
-        const anel = this.add.circle(pinoX, pinoY, 10, 0xffffff, 0.35).setDepth(3);
-        this.add.circle(pinoX, pinoY, 5, 0xffffff).setDepth(4);
+        const anel = this.add.circle(pinoX, pinoY, 28, 0xffffff, 0.35).setDepth(3);
+        this.add.image(pinoX, pinoY, 'marcielocabeca').setDisplaySize(50, 50).setDepth(4);
 
         this.tweens.add({
             targets: anel,

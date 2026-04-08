@@ -4,12 +4,32 @@ import { definirProximoSpawnCidade, consumirTutorialInicial, consumirDialogoInic
 import { Maquininhas } from '../sistemas/maquininhas.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
+/**
+ * CenaCentral — Interior da Central da Cielo.
+ *
+ * É o ponto de apoio do jogador durante a partida. Permite recarregar
+ * maquininhas ao se aproximar do NPC e pressionar E (só aparece o botão
+ * quando o estoque está abaixo do máximo).
+ *
+ * Na primeira visita (quando `data.mostrarDialogoInicial` é true), exibe
+ * um diálogo de introdução com 7 falas do personagem Thiago, digitadas
+ * letra a letra. O jogador avança com ESPAÇO.
+ *
+ * Fluxo de abertura do diálogo:
+ *   - Se o tutorial também for exibido, o diálogo aguarda o tutorial fechar
+ *     (`aguardandoDialogoAposTutorial`). A cena `CenaMenu` chama
+ *     `aoFecharTutorialOverlay()` quando o tutorial encerra.
+ *   - Sem tutorial, o diálogo abre com um delay de 120 ms após o `create()`.
+ */
 export class CenaCentral extends Phaser.Scene {
     constructor(){
         super({key: 'centralScene'});
         this.fundoImage = "cieloVazia";
+        // Evita reabrir o diálogo se a cena for reiniciada sem novo jogo
         this.dialogoIntroducaoExibido = false;
+        // Bloqueia a movimentação e a recarga enquanto o diálogo está aberto
         this.dialogoAberto = false;
+        // True quando tutorial e diálogo devem aparecer juntos: diálogo aguarda o tutorial fechar
         this.aguardandoDialogoAposTutorial = false;
         this.falasIntroducao = [
             'Seja bem-vindo As aventuras de Marcielo. Eu sou Thiago e vou te acompanhar nesse começo.',
@@ -229,6 +249,11 @@ export class CenaCentral extends Phaser.Scene {
         this.scene.bringToTop('tutorialScene');
     }
 
+    /**
+     * Chamado pela CenaMenu quando o tutorial overlay é fechado.
+     * Se o diálogo de introdução estava aguardando o fim do tutorial,
+     * abre-o com um pequeno delay para a cena se estabilizar.
+     */
     aoFecharTutorialOverlay() {
         if (!this.aguardandoDialogoAposTutorial || this.dialogoIntroducaoExibido || this.dialogoAberto) {
             return;
@@ -318,6 +343,19 @@ export class CenaCentral extends Phaser.Scene {
         });
     }
 
+    /**
+     * Exibe o diálogo de introdução com as 7 falas do Thiago.
+     *
+     * Funcionamento interno:
+     *   - Pausa a física para impedir movimentação durante a conversa.
+     *   - Cada fala é digitada letra a letra a cada 18 ms com som de escrita em loop.
+     *   - ESPAÇO: se ainda digitando, completa a fala imediatamente;
+     *             se já completo, avança para a próxima fala ou fecha ao fim da última.
+     *   - `estadoDialogo` armazena referências a todos os objetos visuais e ao evento
+     *     de digitação para permitir limpeza segura em qualquer ponto.
+     *   - Ao fechar, retoma a física e marca `dialogoIntroducaoExibido = true`
+     *     para não reabrir na mesma sessão.
+     */
     _abrirDialogoIntroducao() {
         if (this.dialogoAberto) {
             return;

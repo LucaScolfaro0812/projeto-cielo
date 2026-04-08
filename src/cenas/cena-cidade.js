@@ -472,6 +472,11 @@ export class CenaCidade extends Phaser.Scene {
         this.maquininha = new Maquininhas(this);
     }
 
+    /**
+     * Pausa a cena e abre o overlay do mapa completo (`mapaScene`),
+     * passando a posição atual do jogador e as dimensões do mundo para
+     * que o marcador seja posicionado corretamente sobre a imagem.
+     */
     _abrirMapa() {
         if (this.scene.isActive('mapaScene')) return;
         this.scene.pause();
@@ -671,9 +676,22 @@ export class CenaCidade extends Phaser.Scene {
     }
 
     /**
-     * Cria portas de entrada para outras cenas
-     * Cria lojas para entrar
-     * e configura a troca de cena ao colidir com o player
+     * Instancia todas as lojas físicas, o prédio da Central e suas respectivas portas.
+     *
+     * Posicionamento das lojas:
+     *   - As 12 lojas são distribuídas em 2 fileiras de 6, com espaçamento fixo.
+     *   - Fórmula X: 1500 + (índice_na_fileira × 1675) + (par_de_lojas × 500)
+     *   - Fórmula Y: 3500 + (fileira × 2250)
+     *   - Cada loja pode ter offsets individuais (`offsetFisicaX`, `offsetFisicaY`)
+     *     definidos em `lojasConfigs` para ajuste fino de posição.
+     *
+     * Para cada loja, cria também:
+     *   - Overlap com o jogador para disparar a troca de cena.
+     *   - Bloqueio de reentrada imediata (`nomeLojaRetornoBloqueada`).
+     *   - Decoração de balões animados se a loja já foi conquistada.
+     *
+     * A Central da Cielo é criada em posição fixa (5800, 1020) com paredes
+     * invisíveis laterais e um efeito de brilho pulsante na porta.
      */
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
@@ -1012,7 +1030,17 @@ export class CenaCidade extends Phaser.Scene {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    // Método executado a cada frame do jogo
+    /**
+     * Loop principal da cena — executado a cada frame.
+     *
+     * Responsabilidades:
+     *   - Atualiza o jogador, a seta de indicação e os carros.
+     *   - Controla o brilho das portas das lojas e da Central com base na distância do jogador.
+     *   - Atualiza o marcador de posição no minimapa.
+     *   - Gerencia a flag `entradaLojasLiberada` para evitar reentrada imediata ao retornar de uma loja.
+     *   - Chama `_atualizarBloqueioLojaRetorno()` para liberar a porta da loja de onde o jogador saiu.
+     *   - Processa a animação cinemática dos balões decorativos (MU no X, MUV no Y).
+     */
     update() {
         this.seta.definirAlvo(this.pegarLojaMaisProxima(this.player));
 
@@ -1080,13 +1108,6 @@ export class CenaCidade extends Phaser.Scene {
         if (this.portaCentral) {
             this.portaCentral.update();
         }
-
-
-        if (this.portaCentral) {
-            this.portaCentral.update();
-        }
-
-
 
         if (this.portasPorNomeLoja) {
             Object.values(this.portasPorNomeLoja).forEach(porta => {

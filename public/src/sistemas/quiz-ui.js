@@ -452,16 +452,75 @@ export default class InterfaceQuiz {
         this.textoValorConversao.setText(String(Math.round(v)));
     }
 
-    // Exibe uma mensagem de feedback após o jogador responder
-    exibirFeedback(pontos) {
-        let msg = "Resposta fraca.";
-        if (pontos === 3) msg = "Excelente!";
-        else if (pontos === 2) msg = "Boa resposta!";
-        this.textoFeedback.setText(msg);
-        this.textoFeedback.setVisible(true);
+    /**
+     * Exibe um painel de feedback isolado com botão "Continuar".
+     * O jogador precisa clicar para avançar — o feedback não some sozinho.
+     * @param {number} pontos       - Pontuação da resposta (0=errado, 2=bom, 3=correto)
+     * @param {string} textoPersonalizado - Texto explicativo da opção escolhida
+     * @param {function} aoFechar   - Callback chamado ao clicar em "Continuar"
+     */
+    exibirFeedback(pontos, textoPersonalizado, aoFechar) {
+        const correto = pontos >= 2;
+        const msg = textoPersonalizado ?? (correto ? "Boa resposta!" : "Resposta incorreta.");
 
-        // Esconde o feedback após o tempo definido
-        this.cena.time.delayedCall(this.duracaoFeedback * 1000, () => this.textoFeedback.setVisible(false));
+        const cam = this.cena.cameras.main;
+        const cx  = cam.worldView.centerX;
+        const cy  = cam.worldView.centerY;
+        const W   = cam.displayWidth;
+        const H   = cam.displayHeight;
+
+        // Overlay escuro cobrindo tudo — impede cliques nos botões do quiz
+        const overlay = this.cena.add.rectangle(
+            cam.worldView.x, cam.worldView.y, W, H, 0x000000, 0.60
+        ).setOrigin(0).setDepth(PROFUNDIDADE_UI + 10).setInteractive();
+
+        // Painel colorido: verde para correto, vermelho para errado
+        const painelW = Math.min(680, W - 60);
+        const painelH = 200;
+        const corPainel = correto ? 0x10b981 : 0xef4444;
+        const painelY   = cy - 50;
+
+        const painel = this.cena.add.rectangle(cx, painelY, painelW, painelH, corPainel)
+            .setDepth(PROFUNDIDADE_UI + 11);
+        painel.setStrokeStyle(3, 0xffffff, 0.25);
+
+        // Ícone ✓ ou ✗ no topo do painel
+        const icone = this.cena.add.text(cx, painelY - painelH / 2 + 32,
+            correto ? '✓' : '✗',
+            { fontSize: '32px', color: '#ffffff', fontStyle: 'bold' }
+        ).setOrigin(0.5).setDepth(PROFUNDIDADE_UI + 12);
+
+        // Texto do feedback centralizado no painel
+        const texto = this.cena.add.text(cx, painelY + 10, msg, {
+            fontSize: '20px',
+            color: '#ffffff',
+            fontStyle: 'bold',
+            align: 'center',
+            wordWrap: { width: painelW - 60 }
+        }).setOrigin(0.5).setDepth(PROFUNDIDADE_UI + 12);
+
+        // Botão "Continuar →"
+        const btnY   = painelY + painelH / 2 + 34;
+        const btnW   = 210;
+        const btnH   = 48;
+        const btn = this.cena.add.rectangle(cx, btnY, btnW, btnH, 0xffffff)
+            .setDepth(PROFUNDIDADE_UI + 11)
+            .setInteractive({ useHandCursor: true });
+        const btnTexto = this.cena.add.text(cx, btnY, 'Continuar  →', {
+            fontSize: '20px', color: '#1D4ED8', fontStyle: 'bold'
+        }).setOrigin(0.5).setDepth(PROFUNDIDADE_UI + 12);
+
+        btn.on('pointerover', () => btn.setFillStyle(0xdbeafe));
+        btn.on('pointerout',  () => btn.setFillStyle(0xffffff));
+        btn.on('pointerdown', () => {
+            overlay.destroy();
+            painel.destroy();
+            icone.destroy();
+            texto.destroy();
+            btn.destroy();
+            btnTexto.destroy();
+            if (aoFechar) aoFechar();
+        });
     }
 
     // Exibe a tela de resultado ao fim do quiz: verde se conquistou, vermelho se não

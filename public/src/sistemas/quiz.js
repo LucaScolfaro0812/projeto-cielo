@@ -343,13 +343,11 @@ export default class Quiz {
 
         if (this.timerEvento) this.timerEvento.remove(false);
 
-        // Exibe feedback como erro (0 pontos)
-        this.ui.exibirFeedback(0);
-
-        // Atualiza visual da conversão
+        // Exibe feedback de tempo esgotado; avança apenas após o jogador clicar em "Continuar"
+        const perguntaAtual = this.perguntas[this.indicePerguntaAtual];
+        const feedbackTexto = perguntaAtual?.feedbackErro ?? undefined;
         this.ui.definirConversao(this.nivelConversao);
-
-        this.proximaPergunta();
+        this.ui.exibirFeedback(0, feedbackTexto, () => this.proximaPergunta());
     }
 
     /**
@@ -399,11 +397,11 @@ export default class Quiz {
             100
         );
 
-        // Atualiza interface
-        this.ui.exibirFeedback(pontos);
+        // Usa feedback específico da opção escolhida; avança apenas após o jogador clicar em "Continuar"
+        const feedbackTexto = perguntaAtual.feedbackOpcoes?.[indiceEscolhido]
+            ?? (pontos >= 2 ? perguntaAtual.feedbackAcerto : perguntaAtual.feedbackErro);
         this.ui.definirConversao(this.nivelConversao);
-
-        this.proximaPergunta();
+        this.ui.exibirFeedback(pontos, feedbackTexto, () => this.proximaPergunta());
     }
 
     /**

@@ -442,6 +442,9 @@ export class CenaCidade extends Phaser.Scene {
                 // Botão só abre — marca flag para ignorar o pointerdown deste mesmo clique
                 if (this.painelNpcs && !this.painelNpcs.visible) {
                     this._painelAbertoNesteClique = true;
+                    this._setHudCidadeVisivel(false);
+                    this.painelNpcs.setDepth(10000);
+                    this.children.bringToTop(this.painelNpcs);
                     this.painelNpcs.setVisible(true);
                 }
             }
@@ -459,6 +462,7 @@ export class CenaCidade extends Phaser.Scene {
             }
             if (this.painelNpcs && this.painelNpcs.visible) {
                 this.painelNpcs.setVisible(false);
+                this._setHudCidadeVisivel(true);
             }
         });
 
@@ -502,6 +506,28 @@ export class CenaCidade extends Phaser.Scene {
         });
         this.scene.bringToTop('tutorialScene');
 
+    }
+
+    _setHudCidadeVisivel(visivel) {
+        // Esconde/mostra o HUD de progresso de NPCs
+        if (this.hudNpcUI?.setVisible) {
+            this.hudNpcUI.setVisible(visivel);
+        }
+
+        // Esconde/mostra o container do HUD de maquininhas
+        if (this.hudMaquininhas?.container) {
+            this.hudMaquininhas.container.setVisible(visivel);
+        }
+
+        // Esconde/mostra a seta e seu alerta
+        if (this.seta?.setHudVisible) {
+            this.seta.setHudVisible(visivel);
+        }
+
+        // Esconde/mostra a câmera do minimap
+        if (this.minimapCam) {
+            this.minimapCam.visible = visivel;
+        }
     }
 
     /**
@@ -1042,10 +1068,14 @@ export class CenaCidade extends Phaser.Scene {
      *   - Processa a animação cinemática dos balões decorativos (MU no X, MUV no Y).
      */
     update() {
+        const painelNpcsAberto = Boolean(this.painelNpcs?.visible);
+
         this.seta.definirAlvo(this.pegarLojaMaisProxima(this.player));
 
         this.player.update();
-        this.seta.update(this.player, Math.PI);
+        if (!painelNpcsAberto) {
+            this.seta.update(this.player, Math.PI);
+        }
 
         // --- 1. LÓGICA DAS PORTAS DAS LOJAS ---
         this.lojas.forEach(loja => {
@@ -1122,7 +1152,7 @@ export class CenaCidade extends Phaser.Scene {
         }
 
         // Atualiza posição do marcador no minimap
-        if (this.minimapMarcador) {
+        if (!painelNpcsAberto && this.minimapMarcador) {
             this.minimapMarcador.x = this.player.x;
             this.minimapMarcador.y = this.player.y;
         }
@@ -1230,7 +1260,8 @@ export class CenaCidade extends Phaser.Scene {
         // Centralizar painel na tela (vertical e horizontal)
         const larguraTela = this.cameras.main.width;
         const alturaTela = this.cameras.main.height;
-        this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(9999);
+        const profundidadePainelNpcs = 10000;
+        this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(profundidadePainelNpcs);
 
         // Fundo escuro semitransparente (menor para garantir visibilidade)
         const larguraPainel = 1600;
@@ -1287,7 +1318,7 @@ export class CenaCidade extends Phaser.Scene {
         this.lojasConquistadas = lojasConquistadas;
         this.lojasNaoConquistadas = lojasNaoConquistadas;
     }
-    
+
     // Método para percorre todos os portraits do painel e atualiza a textura de cada um conforme o estado atual do NPC. Assim, qualquer mudança de progresso é refletida visualmente imediatamente.
     atualizarPainelNpcs() {
         if (!this.painelNpcs) return;

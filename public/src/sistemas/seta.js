@@ -22,6 +22,12 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         }
     }
 
+    setHudVisible(visivel) {
+        // Mostra/esconde a seta e o alerta baseado no estado
+        this.setVisible(visivel);
+        this.alerta.setVisible(false);
+    }
+
     update(jogador, angleOffset = 0) {
         if (!this.alvo || !jogador) return;
 

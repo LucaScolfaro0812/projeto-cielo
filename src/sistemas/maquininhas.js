@@ -86,6 +86,10 @@ export class Maquininhas {
     static ui = null;
     static precisaMostrarAlerta = false;
 
+    // Quando true, o setter não dispara o alerta vermelho.
+    // Usado pela morte do jogador para suprimir o alerta e mostrar o texto próprio.
+    static suprimirAlerta = false;
+
     static registrarUI(uiInstance) {
         this.ui = uiInstance;
     }
@@ -110,11 +114,10 @@ export class Maquininhas {
         this._qntMaquininhas = v;
         salvarDados(this.chaveDeValor, v);
 
-        // 🔥 só dispara se acabou de zerar
-        if (v === 0 && valorAnterior > 0) {
+        // Só dispara o alerta vermelho se zerou naturalmente (não por morte)
+        if (v === 0 && valorAnterior > 0 && !this.suprimirAlerta) {
             this.precisaMostrarAlerta = true;
 
-            // tenta mostrar imediatamente (se ainda estiver na mesma cena)
             if (this.ui) {
                 this.ui.mostrarAlertaSemMaquininhas();
             }

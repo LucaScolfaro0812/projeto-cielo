@@ -332,6 +332,8 @@ export class CenaCidade extends Phaser.Scene {
 
         this.events.on('shutdown', () => {
             if (this.somCidade && this.somCidade.isPlaying) this.somCidade.stop();
+            // Garante que o overlay de morte seja removido ao sair da cena
+            this._removerDeathDiv();
         });
         // Revela a cena com fade azul Cielo
         revelarCena(this);
@@ -474,6 +476,9 @@ export class CenaCidade extends Phaser.Scene {
         this.seta.definirAlvo(this.lojas[0]);
 
         this.maquininha = new Maquininhas(this);
+
+        // Referência ao div de morte (criado apenas quando o jogador morre)
+        this._deathDiv = null;
     }
 
     /**
@@ -481,6 +486,113 @@ export class CenaCidade extends Phaser.Scene {
      * passando a posição atual do jogador e as dimensões do mundo para
      * que o marcador seja posicionado corretamente sobre a imagem.
      */
+
+    /**
+     * Chamado quando o jogador morre.
+     * Cria um div HTML por cima do canvas com blur + escurecimento,
+     * exibe o texto "Você perdeu suas maquininhas" e reinicia a cena após 2.5s.
+     */
+    // Em cena-cidade.js — substitua onPlayerDeath() por este:
+    onPlayerDeath(tinhaMaquininhas = false) {
+        if (this._deathDiv) return;
+
+        const canvas = this.game.canvas;
+        const pai = canvas.parentElement;
+
+        if (pai.style.position === '' || pai.style.position === 'static') {
+            pai.style.position = 'relative';
+        }
+
+        const div = document.createElement('div');
+        div.style.cssText = `
+        position: absolute;
+        top: ${canvas.offsetTop}px;
+        left: ${canvas.offsetLeft}px;
+        width: ${canvas.offsetWidth}px;
+        height: ${canvas.offsetHeight}px;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+        pointer-events: none;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.8s ease, backdrop-filter 0.8s ease;
+    `;
+
+        // Só cria o texto se o jogador tinha maquininhas ao morrer
+        if (tinhaMaquininhas) {
+            const texto = document.createElement('div');
+            texto.innerText = 'Você perdeu suas maquininhas!';
+            texto.style.cssText = `
+            color: #ffffff;
+            font-size: 28px;
+            font-family: Arial Black, Arial, sans-serif;
+            font-weight: 900;
+            text-align: center;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0px 4px rgba(0,0,0,1);
+            opacity: 0;
+            transition: opacity 0.5s ease 0.4s;
+            padding: 0 32px;
+        `;
+            div.appendChild(texto);
+        }
+
+        pai.appendChild(div);
+        this._deathDiv = div;
+
+        requestAnimationFrame(() => {
+            div.style.background = 'rgba(0, 0, 0, 0.55)';
+            div.style.backdropFilter = 'blur(6px)';
+            const texto = div.querySelector('div');
+            if (texto) texto.style.opacity = '1';
+        });
+
+        this.time.delayedCall(2500, () => {
+            this.onPlayerRespawn();
+        });
+    }
+
+    /**
+     * Reverte o efeito de morte com fade out e reinicia a cena.
+     */
+    onPlayerRespawn() {
+        if (!this._deathDiv) return;
+
+        const div = this._deathDiv;
+        const texto = div.querySelector('div');
+
+        // Fade out do texto primeiro
+        if (texto) {
+            texto.style.transition = 'opacity 0.4s ease';
+            texto.style.opacity = '0';
+        }
+
+        // Fade out do blur e escurecimento
+        div.style.transition = 'background 0.6s ease, backdrop-filter 0.6s ease';
+        div.style.background = 'rgba(0, 0, 0, 0)';
+        div.style.backdropFilter = 'blur(0px)';
+
+        // Remove o div e reinicia a cena após a transição terminar
+        setTimeout(() => {
+            this._removerDeathDiv();
+            if (this.somCidade && this.somCidade.isPlaying) {
+                this.somCidade.stop();
+            }
+            this.scene.start('gameScene', { mostrarTutorial: false });
+        }, 650);
+    }
+
+    /**
+     * Remove o div de overlay de morte do DOM com segurança.
+     */
+    _removerDeathDiv() {
+        if (this._deathDiv) {
+            this._deathDiv.remove();
+            this._deathDiv = null;
+        }
+    }
+
     _abrirMapa() {
         if (this.scene.isActive('mapaScene')) return;
         this.scene.pause();
@@ -1040,7 +1152,7 @@ export class CenaCidade extends Phaser.Scene {
         let menorDistancia = this.distanciaEntreObjetos(objeto, this.lojas[0]);
 
         for (let i = 1; i < this.lojas.length; i++) {
-            if(this.lojasConquistadas.includes(this.lojasConfigs[i].nomeLoja)){
+            if (this.lojasConquistadas.includes(this.lojasConfigs[i].nomeLoja)) {
                 continue;
             }
 
@@ -1324,8 +1436,8 @@ export class CenaCidade extends Phaser.Scene {
             ][i] ?? 0x555555;
 
             const badgeCirculo = this.add.circle(badgeX, badgeY, badgeR, corBadge).setScrollFactor(0);
-            const badgeBorda   = this.add.circle(badgeX, badgeY, badgeR).setStrokeStyle(4, 0xffffff, 1).setScrollFactor(0);
-            const badgeTexto   = this.add.text(badgeX, badgeY, String(i + 1), {
+            const badgeBorda = this.add.circle(badgeX, badgeY, badgeR).setStrokeStyle(4, 0xffffff, 1).setScrollFactor(0);
+            const badgeTexto = this.add.text(badgeX, badgeY, String(i + 1), {
                 fontFamily: 'Arial Black', fontSize: '42px', color: '#ffffff'
             }).setOrigin(0.5, 0.5).setScrollFactor(0);
             this.painelNpcs.add([badgeCirculo, badgeBorda, badgeTexto]);
@@ -1342,10 +1454,10 @@ export class CenaCidade extends Phaser.Scene {
             'Frutaria', 'Lanchonete', 'Chocolate', 'Pelucia', 'Autoescola', 'Joalheria'
         ];
 
-        const legW    = 280;
+        const legW = 280;
         const legItemH = alturaPainel / (NOMES_LEG.length + 1);
         const raioLeg = 18;
-        const legX    = larguraPainel / 2 + 20; // imediatamente à direita do painel
+        const legX = larguraPainel / 2 + 20; // imediatamente à direita do painel
         const legTopY = -alturaPainel / 2;
 
         const legFundo = this.add.rectangle(legX + legW / 2, 0, legW, alturaPainel, 0x071a2d, 0.95)
@@ -1360,12 +1472,12 @@ export class CenaCidade extends Phaser.Scene {
         NOMES_LEG.forEach((nome, i) => {
             const conquistada = npcs[i]?.estado === 'conquistado';
             const cor = conquistada ? CORES_LEG[i] : 0x555555;
-            const ix  = legX + 16;
-            const iy  = legTopY + 60 + i * legItemH + legItemH / 2;
+            const ix = legX + 16;
+            const iy = legTopY + 60 + i * legItemH + legItemH / 2;
 
-            const circ  = this.add.circle(ix + raioLeg, iy, raioLeg, cor).setScrollFactor(0);
+            const circ = this.add.circle(ix + raioLeg, iy, raioLeg, cor).setScrollFactor(0);
             const borda = this.add.circle(ix + raioLeg, iy, raioLeg).setStrokeStyle(3, 0xffffff, 0.7).setScrollFactor(0);
-            const num   = this.add.text(ix + raioLeg, iy, String(i + 1), {
+            const num = this.add.text(ix + raioLeg, iy, String(i + 1), {
                 fontFamily: 'Arial Black', fontSize: '18px', color: '#ffffff'
             }).setOrigin(0.5, 0.5).setScrollFactor(0);
             const label = this.add.text(ix + raioLeg * 2 + 8, iy, nome, {

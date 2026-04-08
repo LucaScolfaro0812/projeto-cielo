@@ -44,6 +44,8 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.somPassos = null;
         this.cena.sound.stopByKey('andandoRua');
         this._somPassosCriado = false;
+
+        this.isDead = false;
     }
 
     static preload(scene) {
@@ -86,17 +88,15 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
+        // Se estiver morto, trava completamente o movimento
+        if (this.isDead) {
+            this.setVelocity(0);
+            return;
+        }
+
         this._movimentar();
     }
 
-    /**
-     * Lê as teclas pressionadas, calcula a direção de movimento e aplica ao corpo físico.
-     *
-     * Para evitar que o jogador ande mais rápido na diagonal (problema clássico de movimento 8 direções),
-     * o vetor de força é normalizado antes de multiplicar pela velocidade:
-     * se forca = [-1, -1] (diagonal), o módulo seria √2 ≈ 1.41, mas após dividir pelo módulo
-     * o vetor vira [-0.707, -0.707], mantendo o comprimento total igual a 1.
-     */
     _movimentar() {
         this.setVelocity(0);
 
@@ -108,7 +108,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         const cima = this.teclas.W.isDown;
         const baixo = this.teclas.S.isDown;
 
-        // eixo horizontal
         if (esquerda) {
             forca[0] = -1;
             movendo = true;
@@ -117,7 +116,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             movendo = true;
         }
 
-        // eixo vertical
         if (cima) {
             forca[1] = -1;
             movendo = true;
@@ -126,8 +124,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             movendo = true;
         }
 
-        // Normalização: calcula o comprimento do vetor e divide cada componente por ele,
-        // garantindo velocidade constante em qualquer direção (inclusive diagonais)
         const deslizamento = this._ajustarDeslizamentoEmQuinas(forca[0], forca[1]);
         forca[0] = deslizamento.x;
         forca[1] = deslizamento.y;
@@ -139,7 +135,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             forca[1] /= modulo;
         }
 
-        // Aplica a velocidade configurada ao vetor já normalizado
         forca[0] *= this.velocidade;
         forca[1] *= this.velocidade;
 
@@ -167,19 +162,17 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
                 this.ultimaDirecao = "baixo";
             }
 
-            // Toca o som de passos se ainda não estiver tocando
-           if (!this.somPassos) {
+            if (!this.somPassos) {
                 if (this.cena.cache.audio.exists('andandoRua')) {
-                 this.somPassos = this.cena.sound.add('andandoRua', { loop: true, volume: 0.4 });
-             }
-                    }
-                        if (this.somPassos && !this.somPassos.isPlaying) {
-                     this.somPassos.play();
-                    }
+                    this.somPassos = this.cena.sound.add('andandoRua', { loop: true, volume: 0.4 });
+                }
+            }
+            if (this.somPassos && !this.somPassos.isPlaying) {
+                this.somPassos.play();
+            }
 
         } else {
 
-            // Para o som ao parar de mover
             if (this.somPassos && this.somPassos.isPlaying) {
                 this.somPassos.stop();
             }
@@ -194,11 +187,6 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
-    /**
-     * Cria as animações do jogador a partir dos frames de imagem carregados no preload.
-     * Verifica se a animação já existe antes de criar para evitar erros ao reiniciar a cena.
-     * @param {Phaser.Scene} cena - cena onde as animações serão registradas
-     */
     _ajustarDeslizamentoEmQuinas(eixoX, eixoY) {
         if (!this.body || eixoX === 0 || eixoY === 0) {
             return { x: eixoX, y: eixoY };
@@ -291,14 +279,27 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
 
     /**
      * Chamado quando o jogador colide com um carro.
-     * Para o som de passos, reinicia a cena cidade e zera as maquininhas
-     * (o jogador precisa recarregar na Central ao voltar).
+     * Liga suprimirAlerta antes de zerar as maquininhas para evitar
+     * que o alerta vermelho apareça — a cena cuida do texto de morte.
      */
     morreu() {
+        if (this.isDead) return;
+        this.isDead = true;
+
         if (this.somPassos && this.somPassos.isPlaying) {
             this.somPassos.stop();
         }
-        this.cena.scene.start('gameScene', { mostrarTutorial: false });
+
+        // Guarda se tinha maquininhas ANTES de zerar
+        const tinhaMaquininhas = Maquininhas.qntMaquininhas > 0;
+
+        // Suprime o alerta vermelho — a morte tem seu próprio texto
+        Maquininhas.suprimirAlerta = true;
         Maquininhas.definirMaquininhas(0);
+        Maquininhas.suprimirAlerta = false;
+
+        // Passa a informação para a cena mostrar (ou não) o texto de perda
+        this.cena.onPlayerDeath(tinhaMaquininhas);
     }
+
 }

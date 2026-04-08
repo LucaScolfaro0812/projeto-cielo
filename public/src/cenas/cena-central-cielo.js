@@ -33,8 +33,8 @@ export class CenaCentral extends Phaser.Scene {
         this.aguardandoDialogoAposTutorial = false;
         this.falasIntroducao = [
             'Seja bem-vindo As aventuras de Marcielo. Eu sou Thiago e vou te acompanhar nesse começo.',
-            'Você será representado pelo Marcielo, um gerente de negócios da Cielo, nessa jornada.',
-            'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e entender o que cada negócio precisa para vender melhor.',
+            'Você será representado pelo Marcielo, um Gerente de Negócios da Cielo, nessa jornada.',
+            'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e entender o que cada negócio precisa para atender melhor.',
             'Preste atenção nas conversas e nas perguntas, porque é assim que você descobre qual solução faz mais sentido para cada cliente.',
             'A Central da Cielo é o seu ponto de apoio, e as maquininhas são parte essencial da sua missão.',
             'É sempre importante andar com a maquininha para garantir a instalação imediata e a ativação do cliente',

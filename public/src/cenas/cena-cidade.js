@@ -7,7 +7,7 @@ import Carro from '../entidades/carro.js';
 import Quiz from '../sistemas/quiz.js';
 import LojaFisica from '../entidades/loja-fisica.js';
 import CenaLoja from '../cenas/cena-loja.js';
-import { lojaFoiConquistada } from '../utilitarios/progresso-lojas.js';
+import { lojaFoiConquistada, obterListasLojasPorConquista } from '../utilitarios/progresso-lojas.js';
 import { VariantesBaloes, obterDecoracaoBaloesDaLoja } from '../utilitarios/configuracao-baloes.js';
 import InterfaceProgressoNpc from '../sistemas/progressoNpc-ui.js';
 import { obterListaNpcs, obterCaminhoImagemNpc } from "../utilitarios/progresoNPCs.js";
@@ -33,6 +33,10 @@ export class CenaCidade extends Phaser.Scene {
         this.decoracoesBaloes = [];
         this.portasPorNomeLoja = {};
         this.nomeLojaRetornoBloqueada = null;
+        // Listas derivadas em tempo real a partir dos NPCs conquistados salvos.
+        // Evita duplicar regra de negócio e mantém consistência com o localStorage.
+        this.lojasConquistadas = [];
+        this.lojasNaoConquistadas = [];
         // lista de configurações de cada loja
         this.lojasConfigs = [
             {
@@ -320,7 +324,7 @@ export class CenaCidade extends Phaser.Scene {
         LojaFisica.preload(this);
         Carro.preload(this);
 
-        
+
     }
 
     // Método executado quando a cena é criada
@@ -416,6 +420,8 @@ export class CenaCidade extends Phaser.Scene {
         if (this.atualizarPainelNpcs) {
             this.atualizarPainelNpcs();
         }
+        // Sincroniza as listas de lojas com o progresso atual restaurado dos NPCs.
+        this.atualizarListasLojas();
         // --- Fim da restauração de estado ---
 
         const totalNpcs = npcs.length;
@@ -625,9 +631,9 @@ export class CenaCidade extends Phaser.Scene {
         this.carrinho = [];
 
         const ruas = [
-            { y: 2123, direcao: true,  quantidade: 4, velocidade: 650,  espacamento: 3000 },
+            { y: 2123, direcao: true, quantidade: 4, velocidade: 650, espacamento: 3000 },
             { y: 4065, direcao: false, quantidade: 6, velocidade: 1000, espacamento: 2000 },
-            { y: 6359, direcao: true,  quantidade: 3, velocidade: 450,  espacamento: 4000 },
+            { y: 6359, direcao: true, quantidade: 3, velocidade: 450, espacamento: 4000 },
         ];
         ruas.forEach(({ y, direcao, quantidade, velocidade, espacamento }) => {
             for (let i = 0; i < quantidade; i++) {
@@ -666,7 +672,7 @@ export class CenaCidade extends Phaser.Scene {
             );
         }
 
-        const centralX = 5800; 
+        const centralX = 5800;
         const centralY = 1020;
         // 2. Desenha o prédio na tela usando a imagem que carregamos no preload
         this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
@@ -678,24 +684,24 @@ export class CenaCidade extends Phaser.Scene {
         // Ajuda nos cálculos das coordenadas (Dimensões scaled da imagem)
         const totalW = this.predioCentral.displayWidth;
         const totalH = this.predioCentral.displayHeight;
-        
+
         // 3 retângulos invisíveis (Top, Left, Right) delimitam o prédio da Central,
         // deixando o centro-baixo livre para o jogador entrar pela porta.
         const espessuraParede = 30;
 
         // 1. Parede Superior (Teto): Cobre toda a largura em cima
-        const topRect = this.add.rectangle(centralX, (centralY - totalH/1.5) + espessuraParede/2, totalW, espessuraParede);
+        const topRect = this.add.rectangle(centralX, (centralY - totalH / 1.5) + espessuraParede / 2, totalW, espessuraParede);
         this.paredesCentral.add(topRect);
 
         // 2. Parede Esquerda (Canto Esquerdo): Cobre 80% da altura lateral, deixando 20% livre embaixo para a porta
         const lateralH = totalH * 0.8;
         const lateralW = totalW * 0.4;
 
-        const leftRect = this.add.rectangle((centralX - totalW/2) + lateralW/2, (centralY - totalH/1.5) + lateralH/2, lateralW, lateralH);
+        const leftRect = this.add.rectangle((centralX - totalW / 2) + lateralW / 2, (centralY - totalH / 1.5) + lateralH / 2, lateralW, lateralH);
         this.paredesCentral.add(leftRect);
 
         // 3. Parede Direita (Canto Direito)
-        const rightRect = this.add.rectangle((centralX + totalW/2) - lateralW/2, (centralY - totalH/1.5) + lateralH/2, lateralW, lateralH);
+        const rightRect = this.add.rectangle((centralX + totalW / 2) - lateralW / 2, (centralY - totalH / 1.5) + lateralH / 2, lateralW, lateralH);
         this.paredesCentral.add(rightRect);
 
         // Oculta os retângulos para não aparecerem no jogo (A física continua ativa)
@@ -707,27 +713,27 @@ export class CenaCidade extends Phaser.Scene {
         this.physics.add.collider(this.player, this.paredesCentral);
         // 3. Cria a porta invisível bem na base do prédio
         // Se a porta ficar muito no alto, aumente esse valor (ex: +200, +250)
-        const portaY = centralY + 180; 
-        const portaX = centralX; 
+        const portaY = centralY + 180;
+        const portaX = centralX;
 
         const brilhoOffsetX = -5; // Valores positivos movem para direita, negativos para esquerda
         const brilhoOffsetY = -95; // Valores positivos movem para baixo, negativos para cima
         // Adicionamos o offset na posição X e Y do sprite
         this.portaCentralGlow = this.add.sprite(
-            portaX + brilhoOffsetX, 
-            portaY + brilhoOffsetY, 
-            'entrada_animada', 
+            portaX + brilhoOffsetX,
+            portaY + brilhoOffsetY,
+            'entrada_animada',
             0
         );
-        
+
         // Aquele tom de luz marrom/quente
-        this.portaCentralGlow.setTintFill(0xCD853F); 
-        this.portaCentralGlow.setScale(2.8); 
-        
+        this.portaCentralGlow.setTintFill(0xCD853F);
+        this.portaCentralGlow.setScale(2.8);
+
         // Tem que ser menor que a profundidade da porta (você colocou a porta no 13, 
         // então o brilho fica no 12 para ficar atrás dela)
-        this.portaCentralGlow.setDepth(150); 
-        
+        this.portaCentralGlow.setDepth(150);
+
         this.portaCentralGlow.setBlendMode(Phaser.BlendModes.ADD);
         this.portaCentralGlow.setAlpha(0.8);
 
@@ -741,29 +747,29 @@ export class CenaCidade extends Phaser.Scene {
         });
 
         this.portaCentral = new Entrada(
-        this,
-        portaX,
-        portaY,
-        this,
-        'centralScene',
-        this.player 
-    );
+            this,
+            portaX,
+            portaY,
+            this,
+            'centralScene',
+            this.player
+        );
 
-        this.portaCentral.setDepth(13);  
+        this.portaCentral.setDepth(13);
         this.portaCentral.brilho = this.portaCentralGlow;
 
         this.physics.add.overlap(this.portaCentral, this.player, () => {
-        if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
-        
-        if (this.cache.audio.exists('portaAbrindo')) {
-            this.sound.play('portaAbrindo');
-        }
-        
-        this.portaCentral.trocarDeCena();
+            if (this.time.now < this.tempoMinimoLiberarEntradaLojas) return;
 
-        if (this.somCidade && this.somCidade.isPlaying) {
-            this.somCidade.stop();
-        }
+            if (this.cache.audio.exists('portaAbrindo')) {
+                this.sound.play('portaAbrindo');
+            }
+
+            this.portaCentral.trocarDeCena();
+
+            if (this.somCidade && this.somCidade.isPlaying) {
+                this.somCidade.stop();
+            }
         });
     }
 
@@ -964,7 +970,7 @@ export class CenaCidade extends Phaser.Scene {
         this.cameras.main.ignore(this.minimapMarcador);
         borda.ignore(this.minimapMarcador);
     }
-    
+
     pegarLojaMaisProxima(objeto) {
         if (!this.lojas || this.lojas.length === 0) return null; // No stores available
 
@@ -981,7 +987,7 @@ export class CenaCidade extends Phaser.Scene {
 
         return lojaMaisProxima;
     }
-    
+
     distanciaEntreObjetos(obj1, obj2) {
         const dx = obj2.x - obj1.x;
         const dy = obj2.y - obj1.y;
@@ -1019,7 +1025,7 @@ export class CenaCidade extends Phaser.Scene {
                 0, 0.25
             );
             porta.brilho.setAlpha(alpha);
-        }); 
+        });
 
 
         // --- 2. LÓGICA DA PORTA DA CENTRAL CIELO ---
@@ -1030,10 +1036,10 @@ export class CenaCidade extends Phaser.Scene {
             );
 
             const raioMaxCentral = 400;
-            const raioMinCentral = 390; 
+            const raioMinCentral = 390;
 
             if (distanciaCentral < raioMaxCentral) {
-                
+
                 if (this.portaCentralTween && this.portaCentralTween.isPlaying()) {
                     this.portaCentralTween.pause();
                 }
@@ -1044,7 +1050,7 @@ export class CenaCidade extends Phaser.Scene {
                     0, 0.8
                 );
                 this.portaCentralGlow.setAlpha(alphaCentral);
-                
+
             } else {
                 // Se está longe, SOLTA a animação para ele voltar a piscar
                 if (this.portaCentralTween && this.portaCentralTween.isPaused()) {
@@ -1052,17 +1058,17 @@ export class CenaCidade extends Phaser.Scene {
                 }
             }
         }
-        
-        if (this.portaCentral) {
-            this.portaCentral.update();
-        }
-    
 
         if (this.portaCentral) {
             this.portaCentral.update();
         }
-        
-        
+
+
+        if (this.portaCentral) {
+            this.portaCentral.update();
+        }
+
+
 
         if (this.portasPorNomeLoja) {
             Object.values(this.portasPorNomeLoja).forEach(porta => {
@@ -1235,6 +1241,14 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs.setVisible(false);
     }
 
+    // Recalcula as listas de lojas conquistadas e não conquistadas com base
+    // no estado persistido dos NPCs (fonte de verdade do progresso).
+    atualizarListasLojas() {
+        const { lojasConquistadas, lojasNaoConquistadas } = obterListasLojasPorConquista();
+        this.lojasConquistadas = lojasConquistadas;
+        this.lojasNaoConquistadas = lojasNaoConquistadas;
+    }
+    
     // Método para percorre todos os portraits do painel e atualiza a textura de cada um conforme o estado atual do NPC. Assim, qualquer mudança de progresso é refletida visualmente imediatamente.
     atualizarPainelNpcs() {
         if (!this.painelNpcs) return;

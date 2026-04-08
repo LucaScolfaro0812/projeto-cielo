@@ -1040,6 +1040,10 @@ export class CenaCidade extends Phaser.Scene {
         let menorDistancia = this.distanciaEntreObjetos(objeto, this.lojas[0]);
 
         for (let i = 1; i < this.lojas.length; i++) {
+            if(this.lojasConquistadas.includes(this.lojasConfigs[i].nomeLoja)){
+                continue;
+            }
+
             const distancia = this.distanciaEntreObjetos(objeto, this.lojas[i]);
             if (distancia < menorDistancia) {
                 lojaMaisProxima = this.lojas[i];
@@ -1068,6 +1072,8 @@ export class CenaCidade extends Phaser.Scene {
      *   - Processa a animação cinemática dos balões decorativos (MU no X, MUV no Y).
      */
     update() {
+        console.log(this.lojasConquistadas + '\n' + this.lojasNaoConquistadas);
+
         const painelNpcsAberto = Boolean(this.painelNpcs?.visible);
 
         this.seta.definirAlvo(this.pegarLojaMaisProxima(this.player));

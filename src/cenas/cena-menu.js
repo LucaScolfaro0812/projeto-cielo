@@ -2,7 +2,7 @@
 // imagem de título, loja decorativa e botões de navegação
 
 import { transicionarPara, revelarCena } from '../utilitarios/transicao-cena.js';
-import { ativarTutorialInicial } from '../utilitarios/estado-jogo.js';
+import { ativarTutorialInicial, ativarDialogoInicialCentral } from '../utilitarios/estado-jogo.js';
 import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
 
 export class CenaMenu extends Phaser.Scene {
@@ -94,7 +94,8 @@ export class CenaMenu extends Phaser.Scene {
             if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
             resetarSessaoJogo();
             ativarTutorialInicial();
-            transicionarPara(this, 'centralScene', { mostrarDialogoInicial: true }, 'Iniciando jogo...');
+            ativarDialogoInicialCentral();
+            transicionarPara(this, 'centralScene', {}, 'Iniciando jogo...');
         });
 
         this.tweens.add({

@@ -40,6 +40,9 @@ export class CenaCentral extends Phaser.Scene {
             'É sempre importante andar com a maquininha para garantir a instalação imediata e a ativação do cliente',
             'Então aproveite a jornada, explore a cidade e, sempre que precisar, volte para a Central para recarregar suas maquininhas e seguir em frente.'
         ];
+        this.falasPosRecarga = [
+            'Sempre importante você andar com máquinas para garantir o instala direto. E garantir a ativação do cliente, pode sair pela porta. Bom atendimento.'
+        ];
         this.estadoDialogo = null;
     }
     
@@ -593,6 +596,10 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     _coletarMaquininhas() {
+        if (this.dialogoAberto) {
+            return;
+        }
+
         Maquininhas.definirMaquininhas(3);
         this.hudMaquininhas.atualizar();
         this._mostrarBannerRecarga();
@@ -627,33 +634,155 @@ export class CenaCentral extends Phaser.Scene {
             targets: [fundo, texto],
             alpha: 1,
             y: repousoY,
-            duration: 300,
+            duration: 220,
             ease: 'Back.easeOut',
             onComplete: () => {
-                // 2. Flutuação contínua enquanto visível
+                // 2. Flutuação curta para feedback rápido
                 this.tweens.add({
                     targets: [fundo, texto],
-                    y: repousoY - 10,
-                    duration: 700,
+                    y: repousoY - 8,
+                    duration: 240,
                     yoyo: true,
-                    repeat: 2,
+                    repeat: 0,
                     ease: 'Sine.easeInOut',
                     onComplete: () => {
                         // 3. Saída: sobe e some em fade-out
                         this.tweens.add({
                             targets: [fundo, texto],
                             alpha: 0,
-                            y: repousoY - 30,
-                            duration: 500,
+                            y: repousoY - 24,
+                            duration: 260,
                             ease: 'Sine.easeIn',
                             onComplete: () => {
                                 fundo.destroy();
                                 texto.destroy();
+                                this._mostrarBalaoFalaRecarga();
                             }
                         });
                     }
                 });
             }
+        });
+    }
+
+    _mostrarBalaoFalaRecarga() {
+        if (this.dialogoAberto) {
+            return;
+        }
+
+        this.dialogoAberto = true;
+        this.physics.pause();
+        this.balaoRecarga?.setVisible(false);
+
+        const larguraBalao = 820;
+        const alturaBalao = 236;
+        const posicaoX = this.npc.x;
+        const posicaoY = this.npc.y - 185;
+
+        const balao = this.add.container(posicaoX, posicaoY)
+            .setDepth(10002)
+            .setAlpha(0);
+
+        // Cria uma sombra discreta para destacar o balão sobre o cenário.
+        const sombra = this.add.graphics();
+        sombra.fillStyle(0x001a2c, 0.38);
+        sombra.fillRoundedRect(-larguraBalao / 2 + 8, -alturaBalao / 2 + 8, larguraBalao, alturaBalao, 26);
+
+        const fundo = this.add.graphics();
+        fundo.fillStyle(0x0a4f86, 0.98);
+        fundo.lineStyle(4, 0xd9f4ff, 1);
+        fundo.fillRoundedRect(-larguraBalao / 2, -alturaBalao / 2, larguraBalao, alturaBalao, 24);
+        fundo.strokeRoundedRect(-larguraBalao / 2, -alturaBalao / 2, larguraBalao, alturaBalao, 24);
+
+        const faixaInterna = this.add.graphics();
+        faixaInterna.fillStyle(0x0e5f9f, 0.82);
+        faixaInterna.fillRoundedRect(-larguraBalao / 2 + 22, -alturaBalao / 2 + 22, larguraBalao - 44, alturaBalao - 106, 16);
+
+        const ponteiro = this.add.graphics();
+        ponteiro.fillStyle(0x0a4f86, 0.98);
+        ponteiro.lineStyle(4, 0xd9f4ff, 1);
+        ponteiro.beginPath();
+        ponteiro.moveTo(-20, alturaBalao / 2 - 4);
+        ponteiro.lineTo(0, alturaBalao / 2 + 26);
+        ponteiro.lineTo(20, alturaBalao / 2 - 4);
+        ponteiro.closePath();
+        ponteiro.fillPath();
+        ponteiro.strokePath();
+
+        const texto = this.add.text(0, -34, '', {
+                fontFamily: 'Verdana, Arial, sans-serif',
+                fontSize: '24px',
+                color: '#ffffff',
+                fontStyle: 'bold',
+                align: 'center',
+            lineSpacing: 12,
+            wordWrap: { width: larguraBalao - 150 }
+            })
+            .setOrigin(0.5)
+            .setStroke('#063554', 5);
+
+        const dica = this.add.text(0, 84, 'Pressione ESPAÇO para continuar.', {
+            fontFamily: 'Verdana, Arial, sans-serif',
+            fontSize: '28px',
+            color: '#dff6ff',
+            fontStyle: 'bold'
+        })
+            .setOrigin(0.5)
+            .setStroke('#063554', 3);
+
+        balao.add([sombra, fundo, faixaInterna, ponteiro, texto, dica]);
+
+        let indiceFala = 0;
+        const atualizarFala = () => {
+            texto.setText(this.falasPosRecarga[indiceFala] ?? '');
+        };
+
+        const fecharBalao = () => {
+            this.input.keyboard.off('keydown-SPACE', avancarFala);
+
+            this.tweens.add({
+                targets: balao,
+                alpha: 0,
+                y: posicaoY - 24,
+                duration: 320,
+                ease: 'Sine.easeIn',
+                onComplete: () => {
+                    balao.destroy();
+                    this.dialogoAberto = false;
+                    this.physics.resume();
+                    this.balaoRecarga?.setVisible(true);
+                }
+            });
+        };
+
+        const avancarFala = () => {
+            indiceFala += 1;
+
+            if (indiceFala >= this.falasPosRecarga.length) {
+                fecharBalao();
+                return;
+            }
+
+            atualizarFala();
+        };
+
+        this.input.keyboard.on('keydown-SPACE', avancarFala);
+        this.events.once('shutdown', () => {
+            this.input.keyboard.off('keydown-SPACE', avancarFala);
+        });
+        this.events.once('destroy', () => {
+            this.input.keyboard.off('keydown-SPACE', avancarFala);
+        });
+
+        atualizarFala();
+
+        // Entrada suave do balão para dar continuidade ao feedback da recarga.
+        this.tweens.add({
+            targets: balao,
+            alpha: 1,
+            y: posicaoY - 12,
+            duration: 280,
+            ease: 'Back.easeOut'
         });
     }
 }

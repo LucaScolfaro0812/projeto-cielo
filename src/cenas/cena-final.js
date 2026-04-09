@@ -52,9 +52,9 @@ export default class CenaFinal extends Phaser.Scene {
         adicionar(w * 0.5, 380, 'cieloBalcao', 0.5);
         adicionar(w * 0.5, 290, 'cieloNPC', 0.35);
         adicionar(w * 0.40, 340, 'trofeu', 0.2);
-        adicionar(w * 0.27, 370, 'marcielo', 0.5);
+        adicionar(w * 0.27, 370, 'marcielo', 0.7);
 
-        
+
         const npcY = h * 0.9;
         const npcScale = 0.5;
         const npcs = [

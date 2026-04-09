@@ -937,6 +937,8 @@ export class CenaCidade extends Phaser.Scene {
                 this.sound.play('portaAbrindo');
             }
 
+            this.registry.set('spawnCentral', 'porta');
+
             this.portaCentral.trocarDeCena();
 
             if (this.somCidade && this.somCidade.isPlaying) {

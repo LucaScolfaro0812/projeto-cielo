@@ -279,7 +279,6 @@ export class CenaCidade extends Phaser.Scene {
         this.load.image('seta', 'assets/imagens/seta.png');
         this.load.image('alerta', 'assets/imagens/alerta.png');
 
-
         // Preload do fundo visual dos NPCs no popup
         this.load.image('circulo-npc', 'assets/sprites/npcs/circulo-npc.png');
         // Imagens estáticas
@@ -323,8 +322,6 @@ export class CenaCidade extends Phaser.Scene {
         Npc.preload(this);
         LojaFisica.preload(this);
         Carro.preload(this);
-
-
     }
 
     // Método executado quando a cena é criada
@@ -340,9 +337,7 @@ export class CenaCidade extends Phaser.Scene {
 
         this.somCidade = this.sound.add('somCidade', { loop: true, volume: 0.3 });
         this.somCidade.play();
-        // Adiciona o background da rua na posição (0,0)
-        // setOrigin(0) posiciona a imagem pelo canto superior esquerdo
-        // setScale(6) amplia a imagem
+
         this.fundo =
             this.add.image(0, 0, 'rua')
                 .setOrigin(0.5, 0.5)
@@ -401,7 +396,6 @@ export class CenaCidade extends Phaser.Scene {
             this._abrirMapa();
         });
 
-
         // HUD de progresso dos NPCs - design moderno e acessível
         // Remove qualquer HUD antigo antes de criar o novo
         if (this.hudNpcUI) {
@@ -432,9 +426,6 @@ export class CenaCidade extends Phaser.Scene {
 
         const totalNpcs = npcs.length;
         const conquistados = npcs.filter(npc => npc.estado === "conquistado").length;
-
-        // Importa o novo componente visual
-        // (import já está no topo do arquivo)
 
         this.hudNpcUI = new InterfaceProgressoNpc(
             this,
@@ -493,12 +484,10 @@ export class CenaCidade extends Phaser.Scene {
 
     /**
      * Cria partículas ambientes (folhas) espalhadas pelo mapa da cidade.
-     * As partículas ficam ocultas no minimap.
      */
     _iniciarParticulasAmbiente() {
         this.particulasAmbiente = [];
 
-        // Cria textura de folha pequena
         if (!this.textures.exists('folha-particula')) {
             const g = this.make.graphics({ x: 0, y: 0, add: false });
             g.fillStyle(0x5a9e44, 1);
@@ -507,7 +496,6 @@ export class CenaCidade extends Phaser.Scene {
             g.destroy();
         }
 
-        // Cria folhas periódicamente na borda esquerda da câmera e sopra para a direita
         this._eventoVento = this.time.addEvent({
             delay: 210,
             loop: true,
@@ -543,17 +531,10 @@ export class CenaCidade extends Phaser.Scene {
     }
 
     /**
-     * Pausa a cena e abre o overlay do mapa completo (`mapaScene`),
-     * passando a posição atual do jogador e as dimensões do mundo para
-     * que o marcador seja posicionado corretamente sobre a imagem.
-     */
-
-    /**
      * Chamado quando o jogador morre.
      * Cria um div HTML por cima do canvas com blur + escurecimento,
-     * exibe o texto "Você perdeu suas maquininhas" e reinicia a cena após 2.5s.
+     * exibe os textos de morte e reinicia a cena após 4s.
      */
-    // Em cena-cidade.js — substitua onPlayerDeath() por este:
     onPlayerDeath(tinhaMaquininhas = false) {
         if (this._deathDiv) return;
 
@@ -566,37 +547,54 @@ export class CenaCidade extends Phaser.Scene {
 
         const div = document.createElement('div');
         div.style.cssText = `
-        position: absolute;
-        top: ${canvas.offsetTop}px;
-        left: ${canvas.offsetLeft}px;
-        width: ${canvas.offsetWidth}px;
-        height: ${canvas.offsetHeight}px;
-        background: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(0px);
-        pointer-events: none;
-        z-index: 999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.8s ease, backdrop-filter 0.8s ease;
-    `;
+            position: absolute;
+            top: ${canvas.offsetTop}px;
+            left: ${canvas.offsetLeft}px;
+            width: ${canvas.offsetWidth}px;
+            height: ${canvas.offsetHeight}px;
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+            pointer-events: none;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.8s ease, backdrop-filter 0.8s ease;
+        `;
 
-        // Só cria o texto se o jogador tinha maquininhas ao morrer
+        // Só cria os textos se o jogador tinha maquininhas ao morrer
         if (tinhaMaquininhas) {
             const texto = document.createElement('div');
-            texto.innerText = 'Você perdeu suas maquininhas!';
+            texto.innerText = 'Você foi atropelado, tome mais cuidado!';
             texto.style.cssText = `
-            color: #ffffff;
-            font-size: 28px;
-            font-family: Arial Black, Arial, sans-serif;
-            font-weight: 900;
-            text-align: center;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0px 4px rgba(0,0,0,1);
-            opacity: 0;
-            transition: opacity 0.5s ease 0.4s;
-            padding: 0 32px;
-        `;
+                color: #ffffff;
+                font-size: 28px;
+                font-family: Arial Black, Arial, sans-serif;
+                font-weight: 900;
+                text-align: center;
+                text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0px 4px rgba(0,0,0,1);
+                opacity: 0;
+                transition: opacity 0.5s ease 0.4s;
+                padding: 0 32px;
+            `;
+
+            const subtexto = document.createElement('div');
+            subtexto.innerText = 'Recupere suas maquininhas na Central Cielo';
+            subtexto.style.cssText = `
+                color: #a8d8ff;
+                font-size: 18px;
+                font-family: Arial, sans-serif;
+                font-weight: 400;
+                text-align: center;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+                opacity: 0;
+                transition: opacity 0.5s ease 0.7s;
+                padding: 8px 32px 0;
+            `;
+
             div.appendChild(texto);
+            div.appendChild(subtexto);
         }
 
         pai.appendChild(div);
@@ -605,11 +603,11 @@ export class CenaCidade extends Phaser.Scene {
         requestAnimationFrame(() => {
             div.style.background = 'rgba(0, 0, 0, 0.55)';
             div.style.backdropFilter = 'blur(6px)';
-            const texto = div.querySelector('div');
-            if (texto) texto.style.opacity = '1';
+            const textos = div.querySelectorAll('div');
+            textos.forEach(t => t.style.opacity = '1');
         });
 
-        this.time.delayedCall(2500, () => {
+        this.time.delayedCall(4000, () => {
             this.onPlayerRespawn();
         });
     }
@@ -621,13 +619,13 @@ export class CenaCidade extends Phaser.Scene {
         if (!this._deathDiv) return;
 
         const div = this._deathDiv;
-        const texto = div.querySelector('div');
+        const textos = div.querySelectorAll('div');
 
-        // Fade out do texto primeiro
-        if (texto) {
-            texto.style.transition = 'opacity 0.4s ease';
-            texto.style.opacity = '0';
-        }
+        // Fade out de todos os textos
+        textos.forEach(t => {
+            t.style.transition = 'opacity 0.4s ease';
+            t.style.opacity = '0';
+        });
 
         // Fade out do blur e escurecimento
         div.style.transition = 'background 0.6s ease, backdrop-filter 0.6s ease';
@@ -678,7 +676,6 @@ export class CenaCidade extends Phaser.Scene {
             modoOverlay: true
         });
         this.scene.bringToTop('tutorialScene');
-
     }
 
     _setHudCidadeVisivel(visivel) {
@@ -702,13 +699,6 @@ export class CenaCidade extends Phaser.Scene {
         if (this.minimapBorda) this.minimapBorda.visible = visivel;
     }
 
-    /**
-     * Cria e configura:
-     * - Jogador
-     * - NPC
-     * - Sistema de Quiz
-     * - Colisão entre Jogador e NPC
-     */
     _criarColisoresAmbiente() {
         this.colisoresAmbiente = this.physics.add.staticGroup();
 
@@ -828,7 +818,7 @@ export class CenaCidade extends Phaser.Scene {
         this.quiz = new Quiz(this);
 
         // Cria o jogador em uma posição específica do mapa
-        const idSpawnCidade = consumirSpawnCidade(); // Lê qual foi o último spawn salvo para a cidade e já limpa esse estado para não reutilizar indevidamente.
+        const idSpawnCidade = consumirSpawnCidade();
         this.nomeLojaRetornoBloqueada = idSpawnCidade;
 
         // Converte o nome da loja em coordenadas reais x e y.
@@ -867,30 +857,12 @@ export class CenaCidade extends Phaser.Scene {
                 this.player.morreu();
             });
         }
-        // Conecta collider com o player
+
         if (this.corpoColisaoBancada) {
             this.physics.add.collider(this.player, this.corpoColisaoBancada);
         }
     }
 
-    /**
-     * Instancia todas as lojas físicas, o prédio da Central e suas respectivas portas.
-     *
-     * Posicionamento das lojas:
-     *   - As 12 lojas são distribuídas em 2 fileiras de 6, com espaçamento fixo.
-     *   - Fórmula X: 1500 + (índice_na_fileira × 1675) + (par_de_lojas × 500)
-     *   - Fórmula Y: 3500 + (fileira × 2250)
-     *   - Cada loja pode ter offsets individuais (`offsetFisicaX`, `offsetFisicaY`)
-     *     definidos em `lojasConfigs` para ajuste fino de posição.
-     *
-     * Para cada loja, cria também:
-     *   - Overlap com o jogador para disparar a troca de cena.
-     *   - Bloqueio de reentrada imediata (`nomeLojaRetornoBloqueada`).
-     *   - Decoração de balões animados se a loja já foi conquistada.
-     *
-     * A Central da Cielo é criada em posição fixa (5800, 1020) com paredes
-     * invisíveis laterais e um efeito de brilho pulsante na porta.
-     */
     _criarLojasEPortas() {
         // Cria todas as lojas da lista de lojas
         for (let i = 0; i < this.lojasConfigs.length; i++) {
@@ -907,51 +879,42 @@ export class CenaCidade extends Phaser.Scene {
 
         const centralX = 5800;
         const centralY = 1020;
-        // 2. Desenha o prédio na tela usando a imagem que carregamos no preload
+
         this.predioCentral = this.add.image(centralX, centralY, 'predioCentral');
-        this.predioCentral.setDepth(1); // Garante que fique na frente do chão
+        this.predioCentral.setDepth(1);
         this.predioCentral.setScale(1.5);
-        // Cria um grupo físico estático para guardar nossas paredes invisíveis
+
         this.paredesCentral = this.physics.add.staticGroup();
 
-        // Ajuda nos cálculos das coordenadas (Dimensões scaled da imagem)
         const totalW = this.predioCentral.displayWidth;
         const totalH = this.predioCentral.displayHeight;
 
-        // 3 retângulos invisíveis (Top, Left, Right) delimitam o prédio da Central,
-        // deixando o centro-baixo livre para o jogador entrar pela porta.
         const espessuraParede = 30;
 
-        // 1. Parede Superior (Teto): Cobre toda a largura em cima
         const topRect = this.add.rectangle(centralX, (centralY - totalH / 1.5) + espessuraParede / 2, totalW, espessuraParede);
         this.paredesCentral.add(topRect);
 
-        // 2. Parede Esquerda (Canto Esquerdo): Cobre 80% da altura lateral, deixando 20% livre embaixo para a porta
         const lateralH = totalH * 0.8;
         const lateralW = totalW * 0.4;
 
         const leftRect = this.add.rectangle((centralX - totalW / 2) + lateralW / 2, (centralY - totalH / 1.5) + lateralH / 2, lateralW, lateralH);
         this.paredesCentral.add(leftRect);
 
-        // 3. Parede Direita (Canto Direito)
         const rightRect = this.add.rectangle((centralX + totalW / 2) - lateralW / 2, (centralY - totalH / 1.5) + lateralH / 2, lateralW, lateralH);
         this.paredesCentral.add(rightRect);
 
-        // Oculta os retângulos para não aparecerem no jogo (A física continua ativa)
         topRect.setVisible(false);
         leftRect.setVisible(false);
         rightRect.setVisible(false);
 
-        // Liga a colisão real entre o Marcielo e as "PAREDES" (Não a imagem do prédio)
         this.physics.add.collider(this.player, this.paredesCentral);
-        // 3. Cria a porta invisível bem na base do prédio
-        // Se a porta ficar muito no alto, aumente esse valor (ex: +200, +250)
+
         const portaY = centralY + 180;
         const portaX = centralX;
 
-        const brilhoOffsetX = -5; // Valores positivos movem para direita, negativos para esquerda
-        const brilhoOffsetY = -95; // Valores positivos movem para baixo, negativos para cima
-        // Adicionamos o offset na posição X e Y do sprite
+        const brilhoOffsetX = -5;
+        const brilhoOffsetY = -95;
+
         this.portaCentralGlow = this.add.sprite(
             portaX + brilhoOffsetX,
             portaY + brilhoOffsetY,
@@ -959,14 +922,9 @@ export class CenaCidade extends Phaser.Scene {
             0
         );
 
-        // Aquele tom de luz marrom/quente
         this.portaCentralGlow.setTintFill(0xCD853F);
         this.portaCentralGlow.setScale(2.8);
-
-        // Tem que ser menor que a profundidade da porta (você colocou a porta no 13, 
-        // então o brilho fica no 12 para ficar atrás dela)
         this.portaCentralGlow.setDepth(150);
-
         this.portaCentralGlow.setBlendMode(Phaser.BlendModes.ADD);
         this.portaCentralGlow.setAlpha(0.8);
 
@@ -1052,15 +1010,12 @@ export class CenaCidade extends Phaser.Scene {
                 return;
             }
 
-            // Evita reentrada imediata na mesma loja de onde o jogador acabou de sair.
             if (config.nomeLoja === this.nomeLojaRetornoBloqueada) {
                 return;
             }
 
-            // Salva o nome da loja atual, por exemplo Cafe, Pet, Joalheria.
             definirProximoSpawnCidade(config.nomeLoja);
 
-            // Só depois de salvar o contexto, troca para a cena interna da loja.
             portaEntrada.trocarDeCena();
 
             if (this.somCidade && this.somCidade.isPlaying) {
@@ -1068,7 +1023,6 @@ export class CenaCidade extends Phaser.Scene {
             }
         });
 
-        // retornando a loja criada
         return l;
     }
 
@@ -1102,114 +1056,63 @@ export class CenaCidade extends Phaser.Scene {
             spriteBaloes.setScale(escalaBaloes);
             spriteBaloes.setDepth((loja.depth ?? 0) + 1);
 
-            // posição final do balão (onde ele deve chegar)
             const xFinal = spriteBaloes.x;
             const yFinal = spriteBaloes.y;
 
-            // duração da animação: cada balão demora um pouco mais que o anterior para não subirem sincronizados
             const duracao = 2 + i * 0.3;
 
-            // chama animarElemento:
-            // xInicial = 150px à esquerda da posição final (MU bem visível no eixo X)
-            // yInicial = 300px abaixo da posição final (MUV visível no eixo Y)
             this.animarElemento(xFinal - 150, yFinal + 300, xFinal, yFinal, duracao, spriteBaloes);
 
             this.decoracoesBaloes.push(spriteBaloes);
         }
     }
 
-    /**
-     * Anima um elemento gráfico do ponto A ao ponto B usando cinemática bidimensional.
-     * Eixo X: Movimento Uniforme (MU) — velocidade constante
-     * Eixo Y: Movimento Uniformemente Variado (MUV) — parte do repouso e acelera
-     *
-     * @param {number} xInicial - posição X inicial do elemento
-     * @param {number} yInicial - posição Y inicial do elemento
-     * @param {number} xFinal   - posição X final do elemento
-     * @param {number} yFinal   - posição Y final do elemento
-     * @param {number} duracao  - duração total da animação em segundos
-     * @param {object} elemento - sprite ou imagem do Phaser a ser animado
-     */
     animarElemento(xInicial, yInicial, xFinal, yFinal, duracao, elemento) {
-
-        // MU no eixo X: velocidade constante para percorrer (xFinal - xInicial) em T segundos
-        // fórmula: vx = (xf - xi) / T
         const vx = (xFinal - xInicial) / duracao;
-
-        // MUV no eixo Y: aceleração necessária para partir do repouso e chegar a yFinal em T segundos
-        // fórmula: ay = 2 * (yf - yi) / T²
         const ay = 2 * (yFinal - yInicial) / (duracao * duracao);
 
-        // Posiciona o elemento no ponto inicial antes da animação começar
         elemento.x = xInicial;
         elemento.y = yInicial;
 
-        // Guarda todos os dados da animação no próprio elemento.
-        // O método update() vai ler esses dados a cada frame para calcular a nova posição.
-        // t começa em 0 e avança até duracao.
         elemento._anim = {
-            xInicial, // posição X de partida
-            yInicial, // posição Y de partida
-            vx,       // velocidade constante no eixo X (MU)
-            ay,       // aceleração no eixo Y (MUV)
-            duracao,  // tempo total da animação em segundos
-            t: 0      // tempo acumulado desde o início da animação
+            xInicial,
+            yInicial,
+            vx,
+            ay,
+            duracao,
+            t: 0
         };
     }
 
-    /**
-     * Cria o minimapa no canto superior esquerdo da tela.
-     *
-     * O minimapa usa duas câmeras secundárias do Phaser sobrepostas:
-     *   1. Câmera de borda — levemente maior, exibe apenas uma cor sólida como moldura.
-     *      É apontada para fora do mapa para não mostrar nenhum conteúdo do mundo.
-     *   2. Câmera do minimap — mostra o mapa inteiro em tamanho reduzido, centralizado.
-     *
-     * O zoom é calculado com Math.max para garantir que o mapa preencha o espaço
-     * sem bordas pretas, mesmo que as proporções não sejam iguais.
-     *
-     * O marcador é uma imagem da cabeça do Marcielo posicionada no mundo no local
-     * exato do jogador. Seu tamanho é calculado como 32 / zoom para sempre aparecer
-     * com 32 pixels de tamanho na tela do minimap, independente do tamanho do mapa.
-     * A câmera principal e a de borda ignoram o marcador — só o minimap o exibe.
-     */
     _criarMinimap() {
         const mapW = this.fundo.displayWidth;
         const mapH = this.fundo.displayHeight;
 
-        // Posição e tamanho do minimap na tela (em pixels)
         const x = 16, y = 16, w = 220, h = 130;
 
-        // Zoom que faz o mapa inteiro caber no minimap sem bordas pretas
         const zoom = Math.max(w / mapW, h / mapH);
 
-        // Câmera de borda: 3px maior em cada lado, cor azul sólida.
-        // scrollX/scrollY apontam para fora do mapa — só aparece a cor de fundo.
         this.minimapBorda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
         const borda = this.minimapBorda;
         borda.setBackgroundColor(0x88bbff);
         borda.scrollX = mapW + 10000;
         borda.scrollY = mapH + 10000;
 
-        // Câmera do minimap: renderiza em cima da borda, centralizada no mapa
         this.minimapCam = this.cameras.add(x, y, w, h);
         this.minimapCam.setZoom(zoom);
         this.minimapCam.centerOn(mapW / 2, mapH / 2);
 
-        // Marcador: cabeça do Marcielo no mundo, tamanho = 32px / zoom para ser fixo na tela
         const tamanho = 32 / zoom;
         this.minimapMarcador = this.add.image(this.player.x, this.player.y, 'marcielocabeca')
             .setDisplaySize(tamanho, tamanho)
             .setDepth(9999);
 
-        // Oculta o marcador da câmera principal e da borda — só o minimap o vê
         this.cameras.main.ignore(this.minimapMarcador);
         borda.ignore(this.minimapMarcador);
-
     }
 
     pegarLojaMaisProxima(objeto) {
-        if (!this.lojas || this.lojas.length === 0) return null; // No stores available
+        if (!this.lojas || this.lojas.length === 0) return null;
 
         let lojaMaisProxima = null;
         let menorDistancia = Number.POSITIVE_INFINITY;
@@ -1226,7 +1129,6 @@ export class CenaCidade extends Phaser.Scene {
             }
         }
 
-        // Se todas as lojas já foram conquistadas, não há alvo de loja para guiar.
         return lojaMaisProxima;
     }
 
@@ -1249,17 +1151,6 @@ export class CenaCidade extends Phaser.Scene {
         return this.pegarLojaMaisProxima(this.player);
     }
 
-    /**
-     * Loop principal da cena — executado a cada frame.
-     *
-     * Responsabilidades:
-     *   - Atualiza o jogador, a seta de indicação e os carros.
-     *   - Controla o brilho das portas das lojas e da Central com base na distância do jogador.
-     *   - Atualiza o marcador de posição no minimapa.
-     *   - Gerencia a flag `entradaLojasLiberada` para evitar reentrada imediata ao retornar de uma loja.
-     *   - Chama `_atualizarBloqueioLojaRetorno()` para liberar a porta da loja de onde o jogador saiu.
-     *   - Processa a animação cinemática dos balões decorativos (MU no X, MUV no Y).
-     */
     update() {
         console.log(this.lojasConquistadas + '\n' + this.lojasNaoConquistadas);
 
@@ -1286,18 +1177,15 @@ export class CenaCidade extends Phaser.Scene {
             const raioMinLoja = 390;
 
             if (distanciaLoja >= raioMaxLoja) {
-                // Longe: não toca no alpha, o tween pulsa livremente
                 return;
             }
 
-            // Perto ou na zona de transição: sobrescreve o alpha do tween
             const alpha = Phaser.Math.Clamp(
                 (distanciaLoja - raioMinLoja) / (raioMaxLoja - raioMinLoja) * 0.25,
                 0, 0.25
             );
             porta.brilho.setAlpha(alpha);
         });
-
 
         // --- 2. LÓGICA DA PORTA DA CENTRAL CIELO ---
         if (this.portaCentralGlow) {
@@ -1315,7 +1203,6 @@ export class CenaCidade extends Phaser.Scene {
                     this.portaCentralTween.pause();
                 }
 
-                // E faz o fade out suave baseado na distância
                 const alphaCentral = Phaser.Math.Clamp(
                     (distanciaCentral - raioMinCentral) / (raioMaxCentral - raioMinCentral) * 0.8,
                     0, 0.8
@@ -1323,7 +1210,6 @@ export class CenaCidade extends Phaser.Scene {
                 this.portaCentralGlow.setAlpha(alphaCentral);
 
             } else {
-                // Se está longe, SOLTA a animação para ele voltar a piscar
                 if (this.portaCentralTween && this.portaCentralTween.isPaused()) {
                     this.portaCentralTween.resume();
                 }
@@ -1370,30 +1256,21 @@ export class CenaCidade extends Phaser.Scene {
 
         this._atualizarBloqueioLojaRetorno();
 
-
-        // animação dos balões (MU no X e MUV no Y): atualiza a posição de cada balão que ainda está em animação
-        // converte o tempo do frame de milissegundos para segundos
+        // animação dos balões (MU no X e MUV no Y)
         const dt = this.game.loop.delta / 1000;
 
         for (let balao of this.decoracoesBaloes) {
-            // pula balões que já terminaram a animação (_anim é null após o fim)
             if (!balao._anim) continue;
 
             const a = balao._anim;
 
-            // avança o tempo, limitando ao máximo para não ultrapassar a duração
             a.t = Math.min(a.t + dt, a.duracao);
 
-            // MU no eixo X: x(t) = xi + vx * t  (velocidade constante)
             balao.x = a.xInicial + a.vx * a.t;
-
-            // Posição Y pelo MUV: y(t) = yi + ½ * ay * t²
             balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;
 
-            // Velocidade instantânea no eixo Y: vy(t) = ay * t
             const vy = a.ay * a.t;
 
-            // Log cinemático: imprime t, posição e velocidades a cada 0,5s aproximadamente
             if (Math.abs(a.t % 0.5) < dt) {
                 console.log(
                     `[balão] t=${a.t.toFixed(2)}s | ` +
@@ -1428,7 +1305,6 @@ export class CenaCidade extends Phaser.Scene {
             portaRetorno.y
         );
 
-        // Libera a loja de retorno quando o jogador se afasta da porta.
         if (distanciaAtePorta > 260) {
             this.nomeLojaRetornoBloqueada = null;
         }
@@ -1453,13 +1329,11 @@ export class CenaCidade extends Phaser.Scene {
     }
 
     criarPainelNpcs() {
-        // Centralizar painel na tela (vertical e horizontal)
         const larguraTela = this.cameras.main.width;
         const alturaTela = this.cameras.main.height;
         const profundidadePainelNpcs = 10000;
         this.painelNpcs = this.add.container(larguraTela / 2, alturaTela / 2).setScrollFactor(0).setDepth(profundidadePainelNpcs);
 
-        // Fundo escuro semitransparente (menor para garantir visibilidade)
         const larguraPainel = 1600;
         const alturaPainel = 1200;
         const fundo = this.add.rectangle(0, 0, larguraPainel, alturaPainel, 0x000820, 0.92)
@@ -1468,8 +1342,6 @@ export class CenaCidade extends Phaser.Scene {
             .setScrollFactor(0);
         this.painelNpcs.add(fundo);
 
-
-        // Grid de NPCs com visual aprimorado
         const npcs = obterListaNpcs();
         const colunas = 4;
         const linhas = 3;
@@ -1484,26 +1356,22 @@ export class CenaCidade extends Phaser.Scene {
             const x = offsetX + coluna * espacamentoX;
             const y = offsetY + linha * espacamentoY;
 
-            // Fundo visual: sprite "circulo-npc.png"
             const fundo = this.add.image(x, y, 'circulo-npc')
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
 
-            // Tint por estado
             if (npc.estado === 'interagido') fundo.setTint(0xff3333);
             else if (npc.estado === 'conquistado') fundo.setTint(0x3388ff);
             else fundo.setTint(0xffffff);
 
             this.painelNpcs.add(fundo);
 
-            // Portrait do NPC centralizado
             const portraitKey = `${npc.id}-${npc.estado}`;
             const portrait = this.add.image(x, y, portraitKey)
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
             this.painelNpcs.add(portrait);
 
-            // Número da loja no canto inferior direito do portrait
             const badgeR = 38;
             const badgeX = x + 110;
             const badgeY = y + 110;
@@ -1521,7 +1389,6 @@ export class CenaCidade extends Phaser.Scene {
             this.painelNpcs.add([badgeCirculo, badgeBorda, badgeTexto]);
         });
 
-        // ── Legenda lateral direita do painel ───────────────────────────────
         const CORES_LEG = [
             0x22aa55, 0x9944cc, 0xff6633, 0xcc2222,
             0x22aaaa, 0xcc9922, 0x44aa22, 0xff4422,
@@ -1535,7 +1402,7 @@ export class CenaCidade extends Phaser.Scene {
         const legW = 280;
         const legItemH = alturaPainel / (NOMES_LEG.length + 1);
         const raioLeg = 18;
-        const legX = larguraPainel / 2 + 20; // imediatamente à direita do painel
+        const legX = larguraPainel / 2 + 20;
         const legTopY = -alturaPainel / 2;
 
         const legFundo = this.add.rectangle(legX + legW / 2, 0, legW, alturaPainel, 0x071a2d, 0.95)
@@ -1569,15 +1436,12 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs.setVisible(false);
     }
 
-    // Recalcula as listas de lojas conquistadas e não conquistadas com base
-    // no estado persistido dos NPCs (fonte de verdade do progresso).
     atualizarListasLojas() {
         const { lojasConquistadas, lojasNaoConquistadas } = obterListasLojasPorConquista();
         this.lojasConquistadas = lojasConquistadas;
         this.lojasNaoConquistadas = lojasNaoConquistadas;
     }
 
-    // Método para percorre todos os portraits do painel e atualiza a textura de cada um conforme o estado atual do NPC. Assim, qualquer mudança de progresso é refletida visualmente imediatamente.
     atualizarPainelNpcs() {
         if (!this.painelNpcs) return;
         const npcs = obterListaNpcs();

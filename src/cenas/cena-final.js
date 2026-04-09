@@ -101,16 +101,19 @@ export default class CenaFinal extends Phaser.Scene {
 
         this.textoBalao = this.add.text(bx, by - 65,'', {
             fontSize: '26px',
+            fontFamily: 'Arial Black, Arial, sans-serif',
             color: '#000000',
+            fontStyle: 'bold',
             align: 'center',
             wordWrap: { width: bw - 40 }
         }).setOrigin(0.5, 0);
 
         this.textoEspaco = this.add.text(bx, by + bh / 2 - 22, 'Pressione ESPAÇO para fechar', {
             fontSize: '17px',
-            color: '#555555',
+            fontFamily: 'Arial Black, Arial, sans-serif',
+            color: '#000000',
             align: 'center',
-            fontStyle: 'italic'
+            fontStyle: 'bold',
         }).setOrigin(0.5, 0.5).setAlpha(0);
 
         this.balaoContainer = [balao, this.textoBalao, this.textoEspaco];

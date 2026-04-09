@@ -2,17 +2,9 @@ import { Maquininhas } from './maquininhas.js';
 
 /**
  * HudMaquininhas - Exibe o estoque de maquininhas do jogador na tela.
- *
- * Cria um container fixo (scrollFactor 0) com uma maquininha e um contador textual.
- * O contador usa o formato "3x", "2x", "1x" ou "0x".
  */
 export default class HudMaquininhas {
 
-    /**
-     * @param {Phaser.Scene} cena - Cena onde o HUD será criado
-     * @param {number} xTela - Posição X base do HUD na tela (padrão: 160)
-     * @param {number} yTela - Posição Y base do HUD na tela (padrão: 100)
-     */
     constructor(cena, xTela = 160, yTela = 100) {
         this.cena = cena;
         this.xTela = xTela;
@@ -21,33 +13,26 @@ export default class HudMaquininhas {
         this._criarHud();
     }
 
-    /**
-     * Cria os elementos visuais do HUD: uma maquininha e o texto de quantidade.
-     * Os tamanhos são ajustados pelo zoom da câmera para manter proporção visual
-     * independente do nível de zoom da cena.
-     */
     _criarHud() {
         const cam = this.cena.cameras.main;
-        // Divide pelo zoom para que o HUD apareça no tamanho correto em tela
         const zoom = cam.zoom || 1;
         const tamanho = this.slotSize / zoom;
 
         const pad = 10 / zoom;
-        const largura = tamanho + pad * 2;
+        const largura = tamanho + pad * 2 + 20 / zoom;
         const altura = tamanho + pad * 2;
         const tamanhoIcone = tamanho * 2.5;
         const posicaoX = cam.width - largura + 430;
         const posicaoY = 5;
+        const raio = 12 / zoom;
 
-        // Container fixo na tela (não se move com a câmera)
         this.container = this.cena.add.container(posicaoX, posicaoY)
             .setScrollFactor(0)
             .setDepth(9999);
 
-        // Fundo escuro semitransparente com borda branca
-        const fundo = this.cena.add.rectangle(0, 0, largura, altura, 0x102040, 0.88)
-            .setOrigin(0, 0)
-            .setStrokeStyle(2 / zoom, 0xffffff, 0.8);
+        // Fundo com cantos arredondados via Graphics
+        this.graphics = this.cena.add.graphics();
+        this._desenharFundo(largura, altura, raio, 0x10b981); // começa verde
 
         this.icone = this.cena.add.image(
             pad + tamanho / 2,
@@ -69,26 +54,55 @@ export default class HudMaquininhas {
             }
         ).setOrigin(1, 0);
 
-        this.container.add([fundo, this.icone, this.textoQuantidade]);
+        // Guarda dimensões para redesenhar depois
+        this._largura = largura;
+        this._altura = altura;
+        this._raio = raio;
 
-        // Sincroniza visualmente com o estoque atual ao criar
+        this.container.add([this.graphics, this.icone, this.textoQuantidade]);
         this.atualizar();
     }
 
-    /**
-     * Atualiza o contador textual conforme a quantidade atual de maquininhas.
-     * Exemplo: 3x, 2x, 1x ou 0x.
-     */
+    _corPorQuantidade(qnt) {
+        if (qnt >= 2) return { fundo: 0x0d3b26, borda: 0x10b981 }; // verde
+        if (qnt === 1) return { fundo: 0x3b2200, borda: 0xf59e0b }; // laranja
+        return { fundo: 0x3b0000, borda: 0xef4444 };                // vermelho
+    }
+
+    _desenharFundo(largura, altura, raio, corBorda) {
+        const qnt = Maquininhas.qntMaquininhas;
+        const cores = this._corPorQuantidade(qnt);
+        this.graphics.clear();
+        // Sombra
+        this.graphics.fillStyle(0x000000, 0.3);
+        this.graphics.fillRoundedRect(3, 3, largura, altura, raio);
+        // Fundo
+        this.graphics.fillStyle(cores.fundo, 0.95);
+        this.graphics.fillRoundedRect(0, 0, largura, altura, raio);
+        // Borda
+        this.graphics.lineStyle(2, cores.borda, 1);
+        this.graphics.strokeRoundedRect(0, 0, largura, altura, raio);
+    }
+
     atualizar() {
         const qnt = Maquininhas.qntMaquininhas;
         this.textoQuantidade.setText(`${qnt}x`);
-        this.icone.setAlpha(qnt > 0 ? 1 : 0.55);
+        this.icone.setAlpha(qnt > 0 ? 1 : 0.45);
+
+        // Redesenha fundo com cor dinâmica
+        this._desenharFundo(this._largura, this._altura, this._raio);
+
+        // Pulse no ícone
+        this.cena.tweens.add({
+            targets: this.icone,
+            scaleX: this.icone.scaleX * 1.25,
+            scaleY: this.icone.scaleY * 1.25,
+            duration: 100,
+            yoyo: true,
+            ease: 'Sine.easeOut'
+        });
     }
 
-    /**
-     * Remove o container do HUD da cena.
-     * Deve ser chamado ao destruir a cena para evitar vazamento de objetos.
-     */
     destroy() {
         this.container.destroy();
     }

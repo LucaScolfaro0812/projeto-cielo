@@ -477,8 +477,69 @@ export class CenaCidade extends Phaser.Scene {
 
         this.maquininha = new Maquininhas(this);
 
+        this._iniciarParticulasAmbiente();
+
+        // Oculta partículas de folhas do minimap
+        if (this.minimapCam && this.minimapBorda) {
+            this.particulasAmbiente.forEach(e => {
+                this.minimapCam.ignore(e);
+                this.minimapBorda.ignore(e);
+            });
+        }
+
         // Referência ao div de morte (criado apenas quando o jogador morre)
         this._deathDiv = null;
+    }
+
+    /**
+     * Cria partículas ambientes (folhas) espalhadas pelo mapa da cidade.
+     * As partículas ficam ocultas no minimap.
+     */
+    _iniciarParticulasAmbiente() {
+        this.particulasAmbiente = [];
+
+        // Cria textura de folha pequena
+        if (!this.textures.exists('folha-particula')) {
+            const g = this.make.graphics({ x: 0, y: 0, add: false });
+            g.fillStyle(0x5a9e44, 1);
+            g.fillEllipse(4, 7, 8, 14);
+            g.generateTexture('folha-particula', 8, 14);
+            g.destroy();
+        }
+
+        // Cria folhas periódicamente na borda esquerda da câmera e sopra para a direita
+        this._eventoVento = this.time.addEvent({
+            delay: 210,
+            loop: true,
+            callback: () => {
+                const cam = this.cameras.main;
+                const vh = cam.worldView.height;
+
+                const x = cam.worldView.x - 20;
+                const y = cam.worldView.y + Phaser.Math.Between(0, vh);
+
+                const folha = this.add.image(x, y, 'folha-particula');
+                folha.setScale(Phaser.Math.FloatBetween(0.8, 1.4));
+                folha.setAlpha(0.9);
+                folha.setDepth(200);
+
+                const distancia = Phaser.Math.Between(1200, 2500);
+                const duracao = Phaser.Math.Between(6000, 10000);
+
+                this.tweens.add({
+                    targets: folha,
+                    x: x + distancia,
+                    y: y + Phaser.Math.Between(-40, 40),
+                    angle: Phaser.Math.Between(-270, 270),
+                    alpha: 0,
+                    duration: duracao,
+                    ease: 'Linear',
+                    onComplete: () => folha.destroy()
+                });
+
+                this.particulasAmbiente.push(folha);
+            }
+        });
     }
 
     /**
@@ -1308,6 +1369,7 @@ export class CenaCidade extends Phaser.Scene {
         }
 
         this._atualizarBloqueioLojaRetorno();
+
 
         // animação dos balões (MU no X e MUV no Y): atualiza a posição de cada balão que ainda está em animação
         // converte o tempo do frame de milissegundos para segundos

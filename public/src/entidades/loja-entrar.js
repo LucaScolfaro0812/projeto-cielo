@@ -1,5 +1,3 @@
-import { carregarDados } from "../utilitarios/armazenamento.js";
-import { transicionarPara } from "../utilitarios/transicao-cena.js";
 // Classe responsável por representar uma porta/entrada
 // que permite a transição entre cenas
 export default class Entrada extends Phaser.Physics.Arcade.Sprite {

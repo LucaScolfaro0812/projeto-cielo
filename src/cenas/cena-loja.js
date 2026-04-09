@@ -702,19 +702,33 @@ const mostrarIndicador = () => {
         );
     }
 
+    /**
+     * Cria colisores invisíveis que delimitam o interior da loja em forma de "U" invertido:
+     *   - Parede de topo: faixa horizontal cobrindo toda a largura do fundo
+     *   - Quina esquerda: bloco vertical no canto superior esquerdo
+     *   - Quina direita: bloco vertical no canto superior direito
+     *
+     * Isso impede o jogador de atravessar as paredes do cenário sem precisar de tilemap.
+     * Os retângulos são invisíveis — apenas a física é ativa.
+     * Chama destroy() nas paredes antigas antes de recriar para evitar acúmulo ao reiniciar a cena.
+     */
     _criarParedesInternas() {
         this.paredesInternas?.forEach((parede) => parede.destroy());
         this.paredesInternas = [];
 
         const largura = this.fundo.displayWidth;
         const altura = this.fundo.displayHeight;
+        // Altura mínima de 170px ou 24% da tela — para funcionar em resoluções variadas
         const alturaParedeTopo = Math.max(170, altura * 0.24);
         const larguraQuina = Math.max(70, largura * 0.05);
         const alturaQuina = Math.max(120, altura * 0.20);
 
         const paredes = [
+            // Topo: cobertura horizontal completa
             { x: largura / 2, y: alturaParedeTopo / 2, w: largura, h: alturaParedeTopo },
+            // Quina esquerda: bloco logo abaixo do topo, no canto esquerdo
             { x: larguraQuina / 2, y: alturaParedeTopo + alturaQuina / 2, w: larguraQuina, h: alturaQuina },
+            // Quina direita: espelhamento do bloco esquerdo
             { x: largura - larguraQuina / 2, y: alturaParedeTopo + alturaQuina / 2, w: larguraQuina, h: alturaQuina }
         ];
 
@@ -886,26 +900,38 @@ const mostrarIndicador = () => {
             this.portaEntrada.update();
         }
 
+        // Regula o brilho da porta: some ao se aproximar, brilha ao se afastar
         if (this.portaGlow) {
-        const distancia = Phaser.Math.Distance.Between(
-            this.player.x, this.player.y,
-            this.portaGlow.x, this.portaGlow.y
-        );
-
-        const raioMax = 400;
-        const raioMin = 390;
-
-        if (distancia < raioMax) {
-            const alpha = Phaser.Math.Clamp(
-                (distancia - raioMin) / (raioMax - raioMin) * 0.25,
-                0, 0.25
+            const distancia = Phaser.Math.Distance.Between(
+                this.player.x, this.player.y,
+                this.portaGlow.x, this.portaGlow.y
             );
-            this.portaGlow.setAlpha(alpha);
+
+            const raioMax = 400;
+            const raioMin = 390;
+
+            if (distancia < raioMax) {
+                // Alpha cai de 0.25 para 0 conforme o jogador se aproxima da porta
+                const alpha = Phaser.Math.Clamp(
+                    (distancia - raioMin) / (raioMax - raioMin) * 0.25,
+                    0, 0.25
+                );
+                this.portaGlow.setAlpha(alpha);
+            }
         }
     }
-    }
 
-    // Instancia os móveis da loja com base na configuração de ObjetosInterior
+    /**
+     * Instancia os móveis da loja com base na configuração declarada em `ObjetosInterior`.
+     *
+     * Cada entrada em `ObjetosInterior[nomeLoja]` pode definir:
+     *   - x, y, imagem, escala — posicionamento e visual do móvel
+     *   - hitWidth, hitHeight, offsetX, offsetY — hitbox personalizado (opcional)
+     *
+     * Quando hitWidth/hitHeight são fornecidos, o hitbox é posicionado manualmente em vez
+     * de usar o tamanho padrão da imagem. O offset permite alinhar o colisor à parte
+     * visualmente sólida do sprite (ex: ignorar o espaço transparente acima de uma mesa).
+     */
     _criarMobiliario() {
         const lista = ObjetosInterior[this.nomeLoja];
         if (!lista) return;
@@ -918,15 +944,17 @@ const mostrarIndicador = () => {
                 movel.setScale(config.escala);
             }
 
+            // Recalcula o body após alterar escala (necessário para staticGroup)
             movel.refreshBody();
 
-            // Ajusta o hitbox do móvel se a config definir tamanho e offset manualmente
+            // Hitbox personalizado: substitui o tamanho automático da imagem
             if (config.hitWidth && config.hitHeight) {
                 movel.body.setSize(config.hitWidth, config.hitHeight);
 
                 let offX = config.offsetX ?? 0;
                 let offY = config.offsetY ?? 0;
 
+                // Posiciona o body manualmente a partir do centro do sprite + offset
                 movel.body.x = (movel.x - config.hitWidth / 2) + offX;
                 movel.body.y = (movel.y - config.hitHeight / 2) + offY;
             }

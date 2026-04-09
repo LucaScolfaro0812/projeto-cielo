@@ -171,7 +171,7 @@ export default class Quiz {
         this.zoomOriginalCamera = this.cena.cameras.main.zoom;
         this.cena.cameras.main.setZoom(1);
 
-        // 4) Fluxo normal do quiz.
+        // Fluxo normal do quiz.
         this.cena.physics.pause();
         npc.vendeu = true;
 

@@ -46,10 +46,9 @@ export default class Entrada extends Phaser.Physics.Arcade.Sprite {
 
     // Atualizamos o preload para carregar como spritesheet
     static preload(scene) {
-        // !!! SUBSTITUA 100 E 150 PELOS TAMANHOS REAIS DO SEU QUADRO !!!
         scene.load.spritesheet('entrada_animada', 'assets/imagens/entrada.animada.png', {
-            frameWidth: 49, // Largura de UM quadro (MUDE AQUI)
-            frameHeight: 70 // Altura do quadro (MUDE AQUI)
+            frameWidth: 49,
+            frameHeight: 70
         });
     }
 

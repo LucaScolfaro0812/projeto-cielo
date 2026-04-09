@@ -555,11 +555,14 @@ export class CenaCentral extends Phaser.Scene {
     }
 
     update() {
+        // Trava todo o update enquanto um diálogo estiver aberto
         if (this.dialogoAberto) {
             return;
         }
 
         this.player.update();
+
+        // Atualiza a porta de saída e regula o brilho conforme a proximidade do jogador
         if (this.portaEntrada) {
             this.portaEntrada.update();
             if (this.portaGlow) {
@@ -572,6 +575,7 @@ export class CenaCentral extends Phaser.Scene {
                 const raioMin = 390;
 
                 if (distancia < raioMax) {
+                    // Alpha proporcional à proximidade: quase 0 quando longe, 0.25 quando bem perto
                     const alpha = Phaser.Math.Clamp(
                         (distancia - raioMin) / (raioMax - raioMin) * 0.25,
                         0, 0.25
@@ -581,20 +585,27 @@ export class CenaCentral extends Phaser.Scene {
             }
         }
 
+        // Balão de recarga flutua levemente acima do NPC usando seno do tempo acumulado
         this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
         this.balaoRecarga.x = this.npc.x;
         this.balaoRecarga.y = this.npc.y - 92 + deslocamento;
 
+        // Esconde o balão durante diálogos para não conflitar visualmente
         this.balaoRecarga.setVisible(!this.dialogoAberto);
 
+        // Recarrega maquininhas ao pressionar E
         if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
             this._coletarMaquininhas();
         }
 
     }
 
+    /**
+     * Reabastece as maquininhas do jogador para o máximo (3) e exibe feedback visual.
+     * Não faz nada se um diálogo estiver aberto no momento.
+     */
     _coletarMaquininhas() {
         if (this.dialogoAberto) {
             return;

@@ -102,12 +102,17 @@ export class CenaConfiguracoes extends Phaser.Scene {
         this._persistirEAplicar();
     }
 
+    /** Toca o som de clique dos botões, se o áudio estiver carregado. */
     _tocarClique() {
         if (this.cache.audio.exists('somClicando')) {
             this.sound.play('somClicando', { volume: 0.5 });
         }
     }
 
+    /**
+     * Cria uma linha de opção com fundo, título em negrito e descrição auxiliar.
+     * Retorna o objeto `{ x, y, largura, altura }` para servir de âncora aos controles adjacentes.
+     */
     _criarLinhaOpcao(x, y, titulo, descricao) {
         const largura = 740;
         const altura = 72;
@@ -131,6 +136,7 @@ export class CenaConfiguracoes extends Phaser.Scene {
         return { x, y, largura, altura };
     }
 
+    /** Cria o texto de valor atual (ex: "70%", "LIGADO") centralizado à direita do título. */
     _criarValorLinha(linha) {
         return this.add.text(linha.x + 120, linha.y, "", {
             fontFamily: "Poppins",
@@ -140,12 +146,17 @@ export class CenaConfiguracoes extends Phaser.Scene {
         }).setOrigin(0.5);
     }
 
+    /**
+     * Cria a barra de progresso de volume: trilha cinza fixa + preenchimento colorido variável.
+     * Retorna `{ trilha, preenchimento, largura }` para atualização em `_atualizarUI()`.
+     */
     _criarBarraLinha(linha) {
         const trilha = this.add.rectangle(linha.x + 120, linha.y + 24, 120, 10, 0xd6dee8, 1).setOrigin(0.5);
         const preenchimento = this.add.rectangle(linha.x + 60, linha.y + 24, 120, 10, 0x2a9d8f, 1).setOrigin(0, 0.5);
         return { trilha, preenchimento, largura: 120 };
     }
 
+    /** Atalho para criar botões de incremento/decremento ("+" e "-") com largura reduzida. */
     _criarBotaoPequeno(x, y, texto, onClick) {
         return this._criarBotaoAcao(x, y, texto, onClick, 56, "#1d4ed8", "28px");
     }
@@ -185,6 +196,10 @@ export class CenaConfiguracoes extends Phaser.Scene {
         return botao;
     }
 
+    /**
+     * Salva as configurações atuais no localStorage e as aplica imediatamente ao jogo.
+     * Chamado sempre que qualquer opção muda — volume, som ou contraste.
+     */
     _persistirEAplicar() {
         salvarConfiguracoesJogo({
             volume: this.volumeAtual,
@@ -200,6 +215,10 @@ export class CenaConfiguracoes extends Phaser.Scene {
         });
     }
 
+    /**
+     * Atualiza todos os elementos visuais da tela com os valores atuais das configurações.
+     * Troca cor dos botões de Som e Contraste conforme o estado ativo/inativo.
+     */
     _atualizarUI() {
         this.valorVolume.setText(`${Math.round(this.volumeAtual * 100)}%`);
         this.valorSom.setText(this.somAtivo ? "LIGADO" : "DESLIGADO");

@@ -2,7 +2,16 @@
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
 /**
- * Maquininhas - lógica + UI
+ * Maquininhas — gerencia o estoque de maquininhas do jogador.
+ *
+ * A lógica de quantidade é estática (compartilhada entre todas as cenas) e persistida
+ * no localStorage via `armazenamento.js`. A UI (alerta vermelho) é por instância —
+ * cada cena cria sua própria instância de Maquininhas para registrar a UI local.
+ *
+ * Fluxo de alerta:
+ *   - Ao zerar o estoque naturalmente, `precisaMostrarAlerta` é marcado como true.
+ *   - Na próxima cena que instanciar Maquininhas, o alerta é exibido automaticamente.
+ *   - Zeramentos causados por morte (`suprimirAlerta = true`) não disparam o alerta.
  */
 export class Maquininhas {
 
@@ -10,10 +19,10 @@ export class Maquininhas {
         this.scene = scene;
         this.criarAlerta();
 
-        // registra UI atual
+        // Registra esta instância como a UI ativa para a cena atual
         Maquininhas.registrarUI(this);
 
-        // 🔥 mostra alerta apenas se veio de transição válida
+        // Exibe o alerta vermelho se o estoque estava zerado ao entrar na cena
         if (
             Maquininhas.precisaMostrarAlerta &&
             Maquininhas.qntMaquininhas === 0
@@ -27,6 +36,7 @@ export class Maquininhas {
     //  UI
     // =============================
 
+    /** Cria o texto de alerta vermelho centralizado na tela, inicialmente invisível. */
     criarAlerta(){
         const scene = this.scene;
 
@@ -51,6 +61,7 @@ export class Maquininhas {
         .setVisible(false);
     }
 
+    /** Exibe o alerta piscando 5 vezes e depois some. Não faz nada se o texto já foi destruído. */
     mostrarAlertaSemMaquininhas() {
         const texto = this.mensagemSemMaquininhas;
 
@@ -124,18 +135,25 @@ export class Maquininhas {
         }
     }
 
+    /** Adiciona `qnt` maquininhas ao estoque (máximo 3, via setter). */
     static adicionarMaquininhas(qnt) {
         this.qntMaquininhas = this.qntMaquininhas + qnt;
     }
 
+    /** Remove `qnt` maquininhas do estoque (mínimo 0, via setter). */
     static removerMaquininhas(qnt) {
         this.qntMaquininhas = this.qntMaquininhas - qnt;
     }
 
+    /** Define o estoque diretamente para `qnt` (clampado entre 0 e 3 pelo setter). */
     static definirMaquininhas(qnt) {
         this.qntMaquininhas = qnt;
     }
 
+    /**
+     * Sincroniza `_qntMaquininhas` com o valor salvo no localStorage.
+     * Útil ao iniciar uma nova cena para garantir que o valor em memória está correto.
+     */
     static recarregar() {
         this._qntMaquininhas = carregarDados(this.chaveDeValor, 0);
     }

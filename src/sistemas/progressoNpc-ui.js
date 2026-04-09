@@ -168,25 +168,43 @@ export default class InterfaceProgressoNpc {
         }
     }
 
+    /**
+     * Gera uma string que representa o estado atual de todos os NPCs.
+     * Formato: "id1:estado1|id2:estado2|..." — usada para detectar mudanças sem comparar objeto a objeto.
+     * @returns {string}
+     */
     _obterAssinaturaEstadosNpcs() {
         const npcs = obterListaNpcs();
         return npcs.map((npc) => `${npc.id}:${npc.estado}`).join("|");
     }
 
+    /**
+     * Inicializa o sistema de notificação de mudanças nos NPCs.
+     *
+     * Na primeira execução (sem assinatura salva), registra o estado atual como "já visto".
+     * Nas execuções seguintes, compara a assinatura salva com a atual para saber se
+     * houve mudanças desde a última vez que o jogador abriu o painel.
+     *
+     * Um evento periódico (a cada 500ms) monitora mudanças em tempo real e aciona
+     * o indicador de exclamação quando o estado dos NPCs muda.
+     */
     _inicializarNotificacaoExclamacao() {
         const assinaturaAtual = this._obterAssinaturaEstadosNpcs();
         const assinaturaReconhecida = carregarDados(this.chaveAssinaturaReconhecida, null);
 
         if (!assinaturaReconhecida) {
+            // Primeira execução: salva estado atual para não mostrar exclamação sem motivo
             this._salvarAssinaturaReconhecida(assinaturaAtual);
             this.temMudancaPendente = false;
         } else {
+            // Compara com a última assinatura vista — diferença = mudança pendente
             this.temMudancaPendente = assinaturaReconhecida !== assinaturaAtual;
         }
 
         this.ultimaAssinaturaObservada = assinaturaAtual;
         this._atualizarEstadoVisualExclamacao();
 
+        // Polling leve a cada 500ms para detectar mudanças durante a partida
         this.eventoMonitoramentoExclamacao = this.cena.time.addEvent({
             delay: 500,
             loop: true,
@@ -201,10 +219,18 @@ export default class InterfaceProgressoNpc {
         });
     }
 
+    /**
+     * Persiste a assinatura atual dos NPCs como "reconhecida" no localStorage.
+     * @param {string} assinatura
+     */
     _salvarAssinaturaReconhecida(assinatura) {
         salvarDados(this.chaveAssinaturaReconhecida, assinatura);
     }
 
+    /**
+     * Marca todas as mudanças de NPC como "vistas" pelo jogador.
+     * Chamado ao abrir o painel, para zerar o indicador de exclamação.
+     */
     _reconhecerMudancasNpcs() {
         const assinaturaAtual = this._obterAssinaturaEstadosNpcs();
         this.ultimaAssinaturaObservada = assinaturaAtual;
@@ -213,8 +239,13 @@ export default class InterfaceProgressoNpc {
         this._atualizarEstadoVisualExclamacao();
     }
 
+    /**
+     * Liga ou desliga a animação de pulsação do indicador de exclamação.
+     * Pulsa enquanto houver mudanças pendentes; para e restaura o estado base quando não há.
+     */
     _atualizarEstadoVisualExclamacao() {
         if (this.temMudancaPendente) {
+            // Inicia a pulsação apenas se ainda não estiver rodando
             if (!this.tweenExclamacao) {
                 this.tweenExclamacao = this.cena.tweens.add({
                     targets: this.indicadorExclamacao,
@@ -230,6 +261,7 @@ export default class InterfaceProgressoNpc {
             return;
         }
 
+        // Para a pulsação e restaura o visual padrão
         if (this.tweenExclamacao) {
             this.tweenExclamacao.stop();
             this.cena.tweens.remove(this.tweenExclamacao);

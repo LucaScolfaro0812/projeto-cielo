@@ -63,12 +63,20 @@ export default class HudMaquininhas {
         this.atualizar();
     }
 
+    /**
+     * Retorna as cores de fundo e borda do HUD conforme a quantidade de maquininhas.
+     * Verde (≥2) → amarelo (1) → vermelho (0) para indicar urgência de recarga.
+     */
     _corPorQuantidade(qnt) {
         if (qnt >= 2) return { fundo: 0x0d3b26, borda: 0x10b981 }; // verde
         if (qnt === 1) return { fundo: 0x3b2200, borda: 0xf59e0b }; // laranja
         return { fundo: 0x3b0000, borda: 0xef4444 };                // vermelho
     }
 
+    /**
+     * (Re)desenha o fundo arredondado do HUD com sombra, fundo e borda colorida.
+     * Chamado na criação e sempre que o estoque muda, para refletir a nova cor.
+     */
     _desenharFundo(largura, altura, raio, corBorda) {
         const qnt = Maquininhas.qntMaquininhas;
         const cores = this._corPorQuantidade(qnt);

@@ -26,23 +26,28 @@ function buscarNpcPorId(idNpc) {
     return listaNpcs.find(npc => npc.id === idNpc) || null;
 }
 
-// Função para atualizar o estado de um NPC
+/**
+ * Atualiza o estado de um NPC e verifica se a condição de vitória foi atingida.
+ *
+ * **Efeito colateral importante:** se todos os 12 NPCs forem conquistados, esta função
+ * acessa `window.game` diretamente para navegar para a cena final ('cenaFinal').
+ * Isso contorna o sistema de cenas do Phaser — necessário pois esta função pode ser
+ * chamada de contextos fora de uma cena (ex: callback do quiz).
+ */
 function atualizarEstadoNpc(idNpc, novoEstado) {
     const npc = buscarNpcPorId(idNpc);
     if (npc) {
         npc.atualizarEstado(novoEstado);
-        
-    // Conta quantos NPCs foram conquistados
-    const quantidadeConquistados = listaNpcs.filter(npc => npc.estado === "conquistado").length;
 
-    // Se chegou em 12, vai pra cena final
-     if (quantidadeConquistados >= 12) {
-        // pega a cena atual e muda
-        if (window.game && window.game.scene) {
-            const cenaAtual = window.game.scene.getScenes(true)[0];
-            cenaAtual.scene.start('cenaFinal');
+        const quantidadeConquistados = listaNpcs.filter(npc => npc.estado === "conquistado").length;
+
+        // Ao conquistar todos os 12 NPCs, inicia a cena final via window.game
+        if (quantidadeConquistados >= 12) {
+            if (window.game && window.game.scene) {
+                const cenaAtual = window.game.scene.getScenes(true)[0];
+                cenaAtual.scene.start('cenaFinal');
+            }
         }
-      }
     }
 }
 

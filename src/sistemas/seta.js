@@ -1,17 +1,26 @@
+/**
+ * Seta — indicador direcional de HUD que guia o jogador até o próximo objetivo.
+ *
+ * Comportamento por estado do alvo:
+ *   - Alvo fora da tela: exibe a seta rotacionada na borda da câmera apontando para o alvo.
+ *   - Alvo visível na tela: oculta a seta e exibe o sprite de "alerta" acima do alvo no mundo.
+ *   - Sem alvo: ambos ficam invisíveis.
+ */
 export default class Seta extends Phaser.GameObjects.Sprite {
     constructor(scene) {
         super(scene, 100, 100, 'seta');
 
         scene.add.existing(this);
 
-        this.setScrollFactor(0); // HUD fixa
+        this.setScrollFactor(0); // Fixa na HUD — não se move com a câmera
         this.alvo = null;
 
-        this.margem = 20; // distância da borda da tela
+        this.margem = 20; // Distância mínima da borda da tela em pixels
         this.cena = scene;
 
+        // Sprite de alerta posicionado no mundo acima do alvo quando ele está visível
         this.alerta = scene.add.sprite(0, 0, 'alerta');
-        this.alerta.setScrollFactor(1); // fica no mundo
+        this.alerta.setScrollFactor(1); // Acompanha o mundo (não é HUD)
         this.alerta.setVisible(false);
         this.alerta.setScale(0.15);
     }
@@ -28,8 +37,11 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         this.alerta.setVisible(false);
     }
 
+    /**
+     * Mostra ou oculta a seta de HUD. O alerta de mundo é sempre ocultado aqui —
+     * ele só aparece dentro do `update()` quando o alvo está na tela.
+     */
     setHudVisible(visivel) {
-        // Mostra/esconde a seta e o alerta baseado no estado
         this.setVisible(visivel);
         this.alerta.setVisible(false);
     }

@@ -91,7 +91,7 @@ export default class CenaLoja extends Phaser.Scene {
                 'Você teria um tempinho para me explicar melhor como isso pode funcionar?'
             ],
             Beleza: [
-                'Olá, seja bem-vindo à Barbearia!',
+                'Olá, seja bem-vindo ao Salão de Beleza!',
                 'Aqui preciso de soluções de pagamento práticas e modernas, com aproximação, bom parcelamento e taxas bem configuradas para garantir um atendimento ágil e eficiente.',
                 'Você pode entrar um instante para me mostrar como suas soluções funcionam?'
             ],

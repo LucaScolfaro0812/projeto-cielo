@@ -1313,88 +1313,91 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
-Durante a Sprint 4, foi realizada a consolidação final do MVP do jogo, com foco na integração completa dos sistemas desenvolvidos anteriormente, refinamento da experiência do usuário e adição de novos elementos de jogabilidade, interface e imersão.
-Esta etapa teve como objetivo garantir que o jogo estivesse funcional de ponta a ponta, com fluxo contínuo entre menu, tutorial, cidade e lojas, além de apresentar um conjunto robusto de mecânicas técnicas e visuais.
+Durante a Sprint 4, foi realizada a consolidação final do MVP do jogo. O foco principal esteve na integração dos sistemas implementados nas sprints anteriores, no refinamento da experiência do usuário e na estabilização do fluxo completo de jogo.
 
-### Funcionalidades implementadas
+Ao final da sprint, o MVP passou a operar de ponta a ponta: menu inicial, tutorial, entrada na Central da Cielo, exploração da cidade, entrada nas lojas, interação com NPCs por meio de quizzes, retorno ao mapa e persistência do progresso. Além das funcionalidades visíveis ao jogador, esta etapa também concentrou melhorias estruturais, como persistência de estado, reaproveitamento de cenas de lojas e controle de transições entre ambientes.
+
+### 4.4.1. Funcionalidades implementadas
 
 Nesta sprint foram desenvolvidas e integradas as seguintes funcionalidades, organizadas de acordo com o fluxo de uso do jogador:
 
-. **Menu inicial e acesso ao jogo**
-O menu principal foi refinado com melhorias visuais e organização dos elementos, incluindo botões interativos com efeitos de hover e animações suaves.
-Foi adicionado também um botão de configurações, preparado para futuras expansões como controle de áudio e preferências do usuário.
+1. **Menu inicial e acesso ao jogo**
+O menu principal recebeu refinamento visual, organização dos botões e efeitos de hover, além da inclusão do botão de configurações. Esse ponto passou a atuar como porta de entrada estável do fluxo completo da aplicação.
 
-. **Sistema de tutorial integrado ao início da experiência**
-Ao clicar em “Jogar”, o jogador é direcionado automaticamente para a tela de tutorial antes de iniciar a gameplay.
-O tutorial apresenta as instruções básicas do jogo e pode ser acessado novamente a qualquer momento durante a partida por meio da tecla T, permitindo ao jogador consultar as instruções sem perder o progresso.
+2. **Tutorial integrado ao início da experiência**
+Ao clicar em “Jogar”, o usuário é direcionado ao tutorial antes de iniciar a exploração do mapa. O tutorial apresenta os comandos básicos e pode ser reaberto durante a partida pela tecla `T`, sem perda do estado atual.
 
-. **Entrada no mapa e ambientação sonora**
-Ao iniciar o jogo, o jogador é inserido no mapa da cidade. O mapa da cidade não possui trilha musical de fundo no MVP — o áudio se limita ao efeito sonoro da porta ao entrar em qualquer loja.
-O sistema de áudio é controlado por cena: cada loja possui som ambiente próprio em loop (volume 0.3), que é iniciado ao entrar e encerrado ao sair, evitando sobreposição de trilhas.
+3. **Fluxo de cenas e transições**
+Foi consolidada a navegação entre menu, tutorial, Central da Cielo, cidade e interiores de lojas. As transições passaram a utilizar controle de cena com fade, bloqueio de reentrada e retomada correta da cena anterior.
 
-. **Base da Cielo e sistemade coleta de maquininhas**
-Foi implementado no mapa um ponto específico que representa a base da empresa Cielo, funcionando como local de apoio ao jogador durante a partida.
-Nesse local, o jogador pode coletar maquininhas, recurso essencial para a realização das interações com os clientes. Sempre que o jogador ficar sem maquininhas, será necessário retornar até a base para se reabastecer e continuar progredindo no jogo.
-Essa mecânica introduz um ciclo de gameplay baseado em gerenciamento de recursos e deslocamento estratégico pelo mapa.
+4. **Central da Cielo e coleta de maquininhas**
+A Central da Cielo foi implementada como ponto de apoio do jogador. Nesse ambiente, o usuário recebe instruções iniciais de contexto e pode reabastecer maquininhas, recurso necessário para efetivar as interações comerciais com os NPCs.
 
-> **Nota:** O sistema de maquininhas está completamente integrado ao fluxo do jogo. O botão de interação com o NPC (tecla E) só aparece quando o jogador possui pelo menos 1 maquininha. Ao conquistar um NPC com sucesso, 1 maquininha é consumida; ao falhar, nenhuma é descontada. O jogador começa com 0 maquininhas e deve visitar a Central da Cielo para recarregar até o máximo de 2 unidades.
+5. **Gerenciamento de maquininhas**
+O sistema de maquininhas foi integrado ao ciclo principal de jogo. O jogador inicia a experiência sem unidades, consome 1 maquininha ao conquistar um NPC e precisa retornar à Central para reabastecer o estoque. Isso introduz uma camada de gerenciamento de recursos conectada à exploração do mapa.
 
-. **Sistema de spawn dinâmico**
-Durante a navegação pela cidade, o O jogador é posicionado dinamicamente no mapa, retornando à frente da loja correspondente após sair de uma interação.
-Para evitar reentrada imediata, foi implementado um controle baseado em tempo, distância e estado da última loja acessada.
+6. **Exploração do mapa e spawn dinâmico**
+Na cidade, o jogador se movimenta livremente com `W`, `A`, `S` e `D`. Ao sair de uma loja, o sistema reposiciona o personagem em frente ao estabelecimento correspondente, evitando deslocamentos incoerentes e preservando a continuidade espacial.
 
-. **Movimentação e mecânica de risco (carros)**
-Durante a navegação pela cidade, o jogador pode se movimentar livremente utilizando o teclado (W, A, S e D).
-Foram adicionados carros em movimento nas ruas, funcionando como obstáculos. A colisão com esses elementos penaliza o jogador, tornando a jogabilidade mais dinâmica e desafiadora.
+7. **Mecânica de risco com carros**
+Foram adicionados carros em movimento nas ruas da cidade. Esses elementos funcionam como obstáculos dinâmicos e tornam a travessia do mapa mais desafiadora, adicionando risco à navegação entre os objetivos.
 
-. **HUD de progresso dos NPCs**
-Durante a exploração, o jogador pode acompanhar seu progresso por meio de uma HUD que exibe quais NPCs já foram conquistados.
-Essa interface auxilia na orientação dentro do jogo e reforça os objetivos de progressão.
+8. **HUDs de apoio ao jogador**
+Foram integradas interfaces de apoio com atualização em tempo real, incluindo HUD de progresso dos NPCs conquistados e HUD de quantidade de maquininhas. Essas informações reforçam o objetivo da partida e orientam a tomada de decisão do jogador.
 
-. **Entrada nas lojas e apresentação do cliente**
-Ao entrar em uma loja, o jogador é direcionado para um ambiente interno específico. Nesse momento, é exibido um popup informativo do cliente (NPC), apresentando informações relevantes antes do início da interação.
-Cada loja possui ambientação própria, incluindo trilha sonora específica, reforçando a identidade de cada cenário.
+9. **Entrada nas lojas e apresentação do cliente**
+Ao acessar uma loja, o jogador entra em um interior específico e recebe uma apresentação inicial do cliente antes da negociação. Cada ambiente interno possui identidade visual própria e áudio ambiente dedicado.
 
-. **Arquitetura das lojas (data-driven)**
-As lojas foram implementadas utilizando uma arquitetura baseada em configuração, onde uma única estrutura de cena é reutilizada para diferentes lojas.
-Cada loja define parâmetros como posição de NPC, jogador, porta e escala do ambiente, garantindo organização do código e facilidade de manutenção e expansão.
+10. **Arquitetura data-driven para as lojas**
+As lojas passaram a ser construídas a partir de uma estrutura parametrizada. Em vez de duplicar lógica, uma cena base reutiliza configurações específicas de cada estabelecimento, como posições, escala, NPC, som e banco de perguntas.
 
-. **Sistema de quiz nas lojas**
-Dentro das lojas, o jogador interage com NPCs por meio de quizzes. Cada loja possui um conjunto específico de perguntas, totalizando 12 conjuntos educacionais.
+11. **Sistema de quizzes por loja**
+As interações com os clientes são realizadas por meio de quizzes. Cada loja utiliza um conjunto de perguntas próprio, com sorteio aleatório sem repetição dentro da sessão, temporizador por pergunta e regra de pontuação mínima para conquista do NPC.
 
-O sistema apresenta:
+12. **Feedback visual de conquista**
+Quando o jogador conclui o quiz com sucesso, o NPC passa ao estado de conquistado e sua aparência é alterada visualmente. Esse feedback permite identificar rapidamente quais clientes já foram convertidos.
 
-Sorteio aleatório de perguntas sem repetição;
-Timer de 60 segundos por pergunta;
-Encerramento automático ao fim do tempo.
-A cada interação com um cliente, o resultado do quiz determina se o NPC foi conquistado ou não, com base na pontuação acumulada internamente pelas respostas (limiar de ≥ 6 pontos). Esse sistema reforça a importância das decisões tomadas durante o quiz e adiciona um elemento de risco e recompensa à jogabilidade.
+13. **Feedback no mapa com balões animados**
+Após a conquista de um cliente, a loja correspondente passa a exibir balões animados sobre o prédio no mapa. Esse recurso reforça a progressão visual e funciona como memória espacial do avanço do jogador.
 
-. **Feedback de conquista do NPC**
-Após a conclusão bem-sucedida do quiz, o NPC é marcado como conquistado. Visualmente, sua aparência é alterada para a cor azul, permitindo identificação imediata pelo jogador.
+14. **Persistência de progresso**
+O jogo passou a salvar localmente os principais estados da partida utilizando `localStorage`, incluindo NPCs conquistados, perguntas já realizadas, quantidade de maquininhas e pontos de retorno no mapa.
 
-. **Feedback visual no mapa (balões animados)**
-Ao retornar à cidade após conquistar um NPC, a loja correspondente passa a exibir balões animados em sua parte superior.
+15. **Menu de pausa**
+Foi implementado o menu de pausa acionado por `ESC`, com opções para continuar, iniciar novo jogo ou retornar ao menu. O sistema interrompe a cena ativa sem perder o progresso da execução em andamento.
 
-A animação utiliza conceitos de cinemática:
-Movimento Uniforme (eixo X);
-Movimento Uniformemente Variado (eixo Y).
-Esse efeito reforça visualmente a progressão do jogador no ambiente.
+### 4.4.2. Fluxo técnico consolidado
 
-. **Persistência de progresso (localStorage)**
-O progresso do jogador é armazenado utilizando localStorage, permitindo continuidade entre sessões.
+O fluxo principal do MVP consolidado na Sprint 4 pode ser resumido da seguinte forma:
 
-São persistidos:
-NPCs conquistados;
-Estado visual das lojas;
-Perguntas já realizadas;
-Posição de retorno no mapa.
-Esse sistema garante consistência e continuidade da experiência do jogador.
+```text
+Menu inicial
+  -> Tutorial
+    -> Central da Cielo
+      -> Cidade
+        -> Loja
+          -> Quiz / feedback
+            -> Retorno à cidade
+              -> Nova loja ou retorno à Central
+```
 
-. **Sistema de pausa**
-Durante o jogo, o jogador pode acessar o menu de pausa pressionando a tecla ESC, com opções para continuar, reiniciar ou retornar ao menu principal.
-O sistema preserva o estado da partida ao ser ativado.
+### 4.4.3. Organização técnica da arquitetura
 
-### Ilustrações da versão final
+A implementação final do MVP foi estruturada em quatro camadas principais:
+
+1. **Cenas**
+Responsáveis por menu, tutorial, cidade, central, interiores e telas de apoio.
+
+2. **Entidades**
+Responsáveis por jogador, NPCs, portas de entrada e elementos dinâmicos do mapa.
+
+3. **Sistemas**
+Responsáveis por quiz, HUDs, pontuação, maquininhas e interfaces auxiliares.
+
+4. **Utilitários**
+Responsáveis por persistência, transições, configuração de ambiente, spawns e estados globais.
+
+### 4.4.4. Ilustrações da versão final
 
 Figura 1 – Menu inicial do jogo
 
@@ -1434,89 +1437,115 @@ Figura 6 – Entrada em uma loja
 
 Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
 
-Figura 8 – Sistema de quiz
+Figura 7 – Sistema de quiz
 
 ![alt text](assets/image-7.png)
 
 Interface de perguntas e respostas utilizada na interação com o cliente.
 
-Figura 9 – Feedback positivo (cliente conquistado)
+Figura 8 – Feedback positivo (cliente conquistado)
 
 ![alt text](assets/image-8.png)
 
 Exemplo de sucesso no quiz, indicando conversão do cliente.
 
-Figura 10 – Feedback negativo (cliente não conquistado)
+Figura 9 – Feedback negativo (cliente não conquistado)
 
 ![alt text](assets/image-9.png)
 
 Exemplo de falha na interação, mostrando a penalização.
 
-Figura 11 – NPC com visual alterado (conquistado)
+Figura 10 – NPC com visual alterado (conquistado)
 
 ![alt text](assets/image-10.png)
 
 Mudança visual do personagem (cor azul) após ser conquistado.
 
-Figura 12 – Loja com balões animados
+Figura 11 – Loja com balões animados
 
 ![alt text](assets/image-11.png)
 
 Indicação visual no mapa de que a loja foi concluída.
 
-Figura 13 – Menu de pausa
+Figura 12 – Menu de pausa
 
 ![alt text](assets/image-12.png)
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 
-### Como executar a aplicação
+> **Observação:** As figuras referenciadas acima correspondem aos registros visuais da versão final do MVP. Na versão textual do documento, algumas imagens podem não ser renderizadas dependendo do ambiente de leitura do Markdown.
+
+### 4.4.5. Como executar a aplicação
 
 A aplicação foi disponibilizada online por meio do GitLab Pages, permitindo sua execução diretamente em navegadores modernos, sem a necessidade de instalação de ferramentas adicionais ou configuração de ambiente local.
 O jogo pode ser acessado por meio do link do projeto, sendo carregado automaticamente no navegador e direcionando o usuário ao menu inicial. A partir dessa tela, o jogador pode iniciar a experiência ao clicar no botão “Jogar”, sendo então conduzido ao tutorial e, posteriormente, ao ambiente principal do jogo.
 Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
 Além disso, o jogador pode navegar livremente pelo mapa, acessar lojas, acompanhar seu progresso por meio da interface e utilizar os recursos disponíveis no jogo, como o sistema de pausa e o acesso ao tutorial durante a partida.
 
-### Dificuldades encontradas
+### 4.4.6. Dificuldades encontradas
 
-Durante o desenvolvimento da Sprint 4, foram identificados diversos desafios relacionados à integração dos sistemas, refinamento da jogabilidade e estabilidade da aplicação.
-Um dos principais desafios foi a integração entre as diferentes cenas do jogo, especialmente no controle de fluxo entre menu, tutorial, mapa e lojas. Garantir que o jogador fosse direcionado corretamente entre essas etapas, sem perda de estado ou inconsistências, exigiu ajustes na lógica de transição e gerenciamento de cenas do Phaser.
-Outro ponto relevante foi a implementação do sistema de persistência utilizando localStorage, que exigiu cuidados no armazenamento e recuperação dos dados, além do tratamento de possíveis erros em ambientes onde o armazenamento pode estar indisponível ou restrito.
-A criação do sistema de spawn dinâmico também apresentou complexidade, principalmente no controle de retorno do jogador à cidade após sair das lojas. Foi necessário implementar mecanismos adicionais para evitar reentrada imediata nas lojas, utilizando verificações de tempo, distância e estado da última interação.
-A adição dos carros como obstáculos dinâmicos trouxe desafios relacionados à detecção de colisão e equilíbrio da dificuldade, garantindo que a mecânica fosse desafiadora sem comprometer a experiência do jogador.
-Outro desafio importante foi o desenvolvimento do sistema de quiz integrado, incluindo controle de tempo, lógica de pontuação e fluxo de perguntas. Foi necessário garantir que o sistema funcionasse corretamente em todas as lojas, mantendo consistência na experiência do usuário.
-A implementação dos feedbacks visuais, como a mudança de aparência dos NPCs e a animação dos balões nas lojas, também exigiu atenção especial, principalmente na sincronização com o estado do jogo e na atualização correta após mudanças de progresso.
-Além disso, a integração de áudio ambiente nas diferentes cenas apresentou dificuldades no controle de reprodução, sendo necessário evitar sobreposição de trilhas sonoras ao alternar entre mapa e interiores.
-Por fim, houve desafios relacionados à organização e escalabilidade do código, especialmente na manutenção de uma arquitetura reutilizável para as lojas e sistemas do jogo, garantindo que novas funcionalidades pudessem ser adicionadas sem comprometer a estrutura existente.
+Durante a Sprint 4, os principais desafios estiveram concentrados na integração entre sistemas que, isoladamente, já funcionavam, mas ainda precisavam operar de forma contínua dentro de uma única jornada jogável.
 
-### Critérios de pronto
+O primeiro desafio relevante foi o **controle de fluxo entre cenas**. Garantir a passagem correta entre menu, tutorial, Central, cidade e lojas exigiu refinamento das transições, retomada de cenas e prevenção de estados inconsistentes.
 
-Uma funcionalidade foi considerada concluída quando atendeu a um conjunto de critérios técnicos e funcionais que garantem sua correta implementação e integração ao sistema do jogo.
-Inicialmente, foi verificado o funcionamento correto da funcionalidade durante a execução, assegurando que não houvesse falhas na lógica ou comportamentos inesperados durante a jogabilidade.
-Também foi considerada essencial a integração adequada com as demais cenas e sistemas do jogo, como menu, tutorial, mapa, lojas e sistema de quiz, garantindo um fluxo contínuo e sem interrupções na experiência do usuário.
-Outro critério adotado foi a ausência de erros no console do navegador, indicando estabilidade na execução do código e conformidade com boas práticas de desenvolvimento em JavaScript.
-Além disso, foi avaliada a interação do jogador com a funcionalidade, garantindo que os elementos implementados fossem acessíveis, compreensíveis e funcionais dentro do contexto do jogo.
-A validação também incluiu testes práticos realizados pela equipe, nos quais as funcionalidades foram executadas em diferentes cenários para verificar consistência, desempenho e comportamento esperado.
-Por fim, considerou-se como critério de pronto a coerência com as mecânicas e objetivos do jogo, assegurando que cada funcionalidade contribuísse efetivamente para a experiência proposta e estivesse alinhada ao escopo do projeto.
+O segundo desafio foi a **persistência de progresso com `localStorage`**. Não bastava salvar dados; foi necessário definir quais estados realmente precisavam ser persistidos e como restaurá-los sem duplicar eventos, perder progresso ou reabrir conteúdos já concluídos.
 
-### Limitações atuais
+Outro ponto sensível foi o **spawn dinâmico de retorno à cidade**. O sistema precisou reposicionar o jogador de modo coerente após sair das lojas e, ao mesmo tempo, impedir reentradas acidentais imediatas.
 
-Apesar do avanço significativo no desenvolvimento do MVP, algumas limitações ainda estão presentes e podem ser aprimoradas em versões futuras.
-Uma das principais limitações está relacionada à gestão do tempo durante o desenvolvimento, o que impactou o nível de refinamento e a profundidade de algumas funcionalidades.
-Além disso, a equipe apresentou limitações em termos de especialização técnica em áreas como programação e design, o que influenciou o nível de detalhamento de certos recursos, apesar de atenderem aos requisitos funcionais.
-No sistema de quiz, ainda há limitação na quantidade e variedade de perguntas, podendo afetar a repetibilidade da experiência.
-O sistema de conquista de NPCs é funcional, mas pode ser expandido futuramente com novos tipos de feedback e mecânicas de progressão.
-Também há ausência de suporte para dispositivos móveis, sendo o jogo otimizado para uso em computador.
-Por fim, o salvamento de progresso permanece limitado ao localStorage, sem integração com soluções em nuvem.
+Também houve esforço técnico na **integração do sistema de quizzes**, especialmente no controle de sorteio de perguntas, temporização, pontuação mínima e resultado definitivo da negociação com cada NPC.
 
-### Próximas passos
+Os **feedbacks visuais de progresso**, como mudança de estado dos NPCs e balões sobre lojas concluídas, exigiram sincronização com o estado salvo do jogo, evitando discrepâncias entre interface e lógica interna.
 
-Para a continuidade do desenvolvimento do projeto, os próximos passos estão voltados principalmente ao refinamento e aprimoramento das funcionalidades já implementadas, com foco na melhoria da experiência do usuário e na estabilidade do sistema.
-Um dos pontos a ser aprimorado é a central de maquininhas (base da empresa Cielo), que ainda pode receber maior detalhamento em sua funcionalidade e melhor integração com o fluxo do jogo, especialmente no momento em que o jogador precisa obter novas maquininhas.
-Também estão previstos ajustes no sistema de quiz, incluindo melhorias no balanceamento das perguntas, ampliação do banco de questões e refinamento da interface durante as interações.
-Além disso, pretende-se aprimorar a interface do usuário, com ajustes visuais, maior clareza das informações e melhorias nas transições entre diferentes estados do jogo.
-Outro ponto importante é a finalização do menu de configurações, ampliando as opções de personalização disponíveis ao jogador.
-Por fim, busca-se melhorar a organização e otimização do código, visando maior estabilidade, desempenho e facilidade de manutenção do projeto.
+Por fim, a equipe enfrentou desafios de **organização e escalabilidade do código**, principalmente ao estruturar uma base reutilizável para múltiplas lojas, mantendo consistência visual e funcional sem multiplicar código repetido.
+
+### 4.4.7. Critérios de pronto
+
+Para esta sprint, uma funcionalidade foi considerada pronta quando atendia simultaneamente aos seguintes critérios:
+
+1. **Execução sem erros visíveis**
+A funcionalidade precisava operar sem travamentos, erros de console ou comportamentos incoerentes durante o uso normal.
+
+2. **Integração correta no fluxo do MVP**
+Não bastava funcionar isoladamente; a entrega precisava se conectar corretamente ao fluxo menu -> tutorial -> central -> cidade -> loja -> retorno.
+
+3. **Persistência e restauração quando aplicável**
+Funcionalidades relacionadas a progresso, HUD ou estado de NPC só eram consideradas prontas após validação de salvamento e restauração da sessão.
+
+4. **Feedback compreensível ao jogador**
+Toda funcionalidade nova precisava comunicar seu estado ao usuário de maneira clara, seja por HUD, mudança visual, balões, popups ou feedback de quiz.
+
+5. **Teste em cenário real de uso**
+As validações foram feitas com execução prática da jornada completa, incluindo entrada em lojas, resposta de quizzes, consumo de maquininhas, retorno ao mapa e uso do menu de pausa.
+
+### 4.4.8. Limitações atuais
+
+Mesmo com o MVP consolidado, algumas limitações permaneceram evidentes ao final da Sprint 4:
+
+1. **Banco de perguntas ainda restrito**
+O sistema de quiz já funciona estruturalmente, mas a variedade de perguntas ainda é limitada para sessões repetidas.
+
+2. **Persistência local apenas no navegador**
+O salvamento com `localStorage` resolve a continuidade local da experiência, mas não oferece sincronização entre dispositivos ou backup em nuvem.
+
+3. **Ausência de suporte mobile**
+O MVP foi pensado para execução em navegador desktop, sem adaptação específica para telas pequenas ou controles por toque.
+
+4. **Profundidade técnica limitada em alguns subsistemas**
+Embora o fluxo principal esteja completo, partes como configurações, acessibilidade e telemetria ainda não foram aprofundadas além do necessário para o MVP.
+
+5. **Dependência de refinamentos visuais futuros**
+Elementos como popups, HUDs e apresentações de NPC cumprem sua função, mas ainda possuem espaço para refinamento gráfico e padronização visual adicional.
+
+### 4.4.9. Próximos passos
+
+Para a continuidade do desenvolvimento, os próximos passos foram definidos com foco em robustez, refinamento e ampliação do conteúdo:
+
+1. aprofundar a Central da Cielo como hub de orientação e recursos;
+2. ampliar e balancear o banco de perguntas dos quizzes;
+3. refinar HUDs, popups e transições visuais;
+4. evoluir o menu de configurações e recursos de acessibilidade;
+5. otimizar a organização do código para facilitar manutenção e expansão;
+6. avaliar futuras camadas de persistência além do `localStorage`.
 
 ## 4.5. Revisão do MVP (sprint 5)
 

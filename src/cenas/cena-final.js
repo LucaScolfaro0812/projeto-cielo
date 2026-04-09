@@ -26,6 +26,7 @@ export default class CenaFinal extends Phaser.Scene {
         this.load.image('NPCAzulPelucia',    'assets/sprites/personagens/npcAzulPelucia.png');
         this.load.image('NPCAzulJoalheria',  'assets/sprites/personagens/npcAzulJoalheria.png');
         this.load.image('marcielo', 'assets/sprites/animacoes/jogador/marcielo.parado.png');
+        this.load.audio('finaljogo', 'public/assets/sons/somFinalJogo.mp3');
     }
 
     /**
@@ -34,6 +35,7 @@ export default class CenaFinal extends Phaser.Scene {
      * quando os confetes cobrirem a tela, revelando o botão de retorno ao menu.
      */
     create() {
+        this.sound.play('finaljogo');
         const w = this.scale.width;
         const h = this.scale.height;
 

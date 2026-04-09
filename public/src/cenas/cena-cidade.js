@@ -326,6 +326,7 @@ export class CenaCidade extends Phaser.Scene {
         if (!this.cache.audio.exists('somCidade')) {
             this.load.audio('somCidade', 'assets/sons/somCidade.mp3');
         }
+        this.load.audio('somMorte', 'assets/sons/somMorte.mp3');
         // Pré carrega os objetos com uma função estática
         Jogador.preload(this);
         Npc.preload(this);
@@ -554,6 +555,8 @@ export class CenaCidade extends Phaser.Scene {
     onPlayerDeath(tinhaMaquininhas = false) {
         if (this._deathDiv) return;
 
+        this.sound.play('somMorte', { volume: 0.8 }); // adiciona som quando é atropelado
+
         const canvas = this.game.canvas;
         const pai = canvas.parentElement;
 
@@ -580,7 +583,6 @@ export class CenaCidade extends Phaser.Scene {
         `;
 
         // Só cria os textos se o jogador tinha maquininhas ao morrer
-        if (tinhaMaquininhas) {
             const texto = document.createElement('div');
             texto.innerText = 'Você foi atropelado, tome mais cuidado!';
             texto.style.cssText = `
@@ -595,6 +597,10 @@ export class CenaCidade extends Phaser.Scene {
                 padding: 0 32px;
             `;
 
+
+            div.appendChild(texto);
+
+            if (tinhaMaquininhas) {
             const subtexto = document.createElement('div');
             subtexto.innerText = 'Recupere suas maquininhas na Central Cielo';
             subtexto.style.cssText = `

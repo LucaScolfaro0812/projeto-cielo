@@ -142,6 +142,22 @@ export default class CenaLoja extends Phaser.Scene {
             Lanchonete: { nome: 'Carlos', mcc: 'MCC 5812', segmento: 'Lanchonete e refeições rápidas' }
         };
 
+        // Cor de destaque e ícone temático por loja — cores retiradas das fachadas
+        this.temaPorLoja = {
+            Autoescola: { cor: 0xc8a800, corHex: '#c8a800', icone: '🚗' },
+            Pelucia:    { cor: 0xd93030, corHex: '#d93030', icone: '🧸' },
+            Chocolate:  { cor: 0x8b3a1a, corHex: '#8b3a1a', icone: '🍫' },
+            Pet:        { cor: 0x2979d9, corHex: '#2979d9', icone: '🐾' },
+            Roupas:     { cor: 0x1a50c8, corHex: '#1a50c8', icone: '👗' },
+            Beleza:     { cor: 0xd44f8a, corHex: '#d44f8a', icone: '✂️' },
+            Cafe:       { cor: 0x7b4c2a, corHex: '#7b4c2a', icone: '☕' },
+            Frutaria:   { cor: 0xe02020, corHex: '#e02020', icone: '🍎' },
+            Movel:      { cor: 0xd97c2a, corHex: '#d97c2a', icone: '🛋️' },
+            Games:      { cor: 0x7b2fb5, corHex: '#7b2fb5', icone: '🎮' },
+            Joalheria:  { cor: 0x2ab5a0, corHex: '#2ab5a0', icone: '💍' },
+            Lanchonete: { cor: 0xd9940a, corHex: '#d9940a', icone: '🍔' },
+        };
+
     }
 
     preload() {
@@ -274,38 +290,40 @@ export default class CenaLoja extends Phaser.Scene {
             ? `npc-vermelho${this.nomeLoja}`
             : 'npc-vermelho';
 
+        const tema = this.temaPorLoja[this.nomeLoja] ?? { cor: 0x0a6ebd, corHex: '#0a6ebd', icone: '🏪' };
+
         const overlay = this.add.rectangle(centerX, centerY, width, height, 0x021826, 0.8)
             .setDepth(999)
             .setScrollFactor(0);
 
-        const painelSombra = this.add.rectangle(centerX + 10, centerY + 12, width * 0.8, height * 0.66, 0x00101a, 0.28)
+        const painelSombra = this.add.rectangle(centerX + 10, centerY + 12, width * 0.92, height * 0.82, 0x00101a, 0.28)
             .setDepth(1000)
             .setScrollFactor(0);
 
-        const painel = this.add.rectangle(centerX, centerY, width * 0.8, height * 0.66, 0xf7fbff, 0.99)
+        const painel = this.add.rectangle(centerX, centerY, width * 0.92, height * 0.82, 0xf7fbff, 0.99)
             .setDepth(1000)
             .setScrollFactor(0)
-            .setStrokeStyle(5, 0x0e78c7, 1);
+            .setStrokeStyle(6, tema.cor, 1);
 
-        const faixaTitulo = this.add.rectangle(centerX, centerY - height * 0.24, width * 0.8, 82, 0x0a6ebd, 1)
+        const faixaTitulo = this.add.rectangle(centerX, centerY - height * 0.30, width * 0.92, 90, tema.cor, 1)
             .setDepth(1001)
             .setScrollFactor(0);
 
-       const tituloPopup = this.add.text(centerX, faixaTitulo.y, `Loja ${this.nomeLoja}`, {
-    fontSize: '36px',
-    fontFamily: 'Verdana, Arial, sans-serif',
-    color: '#ffffff',
-    fontStyle: 'bold'
-})
-    .setDepth(1002)
-    .setScrollFactor(0)
-    .setOrigin(0.5);
+        const tituloPopup = this.add.text(centerX, faixaTitulo.y, `${tema.icone}  ${this.nomeLoja}`, {
+            fontSize: '38px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#ffffff',
+            fontStyle: 'bold'
+        })
+            .setDepth(1002)
+            .setScrollFactor(0)
+            .setOrigin(0.5);
 
 
-        const faixaLateral = this.add.rectangle(centerX - width * 0.225, centerY + 14, width * 0.2, height * 0.46, 0x0c3553, 1)
+        const faixaLateral = this.add.rectangle(centerX - width * 0.28, centerY + 14, width * 0.22, height * 0.55, tema.cor, 1)
             .setDepth(1001)
             .setScrollFactor(0)
-            .setStrokeStyle(3, 0x6cc8ff, 1);
+            .setStrokeStyle(3, 0xffffff, 0.3);
 
         const etiquetaCliente = this.add.text(faixaLateral.x, faixaLateral.y - height * 0.17, 'CLIENTE', {
          fontSize: '18px',
@@ -328,7 +346,7 @@ export default class CenaLoja extends Phaser.Scene {
             .setDisplaySize(182, 182)
             .setOrigin(0.5);
 
-        const faixaNomeNpc = this.add.rectangle(faixaLateral.x, faixaLateral.y + 62, width * 0.2, 58, 0x0a6ebd, 1)
+        const faixaNomeNpc = this.add.rectangle(faixaLateral.x, faixaLateral.y + 62, width * 0.2, 58, 0x000000, 0.3)
             .setDepth(1003)
             .setScrollFactor(0);
 
@@ -357,8 +375,8 @@ const cartaoMcc = this.add.rectangle(
     faixaNomeNpc.y + height * 0.10,
     width * 0.16,
     84,
-    0x06253a,
-    1
+    0x000000,
+    0.25
 );
 
 // Título
@@ -394,12 +412,12 @@ const valorMcc = this.add.text(cartaoMcc.x, cartaoMcc.y + 10, codigoMcc, {
 
         const etiquetaDialogo = this.add.text(
     cartaoTexto.x - cartaoTexto.width / 2 + 20,
-    cartaoTexto.y - cartaoTexto.height / 2 + 15, // 🔼 mais perto do topo
+    cartaoTexto.y - cartaoTexto.height / 2 + 15,
     'NECESSIDADE DO CLIENTE',
     {
-        fontSize: '18px', // levemente maior
+        fontSize: '18px',
         fontFamily: 'Verdana, Arial, sans-serif',
-        color: '#0a6ebd',
+        color: tema.corHex,
         fontStyle: 'bold',
         letterSpacing: 1.2
     }

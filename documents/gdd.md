@@ -1519,7 +1519,7 @@ Indicação visual no mapa de que a loja foi concluída.
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 
    
-<div align="center">
+</div>
 
 
 

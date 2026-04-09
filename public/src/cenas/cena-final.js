@@ -25,6 +25,7 @@ export default class CenaFinal extends Phaser.Scene {
         this.load.image('NPCAzulChocolate',  'assets/sprites/personagens/npcAzulChocolate.png');
         this.load.image('NPCAzulPelucia',    'assets/sprites/personagens/npcAzulPelucia.png');
         this.load.image('NPCAzulJoalheria',  'assets/sprites/personagens/npcAzulJoalheria.png');
+        this.load.image('marcielo', 'assets/sprites/animacoes/jogador/marcielo.parado.png');
     }
 
     create() {
@@ -51,7 +52,9 @@ export default class CenaFinal extends Phaser.Scene {
         adicionar(w * 0.5, 380, 'cieloBalcao', 0.5);
         adicionar(w * 0.5, 290, 'cieloNPC', 0.35);
         adicionar(w * 0.40, 340, 'trofeu', 0.2);
+        adicionar(w * 0.27, 370, 'marcielo', 0.5);
 
+        
         const npcY = h * 0.9;
         const npcScale = 0.5;
         const npcs = [
@@ -82,22 +85,21 @@ export default class CenaFinal extends Phaser.Scene {
         balao.strokeRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 16);
 
         // Rabinho para a esquerda
-        balao.fillStyle(0xffffff, 1);
         balao.fillTriangle(
-            bx - bw / 2, by - 12,
-            bx - bw / 2, by + 12,
-            bx - bw / 2 - 22, by
-        );
-        balao.lineStyle(2, 0x333333, 1);
-        balao.strokeTriangle(
-            bx - bw / 2, by - 12,
-            bx - bw / 2, by + 12,
-            bx - bw / 2 - 22, by
-        );
+    bx - bw / 2 + 60, by + bh / 2,
+    bx - bw / 2 + 80, by + bh / 2,
+    bx - bw / 2 + 40, by + bh / 2 + 25
+    );
+
+    balao.strokeTriangle(
+    bx - bw / 2 + 60, by + bh / 2,
+    bx - bw / 2 + 80, by + bh / 2,
+    bx - bw / 2 + 40, by + bh / 2 + 25
+    );
 
         const frase = 'Parabéns, você concluiu sua missão\ne conquistou a quantidade de clientes\nnecessárias para garantir a sua RVM!!';
 
-        this.textoBalao = this.add.text(bx, by - 50, '', {
+        this.textoBalao = this.add.text(bx, by - 65,'', {
             fontSize: '26px',
             color: '#222222',
             align: 'center',

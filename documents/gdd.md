@@ -590,7 +590,7 @@ O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.s
 | --- | ----------------------- | ------------------------------------------------- | --------------------------------------- |
 | 1   | `portaAbrindo`          | Ao entrar em qualquer loja ou na Central da Cielo | `assets/sons/portaAbrindo.mp3`          |
 | 2   | `ambienteAutoEscola`    | Som ambiente em loop dentro da Autoescola         | `assets/sons/ambienteAutoEscola.mp3`    |
-| 3   | `ambienteBrinquedo`     | Som ambiente em loop dentro da Loja de Pelúcia    | `assets/sons/ambienteBrinquedo.mp3`     |
+| 3   | `ambientePelucia`       | Som ambiente em loop dentro da Loja de Pelúcia    | `assets/sons/ambienteBrinquedo.mp3`     |
 | 4   | `ambienteChocolateria`  | Som ambiente em loop dentro da Loja de Chocolate  | `assets/sons/ambienteChocolateria.mp3`  |
 | 5   | `ambientePetShop`       | Som ambiente em loop dentro do Pet Shop           | `assets/sons/ambientePetShop.mp3`       |
 | 6   | `ambienteRoupas`        | Som ambiente em loop dentro da Loja de Roupas     | `assets/sons/ambienteRoupas.mp3`        |
@@ -608,6 +608,9 @@ O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.s
 | 18  | `menuSom`               | Música de fundo em loop no menu principal         | `assets/sons/menuSom.mp3`               |
 | 19  | `somCidade`             | Som ambiente em loop na cena da cidade            | `assets/sons/somCidade.mp3`             |
 | 20  | `somClicando`           | Tocado ao clicar em botões da interface           | `assets/sons/somClicando.mp3`           |
+| 21  | `menuMorte`             | Tocado quando o personagem principal é atropelado                                                                          | `assets/sons/somMorte.mp3`              |
+| 22  | `somEscrita`            | Tocado quando algum texto no jogo é digitado      | `assets/sons/somEscrita.mp3`             |
+| 23  | `somClicando`           | Tocado ao clicar em botões da interface           | `assets/sons/somClicando.mp3`           |
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 

@@ -308,7 +308,7 @@ export const perguntasPet = [
     },
     {
         id: "pet_2",
-        pergunta: "Existe uma técnica de venda que visa criar uma narrativa que envolve personagens, problemas, emoções, conflitos e soluções que um vendedor pode apresentar ao cliente como argumento para convencê-lo a acreditar nas palavras do consultor. Essa prática gera mais confiança, engajamento e convencimento para fechar um novo negócio. Qual o nome dessa técnica?",
+        pergunta: "Qual técnica de vendas usa histórias para gerar confiança e facilitar o fechamento?",
         opcoes: [
             "Gatilhos Mentais",
             "Rapport",

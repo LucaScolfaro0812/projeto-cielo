@@ -296,6 +296,10 @@ export default class CenaLoja extends Phaser.Scene {
 
         const tema = this.temaPorLoja[this.nomeLoja] ?? { cor: 0x0a6ebd, corHex: '#0a6ebd', icone: '🏪' };
 
+        const overlay = this.add.rectangle(centerX, centerY, width, height, 0x03111f, 0.72)
+            .setDepth(999)
+            .setScrollFactor(0);
+
         const painelSombra = this.add.rectangle(centerX + 10, centerY + 12, width * 0.92, height * 0.82, 0x00101a, 0.28)
             .setDepth(1000)
             .setScrollFactor(0);
@@ -427,6 +431,10 @@ const valorMcc = this.add.text(cartaoMcc.x, cartaoMcc.y + 10, codigoMcc, {
     .setOrigin(0, 0);
 
         this.physics.pause();
+
+        // Captura as teclas do popup para evitar que o navegador trate o espaço como rolagem.
+        this.input.keyboard.addCapture(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.input.keyboard.addCapture(Phaser.Input.Keyboard.KeyCodes.ENTER);
 
         // Texto digitado letra por letra
       const padding = 20;
@@ -567,6 +575,8 @@ const mostrarIndicador = () => {
         }
 
         this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
+        this.input.keyboard.off('keydown-ENTER', avancarOuFechar);
+        this.input.off('pointerdown', avancarOuFechar);
 
         // Destrói TODOS os elementos (proteção com ?)
         overlay?.destroy();
@@ -596,8 +606,10 @@ const mostrarIndicador = () => {
     }
 };
 
-        // Escuta ESPAÇO para avançar (ou pular digitação)
+        // Escuta as teclas e o clique para avançar o texto do popup.
         this.input.keyboard.on('keydown-SPACE', avancarOuFechar);
+        this.input.keyboard.on('keydown-ENTER', avancarOuFechar);
+        this.input.on('pointerdown', avancarOuFechar);
 
         // Começa pela primeira parte
         if (partes.length > 0) {
@@ -611,7 +623,6 @@ const mostrarIndicador = () => {
             faixaLateral.destroy();
             etiquetaCliente.destroy();
             tituloPopup.destroy();
-            subtituloPopup.destroy();
             painelRetrato.destroy();
             retratoNpc.destroy();
             faixaNomeNpc.destroy();
@@ -626,6 +637,8 @@ const mostrarIndicador = () => {
             textoIndicador.destroy();
             overlay.destroy();
             this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
+            this.input.keyboard.off('keydown-ENTER', avancarOuFechar);
+            this.input.off('pointerdown', avancarOuFechar);
         }
         // --- FIM DO POPUP ---
 

@@ -65,6 +65,7 @@ export function limparEstadoTransicaoCena() {
 
 let _deveExibirTutorial = false;
 let _deveExibirDialogoCentral = false;
+let _deveExibirDialogoPosRecargaCentral = false;
 
 // Chamado pelo menu ao iniciar novo jogo para sinalizar que o tutorial deve aparecer uma vez.
 export function ativarTutorialInicial() {
@@ -73,6 +74,11 @@ export function ativarTutorialInicial() {
 
 export function ativarDialogoInicialCentral() {
     _deveExibirDialogoCentral = true;
+}
+
+// Chamado no início de um novo jogo para permitir a dica após a primeira recarga.
+export function ativarDialogoPosRecargaCentral() {
+    _deveExibirDialogoPosRecargaCentral = true;
 }
 
 // Lê e zera o flag em uma única chamada — evita que o tutorial apareça mais de uma vez.
@@ -85,5 +91,12 @@ export function consumirTutorialInicial() {
 export function consumirDialogoInicialCentral() {
     const valor = _deveExibirDialogoCentral;
     _deveExibirDialogoCentral = false;
+    return valor;
+}
+
+// Lê e zera o flag para garantir exibição única por partida.
+export function consumirDialogoPosRecargaCentral() {
+    const valor = _deveExibirDialogoPosRecargaCentral;
+    _deveExibirDialogoPosRecargaCentral = false;
     return valor;
 }

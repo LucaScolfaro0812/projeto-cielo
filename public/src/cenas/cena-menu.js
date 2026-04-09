@@ -2,7 +2,7 @@
 // imagem de título, loja decorativa e botões de navegação
 
 import { transicionarPara, revelarCena } from '../utilitarios/transicao-cena.js';
-import { ativarTutorialInicial, ativarDialogoInicialCentral } from '../utilitarios/estado-jogo.js';
+import { ativarTutorialInicial, ativarDialogoInicialCentral, ativarDialogoPosRecargaCentral } from '../utilitarios/estado-jogo.js';
 import { existeProgressoPartidaSalvo } from '../utilitarios/sessao-jogo.js';
 
 export class CenaMenu extends Phaser.Scene {
@@ -102,6 +102,7 @@ export class CenaMenu extends Phaser.Scene {
             if (!possuiProgressoSalvo) {
                 ativarTutorialInicial();
                 ativarDialogoInicialCentral();
+                ativarDialogoPosRecargaCentral();
             }
 
             const mensagemTransicao = possuiProgressoSalvo

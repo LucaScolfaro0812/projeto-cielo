@@ -125,7 +125,7 @@ export const perguntasMovel = [
     },
     {
         id: "movel_5",
-        pergunta: "Nós da Cielo temos três formas de inserir clientes no funil de venda. Quais são?",
+        pergunta: "Quais são as três formas de inserir clientes no funil de venda?",
         opcoes: [
             "Lead, PAP e indicação", // resposta correta
             "Lead, marketing e vendas",
@@ -883,185 +883,6 @@ export const perguntasChocolate = [
     },
 ];
 
-// ============================================================
-// Perguntas usadas no quiz do NPC na rua (gameScene)
-// ============================================================
-export const perguntasNpcRua = [
-    {
-        id: "npcRua_1",
-        pergunta: "João comenta: 'Tenho receio das taxas da maquininha...' Como você conduz a conversa?",
-        opcoes: [
-            "Concordar que as taxas são complicadas e encerrar o assunto",
-            "Explicar que existem planos da Cielo pensados para pequenos negócios, com taxas competitivas",  // resposta correta
-            "Sugerir que ele continue vendendo só em dinheiro",
-            "Dizer que taxa é igual em todas"
-        ],
-        pontos: [0, 3, 0, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Concordar e encerrar o assunto não ajuda o cliente e desperdiça a oportunidade. Toda objeção é um pedido de mais informação — use isso a seu favor.",
-            "Correto! Existem planos da Cielo pensados para diferentes perfis de negócio, com taxas competitivas. Explicar isso mostra que você conhece o produto e se preocupa com a realidade financeira do cliente.",
-            "Sugerir que continue só com dinheiro é o oposto de uma venda consultiva. O GN deve mostrar o valor de aceitar mais meios de pagamento, não validar a limitação.",
-            "Dizer que a taxa é igual em todas as empresas é incorreto e pode ser facilmente verificado pelo cliente. Argumentos imprecisos destroem a credibilidade na hora."
-        ],
-    },
-    {
-        id: "npcRua_2",
-        pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
-        opcoes: [
-            "Dizer que normalmente demora bastante",
-            "Informar que depende da operadora e não explicar mais nada",
-            "Explicar as opções de recebimento e antecipação disponíveis",
-            "Informar que com a Cielo ele pode receber em até 1 dia útil"  // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Dizer que 'demora bastante' sem contexto gera desconfiança e não orienta o cliente. O papel do GN é informar com precisão e mostrar as vantagens da Cielo.",
-            "Responder que 'depende da operadora' sem completar a explicação parece evasivo. O cliente quer uma resposta concreta — e você tem essa resposta.",
-            "Explicar as opções é bom, mas sem mencionar o prazo específico da Cielo, você perde a oportunidade de criar interesse e urgência.",
-            "Correto! Com a Cielo, o lojista pode receber em até 1 dia útil com o RA. Essa informação concreta responde diretamente à pergunta e cria valor imediato para o cliente."
-        ],
-    },
-    {
-        id: "movel_24",
-        pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
-        opcoes: [
-            "Dizer que isso é normal no comércio",
-            "Explicar que aceitar cartão pode aumentar as vendas e atrair mais clientes",  // resposta correta
-            "Sugerir que ele peça PIX apenas",
-            "Recomendar manter como está"
-        ],
-        pontos: [0, 3, 0, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Dizer que perder vendas 'é normal no comércio' valida a limitação sem oferecer solução. O GN consultivo apresenta caminhos para superar obstáculos.",
-            "Correto! Aceitar cartão amplia o público: clientes que não carregam dinheiro podem comprar, o ticket médio aumenta e o negócio cresce. É um argumento direto e baseado em realidade.",
-            "PIX é ótimo, mas não substitui todos os meios de pagamento. Limitar a sugestão ao PIX ignora o crédito parcelado, que pode ser decisivo para compras de valor mais alto.",
-            "Recomendar manter como está é o oposto de uma venda consultiva. O GN que não agrega valor não tem motivo para fazer a visita."
-        ],
-    },
-];
-
-export const perguntasNpc = [
-    {
-        id: "movel_25",
-        pergunta: "João comenta: 'Tenho receio das taxas da maquininha...' Como você conduz a conversa?",
-        opcoes: [
-            "Concordar que as taxas são complicadas e encerrar o assunto",
-            "Explicar que existem planos da Cielo pensados para pequenos negócios, com taxas competitivas",  // resposta correta
-            "Sugerir que ele continue vendendo só em dinheiro",
-            "Dizer que taxa é igual em todas"
-        ],
-        pontos: [0, 3, 0, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Concordar e encerrar o assunto não ajuda o cliente e desperdiça a oportunidade. Toda objeção é um pedido de mais informação — use isso a seu favor.",
-            "Correto! Existem planos da Cielo pensados para diferentes perfis de negócio, com taxas competitivas. Explicar isso mostra que você conhece o produto e se preocupa com a realidade financeira do cliente.",
-            "Sugerir que continue só com dinheiro é o oposto de uma venda consultiva. O GN deve mostrar o valor de aceitar mais meios de pagamento, não validar a limitação.",
-            "Dizer que a taxa é igual em todas as empresas é incorreto e pode ser facilmente verificado pelo cliente. Argumentos imprecisos destroem a credibilidade na hora."
-        ],
-    },
-    {
-        id: "movel_26",
-        pergunta: "João pergunta: 'Em quanto tempo recebo pelas vendas no cartão?'",
-        opcoes: [
-            "Dizer que normalmente demora bastante",
-            "Informar que depende da operadora e não explicar mais nada",
-            "Explicar as opções de recebimento e antecipação disponíveis",
-            "Informar que com a Cielo ele pode receber em até 1 dia útil"  // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Dizer que 'demora bastante' sem contexto gera desconfiança e não orienta o cliente. O papel do GN é informar com precisão e mostrar as vantagens da Cielo.",
-            "Responder que 'depende da operadora' sem completar a explicação parece evasivo. O cliente quer uma resposta concreta — e você tem essa resposta.",
-            "Explicar as opções é bom, mas sem mencionar o prazo específico da Cielo, você perde a oportunidade de criar interesse e urgência.",
-            "Correto! Com a Cielo, o lojista pode receber em até 1 dia útil com o RA. Essa informação concreta responde diretamente à pergunta e cria valor imediato para o cliente."
-        ],
-    },
-    {
-        id: "movel_27",
-        pergunta: "João diz: 'Perco vendas porque só aceito dinheiro'. Como você responde?",
-        opcoes: [
-            "Dizer que isso é normal no comércio",
-            "Explicar que aceitar cartão pode aumentar as vendas e atrair mais clientes",  // resposta correta
-            "Sugerir que ele peça PIX apenas",
-            "Recomendar manter como está"
-        ],
-        pontos: [0, 3, 0, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Dizer que perder vendas 'é normal no comércio' valida a limitação sem oferecer solução. O GN consultivo apresenta caminhos para superar obstáculos.",
-            "Correto! Aceitar cartão amplia o público: clientes que não carregam dinheiro podem comprar, o ticket médio aumenta e o negócio cresce. É um argumento direto e baseado em realidade.",
-            "PIX é ótimo, mas não substitui todos os meios de pagamento. Limitar a sugestão ao PIX ignora o crédito parcelado, que pode ser decisivo para compras de valor mais alto.",
-            "Recomendar manter como está é o oposto de uma venda consultiva. O GN que não agrega valor não tem motivo para fazer a visita."
-        ],
-    },
-    {
-        id: "movel_28",
-        pergunta: "Se tratando de um cliente de conquista, sabemos que o não atingimento do volume negociado impacta diretamente nos pilares da RVM. Para identificar e trabalhar estes pilares, qual das ferramentas abaixo conseguimos acompanhar o realizado e extrair um relatório analítico?",
-        opcoes: [
-            "Cielo +",
-            "SAP concur",
-            "Arpa", // resposta correta
-            "Expert"
-        ],
-        pontos: [0, 0, 3, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "O Cielo + é um aplicativo de gestão financeira para o estabelecimento. Não é uma ferramenta analítica para o GN acompanhar o desempenho da sua carteira.",
-            "SAP Concur é uma ferramenta corporativa de gestão de despesas e viagens. Não é utilizada para acompanhar o realizado de clientes do GN na Cielo.",
-            "Correto! O ARPA é a ferramenta analítica onde o GN acompanha o realizado de cada cliente, verifica metas de Volume e Margem e extrai relatórios detalhados para decisões estratégicas.",
-            "O Expert é uma ferramenta analítica, mas para acompanhar o realizado e extrair relatório analítico detalhado por cliente com foco na RVM, o ARPA é a ferramenta correta."
-        ],
-    },
-    {
-        id: "movel_29",
-        pergunta: "Com qual frequência o GN deve realizar o Plano de Rota e quais os ganhos?",
-        opcoes: [
-            "Mensalmente, pois é trabalhoso e não beneficia o dinamismo da rotina comercial",
-            "Bimestralmente, pois o planejamento otimiza gestão de tempo em campo e prioriza as melhores oportunidades com foco na RVM",
-            "Quinzenalmente, quando necessário para garantir a aderência nos relatórios gerenciais",
-            "Diariamente, pois o planejamento otimiza gestão de tempo em campo e prioriza as melhores oportunidades com foco na RVM" // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Fazer o Plano de Rota mensalmente é muito espaçado. O mercado muda diariamente e um planejamento mensal não acompanha o ritmo das oportunidades em campo.",
-            "Planejamento bimestral é ainda mais distante da realidade dinâmica. O GN que planeja a cada dois meses perde oportunidades e tem baixa execução.",
-            "Quinzenal é melhor que mensal, mas ainda insuficiente para a rotina do GN. O Plano de Rota diário garante que cada visita tenha um objetivo claro.",
-            "Correto! O Plano de Rota deve ser feito diariamente: otimiza o tempo em campo, prioriza clientes com maior potencial para a RVM e garante que cada visita tenha propósito definido."
-        ],
-    },
-    {
-        id: "movel_30",
-        pergunta: "Quando um estabelecimento aciona o GN para solicitar a troca da máquina, ele deve entrar em contato com a:",
-        opcoes: [
-            "Central de Comunicação",
-            "Central Unificada",
-            "Central de Apoio",
-            "Central de Ajuda" // resposta correta
-        ],
-        pontos: [0, 0, 0, 3],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Central de Comunicação não é o nome do canal de suporte técnico da Cielo para troca de equipamentos.",
-            "Central Unificada não é o canal correto. Para solicitações de troca de maquininha, o estabelecimento tem um canal específico.",
-            "Central de Apoio não é o canal correto. Para demandas técnicas como troca de equipamento, o estabelecimento deve acionar a Central de Ajuda.",
-            "Correto! A Central de Ajuda é o canal correto para solicitações técnicas como troca de maquininha. Orientar o cliente a usar esse canal também reforça seu papel de consultor."
-        ],
-    },
-];
 
 // ============================================================
 // GAMES
@@ -1402,25 +1223,26 @@ export const perguntasRoupas = [
             "A Atração é a frase final que convida ao próximo passo ('Quer ativar agora?'). A frase apresentada mostra o benefício — o que o cliente ganha — não um convite à ação."
         ],
     },
-    {
-        id: "roupas_6",
-        pergunta: "Nós da Cielo temos três formas de inserir clientes no funil de venda. Quais são?",
-        opcoes: [
-            "Lead, PAP e indicação",
-            "Lead, marketing e vendas",
-            "Indicação, loja e suporte",
-            "Marketing, CRM e suporte"
-        ],
-        pontos: [3, 0, 0, 0],
-        feedbackAcerto: "Parabéns! Você respondeu corretamente",
-        feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
-        feedbackOpcoes: [
-            "Correto! As três formas de inserir clientes no funil são Lead (oportunidade de campanha), PAP — Porta a Porta (visita ativa) e Indicação (referência de cliente satisfeito). Conhecer essas entradas é essencial para o GN planejar sua prospecção.",
-            "Marketing e vendas são áreas organizacionais, não formas de inserção no funil de prospecção do GN. As entradas são Lead, PAP e Indicação.",
-            "Loja e suporte são canais de atendimento reativo. A prospecção ativa do GN usa Lead, PAP e Indicação.",
-            "Marketing, CRM e suporte são ferramentas e áreas de apoio. As três formas de inserir clientes no funil são Lead, PAP e Indicação."
-        ],
+     {
+    id: "roupas_6",
+    pergunta: "Durante uma negociação, o cliente diz: 'Preciso pensar mais um pouco'. Qual é a melhor atitude do GN?",
+    opcoes: [
+        "Agradecer e ir embora sem questionar",
+        "Identificar a objeção real por trás da hesitação e tratar com argumentos de valor",
+        "Insistir até o cliente fechar na hora",
+        "Oferecer desconto imediato para acelerar a decisão"
+    ],
+    pontos: [0, 3, 0, 0],
+    feedbackAcerto: "Parabéns! Você respondeu corretamente",
+    feedbackErro: "Essa não é a melhor abordagem, isso pode atrapalhar seu processo de venda",
+    feedbackOpcoes: [
+        "Ir embora sem questionar significa desistir da venda. 'Preciso pensar' quase sempre esconde uma objeção real — de preço, de necessidade ou de confiança — que pode ser tratada.",
+        "Correto! 'Preciso pensar' é uma objeção velada. O GN consultivo pergunta com empatia o que está gerando a dúvida, identifica a objeção real e apresenta argumentos de valor que respondam diretamente àquele ponto.",
+        "Insistir sem entender a objeção cria pressão e afasta o cliente. A abordagem consultiva busca entender, não forçar.",
+        "Oferecer desconto sem consultar o gestor viola a política comercial e desvaloriza o produto. A objeção pode nem ser de preço — ceder desconto sem entender o problema real é um erro duplo."
+    ],
     },
+
 ];
 
 // ============================================================

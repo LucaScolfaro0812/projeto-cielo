@@ -129,10 +129,22 @@ export class CenaCentral extends Phaser.Scene {
         this.npc = this.physics.add.staticImage(1160, 380, 'cieloNPC');
         this.npc.setScale(0.3);
 
-        const playerX = 1150;
-        const playerY = 800;
         const portaX = 400;
         const portaY = 415;
+
+        let playerX = 1150; // Coordenada X padrão (Centro/Balcão)
+        let playerY = 800;  // Coordenada Y padrão (Centro/Balcão)
+
+        const localSpawn = this.registry.get('spawnCentral');
+
+        if (localSpawn === 'porta') {
+            // Se veio da rua, nasce na frente da porta
+            playerX = portaX;
+            playerY = portaY + 80; // Adicionei +80 no Y para ele nascer um pouco abaixo da porta e não colidir na hora
+            
+            // Limpa o aviso para que num "Novo Jogo" ele volte a nascer no centro
+            this.registry.set('spawnCentral', 'centro'); 
+        }
 
         // Cria o Jogador
         this.player = new Jogador(this, playerX, playerY);

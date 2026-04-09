@@ -91,7 +91,7 @@ export default class CenaLoja extends Phaser.Scene {
                 'Você teria um tempinho para me explicar melhor como isso pode funcionar?'
             ],
             Beleza: [
-                'Olá, seja bem-vindo ao Salão de Beleza!',
+                'Olá, seja bem-vindo à Barbearia!',
                 'Aqui preciso de soluções de pagamento práticas e modernas, com aproximação, bom parcelamento e taxas bem configuradas para garantir um atendimento ágil e eficiente.',
                 'Você pode entrar um instante para me mostrar como suas soluções funcionam?'
             ],
@@ -127,6 +127,21 @@ export default class CenaLoja extends Phaser.Scene {
             ]
         };
 
+        this.metaPopupPorLoja = {
+            Autoescola: { nome: 'Patricia', mcc: 'MCC 8299', segmento: 'Educação e cursos' },
+            Pelucia: { nome: 'Ana', mcc: 'MCC 5945', segmento: 'Brinquedos e presentes' },
+            Chocolate: { nome: 'Rafael', mcc: 'MCC 5441', segmento: 'Doces e chocolateria' },
+            Pet: { nome: 'Bruna', mcc: 'MCC 5995', segmento: 'Pet shop e serviços' },
+            Roupas: { nome: 'Camila', mcc: 'MCC 5651', segmento: 'Moda e vestuário' },
+            Beleza: { nome: 'Diego', mcc: 'MCC 7241', segmento: 'Barbearia e cuidados pessoais' },
+            Cafe: { nome: 'Mariana', mcc: 'MCC 5814', segmento: 'Cafeteria' },
+            Frutaria: { nome: 'João', mcc: 'MCC 5499', segmento: 'Hortifruti' },
+            Movel: { nome: 'Roberto', mcc: 'MCC 5712', segmento: 'Móveis e decoração' },
+            Games: { nome: 'Lucas', mcc: 'MCC 5734', segmento: 'Games e eletrônicos' },
+            Joalheria: { nome: 'Eduardo', mcc: 'MCC 5944', segmento: 'Joalheria' },
+            Lanchonete: { nome: 'Carlos', mcc: 'MCC 5812', segmento: 'Lanchonete e refeições rápidas' }
+        };
+
     }
 
     preload() {
@@ -135,29 +150,6 @@ export default class CenaLoja extends Phaser.Scene {
 
         Jogador.preload(this);
         Npc.preload(this);
-
-        // Mapeia cada loja ao arquivo de imagem exibido ao entrar
-        const entradaPorLoja = {
-            Cafe: 'EntradaCafeteria1',
-            Games: 'EntradaLojaGames1',
-            Beleza: 'EntradaBeleza1',
-            Roupas: 'EntradaLojaRoupas1',
-            Pet: 'EntradaPetShop1',
-            Movel: 'EntradaLojaMoveis1',
-            Frutaria: 'EntradaFrutaria1',
-            Lanchonete: 'EntradaLanchonete1',
-            Chocolate: 'EntradaLojaChocolate1',
-            Pelucia: 'EntradaLojaBrinquedos1',
-            Autoescola: 'EntradaAutoescola1',
-            Joalheria: 'EntradaJoalheria1'
-        };
-
-        const nomeArquivo = entradaPorLoja[this.nomeLoja];
-        const chave = 'entradaLoja' + this.nomeLoja;
-
-        if (nomeArquivo) {
-            this.load.image(chave, `assets/imagens/lojas/ao-abrir/${nomeArquivo}.png`);
-        }
 
         this.load.image('botaoInteracao', 'assets/imagens/botao.interacao.png');
         this.load.image('maquininhaCielo', 'assets/imagens/maquininha-cielo.png');
@@ -271,67 +263,191 @@ export default class CenaLoja extends Phaser.Scene {
         // --- POPUP DE DIÁLOGO POR PARTES ---
         // Pega o array de partes do diálogo (máximo 3). Fallback para array vazio.
         const partes = this.dialogosPorLoja?.[this.nomeLoja] ?? [];
-        const chave = 'entradaLoja' + this.nomeLoja;
+        const { centerX, centerY, width, height } = this.cameras.main;
 
-        // Overlay escuro de fundo
-        const overlay = this.add.graphics();
-        overlay.fillStyle(0x000000, 0.6);
-        overlay.fillRect(
-                        0, 0,
-            this.fundo.displayWidth,
-            this.fundo.displayHeight
+        const metaPopup = this.metaPopupPorLoja[this.nomeLoja] ?? {
+            nome: 'Cliente',
+            mcc: 'MCC não informado',
+            segmento: 'Segmento comercial'
+        };
+        const chaveRetratoNpc = this.textures.exists(`npc-vermelho${this.nomeLoja}`)
+            ? `npc-vermelho${this.nomeLoja}`
+            : 'npc-vermelho';
+
+        const overlay = this.add.rectangle(centerX, centerY, width, height, 0x021826, 0.8)
+            .setDepth(999)
+            .setScrollFactor(0);
+
+        const painelSombra = this.add.rectangle(centerX + 10, centerY + 12, width * 0.8, height * 0.66, 0x00101a, 0.28)
+            .setDepth(1000)
+            .setScrollFactor(0);
+
+        const painel = this.add.rectangle(centerX, centerY, width * 0.8, height * 0.66, 0xf7fbff, 0.99)
+            .setDepth(1000)
+            .setScrollFactor(0)
+            .setStrokeStyle(5, 0x0e78c7, 1);
+
+        const faixaTitulo = this.add.rectangle(centerX, centerY - height * 0.24, width * 0.8, 82, 0x0a6ebd, 1)
+            .setDepth(1001)
+            .setScrollFactor(0);
+
+       const tituloPopup = this.add.text(centerX, faixaTitulo.y, `Loja ${this.nomeLoja}`, {
+    fontSize: '36px',
+    fontFamily: 'Verdana, Arial, sans-serif',
+    color: '#ffffff',
+    fontStyle: 'bold'
+})
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0.5);
+
+
+        const faixaLateral = this.add.rectangle(centerX - width * 0.225, centerY + 14, width * 0.2, height * 0.46, 0x0c3553, 1)
+            .setDepth(1001)
+            .setScrollFactor(0)
+            .setStrokeStyle(3, 0x6cc8ff, 1);
+
+        const etiquetaCliente = this.add.text(faixaLateral.x, faixaLateral.y - height * 0.17, 'CLIENTE', {
+         fontSize: '18px',
+     fontFamily: 'Arial Black, Arial, sans-serif', // fonte mais forte
+    color: '#bfe9ff', // azul mais suave (menos estourado)
+    fontStyle: 'bold',
+        })
+            .setDepth(1002)
+            .setScrollFactor(0)
+            .setOrigin(0.5);
+
+        const painelRetrato = this.add.rectangle(faixaLateral.x, faixaLateral.y - 20, width * 0.14, height * 0.2, 0xe3f4ff, 1)
+            .setDepth(1001)
+            .setScrollFactor(0)
+            .setStrokeStyle(4, 0x78c9f5, 1);
+
+        const retratoNpc = this.add.image(painelRetrato.x, painelRetrato.y + 17, chaveRetratoNpc)
+            .setDepth(1002)
+            .setScrollFactor(0)
+            .setDisplaySize(182, 182)
+            .setOrigin(0.5);
+
+        const faixaNomeNpc = this.add.rectangle(faixaLateral.x, faixaLateral.y + 62, width * 0.2, 58, 0x0a6ebd, 1)
+            .setDepth(1003)
+            .setScrollFactor(0);
+
+        const nomeNpc = this.add.text(faixaNomeNpc.x, faixaNomeNpc.y - 10, metaPopup.nome, {
+            fontSize: '23px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#ffffff',
+            fontStyle: 'bold'
+        })
+            .setDepth(1004)
+            .setScrollFactor(0)
+            .setOrigin(0.5);
+
+        const segmentoNpc = this.add.text(faixaNomeNpc.x, faixaNomeNpc.y + 14, metaPopup.segmento, {
+            fontSize: '14px',
+            fontFamily: 'Verdana, Arial, sans-serif',
+            color: '#d8f3ff'
+        })
+            .setDepth(1004)
+            .setScrollFactor(0)
+            .setOrigin(0.5);
+
+  // --- CARD MCC PADRONIZADO ---
+const cartaoMcc = this.add.rectangle(
+    faixaLateral.x,
+    faixaNomeNpc.y + height * 0.10,
+    width * 0.16,
+    84,
+    0x06253a,
+    1
 );
-        overlay.setDepth(999);
 
-        this.exteriorImage = this.add.image(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY,
-            chave
-        ).setDepth(1000).setScrollFactor(0);
+// Título
+const tituloMcc = this.add.text(cartaoMcc.x, cartaoMcc.y - 20, 'MCC', {
+    fontSize: '18px',
+     fontFamily: 'Arial Black, Arial, sans-serif', // fonte mais forte
+    color: '#bfe9ff', // azul mais suave (menos estourado)
+    fontStyle: 'bold',
+})
+    .setDepth(1003)
+    .setScrollFactor(0)
+    .setOrigin(0.5);
+
+// Remove "MCC " do valor pra padronizar visual
+const codigoMcc = metaPopup.mcc.replace('MCC ', '');
+
+// Valor centralizado
+const valorMcc = this.add.text(cartaoMcc.x, cartaoMcc.y + 10, codigoMcc, {
+    fontSize: '26px',
+    fontFamily: 'Verdana, Arial, sans-serif',
+    color: '#ffffff',
+    fontStyle: 'bold',
+    align: 'center',
+    fixedWidth: 120
+})
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0.5);
+        const cartaoTexto = this.add.rectangle(centerX + width * 0.12, centerY + 10, width * 0.46, height * 0.38, 0xffffff, 1)
+            .setDepth(1001)
+            .setScrollFactor(0)
+            .setStrokeStyle(3, 0xd6ebf9, 1);
+
+        const etiquetaDialogo = this.add.text(
+    cartaoTexto.x - cartaoTexto.width / 2 + 20,
+    cartaoTexto.y - cartaoTexto.height / 2 + 15, // 🔼 mais perto do topo
+    'NECESSIDADE DO CLIENTE',
+    {
+        fontSize: '18px', // levemente maior
+        fontFamily: 'Verdana, Arial, sans-serif',
+        color: '#0a6ebd',
+        fontStyle: 'bold',
+        letterSpacing: 1.2
+    }
+)
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0, 0);
 
         this.physics.pause();
 
-        this.exteriorImage.setDisplaySize(
-            this.cameras.main.width / this.cameras.main.zoom,
-            this.cameras.main.height / this.cameras.main.zoom
-        );
-
         // Texto digitado letra por letra
-        const textoChat = this.add.text(
-            this.cameras.main.centerX - 170,
-            this.cameras.main.centerY + 60,
-            '',
-            {
-                fontSize: '35px',
-                fontFamily: 'Arial, sans-serif',
-                color: '#000000',
-                wordWrap: { width: this.cameras.main.width * 0.55 },
-                align: 'left',
-                lineSpacing: 3
-            }
-        )
-        .setDepth(1002)
-        .setScrollFactor(0)
-        .setOrigin(0.5);
+      const padding = 20;
+
+const textoChat = this.add.text(
+    cartaoTexto.x - cartaoTexto.width / 2 + padding,
+    cartaoTexto.y - cartaoTexto.height / 2 + padding + 20, 
+    '',
+    {
+        fontSize: '26px',
+        fontFamily: 'Verdana, Arial, sans-serif',
+        color: '#16324a',
+        wordWrap: { width: cartaoTexto.width - padding * 2 },
+        align: 'left',
+        lineSpacing: 10
+    }
+)
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0, 0);
 
         // Indicador "ESPAÇO para continuar" no canto inferior do popup
-        const indicadorX = this.cameras.main.centerX;
-        const indicadorY = this.cameras.main.centerY + (this.cameras.main.height / 2) - 40;
+        const indicadorX = centerX;
+        const indicadorY = centerY + height * 0.22;
 
-        const textoIndicador = this.add.text(
-            indicadorX,
-            indicadorY,
-            'Pressione ESPAÇO para continuar',
-            {
-                fontSize: '26px',
-                fontFamily: 'Arial, sans-serif',
-                color: '#333333',
-                alpha: 0
-            }
-        )
-        .setDepth(1002)
-        .setScrollFactor(0)
-        .setOrigin(1, 3);
+      const textoIndicador = this.add.text(
+    centerX + 150,
+    cartaoTexto.y + cartaoTexto.height / 2 + 40,
+    'Pressione [ESPAÇO]',
+    {
+        fontSize: '22px',
+        fontFamily: 'Verdana, Arial, sans-serif',
+        color: '#ffd166', // 🔥 amarelo destaque
+        fontStyle: 'bold'
+    }
+)
+    .setDepth(1002)
+    .setScrollFactor(0)
+    .setOrigin(0.5);
 
         // Estado interno do popup
         let parteAtual = 0;
@@ -344,26 +460,24 @@ export default class CenaLoja extends Phaser.Scene {
         // Pisca o indicador de espaço
         let tweenIndicador = null;
 
-        const mostrarIndicador = () => {
-            textoIndicador.setAlpha(1);
-            if (tweenIndicador) tweenIndicador.stop();
-            tweenIndicador = this.tweens.add({
-                targets: textoIndicador,
-                alpha: { from: 1, to: 0.2 },
-                duration: 600,
-                yoyo: true,
-                repeat: -1
-            });
-        };
+const mostrarIndicador = () => {
+    // Garante que não exista animação ativa
+    if (tweenIndicador) {
+        tweenIndicador.stop();
+        tweenIndicador = null;
+    }
 
-        const esconderIndicador = () => {
-            if (tweenIndicador) {
-                tweenIndicador.stop();
-                tweenIndicador = null;
-            }
-            textoIndicador.setAlpha(0);
-        };
+    // Deixa o texto visível e FIXO (sem piscar)
+    textoIndicador.setAlpha(1);
+};
+       const esconderIndicador = () => {
+    if (tweenIndicador) {
+        tweenIndicador.stop();
+        tweenIndicador = null;
+    }
 
+    textoIndicador.setAlpha(0);
+};
         // Inicia a digitação de uma parte do texto
         const iniciarDigitacao = (indiceParte) => {
             if (indiceParte >= partes.length) return;
@@ -404,40 +518,66 @@ export default class CenaLoja extends Phaser.Scene {
 
         // Avança para a próxima parte ou fecha o popup
         const avancarOuFechar = () => {
-            if (!podePressionar) {
-                // Se ainda está digitando, pula para o final da parte atual
-                if (digitando && eventoDigitacao) {
-                    eventoDigitacao.remove();
-                    if (somEscrita) somEscrita.stop();
-                    textoChat.setText(partes[parteAtual]);
-                    digitando = false;
-                    podePressionar = true;
-                    mostrarIndicador();
-                }
-                return;
-            }
+    // Se ainda está digitando → termina instantaneamente
+    if (digitando && eventoDigitacao) {
+        eventoDigitacao.remove();
+        if (somEscrita) somEscrita.stop();
 
-            parteAtual++;
+        textoChat.setText(partes[parteAtual]);
+        digitando = false;
+        podePressionar = true;
 
-            if (parteAtual < partes.length) {
-                // Ainda há partes — digita a próxima
-                iniciarDigitacao(parteAtual);
-            } else {
-                // Acabaram as partes — fecha o popup
-                if (eventoDigitacao) eventoDigitacao.remove();
-                if (somEscrita) { somEscrita.stop(); somEscrita.destroy(); }
-                if (tweenIndicador) tweenIndicador.stop();
+        mostrarIndicador();
+        return;
+    }
 
-                this.physics.resume();
-                this.exteriorImage.destroy();
-                textoChat.destroy();
-                textoIndicador.destroy();
-                overlay.destroy();
+    // Só avança se puder
+    if (!podePressionar) return;
 
-                // Remove o listener de espaço do popup
-                this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
-            }
-        };
+    parteAtual++;
+
+    if (parteAtual < partes.length) {
+        iniciarDigitacao(parteAtual);
+    } else {
+        // 🔴 FINALIZAÇÃO CORRETA DO POPUP
+
+        // Limpa eventos
+        if (eventoDigitacao) eventoDigitacao.remove();
+        if (somEscrita) {
+            somEscrita.stop();
+            somEscrita.destroy();
+        }
+
+        this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
+
+        // Destrói TODOS os elementos (proteção com ?)
+        overlay?.destroy();
+        painel?.destroy();
+        painelSombra?.destroy();
+        faixaTitulo?.destroy();
+        faixaLateral?.destroy();
+        etiquetaCliente?.destroy();
+        tituloPopup?.destroy();
+        painelRetrato?.destroy();
+        retratoNpc?.destroy();
+        faixaNomeNpc?.destroy();
+        nomeNpc?.destroy();
+        segmentoNpc?.destroy();
+        cartaoMcc?.destroy();
+        tituloMcc?.destroy();
+        valorMcc?.destroy();
+        cartaoTexto?.destroy();
+        etiquetaDialogo?.destroy();
+        textoChat?.destroy();
+        textoIndicador?.destroy();
+
+        // 🔥 MUITO IMPORTANTE
+        this.physics.resume();
+
+        // Garante que pode interagir de novo
+        this.scene.resume();
+    }
+};
 
         // Escuta ESPAÇO para avançar (ou pular digitação)
         this.input.keyboard.on('keydown-SPACE', avancarOuFechar);
@@ -448,10 +588,27 @@ export default class CenaLoja extends Phaser.Scene {
         } else {
             // Sem texto, fecha na hora
             this.physics.resume();
-            this.exteriorImage.destroy();
+            painel.destroy();
+            painelSombra.destroy();
+            faixaTitulo.destroy();
+            faixaLateral.destroy();
+            etiquetaCliente.destroy();
+            tituloPopup.destroy();
+            subtituloPopup.destroy();
+            painelRetrato.destroy();
+            retratoNpc.destroy();
+            faixaNomeNpc.destroy();
+            nomeNpc.destroy();
+            segmentoNpc.destroy();
+            cartaoMcc.destroy();
+            tituloMcc.destroy();
+            valorMcc.destroy();
+            cartaoTexto.destroy();
+            etiquetaDialogo.destroy();
             textoChat.destroy();
             textoIndicador.destroy();
             overlay.destroy();
+            this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
         }
         // --- FIM DO POPUP ---
 

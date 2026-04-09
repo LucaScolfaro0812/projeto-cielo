@@ -28,6 +28,11 @@ export default class CenaFinal extends Phaser.Scene {
         this.load.image('marcielo', 'assets/sprites/animacoes/jogador/marcielo.parado.png');
     }
 
+    /**
+     * Monta o cenário da Central da Cielo com troféu, Marcielo, NPCs e balão de fala.
+     * Todos os objetos são guardados em `objetosCena` para serem apagados em fade
+     * quando os confetes cobrirem a tela, revelando o botão de retorno ao menu.
+     */
     create() {
         const w = this.scale.width;
         const h = this.scale.height;
@@ -141,6 +146,11 @@ export default class CenaFinal extends Phaser.Scene {
         });
     }
 
+    /**
+     * Fecha o balão de fala ao pressionar ESPAÇO.
+     * Interrompe a digitação se ainda estiver em andamento, destroi os elementos do balão
+     * e dispara a animação de confetes.
+     */
     fecharBalao() {
         if (!this.balaoAberto) return;
         this.balaoAberto = false;

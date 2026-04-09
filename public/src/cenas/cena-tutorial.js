@@ -1,3 +1,16 @@
+/**
+ * CenaTutorial — Overlay de controles do jogo.
+ *
+ * Pode ser exibido de duas formas:
+ *   - Como cena independente: ao iniciar o jogo pela primeira vez.
+ *   - Como overlay: sobreposto a uma cena ativa (ex: CenaCentral), sem pausar a lógica.
+ *     Nesse modo, ao fechar, retoma a cena de origem e chama `aoFecharTutorialOverlay()`
+ *     nela (se existir) para continuar o fluxo de diálogo.
+ *
+ * A flag `usarTutorialRealista` controla qual layout é renderizado:
+ *   - true  → teclas em estilo de interface de jogo (3D), uma por linha com descrição
+ *   - false → layout anterior, mais simples (tabela texto/tecla)
+ */
 export class CenaTutorial extends Phaser.Scene {
 
     constructor() {
@@ -86,6 +99,11 @@ export class CenaTutorial extends Phaser.Scene {
         });
     }
 
+    /**
+     * Renderiza o tutorial no layout moderno: cada controle em uma linha com
+     * tecla(s) estilizadas em 3D à esquerda e descrição à direita.
+     * A primeira linha (movimento) usa altura maior para acomodar duas fileiras de teclas.
+     */
     _renderizarTutorialRealista(w, h, larguraCard, alturaCard, topoCard, esquerdaCard) {
         const controles = [
             {
@@ -179,6 +197,10 @@ export class CenaTutorial extends Phaser.Scene {
         });
     }
 
+    /**
+     * Renderiza o tutorial no layout simples: tabela com coluna de tecla e coluna de descrição.
+     * Mantido como fallback caso `usarTutorialRealista` seja false.
+     */
     _renderizarTutorialAtual(w, h, larguraCard, alturaCard, topoCard, esquerdaCard) {
         const controles = [
             ['W A S D\n/ SETAS', 'Mover personagem'],
@@ -247,6 +269,14 @@ export class CenaTutorial extends Phaser.Scene {
         });
     }
 
+    /**
+     * Desenha uma única tecla estilizada em 3D (ex: "E", "M", "ESC").
+     * Composta por três camadas: sombra (fundo deslocado), superfície principal e reflexo no topo.
+     *
+     * @param {number} x - centro horizontal da tecla
+     * @param {number} y - centro vertical da tecla
+     * @param {string} texto - rótulo exibido na tecla
+     */
     _desenharTeclaUnica(x, y, texto) {
         const largura = texto.length > 3 ? 116 : 88;
         const altura = 46;
@@ -273,6 +303,16 @@ export class CenaTutorial extends Phaser.Scene {
             .setDepth(6);
     }
 
+    /**
+     * Desenha um grupo de teclas lado a lado (ex: W A S D).
+     * Quando `teclasSecundarias` é fornecido, cada tecla principal ganha uma tecla secundária
+     * logo abaixo (ex: setas direcionais sob WASD), formando duas fileiras alinhadas.
+     *
+     * @param {number} x - centro horizontal do grupo inteiro
+     * @param {number} y - centro vertical de referência
+     * @param {string[]} teclas - rótulos das teclas principais
+     * @param {string[]} teclasSecundarias - rótulos das teclas secundárias (opcional)
+     */
     _desenharGrupoTeclas(x, y, teclas, teclasSecundarias = []) {
         const larguraTecla = 48;
         const alturaTecla = 34;

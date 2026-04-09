@@ -44,10 +44,10 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
         const portaHeight = portaTexture.getSourceImage().height;
 
         this.portaGlow = cena.add.rectangle(
-        x + ajusteX, 
-        y + ajusteY, 
-        portaWidth + -103, // 20 pixels mais largo
-        portaHeight + 35, // 20 pixels mais alto
+        x + ajusteX,
+        y + ajusteY,
+        portaWidth - 103, // Reduz a largura bruta do spritesheet para aproximar da área visual da porta
+        portaHeight + 35, // Aumenta a altura para cobrir a área de brilho acima da porta
         0xffffff // Cor branca pura
         );
 

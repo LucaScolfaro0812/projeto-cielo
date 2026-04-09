@@ -37,7 +37,15 @@ export class CenaCidade extends Phaser.Scene {
         // Evita duplicar regra de negócio e mantém consistência com o localStorage.
         this.lojasConquistadas = [];
         this.lojasNaoConquistadas = [];
-        // lista de configurações de cada loja
+        // Configurações individuais de cada loja.
+        // Cada objeto define:
+        //   nomeLoja / cena          — identificador e chave da cena interna
+        //   bgScale                  — escala do fundo da cena interna
+        //   lojaFisicaOriginX/Y      — pivot da sprite da fachada (0.0–1.0)
+        //   offsetFisicaX/Y          — ajuste fino de posição da fachada no mapa
+        //   npcX / npcY              — posição do NPC dentro da loja
+        //   portaX / portaY          — posição da porta de saída dentro da loja
+        //   playerX / playerY        — posição inicial do jogador ao entrar na loja
         this.lojasConfigs = [
             {
                 nomeLoja: 'Cafe',
@@ -270,6 +278,7 @@ export class CenaCidade extends Phaser.Scene {
         ];
     }
 
+    // Recebe os dados passados ao iniciar a cena — define se o tutorial deve abrir automaticamente.
     init(data = {}) {
         this.mostrarTutorialAoEntrar = Boolean(data.mostrarTutorial);
     }
@@ -489,6 +498,8 @@ export class CenaCidade extends Phaser.Scene {
     _iniciarParticulasAmbiente() {
         this.particulasAmbiente = [];
 
+        // Cria a textura de folha dinamicamente (elipse verde pequena) se ainda não existir.
+        // Usar generateTexture evita carregar um arquivo de imagem separado para algo tão simples.
         if (!this.textures.exists('folha-particula')) {
             const g = this.make.graphics({ x: 0, y: 0, add: false });
             g.fillStyle(0x5a9e44, 1);
@@ -497,6 +508,8 @@ export class CenaCidade extends Phaser.Scene {
             g.destroy();
         }
 
+        // A cada 210ms nasce uma folha na borda esquerda da câmera e sopra para a direita.
+        // O Y de nascimento é aleatório ao longo de toda a altura visível da câmera.
         this._eventoVento = this.time.addEvent({
             delay: 210,
             loop: true,
@@ -504,6 +517,7 @@ export class CenaCidade extends Phaser.Scene {
                 const cam = this.cameras.main;
                 const vh = cam.worldView.height;
 
+                // Nasce ligeiramente fora da tela para que a entrada seja imperceptível
                 const x = cam.worldView.x - 20;
                 const y = cam.worldView.y + Phaser.Math.Between(0, vh);
 
@@ -515,6 +529,7 @@ export class CenaCidade extends Phaser.Scene {
                 const distancia = Phaser.Math.Between(1200, 2500);
                 const duracao = Phaser.Math.Between(6000, 10000);
 
+                // Tween: move para a direita, oscila levemente no Y, gira e some
                 this.tweens.add({
                     targets: folha,
                     x: x + distancia,
@@ -653,6 +668,8 @@ export class CenaCidade extends Phaser.Scene {
         }
     }
 
+    // Pausa a cena e abre o overlay do mapa completo, passando a posição atual do
+    // jogador e as dimensões do mundo para que o marcador seja posicionado corretamente.
     _abrirMapa() {
         if (this.scene.isActive('mapaScene')) return;
         this.scene.pause();
@@ -666,6 +683,7 @@ export class CenaCidade extends Phaser.Scene {
         this.scene.bringToTop('mapaScene');
     }
 
+    // Pausa a cena e abre o tutorial em overlay. Idempotente: não abre se já estiver ativo.
     _abrirTutorial() {
         if (this.scene.isActive('tutorialScene')) {
             return;
@@ -700,15 +718,18 @@ export class CenaCidade extends Phaser.Scene {
         if (this.minimapBorda) this.minimapBorda.visible = visivel;
     }
 
+    // Lê a lista de colisores definida em configuracao-colisores-ambiente.js e cria
+    // retângulos físicos invisíveis sobre árvores, muros e bordas do mapa.
     _criarColisoresAmbiente() {
         this.colisoresAmbiente = this.physics.add.staticGroup();
 
         for (const c of colisoresAmbiente) {
+            // Cada colisor pode ser dividido em múltiplas partes (ex: cantos chanfrados)
             const partes = this._obterPartesColisorAmbiente(c);
             partes.forEach((colisor) => {
                 const rect = this.add.rectangle(colisor.x, colisor.y, colisor.w, colisor.h);
                 rect.setVisible(false);
-                this.physics.add.existing(rect, true);
+                this.physics.add.existing(rect, true); // true = corpo estático
                 this.colisoresAmbiente.add(rect);
             });
         }
@@ -716,6 +737,14 @@ export class CenaCidade extends Phaser.Scene {
         this.physics.add.collider(this.player, this.colisoresAmbiente);
     }
 
+    /**
+     * Retorna a lista de retângulos que compõem o colisor de um elemento do ambiente.
+     *
+     * Bordas e áreas de limite retornam apenas um retângulo.
+     * Vegetação também retorna apenas um (hitbox reduzido já foi feito em _ajustarColisorAmbiente).
+     * Prédios/estruturas maiores retornam 3 retângulos em cruz ("chanfro") para aproximar
+     * o formato ao contorno visual, evitando que o jogador fique preso em cantos invisíveis.
+     */
     _obterPartesColisorAmbiente(colisor) {
         const base = this._ajustarColisorAmbiente(colisor);
         const nome = typeof colisor.nome === 'string' ? colisor.nome : '';
@@ -734,6 +763,8 @@ export class CenaCidade extends Phaser.Scene {
             return [base];
         }
 
+        // Chanfro: fatia dos cantos para suavizar hitbox de estruturas grandes.
+        // Limitado a 60px e a 26% da menor dimensão para não distorcer o colisor.
         const chanfro = Math.min(
             60,
             Math.floor(base.w * 0.26),
@@ -744,6 +775,8 @@ export class CenaCidade extends Phaser.Scene {
             return [base];
         }
 
+        // 3 retângulos formam uma cruz: coluna central (w cheio, h reduzido) + duas faixas
+        // horizontais nas extremidades (w reduzido) para criar os cantos chanfrados.
         return [
             {
                 x: base.x,
@@ -766,6 +799,16 @@ export class CenaCidade extends Phaser.Scene {
         ];
     }
 
+    /**
+     * Ajusta as dimensões do colisor de acordo com o tipo de elemento.
+     *
+     * - Bordas e áreas de limite: mantidas exatas (delimitam o mapa).
+     * - Arbustos do petshop: hitbox muito reduzido (arbustos são ornamentais, não bloqueiam).
+     * - Vegetação em geral: reduzida para ~84% da largura e ~52% da altura, com deslocamento
+     *   para baixo — assim o tronco bloqueia, mas as folhas não.
+     * - Estruturas sólidas (prédios, muros): reduzidas em 68px em cada eixo para compensar
+     *   a borda visual que não faz parte do volume físico.
+     */
     _ajustarColisorAmbiente(colisor) {
         const nome = typeof colisor.nome === 'string' ? colisor.nome : '';
         const ehBorda = nome.startsWith('borda') || nome.startsWith('area-');
@@ -841,6 +884,8 @@ export class CenaCidade extends Phaser.Scene {
 
         this.carrinho = [];
 
+        // Cada rua define: Y no mapa, direção (true = esquerda→direita), quantidade de carros,
+        // velocidade em px/s e espaçamento inicial entre carros em pixels.
         const ruas = [
             { y: 2123, direcao: true, quantidade: 4, velocidade: 650, espacamento: 3000 },
             { y: 4065, direcao: false, quantidade: 6, velocidade: 1000, espacamento: 2000 },
@@ -865,7 +910,9 @@ export class CenaCidade extends Phaser.Scene {
     }
 
     _criarLojasEPortas() {
-        // Cria todas as lojas da lista de lojas
+        // Distribui as 12 lojas em 2 fileiras de 6.
+        // X: 1500 + (índice_na_fileira × 1675) + (par_de_lojas × 500) — espaçamento base com gap entre pares
+        // Y: 3500 + (fileira × 2250) — fileira 0 = topo, fileira 1 = base
         for (let i = 0; i < this.lojasConfigs.length; i++) {
             let posX = 1500 + ((i % 6) * 1675) + (Math.floor(i % 6 / 2) * 500);
             let posY = 3500 + (Math.floor(i / 6) * 2250);
@@ -1027,6 +1074,11 @@ export class CenaCidade extends Phaser.Scene {
         return l;
     }
 
+    /**
+     * Adiciona balões decorativos animados acima de uma loja conquistada.
+     * Cada balão entra com animação cinemática (MU no X, MUV no Y) vinda de baixo e à esquerda.
+     * Lojas não conquistadas não recebem decoração.
+     */
     _criarDecoracaoBaloesDaLoja(loja, nomeLoja) {
         if (!lojaFoiConquistada(nomeLoja)) {
             return;
@@ -1045,6 +1097,7 @@ export class CenaCidade extends Phaser.Scene {
         const quantidadeBaloes = Math.max(1, decoracao.quantidade ?? 3);
         const espacamentoEntreBaloes = decoracao.espacamentoX ?? 60;
         const escalaBaloes = decoracao.escala ?? 0.45;
+        // Centraliza o grupo de balões horizontalmente sobre a loja
         const deslocamentoInicialX = -((quantidadeBaloes - 1) * espacamentoEntreBaloes) / 2;
 
         for (let i = 0; i < quantidadeBaloes; i++) {
@@ -1060,16 +1113,35 @@ export class CenaCidade extends Phaser.Scene {
             const xFinal = spriteBaloes.x;
             const yFinal = spriteBaloes.y;
 
+            // Cada balão demora um pouco mais que o anterior para não subirem sincronizados
             const duracao = 2 + i * 0.3;
 
+            // Anima partindo 150px à esquerda e 300px abaixo da posição final
             this.animarElemento(xFinal - 150, yFinal + 300, xFinal, yFinal, duracao, spriteBaloes);
 
             this.decoracoesBaloes.push(spriteBaloes);
         }
     }
 
+    /**
+     * Configura animação cinemática bidimensional de A → B para um elemento gráfico.
+     *
+     * Eixo X: Movimento Uniforme (MU)     → vx = (xFinal - xInicial) / T
+     * Eixo Y: Movimento Uniformemente Variado (MUV) → ay = 2*(yFinal - yInicial) / T²
+     *
+     * Os dados são armazenados em `elemento._anim` e processados a cada frame no update().
+     *
+     * @param {number} xInicial - posição X de partida
+     * @param {number} yInicial - posição Y de partida
+     * @param {number} xFinal   - posição X de chegada
+     * @param {number} yFinal   - posição Y de chegada
+     * @param {number} duracao  - duração total em segundos
+     * @param {object} elemento - sprite ou imagem Phaser a ser animado
+     */
     animarElemento(xInicial, yInicial, xFinal, yFinal, duracao, elemento) {
+        // MU: velocidade constante no eixo X
         const vx = (xFinal - xInicial) / duracao;
+        // MUV: aceleração necessária para partir do repouso e chegar a yFinal em T segundos
         const ay = 2 * (yFinal - yInicial) / (duracao * duracao);
 
         elemento.x = xInicial;
@@ -1078,40 +1150,68 @@ export class CenaCidade extends Phaser.Scene {
         elemento._anim = {
             xInicial,
             yInicial,
-            vx,
-            ay,
-            duracao,
-            t: 0
+            vx,       // velocidade constante em X (MU)
+            ay,       // aceleração em Y (MUV)
+            duracao,  // tempo total da animação em segundos
+            t: 0      // tempo acumulado desde o início
         };
     }
 
+    /**
+     * Cria o minimapa no canto superior esquerdo da tela usando duas câmeras sobrepostas:
+     *   1. Câmera de borda — levemente maior, cor sólida azul claro como moldura.
+     *      Aponta para fora do mapa para mostrar apenas a cor de fundo, sem conteúdo.
+     *   2. Câmera do minimap — mostra o mapa inteiro em tamanho reduzido.
+     *
+     * O zoom é calculado com Math.max para garantir que o mapa preencha o espaço sem
+     * bordas pretas, mesmo que as proporções do mapa e do minimap sejam diferentes.
+     *
+     * O marcador é uma imagem da cabeça do Marcielo posicionada no mundo no local
+     * exato do jogador. Seu tamanho é calculado como 32 / zoom para sempre aparecer
+     * com 32 pixels de tamanho na tela do minimap, independente do tamanho do mapa.
+     * A câmera principal e a de borda ignoram o marcador — só o minimap o exibe.
+     */
     _criarMinimap() {
         const mapW = this.fundo.displayWidth;
         const mapH = this.fundo.displayHeight;
 
+        // Posição e tamanho do minimap na tela (em pixels)
         const x = 16, y = 16, w = 220, h = 130;
 
+        // Zoom que faz o mapa inteiro caber no minimap sem bordas pretas
         const zoom = Math.max(w / mapW, h / mapH);
 
+        // Câmera de borda: 3px maior em cada lado, cor azul sólida.
+        // scrollX/Y apontam para fora do mapa — só aparece a cor de fundo.
         this.minimapBorda = this.cameras.add(x - 3, y - 3, w + 6, h + 6);
         const borda = this.minimapBorda;
         borda.setBackgroundColor(0x88bbff);
         borda.scrollX = mapW + 10000;
         borda.scrollY = mapH + 10000;
 
+        // Câmera do minimap: renderiza em cima da borda, centralizada no mapa
         this.minimapCam = this.cameras.add(x, y, w, h);
         this.minimapCam.setZoom(zoom);
         this.minimapCam.centerOn(mapW / 2, mapH / 2);
 
+        // Marcador: tamanho = 32px / zoom → sempre ocupa 32px na tela do minimap
         const tamanho = 32 / zoom;
         this.minimapMarcador = this.add.image(this.player.x, this.player.y, 'marcielocabeca')
             .setDisplaySize(tamanho, tamanho)
             .setDepth(9999);
 
+        // Oculta o marcador da câmera principal e da borda — só o minimap o vê
         this.cameras.main.ignore(this.minimapMarcador);
         borda.ignore(this.minimapMarcador);
     }
 
+    /**
+     * Retorna a loja não conquistada mais próxima de um objeto.
+     * Lojas já conquistadas são ignoradas — a seta nunca aponta para elas.
+     *
+     * @param {object} objeto - qualquer objeto com propriedades x e y (ex: o jogador)
+     * @returns {LojaFisica|null} a loja mais próxima ainda disponível, ou null se não houver nenhuma
+     */
     pegarLojaMaisProxima(objeto) {
         if (!this.lojas || this.lojas.length === 0) return null;
 
@@ -1119,6 +1219,7 @@ export class CenaCidade extends Phaser.Scene {
         let menorDistancia = Number.POSITIVE_INFINITY;
 
         for (let i = 0; i < this.lojas.length; i++) {
+            // Pula lojas que o jogador já conquistou
             if (this.lojasConquistadas.includes(this.lojasConfigs[i].nomeLoja)) {
                 continue;
             }
@@ -1133,6 +1234,13 @@ export class CenaCidade extends Phaser.Scene {
         return lojaMaisProxima;
     }
 
+    /**
+     * Calcula a distância euclidiana entre dois objetos Phaser (que tenham x e y).
+     *
+     * @param {object} obj1 - primeiro objeto
+     * @param {object} obj2 - segundo objeto
+     * @returns {number} distância em pixels
+     */
     distanciaEntreObjetos(obj1, obj2) {
         const dx = obj2.x - obj1.x;
         const dy = obj2.y - obj1.y;
@@ -1237,7 +1345,9 @@ export class CenaCidade extends Phaser.Scene {
             this.minimapMarcador.y = this.player.y;
         }
 
-        // Evita reentrada automática: só libera entrada após sair do contato com portas.
+        // Evita reentrada automática: só libera entrada após o jogador se afastar do spawn
+        // OU quando não estiver mais sobrepondo nenhuma porta. Isso impede que o jogador
+        // reabra imediatamente a loja de onde acabou de sair.
         if (!this.entradaLojasLiberada) {
             const passouTempoMinimo = this.time.now >= this.tempoMinimoLiberarEntradaLojas;
             const distanciaDoSpawnCidade = Phaser.Math.Distance.Between(
@@ -1285,6 +1395,11 @@ export class CenaCidade extends Phaser.Scene {
         }
     }
 
+    /**
+     * Mantém a loja de retorno bloqueada até o jogador se afastar o suficiente da porta.
+     * Isso impede que o jogador reentré na mesma loja logo após sair dela.
+     * O bloqueio é removido quando a distância até a porta supera 260px.
+     */
     _atualizarBloqueioLojaRetorno() {
         if (!this.nomeLojaRetornoBloqueada) {
             return;
@@ -1293,6 +1408,7 @@ export class CenaCidade extends Phaser.Scene {
         const portaRetorno = this.portasPorNomeLoja[this.nomeLojaRetornoBloqueada];
 
         if (!portaRetorno) {
+            // Porta não encontrada — remove o bloqueio por segurança
             this.nomeLojaRetornoBloqueada = null;
             return;
         }
@@ -1304,11 +1420,19 @@ export class CenaCidade extends Phaser.Scene {
             portaRetorno.y
         );
 
+        // Libera o bloqueio quando o jogador se afasta suficientemente da porta
         if (distanciaAtePorta > 260) {
             this.nomeLojaRetornoBloqueada = null;
         }
     }
 
+    /**
+     * Verifica se o jogador está fisicamente sobreposto a alguma porta de loja.
+     * Usado para adiar a liberação de entrada após retornar de uma cena,
+     * garantindo que o jogador saia da área da porta antes de poder entrar novamente.
+     *
+     * @returns {boolean} true se o jogador tocar qualquer porta de loja
+     */
     _jogadorSobrepoeAlgumaPorta() {
         for (let i = 0; i < this.lojas.length; i++) {
             const loja = this.lojas[i];
@@ -1327,6 +1451,19 @@ export class CenaCidade extends Phaser.Scene {
         return false;
     }
 
+    /**
+     * Cria o painel de progresso dos NPCs, exibido quando o jogador abre o mapa de NPCs.
+     *
+     * O painel mostra todos os 12 NPCs em uma grade 4×3. Cada NPC tem:
+     *   - Círculo de fundo colorido conforme o estado (branco = neutro, azul = conquistado, vermelho = interagido)
+     *   - Portrait (imagem específica por estado: neutro/interagido/conquistado)
+     *   - Badge numerado no canto inferior direito — cor única por NPC para identificação rápida
+     *
+     * À direita da grade fica uma legenda lateral com nome e número de cada loja,
+     * em cinza para lojas não conquistadas e colorida para lojas conquistadas.
+     *
+     * O painel começa invisível e é exibido via `setVisible(true)` quando acionado.
+     */
     criarPainelNpcs() {
         const larguraTela = this.cameras.main.width;
         const alturaTela = this.cameras.main.height;
@@ -1342,10 +1479,12 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs.add(fundo);
 
         const npcs = obterListaNpcs();
+        // Grade 4 colunas × 3 linhas para os 12 NPCs
         const colunas = 4;
         const linhas = 3;
         const espacamentoX = 440;
         const espacamentoY = 440;
+        // Centraliza a grade dentro do painel
         const offsetX = -((colunas - 1) * espacamentoX) / 2;
         const offsetY = -((linhas - 1) * espacamentoY) / 2;
 
@@ -1355,13 +1494,14 @@ export class CenaCidade extends Phaser.Scene {
             const x = offsetX + coluna * espacamentoX;
             const y = offsetY + linha * espacamentoY;
 
+            // Círculo de fundo: cor indica o estado do NPC
             const fundo = this.add.image(x, y, 'circulo-npc')
                 .setDisplaySize(600, 600)
                 .setScrollFactor(0);
 
-            if (npc.estado === 'interagido') fundo.setTint(0xff3333);
-            else if (npc.estado === 'conquistado') fundo.setTint(0x3388ff);
-            else fundo.setTint(0xffffff);
+            if (npc.estado === 'interagido') fundo.setTint(0xff3333);       // vermelho = já visitado
+            else if (npc.estado === 'conquistado') fundo.setTint(0x3388ff); // azul = conquistado
+            else fundo.setTint(0xffffff);                                    // branco = neutro
 
             this.painelNpcs.add(fundo);
 
@@ -1371,6 +1511,9 @@ export class CenaCidade extends Phaser.Scene {
                 .setScrollFactor(0);
             this.painelNpcs.add(portrait);
 
+            // Badge numerado no canto inferior direito do portrait.
+            // Cada NPC tem uma cor exclusiva — a mesma usada na legenda lateral — para
+            // facilitar a identificação visual mesmo sem ler o nome.
             const badgeR = 38;
             const badgeX = x + 110;
             const badgeY = y + 110;
@@ -1435,12 +1578,21 @@ export class CenaCidade extends Phaser.Scene {
         this.painelNpcs.setVisible(false);
     }
 
+    /**
+     * Sincroniza as listas `lojasConquistadas` e `lojasNaoConquistadas` com o estado
+     * persistido no localStorage. Deve ser chamado sempre que o jogador voltar de uma
+     * cena de loja, para que a seta e os bloqueios reflitam o progresso atual.
+     */
     atualizarListasLojas() {
         const { lojasConquistadas, lojasNaoConquistadas } = obterListasLojasPorConquista();
         this.lojasConquistadas = lojasConquistadas;
         this.lojasNaoConquistadas = lojasNaoConquistadas;
     }
 
+    /**
+     * Atualiza os retratos dos NPCs no painel com o estado atual de cada um.
+     * Chamado após uma interação com NPC para refletir mudanças (ex: neutro → interagido).
+     */
     atualizarPainelNpcs() {
         if (!this.painelNpcs) return;
         const npcs = obterListaNpcs();

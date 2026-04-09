@@ -192,6 +192,20 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
+    /**
+     * Corrige travamentos em quinas de colisores ao mover na diagonal.
+     *
+     * Quando o jogador pressiona duas teclas (ex: direita + baixo) e está encostado
+     * numa parede horizontal, o Arcade Physics bloqueia o eixo X mas ainda permite Y.
+     * Sem esse ajuste, a força diagonal resultante faz o jogador parar completamente.
+     *
+     * Solução: se apenas um eixo está bloqueado, anula a força nesse eixo e mantém o outro.
+     * Isso permite "deslizar" ao longo da parede em vez de travar.
+     *
+     * @param {number} eixoX - força bruta no eixo X (-1, 0 ou 1)
+     * @param {number} eixoY - força bruta no eixo Y (-1, 0 ou 1)
+     * @returns {{ x: number, y: number }} força ajustada
+     */
     _ajustarDeslizamentoEmQuinas(eixoX, eixoY) {
         if (!this.body || eixoX === 0 || eixoY === 0) {
             return { x: eixoX, y: eixoY };
@@ -205,10 +219,12 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
             (eixoY < 0 && this.body.blocked.up) ||
             (eixoY > 0 && this.body.blocked.down);
 
+        // Bloqueado só na horizontal → desliza na vertical
         if (bloqueadoHorizontal && !bloqueadoVertical) {
             return { x: 0, y: eixoY };
         }
 
+        // Bloqueado só na vertical → desliza na horizontal
         if (bloqueadoVertical && !bloqueadoHorizontal) {
             return { x: eixoX, y: 0 };
         }
@@ -216,6 +232,11 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         return { x: eixoX, y: eixoY };
     }
 
+    /**
+     * Registra todas as animações do Marcielo na cena.
+     * A verificação `cena.anims.exists()` evita recriar animações já registradas,
+     * o que causaria um erro ao reutilizar a cena (ex: reiniciar a partida).
+     */
     _criarAnimacoes(cena) {
         if (!cena.anims.exists("andar-direita")) {
             cena.anims.create({

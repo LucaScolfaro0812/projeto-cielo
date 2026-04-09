@@ -167,6 +167,7 @@ export class CenaMenu extends Phaser.Scene {
     }
 
     update() {
+        // Desloca o tile de nuvens horizontalmente a cada frame — efeito parallax do céu
         this.spriteNuvens.tilePositionX += 0.5;
     }
 }

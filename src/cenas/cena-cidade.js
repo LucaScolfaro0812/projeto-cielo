@@ -1150,10 +1150,10 @@ export class CenaCidade extends Phaser.Scene {
     pegarLojaMaisProxima(objeto) {
         if (!this.lojas || this.lojas.length === 0) return null; // No stores available
 
-        let lojaMaisProxima = this.lojas[0];
-        let menorDistancia = this.distanciaEntreObjetos(objeto, this.lojas[0]);
+        let lojaMaisProxima = null;
+        let menorDistancia = Number.POSITIVE_INFINITY;
 
-        for (let i = 1; i < this.lojas.length; i++) {
+        for (let i = 0; i < this.lojas.length; i++) {
             if (this.lojasConquistadas.includes(this.lojasConfigs[i].nomeLoja)) {
                 continue;
             }
@@ -1165,6 +1165,7 @@ export class CenaCidade extends Phaser.Scene {
             }
         }
 
+        // Se todas as lojas já foram conquistadas, não há alvo de loja para guiar.
         return lojaMaisProxima;
     }
 
@@ -1172,6 +1173,19 @@ export class CenaCidade extends Phaser.Scene {
         const dx = obj2.x - obj1.x;
         const dy = obj2.y - obj1.y;
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    /**
+     * Define o alvo da seta com prioridade de recarga:
+     * - Sem maquininhas: seta aponta exclusivamente para a Central da Cielo.
+     * - Com maquininhas: seta volta a guiar para a loja mais próxima.
+     */
+    _pegarAlvoPrioritarioSeta() {
+        if (Maquininhas.qntMaquininhas === 0) {
+            return this.portaCentral || this.portaCentralGlow || this.predioCentral || null;
+        }
+
+        return this.pegarLojaMaisProxima(this.player);
     }
 
     /**
@@ -1190,7 +1204,7 @@ export class CenaCidade extends Phaser.Scene {
 
         const painelNpcsAberto = Boolean(this.painelNpcs?.visible);
 
-        this.seta.definirAlvo(this.pegarLojaMaisProxima(this.player));
+        this.seta.definirAlvo(this._pegarAlvoPrioritarioSeta());
 
         this.player.update();
         if (!painelNpcsAberto) {

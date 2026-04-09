@@ -496,25 +496,25 @@ Aproximadamente 15 minutos.
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
 <div align="center">
  
-  <img src="other/image.png" width="100%" alt="Descrição breve"><br>
+  <img src="other/image.png" width="50%" alt="Descrição breve"><br>
   
 </div
 
 <div align="center">
  
-  <img src="other/image-1.png" width="100%" alt="Descrição breve"><br>
+  <img src="other/image-1.png" width="50%" alt="Descrição breve"><br>
   
 </div
 
 <div align="center">
 
-  <img src="other/image-2.png" width="100%" alt="Descrição breve"><br>
+  <img src="other/image-2.png" width="50%" alt="Descrição breve"><br>
 
 </div
 
 <div align="center">
 
-  <img src="other/image-3.png" width="100%" alt="Descrição breve"><br>
+  <img src="other/image-3.png" width="50%" alt="Descrição breve"><br>
 
 </div
 
@@ -530,7 +530,7 @@ Aproximadamente 15 minutos.
 
 <div align="center">
 
-  <img src="../public/assets/sprites/personagens/NPCs.jpeg" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/sprites/personagens/NPCs.jpeg" width="50%" alt="Descrição breve"><br>
 </div
 
 
@@ -556,7 +556,7 @@ Segue abaixo o mapa:
 
 <div align="center">
 
-  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="50%" alt="Descrição breve"><br>
 
 </div
 
@@ -575,7 +575,7 @@ Concept art são desenhos iniciais usados para definir como o jogo vai parecer. 
 
 <div align="center">
 
-  <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width="50%" alt="Descrição breve"><br>
 
 </div
 
@@ -1086,25 +1086,17 @@ Figura 1 – Menu inicial do jogo
 
 <div align="center">
 
-  <img src="../public/assets/ui/titulo-jogo.webp" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/ui/titulo-jogo.webp" width="50%" alt="Descrição breve"><br>
 
 </div>
 
-
-Figura 2 – Ambiente da padaria
-
-<div align="center">
-
-  <img src="../public/assets/imagens/lojas/interior/lojaCafeInterior.png" width="100%" alt="Descrição breve"><br>
-
-</div>
 
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
 <div align="center">
 
-  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1419,7 +1411,7 @@ Figura 1 – Menu inicial do jogo
 
 <div align="center">
 
-  <img src="assets/image-1.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-1.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1430,7 +1422,7 @@ Figura 2 – Tela de tutorial
 
 <div align="center">
 
-  <img src="../public/assets/imagens/tutorial2.png" width="100%" alt="Descrição breve"><br>
+  <img src="../public/assets/imagens/tutorial2.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1441,7 +1433,7 @@ Figura 3 – Mapa da cidade
 
 <div align="center">
 
-  <img src="assets/image-2.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-2.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1452,14 +1444,14 @@ Figura 4 – Base da Cielo (coleta de maquininhas)
 
 <div align="center">
 
-  <img src="assets/image-3.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-3.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
 
 <div align="center">
 
-  <img src="assets/image-4.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-4.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1470,7 +1462,7 @@ Figura 5 – HUD de progresso dos NPCs
 
 <div align="center">
 
-  <img src="assets/image-5.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-5.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1481,7 +1473,7 @@ Figura 6 – Entrada em uma loja
 
 <div align="center">
 
-  <img src="assets/image-6.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-6.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1492,7 +1484,7 @@ Figura 7 – Sistema de quiz
 
 <div align="center">
 
-  <img src="assets/image-7.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-7.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1503,7 +1495,7 @@ Figura 8 – Feedback positivo (cliente conquistado)
 
 <div align="center">
 
-  <img src="assets/image-8.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-8.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1514,7 +1506,7 @@ Figura 9 – Feedback negativo (cliente não conquistado)
 
 <div align="center">
 
-  <img src="assets/image-9.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-9.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1525,7 +1517,7 @@ Figura 10 – NPC com visual alterado (conquistado)
 
 <div align="center">
 
-  <img src="assets/image-10.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-10.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1536,7 +1528,7 @@ Figura 11 – Loja com balões animados
 
 <div align="center">
 
-  <img src="assets/image-11.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-11.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 
@@ -1547,7 +1539,7 @@ Figura 12 – Menu de pausa
 
 <div align="center">
 
-  <img src="assets/image-12.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/image-12.png" width="50%" alt="Descrição breve"><br>
 
 </div>
 

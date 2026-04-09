@@ -1793,20 +1793,86 @@ Fonte: elaborado pelo grupo.
 
 Os playtests são sessões de teste nas quais jogadores interagem diretamente com o jogo com o objetivo de avaliar sua jogabilidade, usabilidade e experiência geral. Diferente de testes técnicos, os playtests focam na percepção do jogador, permitindo identificar dificuldades, confusões e pontos de melhoria na interação com o jogo.
 
+| Nome                        | Daniel   |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 18 | 
+| Já possuía experiência prévia com games? | Sim         |
+| Conseguiu iniciar o jogo?                | Sim       |
+| Entendeu as regras e mecânicas do jogo?  | Sim | 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, não entendeu como utilizava as maquininhas, não sabia onde cada estabelecimento estava e o minimapa estava muito pequeno então não ajudava  |
+| Que nota deu ao jogo?               | 8.5    |
+| O que gostou no jogo?         | Gostou do minimapa, das perguntas feitas no quiz e do design em geral mas principalmente os clientes e suas a troca de cor ao ser conquistado | 
+| O que poderia melhorar no jogo?          | Poderia destacar mais o Marcielo na central Cielo, melhorar a qualidade da escrita ao entrar na loja, explicar a mecânica das maquininhas e ajustar o tamanho do minimapa |
+
+
+| Nome                        | Luiz            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 18 | 
+| Já possuía experiência prévia com games? | Sim                      |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Parcial, pois não sabia o que fazer dentro da central Cielo 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, não sabia o que fazer dentro da central Cielo, teve dificuldade de entender como pegar maquininha e teve problema com as coalisões externas
+| Que nota deu ao jogo?               | 9.0     |
+| O que gostou no jogo?                    | Gostou do contraste visual, do design em geral, minimapa, tela de diálogo, sistema de quiz e os balões que aparecem fora da loja quando ela é conquistada |
+| O que poderia melhorar no jogo?          | Poderia inserir instruções mais claras sobre o que fazer no início, explicar melhor o funcionamento do HUD, melhorar a legibilidade dos elementos visuais e ajustar os problemas de coalisões |
+
+| Nome                                     | Jessica | 
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 19 | 
+| Já possuía experiência prévia com games? | Sim        |
+| Conseguiu iniciar o jogo?                | Sim       |
+| Entendeu as regras e mecânicas do jogo?  | Sim | 
+| Conseguiu progredir no jogo?             | Sim | 
+| Apresentou dificuldades?                 | Sim, não compreendeu que ao ser atropelada perderia as maquininhas e não poderia conquistar os clientes nos estabelecimentos | 
+| Que nota deu ao jogo?                    | 8.0 | 
+| O que gostou no jogo?                    | Gostou das mecânicas, principalmente o sistema de quiz e a troca de cor do cliente ao ser conquistado | 
+| O que poderia melhorar no jogo?          | Adicionar instrução de morte para avisar que perderá as maquininhas e que necessita pegar mais na central Cielo | 
+
+| Nome                                     | Virginia            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 19 | 
+| Já possuía experiência prévia com games? | Nenhuma                        |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Pouco, apresentou dificuldades em compreender o objetivo do jogo e como interagir com os elementos disponíveis  |
+| Conseguiu progredir no jogo?             | Com muita confusão mas conseguiu     |
+| Apresentou dificuldades?                 | Sim, não sabia como fechar as mensagens inciais das lojas, não entendeu o que deveria fazer no jogo e teve dificuldade em compreender as interações básicas (ex: uso da maquininha)      | 
+| Que nota deu ao jogo?                   | 6.0         |
+| O que gostou no jogo?                    | Gostou do design do jogo e achou a dinâmica do jogo legal depois que entendeu como as coisas funcionavam | 
+| O que poderia melhorar no jogo?          | Inserir um tutorial incial claro e guiado, tornar os botões mais visíveis e melhorar a intuitividade da interface | 
+
 | Nome                                     | Julia                                          |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 20| 
 | Já possuía experiência prévia com games? | Sim, é uma jogadora casual                                                                                                         |
-| Conseguiu iniciar o jogo?                | Sim                                                                                                                                     |
+| Conseguiu iniciar o jogo?                | Sim     |
 | Entendeu as regras e mecânicas do jogo?  | Apresentou dificuldades em compreender algumas mecânicas mas compreendeu as regras. 
-| Conseguiu progredir no jogo?             | Sim, mas de forma lenta, após um período de adaptação                                                                              |
-| Apresentou dificuldades?                 | Sim, na movimentação do personagem, localizar as lojas no mapa e obteve dificuldade em ler os textos                           |
-| Que nota deu ao jogo?                    |8.0                                                                                                                                    |
+| Conseguiu progredir no jogo?             | Sim, mas de forma lenta, após um período de adaptação         |
+| Apresentou dificuldades?                 | Sim, na movimentação do personagem, localizar as lojas no mapa e obteve dificuldade em ler os textos            |
+| Que nota deu ao jogo? 8.0       |
 | O que gostou no jogo?                    | Gostou das músicas e após a dificuldade, conseguiu se adaptar melhor ao jogo e passou a gostar mais da dinâmica      |
 | O que poderia melhorar no jogo?          | A clareza das intruções iniciais, ajustar a legibilidade dos textos e adicionar algo no mapa que indique onde tem estabelecimentos |
+
+A seguir estarão os testadores que possuem a faixa etária próxima aos gerentes de negócios da Cielo, na qual a idade média é de 44 anos. 
+
+
+| Nome                                     | Carol               |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 33 | 
+| Já possuía experiência prévia com games? | Sim                      |
+| Conseguiu iniciar o jogo?                | Sim                      |
+| Entendeu as regras e mecânicas do jogo?  | Apresentou boa compreensão geral do jogo   |
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, dificuldade em compreender alguns elementos da interface e possuiu dúvidas pontuais em relação à mecânica das maquininhas.  |
+| Que nota deu ao jogo?               | 10         |
+| O que gostou no jogo?                    | Gostou do design visual, minimapa e o sistema de diálogo e quiz | 
+| O que poderia melhorar no jogo?          | Poderia ter mais clareza de alguns elementos da interface e um explicação melhor de determinadas mecânicas no início do jogo | 
 
 
 | Nome                                     | Rogério      |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 35 |
 | Já possuía experiência prévia com games? | Sim, é um jogador casual                |
 | Conseguiu iniciar o jogo?                | Com dificuldade mas sim                |
 | Entendeu as regras e mecânicas do jogo?  | Iniciou o jogo confuso, principalmente na cena inicial, mas depois começou a compreender mais as regras 
@@ -1817,52 +1883,22 @@ Os playtests são sessões de teste nas quais jogadores interagem diretamente co
 | O que poderia melhorar no jogo?          | Inserir instruções claras no início do jogo, indicar melhor o objetivo do jogador e guiar os primeiros passos para evitar a sensação de bloqueio | 
 
 
-| Nome                                     | Virginia            |
+| Nome                        | Cynthia|
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | Nenhuma                        |
-| Conseguiu iniciar o jogo?                | Sim                      |
-| Entendeu as regras e mecânicas do jogo?  | Pouco, apresentou dificuldades em compreender o objetivo do jogo e como interagir com os elementos disponíveis  |
-| Conseguiu progredir no jogo?             | Com muita confusão mas conseguiu     |
-| Apresentou dificuldades?                 | Sim, não sabia como fechar as mensagens inciais das lojas, não entendeu o que deveria fazer no jogo e teve dificuldade em compreender as interações básicas (ex: uso da maquininha)      | 
-| Que nota deu ao jogo?                   | 6.0         |
-| O que gostou no jogo?                    | Gostou do design do jogo e achou a dinâmica do jogo legal depois que entendeu como as coisas funcionavam | 
-| O que poderia melhorar no jogo?          | Inserir um tutorial incial claro e guiado, tornar os botões mais visíveis e melhorar a intuitividade da interface | 
-
-| Nome                                     | Carol               |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | Sim                      |
-| Conseguiu iniciar o jogo?                | Sim                      |
-| Entendeu as regras e mecânicas do jogo?  | Apresentou boa compreensão geral do jogo   |
+| Faixa etária | 40 | 
+| Já possuía experiência prévia com games? | Não       |
+| Conseguiu iniciar o jogo?                | Sim         |
+| Entendeu as regras e mecânicas do jogo?  | Teve dificuldade para entender a mecânica da movimentação do personagem |
 | Conseguiu progredir no jogo?             | Sim   |
-| Apresentou dificuldades?                 | Sim, dificuldade em compreender alguns elementos da interface e possuiu dúvidas pontuais em relação à mecânica das maquininhas.  |
-| Que nota deu ao jogo?               | 10         |
-| O que gostou no jogo?                    | Gostou do design visual, minimapa e o sistema de diálogo e quiz | 
-| O que poderia melhorar no jogo?          | Poderia ter mais clareza de alguns elementos da interface e um explicação melhor de determinadas mecânicas no início do jogo | 
+| Apresentou dificuldades?                 | Sim, teve dificuldade para sair da central Cielo, não sabia que era necessário ficar tão perto do cliente para a função da tecla E funcionar e não sabia o que fazer após perder as maquininhas | 
+| Que nota deu ao jogo?               | 6.0  |
+| O que gostou no jogo?    | Gostou dos sons e do design de dentro dos estabelecimentos | 
+| O que poderia melhorar no jogo?          | Sugeriu um diálogo dentro da central Cielo para auxiliar no que deveria fazer no jogo | 
 
-| Nome                        | Luiz            |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | Sim                      |
-| Conseguiu iniciar o jogo?                | Sim                      |
-| Entendeu as regras e mecânicas do jogo?  | Parcial, pois não sabia o que fazer dentro da central Cielo 
-| Conseguiu progredir no jogo?             | Sim   |
-| Apresentou dificuldades?                 | Sim, não sabia o que fazer dentro da central Cielo, teve dificuldade de entender como pegar maquininha e teve problema com as coalisões externas
-| Que nota deu ao jogo?               | 9.0     |
-| O que gostou no jogo?                    | Gostou do contraste visual, do design em geral, minimapa, tela de diálogo, sistema de quiz e os balões que aparecem fora da loja quando ela é conquistada |
-| O que poderia melhorar no jogo?          | Poderia inserir instruções mais claras sobre o que fazer no início, explicar melhor o funcionamento do HUD, melhorar a legibilidade dos elementos visuais e ajustar os problemas de coalisões |
-
-| Nome                        | Daniel   |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Já possuía experiência prévia com games? | Sim         |
-| Conseguiu iniciar o jogo?                | Sim       |
-| Entendeu as regras e mecânicas do jogo?  | Sim | 
-| Conseguiu progredir no jogo?             | Sim   |
-| Apresentou dificuldades?                 | Sim, não entendeu como utilizava as maquininhas, não sabia onde cada estabelecimento estava e o minimapa estava muito pequeno então não ajudava  |
-| Que nota deu ao jogo?               | 8.5    |
-| O que gostou no jogo?         | Gostou do minimapa, das perguntas feitas no quiz e do design em geral mas principalmente os clientes e suas a troca de cor ao ser conquistado | 
-| O que poderia melhorar no jogo?          | Poderia destacar mais o Marcielo na central Cielo, melhorar a qualidade da escrita ao entrar na loja, explicar a mecânica das maquininhas e ajustar o tamanho do minimapa |
 
 | Nome                        | Tatiana      |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 42 | 
 | Já possuía experiência prévia com games? | Sim         |
 | Conseguiu iniciar o jogo?                | Sim         |
 | Entendeu as regras e mecânicas do jogo?  | Sim | 
@@ -1871,6 +1907,19 @@ Os playtests são sessões de teste nas quais jogadores interagem diretamente co
 | Que nota deu ao jogo?               | 8.0  |
 | O que gostou no jogo?    | Gostou da dinâmica de interação com os NPCs, gostou da fluidez do jogo e do design visual e da ambientação | 
 | O que poderia melhorar no jogo?          | Poderia melhorar a comunicação das mecânicas (principalmente as maquininhas) e tornar os objetivos mais explícitos nas primeiras fases | 
+
+| Nome                        | Marcos |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Faixa etária | 45 | 
+| Já possuía experiência prévia com games? | Não       |
+| Conseguiu iniciar o jogo?                | Sim, mas com dificuldades | 
+| Entendeu as regras e mecânicas do jogo?  | Não entendeu como caminhar, nem o que deveria fazer dentro da central Cielo, estava muito perdido | 
+| Conseguiu progredir no jogo?             | Sim   |
+| Apresentou dificuldades?                 | Sim, começou perdido dentro da central Cielo, saiu da central sem máquinas e começou a andar perdido, quando voltou para a Cielo começou a entender e progredir no jogo | 
+| Que nota deu ao jogo?               | 9.0  |
+| O que gostou no jogo?    | Amou toda a ideia, o design, os carros e o mapa | 
+| O que poderia melhorar no jogo?          | Poderia adicionar mais instruções no começo do jogo para que já começe entendendo e não tenha que entender como funciona sozinho | 
+
 
 A partir dos testes realizados, observou-se que o jogo apresenta boa aceitação geral, principalmente em relação ao design, ambientação e elementos como o minimapa, diálogos e sistema de quiz. Jogadores com maior experiência conseguiram progredir com mais facilidade e destacaram aspectos postivos da dinâmica e da progressão. No entanto, foi recorrente entre a diferentes perfis a dificuldade de compreender o que fazer na central Cielo e como utilizar as maquininhas, indicando a falta de orientação clara no início do jogo. 
 

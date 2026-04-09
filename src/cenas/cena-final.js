@@ -72,8 +72,8 @@ export default class CenaFinal extends Phaser.Scene {
         const npcX = w * 0.5;
         const bx = npcX + 310;
         const by = 190;
-        const bw = 520;
-        const bh = 170;
+        const bw = 600;
+        const bh = 230;
 
         const balao = this.add.graphics();
         balao.fillStyle(0xffffff, 1);

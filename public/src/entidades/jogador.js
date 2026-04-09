@@ -29,11 +29,16 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.velocidade = 1000;
         this.ultimaDirecao = "baixo";
 
+        // Permite movimentação tanto pelo teclado WASD quanto pelas setas direcionais.
         this.teclas = this.scene.input.keyboard.addKeys({
             W: Phaser.Input.Keyboard.KeyCodes.W,
             A: Phaser.Input.Keyboard.KeyCodes.A,
             S: Phaser.Input.Keyboard.KeyCodes.S,
-            D: Phaser.Input.Keyboard.KeyCodes.D
+            D: Phaser.Input.Keyboard.KeyCodes.D,
+            UP: Phaser.Input.Keyboard.KeyCodes.UP,
+            DOWN: Phaser.Input.Keyboard.KeyCodes.DOWN,
+            LEFT: Phaser.Input.Keyboard.KeyCodes.LEFT,
+            RIGHT: Phaser.Input.Keyboard.KeyCodes.RIGHT
         });
 
         this._criarAnimacoes(cena);
@@ -103,10 +108,10 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         let movendo = false;
         let forca = [0, 0];
 
-        const esquerda = this.teclas.A.isDown;
-        const direita = this.teclas.D.isDown;
-        const cima = this.teclas.W.isDown;
-        const baixo = this.teclas.S.isDown;
+        const esquerda = this.teclas.A.isDown || this.teclas.LEFT.isDown;
+        const direita = this.teclas.D.isDown || this.teclas.RIGHT.isDown;
+        const cima = this.teclas.W.isDown || this.teclas.UP.isDown;
+        const baixo = this.teclas.S.isDown || this.teclas.DOWN.isDown;
 
         if (esquerda) {
             forca[0] = -1;

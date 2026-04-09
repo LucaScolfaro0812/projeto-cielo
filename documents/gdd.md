@@ -687,6 +687,8 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 
 ### 3.7.1. Controles
 
+Os comandos de movimento do personagem podem ser executados tanto pelas teclas WASD quanto pelas setas direcionais do teclado, mantendo o restante das interações nas teclas dedicadas.
+
 | Comando                 | Tipo de Entrada | Ação Executada                                 | Consequência no Jogo                                         |
 | ----------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------ |
 | W                       | Teclado         | Move o personagem para cima                    | Permite navegação pelo mapa                                  |
@@ -702,7 +704,7 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 
 ### 3.7.2. Navegação pela cidade e carros
 
-O jogador navega pelo mapa da cidade usando WASD. O mapa contém **3 ruas com tráfego**, cada uma com carros independentes em loop horizontal. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Cada carro sorteia aleatoriamente uma entre três cores (branco, amarelo ou azul) ao ser criado, e o sprite é espelhado horizontalmente quando o carro se move para a esquerda.
+O jogador navega pelo mapa da cidade usando WASD ou as setas direcionais. O mapa contém **3 ruas com tráfego**, cada uma com carros independentes em loop horizontal. Ao colidir com qualquer carro, o método `player.morreu()` é chamado, reiniciando a cena da cidade — todo o progresso salvo é mantido, apenas a posição é resetada. Cada carro sorteia aleatoriamente uma entre três cores (branco, amarelo ou azul) ao ser criado, e o sprite é espelhado horizontalmente quando o carro se move para a esquerda.
 
 | Rua   | Posição Y (aprox.) | Qtd. carros | Direção            | Velocidade | Espaçamento |
 | ----- | ------------------ | ----------- | ------------------ | ---------- | ----------- |
@@ -1050,7 +1052,7 @@ Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 . Criação da janela principal do jogo utilizando a biblioteca Phaser;
 
 . Implementação do personagem controlável pelo jogador;
-. Sistema de movimentação por meio do teclado, utilizando as teclas W, A, S e D;
+. Sistema de movimentação por meio do teclado, utilizando as teclas W, A, S e D e também as setas direcionais;
 
 . Renderização do cenário 2D em perspectiva top-down;
 
@@ -1252,7 +1254,7 @@ Figura 7 – Não convertendo cliente
 
 ### Como executar a aplicação
 
-Para executar o jogo, é necessário abrir o projeto em um ambiente de desenvolvimento compatível com JavaScript e iniciar o servidor local. O jogo pode ser acessado pelo navegador, onde o jogador é direcionado ao menu inicial. Durante a jogabilidade, o personagem é movimentado com as teclas W, A, S e D, e a interação com NPCs é feita a partir do momento que o usuário se aproxima de um deles.
+Para executar o jogo, é necessário abrir o projeto em um ambiente de desenvolvimento compatível com JavaScript e iniciar o servidor local. O jogo pode ser acessado pelo navegador, onde o jogador é direcionado ao menu inicial. Durante a jogabilidade, o personagem é movimentado com as teclas W, A, S e D ou com as setas direcionais, e a interação com NPCs é feita a partir do momento que o usuário se aproxima de um deles.
 
 ### Dificuldades encontradas
 
@@ -1546,7 +1548,7 @@ A aplicação foi disponibilizada online por meio do GitLab Pages, permitindo su
 O jogo pode ser acessado por meio do link do projeto, sendo carregado automaticamente no navegador e direcionando o usuário ao menu inicial. A partir dessa tela, o jogador pode iniciar a experiência ao clicar no botão “Jogar”, sendo então conduzido ao tutorial e, posteriormente, ao ambiente principal do jogo.
 
 
-Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
+Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D ou as setas direcionais. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
 Além disso, o jogador pode navegar livremente pelo mapa, acessar lojas, acompanhar seu progresso por meio da interface e utilizar os recursos disponíveis no jogo, como o sistema de pausa e o acesso ao tutorial durante a partida.
 
 ### 4.4.6. Dificuldades encontradas
@@ -1731,10 +1733,10 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | :-- | :---------------------------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | Jogo aberto na tela inicial                                       | Clicar no botão "Jogar"                                 | O jogo deve iniciar e a tela de tutorial deve ser exibida automaticamente como overlay antes de liberar o controle ao jogador                      |
 | 2   | Jogo na tela inicial                                              | Clicar no botão "Configurações"                         | A tela de configurações deve abrir, permitindo ajustar volume, som, contraste e velocidade do Marcielo                                             |
-| 3   | Jogo com personagem parado                                        | Pressionar D                                            | Personagem deve se mover para a direita                                                                                                            |
-| 4   | Jogo com personagem parado                                        | Pressionar A                                            | Personagem deve se mover para a esquerda                                                                                                           |
-| 5   | Jogo com personagem parado                                        | Pressionar W                                            | Personagem deve se mover para cima                                                                                                                 |
-| 6   | Jogo com personagem parado                                        | Pressionar S                                            | Personagem deve se mover para baixo                                                                                                                |
+ | 3   | Jogo com personagem parado                                        | Pressionar D ou seta direita                            | Personagem deve se mover para a direita                                                                                                            |
+ | 4   | Jogo com personagem parado                                        | Pressionar A ou seta esquerda                           | Personagem deve se mover para a esquerda                                                                                                           |
+ | 5   | Jogo com personagem parado                                        | Pressionar W ou seta cima                               | Personagem deve se mover para cima                                                                                                                 |
+ | 6   | Jogo com personagem parado                                        | Pressionar S ou seta baixo                              | Personagem deve se mover para baixo                                                                                                                |
 | 7   | Personagem próximo de uma loja                                    | Encostou na porta                                       | Personagem entra no estabelecimento                                                                                                                |
 | 8   | Personagem perto de um NPC com pelo menos 1 maquininha            | Aproximar-se do NPC e pressionar a tecla E              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada                                                            |
 | 9   | Tela de quiz com 4 respostas e barra de conversão visível         | Clicar com botão esquerdo na resposta correta (3 pts)   | A barra de conversão aumenta em 30 pontos                                                                                                          |

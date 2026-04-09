@@ -12,7 +12,7 @@ import InterfaceQuiz from "./quiz-ui.js";
 // Utilitários de persistência (localStorage com JSON e proteção de erro).
 import { salvarDados, carregarDados } from "../utilitarios/armazenamento.js";
 
-import { getPerguntasPorLoja, selecionarTresAleatorias, perguntasNpcRua } from "../sistemas/quiz-perguntas.js";
+import { getPerguntasPorLoja, selecionarTresAleatorias } from "../sistemas/quiz-perguntas.js";
 
 // Estado/chaves centralizados para progresso do jogo.
 import { chavesArmazenamento, criarEstadoProgressoInicial } from "../utilitarios/estado-jogo.js";

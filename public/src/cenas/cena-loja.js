@@ -9,13 +9,17 @@ import Entrada from '../entidades/loja-entrar.js';
 import { revelarCena } from '../utilitarios/transicao-cena.js';
 import {
     perguntasMovel,
-    perguntasNpcRua,
     perguntasPelucia,
     perguntasPet,
     perguntasCafe,
     perguntasAutoescola,
     perguntasChocolate,
-    perguntasLanchonete
+    perguntasLanchonete,
+    perguntasBeleza,
+    perguntasGames,
+    perguntasJoalheria,
+    perguntasRoupas,
+    perguntasFrutaria
 } from '../sistemas/quiz-perguntas.js';
 import { ObjetosInterior } from '../utilitarios/configuracao-interior.js';
 
@@ -589,7 +593,6 @@ const mostrarIndicador = () => {
         textoChat?.destroy();
         textoIndicador?.destroy();
 
-        // 🔥 MUITO IMPORTANTE
         this.physics.resume();
 
         // Garante que pode interagir de novo
@@ -740,16 +743,16 @@ const mostrarIndicador = () => {
             Lanchonete: perguntasLanchonete,
             Autoescola: perguntasAutoescola,
             Pelucia: perguntasPelucia,
-            Chocolate: perguntasChocolate
+            Chocolate: perguntasChocolate,
+            Beleza: perguntasBeleza,
+            Games: perguntasGames,
+            Joalheria: perguntasJoalheria,
+            Roupas: perguntasRoupas,
+            Frutaria: perguntasFrutaria
         };
 
-        // Lojas sem perguntas próprias usam perguntasNpcRua como fallback
-        let perguntasOriginais = perguntasPorLoja[this.nomeLoja];
-        let usandoFallbackNpcRua = false;
-        if (!perguntasOriginais) {
-            perguntasOriginais = perguntasNpcRua;
-            usandoFallbackNpcRua = true;
-        }
+        const perguntasOriginais = perguntasPorLoja[this.nomeLoja] || [];
+
         let perguntas = [];
         if (perguntasOriginais.length > 0) {
             perguntas = sortearPerguntasAleatorias(perguntasOriginais, 3);

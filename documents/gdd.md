@@ -386,7 +386,7 @@ Esta seção apresenta os requisitos do sistema, organizados em requisitos funci
 | RF02 | Menu de configurações            | O sistema deve disponibilizar um menu de configurações acessível a partir do menu inicial, permitindo ajustar o volume dos sons do jogo, ativar/desativar efeitos sonoros e redefinir o progresso (novo jogo).                                                                                                                                                                                                                                             |
 | RF03 | Progresso da sessão              | O sistema deve manter o progresso do jogador de forma persistente entre sessões, salvando via localStorage: NPCs conquistados, quantidade de maquininhas e posição de retorno no mapa. O progresso é restaurado automaticamente ao reabrir o jogo.                                                                                                                                                                                    |
 | RF04 | Tutorial inicial                 | O sistema deve apresentar um tutorial interativo explicando movimentação, interação com NPCs, funcionamento dos quizzes e sistemas de HUD antes da primeira partida.                                                                                                                                                                                                                                                                                       |
-| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas sorteadas aleatoriamente do banco daquela loja, com 4 opções de resposta. Respostas corretas valem 3 pontos; incorretas valem 0 pontos. O jogador conquista o cliente ao acumular 6 ou mais pontos ao final das 3 perguntas (máximo: 9 pontos). Cada NPC só pode ser desafiado uma vez — o resultado é definitivo. |
+| RF05 | Sistema de quizzes de negociação | O sistema deve disponibilizar quizzes interativos de negociação com NPCs sobre produtos da Cielo. Cada estabelecimento terá 3 perguntas sorteadas aleatoriamente do banco daquela loja, com 4 opções de resposta. O jogador conquista o cliente ao acertar pelo menos 2 das 3 perguntas. Caso erre 2 ou mais perguntas, não conquista o NPC e pode tentar novamente. |
 | RF06 | Sistema de variáveis do cliente  | O sistema deve controlar variáveis dinâmicas de tempo de atendimento e humor do cliente, influenciando o resultado das interações e o desempenho do jogador.                                                                                                                                                                                                                                                                                               |
 | RF07 | HUD de NPCs coletados            | O sistema deve exibir um HUD visual que mostra em tempo real a quantidade de NPCs coletados/interagidos, com feedback de cores atualizado conforme o progresso do jogador.                                                                                                                                                                                                                                                                                 |
 | RF08 | HUD de maquininhas               | O sistema deve exibir um HUD visual indicando a quantidade de maquininhas que o personagem Marcielo está carregando para realizar vendas, atualizando em tempo real conforme as ações do jogador.                                                                                                                                                                                                                                                          |
@@ -454,12 +454,12 @@ Considerando o contexto de atuação da equipe comercial, destacam-se como relev
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. Para avançar nas fases, o jogador deve participar de interações com clientes e responder quizzes relacionados às situações de negociação. A progressão no jogo depende do desempenho nessas atividades, sendo necessário atingir a pontuação mínima definida a partir das respostas corretas e das decisões tomadas durante a interação com o cliente. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
+O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. Para avançar nas fases, o jogador deve participar de interações com clientes e responder quizzes relacionados às situações de negociação. A progressão no jogo depende do desempenho nessas atividades: em cada quiz, é necessário acertar pelo menos 2 das 3 perguntas para conquistar o NPC. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
 O jogo é concluído quando todas as fases são finalizadas com sucesso, indicando que o jogador conseguiu manter um bom desempenho e evoluir ao longo dos diferentes cenários de negociação.
 
 ## 2.2. Características do Jogo (sprint 2)
 
-O jogo é uma simulação interativa de negociação focada no desenvolvimento de habilidades comerciais em um ambiente virtual. Ele é organizado em fases progressivas, nas quais o jogador interage com diferentes perfis de clientes por meio de quizzes que representam situações comuns do processo de vendas. Ao longo da experiência, são utilizados elementos de gamificação, como pontuação, níveis e aumento gradual da dificuldade, permitindo que o jogador experimente estratégias, tome decisões e perceba os resultados de suas escolhas. Dessa forma, o jogo combina engajamento com aprendizagem prática, oferecendo um espaço seguro para treinar comunicação, argumentação e tomada de decisão.
+O jogo é uma simulação interativa de negociação focada no desenvolvimento de habilidades comerciais em um ambiente virtual. Ele é organizado em fases progressivas, nas quais o jogador interage com diferentes perfis de clientes por meio de quizzes que representam situações comuns do processo de vendas. Ao longo da experiência, são utilizados elementos de gamificação, como progressão de desafios, níveis e aumento gradual da dificuldade, permitindo que o jogador experimente estratégias, tome decisões e perceba os resultados de suas escolhas. Dessa forma, o jogo combina engajamento com aprendizagem prática, oferecendo um espaço seguro para treinar comunicação, argumentação e tomada de decisão.
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
@@ -652,7 +652,7 @@ Esse sistema reforça o aspecto estratégico e educativo do jogo.
 
 **C. Feedback de Desempenho**
 
-Ao final de cada atendimento, o jogador recebe um resumo com sua pontuação e avaliação geral.
+Ao final de cada atendimento, o jogador recebe um resumo com seus acertos/erros e avaliação geral.
 Esse feedback tem função pedagógica, permitindo que o jogador compreenda seus erros e melhore em futuras interações.
 
 **D. Considerações**
@@ -699,11 +699,11 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 
 5. Cada quiz contém **3 perguntas** sorteadas aleatoriamente do banco de perguntas daquela loja.
 
-6. Cada pergunta tem **60 segundos** de tempo limite. Ao esgotar o tempo, a pergunta é encerrada com **0 pontos** e o quiz avança automaticamente para a próxima pergunta — o jogador não perde o cliente imediatamente.
+6. Cada pergunta tem **60 segundos** de tempo limite. Ao esgotar o tempo, a pergunta é contabilizada como erro e o quiz avança automaticamente para a próxima pergunta.
 
-7. A pontuação total máxima por quiz é **9 pontos**. Cada resposta vale **3 pts** (correta) ou **0 pts** (incorreta). O cliente é conquistado se o jogador obtiver **6 ou mais pontos** ao final das 3 perguntas.
+7. O cliente é conquistado se o jogador acertar **2 ou 3 perguntas** no quiz de 3 questões.
 
-8. Cada cliente oferece ao jogador **apenas uma tentativa** de negociação. O resultado é definitivo: vitória ou derrota, não é possível repetir o quiz com o mesmo NPC.
+8. Se o jogador errar **2 ou 3 perguntas**, o NPC não é conquistado naquela tentativa, mas o quiz pode ser repetido.
 
 9. O progresso é salvo automaticamente via **localStorage**: NPCs conquistados, NPCs tentados (não conquistados), quantidade de maquininhas, posição de spawn e estado das lojas persistem entre sessões.
 
@@ -779,12 +779,10 @@ Ao sair de uma loja, o jogador reaparece exatamente na frente dela, usando o sis
 Ao pressionar E próximo ao NPC, inicia-se o quiz:
 
 - **3 perguntas** sorteadas aleatoriamente do banco daquela loja (sem repetição na mesma sessão).
-- Cada pergunta tem **60 segundos** de timer. Tempo esgotado = 0 pontos na pergunta, quiz avança automaticamente.
-- Respostas corretas valem **3 pontos**; erradas valem **0 pontos**.
-- Pontuação total máxima: **9 pontos**. Limiar de conquista: **≥ 6 pontos**.
-- Um **indicador de conversão** (barra colorida) reflete o desempenho em tempo real: vermelho (baixa), amarelo (média), verde (alta).
+- Cada pergunta tem **60 segundos** de timer. Tempo esgotado conta como erro e o quiz avança automaticamente.
+- O NPC é conquistado quando o jogador acerta **2 ou 3 perguntas**.
+- Se o jogador errar **2 ou 3 perguntas**, o NPC não é conquistado e a tentativa pode ser refeita.
 - O NPC muda visualmente de **vermelho para azul** ao ser conquistado.
-- Cada NPC só pode ser desafiado **uma vez** — resultado definitivo.
 
 ### 3.7.6. Progressão persistente e balões decorativos
 
@@ -1041,17 +1039,17 @@ Esse sistema ainda não existe na versão atual.
 O objetivo de cada interação futura será fechar um negócio com sucesso.
 Atualmente, não há sistema de negociação ativa nem fechamento de contratos.
 
-### 4.1.8. Sistema de Pontuação
+### 4.1.8. Sistema de Resultado do Quiz
 
 O conceito prevê:
-Pontos acumulados a cada negociação bem-sucedida
-Recompensa por decisões estratégicas corretas
+Resultado por acertos e erros em cada negociação
+Conquista do NPC ao acertar pelo menos 2 de 3 perguntas
 Esse sistema ainda não está implementado.
 
 ### 4.1.9. Sistema de Níveis
 
 O jogador deverá:
-Subir de nível conforme acumula pontos
+Subir de nível conforme conquista negociações com NPCs
 Enfrentar clientes mais exigentes em níveis mais altos
 Experimentar aumento progressivo de dificuldade
 A progressão de níveis ainda não está presente.
@@ -1141,7 +1139,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 . Desenvolvimento dos quizzes de negociação, simulando situações reais de atendimento e vendas;
 
-. Integração do sistema de pontuação, considerando decisões tomadas pelo jogador e desempenho nas interações;
+. Integração do sistema de resultado dos quizzes, considerando acertos e erros nas interações;
 
 . Implementação das variáveis dinâmicas do cliente, como tempo de atendimento e nível de conversão;
 
@@ -1153,7 +1151,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
-Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo. O foco foi implementar o núcleo da experiência: 12 lojas com interiores únicos, sistema de quiz completo com timer e barra de conversão, progressão persistente via localStorage, spawn dinâmico de retorno e os carros como mecânica de risco na cidade.
+Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo. O foco foi implementar o núcleo da experiência: 12 lojas com interiores únicos, sistema de quiz completo com timer, progressão persistente via localStorage, spawn dinâmico de retorno e os carros como mecânica de risco na cidade.
 
 ### 4.3.1. Funcionalidades implementadas
 
@@ -1180,14 +1178,14 @@ const perguntasPorLoja = {
 const perguntasOriginais = perguntasPorLoja[this.nomeLoja] ?? perguntasNpcRua;
 ```
 
-A cada quiz, 3 perguntas são sorteadas aleatoriamente sem repetição na mesma sessão (`_carregarPerguntasJaFeitas()`). O timer de 60 segundos por pergunta é controlado por `Phaser.Time.addEvent`. Ao esgotar, a pergunta encerra com 0 pontos e o quiz avança automaticamente.
+A cada quiz, 3 perguntas são sorteadas aleatoriamente sem repetição na mesma sessão (`_carregarPerguntasJaFeitas()`). O timer de 60 segundos por pergunta é controlado por `Phaser.Time.addEvent`. Ao esgotar, a pergunta é contabilizada como erro e o quiz avança automaticamente.
 
-A barra de conversão usa 3 faixas de cor: vermelho (baixa), amarelo (média), verde (alta). A conquista do cliente ocorre se a **soma total for ≥ 6 pontos** ao final das 3 perguntas (máximo: 9 pontos):
+A conquista do cliente ocorre quando o jogador acerta **2 ou 3 perguntas** no quiz:
 
 ```js
 // quiz.js — verificação de conquista ao finalizar
 _verificarConquista() {
-    if (this.pontuacaoTotal >= PONTOS_PARA_CONQUISTA) {
+  if (this.acertos >= 2) {
         this.npcAtual.visualConquistado();
         salvarProgressoNpc(this.npcAtual.idNpc);
     }
@@ -1338,7 +1336,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 . Adição de novos desafios, incluindo carros nas ruas e máquinas de cartão quebradas;
 
-. Criação de um painel de desempenho em tempo real, exibindo indicadores da partida(Número de clientes convertidos e pontuação adquirida);
+. Criação de um painel de desempenho em tempo real, exibindo indicadores da partida (número de clientes convertidos, taxa de acerto e tempo de jogo);
 
 . Aprimoramento da interface gráfica e identidade visual alinhada ao treinamento corporativo da Cielo;
 
@@ -1389,7 +1387,7 @@ Ao acessar uma loja, o jogador entra em um interior específico e recebe uma apr
 As lojas passaram a ser construídas a partir de uma estrutura parametrizada. Em vez de duplicar lógica, uma cena base reutiliza configurações específicas de cada estabelecimento, como posições, escala, NPC, som e banco de perguntas.
 
 11. **Sistema de quizzes por loja**
-As interações com os clientes são realizadas por meio de quizzes. Cada loja utiliza um conjunto de perguntas próprio, com sorteio aleatório sem repetição dentro da sessão, temporizador por pergunta e regra de pontuação mínima para conquista do NPC.
+As interações com os clientes são realizadas por meio de quizzes. Cada loja utiliza um conjunto de perguntas próprio, com sorteio aleatório sem repetição dentro da sessão, temporizador por pergunta e regra de conquista por acertos (mínimo de 2 acertos em 3 perguntas).
 
 12. **Feedback visual de conquista**
 Quando o jogador conclui o quiz com sucesso, o NPC passa ao estado de conquistado e sua aparência é alterada visualmente. Esse feedback permite identificar rapidamente quais clientes já foram convertidos.
@@ -1429,7 +1427,7 @@ Responsáveis por menu, tutorial, cidade, central, interiores e telas de apoio.
 Responsáveis por jogador, NPCs, portas de entrada e elementos dinâmicos do mapa.
 
 3. **Sistemas**
-Responsáveis por quiz, HUDs, pontuação, maquininhas e interfaces auxiliares.
+Responsáveis por quiz, HUDs, maquininhas e interfaces auxiliares.
 
 4. **Utilitários**
 Responsáveis por persistência, transições, configuração de ambiente, spawns e estados globais.
@@ -1543,7 +1541,7 @@ O segundo desafio foi a **persistência de progresso com `localStorage`**. Não 
 
 Outro ponto sensível foi o **spawn dinâmico de retorno à cidade**. O sistema precisou reposicionar o jogador de modo coerente após sair das lojas e, ao mesmo tempo, impedir reentradas acidentais imediatas.
 
-Também houve esforço técnico na **integração do sistema de quizzes**, especialmente no controle de sorteio de perguntas, temporização, pontuação mínima e resultado definitivo da negociação com cada NPC.
+Também houve esforço técnico na **integração do sistema de quizzes**, especialmente no controle de sorteio de perguntas, temporização e regra de conquista por acertos.
 
 Os **feedbacks visuais de progresso**, como mudança de estado dos NPCs e balões sobre lojas concluídas, exigiram sincronização com o estado salvo do jogo, evitando discrepâncias entre interface e lógica interna.
 
@@ -1693,7 +1691,7 @@ Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 
 
-. Adição de um placar final ao término da partida, exibindo a pontuação total, o número de NPCs conquistados e o tempo de jogo;
+. Adição de um placar final ao término da partida, exibindo o número de NPCs conquistados e o tempo de jogo;
 
 . Expansão do banco de perguntas por loja, reduzindo a repetição ao longo de uma mesma sessão de jogo;
 
@@ -1704,54 +1702,63 @@ Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
-Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação.
+Nos testes do quiz, o principal indicador de desempenho é a quantidade de acertos nas 3 perguntas da interação.
 
- A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação. Cada resposta vale **3 pts** (correta, +30 na barra) ou **0 pts** (incorreta, −50 na barra). A barra começa em 50 pontos e é limitada entre 0 e 100.
-Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso (pontuação total ≥ 6), o jogador consome 1 maquininha; em caso de derrota, nenhuma maquininha é consumida.
+Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Se o jogador acertar 2 (ou 3) perguntas, conquista o NPC e consome 1 maquininha. Se errar 2 (ou 3) perguntas, não conquista o NPC e pode tentar novamente.
 
 Tabela 1 - Casos de teste funcionais do jogo.
 
 | #   | pré-condição                                                      | descrição do teste                                      | pós-condição                                                                                                                                       |
 | :-- | :---------------------------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Jogo aberto na tela inicial                                       | Clicar no botão "Jogar"                                 | O jogo deve iniciar e a tela de tutorial deve ser exibida automaticamente como overlay antes de liberar o controle ao jogador                      |
-| 2   | Jogo na tela inicial                                              | Clicar no botão "Configurações"                         | A tela de configurações deve abrir, permitindo ajustar volume, som, contraste e velocidade do Marcielo                                             |
- | 3   | Jogo com personagem parado                                        | Pressionar D ou seta direita                            | Personagem deve se mover para a direita                                                                                                            |
- | 4   | Jogo com personagem parado                                        | Pressionar A ou seta esquerda                           | Personagem deve se mover para a esquerda                                                                                                           |
- | 5   | Jogo com personagem parado                                        | Pressionar W ou seta cima                               | Personagem deve se mover para cima                                                                                                                 |
- | 6   | Jogo com personagem parado                                        | Pressionar S ou seta baixo                              | Personagem deve se mover para baixo                                                                                                                |
-| 7   | Personagem próximo de uma loja                                    | Encostou na porta                                       | Personagem entra no estabelecimento                                                                                                                |
-| 8   | Personagem perto de um NPC com pelo menos 1 maquininha            | Aproximar-se do NPC e pressionar a tecla E              | Botão de interação aparece sobre o NPC; ao pressionar E, a interface de quiz é iniciada                                                            |
-| 9   | Tela de quiz com 4 respostas e barra de conversão visível         | Clicar com botão esquerdo na resposta correta (3 pts)   | A barra de conversão aumenta em 30 pontos                                                                                                          |
-| 10  | Tela de quiz com 4 respostas e barra de conversão visível         | Clicar com botão esquerdo em resposta incorreta (0 pts) | A barra de conversão diminui em 50 pontos                                                                                                          |
-| 11  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder corretamente (3 pts) na 3ª pergunta           | Cliente é conquistado: pontuação final 9 pontos (≥ 6)                                                                                              |
-| 12  | Jogador obteve 3 pts nas 2 primeiras perguntas (6 pts acumulados) | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                                                                              |
-| 13  | Jogador errou as 2 primeiras perguntas (0 pts acumulados)         | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente não é conquistado: pontuação final 0 pontos (< 6)                                                                                          |
-| 14  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)        | Responder incorretamente (0 pts) na 3ª pergunta         | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                                                                          |
-| 15  | Jogador acertou apenas 1 das 2 primeiras perguntas (3 pts)        | Responder corretamente (3 pts) na 3ª pergunta           | Cliente é conquistado: pontuação final 6 pontos (≥ 6)                                                                                              |
-| 16  | Jogador errou todas as perguntas anteriores (0 pts)               | Responder corretamente (3 pts) na 3ª pergunta           | Cliente não é conquistado: pontuação final 3 pontos (< 6)                                                                                          |
-| 17  | Tempo limite da pergunta esgotado                                 | O timer chega a 0 durante o quiz                        | A pergunta é encerrada com 0 pontos e o quiz avança automaticamente para a próxima pergunta                                                        |
-| 18  | Negociação finalizada com sucesso ou falha                        | Resultado da interação é definido                       | Sistema exibe feedback do resultado da negociação                                                                                                  |
-| 19  | Perto de um cliente já conquistado                                | Se aproxima                                             | Nada acontece, cliente permanece com camiseta azul                                                                                                 |
-| 20  | Tempo limite do jogo acabando                                     | O tempo acaba                                           | A gameplay se encerra _(não implementado no MVP)_                                                                                                  |
-| 21  | Jogo em execução na cidade ou dentro de loja                      | Pressionar a tecla T                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                                                                               |
-| 22  | Tela de tutorial aberta via tecla T                               | Clicar no botão "SAIR"                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                                                                             |
-| 23  | Jogador caminhando em direção a uma árvore ou casa no mapa        | Tentar atravessar o elemento                            | O jogador deve ser bloqueado pelo colisor invisível e não conseguir atravessar                                                                     |
-| 24  | Jogador próximo à borda do mapa                                   | Tentar sair pelos limites do mapa                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa                                                               |
-| 25  | Jogador colide com um carro em qualquer rua                       | Carro atinge o jogador durante a navegação              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                                                                           |
-| 26  | Jogador navega pela cidade                                        | Observar o minimapa no canto superior esquerdo          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador                      |
-| 27  | Jogador conquista um NPC (quiz bem-sucedido)                      | Finaliza o quiz com pontuação ≥ 6                       | Efeito de confetes é exibido; 1 maquininha é consumida                                                                                             |
-| 28  | Jogador falha em um quiz (pontuação < 6)                          | Finaliza o quiz com pontuação < 6                       | O jogador perde 15 pontos persistidos no localStorage; nenhuma maquininha é consumida                                                              |
-| 29  | Jogador se aproxima do prédio Central da Cielo no mapa            | Encosta na porta do prédio                              | O jogador deve entrar na cena da Central da Cielo                                                                                                  |
-| 30  | Jogador dentro da Central da Cielo                                | Pressionar ESC                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo, Configurações e Menu                                                                |
-| 31  | Jogo com progresso salvo (NPCs conquistados, maquininhas)         | Fechar o navegador e reabrir o jogo                     | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas, quantidade de maquininhas é mantida |
-| 32  | Menu de pausa aberto                                              | Clicar em "Novo Jogo"                                   | Todo o progresso salvo (incluindo maquininhas) deve ser apagado do localStorage, maquininhas zeradas a 0, e o jogo deve reiniciar do zero          |
-| 33  | Jogador com 0 maquininhas entra em uma loja                       | Se aproxima do NPC a menos de 300 px                    | O botão de interação (tecla E) não aparece sobre o NPC; o quiz não pode ser iniciado                                                               |
-| 34  | Jogador dentro da Central da Cielo com menos de 2 maquininhas     | Aproximar-se do NPC a menos de 300 px e pressionar E    | As maquininhas são recarregadas para o máximo (2); o HUD é atualizado                                                                              |
-| 35  | Jogador dentro da Central da Cielo com 2 maquininhas (máximo)     | Aproximar-se do NPC                                     | O botão de recarga não aparece; pressionar E não tem efeito                                                                                        |
-| 36  | Jogo com HUD de progresso de NPC ativo e NPC em estado não interagido | Alterar o estado do NPC (conquistar ou não conquistar) e observar o HUD | O NPC deve exibir camiseta branca quando não interagido, vermelha quando não conquistado e azul quando conquistado; a cada alteração de estado, um alerta com exclamação deve piscar e só parar ao clicar para abrir o pop-up de progresso |
-| 37  | Jogador em cidade com seta de indicação ativa e pelo menos uma loja não conquistada | Conquistar o NPC da loja atual e retornar ao mapa       | A seta deve atualizar o alvo automaticamente: após a conquista, deixa de apontar para a loja concluída e passa a apontar para a próxima loja mais próxima disponível |
-| 38  | Jogador com os 11 NPCs já conquistados                             | Conquistar o último NPC restante                        | O jogo deve reconhecer a conquista de todos os 12 NPCs, redirecionar automaticamente para a cena final e exibir a mensagem de parabéns por ter vencido o jogo |
-| 39  | Jogador navegando pela cidade                                      | Pressionar M                                           | O mapa completo da cidade deve abrir em overlay, exibindo a imagem com legenda das lojas e um marcador pulsante na posição atual do jogador; pressionar M ou ESC fecha o mapa |
+| 1   | Jogo na tela inicial                                              | Clicar no botão "Configurações"                         | A tela de configurações deve abrir, permitindo ajustar volume, som e contraste                                                                     |
+| 2   | Jogo aberto na tela inicial                                       | Clicar no botão "Jogar"                                 | O jogo deve iniciar e exibir automaticamente o tutorial inicial em 8 partes; ao concluir, deve redirecionar para o tutorial de controles e mecânicas antes de liberar o controle ao jogador |
+| 3   | Tutorial inicial aberto na etapa 2 de 8                            | Clicar no botão "Anterior"                            | O tutorial deve voltar para a etapa 1 de 8, exibindo novamente o vídeo anterior                                                                    |
+| 4   | Tutorial inicial aberto na etapa 8 de 8                            | Clicar no botão "Próximo"                             | O tutorial de 8 partes deve ser finalizado e o sistema deve redirecionar automaticamente para o tutorial de controles e mecânicas                     |
+| 5   | Tutorial de controles e mecânicas aberto                           | Clicar no botão "Fechar"                              | O tutorial deve ser encerrado e o controle do jogo deve ser liberado ao jogador                                                                       |
+| 6   | Tutorial inicial aberto em qualquer etapa                          | Clicar no botão "Pular tudo"                          | O tutorial deve ser encerrado imediatamente e o controle do jogo deve ser liberado ao jogador                                                          |
+| 7   | Jogo com personagem parado                                        | Pressionar D ou seta direita                            | Personagem deve se mover para a direita                                                                                                            |
+| 8   | Jogo com personagem parado                                        | Pressionar A ou seta esquerda                           | Personagem deve se mover para a esquerda                                                                                                           |
+| 9   | Jogo com personagem parado                                        | Pressionar W ou seta cima                               | Personagem deve se mover para cima                                                                                                                 |
+| 10  | Jogo com personagem parado                                        | Pressionar S ou seta baixo                              | Personagem deve se mover para baixo                                                                                                                |
+| 11  | Jogador navega pela cidade                                        | Observar o minimapa no canto superior esquerdo          | O minimapa deve exibir o mapa inteiro em miniatura e o marcador (cabeça do Marcielo) deve refletir a posição atual do jogador                      |
+| 12  | Jogador navegando pela cidade                                      | Pressionar M                                           | O mapa completo da cidade deve abrir em overlay, exibindo a imagem com legenda das lojas e um marcador pulsante na posição atual do jogador; pressionar M ou ESC fecha o mapa |
+| 13  | Jogador caminhando em direção a uma árvore ou casa no mapa        | Tentar atravessar o elemento                            | O jogador deve ser bloqueado pelo colisor invisível e não conseguir atravessar                                                                     |
+| 14  | Jogador próximo à borda do mapa                                   | Tentar sair pelos limites do mapa                       | O personagem deve parar na borda; a câmera não deve mostrar fundo preto além do mapa                                                               |
+| 15  | Jogador colide com um carro em qualquer rua                       | Carro atinge o jogador durante a navegação              | O personagem morre, a cena cidade reinicia e o progresso salvo é mantido                                                                           |
+| 16  | Personagem próximo de uma loja                                    | Encostou na porta                                       | Personagem entra no estabelecimento                                                                                                                |
+| 17  | Jogador com 0 maquininhas dentro de uma loja                      | Pressionar a tecla E                                    | O quiz não pode ser iniciado                                                                                                                        |
+| 18  | Jogador dentro de uma loja com pelo menos 1 maquininha            | Pressionar a tecla E                                    | A interface de quiz é iniciada                                                                                                                      |
+| 19  | Tela de quiz com 4 respostas visível                              | Clicar com botão esquerdo na resposta correta           | O sistema deve registrar 1 acerto na pergunta atual                                                                                                 |
+| 20  | Tela de quiz com 4 respostas visível                              | Clicar com botão esquerdo em resposta incorreta         | O sistema deve registrar 1 erro na pergunta atual                                                                                                   |
+| 21  | Tempo limite da pergunta esgotado                                 | O timer chega a 0 durante o quiz                        | A pergunta é encerrada como erro e o quiz avança automaticamente para a próxima pergunta                                                            |
+| 22  | Quiz com 2 acertos e 0 erros                                      | Responder corretamente à última pergunta                | Cliente é conquistado com 3 acertos em 3                                                                                                            |
+| 23  | Quiz com 2 acertos e 0 erros                                      | Responder incorretamente à última pergunta              | Cliente é conquistado com 2 acertos em 3                                                                                                            |
+| 24  | Quiz com 1 acerto e 1 erro                                        | Responder corretamente à última pergunta                | Cliente é conquistado com 2 acertos em 3                                                                                                            |
+| 25  | Quiz com 0 acertos e 2 erros                                      | Responder incorretamente à última pergunta              | Cliente não é conquistado; o jogador pode tentar novamente                                                                                          |
+| 26  | Quiz com 1 acerto e 1 erro                                        | Responder incorretamente à última pergunta              | Cliente não é conquistado; o jogador pode tentar novamente                                                                                          |
+| 27  | Quiz com 0 acertos e 2 erros                                      | Responder corretamente à última pergunta                | Cliente não é conquistado com 1 acerto em 3; o jogador pode tentar novamente                                                                        |
+| 28  | Negociação finalizada com sucesso ou falha                        | Resultado da interação é definido                       | Sistema exibe feedback do resultado da negociação                                                                                                  |
+| 29  | Jogador conquista um NPC (quiz bem-sucedido)                      | Finaliza o quiz com 2 ou 3 acertos                      | Efeito de confetes é exibido; 1 maquininha é consumida                                                                                             |
+| 30  | Jogador falha em um quiz (quiz sem sucesso)                       | Finaliza o quiz com 2 ou 3 erros                        | O NPC não é conquistado, nenhuma maquininha é consumida e o jogador pode tentar novamente                                                          |
+| 31  | Cliente já conquistado                                             | Pressionar a tecla E                                    | Nada acontece, cliente permanece com camiseta azul                                                                                                  |
+| 32  | Jogo com HUD de progresso de NPC ativo e NPC em estado não interagido | Alterar o estado do NPC (conquistar ou não conquistar) e observar o HUD | O NPC deve exibir camiseta branca quando não interagido, vermelha quando não conquistado e azul quando conquistado; a cada alteração de estado, um alerta com exclamação deve piscar e só parar ao clicar para abrir o pop-up de progresso |
+| 33  | Jogador em cidade com seta de indicação ativa e pelo menos uma loja não conquistada | Conquistar o NPC da loja atual e retornar ao mapa       | A seta deve atualizar o alvo automaticamente: após a conquista, deixa de apontar para a loja concluída e passa a apontar para a próxima loja mais próxima disponível |
+| 34  | Jogador com os 11 NPCs já conquistados                             | Conquistar o último NPC restante                        | O jogo deve reconhecer a conquista de todos os 12 NPCs, redirecionar automaticamente para a cena final e exibir a mensagem de parabéns por ter vencido o jogo |
+| 35  | Jogador se aproxima do prédio Central da Cielo no mapa            | Encosta na porta do prédio                              | O jogador deve entrar na cena da Central da Cielo                                                                                                  |
+| 36  | Jogador dentro da Central da Cielo com menos de 2 maquininhas     | Pressionar a tecla E                                    | As maquininhas são recarregadas para o máximo (2); o HUD é atualizado                                                                              |
+| 37  | Jogador dentro da Central da Cielo com 2 maquininhas (máximo)     | Pressionar a tecla E                                    | Não ocorre recarga; a quantidade de maquininhas permanece em 2                                                                                      |
+| 38  | Jogador dentro da Central da Cielo                                | Pressionar ESC                                          | O menu de pausa deve abrir com as opções Continuar, Novo Jogo, Configurações e Menu                                                                |
+| 39  | Menu de pausa aberto                                              | Clicar em "Novo Jogo"                                   | Todo o progresso salvo (incluindo maquininhas) deve ser apagado do localStorage, maquininhas zeradas a 0, e o jogo deve reiniciar do zero          |
+| 40  | Jogo em execução na cidade ou dentro de loja                      | Pressionar a tecla T                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                                                                               |
+| 41  | Tela de tutorial aberta via tecla T                               | Clicar no botão "SAIR"                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                                                                             |
+| 42  | Jogo com progresso salvo (NPCs conquistados, maquininhas)         | Fechar o navegador e reabrir o jogo                     | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas, quantidade de maquininhas é mantida |
+| 43  | Tempo limite do jogo acabando                                     | O tempo acaba                                           | A gameplay se encerra _(não implementado no MVP)_                                                                                                  |
+| 44  | Jogador em cidade com 0 maquininhas e pelo menos uma loja não conquistada | Continuar navegando pelo mapa                           | A seta de indicação deve deixar de guiar para lojas e passar a apontar apenas para a Central da Cielo                                              |
+| 45  | Jogador recarrega maquininhas na Central da Cielo                 | Pressionar a tecla E para recarregar e retornar ao mapa | A seta de indicação deve voltar à lógica original e apontar para a loja não conquistada mais próxima                                                |
+| 46  | Jogador na cena final com mensagem de parabéns exibida            | Pressionar a tecla Espaço                               | A mensagem deve avançar para a próxima etapa da cena final                                                                                            |
+| 47  | Cena final após avanço da mensagem de parabéns                    | Aguardar alguns segundos                                | Um efeito de confete de parabéns deve ser exibido temporariamente                                                                                   |
+| 48  | Cena final após o término do efeito de confete                    | Aguardar exibição da interface final                    | O botão para voltar ao menu inicial deve ser exibido                                                                                                 |
+| 49  | Botão de retorno ao menu inicial visível na cena final            | Clicar no botão de voltar ao menu inicial              | O jogo deve redirecionar o jogador para o menu inicial                                                                                                |
 
 Fonte: elaborado pelo grupo.
 
@@ -1902,7 +1909,7 @@ Além disso, foram identificados problemas de usabilidade e interface, como HUD 
 
 Com base nos resultados obtidos nos testes de jogabilidade, foram identificadas oportunidades de aprimoramento para tornar o jogo mais envolvente, desafiador e recompensador para os jogadores. A seguir, estão descritas as principais melhorias planejadas:
 
-- **Ranking:** Implementar um sistema de classificação global e/ou local, permitindo que os jogadores comparem suas pontuações com outros. Isso incentiva a competitividade e aumenta a rejogabilidade.
+- **Ranking:** Implementar um sistema de classificação global e/ou local, permitindo que os jogadores comparem seus resultados (NPCs conquistados, taxa de acerto e tempo de conclusão). Isso incentiva a competitividade e aumenta a rejogabilidade.
 
 - **Feedbacks mais personalizados e específicos:** Desenvolver mensagens de feedback detalhadas para cada pergunta ou ação do jogador, explicando erros e acertos de forma clara. Isso melhora a experiência de aprendizado e aumenta o engajamento.
 
@@ -1910,7 +1917,7 @@ Com base nos resultados obtidos nos testes de jogabilidade, foram identificadas 
 
 - **Inimigos:** Introduzir inimigos com comportamentos variados (como perseguição, bloqueio de caminho ou ataque), enriquecendo o jogo e exigindo mais estratégia por parte do jogador, tornando a experiência mais dinâmica e divertida.
 
-- **Pontuação:** Refinar o sistema de pontuação, considerando fatores como tempo de resposta, precisão e desempenho geral. Também podem ser incluídos bônus, combos e recompensas por sequência de acertos, incentivando melhores resultados.
+- **Resultados de quiz:** Refinar os indicadores de desempenho dos quizzes, considerando fatores como tempo de resposta, precisão e desempenho geral. Também podem ser incluídas metas por sequência de acertos para incentivar melhores resultados.
 
 Essas melhorias visam aumentar a profundidade do jogo, promover maior engajamento dos jogadores e proporcionar uma experiência mais rica e satisfatória.
 
@@ -1950,7 +1957,7 @@ Dessa forma, a solução não apenas cumpre seu papel educacional, mas também s
 ### Pontos a melhorar
 
 
--Implementação de ranking e sistema de pontuação mais estruturado para aumentar a competitividade e o engajamento
+-Implementação de ranking e sistema de resultados mais estruturado para aumentar a competitividade e o engajamento
 -Desenvolvimento de feedbacks mais personalizados e específicos para cada pergunta, tornando o aprendizado mais direcionado
 -Inclusão de obstáculos e inimigos para enriquecer a dinâmica do jogo e aumentar o nível de desafio
 -Maior profundidade nas interações de venda, com cenários mais complexos
@@ -1961,11 +1968,11 @@ Dessa forma, a solução não apenas cumpre seu papel educacional, mas também s
 
 Com base nos testes realizados, foram identificadas oportunidades relevantes de evolução do jogo, descritas a seguir com seus respectivos planos de ação:
 
-1. Sistema de ranking e pontuação
-   Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
+1. Sistema de ranking e resultados
+  Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
    Plano de ação:
    Implementar ranking entre jogadores
-   Criar sistema de pontuação baseado em desempenho e decisões
+  Criar sistema de resultados baseado em NPCs conquistados, taxa de acerto e tempo de conclusão
    Adicionar recompensas e metas para estimular progressão
 
 2. Feedbacks personalizados

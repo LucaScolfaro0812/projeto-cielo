@@ -82,7 +82,7 @@ export class CenaTutorial extends Phaser.Scene {
                 return;
             }
 
-            this.scene.start('gameScene', { mostrarTutorial: false });
+            this.scene.start(this.cenaOrigem === 'centralScene' ? 'centralScene' : 'gameScene', { mostrarTutorial: false });
         });
     }
 

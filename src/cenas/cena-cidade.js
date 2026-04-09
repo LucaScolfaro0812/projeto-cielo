@@ -459,6 +459,7 @@ export class CenaCidade extends Phaser.Scene {
             }
         });
 
+
         if (this.mostrarTutorialAoEntrar) {
             this._abrirTutorial();
         }

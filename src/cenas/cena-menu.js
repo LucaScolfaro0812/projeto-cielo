@@ -103,12 +103,17 @@ export class CenaMenu extends Phaser.Scene {
                 ativarTutorialInicial();
                 ativarDialogoInicialCentral();
                 ativarDialogoPosRecargaCentral();
+
+                // Jogador novo: exibe tutorial em vídeo → jogo
+                if (this.somMenu && this.somMenu.isPlaying) this.somMenu.stop();
+                this.scene.start('tutorialVideoScene', {
+                    cenaApos: 'centralScene',
+                    dadosCenaApos: {}
+                });
+                return;
             }
 
-            const mensagemTransicao = possuiProgressoSalvo
-                ? 'Carregando progresso salvo...'
-                : 'Iniciando jogo...';
-
+            const mensagemTransicao = 'Carregando progresso salvo...';
             transicionarPara(this, 'centralScene', {}, mensagemTransicao);
         });
 

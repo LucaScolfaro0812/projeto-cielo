@@ -130,6 +130,14 @@ export default class InterfaceProgressoNpc {
         });
     }
 
+    /**
+     * Retorna a cor do texto de progresso de acordo com o percentual conquistado.
+     * Serve como feedback visual imediato sobre o desempenho do jogador:
+     *   - ≥75%: verde  → indo muito bem
+     *   - ≥40%: amarelo → progresso moderado
+     *   - <40%: branco  → início de jogo, sem julgamento
+     * @returns {string} Cor CSS (hex string)
+     */
     _corTextoProgresso() {
         const pct = this.conquistados / this.totalNpcs;
         if (pct >= 0.75) return '#10b981'; // verde
@@ -137,31 +145,50 @@ export default class InterfaceProgressoNpc {
         return '#ffffff';                   // branco
     }
 
+    /**
+     * (Re)desenha o fundo arredondado do HUD com três camadas:
+     *   1. Sombra deslocada (cria profundidade)
+     *   2. Fundo escuro semiopaco (separa o HUD do cenário)
+     *   3. Borda azul fina (identidade visual Cielo)
+     *
+     * Usa `fillRoundedRect` do Phaser Graphics para cantos arredondados.
+     * É chamado apenas na criação do HUD — o fundo não precisa ser redesenhado
+     * dinamicamente (diferente do HUD de maquininhas, que muda de cor).
+     */
     _desenharFundoProgresso() {
         const { _xFundo: x, _yFundo: y, _larguraHud: w, _alturaHud: h } = this;
         this.fundoGraphics.clear();
-        // Sombra
+        // Camada 1: sombra — levemente deslocada para dar efeito de elevação
         this.fundoGraphics.fillStyle(0x000000, 0.3);
         this.fundoGraphics.fillRoundedRect(x + 4, y - h / 2 + 4, w, h, 14);
-        // Fundo
+        // Camada 2: fundo escuro com alta opacidade para boa legibilidade
         this.fundoGraphics.fillStyle(0x102040, 0.97);
         this.fundoGraphics.fillRoundedRect(x, y - h / 2, w, h, 14);
-        // Borda
+        // Camada 3: borda azul Cielo
         this.fundoGraphics.lineStyle(4, 0x3b82f6, 1);
         this.fundoGraphics.strokeRoundedRect(x, y - h / 2, w, h, 14);
     }
 
+    /**
+     * (Re)desenha a barra de progresso horizontal na base do HUD.
+     * O comprimento preenchido é proporcional ao percentual de NPCs conquistados.
+     * A cor muda junto com o texto: azul → amarelo → verde conforme avança.
+     *
+     * Chamado na criação e em cada `atualizar()` para refletir o novo progresso.
+     */
     _desenharBarra() {
         const { _xBarra: x, _yBarra: y, _barraLarguraTotal: wTotal, _barraAltura: bh } = this;
         const preenchimento = Math.max(0, (this.conquistados / this.totalNpcs)) * wTotal;
         const pct = this.conquistados / this.totalNpcs;
+
+        // Cor do preenchimento acompanha os mesmos limiares do texto (75% / 40%)
         const corBarra = pct >= 0.75 ? 0x10b981 : pct >= 0.4 ? 0xf59e0b : 0x3b82f6;
 
         this.barraGraphics.clear();
-        // Fundo da barra
+        // Fundo escuro da barra (parte ainda não conquistada)
         this.barraGraphics.fillStyle(0x000000, 0.4);
         this.barraGraphics.fillRoundedRect(x, y, wTotal, bh, 5);
-        // Preenchimento
+        // Preenchimento colorido proporcional ao progresso
         if (preenchimento > 0) {
             this.barraGraphics.fillStyle(corBarra, 1);
             this.barraGraphics.fillRoundedRect(x, y, preenchimento, bh, 5);

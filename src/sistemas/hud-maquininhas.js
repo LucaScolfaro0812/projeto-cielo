@@ -1,10 +1,24 @@
 import { Maquininhas } from './maquininhas.js';
 
 /**
- * HudMaquininhas - Exibe o estoque de maquininhas do jogador na tela.
+ * HudMaquininhas — Exibe o estoque de maquininhas do jogador no canto da tela.
+ *
+ * O HUD usa Graphics do Phaser para desenhar um fundo com cantos arredondados
+ * que muda de cor conforme a quantidade de maquininhas restantes:
+ *   - Verde  (≥2): estoque normal
+ *   - Laranja (1): atenção — quase sem estoque
+ *   - Vermelho (0): sem estoque — precisa recarregar na Central Cielo
+ *
+ * Um efeito de "pulse" (escala) é disparado no ícone a cada atualização para
+ * chamar a atenção do jogador quando o valor muda.
  */
 export default class HudMaquininhas {
 
+    /**
+     * @param {Phaser.Scene} cena   - Cena onde o HUD será criado
+     * @param {number} xTela        - Posição X (não usado diretamente; posição é calculada internamente)
+     * @param {number} yTela        - Posição Y (idem)
+     */
     constructor(cena, xTela = 160, yTela = 100) {
         this.cena = cena;
         this.xTela = xTela;
@@ -13,6 +27,14 @@ export default class HudMaquininhas {
         this._criarHud();
     }
 
+    /**
+     * Constrói todos os elementos visuais do HUD:
+     * um container fixo na tela (scrollFactor 0), com fundo arredondado,
+     * ícone da maquininha e texto de quantidade.
+     *
+     * O tamanho dos elementos é ajustado inversamente ao zoom da câmera para
+     * que o HUD ocupe sempre o mesmo espaço na tela, independentemente do zoom.
+     */
     _criarHud() {
         const cam = this.cena.cameras.main;
         const zoom = cam.zoom || 1;
@@ -92,15 +114,24 @@ export default class HudMaquininhas {
         this.graphics.strokeRoundedRect(0, 0, largura, altura, raio);
     }
 
+    /**
+     * Sincroniza o HUD com o estoque atual de maquininhas:
+     * - Atualiza o texto de quantidade
+     * - Esmaece o ícone se não houver estoque (feedback visual de "vazio")
+     * - Redesenha o fundo com a cor correspondente ao novo estoque
+     * - Dispara um pulse no ícone para sinalizar visualmente a mudança
+     */
     atualizar() {
         const qnt = Maquininhas.qntMaquininhas;
         this.textoQuantidade.setText(`${qnt}x`);
+
+        // Ícone esmaecido quando sem estoque — reforça visualmente o estado crítico
         this.icone.setAlpha(qnt > 0 ? 1 : 0.45);
 
-        // Redesenha fundo com cor dinâmica
+        // Redesenha fundo com a cor dinâmica correspondente ao novo estoque
         this._desenharFundo(this._largura, this._altura, this._raio);
 
-        // Pulse no ícone
+        // Pulse no ícone: cresce e volta ao tamanho original para chamar atenção
         this.cena.tweens.add({
             targets: this.icone,
             scaleX: this.icone.scaleX * 1.25,
@@ -111,6 +142,10 @@ export default class HudMaquininhas {
         });
     }
 
+    /**
+     * Remove o container e todos seus elementos da cena.
+     * Deve ser chamado ao trocar de cena para evitar vazamento de objetos na memória.
+     */
     destroy() {
         this.container.destroy();
     }

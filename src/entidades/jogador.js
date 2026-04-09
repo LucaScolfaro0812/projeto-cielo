@@ -26,7 +26,7 @@ export default class Jogador extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(46, 198);
         this.body.updateFromGameObject();
 
-        this.velocidade = 1000;
+        this.velocidade = 600;
         this.ultimaDirecao = "baixo";
 
         // Permite movimentação tanto pelo teclado WASD quanto pelas setas direcionais.

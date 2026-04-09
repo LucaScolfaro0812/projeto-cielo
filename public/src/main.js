@@ -2,6 +2,7 @@
 import { CenaMenu } from './cenas/cena-menu.js';
 import { CenaCidade } from './cenas/cena-cidade.js';
 import { CenaTutorial } from './cenas/cena-tutorial.js';
+import { CenaTutorialVideo } from './cenas/cena-tutorial-video.js';
 import { CenaPausa } from './cenas/cena-pause.js';
 import { CenaCentral } from './cenas/cena-central-cielo.js';
 import { CenaConfiguracoes } from './cenas/cena-configuracoes.js';
@@ -50,7 +51,7 @@ var config = {
     },
 
     // Lista de cenas registradas no jogo
-    scene: [CenaMenu, CenaTutorial, CenaCidade, CenaPausa, CenaConfiguracoes, CenaCentral, CenaFinal, CenaMapa]
+    scene: [CenaMenu, CenaTutorialVideo, CenaTutorial, CenaCidade, CenaPausa, CenaConfiguracoes, CenaCentral, CenaFinal, CenaMapa]
 };
 
 // Criação da instância principal do jogo

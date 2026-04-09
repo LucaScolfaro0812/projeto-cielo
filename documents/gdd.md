@@ -163,25 +163,27 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 #### 1.1.6.1. Classificação de Impacto, Probabilidade e Matriz
 
-<div align="center">
+
+
+
 
 <div align="center">
-
+  <sub>Imagem 1 - Classificação de Impacto</sub><br>
   <img src="assets/matriz-de-risco/classificacao-de-impacto.png" width="100%" alt="Descrição breve"><br>
-
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
 <div align="center">
-
+  <sub>Imagem 2 - Classificação de Probabilidade</sub><br>
   <img src="assets/matriz-de-risco/classificacao-de-probabilidade.png" width="100%" alt="Descrição breve"><br>
-
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
 <div align="center">
-
+  <sub>Imagem 3 - Matriz de risco</sub><br>
   <img src="assets/matriz-de-risco/matriz.png" width="100%" alt="Descrição breve"><br>
-
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
 
 
@@ -494,29 +496,33 @@ Aproximadamente 15 minutos.
 
 <p>O nome do personagem principal é Marcielo. Trata-se de um mascote cuja função é atuar como facilitador da experiência do jogador, tendo como objetivo vender produtos da Cielo aos clientes dentro do ambiente do jogo. Para isso, ele se locomove pelo mapa e entra nas lojas a fim de interagir com os consumidores, simulando de maneira lúdica situações de venda e atendimento.</p>
 <p>Sua presença contribui para tornar a dinâmica menos séria e mais envolvente, graças ao seu design amigável e expressivo. Marcielo transmite simpatia e carisma, sendo visualmente cativante e facilmente associado a uma figura confiável e acessível. Ele é representado sorrindo, com a mão levantada em um gesto cordial e piscando um dos olhos, elementos que reforçam sua personalidade acolhedora e descontraída. Dessa forma, o personagem não apenas cumpre uma função narrativa e interativa, como também torna a experiência do jogo mais leve, divertida e agradável para o público.</p>
+
 <div align="center">
- 
+  <sub>Imagem 4 - Spritesheet Marcielo andando</sub><br>
   <img src="other/image.png" width="50%" alt="Descrição breve"><br>
-  
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
+
 
 <div align="center">
- 
+  <sub>Imagem 5 - Spritesheet Marcielo andando</sub><br>
   <img src="other/image-1.png" width="50%" alt="Descrição breve"><br>
-  
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
+
 
 <div align="center">
-
+  <sub>Imagem 6 - Spritesheet Marcielo andando</sub><br>
   <img src="other/image-2.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-</div
 
 <div align="center">
-
+  <sub>Imagem 7 - Spritesheet Marcielo andando</sub><br>
   <img src="other/image-3.png" width="50%" alt="Descrição breve"><br>
-
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
 
 
@@ -528,10 +534,14 @@ Aproximadamente 15 minutos.
 <p>Haverá dois tipos de clientes: os que utilizam camiseta vermelha e os que utilizam camiseta azul. A camiseta vermelha indica que o cliente ainda não foi convencido ou que ainda não teve contato com o vendedor. Após uma venda bem-sucedida, o cliente passará a utilizar camiseta azul, representando que se tornou um cliente Cielo.</p>
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
-<div align="center">
 
+<div align="center">
+  <sub>Imagem 8 - Arte dos NPCs</sub><br>
   <img src="../public/assets/sprites/personagens/NPCs.jpeg" width="50%" alt="Descrição breve"><br>
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
+
+
 
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
@@ -555,10 +565,10 @@ Segundo, reforça de forma implícita o valor da inclusão no relacionamento com
 Segue abaixo o mapa:
 
 <div align="center">
-
+  <sub>Imagem 9 - Mapa do jogo</sub><br>
   <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="50%" alt="Descrição breve"><br>
-
-</div
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
@@ -574,10 +584,12 @@ Não se aplica
 Concept art são desenhos iniciais usados para definir como o jogo vai parecer. Eles ajudam a visualizar personagens, cenários e o estilo visual antes do desenvolvimento final, servindo como base para a equipe artística.
 
 <div align="center">
-
+  <sub>Imagem 10 - Concept Art dos NPCs</sub><br>
   <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-</div
+
 
 
 Figura 1: desenhos dos clientes feito a mão
@@ -608,9 +620,8 @@ O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.s
 | 18  | `menuSom`               | Música de fundo em loop no menu principal         | `assets/sons/menuSom.mp3`               |
 | 19  | `somCidade`             | Som ambiente em loop na cena da cidade            | `assets/sons/somCidade.mp3`             |
 | 20  | `somClicando`           | Tocado ao clicar em botões da interface           | `assets/sons/somClicando.mp3`           |
-| 21  | `menuMorte`             | Tocado quando o personagem principal é atropelado                                                                          | `assets/sons/somMorte.mp3`              |
-| 22  | `somEscrita`            | Tocado quando algum texto no jogo é digitado      | `assets/sons/somEscrita.mp3`             |
-| 23  | `somClicando`           | Tocado ao clicar em botões da interface           | `assets/sons/somClicando.mp3`           |
+| 21  | `menuMorte`             | Tocado quando o personagem principal é atropelado | `assets/sons/somMorte.mp3`              |
+| 22  | `somEscrita`            | Tocado quando algum texto no jogo é digitado      | `assets/sons/somEscrita.mp3`            |
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -658,10 +669,14 @@ Os personagens não jogáveis presentes no mapa são NPCs que representam lojist
 
 Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando as etapas da experiência, desde o início até os objetivos finais. Ele representa como as ações do jogador, desafios, recompensas e transições entre estados se conectam para formar uma experiência contínua e coerente.
 
+
 <div align="center">
-  <sub>Diagrama de Cenas</sub><br>
+  <sub>Imagem 11 - Diagrama de Cenas</sub><br>
   <img src="other/image-4.png" width="100%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 </div>
+
+
 
 
 Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
@@ -750,7 +765,6 @@ O jogo conta com **12 lojas distintas**, cada uma com cena interna própria, NPC
 | Autoescola | `perguntasAutoescola` | Pagamentos recorrentes e mensalidades    |
 | Joalheria  | `perguntasNpcRua`     | Pagamentos de alto valor em joalherias   |
 
-> **Nota:** A loja Salão de Beleza está temporariamente desativada no MVP.
 
 Cada loja usa a mesma classe genérica `CenaLoja`, configurada via parâmetros (nome, posição do NPC, posição da porta, escala do background). O mobiliário interno é definido pelo dicionário `ObjetosInterior`, com posição, escala e hitbox customizada por objeto.
 
@@ -1085,23 +1099,20 @@ Com essas implementações, o jogo já permite ao usuário iniciar a aplicação
 
 ### 4.2.2. Ilustrações da versão básica
 
-Figura 1 – Menu inicial do jogo
+
 
 <div align="center">
-
+  <sub>Imagem 12 - Menu inicial do jogo</sub><br>
   <img src="../public/assets/ui/titulo-jogo.webp" width="50%" alt="Descrição breve"><br>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 </div>
-
-
-
-Figura 3 – Estrutura inicial de interação no ambiente
 
 <div align="center">
-
+  <sub>Imagem 13 - Estrutura inicial de interação no ambientes</sub><br>
   <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="50%" alt="Descrição breve"><br>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 </div>
+
 
 
 ### 4.2.3. Dificuldades encontradas
@@ -1233,33 +1244,48 @@ NPCs começam com sprite vermelho e mudam para azul ao serem conquistados. O mé
 
 ### 4.3.2. Ilustrações da versão intermediária
 
-Figura 1 – Tela Inicial
+<div align="center">
+  <sub>Imagem 14 - Tela inicial</sub><br>
+  <img src="assets/secao_4.3/telaInicial.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-![descrição](assets/secao_4.3/telaInicial.png)
+<div align="center">
+  <sub>Imagem 15 - Mapa jogo</sub><br>
+  <img src="assets/secao_4.3/mapaJogo.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-Figura 2 – Mapa Jogo
+<div align="center">
+  <sub>Imagem 16 - Entrando na loja</sub><br>
+  <img src="assets/secao_4.3/entrandoLoja.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-![descrição](assets/secao_4.3/mapaJogo.png)
+<div align="center">
+  <sub>Imagem 17 - Quiz</sub><br>
+  <img src="assets/secao_4.3/quiz.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-Figura 3 – Entrando na loja
+<div align="center">
+  <sub>Imagem 18 - Convertendo Cliente</sub><br>
+  <img src="assets/secao_4.3/quizCerto.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-![descrição](assets/secao_4.3/entrandoLoja.png)
+<div align="center">
+  <sub>Imagem 19 - Cliente muda de roupa</sub><br>
+  <img src="assets/secao_4.3/roupaMudando.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-Figura 4 – Quiz
+<div align="center">
+  <sub>Imagem 20 - Não convertendo cliente</sub><br>
+  <img src="assets/secao_4.3/quizErrado.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+</div>
 
-![descrição](assets/secao_4.3/quiz.png)
-
-Figura 5 – Convertendo Cliente
-
-![descrição](assets/secao_4.3/quizCerto.png)
-
-Figura 6 – Cliente muda de roupa
-
-![descrição](assets/secao_4.3/roupaMudando.png)
-
-Figura 7 – Não convertendo cliente
-
-![descrição](assets/secao_4.3/quizErrado.png)
 
 ### 4.3.3. Como executar a aplicação
 
@@ -1410,144 +1436,91 @@ Responsáveis por persistência, transições, configuração de ambiente, spawn
 
 ### 4.4.4. Ilustrações da versão final
 
-Figura 1 – Menu inicial do jogo
-
 <div align="center">
-
+  <sub>Imagem 21 - Menu inicial do jogo</sub><br>
   <img src="assets/image-1.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações. 
 
 
-Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
 
-Figura 2 – Tela de tutorial
-
-<div align="center">
-
+  <sub>Imagem 22 - Tela de tutorial</sub><br>
   <img src="../public/assets/imagens/tutorial2.png" width="50%" alt="Descrição breve"><br>
-
-</div>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
 Apresentação das instruções do jogo antes do início da gameplay.
 
-Figura 3 – Mapa da cidade
-
-<div align="center">
-
+  <sub>Imagem 23 - Mapa da cidade</sub><br>
   <img src="assets/image-2.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+
+ Ambiente principal do jogo onde o jogador se movimenta livremente.
 
 
-Ambiente principal do jogo onde o jogador se movimenta livremente.
-
-Figura 4 – Base da Cielo (coleta de maquininhas)
-
-<div align="center">
-
+<sub>Imagem 24 - Base da Cielo (coleta de maquininhas)</sub><br>
   <img src="assets/image-3.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
-
-
-<div align="center">
-
+  <sub>Imagem 25 - Base da Cielo (coleta de maquininhas)</sub><br>
   <img src="assets/image-4.png" width="50%" alt="Descrição breve"><br>
-
-</div>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
 Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
 
-Figura 5 – HUD de progresso dos NPCs
-
-<div align="center">
-
+<sub>Imagem 26 -HUD de progresso dos NPCs</sub><br>
   <img src="assets/image-5.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+  Interface que exibe quais clientes já foram conquistados pelo jogador.
 
 
-Interface que exibe quais clientes já foram conquistados pelo jogador.
-
-Figura 6 – Entrada em uma loja
-
-<div align="center">
-
+<sub>Imagem 27 - Entrada em uma loja</sub><br>
   <img src="assets/image-6.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+  Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
 
-
-Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
-
-Figura 7 – Sistema de quiz
-
-<div align="center">
-
+  <sub>Imagem 28 -Sistema de quiz</sub><br>
   <img src="assets/image-7.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+  Interface de perguntas e respostas utilizada na interação com o cliente.
 
-
-Interface de perguntas e respostas utilizada na interação com o cliente.
-
-Figura 8 – Feedback positivo (cliente conquistado)
-
-<div align="center">
-
+  <sub>Imagem 29 -Feedback positivo (cliente conquistado)</sub><br>
   <img src="assets/image-8.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+  Exemplo de sucesso no quiz, indicando conversão do cliente.
 
-
-Exemplo de sucesso no quiz, indicando conversão do cliente.
-
-Figura 9 – Feedback negativo (cliente não conquistado)
-
-<div align="center">
-
+  <sub>Imagem 30 -Feedback negativo (cliente não conquistado)</sub><br>
   <img src="assets/image-9.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
+  
+  Exemplo de falha na interação, mostrando a penalização.
 
-</div>
-
-
-Exemplo de falha na interação, mostrando a penalização.
-
-Figura 10 – NPC com visual alterado (conquistado)
-
-<div align="center">
-
+  <sub>Imagem 31 -NPC com visual alterado (conquistado)</sub><br>
   <img src="assets/image-10.png" width="50%" alt="Descrição breve"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
-</div>
+  Mudança visual do personagem (cor azul) após ser conquistado.
 
-
-Mudança visual do personagem (cor azul) após ser conquistado.
-
-Figura 11 – Loja com balões animados
-
-<div align="center">
-
+  <sub>Imagem 32 -Loja com balões animados</sub><br>
   <img src="assets/image-11.png" width="50%" alt="Descrição breve"><br>
-
-</div>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
 Indicação visual no mapa de que a loja foi concluída.
 
-Figura 12 – Menu de pausa
-
-<div align="center">
-
+ <sub>Imagem 33 -Menu de pausa</sub><br>
   <img src="assets/image-12.png" width="50%" alt="Descrição breve"><br>
-
-</div>
-
+  <sup>Fonte: Material produzido pelos autores, 2026</sup>
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
+
+   
+<div align="center">
+
 
 
 ### 4.4.5. Como executar a aplicação

@@ -1,6 +1,6 @@
 import Jogador from '../entidades/jogador.js';
 import Entrada from '../entidades/loja-entrar.js';
-import { definirProximoSpawnCidade, consumirTutorialInicial, consumirDialogoInicialCentral } from "../utilitarios/estado-jogo.js";
+import { definirProximoSpawnCidade, consumirTutorialInicial, consumirDialogoInicialCentral, consumirDialogoPosRecargaCentral } from "../utilitarios/estado-jogo.js";
 import { Maquininhas } from '../sistemas/maquininhas.js';
 import HudMaquininhas from '../sistemas/hud-maquininhas.js';
 
@@ -667,6 +667,11 @@ export class CenaCentral extends Phaser.Scene {
 
     _mostrarBalaoFalaRecarga() {
         if (this.dialogoAberto) {
+            return;
+        }
+
+        // A dica pós-recarga deve aparecer apenas uma vez por partida.
+        if (!consumirDialogoPosRecargaCentral()) {
             return;
         }
 

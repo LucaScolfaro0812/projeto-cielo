@@ -5,7 +5,7 @@
  */
 import { transicionarPara } from '../utilitarios/transicao-cena.js';
 import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
-import { ativarTutorialInicial, ativarDialogoInicialCentral } from '../utilitarios/estado-jogo.js';
+import { ativarTutorialInicial, ativarDialogoInicialCentral, ativarDialogoPosRecargaCentral } from '../utilitarios/estado-jogo.js';
 
 export class CenaPausa extends Phaser.Scene {
 
@@ -67,6 +67,7 @@ export class CenaPausa extends Phaser.Scene {
             resetarSessaoJogo();
             ativarTutorialInicial();
             ativarDialogoInicialCentral();
+            ativarDialogoPosRecargaCentral();
 
             // Para a cena pausada e inicia novo jogo pela Central, com tutorial e diálogo iniciais
             this.scene.stop(cenaAnterior);

@@ -296,10 +296,6 @@ export default class CenaLoja extends Phaser.Scene {
 
         const tema = this.temaPorLoja[this.nomeLoja] ?? { cor: 0x0a6ebd, corHex: '#0a6ebd', icone: '🏪' };
 
-        const overlay = this.add.rectangle(centerX, centerY, width, height, 0x021826, 0.8)
-            .setDepth(999)
-            .setScrollFactor(0);
-
         const painelSombra = this.add.rectangle(centerX + 10, centerY + 12, width * 0.92, height * 0.82, 0x00101a, 0.28)
             .setDepth(1000)
             .setScrollFactor(0);

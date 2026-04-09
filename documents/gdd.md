@@ -161,7 +161,7 @@ A proposta tem como objetivo tornar o treinamento do time comercial mais prátic
 
 A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utilizada para identificar, classificar e planejar respostas a eventos que possam impactar negativamente (ameaças) ou positivamente (oportunidades) o desenvolvimento do jogo. Ela permite visualizar, de forma estruturada, os principais riscos do projeto, avaliando sua probabilidade de ocorrência e o impacto potencial sobre os resultados. A análise e o acompanhamento contínuo desses riscos são essenciais para garantir a entrega do MVP no prazo, com qualidade e alinhamento aos objetivos do grupo.
 
-#### Classificação de Impacto, Probabilidade e Matriz
+#### 1.1.6.1. Classificação de Impacto, Probabilidade e Matriz
 
 <div align="center">
 
@@ -187,9 +187,9 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 ---
 
-#### Lista de Riscos — Ameaças
+#### 1.1.6.2. Lista de Riscos — Ameaças
 
-1. **Baixa adoção do jogo pelos gerentes de negócios**
+A. **Baixa adoção do jogo pelos gerentes de negócios**
    Há o risco de os GNs não utilizarem o jogo voluntariamente após a entrega, seja por falta de incentivo institucional da Cielo, por não enxergarem valor prático na ferramenta ou por resistência a métodos digitais de treinamento. Sem adoção real, o impacto no desempenho comercial será nulo.
    **Responsáveis:** Lyria (mentora da Cielo), coordenação de treinamento
 
@@ -199,7 +199,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Validar o jogo com GNs reais durante o desenvolvimento para garantir aderência ao contexto real. Recomendar à Cielo que o jogo seja incorporado formalmente à trilha de onboarding, tornando o uso estrutural e não opcional.
 
-2. **Falta de testes reais com os gerentes de negócios**
+B. **Falta de testes reais com os gerentes de negócios**
    Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
    **Responsáveis:** Thiago (coordenador da equipe de treinamento)
 
@@ -209,7 +209,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
 
-3. **Problemas técnicos**
+C. **Problemas técnicos**
    Esse risco refere-se à possibilidade de falhas técnicas durante o desenvolvimento, testes ou apresentação do projeto, envolvendo software e hardware. Esses problemas podem incluir bugs, falhas de integração entre sistemas ou módulos, incompatibilidade entre ferramentas, instabilidade da aplicação, perda de dados, baixo desempenho e dificuldades no ambiente de execução (como configurações incorretas, dependências ausentes ou diferenças entre ambientes).  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -219,7 +219,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Ter maior cuidado ao modificar o código, realizar testes constantes e manter uma comunicação eficiente entre os membros da equipe.
 
-4. **Desbalanceamento da dificuldade do jogo**
+D. **Desbalanceamento da dificuldade do jogo**
    O jogo pode apresentar níveis de dificuldade desbalanceados, com partes excessivamente fáceis ou difíceis, comprometendo a experiência do usuário.  
     **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -229,7 +229,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
 
-5. **Feedback pouco claro após erros/acertos**
+E. **Feedback pouco claro após erros/acertos**
    Devido ao conhecimento limitado sobre os conceitos da Cielo, pode haver dificuldade na elaboração de perguntas e feedbacks claros e eficazes para os gerentes de negócios.  
    **Responsáveis:** Lyria (analista da Cielo)
 
@@ -239,7 +239,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
 
-6. **Não entregar o MVP completo no prazo estipulado**
+F. **Não entregar o MVP completo no prazo estipulado**
    Um dos principais riscos do projeto é a não entrega do MVP completo dentro do prazo, possivelmente causada por falta de organização da equipe.  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -249,7 +249,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
 
-7. **Desatualização do conteúdo do jogo**
+G. **Desatualização do conteúdo do jogo**
    Os produtos, serviços e processos comerciais da Cielo podem mudar ao longo do tempo. Se as perguntas e cenários do quiz não forem atualizados, o treinamento passará a reforçar informações desatualizadas, comprometendo a eficácia da ferramenta e potencialmente causando erros operacionais nos GNs.
    **Responsáveis:** Equipe de produto da Cielo, coordenação de treinamento
 
@@ -261,9 +261,9 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 ---
 
-#### Lista de Riscos — Oportunidades
+#### 1.1.6.3. Lista de Riscos — Oportunidades
 
-1. **Gamificação aumentar a retenção de conhecimento**
+A. **Gamificação aumentar a retenção de conhecimento**
    A aplicação de elementos de jogos pode tornar o aprendizado mais engajador, facilitando a compreensão e a memorização do conteúdo.  
    **Responsáveis:** Cielo
 
@@ -273,7 +273,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Adicionar elementos como desafios, animações e interações para evitar que o jogo se torne monótono.
 
-2. **Desenvolvimento de soft skills dos membros do grupo**
+B. **Desenvolvimento de soft skills dos membros do grupo**
    Refere-se à oportunidade de desenvolvimento de habilidades comportamentais essenciais, como comunicação, colaboração, organização, gestão de tempo, proatividade e resolução de conflitos.  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -283,7 +283,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Incentivar a comunicação e a colaboração entre os integrantes para fortalecer essas habilidades.
 
-3. **Adicionar todos os itens desejáveis planejados**
+C. **Adicionar todos os itens desejáveis planejados**
    Consiste na implementação de funcionalidades extras previstas, ampliando a experiência do usuário e agregando valor ao projeto, sem comprometer as entregas principais.  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -293,7 +293,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
    **Plano de Resposta ao Risco:** Definir prioridades e manter uma organização eficiente para garantir a entrega completa.
 
-4. **Demonstrar habilidades para uma grande empresa**
+D. **Demonstrar habilidades para uma grande empresa**
    Ao desenvolver o projeto, a equipe terá a oportunidade de demonstrar competências relevantes para o mercado.  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
@@ -305,7 +305,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 ---
 
-#### Conclusão e Síntese
+#### 1.1.6.4. Conclusão e Síntese
 
 A matriz de riscos foi utilizada de forma ativa ao longo do projeto, permitindo à equipe antecipar ameaças, planejar respostas e aproveitar oportunidades. O acompanhamento contínuo dos riscos contribuiu para a organização do grupo, a entrega do MVP no prazo e a elevação da qualidade do produto final. A análise sistemática dos riscos, aliada à comunicação eficiente e à definição clara de responsabilidades, foi fundamental para o sucesso do desenvolvimento e para a superação dos principais desafios enfrentados.
 
@@ -542,7 +542,9 @@ Aproximadamente 15 minutos.
 
 <p><strong>Representatividade dentro da sociedade brasileira:</strong> O Brasil é um país marcado por intensa diversidade étnica, geracional e de gênero. De acordo com o Censo 2022 do IBGE, mais da metade da população se autodeclara preta ou parda, e o empreendedorismo de micro e pequenos negócios é amplamente distribuído entre diferentes perfis sociodemográficos. Para refletir essa realidade, os personagens coadjuvantes foram desenhados com variações de tom de pele, gênero, faixa etária e características físicas distintas, evitando a homogeneização do público consumidor que o vendedor deverá atender.</p>
 
-<p><strong>Impacto esperado:</strong> A diversidade intencional nos personagens produz dois efeitos principais. Primeiro, amplia a identificação do jogador com o universo do jogo: vendedores de diferentes origens reconhecem nos clientes representações próximas à realidade que vivenciam. Segundo, reforça de forma implícita o valor da inclusão no relacionamento comercial, comunicando que os produtos da Cielo são relevantes para todos os perfis de estabelecimento, independentemente de quem seja o proprietário. Ao normalizar essa diversidade dentro da mecânica de treinamento, o jogo contribui para desenvolver uma postura comercial mais empática e culturalmente sensível nos colaboradores da Cielo.</p>
+<p><strong>Impacto esperado:</strong> A diversidade intencional nos personagens produz dois efeitos principais. Primeiro, amplia a identificação do jogador com o universo do jogo: vendedores de diferentes origens reconhecem nos clientes representações próximas à realidade que vivenciam. 
+
+Segundo, reforça de forma implícita o valor da inclusão no relacionamento comercial, comunicando que os produtos da Cielo são relevantes para todos os perfis de estabelecimento, independentemente de quem seja o proprietário. Ao normalizar essa diversidade dentro da mecânica de treinamento, o jogo contribui para desenvolver uma postura comercial mais empática e culturalmente sensível nos colaboradores da Cielo.</p>
 
 ## 3.3. Mundo do jogo (sprints 2 e 3)
 
@@ -614,7 +616,7 @@ O jogo utiliza efeitos sonoros e sons ambiente implementados via Phaser (`this.s
 O jogo não possui um inventário tradicional com coleta, armazenamento ou uso de itens. Em vez disso, a experiência é estruturada a partir de recursos sistêmicos que acompanham o desempenho do jogador durante as interações de venda.
 Esses recursos funcionam como indicadores de progresso e apoio à tomada de decisão, reforçando a proposta de treinamento corporativo do jogo.
 
-**Itens e Recursos Implementados**
+**3.4.1.1. Itens e Recursos Implementados**
 
 | Nº  | Item / Recurso                | Como obter / ativar                                         | Função no jogo                           | Impacto no desempenho                    |
 | --- | ----------------------------- | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -622,7 +624,7 @@ Esses recursos funcionam como indicadores de progresso e apoio à tomada de deci
 | 2   | Nível de Conversão do Cliente | Alterado conforme as respostas escolhidas                   | Mede o avanço da negociação              | Influencia o resultado da interação      |
 | 3   | Feedback de Desempenho        | Exibido ao término do atendimento                           | Apresenta avaliação das decisões tomadas | Permite aprendizado e melhoria contínua  |
 
-**Descrição dos Itens e Recursos**
+**3.4.1.2. Descrição dos Itens e Recursos**
 
 **A. Tempo de Atendimento**
 
@@ -670,17 +672,29 @@ No jogo, o usuário assume o papel de um vendedor da Cielo e tem como objetivo v
 **Regras objetivas do jogo:**
 
 1. O jogador percorre o mapa a pé usando as teclas WASD e pode ser morto ao colidir com qualquer carro nas 3 ruas do mapa (13 carros no total) — ao morrer, a cena reinicia.
+
 2. Para entrar em uma loja, o jogador deve se aproximar da porta e aguardar a sobreposição de área.
+
 3. Dentro da loja, ao se aproximar a menos de **300 px** do NPC, um ícone de interação (tecla E) aparece sobre ele — **desde que o jogador possua pelo menos 1 maquininha disponível**.
+
 4. O jogador pressiona **E** para iniciar o quiz de negociação com o NPC.
+
 5. Cada quiz contém **3 perguntas** sorteadas aleatoriamente do banco de perguntas daquela loja.
+
 6. Cada pergunta tem **60 segundos** de tempo limite. Ao esgotar o tempo, a pergunta é encerrada com **0 pontos** e o quiz avança automaticamente para a próxima pergunta — o jogador não perde o cliente imediatamente.
+
 7. A pontuação total máxima por quiz é **9 pontos**. Cada resposta vale **3 pts** (correta) ou **0 pts** (incorreta). O cliente é conquistado se o jogador obtiver **6 ou mais pontos** ao final das 3 perguntas.
+
 8. Cada cliente oferece ao jogador **apenas uma tentativa** de negociação. O resultado é definitivo: vitória ou derrota, não é possível repetir o quiz com o mesmo NPC.
+
 9. O progresso é salvo automaticamente via **localStorage**: NPCs conquistados, NPCs tentados (não conquistados), quantidade de maquininhas, posição de spawn e estado das lojas persistem entre sessões.
+
 10. O menu de pausa (ESC) oferece 3 opções: **Continuar** (retoma o jogo), **Novo Jogo** (apaga todo o progresso salvo, inclusive maquininhas) e **Menu** (volta ao menu principal).
+
 11. A tecla **T** abre o tutorial a qualquer momento durante o jogo (cidade ou loja), sem perder o progresso da cena atual.
+
 12. O mapa possui um prédio da **Central da Cielo** que o jogador pode visitar. Dentro da Central, ao se aproximar a menos de **300 px** do NPC e pressionar **E**, o jogador recarrega suas maquininhas até o máximo de **2 unidades** — o botão de interação só aparece quando o jogador está abaixo do limite máximo.
+
 13. O jogador começa com **0 maquininhas**. Para realizar negociações, deve primeiro visitar a Central da Cielo e recarregar o estoque. Ao conquistar um NPC com sucesso, **1 maquininha é consumida**; ao falhar, nenhuma maquininha é descontada.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
@@ -960,13 +974,13 @@ Nesta seção, são apresentados os avanços iniciais no desenvolvimento do jogo
 
 ### Primeira Versão do Jogo (MVP)
 
-#### A. Visão Geral
+### 4.1.1. Visão Geral
 
 Esta é a primeira versão do jogo, desenvolvida como um protótipo inicial.
 Ela não representa o produto final, mas sim uma base estrutural que permite visualizar como o jogo funcionará futuramente.
 O objetivo desta versão é construir o ambiente inicial e preparar a estrutura para a implementação das mecânicas principais.
 
-#### B. Ambiente do Jogo
+### 4.1.2. Ambiente do Jogo
 
 Ao iniciar o jogo, o jogador visualiza:
 Um cenário urbano em estilo pixel art
@@ -976,7 +990,7 @@ Estabelecimentos que representam possíveis empresas ou clientes
 Um personagem controlável
 Esse ambiente representa a cidade onde, no futuro, ocorrerão as negociações comerciais.
 
-#### C. Funcionalidades Atuais
+### 4.1.3. Funcionalidades Atuais
 
 Na versão atual, o jogador pode:
 Controlar o personagem
@@ -985,7 +999,7 @@ Explorar o cenário
 Neste momento, o jogo funciona como um espaço explorável.
 Ainda não existem interações comerciais ativas.
 
-#### D. Funcionalidades Planejadas (Ainda Não Implementadas)
+### 4.1.4. Funcionalidades Planejadas (Ainda Não Implementadas)
 
 A proposta completa do jogo é ser um simulador de negociação comercial.
 Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
@@ -994,30 +1008,30 @@ Durante uma negociação, o jogador escolheria respostas em formato de cards.
 Cada card representaria um argumento estratégico diferente.
 Esse sistema ainda não foi implementado.
 
-#### E. Tempo de Resposta
+### 4.1.5. Tempo de Resposta
 
 O jogador teria tempo limitado para responder às falas do cliente (exemplo: 15 segundos), simulando pressão real de negociação.
 Essa funcionalidade ainda não está disponível.
 
-#### F. Indicador de Conversão
+### 4.1.6. Indicador de Conversão
 
 O cliente teria uma barra visual indicando seu nível de conversão.
 Essa barra aumentaria ou diminuiria conforme as decisões do jogador.
 Esse sistema ainda não existe na versão atual.
 
-#### G. Fechamento de Negócios
+### 4.1.7. Fechamento de Negócios
 
 O objetivo de cada interação futura será fechar um negócio com sucesso.
 Atualmente, não há sistema de negociação ativa nem fechamento de contratos.
 
-#### H. Sistema de Pontuação
+### 4.1.8. Sistema de Pontuação
 
 O conceito prevê:
 Pontos acumulados a cada negociação bem-sucedida
 Recompensa por decisões estratégicas corretas
 Esse sistema ainda não está implementado.
 
-#### I. Sistema de Níveis
+### 4.1.9. Sistema de Níveis
 
 O jogador deverá:
 Subir de nível conforme acumula pontos
@@ -1025,13 +1039,13 @@ Enfrentar clientes mais exigentes em níveis mais altos
 Experimentar aumento progressivo de dificuldade
 A progressão de níveis ainda não está presente.
 
-#### J. Nível Máximo (Certificação)
+### 4.1.10. Nível Máximo (Certificação)
 
 O objetivo final do jogo completo é alcançar o nível máximo.
 Esse nível representará que o usuário está devidamente qualificado para exercer sua função dentro da empresa.
 Essa certificação gamificada ainda não foi implementada.
 
-#### K. Objetivo do MVP
+### 4.1.11. Objetivo do MVP
 
 Esta primeira versão foi criada para:
 Construir a base visual do projeto
@@ -1045,7 +1059,7 @@ O foco desta versão é estrutural, não funcional.
 Durante a Sprint 2, foi desenvolvida a primeira versão funcional do jogo, permitindo validar as principais mecânicas previstas no escopo do projeto. Esta etapa teve como objetivo estruturar a base do sistema e possibilitar a interação inicial do jogador com o ambiente virtual.
 O foco principal foi implementar os elementos essenciais necessários para o funcionamento do jogo, garantindo navegação no cenário, controle do personagem e organização inicial da arquitetura do código.
 
-### Funcionalidades implementadas
+### 4.2.1. Funcionalidades implementadas
 
 Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
@@ -1066,7 +1080,7 @@ Nesta sprint foram desenvolvidos e integrados os seguintes componentes:
 
 Com essas implementações, o jogo já permite ao usuário iniciar a aplicação, visualizar o ambiente gráfico e movimentar o personagem em tempo real dentro do cenário proposto.
 
-### Ilustrações da versão básica
+### 4.2.2. Ilustrações da versão básica
 
 Figura 1 – Menu inicial do jogo
 
@@ -1095,7 +1109,7 @@ Figura 3 – Estrutura inicial de interação no ambiente
 </div>
 
 
-### Dificuldades encontradas
+### 4.2.3. Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identificados:
 
@@ -1111,7 +1125,7 @@ Durante o desenvolvimento da Sprint 2, alguns desafios técnicos foram identific
 
 Essas dificuldades foram superadas por meio de testes incrementais, ajustes na arquitetura do código e refatorações sucessivas, contribuindo para maior estabilidade da aplicação.
 
-### Próximos passos
+### 4.2.4. Próximos passos
 
 Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
@@ -1135,7 +1149,7 @@ Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evol
 
 Durante a Sprint 3, foi desenvolvida a segunda versão funcional do jogo. O foco foi implementar o núcleo da experiência: 12 lojas com interiores únicos, sistema de quiz completo com timer e barra de conversão, progressão persistente via localStorage, spawn dinâmico de retorno e os carros como mecânica de risco na cidade.
 
-### Funcionalidades implementadas
+### 4.3.1. Funcionalidades implementadas
 
 **Arquitetura data-driven das lojas**
 
@@ -1222,7 +1236,7 @@ balao.y = a.yInicial + 0.5 * a.ay * a.t * a.t;            // y(t) = yi + ½·ay�
 
 NPCs começam com sprite vermelho e mudam para azul ao serem conquistados. O método `aplicarVisualConquistado()` é chamado no `create()` da loja, garantindo que lojas já conquistadas exibem o NPC azul desde o carregamento da cena.
 
-### Ilustrações da versão intermediária
+### 4.3.2. Ilustrações da versão intermediária
 
 Figura 1 – Tela Inicial
 
@@ -1252,11 +1266,11 @@ Figura 7 – Não convertendo cliente
 
 ![descrição](assets/secao_4.3/quizErrado.png)
 
-### Como executar a aplicação
+### 4.3.3. Como executar a aplicação
 
 Para executar o jogo, é necessário abrir o projeto em um ambiente de desenvolvimento compatível com JavaScript e iniciar o servidor local. O jogo pode ser acessado pelo navegador, onde o jogador é direcionado ao menu inicial. Durante a jogabilidade, o personagem é movimentado com as teclas W, A, S e D ou com as setas direcionais, e a interação com NPCs é feita a partir do momento que o usuário se aproxima de um deles.
 
-### Dificuldades encontradas
+### 4.3.4. Dificuldades encontradas
 
 Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
 
@@ -1270,7 +1284,7 @@ Durante o desenvolvimento da Sprint 3, alguns desafios foram identificados:
 
 . Implementação do interior das lojas e das portas para entrar nelas.
 
-### Critérios de pronto
+### 4.3.5. Critérios de pronto
 
 Uma funcionalidade foi considerada concluída quando atendeu aos seguintes critérios:
 . Funcionamento correto durante a execução do jogo;
@@ -1283,7 +1297,7 @@ Uma funcionalidade foi considerada concluída quando atendeu aos seguintes crit�
 
 . Validação por meio de testes realizados pelos membros da equipe responsável pela tarefa e pela review da mesma.
 
-### Limitações atuais
+### 4.3.6. Limitações atuais
 
 Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encontram em desenvolvimento:
 
@@ -1295,7 +1309,7 @@ Apesar dos avanços obtidos nesta sprint, algumas funcionalidades ainda se encon
 
 . Sem suporte a dispositivos móveis — controles exclusivamente por teclado e mouse.
 
-### Próximos passos
+### 4.3.7. Próximos passos
 
 Para as próximas etapas do desenvolvimento, estão planejadas as seguintes evoluções:
 
@@ -1620,7 +1634,7 @@ Para a continuidade do desenvolvimento, os próximos passos foram definidos com 
 
 Durante a Sprint 5, o foco do desenvolvimento esteve no refinamento e na correção de inconsistências identificadas no MVP entregue na sprint anterior. As melhorias abrangeram navegação pelo mapa, carros, minimapa, feedback visual de conquista e correções de comportamento inesperado no tutorial e nas portas das lojas.
 
-### Funcionalidades implementadas
+### 4.5.1. Funcionalidades implementadas
 
 Nesta sprint foram entregues os seguintes refinamentos e novas funcionalidades:
 
@@ -1665,7 +1679,7 @@ Ao conquistar um NPC com sucesso, além da mudança de cor do sprite do NPC (de 
 - **Confetes coloridos animados**: 80 retângulos com cores aleatórias (vermelho, verde, azul, amarelo, magenta, ciano e laranja) são lançados a partir do NPC com rotação e fade-out em 800–1500 ms;
 - O efeito é destruído automaticamente ao término da animação, sem deixar objetos residuais na cena.
 
-### Dificuldades encontradas
+### 4.5.2. Dificuldades encontradas
 
 Durante a Sprint 5, os principais desafios técnicos foram:
 
@@ -1679,7 +1693,7 @@ Durante a Sprint 5, os principais desafios técnicos foram:
 
 . **Controle do painel de NPCs sem fechamento duplo**: o evento de clique que abre o painel também dispara o listener global que o fecha, o que causava o painel abrindo e fechando instantaneamente. A solução com flag `_painelAbertoNesteClique` precisou ser validada em diferentes sequências de cliques para garantir comportamento consistente.
 
-### Critérios de pronto
+### 4.5.3. Critérios de pronto
 
 Uma funcionalidade foi considerada concluída quando atendeu a todos os seguintes critérios:
 
@@ -1693,7 +1707,7 @@ Uma funcionalidade foi considerada concluída quando atendeu a todos os seguinte
 
 . Comportamento visual condizente com a intenção de design (colisores não visíveis ao jogador, minimapa legível, confetes aparecendo apenas na conquista).
 
-### Limitações atuais
+### 4.5.4. Limitações atuais
 
 Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 
@@ -1706,7 +1720,7 @@ Apesar dos refinamentos entregues nesta sprint, algumas limitações permanecem:
 
 . Não há suporte a dispositivos móveis; os controles permanecem exclusivamente por teclado e mouse.
 
-### Próximos passos
+### 4.5.5. Próximos passos
 
 Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 

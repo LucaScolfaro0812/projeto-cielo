@@ -135,9 +135,9 @@ A proposta de valor é um elemento central no desenvolvimento de um produto, poi
 Quando bem estruturada, a proposta de valor permite compreender com mais precisão o público-alvo, considerando não apenas o que ele precisa aprender, mas também as barreiras que enfrenta no processo, como limitações de acesso, métodos pouco atrativos ou falta de engajamento. Isso garante que a solução não seja apenas funcional, mas também aplicável no dia a dia, proporcionando uma experiência de aprendizado eficiente e significativa.
 
 <div align="center">
-  <sub>Proposta de Valor</sub><br>
+
   <img src="../documents/other/PropostaDeValor.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 
@@ -166,21 +166,21 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 <div align="center">
 
 <div align="center">
-  <sub>Classificação de Impacto</sub><br>
+
   <img src="assets/matriz-de-risco/classificacao-de-impacto.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 <div align="center">
-  <sub>Classificação de Probabilidade</sub><br>
+
   <img src="assets/matriz-de-risco/classificacao-de-probabilidade.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 <div align="center">
-  <sub>Matriz de Risco</sub><br>
+
   <img src="assets/matriz-de-risco/matriz.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 
@@ -513,9 +513,9 @@ Aproximadamente 15 minutos.
 </div
 
 <div align="center">
-  <sub>Imagem 1 - Título</sub><br>
+
   <img src="other/image-3.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 
@@ -529,7 +529,7 @@ Aproximadamente 15 minutos.
 <P>Além disso, esses personagens também funcionam como um recurso para demonstrar diversidade no jogo. Por esse motivo, foram criados diferentes perfis de clientes para cada loja, com variações de aparência e características, de modo que o ambiente se torne mais representativo, dinâmico e diversificado ao longo da experiência do jogador.</p>
 
 <div align="center">
-  <sub>NPCs</sub><br>
+
   <img src="../public/assets/sprites/personagens/NPCs.jpeg" width="100%" alt="Descrição breve"><br>
 </div
 
@@ -553,9 +553,9 @@ Aproximadamente 15 minutos.
 Segue abaixo o mapa:
 
 <div align="center">
-  <sub>Imagem 1 - Título</sub><br>
+
   <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 
@@ -572,9 +572,9 @@ Não se aplica
 Concept art são desenhos iniciais usados para definir como o jogo vai parecer. Eles ajudam a visualizar personagens, cenários e o estilo visual antes do desenvolvimento final, servindo como base para a equipe artística.
 
 <div align="center">
-  <sub>Concept Art</sub><br>
+
   <img src="../public/assets/sprites/personagens/RascunhosNPC.jpeg" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div
 
 
@@ -1069,27 +1069,27 @@ Com essas implementações, o jogo já permite ao usuário iniciar a aplicação
 Figura 1 – Menu inicial do jogo
 
 <div align="center">
-  <sub>Imagem 1 - Título</sub><br>
+
   <img src="../public/assets/ui/titulo-jogo.webp" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div>
 
 
 Figura 2 – Ambiente da padaria
 
 <div align="center">
-  <sub>Imagem 1 - Título</sub><br>
+
   <img src="../public/assets/imagens/lojas/interior/lojaCafeInterior.png" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div>
 
 
 Figura 3 – Estrutura inicial de interação no ambiente
 
 <div align="center">
-  <sub>Imagem 1 - Título</sub><br>
+
   <img src="../public/assets/imagens/ambiente/novoMapa.jpeg" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Autores</sup>
+
 </div>
 
 
@@ -1401,84 +1401,151 @@ Responsáveis por persistência, transições, configuração de ambiente, spawn
 
 Figura 1 – Menu inicial do jogo
 
-![alt text](assets/image-1.png)
+<div align="center">
+
+  <img src="assets/image-1.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Tela inicial com opções de navegação, incluindo botão “Jogar” e configurações.
 
 Figura 2 – Tela de tutorial
 
-![alt text](../public/assets/imagens/tutorial2.png)
+<div align="center">
+
+  <img src="../public/assets/imagens/tutorial2.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Apresentação das instruções do jogo antes do início da gameplay.
 
 Figura 3 – Mapa da cidade
 
-![alt text](assets/image-2.png)
+<div align="center">
+
+  <img src="assets/image-2.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Ambiente principal do jogo onde o jogador se movimenta livremente.
 
 Figura 4 – Base da Cielo (coleta de maquininhas)
 
-![alt text](assets/image-3.png)
+<div align="center">
 
-![alt text](assets/image-4.png)
+  <img src="assets/image-3.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
+
+<div align="center">
+
+  <img src="assets/image-4.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Local no mapa onde o jogador coleta maquininhas para continuar realizando interações com clientes.
 
 Figura 5 – HUD de progresso dos NPCs
 
-![alt text](assets/image-5.png)
+<div align="center">
+
+  <img src="assets/image-5.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Interface que exibe quais clientes já foram conquistados pelo jogador.
 
 Figura 6 – Entrada em uma loja
 
-![alt text](assets/image-6.png)
+<div align="center">
+
+  <img src="assets/image-6.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Momento em que o jogador acessa o interior de uma loja, apresentando detalhes do NPC (pop-up) antes da interação.
 
 Figura 7 – Sistema de quiz
 
-![alt text](assets/image-7.png)
+<div align="center">
+
+  <img src="assets/image-7.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Interface de perguntas e respostas utilizada na interação com o cliente.
 
 Figura 8 – Feedback positivo (cliente conquistado)
 
-![alt text](assets/image-8.png)
+<div align="center">
+
+  <img src="assets/image-8.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Exemplo de sucesso no quiz, indicando conversão do cliente.
 
 Figura 9 – Feedback negativo (cliente não conquistado)
 
-![alt text](assets/image-9.png)
+<div align="center">
+
+  <img src="assets/image-9.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Exemplo de falha na interação, mostrando a penalização.
 
 Figura 10 – NPC com visual alterado (conquistado)
 
-![alt text](assets/image-10.png)
+<div align="center">
+
+  <img src="assets/image-10.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Mudança visual do personagem (cor azul) após ser conquistado.
 
 Figura 11 – Loja com balões animados
 
-![alt text](assets/image-11.png)
+<div align="center">
+
+  <img src="assets/image-11.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Indicação visual no mapa de que a loja foi concluída.
 
 Figura 12 – Menu de pausa
 
-![alt text](assets/image-12.png)
+<div align="center">
+
+  <img src="assets/image-12.png" width="100%" alt="Descrição breve"><br>
+
+</div>
+
 
 Tela acessada ao pressionar ESC, com opções de controle da partida.
 
-> **Observação:** As figuras referenciadas acima correspondem aos registros visuais da versão final do MVP. Na versão textual do documento, algumas imagens podem não ser renderizadas dependendo do ambiente de leitura do Markdown.
 
 ### 4.4.5. Como executar a aplicação
 
 A aplicação foi disponibilizada online por meio do GitLab Pages, permitindo sua execução diretamente em navegadores modernos, sem a necessidade de instalação de ferramentas adicionais ou configuração de ambiente local.
+
 O jogo pode ser acessado por meio do link do projeto, sendo carregado automaticamente no navegador e direcionando o usuário ao menu inicial. A partir dessa tela, o jogador pode iniciar a experiência ao clicar no botão “Jogar”, sendo então conduzido ao tutorial e, posteriormente, ao ambiente principal do jogo.
+
+
 Durante a jogabilidade, o personagem é movimentado utilizando as teclas W, A, S e D. A interação com os NPCs ocorre quando o jogador se aproxima deles, iniciando o sistema de quizzes e as mecânicas de progressão.
 Além disso, o jogador pode navegar livremente pelo mapa, acessar lojas, acompanhar seu progresso por meio da interface e utilizar os recursos disponíveis no jogo, como o sistema de pausa e o acesso ao tutorial durante a partida.
 
@@ -1557,6 +1624,7 @@ Nesta sprint foram entregues os seguintes refinamentos e novas funcionalidades:
 
 . **Colisores invisíveis de ambiente**
 O mapa da cidade passou a contar com colisores invisíveis posicionados sobre todos os elementos não navegáveis do cenário: árvores, arbustos, casas e bordas do mapa. Antes dessa implementação, o jogador conseguia caminhar por dentro de construções e sobre vegetação, quebrando a imersão visual.
+
 Os colisores são definidos em `configuracao-colisores-ambiente.js` como uma lista de retângulos com posição e dimensões específicas para cada obstáculo. Durante a criação da cena da cidade, cada retângulo é instanciado como objeto estático de física (`staticGroup`) e registrado como colisor do jogador. O modo de depuração (`debug: true` no `main.js`) permite visualizar os retângulos em tempo real para facilitar ajustes de posicionamento.
 
 . **Câmera com limites no mapa**
@@ -1652,7 +1720,9 @@ Para versões futuras do jogo, as melhorias prioritárias identificadas são:
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
 Esta seção apresenta os casos de teste funcionais utilizados para validar os principais fluxos do jogo, desde a navegação no menu até as interações com clientes e o comportamento das mecânicas de negociação. Cada linha descreve uma pré-condição (estado inicial), a ação executada pelo usuário e a pós-condição esperada, permitindo verificar de forma objetiva se o sistema está se comportando conforme os requisitos definidos.
-Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação. A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação. Cada resposta vale **3 pts** (correta, +30 na barra) ou **0 pts** (incorreta, −50 na barra). A barra começa em 50 pontos e é limitada entre 0 e 100.
+Nos testes do quiz, o principal indicador de desempenho é a barra de conversão, que varia de acordo com as respostas escolhidas pelo jogador durante a interação.
+
+ A barra utiliza três faixas visuais: verde (alta conversão), laranja (média) e vermelha (baixa), representando o nível de sucesso na negociação. Cada resposta vale **3 pts** (correta, +30 na barra) ou **0 pts** (incorreta, −50 na barra). A barra começa em 50 pontos e é limitada entre 0 e 100.
 Ao final do quiz, o resultado da interação define se o cliente foi conquistado ou não. Em caso de sucesso (pontuação total ≥ 6), o jogador consome 1 maquininha; em caso de derrota, nenhuma maquininha é consumida.
 
 Tabela 1 - Casos de teste funcionais do jogo.
@@ -1703,12 +1773,14 @@ Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
    
-   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidade e oportunidades de melhoria. 
+   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidade e oportunidades de melhoria.
+
+
    Esse tipo de teste tem como objetivo validar se as mecânicas do jogo são compreensíveis, se a interface é intuitiva e se a experiência geral é adequada para diferentes perfis de jogadores. A metodologia adotada consiste na observação da interação dos usuários com o jogo, registrando comportamentos, dificuldades e percepções. Esses dados são posteriormente analisados para orientar ajustes e melhorias no desenvolvimento. 
 
 ### 5.2.1 Registros de testes
 
-_Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir._
+Os playtests são sessões de teste nas quais jogadores interagem diretamente com o jogo com o objetivo de avaliar sua jogabilidade, usabilidade e experiência geral. Diferente de testes técnicos, os playtests focam na percepção do jogador, permitindo identificar dificuldades, confusões e pontos de melhoria na interação com o jogo.
 
 | Nome                                     | Julia                                          |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1812,28 +1884,48 @@ Essas melhorias visam aumentar a profundidade do jogo, promover maior engajament
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
 A solução desenvolvida, baseada em um serious game de simulação de vendas, demonstrou forte aderência aos objetivos propostos inicialmente. O jogo conseguiu transformar o processo de treinamento comercial da Cielo em uma experiência prática, interativa e engajadora, permitindo que os usuários apliquem conhecimentos em um ambiente simulado e seguro.
+
+
 A mecânica de controle do personagem Marcielo em um mapa 2D, aliada às interações com diferentes estabelecimentos, se mostrou eficaz na reprodução de situações reais enfrentadas pela equipe comercial. Os quizzes e tomadas de decisão inseridos no jogo contribuem diretamente para o desenvolvimento de habilidades essenciais, como identificação de perfil de cliente, argumentação e contorno de objeções.
+
+
 Além disso, elementos estruturais do jogo tiveram papel fundamental na experiência do usuário:
-HUDs (Heads-Up Displays): foram implementados para facilitar a visualização de informações relevantes em tempo real, como desempenho, progresso e status do jogador, apoiando a tomada de decisão durante as interações.
-Flow do jogo: o encadeamento das ações e desafios foi estruturado de forma a manter o jogador engajado continuamente, favorecendo a imersão e o equilíbrio entre desafio e compreensão.
-Feedbacks visuais: retornos visuais imediatos auxiliam o jogador a acompanhar seu desempenho ao longo da experiência.
+
+
+**HUDs (Heads-Up Displays):** foram implementados para facilitar a visualização de informações relevantes em tempo real, como desempenho, progresso e status do jogador, apoiando a tomada de decisão durante as interações.
+
+
+**Flow do jogo:** o encadeamento das ações e desafios foi estruturado de forma a manter o jogador engajado continuamente, favorecendo a imersão e o equilíbrio entre desafio e compreensão.
+
+
+**Feedbacks visuais:** retornos visuais imediatos auxiliam o jogador a acompanhar seu desempenho ao longo da experiência.
+
+
 Dessa forma, a solução não apenas cumpre seu papel educacional, mas também se destaca como uma ferramenta de engajamento, aumentando a efetividade do treinamento e a retenção de conhecimento.
-Pontos fortes
-Forte alinhamento com o objetivo de treinamento prático da equipe comercial
-Simulação realista de situações de vendas
-Alto potencial de engajamento por meio da gamificação
-Uso eficiente de HUDs para facilitar a leitura de informações
-Flow contínuo que favorece a imersão do jogador
-Ambiente seguro para experimentação e erro
 
-Pontos a melhorar
-Implementação de ranking e sistema de pontuação mais estruturado para aumentar a competitividade e o engajamento
-Desenvolvimento de feedbacks mais personalizados e específicos para cada pergunta, tornando o aprendizado mais direcionado
-Inclusão de obstáculos e inimigos para enriquecer a dinâmica do jogo e aumentar o nível de desafio
-Maior profundidade nas interações de venda, com cenários mais complexos
-Evolução da progressão e variedade de experiências ao longo do jogo
 
-Trabalhos futuros e plano de melhorias
+### Pontos fortes
+
+
+-Forte alinhamento com o objetivo de treinamento prático da equipe comercial
+-Simulação realista de situações de vendas
+-Alto potencial de engajamento por meio da gamificação
+-Uso eficiente de HUDs para facilitar a leitura de informações
+-Flow contínuo que favorece a imersão do jogador
+-Ambiente seguro para experimentação e erro
+
+### Pontos a melhorar
+
+
+-Implementação de ranking e sistema de pontuação mais estruturado para aumentar a competitividade e o engajamento
+-Desenvolvimento de feedbacks mais personalizados e específicos para cada pergunta, tornando o aprendizado mais direcionado
+-Inclusão de obstáculos e inimigos para enriquecer a dinâmica do jogo e aumentar o nível de desafio
+-Maior profundidade nas interações de venda, com cenários mais complexos
+-Evolução da progressão e variedade de experiências ao longo do jogo
+
+### Trabalhos futuros e plano de melhorias
+
+
 Com base nos testes realizados, foram identificadas oportunidades relevantes de evolução do jogo, descritas a seguir com seus respectivos planos de ação:
 
 1. Sistema de ranking e pontuação
@@ -1871,8 +1963,10 @@ Com base nos testes realizados, foram identificadas oportunidades relevantes de 
    Incluir diferentes perfis de clientes e objeções
    Simular situações mais complexas e realistas do dia a dia comercial
 
-Conclusão final
+
 A solução desenvolvida se mostrou eficaz ao transformar o treinamento comercial em uma experiência prática, imersiva e orientada à aprendizagem. A combinação de simulação realista, estrutura gamificada, uso estratégico de HUDs e um flow bem definido contribuiu diretamente para o atingimento dos objetivos do projeto.
+
+
 Os pontos de melhoria identificados indicam um alto potencial de evolução, especialmente no aumento do engajamento, personalização do aprendizado e complexidade do jogo. Com a implementação das melhorias propostas, a solução tende a se consolidar como uma ferramenta ainda mais robusta e eficiente para capacitação da equipe comercial da Cielo.
 
 # <a name="c7"></a>7. Referências

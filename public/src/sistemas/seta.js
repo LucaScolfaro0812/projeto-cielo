@@ -19,7 +19,13 @@ export default class Seta extends Phaser.GameObjects.Sprite {
     definirAlvo(alvo) {
         if (alvo && typeof alvo.x === 'number' && typeof alvo.y === 'number') {
             this.alvo = { x: alvo.x, y: alvo.y };
+            return;
         }
+
+        // Limpa o alvo quando não houver objetivo válido (ex.: todas as lojas concluídas).
+        this.alvo = null;
+        this.setVisible(false);
+        this.alerta.setVisible(false);
     }
 
     setHudVisible(visivel) {

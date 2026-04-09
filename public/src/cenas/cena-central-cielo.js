@@ -397,10 +397,6 @@ export class CenaCentral extends Phaser.Scene {
 
         const { width, height, centerX, centerY } = this.cameras.main;
 
-        const overlay = this.add.rectangle(centerX, centerY, width, height, 0x022b45, 0.82)
-            .setScrollFactor(0)
-            .setDepth(1000);
-
         const painel = this.add.rectangle(centerX, centerY, width * 0.84, height * 0.68, 0x005b96, 0.97)
             .setScrollFactor(0)
             .setDepth(1001)
@@ -480,7 +476,6 @@ export class CenaCentral extends Phaser.Scene {
             });
 
             this.estadoDialogo = {
-                overlay,
                 painel,
                 titulo,
                 molduraRetrato,
@@ -498,7 +493,6 @@ export class CenaCentral extends Phaser.Scene {
             this.estadoDialogo?.eventoDigitacao?.remove();
             somEscrita?.stop();
 
-            overlay.destroy();
             painel.destroy();
             titulo.destroy();
             molduraRetrato.destroy();
@@ -550,7 +544,7 @@ export class CenaCentral extends Phaser.Scene {
             this.input.keyboard.off('keydown-SPACE', avancarDialogo);
         });
 
-        this.estadoDialogo = { overlay, painel, titulo, molduraRetrato, retrato, texto, dica, somEscrita, indiceFala, digitando: true, eventoDigitacao: null };
+        this.estadoDialogo = { painel, titulo, molduraRetrato, retrato, texto, dica, somEscrita, indiceFala, digitando: true, eventoDigitacao: null };
         iniciarDigitacao();
     }
 

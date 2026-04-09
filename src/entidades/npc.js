@@ -45,6 +45,17 @@ export default class Npc extends Phaser.Physics.Arcade.Sprite {
 
         // Identificador unico do NPC para persistencia de progresso.
         this.idNpc = idNpc;
+
+        // Animação idle de "respiração": escala levemente para cima e para baixo em loop
+        cena.tweens.add({
+            targets: this,
+            scaleY: 0.3 * 1.04,
+            duration: 1800,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut',
+            delay: Phaser.Math.Between(0, 800)
+        });
     }
 
     /**

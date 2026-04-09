@@ -44,20 +44,22 @@ export default class InterfaceProgressoNpc {
         // Dimensões totais do fundo do HUD
         const alturaHud = portraitSize + padding * 2;
         const larguraHud = portraitSize + 340 + padding * 2;
+        const xFundo = larguraTela - larguraHud + 300;
+        const yFundo = margem + portraitSize / 2;
+
+        // Guarda para reuso na barra
+        this._xFundo = xFundo;
+        this._yFundo = yFundo;
+        this._larguraHud = larguraHud;
+        this._alturaHud = alturaHud;
 
         // Container HUD fixo na tela (não se move com a câmera)
         this.container = this.cena.add.container(160, 0).setScrollFactor(0).setDepth(9999);
 
-        // Fundo escuro com borda branca
-        this.fundo = this.cena.add.rectangle(
-            larguraTela - larguraHud + 300,
-            margem + portraitSize / 2,
-            larguraHud,
-            alturaHud,
-            0x102040,
-            0.98
-        ).setOrigin(0, 0.5).setScrollFactor(0);
-        this.fundo.setStrokeStyle(8, 0xffffff, 1);
+        // Fundo com cantos arredondados via Graphics
+        this.fundoGraphics = this.cena.add.graphics().setScrollFactor(0);
+        this._desenharFundoProgresso();
+        this.fundo = this.fundoGraphics; // compatibilidade com código existente
 
         // Seleciona o NPC a exibir no portrait:
         // prioriza o primeiro conquistado; se nenhum, usa o primeiro da lista
@@ -89,22 +91,34 @@ export default class InterfaceProgressoNpc {
 
         this._inicializarNotificacaoExclamacao();
 
-        // Texto de progresso em formato "XX/YY"
+        // Texto de progresso em formato "XX/YY" com cor dinâmica
         this.texto = this.cena.add.text(
             larguraTela - larguraHud + padding + portraitSize + 80 + 300,
-            margem + alturaHud / 2,
+            margem + alturaHud / 2 - 20,
             this._formatarTexto(),
             {
                 font: "120px Arial Black, Arial, sans-serif",
-                fill: "#fff",
+                fill: this._corTextoProgresso(),
                 fontStyle: "bold",
                 align: "left"
             }
         ).setOrigin(0, 0.5).setScrollFactor(0);
         this.texto.setScale(5);
 
+        // Barra de progresso horizontal
+        const barraX = xFundo + 8;
+        const barraY = yFundo + alturaHud / 2 - 14;
+        const barraLarguraTotal = larguraHud - 16;
+        const barraAltura = 10;
+        this.barraGraphics = this.cena.add.graphics().setScrollFactor(0);
+        this._xBarra = barraX;
+        this._yBarra = barraY;
+        this._barraLarguraTotal = barraLarguraTotal;
+        this._barraAltura = barraAltura;
+        this._desenharBarra();
+
         // Adiciona todos os elementos ao container
-        this.container.add([this.fundo, this.portrait, this.indicadorExclamacao, this.texto]);
+        this.container.add([this.fundoGraphics, this.barraGraphics, this.portrait, this.indicadorExclamacao, this.texto]);
 
         // Clique no portrait aciona o callback (abre painel lateral de NPCs)
         this.portrait.setInteractive({ useHandCursor: true });
@@ -114,6 +128,44 @@ export default class InterfaceProgressoNpc {
                 this.aoClicarPortrait();
             }
         });
+    }
+
+    _corTextoProgresso() {
+        const pct = this.conquistados / this.totalNpcs;
+        if (pct >= 0.75) return '#10b981'; // verde
+        if (pct >= 0.4)  return '#f59e0b'; // amarelo
+        return '#ffffff';                   // branco
+    }
+
+    _desenharFundoProgresso() {
+        const { _xFundo: x, _yFundo: y, _larguraHud: w, _alturaHud: h } = this;
+        this.fundoGraphics.clear();
+        // Sombra
+        this.fundoGraphics.fillStyle(0x000000, 0.3);
+        this.fundoGraphics.fillRoundedRect(x + 4, y - h / 2 + 4, w, h, 14);
+        // Fundo
+        this.fundoGraphics.fillStyle(0x102040, 0.97);
+        this.fundoGraphics.fillRoundedRect(x, y - h / 2, w, h, 14);
+        // Borda
+        this.fundoGraphics.lineStyle(4, 0x3b82f6, 1);
+        this.fundoGraphics.strokeRoundedRect(x, y - h / 2, w, h, 14);
+    }
+
+    _desenharBarra() {
+        const { _xBarra: x, _yBarra: y, _barraLarguraTotal: wTotal, _barraAltura: bh } = this;
+        const preenchimento = Math.max(0, (this.conquistados / this.totalNpcs)) * wTotal;
+        const pct = this.conquistados / this.totalNpcs;
+        const corBarra = pct >= 0.75 ? 0x10b981 : pct >= 0.4 ? 0xf59e0b : 0x3b82f6;
+
+        this.barraGraphics.clear();
+        // Fundo da barra
+        this.barraGraphics.fillStyle(0x000000, 0.4);
+        this.barraGraphics.fillRoundedRect(x, y, wTotal, bh, 5);
+        // Preenchimento
+        if (preenchimento > 0) {
+            this.barraGraphics.fillStyle(corBarra, 1);
+            this.barraGraphics.fillRoundedRect(x, y, preenchimento, bh, 5);
+        }
     }
 
     _obterAssinaturaEstadosNpcs() {
@@ -197,6 +249,19 @@ export default class InterfaceProgressoNpc {
         this.conquistados = conquistados;
         this.totalNpcs = totalNpcs;
         this.texto.setText(this._formatarTexto());
+        this.texto.setFill(this._corTextoProgresso());
+        this._desenharBarra();
+
+        // Pulse no texto ao atualizar o progresso
+        const escalaOriginal = this.texto.scaleX;
+        this.cena.tweens.add({
+            targets: this.texto,
+            scaleX: escalaOriginal * 1.3,
+            scaleY: escalaOriginal * 1.3,
+            duration: 120,
+            yoyo: true,
+            ease: 'Sine.easeOut'
+        });
     }
 
     /**
@@ -231,5 +296,6 @@ export default class InterfaceProgressoNpc {
             this.eventoMonitoramentoExclamacao = null;
         }
         this.container.destroy();
+        if (this.barraGraphics) this.barraGraphics.destroy();
     }
 }

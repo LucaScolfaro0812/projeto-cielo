@@ -373,13 +373,25 @@ export default class InterfaceQuiz {
 
             // Ao clicar, chama a função de resposta com o índice da alternativa
             const idx = i;
+            const elementosBotao = [retanguloFundoBotao, retanguloBadge, textoBadgeLetra];
             retanguloFundoBotao.on("pointerdown", () => {
-            if (this.cena.cache.audio.exists('somClicando')) {
-             this.cena.sound.play('somClicando', { volume: 0.5 });
-               }
-               if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
-             this.aoSelecionarResposta(idx);
-           }
+                // Efeito de pressionar: encolhe e volta
+                this.cena.tweens.add({
+                    targets: elementosBotao,
+                    scaleX: 0.96,
+                    scaleY: 0.96,
+                    duration: 60,
+                    yoyo: true,
+                    ease: 'Sine.easeInOut',
+                    onComplete: () => {
+                        if (this.cena.cache.audio.exists('somClicando')) {
+                            this.cena.sound.play('somClicando', { volume: 0.5 });
+                        }
+                        if (this.aoSelecionarResposta && idx >= 0 && idx < NUMERO_OPCOES) {
+                            this.aoSelecionarResposta(idx);
+                        }
+                    }
+                });
             });
 
             this.containerBotoes.add([retanguloFundoBotao, retanguloBadge, textoBadgeLetra, textoOpcaoBotao]);
@@ -464,6 +476,20 @@ export default class InterfaceQuiz {
         const msg = textoPersonalizado ?? (correto ? "Boa resposta!" : "Resposta incorreta.");
 
         const cam = this.cena.cameras.main;
+
+        // Feedback de câmera: treme no erro, pulsa no acerto
+        if (correto) {
+            const zoomAtual = cam.zoom;
+            this.cena.tweens.add({
+                targets: cam,
+                zoom: zoomAtual * 1.04,
+                duration: 120,
+                yoyo: true,
+                ease: 'Sine.easeInOut'
+            });
+        } else {
+            cam.shake(300, 0.008);
+        }
         const cx  = cam.worldView.centerX;
         const cy  = cam.worldView.centerY;
         const W   = cam.displayWidth;

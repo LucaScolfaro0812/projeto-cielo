@@ -1152,8 +1152,6 @@ export class CenaCidade extends Phaser.Scene {
     }
 
     update() {
-        console.log(this.lojasConquistadas + '\n' + this.lojasNaoConquistadas);
-
         const painelNpcsAberto = Boolean(this.painelNpcs?.visible);
 
         this.seta.definirAlvo(this._pegarAlvoPrioritarioSeta());

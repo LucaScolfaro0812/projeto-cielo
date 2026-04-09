@@ -101,7 +101,7 @@ export default class CenaFinal extends Phaser.Scene {
 
         this.textoBalao = this.add.text(bx, by - 65,'', {
             fontSize: '26px',
-            color: '#222222',
+            color: '#000000',
             align: 'center',
             wordWrap: { width: bw - 40 }
         }).setOrigin(0.5, 0);

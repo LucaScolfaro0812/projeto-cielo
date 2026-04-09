@@ -184,9 +184,9 @@ export class CenaTutorialVideo extends Phaser.Scene {
             object-fit: contain;
             background: #000;
         `;
-        this._elVideo.controls = true;   // Mostra barra de controle nativa do browser
+        this._elVideo.controls = false;  // Sem controles nativos — impede o usuário de alterar o volume
         this._elVideo.autoplay = true;   // Começa a tocar automaticamente
-        this._elVideo.muted = true;      // Necessário para autoplay funcionar sem gesto do usuário
+        this._elVideo.muted = true;      // Silencia permanentemente o vídeo
         videoWrapper.appendChild(this._elVideo);
 
         // Texto descritivo da mecânica mostrada no vídeo

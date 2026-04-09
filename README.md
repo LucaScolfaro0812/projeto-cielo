@@ -46,24 +46,12 @@ O progresso é salvo automaticamente via localStorage, permitindo que o jogador 
 
 ```
 g05/
-├── documents/                  # Documentação do projeto
-│   ├── assets/                 # Imagens usadas no GDD
-│   └── gdd.md                  # Game Design Document
-├── public/                     # Código-fonte e assets do jogo
-│   ├── assets/
-│   │   ├── imagens/            # Imagens estáticas (lojas, UI, NPCs)
-│   │   ├── sons/               # Efeitos sonoros e trilhas
-│   │   ├── sprites/            # Spritesheets e animações
-│   │   └── ui/                 # Elementos de interface (logos, botões)
-│   ├── src/
-│   │   ├── cenas/              # Cenas do Phaser (menu, cidade, lojas, pause...)
-│   │   ├── entidades/          # Classes de entidades (jogador, NPC, carro, porta)
-│   │   ├── sistemas/           # Sistemas do jogo (quiz, HUD, maquininhas, pontuação)
-│   │   └── utilitarios/        # Funções auxiliares (armazenamento, transição, spawn)
-│   ├── index.html
-│   ├── main.js
-│   └── style.css
-├── .gitlab-ci.yml              # Pipeline de deploy no GitLab Pages
+├── documents/              
+├── .vscode
+├── documents       
+├── public
+├── src\scenes
+├── .gitlab-ci.yml   
 └── README.md
 ```
 

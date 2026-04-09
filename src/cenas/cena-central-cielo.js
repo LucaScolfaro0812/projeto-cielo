@@ -104,6 +104,16 @@ export class CenaCentral extends Phaser.Scene {
         // Para o som ao sair ou destruir a cena
         this.events.on('shutdown', () => this._pararAudio());
         this.events.on('destroy', () => this._pararAudio());
+        this.events.on('shutdown', () => {
+            if (this._coletarMaquininhasHandler) {
+                this.input.keyboard.off('keydown-E', this._coletarMaquininhasHandler);
+            }
+        });
+        this.events.on('destroy', () => {
+            if (this._coletarMaquininhasHandler) {
+                this.input.keyboard.off('keydown-E', this._coletarMaquininhasHandler);
+            }
+        });
 
         if (this.mostrarTutorial) {
             this.scene.pause();
@@ -203,8 +213,13 @@ export class CenaCentral extends Phaser.Scene {
         this.balaoRecarga.setVisible(true);
 
         // Teclas de interação
+        this.input.keyboard.enabled = true;
+        this.input.keyboard.manager.enabled = true;
+        this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.E);
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
         this.teclaEspaco = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this._coletarMaquininhasHandler = () => this._coletarMaquininhas();
+        this.input.keyboard.on('keydown-E', this._coletarMaquininhasHandler);
 
         this.input.keyboard.on('keydown-ESC', () => {
             this.scene.pause();
@@ -532,50 +547,43 @@ export class CenaCentral extends Phaser.Scene {
         this.player.update();
         if (this.portaEntrada) {
             this.portaEntrada.update();
+            if (this.portaGlow) {
+                const distancia = Phaser.Math.Distance.Between(
+                    this.player.x, this.player.y,
+                    this.portaGlow.x, this.portaGlow.y
+                );
+
+                const raioMax = 400;
+                const raioMin = 390;
+
+                if (distancia < raioMax) {
+                    const alpha = Phaser.Math.Clamp(
+                        (distancia - raioMin) / (raioMax - raioMin) * 0.25,
+                        0, 0.25
+                    );
+                    this.portaGlow.setAlpha(alpha);
+                }
+            }
         }
-
-        if (this.portaEntrada) {
-    this.portaEntrada.update();
-
-    if (this.portaGlow) {
-        const distancia = Phaser.Math.Distance.Between(
-            this.player.x, this.player.y,
-            this.portaGlow.x, this.portaGlow.y
-        );
-
-        const raioMax = 400;
-        const raioMin = 390;
-
-        if (distancia < raioMax) {
-            const alpha = Phaser.Math.Clamp(
-                (distancia - raioMin) / (raioMax - raioMin) * 0.25,
-                0, 0.25
-            );
-            this.portaGlow.setAlpha(alpha);
-        }
-    }
-}
 
         this.tempoAnimacaoBotao += this.game.loop.delta / 1000;
         const deslocamento = Math.sin(this.tempoAnimacaoBotao * 3) * 8;
 
-        const podeRecarregar = Maquininhas.qntMaquininhas < Maquininhas.maximoMaquininhas;
         this.balaoRecarga.x = this.npc.x;
         this.balaoRecarga.y = this.npc.y - 92 + deslocamento;
 
-        const distancia = Phaser.Math.Distance.Between(
-            this.player.x, this.player.y,
-            this.npc.x, this.npc.y
-        );
+        this.balaoRecarga.setVisible(!this.dialogoAberto);
 
-        const pertoDoNpc = distancia < 300;
-        this.balaoRecarga.setVisible(this.dialogoIntroducaoExibido && podeRecarregar);
-
-        if (pertoDoNpc && Phaser.Input.Keyboard.JustDown(this.teclaE) && podeRecarregar) {
-            Maquininhas.definirMaquininhas(3);
-            this.hudMaquininhas.atualizar();
-            this._mostrarBannerRecarga();
+        if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+            this._coletarMaquininhas();
         }
+
+    }
+
+    _coletarMaquininhas() {
+        Maquininhas.definirMaquininhas(3);
+        this.hudMaquininhas.atualizar();
+        this._mostrarBannerRecarga();
     }
 
     _mostrarBannerRecarga() {

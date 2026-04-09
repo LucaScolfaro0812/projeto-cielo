@@ -21,6 +21,11 @@ var config = {
     // ID do elemento HTML onde o canvas do jogo será inserido
     parent: "game",
 
+    fps: {
+        target: 60,
+        forceSetTimeOut: false
+    },
+
     // Configurações de escala e responsividade
     scale: {
         // Ajusta o jogo para caber na tela mantendo proporção

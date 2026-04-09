@@ -5,7 +5,6 @@
  */
 import { transicionarPara } from '../utilitarios/transicao-cena.js';
 import { resetarSessaoJogo } from '../utilitarios/sessao-jogo.js';
-import { ativarTutorialInicial, ativarDialogoInicialCentral, ativarDialogoPosRecargaCentral } from '../utilitarios/estado-jogo.js';
 
 export class CenaPausa extends Phaser.Scene {
 
@@ -62,16 +61,13 @@ export class CenaPausa extends Phaser.Scene {
             this.scene.bringToTop('configScene');
         });
 
-        // Botão Novo Jogo — apaga o progresso salvo e reinicia o jogo do zero
+        // Botão Novo Jogo — apaga o progresso salvo e volta ao menu principal
         this._criarBotao(largura / 2, altura / 2 + 120, 'Novo Jogo', () => {
             resetarSessaoJogo();
-            ativarTutorialInicial();
-            ativarDialogoInicialCentral();
-            ativarDialogoPosRecargaCentral();
 
-            // Para a cena pausada e inicia novo jogo pela Central, com tutorial e diálogo iniciais
+            // Para todas as cenas ativas e volta ao menu do zero
             this.scene.stop(cenaAnterior);
-            transicionarPara(this, 'centralScene', {}, 'Iniciando novo jogo...');
+            transicionarPara(this, 'menuScene', {}, 'Voltando ao menu...');
         });
 
         // Botão Menu — para a cena pausada e volta ao menu com fade azul Cielo

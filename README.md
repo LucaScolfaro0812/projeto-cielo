@@ -155,7 +155,7 @@ git clone URL_DO_REPOSITORIO
 - O navegador abrirá automaticamente
 - O jogo será carregado e pronto para uso
 
-![Jogo rodando](./imagens/jogo-rodando.png)
+![Jogo rodando](./documents/assets/jogo-rodando.png)
 
 ---
 

@@ -428,6 +428,10 @@ const valorMcc = this.add.text(cartaoMcc.x, cartaoMcc.y + 10, codigoMcc, {
 
         this.physics.pause();
 
+        // Captura as teclas do popup para evitar que o navegador trate o espaço como rolagem.
+        this.input.keyboard.addCapture(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.input.keyboard.addCapture(Phaser.Input.Keyboard.KeyCodes.ENTER);
+
         // Texto digitado letra por letra
       const padding = 20;
 
@@ -567,9 +571,10 @@ const mostrarIndicador = () => {
         }
 
         this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
+        this.input.keyboard.off('keydown-ENTER', avancarOuFechar);
+        this.input.off('pointerdown', avancarOuFechar);
 
         // Destrói TODOS os elementos (proteção com ?)
-        overlay?.destroy();
         painel?.destroy();
         painelSombra?.destroy();
         faixaTitulo?.destroy();
@@ -596,8 +601,10 @@ const mostrarIndicador = () => {
     }
 };
 
-        // Escuta ESPAÇO para avançar (ou pular digitação)
+        // Escuta as teclas e o clique para avançar o texto do popup.
         this.input.keyboard.on('keydown-SPACE', avancarOuFechar);
+        this.input.keyboard.on('keydown-ENTER', avancarOuFechar);
+        this.input.on('pointerdown', avancarOuFechar);
 
         // Começa pela primeira parte
         if (partes.length > 0) {
@@ -611,7 +618,6 @@ const mostrarIndicador = () => {
             faixaLateral.destroy();
             etiquetaCliente.destroy();
             tituloPopup.destroy();
-            subtituloPopup.destroy();
             painelRetrato.destroy();
             retratoNpc.destroy();
             faixaNomeNpc.destroy();
@@ -626,6 +632,8 @@ const mostrarIndicador = () => {
             textoIndicador.destroy();
             overlay.destroy();
             this.input.keyboard.off('keydown-SPACE', avancarOuFechar);
+            this.input.keyboard.off('keydown-ENTER', avancarOuFechar);
+            this.input.off('pointerdown', avancarOuFechar);
         }
         // --- FIM DO POPUP ---
 

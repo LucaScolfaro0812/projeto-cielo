@@ -479,7 +479,7 @@ Os jogos Pokémon Fire Red, Pokémon Leaf Green e Pokémon Emerald além de sere
 
 ### 2.2.5. Tempo estimado de jogo (sprint 5)
 
-Aproximadamente 15 minutos.
+Aproximadamente 15 a 20 minutos para uma partida completa (conquistar todos os 12 NPCs), considerando o tempo de deslocamento pelo mapa, os quizzes e as recargas na Central Cielo. Jogadores com maior familiaridade com jogos de navegação top-down tendem a completar mais rapidamente. O tutorial em vídeo inicial acrescenta cerca de 3 a 5 minutos na primeira sessão.
 
 # <a name="c3"></a>3. Game Design (sprints 2 e 3)
 
@@ -647,7 +647,7 @@ Esse recurso simula situações reais de pressão no ambiente comercial.
 
 **B. Nível de Conversão do Cliente**
 
-As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de conversão do cliente. Respostas adequadas aumentam a conversão, enquanto decisões inadequadas podem reduzi-la.
+As escolhas realizadas durante o quiz de negociação impactam diretamente o nível de conversão do cliente, representado por uma barra vertical visível durante o quiz. A barra começa em 50% e varia conforme a qualidade das respostas: respostas excelentes (3 pts) adicionam +30, boas (2 pts) adicionam +10, neutras (1 pt) não alteram e incorretas (0 pts) reduzem em -50. A conquista do NPC ocorre quando o jogador acumula 6 ou mais pontos ao longo das 3 perguntas (equivalente a acertar pelo menos 2).
 Esse sistema reforça o aspecto estratégico e educativo do jogo.
 
 **C. Feedback de Desempenho**
@@ -679,9 +679,9 @@ Game flow descreve o fluxo de progressão do jogador dentro do jogo, indicando a
 
 
 
-Devido à baixa qualidade da imagem, o link para melhor visualização encontra-se dentro dos anexos.
+> **Nota:** O diagrama acima foi elaborado na Sprint 2 e não reflete o estado final do jogo. Desde então, foram adicionadas as seguintes cenas: `CenaTutorialVideo` (tutorial em vídeo exibido antes do primeiro jogo), `CenaConfiguracoes` (acessada pelo botão Configurações do menu e pelo menu de pausa), `CenaCentral` (prédio da Cielo no mapa, com diálogos e recarga de maquininhas) e `CenaMapa` (mapa completo com legenda, aberto pela tecla M). O fluxo atualizado completo pode ser visualizado no link disponível nos Anexos (A.1).
 
-> **Nota:** O diagrama foi elaborado na Sprint 2. Desde então foram adicionadas cenas não representadas na imagem: `CenaConfiguracoes` (acessada pelo botão Configurações do menu), `CenaCentral` (prédio da Cielo no mapa) e `CenaMapa` (mapa completo com legenda, aberto pela tecla M). As cenas registradas no sistema são: `CenaMenu`, `CenaTutorial`, `CenaCidade`, `CenaPausa`, `CenaConfiguracoes`, `CenaCentral`, `CenaMapa` e as 12 cenas de lojas.
+As cenas registradas no sistema no estado final são: `CenaMenu`, `CenaTutorialVideo`, `CenaTutorial`, `CenaCidade`, `CenaPausa`, `CenaConfiguracoes`, `CenaCentral`, `CenaFinal`, `CenaMapa` e as 12 cenas de lojas (`cafeScene`, `gamesScene`, `belezaScene`, `roupasScene`, `petScene`, `movelScene`, `frutariaScene`, `lanchoneteScene`, `chocolateScene`, `peluciaScene`, `autoEscolaScene`, `joalheriaScene`).
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -1752,7 +1752,7 @@ Tabela 1 - Casos de teste funcionais do jogo.
 | 40  | Jogo em execução na cidade ou dentro de loja                      | Pressionar a tecla T                                    | A tela de tutorial deve abrir como overlay sem encerrar a cena atual                                                                               |
 | 41  | Tela de tutorial aberta via tecla T                               | Clicar no botão "SAIR"                                  | O tutorial deve fechar e o jogo deve retomar exatamente de onde estava                                                                             |
 | 42  | Jogo com progresso salvo (NPCs conquistados, maquininhas)         | Fechar o navegador e reabrir o jogo                     | O progresso deve ser restaurado: NPCs conquistados exibem visual azul, balões aparecem nas lojas conquistadas, quantidade de maquininhas é mantida |
-| 43  | Tempo limite do jogo acabando                                     | O tempo acaba                                           | A gameplay se encerra _(não implementado no MVP)_                                                                                                  |
+| 43  | Jogador navega pela cidade com seta ativa                         | Abrir o mapa (tecla M) e fechar em seguida              | A seta deve continuar apontando corretamente para o próximo objetivo após fechar o mapa                                                            |
 | 44  | Jogador em cidade com 0 maquininhas e pelo menos uma loja não conquistada | Continuar navegando pelo mapa                           | A seta de indicação deve deixar de guiar para lojas e passar a apontar apenas para a Central da Cielo                                              |
 | 45  | Jogador recarrega maquininhas na Central da Cielo                 | Pressionar a tecla E para recarregar e retornar ao mapa | A seta de indicação deve voltar à lógica original e apontar para a loja não conquistada mais próxima                                                |
 | 46  | Jogador na cena final com mensagem de parabéns exibida            | Pressionar a tecla Espaço                               | A mensagem deve avançar para a próxima etapa da cena final                                                                                            |
@@ -1923,45 +1923,29 @@ Essas melhorias visam aumentar a profundidade do jogo, promover maior engajament
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
-A solução desenvolvida, baseada em um serious game de simulação de vendas, demonstrou forte aderência aos objetivos propostos inicialmente. O jogo conseguiu transformar o processo de treinamento comercial da Cielo em uma experiência prática, interativa e engajadora, permitindo que os usuários apliquem conhecimentos em um ambiente simulado e seguro.
+A solução desenvolvida, baseada em um serious game de simulação de vendas, demonstrou forte aderência aos objetivos propostos inicialmente. Ao longo das cinco sprints, o jogo evoluiu de um protótipo básico com movimentação e uma loja para um produto completo com 12 lojas, sistema de quiz por loja, persistência de progresso, tutorial em vídeo, mapa interativo, HUDs dinâmicos e cena final.
 
+Um dos aprendizados mais relevantes do projeto foi a importância do onboarding: os testes de jogabilidade mostraram que jogadores sem experiência prévia com jogos top-down demoraram para entender mecânicas básicas como a interação com NPCs e o uso das maquininhas. Isso levou à criação do tutorial em vídeo com 8 etapas, desenvolvido na Sprint 5 como resposta direta ao feedback dos playtests.
 
-A mecânica de controle do personagem Marcielo em um mapa 2D, aliada às interações com diferentes estabelecimentos, se mostrou eficaz na reprodução de situações reais enfrentadas pela equipe comercial. Os quizzes e tomadas de decisão inseridos no jogo contribuem diretamente para o desenvolvimento de habilidades essenciais, como identificação de perfil de cliente, argumentação e contorno de objeções.
+Outro aprendizado foi a necessidade de feedback visual imediato: respostas do quiz sem contexto eram confusas. A implementação de feedbacks personalizados por alternativa (explicando por que cada opção está certa ou errada) aumentou significativamente a clareza educativa do jogo.
 
-
-Além disso, elementos estruturais do jogo tiveram papel fundamental na experiência do usuário:
-
-
-**HUDs (Heads-Up Displays):** foram implementados para facilitar a visualização de informações relevantes em tempo real, como desempenho, progresso e status do jogador, apoiando a tomada de decisão durante as interações.
-
-
-**Flow do jogo:** o encadeamento das ações e desafios foi estruturado de forma a manter o jogador engajado continuamente, favorecendo a imersão e o equilíbrio entre desafio e compreensão.
-
-
-**Feedbacks visuais:** retornos visuais imediatos auxiliam o jogador a acompanhar seu desempenho ao longo da experiência.
-
-
-Dessa forma, a solução não apenas cumpre seu papel educacional, mas também se destaca como uma ferramenta de engajamento, aumentando a efetividade do treinamento e a retenção de conhecimento.
-
+Do ponto de vista técnico, a arquitetura de cenas do Phaser 3 se mostrou adequada para o escopo do projeto, mas exigiu cuidado com o gerenciamento de estado entre cenas — especialmente para manter o progresso dos NPCs consistente ao entrar e sair de lojas. A solução adotada (localStorage como fonte de verdade + estado em memória sincronizado ao criar cada cena) funcionou de forma estável nos testes finais.
 
 ### Pontos fortes
 
-
--Forte alinhamento com o objetivo de treinamento prático da equipe comercial
--Simulação realista de situações de vendas
--Alto potencial de engajamento por meio da gamificação
--Uso eficiente de HUDs para facilitar a leitura de informações
--Flow contínuo que favorece a imersão do jogador
--Ambiente seguro para experimentação e erro
+- Tutorial em vídeo com 8 mecânicas explicadas, desenvolvido com base no feedback dos playtests
+- Sistema de quiz com feedbacks personalizados por alternativa, reforçando o aspecto educativo
+- Persistência completa de progresso via localStorage, permitindo retomar partidas salvas
+- HUDs dinâmicos com cores que mudam conforme o estado do jogo (maquininhas, progresso de NPCs)
+- Mapa interativo com marcador de posição do jogador
+- Identidade visual coerente com a marca Cielo (paleta azul, ícones e NPCs por loja)
 
 ### Pontos a melhorar
 
-
--Implementação de ranking e sistema de resultados mais estruturado para aumentar a competitividade e o engajamento
--Desenvolvimento de feedbacks mais personalizados e específicos para cada pergunta, tornando o aprendizado mais direcionado
--Inclusão de obstáculos e inimigos para enriquecer a dinâmica do jogo e aumentar o nível de desafio
--Maior profundidade nas interações de venda, com cenários mais complexos
--Evolução da progressão e variedade de experiências ao longo do jogo
+- O minimapa nativo foi considerado pequeno pelos testadores e de difícil leitura — substituído pelo mapa completo (tecla M), mas o minimap ainda aparece e pode confundir
+- A dificuldade das perguntas do quiz não varia entre lojas — todas têm o mesmo nível de complexidade
+- Não há sistema de ranking ou comparativo entre jogadores, o que reduz o incentivo competitivo
+- Alguns colisores do mapa ainda permitem pequenas sobreposições visuais com objetos do cenário
 
 ### Trabalhos futuros e plano de melhorias
 

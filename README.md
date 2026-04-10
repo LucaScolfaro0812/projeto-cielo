@@ -43,7 +43,7 @@ O objetivo é treinar vendedores reais de forma prática e engajadora, simulando
 
 O jogo utiliza um sistema de maquininhas como recurso gerenciável: o jogador começa sem nenhuma e precisa visitar a Central da Cielo para se reabastecer antes de atender os clientes. Ao conquistar um cliente com sucesso, uma maquininha é consumida. Essa mecânica simula a pressão de gerenciar uma carteira de clientes com recursos limitados.
 
-O progresso é salvo automaticamente via localStorage, permitindo que o jogador continue de onde parou. Um HUD de progresso exibe quais NPCs já foram conquistados, e a pontuação acumulada reflete a qualidade das vendas realizadas ao longo da partida.
+O progresso é salvo automaticamente via localStorage, permitindo que o jogador continue de onde parou. Um HUD de progresso exibe quais NPCs já foram conquistados. O jogo é concluído ao conquistar todos os 12 clientes.
 
 🎮 **Para jogar clique aqui:** [https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05)
 

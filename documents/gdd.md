@@ -454,12 +454,12 @@ Considerando o contexto de atuação da equipe comercial, destacam-se como relev
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. Para avançar nas fases, o jogador deve participar de interações com clientes e responder quizzes relacionados às situações de negociação. A progressão no jogo depende do desempenho nessas atividades: em cada quiz, é necessário acertar pelo menos 2 das 3 perguntas para conquistar o NPC. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções e responda de maneira adequada às objeções propostas pelo sistema. O avanço ocorre à medida que o jogador obtém êxito nas negociações simuladas; ao fechar negócios com sucesso, ele progride de nível e passa a interagir com clientes mais exigentes e cenários progressivamente mais complexos.
-O jogo é concluído quando todas as fases são finalizadas com sucesso, indicando que o jogador conseguiu manter um bom desempenho e evoluir ao longo dos diferentes cenários de negociação.
+O objetivo do jogo é desenvolver as habilidades de negociação do jogador por meio de simulações de vendas em contextos realistas. O jogador percorre um mapa 2D com 12 lojas e interage com os clientes (NPCs) de cada estabelecimento por meio de quizzes de negociação. Em cada quiz, é necessário acertar pelo menos 2 das 3 perguntas para conquistar o NPC. Durante as simulações, espera-se que o jogador demonstre compreensão do perfil e das necessidades apresentadas, aplique corretamente conhecimentos sobre produtos e soluções da Cielo e responda de maneira adequada às situações propostas.
+O jogo é concluído quando todos os 12 NPCs são conquistados, indicando que o jogador percorreu todas as lojas e obteve sucesso nas negociações.
 
 ## 2.2. Características do Jogo (sprint 2)
 
-O jogo é uma simulação interativa de negociação focada no desenvolvimento de habilidades comerciais em um ambiente virtual. Ele é organizado em fases progressivas, nas quais o jogador interage com diferentes perfis de clientes por meio de quizzes que representam situações comuns do processo de vendas. Ao longo da experiência, são utilizados elementos de gamificação, como progressão de desafios, níveis e aumento gradual da dificuldade, permitindo que o jogador experimente estratégias, tome decisões e perceba os resultados de suas escolhas. Dessa forma, o jogo combina engajamento com aprendizagem prática, oferecendo um espaço seguro para treinar comunicação, argumentação e tomada de decisão.
+O jogo é uma simulação interativa de negociação focada no desenvolvimento de habilidades comerciais em um ambiente virtual. O jogador controla o personagem Marcielo em um mapa 2D top-down com 12 lojas, cada uma com um cliente (NPC) para conquistar por meio de quizzes sobre produtos e situações de venda da Cielo. Ao longo da experiência, são utilizados elementos de gamificação como progressão visual de conquistas, gerenciamento de recursos (maquininhas) e feedback imediato por alternativa, permitindo que o jogador experimente estratégias, tome decisões e perceba os resultados de suas escolhas. Dessa forma, o jogo combina engajamento com aprendizagem prática, oferecendo um espaço seguro para treinar comunicação, argumentação e tomada de decisão.
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
@@ -1014,51 +1014,19 @@ Explorar o cenário
 Neste momento, o jogo funciona como um espaço explorável.
 Ainda não existem interações comerciais ativas.
 
-### 4.1.4. Funcionalidades Planejadas (Ainda Não Implementadas)
+### 4.1.4. Funcionalidades Planejadas para as próximas sprints
 
-A proposta completa do jogo é ser um simulador de negociação comercial.
-Os seguintes elementos fazem parte do conceito original, mas ainda não estão presentes no protótipo:
-4.1 Sistema de Cards
-Durante uma negociação, o jogador escolheria respostas em formato de cards.
-Cada card representaria um argumento estratégico diferente.
-Esse sistema ainda não foi implementado.
+A proposta completa do jogo é ser um simulador de negociação comercial. Os seguintes elementos fazem parte do conceito previsto para as sprints seguintes:
 
-### 4.1.5. Tempo de Resposta
+**Sistema de Quiz por NPC:** durante uma negociação, o jogador responderia perguntas de múltipla escolha sobre produtos e situações de venda da Cielo, com 4 opções por pergunta. Implementado a partir da Sprint 3.
 
-O jogador teria tempo limitado para responder às falas do cliente (exemplo: 15 segundos), simulando pressão real de negociação.
-Essa funcionalidade ainda não está disponível.
+**Tempo de Resposta:** cada pergunta teria um timer de 60 segundos, simulando a pressão real de negociação. Implementado a partir da Sprint 3.
 
-### 4.1.6. Indicador de Conversão
+**Indicador de Conversão:** o cliente teria uma barra visual indicando seu nível de conversão, que variaria conforme a qualidade das respostas. Implementado a partir da Sprint 3.
 
-O cliente teria uma barra visual indicando seu nível de conversão.
-Essa barra aumentaria ou diminuiria conforme as decisões do jogador.
-Esse sistema ainda não existe na versão atual.
+**Fechamento de Negócios:** o objetivo de cada interação seria conquistar o NPC acertando pelo menos 2 das 3 perguntas. Implementado a partir da Sprint 3.
 
-### 4.1.7. Fechamento de Negócios
-
-O objetivo de cada interação futura será fechar um negócio com sucesso.
-Atualmente, não há sistema de negociação ativa nem fechamento de contratos.
-
-### 4.1.8. Sistema de Resultado do Quiz
-
-O conceito prevê:
-Resultado por acertos e erros em cada negociação
-Conquista do NPC ao acertar pelo menos 2 de 3 perguntas
-Esse sistema ainda não está implementado.
-
-### 4.1.9. Sistema de Níveis
-
-O jogador deverá:
-Subir de nível conforme conquista negociações com NPCs
-Enfrentar clientes mais exigentes em níveis mais altos
-Experimentar aumento progressivo de dificuldade
-A progressão de níveis ainda não está presente.
-
-### 4.1.10. Nível Máximo (Certificação)
-
-O objetivo final do jogo completo é alcançar o nível máximo.
-Esse nível representará que o usuário está devidamente qualificado para exercer sua função dentro da empresa.
-Essa certificação gamificada ainda não foi implementada.
+**Persistência de Progresso:** o jogo salvaria o estado da partida (NPCs conquistados, maquininhas, posição de spawn) via localStorage. Implementado a partir da Sprint 3.
 
 ### 4.1.11. Objetivo do MVP
 
@@ -1764,7 +1732,7 @@ Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
    
-   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidade e oportunidades de melhoria.
+   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidades de melhoria.
 
 
    Esse tipo de teste tem como objetivo validar se as mecânicas do jogo são compreensíveis, se a interface é intuitiva e se a experiência geral é adequada para diferentes perfis de jogadores. A metodologia adotada consiste na observação da interação dos usuários com o jogo, registrando comportamentos, dificuldades e percepções. Esses dados são posteriormente analisados para orientar ajustes e melhorias no desenvolvimento. 
@@ -1793,10 +1761,10 @@ Os playtests são sessões de teste nas quais jogadores interagem diretamente co
 | Conseguiu iniciar o jogo?                | Sim                      |
 | Entendeu as regras e mecânicas do jogo?  | Parcial, pois não sabia o que fazer dentro da central Cielo 
 | Conseguiu progredir no jogo?             | Sim   |
-| Apresentou dificuldades?                 | Sim, não sabia o que fazer dentro da central Cielo, teve dificuldade de entender como pegar maquininha e teve problema com as coalisões externas
+| Apresentou dificuldades?                 | Sim, não sabia o que fazer dentro da central Cielo, teve dificuldade de entender como pegar maquininha e teve problema com as colisões externas
 | Que nota deu ao jogo?               | 9.0     |
 | O que gostou no jogo?                    | Gostou do contraste visual, do design em geral, minimapa, tela de diálogo, sistema de quiz e os balões que aparecem fora da loja quando ela é conquistada |
-| O que poderia melhorar no jogo?          | Poderia inserir instruções mais claras sobre o que fazer no início, explicar melhor o funcionamento do HUD, melhorar a legibilidade dos elementos visuais e ajustar os problemas de coalisões |
+| O que poderia melhorar no jogo?          | Poderia inserir instruções mais claras sobre o que fazer no início, explicar melhor o funcionamento do HUD, melhorar a legibilidade dos elementos visuais e ajustar os problemas de colisões |
 
 | Nome                                     | Jessica | 
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1832,7 +1800,7 @@ Os playtests são sessões de teste nas quais jogadores interagem diretamente co
 | Apresentou dificuldades?                 | Sim, na movimentação do personagem, localizar as lojas no mapa e obteve dificuldade em ler os textos            |
 | Que nota deu ao jogo? 8.0       |
 | O que gostou no jogo?                    | Gostou das músicas e após a dificuldade, conseguiu se adaptar melhor ao jogo e passou a gostar mais da dinâmica      |
-| O que poderia melhorar no jogo?          | A clareza das intruções iniciais, ajustar a legibilidade dos textos e adicionar algo no mapa que indique onde tem estabelecimentos |
+| O que poderia melhorar no jogo?          | A clareza das instruções iniciais, ajustar a legibilidade dos textos e adicionar algo no mapa que indique onde tem estabelecimentos |
 
 A seguir estarão os testadores que possuem a faixa etária próxima aos gerentes de negócios da Cielo, na qual a idade média é de 44 anos. 
 
@@ -1903,7 +1871,7 @@ A seguir estarão os testadores que possuem a faixa etária próxima aos gerente
 
 A partir dos testes realizados, observou-se que o jogo apresenta boa aceitação geral, principalmente em relação ao design, ambientação e elementos como o minimapa, diálogos e sistema de quiz. Jogadores com maior experiência conseguiram progredir com mais facilidade e destacaram aspectos postivos da dinâmica e da progressão. No entanto, foi recorrente entre a diferentes perfis a dificuldade de compreender o que fazer na central Cielo e como utilizar as maquininhas, indicando a falta de orientação clara no início do jogo. 
 
-Além disso, foram identificados problemas de usabilidade e interface, como HUD pouco intuitivo, dificuldade de leitura de alguns elementos e minimapa pequeno. Jogadores com menos expêriencia apresentaram maior dificuldade na adaptação, reforçando a necessidade de melhorias na clareza das macânicas e na navegação. Dessa forma, concluimos que o jogo possui uma base sólida, mas requer ajustes principalmente na comunicação com o jogador e na usabilidade para proporcionar uma experiência mais intuitiva e acessível. 
+Além disso, foram identificados problemas de usabilidade e interface, como HUD pouco intuitivo, dificuldade de leitura de alguns elementos e minimapa pequeno. Jogadores com menos experiência apresentaram maior dificuldade na adaptação, reforçando a necessidade de melhorias na clareza das mecânicas e na navegação. Dessa forma, concluimos que o jogo possui uma base sólida, mas requer ajustes principalmente na comunicação com o jogador e na usabilidade para proporcionar uma experiência mais intuitiva e acessível. 
 
 ### 5.2.2 Melhorias
 

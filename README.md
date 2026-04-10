@@ -124,7 +124,7 @@ git clone URL_DO_REPOSITORIO
 
 6. Aguarde o download do projeto
 
-![Git clone no terminal](./documents/assets/git-clone-terminal.png)
+![Git clone no terminal](./documents/assets/gitlab-clone-terminal.png)
 
 ---
 

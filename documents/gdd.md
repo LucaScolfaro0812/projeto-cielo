@@ -181,7 +181,7 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 <div align="center">
   <sub>Imagem 3 - Matriz de risco</sub><br>
-  <img src="assets/matriz-de-risco/matriz.png" width="100%" alt="Descrição breve"><br>
+  <img src="assets/matriz-de-risco/matriz-de-risco.png" width="100%" alt="Descrição breve"><br>
   <sup>Fonte: Material produzido pelos autores, 2026</sup>
 </div>
 
@@ -191,75 +191,85 @@ A matriz de riscos é uma ferramenta fundamental de gestão de projetos, utiliza
 
 #### 1.1.6.2. Lista de Riscos — Ameaças
 
-A. **Baixa adoção do jogo pelos gerentes de negócios**
-   Há o risco de os GNs não utilizarem o jogo voluntariamente após a entrega, seja por falta de incentivo institucional da Cielo, por não enxergarem valor prático na ferramenta ou por resistência a métodos digitais de treinamento. Sem adoção real, o impacto no desempenho comercial será nulo.
-   **Responsáveis:** Lyria (mentora da Cielo), coordenação de treinamento
+A. **Baixa adoção do jogo pelos gerentes de negócios (GNs)**
+  Há o risco de o público-alvo não utilizar o jogo de forma recorrente após a entrega, seja por ausência de patrocínio interno, baixa percepção de valor ou falta de integração com o processo formal de capacitação.
+  **Responsáveis:** Lyria (mentora da Cielo), coordenação de treinamento
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Média
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Validar o jogo com GNs reais durante o desenvolvimento para garantir aderência ao contexto real. Recomendar à Cielo que o jogo seja incorporado formalmente à trilha de onboarding, tornando o uso estrutural e não opcional.
+  **Plano de Resposta ao Risco:** Conduzir validações com GNs em cada sprint, medir taxa de conclusão e satisfação, e recomendar institucionalização do jogo no onboarding com meta mínima de adesão.
 
-B. **Falta de testes reais com os gerentes de negócios**
-   Há o risco de o jogo não ser testado por gerentes de negócios reais, o que impediria a obtenção de feedbacks qualificados. Sem esses retornos, não será possível validar o que funciona ou não no projeto.  
-   **Responsáveis:** Thiago (coordenador da equipe de treinamento)
+B. **Desatualização do conteúdo comercial e das regras de negócio**
+  Mudanças em produtos, políticas comerciais e argumentos de venda podem tornar perguntas, feedbacks e cenários obsoletos, reduzindo a confiabilidade pedagógica do treinamento.
+  **Responsáveis:** Equipe de produto da Cielo, coordenação de treinamento
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Média
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Enviar o trabalho para Lyria (mentora da Cielo), para que ela realize testes com os gerentes.
+  **Plano de Resposta ao Risco:** Definir ciclo de revisão semestral do banco de perguntas, mapear responsáveis por aprovação de conteúdo e manter trilha de atualização documentada no arquivo quiz-perguntas.js.
 
-C. **Problemas técnicos**
-   Esse risco refere-se à possibilidade de falhas técnicas durante o desenvolvimento, testes ou apresentação do projeto, envolvendo software e hardware. Esses problemas podem incluir bugs, falhas de integração entre sistemas ou módulos, incompatibilidade entre ferramentas, instabilidade da aplicação, perda de dados, baixo desempenho e dificuldades no ambiente de execução (como configurações incorretas, dependências ausentes ou diferenças entre ambientes).  
-   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+C. **Baixa efetividade de aprendizagem (sem ganho mensurável)**
+  Mesmo com o jogo funcionando, pode não haver melhoria relevante na retenção de conteúdo ou na tomada de decisão comercial dos GNs, comprometendo o objetivo de negócio da solução.
+  **Responsáveis:** Equipe do projeto, mentoria da Cielo
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Média
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Ter maior cuidado ao modificar o código, realizar testes constantes e manter uma comunicação eficiente entre os membros da equipe.
+  **Plano de Resposta ao Risco:** Definir indicadores de aprendizagem (acurácia no quiz, tempo de resposta, evolução por tentativa), realizar testes comparativos e ajustar dificuldade e feedback com base em evidências.
 
-D. **Desbalanceamento da dificuldade do jogo**
-   O jogo pode apresentar níveis de dificuldade desbalanceados, com partes excessivamente fáceis ou difíceis, comprometendo a experiência do usuário.  
-    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+D. **Dependência de validações externas para decisões críticas**
+  Atrasos na agenda de validação com stakeholders da Cielo podem bloquear decisões de escopo, conteúdo e priorização, gerando retrabalho e perda de prazo.
+  **Responsáveis:** Product owner acadêmico, Lyria (mentora da Cielo)
 
-   **Impacto:** Médio
+  **Impacto:** Alto
 
-   **Probabilidade:** Alta
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Revisar cuidadosamente as perguntas e realizar testes com os gerentes.
+  **Plano de Resposta ao Risco:** Agendar checkpoints fixos, enviar materiais de validação com antecedência e manter plano de decisão interna para itens não respondidos no prazo.
 
-E. **Feedback pouco claro após erros/acertos**
-   Devido ao conhecimento limitado sobre os conceitos da Cielo, pode haver dificuldade na elaboração de perguntas e feedbacks claros e eficazes para os gerentes de negócios.  
-   **Responsáveis:** Lyria (analista da Cielo)
+E. **Instabilidade técnica e baixa performance em navegadores-alvo**
+  Quedas de desempenho, erros de carregamento e incompatibilidades entre navegadores podem prejudicar a experiência e inviabilizar uso em ambiente real de treinamento.
+  **Responsáveis:** Equipe técnica (desenvolvimento e QA)
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Baixa
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Agendar mais reuniões com Lyria para aprofundar os tópicos e melhorar a qualidade dos feedbacks.
+  **Plano de Resposta ao Risco:** Adotar checklist de testes por navegador, monitorar FPS e tempo de carregamento por versão e manter backlog técnico dedicado para correções críticas de estabilidade.
 
-F. **Não entregar o MVP completo no prazo estipulado**
-   Um dos principais riscos do projeto é a não entrega do MVP completo dentro do prazo, possivelmente causada por falta de organização da equipe.  
-   **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
+F. **Indisponibilidade ou instabilidade da publicação do jogo**
+  Falhas no ambiente de hospedagem ou no pipeline de publicação podem impedir acesso ao jogo em momentos de demonstração, validação ou uso operacional.
+  **Responsáveis:** Equipe técnica (DevOps/publicação)
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Média
+  **Probabilidade:** Baixa
 
-   **Plano de Resposta ao Risco:** Definir prioridades e estabelecer uma organização clara e eficiente, garantindo a participação de todos e o cumprimento do prazo.
+  **Plano de Resposta ao Risco:** Manter versão estável de contingência publicada, testar deploy antes de marcos importantes e preparar roteiro offline de demonstração.
 
-G. **Desatualização do conteúdo do jogo**
-   Os produtos, serviços e processos comerciais da Cielo podem mudar ao longo do tempo. Se as perguntas e cenários do quiz não forem atualizados, o treinamento passará a reforçar informações desatualizadas, comprometendo a eficácia da ferramenta e potencialmente causando erros operacionais nos GNs.
-   **Responsáveis:** Equipe de produto da Cielo, coordenação de treinamento
+G. **Escopo acima da capacidade de entrega da sprint**
+  O acúmulo de funcionalidades não essenciais pode comprometer a conclusão do núcleo do produto, elevando risco de atraso e perda de qualidade.
+  **Responsáveis:** Scrum master, equipe de desenvolvimento
 
-   **Impacto:** Alto
+  **Impacto:** Alto
 
-   **Probabilidade:** Média
+  **Probabilidade:** Média
 
-   **Plano de Resposta ao Risco:** Documentar claramente onde as perguntas estão no código (`quiz-perguntas.js`) para facilitar atualizações futuras. Recomendar à Cielo a revisão semestral do banco de perguntas com o time de produto.
+  **Plano de Resposta ao Risco:** Priorizar backlog por valor de negócio, congelar novas features próximas ao fechamento da sprint e aplicar critério claro de "must-have" versus "nice-to-have".
+
+H. **Perda de continuidade por conhecimento concentrado em poucas pessoas**
+  Quando partes críticas do código ou do conteúdo ficam concentradas em poucos integrantes, ausências pontuais podem atrasar correções e evoluções do projeto.
+  **Responsáveis:** Equipe de desenvolvimento
+
+  **Impacto:** Médio
+
+  **Probabilidade:** Média
+
+  **Plano de Resposta ao Risco:** Reforçar documentação técnica mínima por módulo, realizar sessões rápidas de repasse entre pares e revisar ownership de componentes a cada sprint.
 
 ---
 
@@ -299,9 +309,9 @@ D. **Demonstrar habilidades para uma grande empresa**
    Ao desenvolver o projeto, a equipe terá a oportunidade de demonstrar competências relevantes para o mercado.  
    **Responsáveis:** Luca, Tiago, Sofia, Cássio, Gabriel, Fernanda, Vinicius, Leonardo
 
-   **Impacto:** Alta
+  **Impacto:** Alto
 
-   **Probabilidade:** Alta
+  **Probabilidade:** Média
 
    **Plano de Resposta ao Risco:** Desenvolver um trabalho de alta qualidade, buscando reconhecimento dos avaliadores da Cielo.
 

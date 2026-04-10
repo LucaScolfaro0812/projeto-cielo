@@ -67,13 +67,13 @@ G05/
 │ ├── ui/ # Elementos de interface (botões, HUD, etc.)
 │ └── videos/ # Vídeos utilizados no jogo (se houver)
 │
-├── src/ # Código-fonte principal do jogo
+│ └── src/ # Código-fonte principal do jogo
 │ ├── cenas/ # Cenas do jogo (menus, fases, etc.)
 │ ├── entidades/ # Personagens, inimigos e objetos
 │ ├── sistemas/ # Sistemas do jogo (física, controle, lógica)
-│ └── utilitarios/ # Funções auxiliares e utilidades
+│ ├── utilitarios/ # Funções auxiliares e utilidades
+│ └── main.js # Arquivo principal que inicia o jogo
 │
-├── main.js # Arquivo principal que inicia o jogo
 ├── index.html # Página principal que carrega o jogo
 ├── style.css # Estilos visuais da página
 │
@@ -85,7 +85,7 @@ G05/
 
 ## Como entender essa estrutura
 
-- A pasta **`src/`** contém toda a lógica do jogo (onde o código acontece)
+- A pasta **`public/src/`** contém toda a lógica do jogo (onde o código acontece)
 - A pasta **`public/assets/`** guarda todos os recursos visuais e sonoros
 - O arquivo **`index.html`** é o ponto de entrada do jogo no navegador
 - O **`main.js`** inicia e configura o Phaser

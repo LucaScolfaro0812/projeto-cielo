@@ -1028,7 +1028,7 @@ A proposta completa do jogo é ser um simulador de negociação comercial. Os se
 
 **Persistência de Progresso:** o jogo salvaria o estado da partida (NPCs conquistados, maquininhas, posição de spawn) via localStorage. Implementado a partir da Sprint 3.
 
-### 4.1.11. Objetivo do MVP
+### 4.1.5. Objetivo do MVP
 
 Esta primeira versão foi criada para:
 Construir a base visual do projeto
@@ -1732,7 +1732,7 @@ Fonte: elaborado pelo grupo.
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
    
-   Os testes de jogabilidade (playstest) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidades de melhoria.
+   Os testes de jogabilidade (playtests) são uma etapa fundamental no desenvolvimento de jogos, pois permitem avaliar como os jogadores interagem com o sistema, identificando dificuldades, problemas de usabilidade e oportunidades de melhoria.
 
 
    Esse tipo de teste tem como objetivo validar se as mecânicas do jogo são compreensíveis, se a interface é intuitiva e se a experiência geral é adequada para diferentes perfis de jogadores. A metodologia adotada consiste na observação da interação dos usuários com o jogo, registrando comportamentos, dificuldades e percepções. Esses dados são posteriormente analisados para orientar ajustes e melhorias no desenvolvimento. 
@@ -1740,6 +1740,9 @@ Fonte: elaborado pelo grupo.
 ### 5.2.1 Registros de testes
 
 Os playtests são sessões de teste nas quais jogadores interagem diretamente com o jogo com o objetivo de avaliar sua jogabilidade, usabilidade e experiência geral. Diferente de testes técnicos, os playtests focam na percepção do jogador, permitindo identificar dificuldades, confusões e pontos de melhoria na interação com o jogo.
+
+**Contexto dos testes:**
+Os testes foram realizados presencialmente nas dependências do Inteli (São Paulo – SP), durante as Sprints 4 e 5 do projeto. Cada sessão foi conduzida individualmente, com o testador jogando de forma livre enquanto um membro da equipe observava e registrava comportamentos sem interferir. O jogo foi executado em notebooks pessoais dos integrantes do grupo, via navegador Google Chrome, rodando localmente com a extensão Live Server do Visual Studio Code. Não houve uso de headphone — os sons do jogo estavam habilitados pelo alto-falante do dispositivo. Ao final de cada sessão, o testador respondia às perguntas do registro abaixo.
 
 | Nome                        | Daniel   |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1877,8 +1880,6 @@ Além disso, foram identificados problemas de usabilidade e interface, como HUD 
 
 Com base nos resultados obtidos nos testes de jogabilidade, foram identificadas oportunidades de aprimoramento para tornar o jogo mais envolvente, desafiador e recompensador para os jogadores. A seguir, estão descritas as principais melhorias planejadas:
 
-- **Ranking:** Implementar um sistema de classificação global e/ou local, permitindo que os jogadores comparem seus resultados (NPCs conquistados, taxa de acerto e tempo de conclusão). Isso incentiva a competitividade e aumenta a rejogabilidade.
-
 - **Feedbacks mais personalizados e específicos:** Desenvolver mensagens de feedback detalhadas para cada pergunta ou ação do jogador, explicando erros e acertos de forma clara. Isso melhora a experiência de aprendizado e aumenta o engajamento.
 
 - **Mais obstáculos:** Adicionar novos tipos de obstáculos ao jogo, com diferentes níveis de dificuldade e padrões de comportamento, tornando a jogabilidade mais dinâmica e desafiadora.
@@ -1912,7 +1913,7 @@ Do ponto de vista técnico, a arquitetura de cenas do Phaser 3 se mostrou adequa
 
 - O minimapa nativo foi considerado pequeno pelos testadores e de difícil leitura — substituído pelo mapa completo (tecla M), mas o minimap ainda aparece e pode confundir
 - A dificuldade das perguntas do quiz não varia entre lojas — todas têm o mesmo nível de complexidade
-- Não há sistema de ranking ou comparativo entre jogadores, o que reduz o incentivo competitivo
+- Banco de perguntas limitado por loja — algumas lojas compartilham o mesmo conjunto, reduzindo a variedade em sessões repetidas
 - Alguns colisores do mapa ainda permitem pequenas sobreposições visuais com objetos do cenário
 
 ### Trabalhos futuros e plano de melhorias
@@ -1920,12 +1921,12 @@ Do ponto de vista técnico, a arquitetura de cenas do Phaser 3 se mostrou adequa
 
 Com base nos testes realizados, foram identificadas oportunidades relevantes de evolução do jogo, descritas a seguir com seus respectivos planos de ação:
 
-1. Sistema de ranking e resultados
-  Problema identificado: Falta de incentivo competitivo e métricas claras de desempenho comparativo.
+1. Expansão do banco de perguntas
+   Problema identificado: Algumas lojas compartilham o mesmo conjunto de perguntas, reduzindo a variedade em sessões repetidas.
    Plano de ação:
-   Implementar ranking entre jogadores
-  Criar sistema de resultados baseado em NPCs conquistados, taxa de acerto e tempo de conclusão
-   Adicionar recompensas e metas para estimular progressão
+   Criar bancos de perguntas exclusivos para cada uma das 12 lojas
+   Ampliar o número de perguntas por loja para reduzir repetição
+   Revisar o conteúdo das perguntas com a equipe da Cielo para garantir atualização
 
 2. Feedbacks personalizados
    Problema identificado: Feedbacks ainda genéricos e pouco direcionados ao aprendizado individual.

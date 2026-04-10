@@ -1,6 +1,23 @@
+/**
+ * Gerenciador de estado dos NPCs em memória.
+ *
+ * Mantém uma lista global (em memória) com o estado atual de cada NPC do jogo.
+ * Esta lista é a fonte de verdade em tempo de execução — o localStorage é usado
+ * para persistência entre sessões, mas quem consulta o estado durante o jogo
+ * deve usar as funções deste módulo.
+ *
+ * Estados possíveis:
+ *   - 'nao-interagido' → jogador ainda não abordou o NPC
+ *   - 'interagido'     → jogador tentou mas não conquistou
+ *   - 'conquistado'    → jogador conquistou com sucesso
+ */
+
 import { ProgressoNpc } from "./progressoEntidade.js";
 
-// Lista de NPCs do jogo
+/**
+ * Lista global de NPCs do jogo, um por loja.
+ * O id deve corresponder ao padrão usado nas texturas: "npc_<nomeLoja>Scene".
+ */
 const listaNpcs = [
     new ProgressoNpc("npc_cafeScene", "Café"),
     new ProgressoNpc("npc_gamesScene", "Games"),
@@ -16,12 +33,21 @@ const listaNpcs = [
     new ProgressoNpc("npc_joalheriaScene", "Joalheria"),
 ];
 
-// Função para obter a lista de NPCs
+/**
+ * Retorna a lista completa de NPCs com seus estados atuais.
+ * Usado pelo HUD de progresso e pelo painel de NPCs para exibir o estado de cada um.
+ * @returns {ProgressoNpc[]}
+ */
 function obterListaNpcs() {
     return listaNpcs;
 }
 
-// Função para buscar um NPC pelo id
+/**
+ * Busca um NPC pelo seu identificador único.
+ * Retorna null se nenhum NPC for encontrado com o id informado.
+ * @param {string} idNpc - Identificador do NPC (ex: "npc_cafeScene")
+ * @returns {ProgressoNpc|null}
+ */
 function buscarNpcPorId(idNpc) {
     return listaNpcs.find(npc => npc.id === idNpc) || null;
 }
@@ -29,10 +55,13 @@ function buscarNpcPorId(idNpc) {
 /**
  * Atualiza o estado de um NPC e verifica se a condição de vitória foi atingida.
  *
- * **Efeito colateral importante:** se todos os 12 NPCs forem conquistados, esta função
+ * Efeito colateral importante: se todos os 12 NPCs forem conquistados, esta função
  * acessa `window.game` diretamente para navegar para a cena final ('cenaFinal').
- * Isso contorna o sistema de cenas do Phaser — necessário pois esta função pode ser
- * chamada de contextos fora de uma cena (ex: callback do quiz).
+ * Isso é necessário pois esta função pode ser chamada de contextos fora de uma cena
+ * Phaser (ex: callback do quiz), sem acesso ao Scene Manager normal.
+ *
+ * @param {string} idNpc      - Identificador do NPC a atualizar
+ * @param {string} novoEstado - Novo estado ('interagido' | 'conquistado' | 'nao-interagido')
  */
 function atualizarEstadoNpc(idNpc, novoEstado) {
     const npc = buscarNpcPorId(idNpc);
@@ -41,7 +70,7 @@ function atualizarEstadoNpc(idNpc, novoEstado) {
 
         const quantidadeConquistados = listaNpcs.filter(npc => npc.estado === "conquistado").length;
 
-        // Ao conquistar todos os 12 NPCs, inicia a cena final via window.game
+        // Condição de vitória: todos os 12 NPCs conquistados → inicia a cena final
         if (quantidadeConquistados >= 12) {
             if (window.game && window.game.scene) {
                 const cenaAtual = window.game.scene.getScenes(true)[0];
@@ -51,14 +80,25 @@ function atualizarEstadoNpc(idNpc, novoEstado) {
     }
 }
 
-// Restaura todos os NPCs para o estado inicial de uma nova partida.
+/**
+ * Restaura todos os NPCs para o estado inicial ('nao-interagido').
+ * Chamado ao iniciar uma nova partida para garantir que o estado em memória
+ * está zerado, independentemente do que estava salvo no localStorage.
+ */
 function resetarEstadosNpcs() {
     listaNpcs.forEach((npc) => npc.atualizarEstado("nao-interagido"));
 }
 
-// Função para obter o caminho da imagem do portrait do NPC
+/**
+ * Gera o caminho da imagem de portrait de um NPC conforme seu estado atual.
+ * O arquivo de imagem deve existir em assets/sprites/npcs/ com o padrão:
+ *   "{idNpc}-{estado}.png"  (ex: "npc_cafeScene-conquistado.png")
+ *
+ * @param {string} idNpc  - Identificador do NPC
+ * @param {string} estado - Estado atual do NPC
+ * @returns {string} Caminho relativo da imagem
+ */
 function obterCaminhoImagemNpc(idNpc, estado) {
-    // Exemplo de retorno: "assets/sprites/npcs/npc_cafeScene-interagido.png"
     return `assets/sprites/npcs/${idNpc}-${estado}.png`;
 }
 

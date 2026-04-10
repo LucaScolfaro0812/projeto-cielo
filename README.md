@@ -164,8 +164,6 @@ git clone URL_DO_REPOSITORIO
 - Sempre execute o projeto pelo **Live Server** (não abra o HTML diretamente)
 - O navegador atualiza automaticamente ao salvar alterações no código
 
-![Atualização automática](./imagens/auto-reload.png)
-
 ---
 
 ## 🗃 Histórico de lançamentos

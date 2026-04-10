@@ -43,23 +43,28 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
         const portaWidth = portaTexture.getSourceImage().width;
         const portaHeight = portaTexture.getSourceImage().height;
 
+        // Retângulo branco posicionado sobre a porta para simular um efeito de brilho.
+        // A largura/altura são ajustadas manualmente para cobrir apenas a área visual
+        // da porta (o spritesheet tem bordas transparentes que inflariam o tamanho).
         this.portaGlow = cena.add.rectangle(
-        x + ajusteX,
-        y + ajusteY,
-        portaWidth - 103, // Reduz a largura bruta do spritesheet para aproximar da área visual da porta
-        portaHeight + 35, // Aumenta a altura para cobrir a área de brilho acima da porta
-        0xffffff // Cor branca pura
+            x + ajusteX,
+            y + ajusteY,
+            portaWidth - 103, // Desconta as bordas transparentes do spritesheet
+            portaHeight + 35, // Sobe um pouco para cobrir o topo do arco da porta
+            0xffffff          // Branco puro — a cor real vem do BlendMode abaixo
         );
 
-        this.portaGlow.setDepth(130); 
-    
-        // Mesma escala da porta para alinhar
-        this.portaGlow.setScale(1.5); 
-        
+        this.portaGlow.setDepth(130);
+
+        // Mantém a mesma escala da sprite da porta para que o brilho alinhe perfeitamente
+        this.portaGlow.setScale(1.5);
+
+        // BlendModes.ADD soma os valores de cor do retângulo com o que está abaixo,
+        // criando um efeito de "luz" em vez de sobrepor opacamente — por isso usamos branco
         this.portaGlow.setBlendMode(Phaser.BlendModes.ADD);
         this.portaGlow.setAlpha(0.25);
 
-        // Faz o brilho pulsar
+        // Anima o brilho pulsando entre quase invisível e semi-visível em loop
         cena.tweens.add({
             targets: this.portaGlow,
             alpha: 0.01,
@@ -86,8 +91,11 @@ export default class LojaFisica extends Phaser.Physics.Arcade.Sprite {
         Entrada.preload(scene);
     }
 
-    // Retorna a porta criada por esta loja
-    // Usado pela cena para configurar a colisão com o jogador
+    /**
+     * Retorna a sprite de porta (Entrada) criada por esta loja.
+     * Usado pela CenaCidade para configurar o overlap/colisão entre o jogador e a porta.
+     * @returns {Entrada}
+     */
     getPorta() {
         return this.porta;
     }

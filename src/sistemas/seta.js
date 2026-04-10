@@ -25,13 +25,19 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         this.alerta.setScale(0.15);
     }
 
+    /**
+     * Define o alvo para onde a seta deve apontar.
+     * Aceita qualquer objeto com propriedades x e y numéricas (loja, NPC, ponto fixo).
+     * Passar null ou um objeto inválido limpa o alvo e esconde a seta.
+     * @param {{ x: number, y: number }|null} alvo - Objeto com posição do alvo no mundo
+     */
     definirAlvo(alvo) {
         if (alvo && typeof alvo.x === 'number' && typeof alvo.y === 'number') {
             this.alvo = { x: alvo.x, y: alvo.y };
             return;
         }
 
-        // Limpa o alvo quando não houver objetivo válido (ex.: todas as lojas concluídas).
+        // Limpa o alvo quando não houver objetivo válido (ex.: todas as lojas concluídas)
         this.alvo = null;
         this.setVisible(false);
         this.alerta.setVisible(false);
@@ -46,52 +52,59 @@ export default class Seta extends Phaser.GameObjects.Sprite {
         this.alerta.setVisible(false);
     }
 
+    /**
+     * Atualiza a posição e visibilidade da seta a cada frame.
+     *
+     * Lógica de dois modos:
+     *   - Alvo FORA da tela: exibe a seta rotacionada na borda da câmera apontando para o alvo.
+     *   - Alvo DENTRO da tela: esconde a seta e exibe o sprite de alerta flutuando acima do alvo no mundo.
+     *
+     * A conversão de coordenadas de mundo para tela é feita subtraindo o scroll da câmera.
+     * O clamp nas bordas garante que a seta nunca saia da área visível.
+     *
+     * @param {{ x: number, y: number }} jogador    - Posição atual do jogador no mundo
+     * @param {number} angleOffset                  - Rotação adicional em radianos (padrão: 0)
+     */
     update(jogador, angleOffset = 0) {
         if (!this.alvo || !jogador) return;
 
         const cam = this.cena.cameras.main;
-
         const largura = cam.width;
         const altura = cam.height;
 
-        // posição do alvo na tela
+        // Converte a posição do alvo (mundo) para coordenadas de tela
         const alvoScreenX = this.alvo.x - cam.scrollX;
         const alvoScreenY = this.alvo.y - cam.scrollY;
 
-        // verifica se está dentro da tela
+        // Verifica se o alvo está dentro dos limites visíveis da câmera
         const dentroTela =
             alvoScreenX >= 0 &&
             alvoScreenX <= largura &&
             alvoScreenY >= 0 &&
             alvoScreenY <= altura;
 
-        // ângulo do jogador até o alvo (mundo)
+        // Calcula o ângulo de rotação da seta: do jogador até o alvo no espaço do mundo
         const angulo = Phaser.Math.Angle.Between(
-            jogador.x,
-            jogador.y,
-            this.alvo.x,
-            this.alvo.y
+            jogador.x, jogador.y,
+            this.alvo.x, this.alvo.y
         ) + angleOffset;
 
         this.setRotation(angulo);
         this.setScale(0.3);
 
         if (dentroTela) {
+            // Alvo visível: esconde a seta de HUD e exibe o alerta flutuando acima do alvo
             this.setVisible(false);
             this.alerta.setVisible(true);
-
-            // posiciona acima do alvo (no mundo)
             this.alerta.setPosition(this.alvo.x, this.alvo.y - 200);
         } else {
+            // Alvo fora da tela: exibe a seta travada na borda mais próxima
             this.setVisible(true);
             this.alerta.setVisible(false);
 
-            const margem = this.margem;
-
-            // clamp direto nas bordas
-            const posX = Phaser.Math.Clamp(alvoScreenX, margem, largura - margem);
-            const posY = Phaser.Math.Clamp(alvoScreenY, margem, altura - margem);
-
+            // Clamp mantém a seta dentro da margem de segurança das bordas
+            const posX = Phaser.Math.Clamp(alvoScreenX, this.margem, largura - this.margem);
+            const posY = Phaser.Math.Clamp(alvoScreenY, this.margem, altura - this.margem);
             this.setPosition(posX, posY);
         }
     }

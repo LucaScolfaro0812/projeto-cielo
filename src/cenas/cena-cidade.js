@@ -703,6 +703,12 @@ export class CenaCidade extends Phaser.Scene {
         this.scene.bringToTop('tutorialScene');
     }
 
+    /**
+     * Mostra ou oculta todos os elementos de HUD da cidade de uma vez:
+     * progresso de NPCs, maquininhas, seta direcional e minimap.
+     * Usado ao abrir/fechar o painel de NPCs para não poluir a tela.
+     * @param {boolean} visivel - true para mostrar, false para ocultar
+     */
     _setHudCidadeVisivel(visivel) {
         // Esconde/mostra o HUD de progresso de NPCs
         if (this.hudNpcUI?.setVisible) {
@@ -862,6 +868,14 @@ export class CenaCidade extends Phaser.Scene {
         };
     }
 
+    /**
+     * Cria o jogador (Marcielo), os carros e o sistema de quiz.
+     *
+     * A posição inicial do jogador vem do `consumirSpawnCidade()`, que lê o localStorage
+     * para saber de qual loja o jogador veio (ou usa a Central como padrão).
+     * Os carros são criados por rua com velocidade e espaçamento configuráveis.
+     * O overlap jogador↔carro dispara `player.morreu()` ao colidir.
+     */
     _configurarPlayerNpcQuiz() {
 
         // Instancia o sistema de perguntas
@@ -915,6 +929,14 @@ export class CenaCidade extends Phaser.Scene {
         }
     }
 
+    /**
+     * Instancia as 12 lojas físicas no mapa e cria a Central Cielo.
+     *
+     * Layout: 2 fileiras de 6 lojas, distribuídas por fórmula de grade.
+     * Cada loja cria automaticamente sua porta (Entrada) via LojaFisica.
+     * O prédio central é posicionado fixo no mapa e cercado por paredes estáticas
+     * que impedem o jogador de atravessar a estrutura.
+     */
     _criarLojasEPortas() {
         // Distribui as 12 lojas em 2 fileiras de 6.
         // X: 1500 + (índice_na_fileira × 1675) + (par_de_lojas × 500) — espaçamento base com gap entre pares

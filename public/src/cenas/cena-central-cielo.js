@@ -37,7 +37,6 @@ export class CenaCentral extends Phaser.Scene {
             'Seu desafio é visitar as lojas da cidade, conversar com os comerciantes e entender o que cada negócio precisa para atender melhor.',
             'Preste atenção nas conversas e nas perguntas, porque é assim que você descobre qual solução faz mais sentido para cada cliente.',
             'A Central da Cielo é o seu ponto de apoio, e as maquininhas são parte essencial da sua missão.',
-            'É sempre importante andar com a maquininha para garantir a instalação imediata e a ativação do cliente',
             'Então aproveite a jornada, explore a cidade e, sempre que precisar, volte para a Central para recarregar suas maquininhas e seguir em frente.'
         ];
         this.falasPosRecarga = [

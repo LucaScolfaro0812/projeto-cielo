@@ -49,16 +49,49 @@ O progresso é salvo automaticamente via localStorage, permitindo que o jogador 
 
 ## 📁 Estrutura de pastas
 
+Abaixo está a organização das pastas e arquivos do projeto, com a explicação da função de cada parte:
+
+```md
+G05/
+├── .vscode/ # Configurações do Visual Studio Code
+│
+├── documents/ # Documentação do projeto
+│ ├── assets/ # Imagens/arquivos usados na documentação
+│ └── other/ # Outros arquivos auxiliares
+│
+├── public/ # Arquivos públicos utilizados pelo jogo
+│ └── assets/ # Recursos do jogo
+│ ├── imagens/ # Imagens gerais
+│ ├── sons/ # Efeitos sonoros e músicas
+│ ├── sprites/ # Sprites e animações
+│ ├── ui/ # Elementos de interface (botões, HUD, etc.)
+│ └── videos/ # Vídeos utilizados no jogo (se houver)
+│
+├── src/ # Código-fonte principal do jogo
+│ ├── cenas/ # Cenas do jogo (menus, fases, etc.)
+│ ├── entidades/ # Personagens, inimigos e objetos
+│ ├── sistemas/ # Sistemas do jogo (física, controle, lógica)
+│ └── utilitarios/ # Funções auxiliares e utilidades
+│
+├── main.js # Arquivo principal que inicia o jogo
+├── index.html # Página principal que carrega o jogo
+├── style.css # Estilos visuais da página
+│
+├── .gitlab-ci.yml # Configuração de CI/CD do GitLab
+├── README.md # Documentação principal do projeto
 ```
-g05/
-├── documents/
-├── .vscode
-├── documents
-├── public
-├── src\scenes
-├── .gitlab-ci.yml
-└── README.md
-```
+
+---
+
+## Como entender essa estrutura
+
+- A pasta **`src/`** contém toda a lógica do jogo (onde o código acontece)
+- A pasta **`public/assets/`** guarda todos os recursos visuais e sonoros
+- O arquivo **`index.html`** é o ponto de entrada do jogo no navegador
+- O **`main.js`** inicia e configura o Phaser
+- A pasta **`documents/`** é usada apenas para documentação (não afeta o jogo)
+
+---
 
 ## 🔧 Como executar o código
 

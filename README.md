@@ -146,7 +146,7 @@ git clone URL_DO_REPOSITORIO
 3. Selecione **Open with Live Server**
 
 ![Clique direito index.html](./imagens/right-click-index.png)
-![Open with Live Server](./imagens/live-server.png)
+![Open with Live Server](./documents/assets/live-server.png)
 
 ---
 

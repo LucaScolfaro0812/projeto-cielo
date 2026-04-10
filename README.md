@@ -45,7 +45,9 @@ O jogo utiliza um sistema de maquininhas como recurso gerenciável: o jogador co
 
 O progresso é salvo automaticamente via localStorage, permitindo que o jogador continue de onde parou. Um HUD de progresso exibe quais NPCs já foram conquistados. O jogo é concluído ao conquistar todos os 12 clientes.
 
-🎮 **Para jogar clique aqui:** [https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05)
+🎮 **Para jogar clique aqui (GitLab):** [https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g05)
+
+🎮 **Para jogar clique aqui (GitHub Pages):** [https://lucascolfaro0812.github.io/projeto-cielo/](https://lucascolfaro0812.github.io/projeto-cielo/)
 
 ## 📁 Estrutura de pastas
 

@@ -135,7 +135,7 @@ git clone URL_DO_REPOSITORIO
 3. Selecione a pasta do projeto clonada
 
 ![Abrir pasta no VS Code](./documents/assets/open-folder.png)
-![Selecionar pasta](./imagens/select-folder.png)
+![Selecionar pasta](./documents/assets/select-folder.png)
 
 ---
 
@@ -145,7 +145,7 @@ git clone URL_DO_REPOSITORIO
 2. Clique com o botão direito sobre ele
 3. Selecione **Open with Live Server**
 
-![Clique direito index.html](./imagens/right-click-index.png)
+![Clique direito index.html](./documents/assets/right-click-index.png)
 ![Open with Live Server](./documents/assets/live-server.png)
 
 ---

@@ -134,7 +134,7 @@ git clone URL_DO_REPOSITORIO
 2. Clique em **File → Open Folder**
 3. Selecione a pasta do projeto clonada
 
-![Abrir pasta no VS Code](./imagens/open-folder.png)
+![Abrir pasta no VS Code](./documents/assets/open-folder.png)
 ![Selecionar pasta](./imagens/select-folder.png)
 
 ---

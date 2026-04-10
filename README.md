@@ -108,10 +108,10 @@ Por fim basta clicar em instalar na janela de extensões:
 ##### 🔹 Clonar o repositório com Git
 
 1. Acesse o repositório no GitLab
-2. Clique no botão **Clone**
-3. Copie a URL do repositório
+2. Clique no botão **Code**
+3. Copie a URL do repositório em **Clone With HTTPS**
 
-![Botão Clone GitLab](./imagens/gitlab-clone.png)
+![Botão Clone GitLab](./documents/assets/clone-gitlab.png)
 
 ---
 
